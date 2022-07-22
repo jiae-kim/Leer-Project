@@ -288,7 +288,7 @@
                                     <tr>
                                         <td>제품가격</td>
                                         <td width="150px"> 제품 가격작성</td>
-                                        <td><button class="btn btn-sm btn-secondary">주문취소</button>
+                                        <td><button class="btn btn-sm btn-secondary" onclick="cancleorder();">주문취소</button>
                                             <button class="btn btn-sm btn-danger">환불</button></td>
                                     </tr>
                                 </table>
@@ -310,7 +310,7 @@
                                     <tr>
                                         <td>제품가격</td>
                                         <td width="150px"> 제품 가격작성</td>
-                                        <td><button class="btn btn-sm btn-secondary">주문취소</button>
+                                        <td><button class="btn btn-sm btn-secondary" onclick="cancleorder();">주문취소</button>
                                             <button class="btn btn-sm btn-danger">환불</button></td>
                                     </tr>
                                 </table>
@@ -330,7 +330,7 @@
                                     <tr>
                                         <td>제품가격</td>
                                         <td width="150px"> 제품 가격작성</td>
-                                        <td><button class="btn btn-sm btn-secondary">주문취소</button>
+                                        <td><button class="btn btn-sm btn-secondary" onclick="cancleorder();">주문취소</button>
                                             <button class="btn btn-sm btn-danger">환불</button></td>
                                     </tr>
                                 </table>
@@ -351,13 +351,17 @@
                                     <tr>
                                         <td>제품가격</td>
                                         <td width="150px"> 제품 가격작성</td>
-                                        <td><button class="btn btn-sm btn-secondary">주문취소</button>
+                                        <td><button class="btn btn-sm btn-secondary" onclick="cancleorder();">주문취소</button>
                                             <button class="btn btn-sm btn-danger">환불</button></td>
                                     </tr>
                                 </table>
                                 <hr>
                             </form>
-
+                            <script>
+                                function cancleorder(){
+                                    alret("주문이 취소되었습니다");
+                                }
+                            </script>
                         </div>
 
 
