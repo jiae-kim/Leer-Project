@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <style>
+          #reviewscore{
+               box-sizing: border-box;
+               width: 750px;
+               height: 50px;
+          }
+
+          #autor{
+               background-color: rgb(233, 233, 233);
+          }
+
+          #box{
+               background-color: white;
+          }
+
+          #btn{
+               width: 95%;
+               height: 30px;
+               text-align: center;
+          }
+
+          #button_box{
+               margin: 10px;
+          }
+     </style>
+</head>
+<body>
+
+     <form action="" id="autor">
+          <br>
+          <h2>리뷰 쓰기</h2>
+          <hr>
+          
+          <table id="box" width="750px" >
+               <tr height="10px">
+                    <td rowspan="4" width="100px">이미지탭</td>
+                    <td></td>
+                    <td></td>
+               </tr>
+               <tr>
+                    <td>EllE</td>
+                    <td></td>
+               </tr>
+               <tr>
+                    <td>주문내역:</td>
+                    <td></td>
+               </tr>
+               <tr>
+                    <td></td>
+                    <td></td>
+               </tr>
+          </table>
+          
+
+          <hr>
+          
+          <h3> 상품은 어떠셨나요? </h3>
+          <div id="box" width="750px">
+               <select name="review" id="reviewscore">
+                    <option value="1">★</option>
+                    <option value="2">★★</option>
+                    <option value="3">★★★</option>
+                    <option value="4">★★★★</option>
+                    <option value="5">★★★★★</option>
+               </select><br><br>
+          </div>
+
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          
+
+          <h3> 상품평을 작성해주세요</h3>
+          <textarea cols="100" rows="10" name="content" placeholder="내용을 입력하세요" style="resize:none"></textarea>
+          <br><br><br>
+
+          <h3>사진을 첨부해주세요</h3>
+          <div id="box">
+               <input type="file">
+          </div>
+
+          <br>
+          <table id="button_box">
+               <tr>
+                    <td width="350px">
+                         <input type="reset" id="btn" value="취소" >
+                    </td>
+
+                    <td width="350px">
+                         <input type="submit" id="btn" value="리뷰 등록">
+                    </td>
+               </tr>
+          </table>
+          
+
+     </form>
+
+
+</body>
+</html>
