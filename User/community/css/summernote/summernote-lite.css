@@ -387,7 +387,9 @@ fieldset[disabled] .note-btn.focus {
     background-color: #fff;
     border-color: #dae0e5
 }
-
+.note-resizebar{
+    display: none;
+}
 .note-btn:hover,
 .note-btn:focus,
 .note-btn.focus {
