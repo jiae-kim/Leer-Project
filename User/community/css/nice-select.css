@@ -6,8 +6,8 @@
   box-sizing: border-box;
   clear: both;
   cursor: pointer;
-  display: block;
-  float: left;
+  /* display: block; */
+  /* float: left; */
   font-family: inherit;
   font-size: 14px;
   font-weight: normal;
@@ -25,7 +25,8 @@
       -ms-user-select: none;
           user-select: none;
   white-space: nowrap;
-  width: auto; }
+  width: auto; 
+}
   .nice-select:hover {
     border-color: #dbdbdb; }
   .nice-select:active, .nice-select.open, .nice-select:focus {
@@ -129,7 +130,9 @@
     .nice-select .option.disabled {
       background-color: transparent;
       color: #999;
-      cursor: default; }
+      cursor: default; 
+      display: none;
+    }
 
 .no-csspointerevents .nice-select .list {
   display: none; }
