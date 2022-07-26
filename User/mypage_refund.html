@@ -9,6 +9,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Ogani | Template</title>
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
 
@@ -44,7 +49,7 @@
         }
 
         #dev_pro{
-            width: 700px;
+            width: 00px;
         }
 
         #dev_pro button{
@@ -59,6 +64,41 @@
             border:none;
             background-color: gainsboro;
         }
+
+        #refund_table{
+          border: 1px solid rgb(136, 136, 136);
+          height: 770px;
+          box-sizing: border-box;
+        }
+
+        .content_box{
+          height:100%;
+          float: left;
+        }
+        #content_box1{
+          width:10%;
+        }
+        #content_box2{
+          width:80%;
+        }
+        #content_box3{
+          width:10%;
+        }
+        #content_refund{
+          width:100%;
+          height: 50%;
+          box-sizing: border-box;
+        }
+
+        #content_refund > div{
+          height:100%;
+          float:left;
+        }
+        #refund_content1{width:45%;}
+        #refund_content2{width:45%;}
+        #refund_content3{width:10%;}
+
+
 
     </style>
 </head>
@@ -178,178 +218,176 @@
 
     <!-- Product Section Begin -->
     <section class="product spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-5" >
-                    <div class="sidebar">
-                        <div class="sidebar">
-                            <div class="sidebar__item" class="sidebar" style="background-color: #f5f5f5; padding:30px;">
-                                <h4 style="font-family:'NanumSquare'; font-weight:800; margin-bottom: 15px; font-size:20px;">나의 주문 관리</h4>
-                                <ul>
-                                    <li><a href="./mypage_order&dev.html">주문 및 배송 조회</a></li>
-                                    <li><a href="./mypage_ordercancle.html">주문취소 / 환불</a></li>
-                                </ul>
-    
-                                <hr>
-    
-                                <h4 style="font-family:'NanumSquare'; font-weight:800; margin-bottom: 15px; font-size:20px;">장바구니</h4>
-                                <ul>
-                                    <li><a href="#">장바구니</a></li>
-                                    <li><a href="#">찜목록</a></li>
-                                </ul>
-    
-                                <hr>
-    
-                                <h4 style="font-family:'NanumSquare'; font-weight:800; margin-bottom: 15px; font-size:20px;">커뮤니티 활동</h4>
-                                <ul>
-                                    <li><a href="#">내가 쓴 게시글</a></li>
-                                    <li><a href="#">내가 좋아요 한 글</a></li>
-                                </ul>
-    
-                                <hr>
-    
-                                <h4 style="font-family:'NanumSquare'; font-weight:800; margin-bottom: 15px; font-size:20px;">나의 혜택 관리</h4>
-                                <ul>
-                                    <li><a href="./mypage_point.html">적립포인트</a></li>
-                                </ul>
-    
-                                <hr>
-    
-                                <h4 style="font-family:'NanumSquare'; font-weight:800; margin-bottom: 15px; font-size:20px;">회원 정보</h4>
-                                <ul>
-                                    <li><a href="#">배송지관리</a></li>
-                                    <li><a href="#">회원 정보 수정</a></li>
-                                    <li><a href="#">회원 탈퇴 신청</a></li>
-                                </ul>
-    
-                                <hr>
-    
-                                <h4 style="font-family:'NanumSquare'; font-weight:800; margin-bottom: 15px; font-size:20px;">상품 리뷰</h4>
-                                <ul>
-                                    <li><a href="./mypage_myReview.html">작성 가능한 리뷰</a></li>
-                                    <li><a href="./mypage_myReviewHistory.html">작성한 리뷰</a></li>
-                                </ul>
-    
-                                <hr>
-    
-                                <h4 style="font-family:'NanumSquare'; font-weight:800; margin-bottom: 15px; font-size:20px;">상품문의</h4>
-                                <ul>
-                                    <li><a href="#">상품문의</a></li>
-                                </ul>
-                        
-                            </div>    
-                        </div>
+          <div class="container">
+               <div class="row">
+                    <div class="col-lg-3 col-md-5" >
+                         <div class="sidebar">
+                             <div class="sidebar">
+                                 <div class="sidebar__item" class="sidebar" style="background-color: #f5f5f5; padding:30px;">
+                                     <h4 style="font-family:'NanumSquare'; font-weight:800; margin-bottom: 15px; font-size:20px;">나의 주문 관리</h4>
+                                     <ul>
+                                         <li><a href="./mypage_order&dev.html">주문 및 배송 조회</a></li>
+                                         <li><a href="./mypage_ordercancle.html">주문취소 / 환불</a></li>
+                                     </ul>
+         
+                                     <hr>
+         
+                                     <h4 style="font-family:'NanumSquare'; font-weight:800; margin-bottom: 15px; font-size:20px;">장바구니</h4>
+                                     <ul>
+                                         <li><a href="#">장바구니</a></li>
+                                         <li><a href="#">찜목록</a></li>
+                                     </ul>
+         
+                                     <hr>
+         
+                                     <h4 style="font-family:'NanumSquare'; font-weight:800; margin-bottom: 15px; font-size:20px;">커뮤니티 활동</h4>
+                                     <ul>
+                                         <li><a href="#">내가 쓴 게시글</a></li>
+                                         <li><a href="#">내가 좋아요 한 글</a></li>
+                                     </ul>
+         
+                                     <hr>
+         
+                                     <h4 style="font-family:'NanumSquare'; font-weight:800; margin-bottom: 15px; font-size:20px;">나의 혜택 관리</h4>
+                                     <ul>
+                                         <li><a href="./mypage_point.html">적립포인트</a></li>
+                                     </ul>
+         
+                                     <hr>
+         
+                                     <h4 style="font-family:'NanumSquare'; font-weight:800; margin-bottom: 15px; font-size:20px;">회원 정보</h4>
+                                     <ul>
+                                         <li><a href="#">배송지관리</a></li>
+                                         <li><a href="#">회원 정보 수정</a></li>
+                                         <li><a href="#">회원 탈퇴 신청</a></li>
+                                     </ul>
+         
+                                     <hr>
+         
+                                     <h4 style="font-family:'NanumSquare'; font-weight:800; margin-bottom: 15px; font-size:20px;">상품 리뷰</h4>
+                                     <ul>
+                                         <li><a href="./mypage_myReview.html">작성 가능한 리뷰</a></li>
+                                         <li><a href="./mypage_myReviewHistory.html">작성한 리뷰</a></li>
+                                     </ul>
+         
+                                     <hr>
+         
+                                     <h4 style="font-family:'NanumSquare'; font-weight:800; margin-bottom: 15px; font-size:20px;">상품문의</h4>
+                                     <ul>
+                                         <li><a href="#">상품문의</a></li>
+                                     </ul>
+                             
+                                 </div>    
+                             </div>
+                         </div>
+                     
+                     </div>
+               
+
+
+
+
+                    <div class="col-lg-9 col-md-7">
+
+                         <div class="filter__item">
+                              <div class="row">
+                                   <div class="col-lg-4 col-md-5">
+                                        <div class="filter__sort" style="width:200px">
+                                             <h3 class="selectMode">환불 신청</h3>
+                                        </div>
+                                   </div>
+                              
+                              </div>
+                         </div>
+                         <hr>
+                         <form action="" id="refund_table">
+                              <div  class="content_box" id="content_box1">
+                                   
+                              </div>
+
+                              <div  class="content_box" id="content_box2">
+                                   <br>
+                                   <h3>주문정보</h3>
+                                   <hr>
+                                   <table>
+                                        <tr height="100px">
+                                             <td width="200px" rowspan="2"><img class="product__details__pic__item"
+                                                  src=http://www.walbox.co.kr/upfile/item/111_1618565835.jpg alt=""></td>
+                                             <td width="70px">주문일시:</td>
+                                             <td width="200px">xxxx-xx-xx</td>
+                                        </tr>
+                                        <tr height="100px">
+                                             <td>상품가격:</td>
+                                             <td>~~~~원</td>
+                                        </tr>
+                                   </table>
+                                   <div style="border-bottom: 1px solid #303030;"></div>
+
+                                   <div id="content_refund">
+                                        <div id="refund_content1">
+                                             <form action="">
+
+                                                  <div> 환불사유</div>
+                                                  <select name="refund_reason">
+                                                       <option value="1">단순변심</option>
+                                                       <option value="2">2</option>
+                                                       <option value="3">3</option>
+                                                       <option value="4">4</option>
+                                                       <option selected >선택안함</option>
+                                                   </select>
+                                                  <br>
+                                                  <hr>
+                                                  <div> 주문취소 / 환불동의</div>
+                                                  <div>
+                                                       <textarea name="사유" id="" cols="25" rows="3" style="resize:none">가나나ㅏ</textarea>
+                                                  </div>
+                                                  <table>
+                                                       <tr>
+                                                            <td width="40px"></td>
+                                                            <td width="140px"><a href="" onclick="window.open('./review_write.html','review','width=700, height=900, scrollbars=no, resizable=no, toolbars=no, menubar=no')" class="btn btn-sm btn-danger">환불신청</a></td>
+                                                            <td width="100px"><a href="" class="btn btn-sm btn-secondary">취소하기</a></td>
+                                                       </tr>
+                                                  </table>
+
+                                             </form>
+                                        </div>
+                                        <div id="refund_content3"></div>
+                                        <div id="refund_content2">
+                                             <br>
+                                             <table>
+                                                  <tr> 
+                                                       <td width="50px"></td>
+                                                       <td><h5>환불정보</h5></td>
+                                                  </tr>
+                                                  <tr height="30px"></tr>
+                                                  
+                                                  <tr>
+                                                       <td width="50px"></td>
+                                                       <td>
+                                                            <textarea name="사유" id="" cols="25" rows="5" style="resize:none">가나나ㅏ</textarea>
+                                                       </td>
+                                                  </tr>
+
+                                             </table>
+                                        </div>
+                                   </div>
+                                   
+
+                              </div>
+
+                              <div  class="content_box" id="content_box3">
+                                   
+                              </div>
+                              
+
+
+                         </form>
+
+
                     </div>
-                
-                </div>
-                <div class="col-lg-9 col-md-7" style="padding-left:120px; flex-grow:1;">
-                    
-                    <div class="filter__item">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-5">
-                                <div class="filter__sort" style="width:200px">
-                                    <h3 class="selectMode">주문 및 배송 조회</h3>
-                                </div>
-                            </div>
-                           
-                        </div>
-                    </div>
-                    <div class="row">
-                        
-                        <div id="dev_status">
-                            <form action="">
-                                <table>
-                                    <tr>
-                                        <td width="200px">결제완료 : 0 </td>
-                                        <td width="200px">배송중 : 0</td>
-                                        <td width="200px">배송완료 : 0</td>
-                                    </tr>
-                                </table>
-                            </form>
-                        </div>
-
-                        <div id="dev_pro">
-                            <br><hr>
-
-                            <form action="">
-                                <table>
-                                    <tr>
-                                        <td rowspan="4" width="200px"><img class="product__details__pic__item"
-                                            src=http://www.walbox.co.kr/upfile/item/111_1618565835.jpg alt=""></td>
-                                        <td width="80px">제품명</td>
-                                        <td width="150px" colspan="2"> <b>BBC사이언스</b></td>
-                                    </tr>
-                                    <tr height="100px">
-                                        <td> 제품설명</td>
-                                        <td colspan="2"> 제품관련 설명작성</td>
-                                    </tr>
-                                    <tr>
-                                        <td>제품가격</td>
-                                        <td width="150px"> 12,160원</td>
-                                        <td><a href="" onclick="window.open('./review_write.html','review','width=700, height=900, scrollbars=no, resizable=no, toolbars=no, menubar=no')" class="btn btn-sm btn-secondary">리뷰 쓰기</a>
-                                            <a href="http://www.walbox.co.kr/item_view.html?item_cate=11103&item_no=999668" class="btn btn-sm btn-secondary">재구매</a>
-                                            <a class="btn btn-sm btn-secondary">배송조회</a>
-                                        </td>
-                                    </tr>
-                                </table>
-                                <hr>
-                            </form>
-                            
-                            <form action="">
-                                <table>
-                                    <tr>
-                                        <td rowspan="4" width="200px"> <img class="product__details__pic__item"
-                                            src=http://www.walbox.co.kr/upfile/item/%EB%A6%AC%EB%B9%998_1658642603.jpg alt=""></td>
-                                        <td width="80px">제품명</td>
-                                        <td width="150px" colspan="2"> <b>리빙센스</b></td>
-                                    </tr>
-                                    <tr height="100px">
-                                        <td> 제품설명</td>
-                                        <td colspan="2"> 제품관련 설명작성</td>
-                                    </tr>
-                                    <tr>
-                                        <td>제품가격</td>
-                                        <td width="150px"> 7,410원</td>
-                                        <td><a href="" onclick="window.open('./review_write.html','review','width=700, height=900, scrollbars=no, resizable=no, toolbars=no, menubar=no')" class="btn btn-sm btn-secondary">리뷰 쓰기</a>
-                                            <a href="http://www.walbox.co.kr/item_view.html?item_cate=11100&item_no=999933" class="btn btn-sm btn-secondary">재구매</a>
-                                            <a class="btn btn-sm btn-secondary">배송조회</a>
-                                        </td>
-                                    </tr>
-                                </table>
-                                <hr>
-                            </form>
-
-                            <form action="">
-                                <table>
-                                    <tr> 
-                                        <td rowspan="4" width="200px"><img class="product__details__pic__item"
-                                            src=http://www.walbox.co.kr/upfile/item/%EB%8F%99%EC%95%84_1648388049.jpg alt=""></td>
-                                        <td width="80px">제품명</td>
-                                        <td width="150px" colspan="2"> <b>과학동아</b></td>
-                                    </tr>
-                                    <tr height="100px">
-                                        <td> 제품설명</td>
-                                        <td colspan="2"> 제품관련 설명작성</td>
-                                    </tr>
-                                    <tr>
-                                        <td>제품가격</td>
-                                        <td width="150px"> 	14,250원</td>
-                                        <td><a href="" onclick="window.open('./review_write.html','review','width=750, height=900, scrollbars=no, resizable=no, toolbars=no, menubar=no')" class="btn btn-sm btn-secondary">리뷰 쓰기</a>
-                                            <a href="http://www.walbox.co.kr/item_view.html?item_cate=11103&item_no=999884" class="btn btn-sm btn-secondary">재구매</a>
-                                            <a class="btn btn-sm btn-secondary">배송조회</a>
-                                        </td>
-                                    </tr>
-                                </table>
-                                <hr>
-                            </form>
-
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
-        </div>
+               </div>
+          
+          </div>
     </section>
     <!-- Product Section End -->
 
