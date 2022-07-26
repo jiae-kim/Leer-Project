@@ -24,6 +24,25 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 
+    <style>
+        .list-area th{
+            font-size: 14px;
+            border-top: 1px solid rgba(128,128,128,.7);
+            border-bottom: 1px solid gray;
+
+        }
+        .list-area td{
+            font-size: 12px;
+            border-bottom: 1px solid rgba(128,128,128,.4);
+
+        }
+        .list-area{
+            width: 100%;
+            height: 50px;
+            text-align: center;
+
+        }
+    </style>
 </head>
 
 <body>
@@ -181,47 +200,115 @@
                 <div class="col-lg-8 col-md-7">
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6">
-                            <div class="blog__item__text2">
-                                <h2 align="center">공지사항</h2>
-                                <br>
-
+                            <div class="blog__item__text2" style="margin-top:20px">
+                                <div>
+                                    <h4 align="left" >공지사항</h4>
+                                    <span style="font-size: 14px;">커뮤니티 공지사항</span>
+                                </div>
                                     <!-- 현재 로그인한 사용자가 관리자일 경우(로그인한회원의아이디가 admin일경우) 보여질 div -->
-                                    <div style="width: 850px" align="right">
-                                        <!-- <button onclick="location.href='요청할url';">글작성</button> -->
-                                        <a href=""
-                                            class="btn btn-sm btn-secondary">글작성</a> <br>
-                                        <br>
-                                    </div>
-                                    <% } %>
-
                                         <table class="list-area" align="center">
                                             <thead>
-                                                <tr>
-                                                    <th>글번호</th>
-                                                    <th width="400">글제목</th>
+                                                <tr >
+                                                    <th width="70">번호</th>
+                                                    <th width="300">제목</th>
                                                     <th width="100">작성자</th>
-                                                    <th>조회수</th>
-                                                    <th width="100">작성일</th>
+                                                    <th width="70">조회수</th>
+                                                    <th width="150">작성일</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                     <!--case1. 공지글이 없을 경우-->
-                                                    <tr>
+                                                    <!-- <tr>
                                                         <td colspan="5">존재하는 공지사항이 없습니다.</td>
-                                                    </tr>
+                                                    </tr> -->
                                                         <!--case2. 공지글이 있을 경우-->
                                                             <tr>
                                                                 <td>
+                                                                    1
+                                                                </td>
+                                                                <td align="left">
+                                                                    <span>여기는 제목</span>
                                                                 </td>
                                                                 <td>
+                                                                    <span>닉네임</span>
                                                                 </td>
                                                                 <td>
+                                                                    24
                                                                 </td>
                                                                 <td>
-                                                                </td>
-                                                                <td>
+                                                                    <span>2022-07-26</span>
                                                                 </td>
                                                             </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    1
+                                                                </td>
+                                                                <td align="left">
+                                                                    <span>여기는 제목</span>
+                                                                </td>
+                                                                <td>
+                                                                    <span>닉네임</span>
+                                                                </td>
+                                                                <td>
+                                                                    24
+                                                                </td>
+                                                                <td>
+                                                                    <span>2022-07-26</span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    1
+                                                                </td>
+                                                                <td align="left">
+                                                                    <span>여기는 제목</span>
+                                                                </td>
+                                                                <td>
+                                                                    <span>닉네임</span>
+                                                                </td>
+                                                                <td>
+                                                                    24
+                                                                </td>
+                                                                <td>
+                                                                    <span>2022-07-26</span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    1
+                                                                </td>
+                                                                <td align="left">
+                                                                    <span>여기는 제목</span>
+                                                                </td>
+                                                                <td>
+                                                                    <span>닉네임</span>
+                                                                </td>
+                                                                <td>
+                                                                    24
+                                                                </td>
+                                                                <td>
+                                                                    <span>2022-07-26</span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    1
+                                                                </td>
+                                                                <td align="left">
+                                                                    <span>여기는 제목</span>
+                                                                </td>
+                                                                <td>
+                                                                    <span>닉네임</span>
+                                                                </td>
+                                                                <td>
+                                                                    24
+                                                                </td>
+                                                                <td>
+                                                                    <span>2022-07-26</span>
+                                                                </td>
+                                                            </tr>
+
+                                                           
                                             </tbody>
                                         </table>
                             </div>

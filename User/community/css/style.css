@@ -2372,7 +2372,7 @@ ol {
 }
 
 .blog__item__text2 {
-	width: 600px;
+	width: 680px;
 }
 
 .blog__item__text2 ul {
@@ -2471,7 +2471,7 @@ ol {
 -----------------------*/
 
 .blog__sidebar {
-	padding-top: 50px;
+	margin-top: 50px;
 }
 
 .blog__sidebar__item {
