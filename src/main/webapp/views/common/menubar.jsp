@@ -4,7 +4,7 @@
 	String contextPath = request.getContextPath();
 %>
 <!DOCTYPE html>
-<html lang="zxx">
+<html>
 
 <head>
     <meta charset="UTF-8">
