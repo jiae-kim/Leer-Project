@@ -303,15 +303,14 @@
 	            <div class="card-body">
                 <a href="${pageContext.request.contextPath}/lec/lecList" class="btn btn-dark" style="float:right">이전으로</a>
 	            <div class ="printView">
-	            <h1 style="text-align:center;"> 회원상세정보 </h1>
+	            <h2 style="text-align:center;"> 회원상세정보 </h2>
 					<table class="table">
-					
 						<tr>
 							<th class="text-center">회원번호</th>
 							<td>001</td>
 						</tr>
 						<tr>
-							<th class="text-center">아이디</th>
+							<th class="text-center" style="width:400px">아이디</th>
 							<td>tttt01</td>
 						</tr>
 						<tr>
@@ -337,31 +336,26 @@
 						<tr>
 							<th class="text-center">구매내역</th>
 							<td>
-                                <table border="1">
-                                    <tr>
-                                        <td width="50px"></td>
-                                        <td width="100px"></td>
-                                        <td width="300px"></td>
+                                <table border="1" style="text-align: center;">
+                                    <tr style="background: #343a40; color:white;">
+                                        <td width="70px" height="-4840px">No.</td>
+                                        <td width="200px">구매일자</td>
+                                        <td width="300px">잡지명</td>
                                     </tr>
                                     <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                        <td>17</td>
+                                        <td>2022-07-26</td>
+                                        <td>보그VOGUE</td>
                                     </tr>
                                     <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                        <td>16</td>
+                                        <td>2022-07-26</td>
+                                        <td>보그VOGUE</td>
                                     </tr>
                                     <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                        <td>15</td>
+                                        <td>2022-07-26</td>
+                                        <td>보그VOGUE</td>
                                     </tr>
                                 </table>
                             </td>
@@ -371,18 +365,11 @@
 					<div>
 					<!-- 운영자만 수정, 삭제 버튼을 볼 수 있음 -->
 					<c:if test="${sessionMemberLv == 1}">
-						<div class="d-grid gap-3">
-							<a href="${pageContext.request.contextPath}/registration/addregistration?lectureName=${lec.lectureName}" id="btn" class="btn btn-dark btn-block">수강신청</a>
+						<div class="d-grid gap-3" style="text-align: center">
+							<a href="" id="btn" class="btn btn-dark" style="width:150px">회원정보변경</a>
+                            <a href="" class="btn btn-dark" style="width:150px">회원삭제</a>
 						</div>
-					</c:if>
-						<c:if test="${sessionMemberLv == 3}">
-							<div class="btn-group" style="float:right">
-								<!-- 수정버튼 -->
-									<a href="${pageContext.request.contextPath}/lec/updateLec?lectureName=${lec.lectureName}" class="btn btn-dark">수정</a>
-							</div>
-						</c:if>
-					</div>
-					
+                    </c:if>
 	            </div>
 	        </div>
 		</div>
@@ -392,9 +379,6 @@
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
-            <footer class="footer text-center">
-                
-            </footer>
             <!-- ============================================================== -->
             <!-- End footer -->
             <!-- ============================================================== -->

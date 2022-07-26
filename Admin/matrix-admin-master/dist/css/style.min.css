@@ -693,10 +693,6 @@ pre code {
     
 }
 
-.card-body{
-    
-}
-
 .ccard{
     position: relative;
     width:390px;
@@ -3230,13 +3226,17 @@ fieldset:disabled a.btn {
 .btn-dark {
     color: #fff;
     background-color: #343a40;
-    border-color: #343a40
+    border-color: #343a40;
 }
 
 .btn-dark:hover {
     color: #fff;
     background-color: #23272b;
     border-color: #1d2124
+}
+
+#btnn{
+    margin: -25px 0px 0px 0px;
 }
 
 .btn-dark.focus,
@@ -5415,7 +5415,8 @@ input[type=submit].btn-block {
     -webkit-box-flex: 1;
     -ms-flex: 1 1 auto;
     flex: 1 1 auto;
-    padding: 1.25rem
+    padding: 1.25rem;
+    height:755px
 }
 
 .card-title {
@@ -10650,7 +10651,7 @@ button.bg-purple:hover {
 }
 
 .text-center {
-    text-align: center !important
+    text-align: center !important;
 }
 
 .c1>h4{margin: 25px 0 0 0px;}
