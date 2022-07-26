@@ -5,7 +5,7 @@
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>Document</title>
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+     
      <style>
           #reviewscore{
                box-sizing: border-box;
@@ -13,9 +13,6 @@
                height: 50px;
           }
 
-          #autor{
-               background-color: rgb(233, 233, 233);
-          }
 
           #box{
                background-color: white;
@@ -30,6 +27,15 @@
           #button_box{
                margin: 10px;
           }
+
+          #date{
+               font-size: 13px;
+          }
+
+          #p_name{
+               font-size: 18px;
+               font-weight: 500;
+          }
      </style>
 </head>
 <body>
@@ -39,18 +45,19 @@
           <h2>리뷰 쓰기</h2>
           <hr>
           
-          <table id="box" width="750px" >
+          <table id="box" width="750px" > 
                <tr height="10px">
-                    <td rowspan="4" width="100px">이미지탭</td>
+                    <td rowspan="4" width="70px"><img class="product__details__pic__item"
+                         src=http://www.walbox.co.kr/upfile/item/%EC%8B%B1%EA%B8%80%EC%A6%888_1658391373.jpg width="150px" alt=""></td>
                     <td></td>
                     <td></td>
                </tr>
                <tr>
-                    <td>EllE</td>
+                    <td width="150px" id="p_name">싱글즈 Singles </td>
                     <td></td>
                </tr>
                <tr>
-                    <td>주문내역:</td>
+                    <td width="70px">주문내역:</td>
                     <td></td>
                </tr>
                <tr>
@@ -72,8 +79,6 @@
                     <option value="5">★★★★★</option>
                </select><br><br>
           </div>
-
-          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
           
 
           <h3> 상품평을 작성해주세요</h3>
