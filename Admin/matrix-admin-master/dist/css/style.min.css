@@ -554,10 +554,22 @@ mark {
 .img-thumbnail {
     padding: 0.25rem;
     background-color: #eeeeee;
-    border: 1px solid #dee2e6;
+    border: 1px solid hsl(0, 0%, 77%);
     border-radius: 2px;
     max-width: 100%;
     height: auto
+}
+
+.tt1 input{
+    float: left;
+    margin:0px 0px 0px 10px;
+    width:300px
+}
+
+.tt1 select{
+    float: left;
+    margin:0px 0px 0px 10px;
+    width:150px
 }
 
 .figure {
@@ -1594,7 +1606,7 @@ pre code {
         -webkit-box-flex: 0;
         -ms-flex: 0 0 100%;
         flex: 0 0 100%;
-        max-width: 100%
+        max-width: 100%;
     }
 
     .order-lg-first {
@@ -9165,7 +9177,7 @@ button.bg-purple:hover {
 
 .mb-4,
 .my-4 {
-    margin-bottom: 1.5rem !important
+    margin-bottom: 1.5rem
 }
 
 .ml-4,
@@ -9275,8 +9287,15 @@ button.bg-purple:hover {
 
 .pt-3,
 .py-3 {
-    padding-top: 1rem !important
+    padding-top: 1rem;
+    text-align: center;
 }
+
+.tt1{
+}
+
+
+textarea {resize: none;}
 
 .pr-3,
 .px-3 {
