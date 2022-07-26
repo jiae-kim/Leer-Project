@@ -9,5 +9,6 @@
 <body>
 	<%@ include file="views/common/menubar.jsp" %>
 	<a href="<%=contextPath%>/views/order/productDetail.jsp">상품상세바로가기</a> 
+	<%@ include file="views/common/footer.jsp" %>
 </body>
 </html>

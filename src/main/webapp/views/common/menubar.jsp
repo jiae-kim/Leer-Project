@@ -18,14 +18,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
 
     <!-- Css Styles -->
-    <link rel="stylesheet" href="<%= contextPath %>/resources/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="<%= contextPath %>/resources/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="<%= contextPath %>/resources/css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="<%= contextPath %>/resources/css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="<%= contextPath %>/resources/css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="<%= contextPath %>/resources/css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="<%= contextPath %>/resources/css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="<%= contextPath %>/resources/css/style.css" type="text/css">
+    <link rel="stylesheet" href="<%= contextPath %>/resources/css/heeyeong/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="<%= contextPath %>/resources/css/heeyeong/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="<%= contextPath %>/resources/css/heeyeong/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="<%= contextPath %>/resources/css/heeyeong/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="<%= contextPath %>/resources/css/heeyeong/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="<%= contextPath %>/resources/css/heeyeong/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="<%= contextPath %>/resources/css/heeyeong/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="<%= contextPath %>/resources/css/heeyeong/style.css" type="text/css">
     <style>
     	.login-btn{font-size:13px; color:#393939;}
     	.login-btn:hover{color:gray;}
@@ -46,7 +46,7 @@
                     <nav class="header__menu">
                         <ul>
                             <!--  <li><a href="./index.html"><b>홈</b></a></li>-->
-                            <li class="active"><a href="views/category/category.jsp"><b>카테고리</b></a></li>
+                            <li class="active"><a href="<%=contextPath %>/views/product/productCategory.jsp"><b>카테고리</b></a></li>
                             <li><a href="#"><b>커뮤니티</b></a>
                                 <ul class="header__menu__dropdown">
                                     <li><a href="./shop-details.html">Shop Details</a></li>
@@ -78,4 +78,16 @@
             </div>
         </div>
     </header>
+    
+     <!-- Js Plugins -->
+    <script src="<%=contextPath %>/resources/js/jquery-3.3.1.min.js"></script>
+    <script src="<%=contextPath %>/resources/js/bootstrap.min.js"></script>
+    <script src="<%=contextPath %>/resources/js/jquery.nice-select.min.js"></script>
+    <script src="<%=contextPath %>/resources/js/jquery-ui.min.js"></script>
+    <script src="<%=contextPath %>/resources/js/jquery.slicknav.js"></script>
+    <script src="<%=contextPath %>/resources/js/mixitup.min.js"></script>
+    <script src="<%=contextPath %>/resources/js/owl.carousel.min.js"></script>
+    <script src="<%=contextPath %>/resources/js/main.js"></script>
+    
+    </body>
 </html>
