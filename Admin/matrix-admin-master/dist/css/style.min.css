@@ -8870,6 +8870,12 @@ button.bg-purple:hover {
     float: right !important
 }
 
+.float-right label{
+    color:white;
+    font-size: 25px;
+    margin: 15px 0px 0px 0px;
+}
+
 .float-none {
     float: none !important
 }

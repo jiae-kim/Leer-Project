@@ -277,8 +277,8 @@
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
                         <br><br><br>
-                        <h2 class="page-title">회원관리</h2>
-                        &nbsp;&nbsp;&nbsp;
+                        <h2 class="page-title">커뮤니티 관리</h2>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <input class="form-control mr-sm-2" type="text" placeholder="Search">
                         <button class="btn btn-success" type="submit">Search</button>
                         <div class="ml-auto text-right">
@@ -295,94 +295,185 @@
             <!-- ============================================================== -->
             <!-- Container fluid  -->
             <!-- ============================================================== -->
-            <div class="card mb-4">
-	            <div class="card-header">
-	                <i class=""></i>
-	               	<h4 style="vertical-align:45px"><b>- 회원상세조회</b></h4>
-	            </div>
-	            <div class="card-body">
-                <a href="${pageContext.request.contextPath}/lec/lecList" class="btn btn-dark" style="float:right">이전으로</a>
-	            <div class ="printView">
-	            <h2 style="text-align:center;"> 회원상세정보 </h2>
-					<table class="table">
-						<tr>
-							<th class="text-center">회원번호</th>
-							<td>001</td>
-						</tr>
-						<tr>
-							<th class="text-center" style="width:400px">아이디</th>
-							<td>tttt01</td>
-						</tr>
-						<tr>
-							<th class="text-center">이름</th>
-							<td>홍길동</td>
-						</tr>
-						<tr>
-							<th class="text-center">주소</th>
-							<td>서울시 관악구</td>
-						</tr>
-						<tr>
-							<th class="text-center">휴대폰 번호</th>
-							<td>010-1111-2222</td>
-						</tr>
-						<tr>
-							<th class="text-center">가입일</th>
-							<td>2022-07-22</td>
-						</tr>
-						<tr>
-							<th class="text-center">보유 포인트</th>
-							<td>500</td>
-						</tr>
-						<tr>
-							<th class="text-center">구매내역</th>
-							<td>
-                                <table border="1" style="text-align: center;">
-                                    <tr style="background: #343a40; color:white;">
-                                        <td width="70px" height="-4840px">No.</td>
-                                        <td width="200px">구매일자</td>
-                                        <td width="300px">잡지명</td>
-                                        <td width="200px">출간연월</td>
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Sales Cards  -->
+                <!-- ============================================================== -->
+                <div class="card">
+                    <div class="card-body" style="height:55px">
+                        <h5 class="card-title m-b-0" style="vertical-align:45px">공지사항</h5>
+                        <button class="btn btn-dark" style="float:right" id="btnn">공지사항 등록</button>
+                    </div>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th width="1">
+                                            <label class="customcheckbox m-b-20">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </th>
+                                        <th scope="col">No.</th>
+                                        <th scope="col">제목</th>
+                                        <th scope="col">작성자</th>
+                                        <th scope="col">작성일</th>
+                                        <th scope="col">마지막수정일</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="custom">
+                                    <tr>
+                                        <th>
+                                            <label class="customcheckbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </th>
+                                        <td>19</td>
+                                        <td>이벤트 참여 방법</td>
+                                        <td>admin01</td>
+                                        <td>2022.07.26</td>
+                                        <td>2022.07.26</td>
                                     </tr>
                                     <tr>
+                                        <th>
+                                            <label class="customcheckbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </th>
+                                        <td>18</td>
+                                        <td>공지사항 읽어주세요</td>
+                                        <td>admin01</td>
+                                        <td>2022.07.26</td>
+                                        <td>2022.07.26</td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <label class="customcheckbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </th>
                                         <td>17</td>
-                                        <td>2022-07-26</td>
-                                        <td>보그VOGUE</td>
-                                        <td>2022-08</td>
+                                        <td>저작권 관련 공지</td>
+                                        <td>admin01</td>
+                                        <td>2022.07.26</td>
+                                        <td>2022.07.26</td>
                                     </tr>
                                     <tr>
+                                        <th>
+                                            <label class="customcheckbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </th>
                                         <td>16</td>
-                                        <td>2022-07-26</td>
-                                        <td>보그VOGUE</td>
-                                        <td>2022-08</td>
+                                        <td>불량회원에 대한 공지</td>
+                                        <td>admin01</td>
+                                        <td>2022.07.26</td>
+                                        <td>2022.07.26</td>
                                     </tr>
                                     <tr>
+                                        <th>
+                                            <label class="customcheckbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </th>
                                         <td>15</td>
-                                        <td>2022-07-26</td>
-                                        <td>보그VOGUE</td>
-                                        <td>2022-08</td>
+                                        <td>꼭 지켜주세요</td>
+                                        <td>admin01</td>
+                                        <td>2022.07.26</td>
+                                        <td>2022.07.26</td>
                                     </tr>
-                                </table>
-                            </td>
-						</tr>
-					</table>
-					 </div>
-					<div>
-					<!-- 운영자만 수정, 삭제 버튼을 볼 수 있음 -->
-					<c:if test="${sessionMemberLv == 1}">
-						<div class="d-grid gap-3" style="text-align: center">
-							<a href="" id="btn" class="btn btn-dark" style="width:150px">회원정보변경</a>
-                            <a href="" class="btn btn-dark" style="width:150px">회원삭제</a>
-						</div>
-                    </c:if>
-	            </div>
-	        </div>
-		</div>
+                                    <tr>
+                                        <th>
+                                            <label class="customcheckbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </th>
+                                        <td>14</td>
+                                        <td>사이트 이용 공지</td>
+                                        <td>admin01</td>
+                                        <td>2022.07.26</td>
+                                        <td>2022.07.26</td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <label class="customcheckbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </th>
+                                        <td>13</td>
+                                        <td>공지</td>
+                                        <td>admin01</td>
+                                        <td>2022.07.26</td>
+                                        <td>2022.07.26</td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <label class="customcheckbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </th>
+                                        <td>12</td>
+                                        <td>공지22</td>
+                                        <td>admin01</td>
+                                        <td>2022.07.26</td>
+                                        <td>2022.07.26</td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <label class="customcheckbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </th>
+                                        <td>11</td>
+                                        <td>공지333</td>
+                                        <td>admin01</td>
+                                        <td>2022.07.26</td>
+                                        <td>2022.07.26</td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <label class="customcheckbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </th>
+                                        <td>10</td>
+                                        <td>공지44</td>
+                                        <td>admin01</td>
+                                        <td>2022.07.26</td>
+                                        <td>2022.07.26</td>
+                                    </tr>
+                                    <tr align="center">
+                                        <th colspan="10">
+                                            <br>
+                                            <div class="btn-group" role="group" aria-label="Basic example">
+                                                <button type="button" class="btn btn-outline-secondary"><</button>
+                                                <button type="button" class="btn btn-outline-secondary">1</button>
+                                                <button type="button" class="btn btn-outline-secondary">2</button>
+                                                <button type="button" class="btn btn-outline-secondary">3</button>
+                                                <button type="button" class="btn btn-outline-secondary">4</button>
+                                                <button type="button" class="btn btn-outline-secondary">5</button>
+                                                <button type="button" class="btn btn-outline-secondary">6</button>
+                                                <button type="button" class="btn btn-outline-secondary">7</button>
+                                                <button type="button" class="btn btn-outline-secondary">8</button>
+                                                <button type="button" class="btn btn-outline-secondary">9</button>
+                                                <button type="button" class="btn btn-outline-secondary">10</button>
+                                                <button type="button" class="btn btn-outline-secondary">></button>
+                                              </div>
+                                        </th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                </div>
+            </div>
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
             <!-- ============================================================== -->
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
+            <footer class="footer text-center">
+                
+            </footer>
             <!-- ============================================================== -->
             <!-- End footer -->
             <!-- ============================================================== -->
