@@ -659,7 +659,8 @@ pre code {
     padding-right: 10px;
     padding-left: 10px;
     margin-right: auto;
-    margin-left: auto
+    margin-left: auto;
+    height:100px;
 }
 
 .row {
@@ -681,6 +682,26 @@ pre code {
 .no-gutters>[class*=col-] {
     padding-right: 0;
     padding-left: 0
+}
+
+.sCard{
+    position: relative;
+    width:1600px;
+    height:400px;
+    display: inline-block;
+    padding:60px 10px 0px 0px;
+    
+}
+
+.card-body{
+    
+}
+
+.ccard{
+    position: relative;
+    width:390px;
+    float: left;
+    padding:0px 0px 0px 50px;
 }
 
 .col,
@@ -10657,11 +10678,6 @@ button.bg-purple:hover {
 .card-hover4{
     left: 15%;
     width: 330px;
-}
-
-
-.blank{
-    height:600px;
 }
 
 .card-hover5{
