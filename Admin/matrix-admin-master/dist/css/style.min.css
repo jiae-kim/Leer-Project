@@ -8866,6 +8866,8 @@ button.bg-purple:hover {
     float: left !important
 }
 
+
+
 .float-right {
     float: right !important
 }
@@ -17201,4 +17203,8 @@ label {
     .do-block {
         display: block !important
     }
+}
+
+.bb1 button{
+    margin-top: -25px;
 }
