@@ -19,4 +19,13 @@ public class ProductService {
 		close(conn);
 		return list;
 	}
+	
+	public ArrayList<Product> selectProductListOld(){
+		Connection conn = getConnection();
+		
+		ArrayList<Product> list = new ProductDao().selectProductListOld(conn);
+		
+		close(conn);
+		return list;
+	}
 }

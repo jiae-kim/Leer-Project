@@ -54,4 +54,33 @@ public class ProductDao {
 		}
 		return list;
 	}
+	
+	public ArrayList<Product>selectProductListOld(Connection conn){
+		ArrayList<Product>list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectProductListOld");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery(); 
+			
+			while(rset.next()) {
+				
+				list.add(new Product(rset.getInt("category_no"),
+						 rset.getString("p_name"),
+						 rset.getInt("price"),
+						 rset.getDate("publish_month"),
+						 rset.getString("image_url1")));
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return list;
+	}
 }

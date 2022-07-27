@@ -12,4 +12,16 @@
 			WHERE CATEGORY_NO = 10
 			ORDER BY PUBLISH_MONTH DESC
 	</entry>
+	
+	<entry key="selectProductListOld">
+		SELECT
+			    CATEGORY_NO
+			  , P_NAME
+			  , PRICE
+			  , PUBLISH_MONTH
+			  , IMAGE_URL1
+			FROM PRODUCT
+			WHERE CATEGORY_NO = 10
+			ORDER BY PUBLISH_MONTH ASC
+	</entry>
 </properties>
