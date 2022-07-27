@@ -4,16 +4,21 @@
 <html lang="zxx">
 
 <head>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
     <meta charset="UTF-8">
     <meta name="description" content="Ogani Template">
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title> Ogani | Template</title>
+    <title>Ogani | Template</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
-
 
 
     <style>
@@ -46,13 +51,6 @@
             height:"10px";
         }
 
-        #mypage{
-            margin: 10px;
-        }
-        #dev_status button{
-            border:none;
-            background-color: gainsboro;
-        }
 
     </style>
 </head>
@@ -124,23 +122,21 @@
 
     <%@ include file="../common/menubar.jsp" %>
     
-
-
+    
+    
 
     <!-- Product Section Begin -->
     <section class="product spad">
         <div class="container">
             <div class="row">
-            
-            	<%@ include file="../common/myPageSidebar.jsp" %>
-                
+                <%@ include file="../common/myPageSidebar.jsp" %>
                 <div class="col-lg-9 col-md-7" style="padding-left:120px; flex-grow:1;">
                     
                     <div class="filter__item">
                         <div class="row">
                             <div class="col-lg-4 col-md-5">
                                 <div class="filter__sort" style="width:200px">
-                                    <h3 class="selectMode">주문 및 배송 조회</h3>
+                                    <h3 class="selectMode">주문 취소/환불</h3>
                                 </div>
                             </div>
                            
@@ -148,20 +144,9 @@
                     </div>
                     <div class="row">
                         
-                        <div id="dev_status">
-                            <form action="">
-                                <table>
-                                    <tr>
-                                        <td width="200px">결제완료 : 0 </td>
-                                        <td width="200px">배송중 : 0</td>
-                                        <td width="200px">배송완료 : 0</td>
-                                    </tr>
-                                </table>
-                            </form>
-                        </div>
 
                         <div id="dev_pro">
-                            <br><hr>
+                            <hr>
 
                             <form action="">
                                 <table>
@@ -169,7 +154,8 @@
                                         <td rowspan="4" width="200px"><img class="product__details__pic__item"
                                             src=http://www.walbox.co.kr/upfile/item/111_1618565835.jpg alt=""></td>
                                         <td width="80px">제품명</td>
-                                        <td width="150px" colspan="2"> <b>BBC사이언스</b></td>
+                                        <td width="250px" ><b>BBC사이언스</b></td>
+                                        <td>제품 구매 날짜 작성</td>
                                     </tr>
                                     <tr height="100px">
                                         <td> 제품설명</td>
@@ -177,10 +163,10 @@
                                     </tr>
                                     <tr>
                                         <td>제품가격</td>
-                                        <td width="150px"> 12,160원</td>
-                                        <td><a href="" onclick="window.open('<%= request.getContextPath() %>/review.me','review','width=700, height=900, scrollbars=no, resizable=no, toolbars=no, menubar=no')" class="btn btn-sm btn-secondary">리뷰 쓰기</a>
-                                            <a href="http://www.walbox.co.kr/item_view.html?item_cate=11103&item_no=999668" class="btn btn-sm btn-secondary">재구매</a>
-                                            <a class="btn btn-sm btn-secondary">배송조회</a>
+                                        <td width="150px">  12,160원</td>
+                                        <td>
+                                            <a href="" class="btn btn-sm btn-secondary">주문취소</a>
+                                            <a href="<%= request.getContextPath() %>/refund.me" class="btn btn-sm btn-danger">환불</a>
                                         </td>
                                     </tr>
                                 </table>
@@ -193,7 +179,8 @@
                                         <td rowspan="4" width="200px"> <img class="product__details__pic__item"
                                             src=http://www.walbox.co.kr/upfile/item/%EB%A6%AC%EB%B9%998_1658642603.jpg alt=""></td>
                                         <td width="80px">제품명</td>
-                                        <td width="150px" colspan="2"> <b>리빙센스</b></td>
+                                        <td width="250px" > <b>리빙센스</b></td>
+                                        <td>제품 구매 날짜 작성</td>
                                     </tr>
                                     <tr height="100px">
                                         <td> 제품설명</td>
@@ -202,22 +189,21 @@
                                     <tr>
                                         <td>제품가격</td>
                                         <td width="150px"> 7,410원</td>
-                                        <td><a href="" onclick="window.open('<%= request.getContextPath() %>/review.me','review','width=700, height=900, scrollbars=no, resizable=no, toolbars=no, menubar=no')" class="btn btn-sm btn-secondary">리뷰 쓰기</a>
-                                            <a href="http://www.walbox.co.kr/item_view.html?item_cate=11100&item_no=999933" class="btn btn-sm btn-secondary">재구매</a>
-                                            <a class="btn btn-sm btn-secondary">배송조회</a>
+                                        <td>
+                                            <a href="" class="btn btn-sm btn-secondary">주문취소</a>
+                                            <a href="<%= request.getContextPath() %>/refund.me" class="btn btn-sm btn-danger">환불</a>
                                         </td>
                                     </tr>
                                 </table>
                                 <hr>
-                            </form>
-
-                            <form action="">
+                            </form>  <form action="">
                                 <table>
-                                    <tr> 
+                                    <tr>
                                         <td rowspan="4" width="200px"><img class="product__details__pic__item"
                                             src=http://www.walbox.co.kr/upfile/item/%EB%8F%99%EC%95%84_1648388049.jpg alt=""></td>
                                         <td width="80px">제품명</td>
-                                        <td width="150px" colspan="2"> <b>과학동아</b></td>
+                                        <td width="250px" > <b>과학동아</b></td>
+                                        <td>제품 구매 날짜 작성</td>
                                     </tr>
                                     <tr height="100px">
                                         <td> 제품설명</td>
@@ -225,17 +211,46 @@
                                     </tr>
                                     <tr>
                                         <td>제품가격</td>
-                                        <td width="150px"> 	14,250원</td>
-                                        <td><a href="" onclick="window.open('<%= request.getContextPath() %>/review.me','review','width=750, height=900, scrollbars=no, resizable=no, toolbars=no, menubar=no')" class="btn btn-sm btn-secondary">리뷰 쓰기</a>
-                                            <a href="http://www.walbox.co.kr/item_view.html?item_cate=11103&item_no=999884" class="btn btn-sm btn-secondary">재구매</a>
-                                            <a class="btn btn-sm btn-secondary">배송조회</a>
+                                        <td width="150px"> 14,250원</td>
+                                        <td>
+                                            <a href="" class="btn btn-sm btn-secondary">주문취소</a>
+                                            <a href="<%= request.getContextPath() %>/refund.me" class="btn btn-sm btn-danger">환불</a>
                                         </td>
                                     </tr>
                                 </table>
                                 <hr>
                             </form>
-
+                            <form action="">
+                                <table>
+                                    <tr>
+                                        <td rowspan="4" width="200px"><img class="product__details__pic__item"
+                                            src=http://www.walbox.co.kr/upfile/item/%EC%9E%85%ED%8A%B8%EC%98%817_1656061985.jpg alt=""></td>
+                                        <td width="80px">제품명</td>
+                                        <td width="250px" ><b>EBS 입이트이는영어</b></td>
+                                        <td>제품 구매 날짜 작성</td>
+                                    </tr>
+                                    <tr height="100px">
+                                        <td> 제품설명</td>
+                                        <td colspan="2"> 제품관련 설명작성</td>
+                                    </tr>
+                                    <tr>
+                                        <td>제품가격</td>
+                                        <td width="150px"> 	9,500원</td>
+                                        <td>
+                                            <a href="" class="btn btn-sm btn-secondary">주문취소</a>
+                                            <a href="<%= request.getContextPath() %>/refund.me" class="btn btn-sm btn-danger">환불</a>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <hr>
+                            </form>
+                            <script>
+                                function cancleorder(){
+                                    alret("주문이 취소되었습니다");
+                                }
+                            </script>
                         </div>
+
 
                     </div>
 
@@ -243,6 +258,7 @@
             </div>
         </div>
     </section>
+    
     <!-- Product Section End -->
 
     <!-- Footer Section Begin -->
@@ -303,25 +319,26 @@
                 <div class="col-lg-12">
                     <div class="footer__copyright">
                         <div class="footer__copyright__text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></div>
-                        <div class="footer__copyright__payment"><img src="img/payment-item.png" alt=""></div>
+                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></div>
+                            <div class="footer__copyright__payment"><img src="img/payment-item.png" alt=""></div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </footer>
-    <!-- Footer Section End -->
-
-    <!-- Js Plugins -->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
-    <script src="js/jquery-ui.min.js"></script>
-    <script src="js/jquery.slicknav.js"></script>
-    <script src="js/mixitup.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/main.js"></script>
+        </footer>
+        <!-- Footer Section End -->
+    
+        <!-- Js Plugins -->
+        <script src="js/jquery-3.3.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery.nice-select.min.js"></script>
+        <script src="js/jquery-ui.min.js"></script>
+        <script src="js/jquery.slicknav.js"></script>
+        <script src="js/mixitup.min.js"></script>
+        <script src="js/owl.carousel.min.js"></script>
+        <script src="js/main.js"></script>
+    
 
 
 

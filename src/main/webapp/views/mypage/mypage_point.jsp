@@ -9,11 +9,10 @@
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title> Ogani | Template</title>
+    <title>Ogani | Template</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
-
 
 
     <style>
@@ -25,11 +24,6 @@
             margin: 10px;
         }
 
-        .selectMode{
-            font-size: 20px;
-            color:rgb(99, 99, 99);
-
-        }
 
         #dev_status{
             background-color: gainsboro;
@@ -46,13 +40,15 @@
             height:"10px";
         }
 
-        #mypage{
-            margin: 10px;
+        #pointTable{
+            text-align: center;
         }
-        #dev_status button{
-            border:none;
-            background-color: gainsboro;
+
+        #pointlist{
+            font-size: 10px;
+            text-align: right;
         }
+
 
     </style>
 </head>
@@ -122,120 +118,131 @@
     </div>
     <!-- Humberger End -->
 
-    <%@ include file="../common/menubar.jsp" %>
-    
-
+    <%@ include file="../common/menubar.jsp" %>   
 
 
     <!-- Product Section Begin -->
     <section class="product spad">
         <div class="container">
             <div class="row">
-            
-            	<%@ include file="../common/myPageSidebar.jsp" %>
+                <%@ include file="../common/myPageSidebar.jsp" %>
                 
                 <div class="col-lg-9 col-md-7" style="padding-left:120px; flex-grow:1;">
                     
                     <div class="filter__item">
                         <div class="row">
                             <div class="col-lg-4 col-md-5">
-                                <div class="filter__sort" style="width:200px">
-                                    <h3 class="selectMode">주문 및 배송 조회</h3>
+                                <div class="filter__sort" style="width:250px">
+                                    <h3 class="selectMode">적립 포인트</h3>
                                 </div>
                             </div>
                            
                         </div>
                     </div>
                     <div class="row">
-                        
-                        <div id="dev_status">
-                            <form action="">
-                                <table>
-                                    <tr>
-                                        <td width="200px">결제완료 : 0 </td>
-                                        <td width="200px">배송중 : 0</td>
-                                        <td width="200px">배송완료 : 0</td>
-                                    </tr>
-                                </table>
-                            </form>
-                        </div>
+
 
                         <div id="dev_pro">
-                            <br><hr>
+                            <hr>   
+                            <br>
+                            <h3>현재 포인트</h3>
+                            <br>
+                            <p>ㅁㅁㅁ 님의 포인트 : ~ 원</p>
+                           
+                            <br><br><hr><br>
 
-                            <form action="">
-                                <table>
+                            <h4> 포인트 적립 내역</h4>
+
+                            <br>
+                            <p id="pointlist"> 최근 10개만 노출됩니다</p>
+                            <form action="" id="pointTable">
+
+                                <table border="1px">
                                     <tr>
-                                        <td rowspan="4" width="200px"><img class="product__details__pic__item"
-                                            src=http://www.walbox.co.kr/upfile/item/111_1618565835.jpg alt=""></td>
-                                        <td width="80px">제품명</td>
-                                        <td width="150px" colspan="2"> <b>BBC사이언스</b></td>
+                                        <th width="100px">번호</th>
+                                        <th width="250px">포인트 적립 사유</th>
+                                        <th width="170px">포인트 적립</th>
+                                        <th width="170px">포인트 적립일</th>
                                     </tr>
-                                    <tr height="100px">
-                                        <td> 제품설명</td>
-                                        <td colspan="2"> 제품관련 설명작성</td>
-                                    </tr>
+
                                     <tr>
-                                        <td>제품가격</td>
-                                        <td width="150px"> 12,160원</td>
-                                        <td><a href="" onclick="window.open('<%= request.getContextPath() %>/review.me','review','width=700, height=900, scrollbars=no, resizable=no, toolbars=no, menubar=no')" class="btn btn-sm btn-secondary">리뷰 쓰기</a>
-                                            <a href="http://www.walbox.co.kr/item_view.html?item_cate=11103&item_no=999668" class="btn btn-sm btn-secondary">재구매</a>
-                                            <a class="btn btn-sm btn-secondary">배송조회</a>
-                                        </td>
+                                        <td height="30px"></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
                                     </tr>
+
+                                    <tr>
+                                        <td height="30px"></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td height="30px"></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td height="30px"></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td height="30px"></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td height="30px"></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                                                        
+                                    <tr>
+                                        <td height="30px"></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                                                        
+                                    <tr>
+                                        <td height="30px"></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                                                        
+                                    <tr>
+                                        <td height="30px"></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                                                        
+                                    <tr>
+                                        <td height="30px"></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
                                 </table>
-                                <hr>
-                            </form>
-                            
-                            <form action="">
-                                <table>
-                                    <tr>
-                                        <td rowspan="4" width="200px"> <img class="product__details__pic__item"
-                                            src=http://www.walbox.co.kr/upfile/item/%EB%A6%AC%EB%B9%998_1658642603.jpg alt=""></td>
-                                        <td width="80px">제품명</td>
-                                        <td width="150px" colspan="2"> <b>리빙센스</b></td>
-                                    </tr>
-                                    <tr height="100px">
-                                        <td> 제품설명</td>
-                                        <td colspan="2"> 제품관련 설명작성</td>
-                                    </tr>
-                                    <tr>
-                                        <td>제품가격</td>
-                                        <td width="150px"> 7,410원</td>
-                                        <td><a href="" onclick="window.open('<%= request.getContextPath() %>/review.me','review','width=700, height=900, scrollbars=no, resizable=no, toolbars=no, menubar=no')" class="btn btn-sm btn-secondary">리뷰 쓰기</a>
-                                            <a href="http://www.walbox.co.kr/item_view.html?item_cate=11100&item_no=999933" class="btn btn-sm btn-secondary">재구매</a>
-                                            <a class="btn btn-sm btn-secondary">배송조회</a>
-                                        </td>
-                                    </tr>
-                                </table>
-                                <hr>
+
+
                             </form>
 
-                            <form action="">
-                                <table>
-                                    <tr> 
-                                        <td rowspan="4" width="200px"><img class="product__details__pic__item"
-                                            src=http://www.walbox.co.kr/upfile/item/%EB%8F%99%EC%95%84_1648388049.jpg alt=""></td>
-                                        <td width="80px">제품명</td>
-                                        <td width="150px" colspan="2"> <b>과학동아</b></td>
-                                    </tr>
-                                    <tr height="100px">
-                                        <td> 제품설명</td>
-                                        <td colspan="2"> 제품관련 설명작성</td>
-                                    </tr>
-                                    <tr>
-                                        <td>제품가격</td>
-                                        <td width="150px"> 	14,250원</td>
-                                        <td><a href="" onclick="window.open('<%= request.getContextPath() %>/review.me','review','width=750, height=900, scrollbars=no, resizable=no, toolbars=no, menubar=no')" class="btn btn-sm btn-secondary">리뷰 쓰기</a>
-                                            <a href="http://www.walbox.co.kr/item_view.html?item_cate=11103&item_no=999884" class="btn btn-sm btn-secondary">재구매</a>
-                                            <a class="btn btn-sm btn-secondary">배송조회</a>
-                                        </td>
-                                    </tr>
-                                </table>
-                                <hr>
-                            </form>
 
                         </div>
+
 
                     </div>
 

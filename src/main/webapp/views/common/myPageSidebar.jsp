@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,8 +29,8 @@
                             <div class="sidebar__item" class="sidebar">
                                 <h4 style="font-family:'NanumSquare'; font-weight:800; margin-bottom: 15px; font-size:20px;">나의 주문 관리</h4>
                                 <ul>
-                                    <li><a href="#">주문 및 배송 조회</a></li>
-                                    <li><a href="#">주문취소 / 환불</a></li>
+                                    <li><a href="<%= request.getContextPath() %>/myPage.me">주문 및 배송 조회</a></li>
+                                    <li><a href="<%= request.getContextPath() %>/cancle.me">주문취소 / 환불</a></li>
                                 </ul>
     
                                 <hr>
@@ -52,7 +53,7 @@
     
                                 <h4 style="font-family:'NanumSquare'; font-weight:800; margin-bottom: 15px; font-size:20px;">나의 혜택 관리</h4>
                                 <ul>
-                                    <li><a href="#">적립포인트</a></li>
+                                    <li><a href="<%= request.getContextPath() %>/point.me">적립포인트</a></li>
                                 </ul>
     
                                 <hr>
@@ -68,8 +69,8 @@
     
                                 <h4 style="font-family:'NanumSquare'; font-weight:800; margin-bottom: 15px; font-size:20px;">상품 리뷰</h4>
                                 <ul>
-                                    <li><a href="#">작성 가능한 리뷰</a></li>
-                                    <li><a href="#">작성한 리뷰</a></li>
+                                    <li><a href="<%= request.getContextPath() %>/myreviewwrite.me">작성 가능한 리뷰</a></li>
+                                    <li><a href="<%= request.getContextPath() %>/myreviewhistory.me">작성한 리뷰</a></li>
                                 </ul>
     
                                 <hr>
