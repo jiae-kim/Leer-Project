@@ -18,8 +18,7 @@
     <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/heeyeong/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/heeyeong/style.css" type="text/css">
     <style>
-    	.login-btn{font-size:13px; color:#393939;}
-    	.login-btn:hover{color:gray;}
+    	 @import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
     </style>
 </head>
 <body>
