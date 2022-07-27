@@ -3247,9 +3247,6 @@ fieldset:disabled a.btn {
     border-color: #1d2124
 }
 
-#btnn{
-    margin: -25px 0px 0px 0px;
-}
 
 .btn-dark.focus,
 .btn-dark:focus {
@@ -12288,7 +12285,6 @@ ul.list-style-none li a:hover {
 .page-breadcrumb {
     padding: 20px 20px 0 20px;
     height:80px;
-
 }
 
 .page-breadcrumb .page-title {
@@ -17206,5 +17202,9 @@ label {
 }
 
 .bb1 button{
-    margin-top: -25px;
+	margin: -40px 0px 200px 0px
+}
+
+#btnn{
+    margin: -40px 0px 0px 0px;
 }

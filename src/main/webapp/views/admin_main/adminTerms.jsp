@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>   
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,7 +26,7 @@
 <![endif]-->
 </head>
 <body>
-	<!-- ============================================================== -->
+    <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
     <div class="preloader">
@@ -55,22 +55,25 @@
                         <b class="logo-icon p-l-10">
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
+                            
+                           
                         </b>
                         <!--End Logo icon -->
                         <!-- ============================================================== -->
                         <!-- leer로고 -->
                         <!-- ============================================================== -->
                         <span class="logo-text">
-                             <!-- dark Logo text -->
-                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                             <img src="<%= request.getContextPath() %>/resources/css/eunjee/image/KakaoTalk_20220727_090856741.png" alt="" width="130px">
-                            
-                        </span>
+                            <!-- dark Logo text -->
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <img src="<%= request.getContextPath() %>/resources/css/eunjee/image/KakaoTalk_20220727_090856741.png" alt="" width="130px">
+                           
+                       </span>
                         <!-- Logo icon -->
                         <!-- <b class="logo-icon"> -->
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
                             <!-- <img src="assets/images/logo-text.png" alt="homepage" class="light-logo" /> -->
+                            
                         <!-- </b> -->
                         <!--End Logo icon -->
                     </a>
@@ -201,7 +204,11 @@
              <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
-                        <h2 class="page-title">관리자 메인페이지</h2>
+                        <br><br><br>
+                        <h2 class="page-title">홈페이지관리</h2>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                        <button class="btn btn-success" type="submit">Search</button>
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                             </nav>
@@ -209,6 +216,7 @@
                     </div>
                 </div>
             </div>
+            
             <!-- ============================================================== -->
             <!-- End Bread crumb and right sidebar toggle -->
             <!-- ============================================================== -->
@@ -219,192 +227,202 @@
                 <!-- ============================================================== -->
                 <!-- Sales Cards  -->
                 <!-- ============================================================== -->
-                <div class="row">
-                    <!-- Column -->
-                    <div class="col-md-6 col-lg-2 col-xlg-3">
-                        <div class="card card-hover1">
-                            <div class="box bg-cyan text-center c1">
-                                <h4 class="text-white">533</h4>
-                                <h4 class="text-white">1:1문의</h6>
+                <div class="card">
+                    <div class="card-body" style="height:55px">
+                        <h5 class="card-title m-b-0" style="vertical-align:45px">이용약관</h5>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <div class="btn-group bb1" style="margin: 0px 0px 150px 0px;">
+                            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">조회방법 선택</button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">전체조회</a>
+                                <a class="dropdown-item" href="#">등록일 순 조회</a>
                             </div>
                         </div>
+                        <button class="btn btn-dark bb2" style="float:right" id="btnn">이용약관 등록</button>
                     </div>
-                    <!-- Column -->
-                    <div class="col-md-6 col-lg-4 col-xlg-3">
-                        <div class="card card-hover2">
-                            <div class="box bg-success text-center c2">
-                                <h4 class="text-white">320</h4>
-                                <h4 class="text-white">리뷰</h4>
-                            </div>
-                        </div>
-                    </div>
-                     <!-- Column -->
-                    <div class="col-md-6 col-lg-2 col-xlg-3">
-                        <div class="card card-hover3">
-                            <div class="box bg-warning text-center c3">
-                                <h4 class="text-white">53</h4>
-                                <h4 class="text-white">신고게시물</h4>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Column -->
-                    <div class="col-md-6 col-lg-4 col-xlg-3">
-                        <div class="card card-hover4">
-                            <div class="box bg-danger text-center c4">
-                                <h4 class="text-white">67</h4>
-                                <h4 class="text-white">커뮤니티 게시글</h4>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Column -->
-                    <div class="blank">
-                    <!-- ============================================================== -->
-                    <!-- 게시글 -->
-                    <!-- ============================================================== -->
-                    <div class="sCard">
-                        <div class="ccard">
-                            <div class="card-body">
-                                <h5 class="card-title m-b-0">커뮤니티관리</h5>
-                            </div>
+                        <div class="table-responsive">
                             <table class="table">
-                                  <tbody>
+                                <thead class="thead-light">
                                     <tr>
-                                      <th scope="row">1</th>
-                                      <td width="1100px">공지사항작성</td>
-                                      <td width="1000px">2022-07-26</td>
+                                        <th width="1">
+                                            <label class="customcheckbox m-b-20">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </th>
+                                        <th scope="col">No.</th>
+                                        <th scope="col">상태</th>
+                                        <th scope="col">이용약관명</th>
+                                        <th scope="col">게시등록일</th>
+                                        <th scope="col">수정일자</th>
+                                        <th scope="col">작성자</th>
+                                        <th scope="col">비고</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="custom">
+                                    <tr>
+                                        <th>
+                                            <label class="customcheckbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </th>
+                                        <td>19</td>
+                                        <td>사용중</td>
+                                        <td>회원이용약관(1)</td>
+                                        <td>2022.07.26</td>
+                                        <td>2022.07.26</td>
+                                        <td>admin01</td>
+                                        <td></td>
                                     </tr>
                                     <tr>
-                                      <th scope="row">2</th>
-                                      <td>게시물관리</td>
-                                      <td>2022-07-26</td>
+                                        <th>
+                                            <label class="customcheckbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </th>
+                                        <td>18</td>
+                                        <td>사용중</td>
+                                        <td>회원이용약관(2)</td>
+                                        <td>2022.07.26</td>
+                                        <td>2022.07.26</td>
+                                        <td>admin01</td>
+                                        <td></td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">2</th>
-                                        <td>신고관리</td>
-                                        <td>2022-07-26</td>
-                                      </tr>
-                                  </tbody>
+                                        <th>
+                                            <label class="customcheckbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </th>
+                                        <td>17</td>
+                                        <td>보류</td>
+                                        <td>회원이용약관(3)</td>
+                                        <td>2022.07.26</td>
+                                        <td>2022.07.26</td>
+                                        <td>admin01</td>
+                                        <td>저작권에대한 논의 필요</td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <label class="customcheckbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </th>
+                                        <td>16</td>
+                                        <td>보류</td>
+                                        <td>회원이용약관(4)</td>
+                                        <td>2022.07.26</td>
+                                        <td>2022.07.26</td>
+                                        <td>admin01</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <label class="customcheckbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </th>
+                                        <td>15</td>
+                                        <td>회의중</td>
+                                        <td>회원이용약관(5)</td>
+                                        <td>2022.07.26</td>
+                                        <td>2022.07.26</td>
+                                        <td>admin01</td>
+                                        <td>아직 논의중</td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <label class="customcheckbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </th>
+                                        <td>14</td>
+                                        <td>회의중</td>
+                                        <td>회원이용약관(6)</td>
+                                        <td>2022.07.26</td>
+                                        <td>2022.07.26</td>
+                                        <td>admin01</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <label class="customcheckbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </th>
+                                        <td>13</td>
+                                        <td>회의중</td>
+                                        <td>회원이용약관(7)</td>
+                                        <td>2022.07.26</td>
+                                        <td>2022.07.26</td>
+                                        <td>admin01</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <label class="customcheckbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </th>
+                                        <td>12</td>
+                                        <td>보류</td>
+                                        <td>회원이용약관(8)</td>
+                                        <td>2022.07.26</td>
+                                        <td>2022.07.26</td>
+                                        <td>admin01</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <label class="customcheckbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </th>
+                                        <td>11</td>
+                                        <td>보류</td>
+                                        <td>회원이용약관(9)</td>
+                                        <td>2022.07.26</td>
+                                        <td>2022.07.26</td>
+                                        <td>admin01</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <label class="customcheckbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </th>
+                                        <td>10</td>
+                                        <td>user01</td>
+                                        <td>회원이용약관(10)</td>
+                                        <td>2022.07.26</td>
+                                        <td>2022.07.26</td>
+                                        <td>admin01</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr align="center">
+                                        <th colspan="10">
+                                            <br>
+                                            <div class="btn-group" role="group" aria-label="Basic example">
+                                                <button type="button" class="btn btn-outline-secondary"><</button>
+                                                <button type="button" class="btn btn-outline-secondary">1</button>
+                                                <button type="button" class="btn btn-outline-secondary">2</button>
+                                                <button type="button" class="btn btn-outline-secondary">3</button>
+                                                <button type="button" class="btn btn-outline-secondary">4</button>
+                                                <button type="button" class="btn btn-outline-secondary">5</button>
+                                                <button type="button" class="btn btn-outline-secondary">6</button>
+                                                <button type="button" class="btn btn-outline-secondary">7</button>
+                                                <button type="button" class="btn btn-outline-secondary">8</button>
+                                                <button type="button" class="btn btn-outline-secondary">9</button>
+                                                <button type="button" class="btn btn-outline-secondary">10</button>
+                                                <button type="button" class="btn btn-outline-secondary">></button>
+                                              </div>
+                                        </th>
+                                    </tr>
+                                </tbody>
                             </table>
                         </div>
-                        <div class="ccard">
-                            <div class="card-body">
-                                <h5 class="card-title m-b-0">회원관리</h5>
-                            </div>
-                            <table class="table">
-                                <tbody>
-                                    <tr>
-                                      <th scope="row">1</th>
-                                      <td width="1900px">회원전체조회</td>
-                                      <td width="1000px">2022-07-26</td>
-                                    </tr>
-                                    <tr>
-                                      <th scope="row">2</th>
-                                      <td>장기구독자조회</td>
-                                      <td>2022-07-26</td>
-                                    </tr>
-                                  </tbody>
-                            </table>
-                        </div>
-                        <div class="ccard">
-                            <div class="card-body">
-                                <h5 class="card-title m-b-0">고객센터관리</h5>
-                            </div>
-                            <table class="table">
-                                <tbody>
-                                    <tr>
-                                      <th scope="row">1</th>
-                                      <td width="1400px">공지사항</td>
-                                      <td width="1000px">2022-07-26</td>
-                                    </tr>
-                                    <tr>
-                                      <th scope="row">2</th>
-                                      <td>1:1상담</td>
-                                      <td>2022-07-26</td>
-                                    </tr>
-                                    <tr>
-                                      <th scope="row">3</th>
-                                      <td>FAQ</td>
-                                      <td>2022-07-26</td>
-                                    </tr>
-                                  </tbody>
-                            </table>
-                        </div>
-                        <div class="ccard">
-                            <div class="card-body">
-                                <h5 class="card-title m-b-0">제품관리</h5>
-                            </div>
-                            <table class="table">
-                                <tbody>
-                                    <tr>
-                                      <th scope="row">1</th>
-                                      <td width="1300px">리뷰관리</td>
-                                      <td width="1000px">2022-07-26</td>
-                                    </tr>
-                                    <tr>
-                                      <th scope="row">2</th>
-                                      <td>상품문의</td>
-                                      <td>2022-07-26</td>
-                                    </tr>
-                                    <tr>
-                                      <th scope="row">3</th>
-                                      <td>상품조회</td>
-                                      <td>2022-07-26</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>상품등록</td>
-                                        <td>2022-07-26</td>
-                                      </tr>
-                                  </tbody>
-                            </table>
-                        </div>                           
-                    </div>
-                    <!-- ============================================================== -->
-                    <!-- 게시글 끝 / 하단 네모칸 시작 -->
-                    <!-- ============================================================== -->    
-                    </div>
-                    <div class="col-md-6 col-lg-2 col-xlg-3">
-                        <div class="card card-hover5">
-                            <div class="box bg-info text-center c5">
-                                <h4 class="text-white">오늘 방문자 수 1,100</h4>
-                                <h4 class="text-white">누적 방문자 수 5,685,122</h4>
-                            </div>
-                        </div>
-                    </div>
-                     <!-- Column -->
-                    <div class="col-md-6 col-lg-2 col-xlg-3">
-                        <div class="card card-hover6">
-                            <div class="box bg-cyan text-center c6">
-                                <h4 class="text-white">오늘 주문수량 152</h4>
-                                <h4 class="text-white">어제 주문수량 255</h4>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Column -->
-                    <div class="col-md-6 col-lg-2 col-xlg-3">
-                        <div class="card card-hover7">
-                            <div class="box bg-success text-center c7">
-                                <h4 class="text-white">발송대기 200</h4>
-                                <h4 class="text-white">발송중 224</h4>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Column -->
                 </div>
-                <!-- ============================================================== -->
-                <!-- Sales chart -->
-                <!-- ============================================================== -->
-                
-                <!-- ============================================================== -->
-                <!-- Sales chart -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Recent comment and chats -->
-                <!-- ============================================================== -->
-                
-                <!-- ============================================================== -->
-                <!-- Recent comment and chats -->
-                <!-- ============================================================== -->
             </div>
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
@@ -423,13 +441,8 @@
         <!-- End Page wrapper  -->
         <!-- ============================================================== -->
     </div>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
-    <script src="<%= request.getContextPath() %>/resources/css/eunjee/assets/libs/jquery/dist/jquery.min.js"></script>
+	
+	<script src="<%= request.getContextPath() %>/resources/css/eunjee/assets/libs/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="<%= request.getContextPath() %>/resources/css/eunjee/assets/libs/popper.js/dist/umd/popper.min.js"></script>
     <script src="<%= request.getContextPath() %>/resources/css/eunjee/assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -452,5 +465,6 @@
     <script src="<%= request.getContextPath() %>/resources/css/eunjee/assets/libs/flot/jquery.flot.crosshair.js"></script>
     <script src="<%= request.getContextPath() %>/resources/css/eunjee/assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
     <script src="<%= request.getContextPath() %>/resources/css/eunjee/dist/js/pages/chart/chart-page-init.js"></script>
+</body>
 </body>
 </html>
