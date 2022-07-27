@@ -14,13 +14,13 @@ import javax.servlet.http.HttpSession;
  * Servlet implementation class MypageCanclePageController
  */
 @WebServlet("/cancle.me")
-public class MypageCanclePageController extends HttpServlet {
+public class MyPageCanclePageController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MypageCanclePageController() {
+    public MyPageCanclePageController() {
         super();
         // TODO Auto-generated constructor stub
     }
