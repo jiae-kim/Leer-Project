@@ -150,7 +150,7 @@
                             <ul aria-expanded="false" class="collapse  first-level">
                                 <li class="sidebar-item"><a href="error-403.html" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 리뷰관리 </span></a></li>
                                 <li class="sidebar-item"><a href="error-404.html" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 상품문의 </span></a></li>
-                                <li class="sidebar-item"><a href="error-405.html" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 상품조회 </span></a></li>
+                                <li class="sidebar-item"><a href="<%=request.getContextPath()%>/views/admin_main/adminProductView.jsp" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 상품조회 </span></a></li>
                                 <li class="sidebar-item"><a href="error-405.html" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 상품등록 </span></a></li>
                             </ul>
                         </li>
