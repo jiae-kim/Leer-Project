@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
-	<entry>
-	
+	<entry key="selectProductList">
+		SELECT
+			    CATEGORY_NO
+			  , P_NAME
+			  , PRICE
+			  , PUBLISH_MONTH
+			  , IMAGE_URL1
+			FROM PRODUCT
+			WHERE CATEGORY_NO = 10
+			ORDER BY PUBLISH_MONTH DESC
 	</entry>
 </properties>

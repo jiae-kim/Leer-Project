@@ -38,6 +38,15 @@ public class Product {
 		this.imageUrl2 = imageUrl2;
 	}
 
+	public Product(int categoryNo, String pName, int price, Date publishMonth, String imageUrl1) {
+		super();
+		this.categoryNo = categoryNo;
+		this.pName = pName;
+		this.price = price;
+		this.publishMonth = publishMonth;
+		this.imageUrl1 = imageUrl1;
+	}
+
 	public String getpCode() {
 		return pCode;
 	}
