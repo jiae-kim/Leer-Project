@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -8,49 +8,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>LEER</title>
+
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
 
     <!-- Css Styles -->
+    <link rel="stylesheet" href="css/summernote/summernote-lite.css">
+
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
+    <!-- <link rel="stylesheet" href="css/nice-select.css" type="text/css"> -->
     <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
     <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
     <style>
-        .list-area th {
+        #enroll-form table{
             font-size: 14px;
-            border-top: 1px solid rgba(128, 128, 128, .7);
-            border-bottom: 1px solid gray;
-
         }
-
-        .list-area td {
-            font-size: 12px;
-            border-bottom: 1px solid rgba(128, 128, 128, .4);
-
-        }
-
-        .list-area {
+        
+        #enroll-form input, #enroll-form textarea{
             width: 100%;
-            height: 50px;
-            text-align: center;
+            box-sizing:border-box;
+        }
+        .upfiles{
+        }
+        #enroll-form {
+            font-size: 14px;
+            
+        }
+        #enroll-form{
+            /* background-color: rgb(206, 206, 206); */
+            margin-top: top 25px;
 
         }
+        .blog__item__text2 h4{
+            display: inline-block;
+            color: rgb(137, 137, 137);
+            margin: 25px 0px 25px 0px;
+        }
+    
+        .boardBtn button {
+            border: 1px solid black;
+            color: white;
+            width: 15%;
+            background-color: #878787;
+            font-size: 14px;
+            line-height: 40px;
+            border-style: none;
+        }
+        select{
+            width: 200px;
+            height: 48px;
+            text-align: center;
+        }
+
     </style>
 </head>
 
 <body>
-    <!--  Page Preloder
-    <div id="preloder">
-        <div class="loader"></div>
-    </div> -->
 
     <!-- Humberger Begin -->
     <div class="humberger__menu__overlay"></div>
@@ -160,40 +180,25 @@
             <div class="row">
                 <div class="col-lg-12 text-left">
                     <div class="breadcrumb__text">
-                        <h2>커뮤니티</h2>
-                        <div class="breadcrumb__option">
-                            <span>커뮤니티 공지사항</span>
-                        </div>
+                        <h2>공지사항</h2>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <!-- Breadcrumb Section End -->
-
+<!-- --------------------------------------------- -->
     <!-- Blog Section Begin -->
     <section class="blog spad" style="margin-left: 50px">
-
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-5">
                     <div class="blog__sidebar">
                         <div class="sidebar__item">
-                            <p style="font-size: small;">카테고리</p>
-                            <ul>
-                                <li><a href="#">전체게시글</a></li>
-                                <li><a href="#">패션/여성</a></li>
-                                <li><a href="#">라이프/인테리어</a></li>
-                                <li><a href="#">시사/경제</a></li>
-                                <li><a href="#">교육/과학</a></li>
-                                <li><a href="#">문화/예술</a></li>
-                                <li><a href="#">여행/취미</a></li>
-                            </ul>
-                            <p style="font-size: small;" id="noti">leer이야기</p>
+                            <p style="font-size: small;">공지사항 목록</p>
                             <ul>
                                 <li><a href="#">커뮤니티 공지사항</a></li>
-                                <li><a href="#">내가 쓴 게시글</a></li>
-                                <li><a href="#">북마크 목록</a></li>
+                                <li><a href="#">상품 공지사항</a></li>
                             </ul>
                         </div>
                     </div>
@@ -202,175 +207,63 @@
                 <div class="col-lg-8 col-md-7">
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6">
-                            <div class="blog__item__text2" style="margin-top:20px">
-                                <div>
-                                    <h4 align="left">공지사항</h4>
-                                    <span style="font-size: 14px;">커뮤니티 공지사항</span>
-                                </div>
-                                <!-- 현재 로그인한 사용자가 관리자일 경우(로그인한회원의아이디가 admin일경우) 보여질 div -->
-                                <table class="list-area" align="center">
-                                    <thead>
-                                        <tr>
-                                            <th width="70">번호</th>
-                                            <th width="300">제목</th>
-                                            <th width="100">작성자</th>
-                                            <th width="70">조회수</th>
-                                            <th width="150">작성일</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <!--case1. 공지글이 없을 경우-->
-                                        <!-- <tr>
-                                                        <td colspan="5">존재하는 공지사항이 없습니다.</td>
-                                                    </tr> -->
-                                        <!--case2. 공지글이 있을 경우-->
-                                        <tr>
-                                            <td>
-                                                1
-                                            </td>
-                                            <td align="left">
-                                                <span>여기는 제목</span>
-                                            </td>
-                                            <td>
-                                                <span>닉네임</span>
-                                            </td>
-                                            <td>
-                                                24
-                                            </td>
-                                            <td>
-                                                <span>2022-07-26</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                1
-                                            </td>
-                                            <td align="left">
-                                                <span>여기는 제목</span>
-                                            </td>
-                                            <td>
-                                                <span>닉네임</span>
-                                            </td>
-                                            <td>
-                                                24
-                                            </td>
-                                            <td>
-                                                <span>2022-07-26</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                1
-                                            </td>
-                                            <td align="left">
-                                                <span>여기는 제목</span>
-                                            </td>
-                                            <td>
-                                                <span>닉네임</span>
-                                            </td>
-                                            <td>
-                                                24
-                                            </td>
-                                            <td>
-                                                <span>2022-07-26</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                1
-                                            </td>
-                                            <td align="left">
-                                                <span>여기는 제목</span>
-                                            </td>
-                                            <td>
-                                                <span>닉네임</span>
-                                            </td>
-                                            <td>
-                                                24
-                                            </td>
-                                            <td>
-                                                <span>2022-07-26</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                1
-                                            </td>
-                                            <td align="left">
-                                                <span>여기는 제목</span>
-                                            </td>
-                                            <td>
-                                                <span>닉네임</span>
-                                            </td>
-                                            <td>
-                                                24
-                                            </td>
-                                            <td>
-                                                <span>2022-07-26</span>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <div class="product__pagination blog__pagination" align="center">
-                                    <a href="#">1</a>
-                                    <a href="#">2</a>
-                                    <a href="#">3</a>
-                                    <a href="#">></a>
-                                </div>
+                                <div class="blog__item__text2">
+                                    <h4 align="left" class="boardTitle"><b>공지사항 작성</b></h4><hr style="color: black">
+
+                                    <form action="<%=contextPath %>/insert.bo" method="post" id="enroll-form"
+                                        enctype="multipart/form-data">
+                                 
+                                        <table align="center">
+                                            <tr>
+                                                <th width="800" colspan="2">게시판 선택</th>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" >
+                                                    <select name="category">
+                                                            <option value="" disabled selected hidden>
+                                                                카테고리를 선택하세요.
+                                                            </option>
+                                                            <option value="">
+                                                                커뮤니티 공지사항
+                                                            </option>
+                                                            <option value="">
+                                                                상품 공지사항
+                                                            </option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th colspan="2">제목을 작성해주세요.</th>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2"><input type="text" name="title" required></td>
+                                            </tr>
+                                            <tr>
+                                                <th colspan="2">내용을 작성해주세요.</th>
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2"><textarea id="summernote" name="editordata" rows="10" required
+                                                    style="resize:none"></textarea></td>
+                                            </tr>
+                                        </table>
+                                        <br>
+
+                                        <div align="center" class="boardBtn">
+                                            <button type="submit">작성하기</button>
+                                            <button type="reset">취소하기</button>
+                                        </div>
+                                    </form>
+                            </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-bj-1 blog__sidebar__item">
-                    <div class="myPageList">
-                        <div id="myPage" style="display: block;">
-                            <div class="box-g">
-                                <h4 class="">나의활동</h4>
-                                <div class="myList">
-                                    <ul>
-                                        <li title="" id="profile">
-                                            <div class="profileNic" align="">
-                                                <img src="https://ssl.pstatic.net/static/cafe/cafe_pc/default/cafe_profile_70.png"
-                                                    width="58" height="58" alt="프로필사진" class="imgChange">
-                                                <strong>밤톨이님</strong>
-
-                                            </div>
-                                        </li>
-
-                                        <li class="myBoard">
-                                            <span class=""><strong class=""><a href="">내가 쓴 글</a></strong></span>
-                                            <a href="" class="">49</a><span>개</span>
-                                        </li>
-
-                                        <li class="myComment">
-                                            <span class=""><strong class=""><a href="">내가 쓴 댓글</a></strong></span>
-                                            <a href="" class="">49</a><span>개</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="writeBoard" align="center">
-                                <button class="write">글쓰기</button>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="bestTag">
-                        <p>인기태그</p>
-                        <div class="blog__sidebar__item__tags">
-                            <a href="#">공유</a>
-                            <a href="#">후기</a>
-                            <a href="#">부록</a>
-                            <a href="#">추천</a>
-                            <a href="#">질문</a>
-                            <a href="#">보그</a>
-                        </div>
                     </div>
                 </div>
             </div>
-        </div>
     </section>
     <!-- Blog Section End -->
+<!-- --------------------------------------------- -->
 
     <!-- Footer Section Begin -->
     <footer class="footer spad">
@@ -448,33 +341,45 @@
     <!-- Footer Section End -->
 
     <script>
-        $(document).ready(function () {
+        
+        $(document).ready(function() {
             //여기 아래 부분
             $('#summernote').summernote({
-                height: 300,                 // 에디터 높이
-                minHeight: null,             // 최소 높이
-                maxHeight: null,             // 최대 높이
-                focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
-                lang: "ko-KR",					// 한글 설정
-                placeholder: '최대 2048자까지 쓸 수 있습니다'	//placeholder 설정
+                  minHeight: 400,             // 최소 높이
+                  maxHeight: 400,             // 최대 높이
+                  focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
+                  lang: "ko-KR",					// 한글 설정
+                  placeholder: '내용을 작성하세요.',	//placeholder 설정
+                  toolbar: [
+			    // [groupName, [list of button]]
+			    ['fontname', ['fontname']],
+			    ['fontsize', ['fontsize']],
+			    ['style', ['bold']],
+			    ['color', ['forecolor']],
+			    ['para', ['ul', 'ol', 'paragraph']],
+			    ['insert',['picture']],
+			  ],
+			fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New','맑은 고딕','궁서','굴림체','굴림','돋움체','바탕체'],
+			fontSizes: ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50','72']
             });
         });
     </script>
     <!-- Js Plugins -->
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
+    <!-- <script src="js/jquery.nice-select.min.js"></script> -->
+    
+    
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/jquery.slicknav.js"></script>
     <script src="js/mixitup.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
-
-    <link rel="stylesheet" href="css/summernote-lite.css">
+    
     <script src="js/summernote/summernote-lite.js"></script>
     <script src="js/summernote/summernote-ko-KR.js"></script>
-
-
+    
+    
 </body>
 
 </html>
