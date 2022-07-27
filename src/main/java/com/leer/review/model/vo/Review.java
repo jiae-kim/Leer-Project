@@ -13,14 +13,14 @@ public class Review {
 	private String reviewContent;
 	private Date enrollDate;
 	private Date mofifyDate;
-	private String writeYn;
+	private String writeYN;
 	
 	
 	public Review() {}
 	
 	
 	public Review(int reviewNo, int memNo, String pCode, String memId, String pName, int reviewScope,
-			String reviewContent, Date enrollDate, Date mofifyDate, String writeYn) {
+			String reviewContent, Date enrollDate, Date mofifyDate, String writeYN) {
 		super();
 		this.reviewNo = reviewNo;
 		this.memNo = memNo;
@@ -31,7 +31,7 @@ public class Review {
 		this.reviewContent = reviewContent;
 		this.enrollDate = enrollDate;
 		this.mofifyDate = mofifyDate;
-		this.writeYn = writeYn;
+		this.writeYN = writeYN;
 	}
 
 
@@ -39,7 +39,7 @@ public class Review {
 	public String toString() {
 		return "Review [reviewNo=" + reviewNo + ", memNo=" + memNo + ", pCode=" + pCode + ", memId=" + memId
 				+ ", pName=" + pName + ", reviewScope=" + reviewScope + ", reviewContent=" + reviewContent
-				+ ", enrollDate=" + enrollDate + ", mofifyDate=" + mofifyDate + ", writeYn=" + writeYn + "]";
+				+ ", enrollDate=" + enrollDate + ", mofifyDate=" + mofifyDate + ", writeYn=" + writeYN + "]";
 	}
 
 
@@ -134,12 +134,12 @@ public class Review {
 
 
 	public String getWriteYn() {
-		return writeYn;
+		return writeYN;
 	}
 
 
 	public void setWriteYn(String writeYn) {
-		this.writeYn = writeYn;
+		this.writeYN = writeYn;
 	}
 	
 	
