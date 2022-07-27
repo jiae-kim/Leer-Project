@@ -56,7 +56,7 @@
                                 </ul>
                             </li>
                             <li><a href="./blog.html"><b>고객센터</b></a></li>
-                            <li><a href="./contact.html"><b>마이페이지</b></a></li>
+                            <li><a href="<%= contextPath %>/myPage.me"><b>마이페이지</b></a></li>
                         </ul>
                     </nav>
                 </div>
