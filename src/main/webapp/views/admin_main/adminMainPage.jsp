@@ -42,7 +42,7 @@
                     <!-- This is for the sidebar toggle which is visible on mobile only -->
                     <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
                     <!-- ============================================================== -->
-                    <!-- Logo -->
+                    <!-- Leer로고 -->
                     <!-- ============================================================== -->
                     <a class="navbar-brand" href="<%=request.getContextPath()%>/views/admin_main/adminMainPage.jsp">
                         <!-- Logo icon -->
@@ -50,26 +50,15 @@
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
                         </b>
-                        <!--End Logo icon -->
-                        <!-- ============================================================== -->
-                        <!-- leer로고 -->
-                        <!-- ============================================================== -->
                         <span class="logo-text">
                              <!-- dark Logo text -->
                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                              <img src="<%= request.getContextPath() %>/resources/css/eunjee/image/KakaoTalk_20220727_090856741.png" alt="" width="130px">
                             
                         </span>
-                        <!-- Logo icon -->
-                        <!-- <b class="logo-icon"> -->
-                            <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
-                            <!-- Dark Logo icon -->
-                            <!-- <img src="assets/images/logo-text.png" alt="homepage" class="light-logo" /> -->
-                        <!-- </b> -->
-                        <!--End Logo icon -->
                     </a>
                     <!-- ============================================================== -->
-                    <!-- End Logo -->
+                    <!-- 로고 끝 -->
                     <!-- ============================================================== -->
                     <!-- ============================================================== -->
                     <!-- Toggle which is visible on mobile only -->
@@ -164,7 +153,7 @@
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-pencil"></i><span class="hide-menu">커뮤니티관리</span></a>
                             <ul aria-expanded="false" class="collapse  first-level">
                                 <li class="sidebar-item"><a href="<%=request.getContextPath()%>/views/admin_main/adminComuNotiView.jsp" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 공지사항 </span></a></li>
-                                <li class="sidebar-item"><a href="error-404.html" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 게시물관리 </span></a></li>
+                                <li class="sidebar-item"><a href="<%=request.getContextPath()%>/views/admin_main/comu/adminComuPost.jsp" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 게시물관리 </span></a></li>
                                 <li class="sidebar-item"><a href="error-405.html" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 신고관리 </span></a></li>
                             </ul>
                         </li>

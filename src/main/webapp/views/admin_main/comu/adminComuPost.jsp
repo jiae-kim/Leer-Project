@@ -18,18 +18,9 @@
     <link href="<%= request.getContextPath() %>/resources/css/eunjee/assets/libs/flot/css/float-chart.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="<%= request.getContextPath() %>/resources/css/eunjee/style.min.css" rel="stylesheet">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
 </head>
 <body>
-    <!-- ============================================================== -->
-    <!-- Preloader - style you can find in spinners.css -->
-    <!-- ============================================================== -->
-    <div class="preloader">
+	<div class="preloader">
         <div class="lds-ripple">
             <div class="lds-pos"></div>
             <div class="lds-pos"></div>
@@ -48,37 +39,23 @@
                     <!-- This is for the sidebar toggle which is visible on mobile only -->
                     <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
                     <!-- ============================================================== -->
-                    <!-- Logo -->
+                    <!-- Leer로고 -->
                     <!-- ============================================================== -->
                     <a class="navbar-brand" href="<%=request.getContextPath()%>/views/admin_main/adminMainPage.jsp">
                         <!-- Logo icon -->
                         <b class="logo-icon p-l-10">
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
-                            
-                           
                         </b>
-                        <!--End Logo icon -->
-                        <!-- ============================================================== -->
-                        <!-- leer로고 -->
-                        <!-- ============================================================== -->
                         <span class="logo-text">
-                            <!-- dark Logo text -->
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <img src="<%= request.getContextPath() %>/resources/css/eunjee/image/KakaoTalk_20220727_090856741.png" alt="" width="130px">
-                           
-                       </span>
-                        <!-- Logo icon -->
-                        <!-- <b class="logo-icon"> -->
-                            <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
-                            <!-- Dark Logo icon -->
-                            <!-- <img src="assets/images/logo-text.png" alt="homepage" class="light-logo" /> -->
+                             <!-- dark Logo text -->
+                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                             <img src="<%= request.getContextPath() %>/resources/css/eunjee/image/KakaoTalk_20220727_090856741.png" alt="" width="130px">
                             
-                        <!-- </b> -->
-                        <!--End Logo icon -->
+                        </span>
                     </a>
                     <!-- ============================================================== -->
-                    <!-- End Logo -->
+                    <!-- 로고 끝 -->
                     <!-- ============================================================== -->
                     <!-- ============================================================== -->
                     <!-- Toggle which is visible on mobile only -->
@@ -153,14 +130,14 @@
                             <ul aria-expanded="false" class="collapse  first-level">
                                 <li class="sidebar-item"><a href="error-403.html" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 리뷰관리 </span></a></li>
                                 <li class="sidebar-item"><a href="error-404.html" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 상품문의 </span></a></li>
-                                <li class="sidebar-item"><a href="error-405.html" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 상품조회 </span></a></li>
+                                <li class="sidebar-item"><a href="<%=request.getContextPath()%>/views/admin_main/adminProductView.jsp" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 상품조회 </span></a></li>
                                 <li class="sidebar-item"><a href="error-405.html" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 상품등록 </span></a></li>
                             </ul>
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">상품및결제관리</span></a>
                             <ul aria-expanded="false" class="collapse  first-level">
                                 <li class="sidebar-item"><a href="error-403.html" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 입출고관리 </span></a></li>
-                                <li class="sidebar-item"><a href="error-404.html" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 결제내역조회 </span></a></li>
+                                <li class="sidebar-item"><a href="<%= request.getContextPath() %>/views/admin_main/adminPaymentView.jsp" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 결제내역조회 </span></a></li>
                                 <li class="sidebar-item"><a href="error-405.html" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 환불관리 </span></a></li>
                                 <li class="sidebar-item"><a href="error-405.html" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 배송관리 </span></a></li>
                             </ul>
@@ -204,7 +181,7 @@
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
                         <br><br><br>
-                        <h2 class="page-title">홈페이지관리</h2>
+                        <h2 class="page-title">커뮤니티관리</h2>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <input class="form-control mr-sm-2" type="text" placeholder="Search">
                         <button class="btn btn-success" type="submit">Search</button>
@@ -228,17 +205,39 @@
                 <!-- ============================================================== -->
                 <div class="card">
                     <div class="card-body" style="height:55px">
-                        <h5 class="card-title m-b-0" style="vertical-align:45px">이용약관</h5>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <h5 class="card-title m-b-0" style="vertical-align:45px">커뮤니티 게시글 조회</h5>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;
                         <div class="btn-group bb1" style="margin: 0px 0px 150px 0px;">
                             <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">조회방법 선택</button>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="#">전체조회</a>
                                 <a class="dropdown-item" href="#">등록일 순 조회</a>
+                                <a class="dropdown-item" href="#">조회수 많은순으로 조회</a>
+                                <a class="dropdown-item" href="#">좋아요 많은순으로 조회</a>
                             </div>
                         </div>
-                        <button class="btn btn-dark bb2" style="float:right" id="btnn">이용약관 등록</button>
+                        <button class="btn btn-dark" style="float:right" id="btnn" data-toggle="modal" data-target="#Modal2">게시물 삭제</button>
+                        <div class="modal fade" id="Modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel" style="font-weight: bolder; color: black;">게시물 삭제</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body" style="text-align: center; font-size: larger; font-weight: bold;" >
+                                                해당 게시물을 삭제하시겠습니까?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-danger">네</button>
+                                                <button type="button" class="btn btn-info" data-dismiss="modal">아니오</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                     </div>
                         <div class="table-responsive">
                             <table class="table">
@@ -246,162 +245,172 @@
                                     <tr>
                                         <th width="1">
                                             <label class="customcheckbox m-b-20">
+                                                <input type="checkbox" id="mainCheckbox"/>
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
                                         <th scope="col">No.</th>
-                                        <th scope="col">상태</th>
-                                        <th scope="col">이용약관명</th>
-                                        <th scope="col">게시등록일</th>
-                                        <th scope="col">수정일자</th>
+                                        <th scope="col">제목</th>
                                         <th scope="col">작성자</th>
-                                        <th scope="col">비고</th>
+                                        <th scope="col">작성일</th>
+                                        <th scope="col">조회수</th>
+                                        <th scope="col">좋아요수</th>
+                                        <th scope="col">신고유무</th>
                                     </tr>
                                 </thead>
                                 <tbody class="custom">
                                     <tr>
                                         <th>
                                             <label class="customcheckbox">
+                                                <input type="checkbox" class="listCheckbox" />
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
                                         <td>19</td>
-                                        <td>사용중</td>
-                                        <td>회원이용약관(1)</td>
+                                        <td>이거 잡지이름이 뭔가여</td>
+                                        <td>donggle</td>
                                         <td>2022.07.26</td>
-                                        <td>2022.07.26</td>
-                                        <td>admin01</td>
-                                        <td></td>
+                                        <td>232</td>
+                                        <td>3</td>
+                                        <td>N</td>
                                     </tr>
                                     <tr>
                                         <th>
                                             <label class="customcheckbox">
+                                                <input type="checkbox" class="listCheckbox" />
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
                                         <td>18</td>
-                                        <td>사용중</td>
-                                        <td>회원이용약관(2)</td>
+                                        <td>안녕하세용</td>
+                                        <td>donggle</td>
                                         <td>2022.07.26</td>
-                                        <td>2022.07.26</td>
-                                        <td>admin01</td>
-                                        <td></td>
+                                        <td>232</td>
+                                        <td>3</td>
+                                        <td>N</td>
                                     </tr>
                                     <tr>
                                         <th>
                                             <label class="customcheckbox">
+                                                <input type="checkbox" class="listCheckbox" />
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
                                         <td>17</td>
-                                        <td>보류</td>
-                                        <td>회원이용약관(3)</td>
+                                        <td>잡지추천좀해주세여</td>
+                                        <td>donggle</td>
                                         <td>2022.07.26</td>
-                                        <td>2022.07.26</td>
-                                        <td>admin01</td>
-                                        <td>저작권에대한 논의 필요</td>
+                                        <td>232</td>
+                                        <td>3</td>
+                                        <td>N</td>
                                     </tr>
                                     <tr>
                                         <th>
                                             <label class="customcheckbox">
+                                                <input type="checkbox" class="listCheckbox" />
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
                                         <td>16</td>
-                                        <td>보류</td>
-                                        <td>회원이용약관(4)</td>
+                                        <td>게시물</td>
+                                        <td>donggle</td>
                                         <td>2022.07.26</td>
-                                        <td>2022.07.26</td>
-                                        <td>admin01</td>
-                                        <td></td>
+                                        <td>232</td>
+                                        <td>3</td>
+                                        <td>N</td>
                                     </tr>
                                     <tr>
                                         <th>
                                             <label class="customcheckbox">
+                                                <input type="checkbox" class="listCheckbox" />
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
                                         <td>15</td>
-                                        <td>회의중</td>
-                                        <td>회원이용약관(5)</td>
+                                        <td>게시물</td>
+                                        <td>donggle</td>
                                         <td>2022.07.26</td>
-                                        <td>2022.07.26</td>
-                                        <td>admin01</td>
-                                        <td>아직 논의중</td>
+                                        <td>232</td>
+                                        <td>3</td>
+                                        <td>N</td>
                                     </tr>
                                     <tr>
                                         <th>
                                             <label class="customcheckbox">
+                                                <input type="checkbox" class="listCheckbox" />
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
                                         <td>14</td>
-                                        <td>회의중</td>
-                                        <td>회원이용약관(6)</td>
+                                        <td>게시물</td>
+                                        <td>donggle</td>
                                         <td>2022.07.26</td>
-                                        <td>2022.07.26</td>
-                                        <td>admin01</td>
-                                        <td></td>
+                                        <td>232</td>
+                                        <td>3</td>
+                                        <td>N</td>
                                     </tr>
                                     <tr>
                                         <th>
                                             <label class="customcheckbox">
+                                                <input type="checkbox" class="listCheckbox" />
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
                                         <td>13</td>
-                                        <td>회의중</td>
-                                        <td>회원이용약관(7)</td>
+                                        <td>게시물</td>
+                                        <td>donggle</td>
                                         <td>2022.07.26</td>
-                                        <td>2022.07.26</td>
-                                        <td>admin01</td>
-                                        <td></td>
+                                        <td>232</td>
+                                        <td>3</td>
+                                        <td>N</td>
                                     </tr>
                                     <tr>
                                         <th>
                                             <label class="customcheckbox">
+                                                <input type="checkbox" class="listCheckbox" />
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
                                         <td>12</td>
-                                        <td>보류</td>
-                                        <td>회원이용약관(8)</td>
+                                        <td>게시물</td>
+                                        <td>donggle</td>
                                         <td>2022.07.26</td>
-                                        <td>2022.07.26</td>
-                                        <td>admin01</td>
-                                        <td></td>
+                                        <td>232</td>
+                                        <td>3</td>
+                                        <td>N</td>
                                     </tr>
                                     <tr>
                                         <th>
                                             <label class="customcheckbox">
+                                                <input type="checkbox" class="listCheckbox" />
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
                                         <td>11</td>
-                                        <td>보류</td>
-                                        <td>회원이용약관(9)</td>
+                                        <td>게시물</td>
+                                        <td>donggle</td>
                                         <td>2022.07.26</td>
-                                        <td>2022.07.26</td>
-                                        <td>admin01</td>
-                                        <td></td>
+                                        <td>232</td>
+                                        <td>3</td>
+                                        <td>N</td>
                                     </tr>
                                     <tr>
                                         <th>
                                             <label class="customcheckbox">
+                                                <input type="checkbox" class="listCheckbox" />
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
                                         <td>10</td>
-                                        <td>user01</td>
-                                        <td>회원이용약관(10)</td>
+                                        <td>게시물</td>
+                                        <td>donggle</td>
                                         <td>2022.07.26</td>
-                                        <td>2022.07.26</td>
-                                        <td>admin01</td>
-                                        <td></td>
+                                        <td>232</td>
+                                        <td>3</td>
+                                        <td>N</td>
                                     </tr>
                                     <tr align="center">
                                         <th colspan="10">
-                                            <br>
                                             <div class="btn-group" role="group" aria-label="Basic example">
                                                 <button type="button" class="btn btn-outline-secondary"><</button>
                                                 <button type="button" class="btn btn-outline-secondary">1</button>
@@ -440,7 +449,7 @@
         <!-- End Page wrapper  -->
         <!-- ============================================================== -->
     </div>
-	
+	<!-- 스크립트 시작 -->
 	<script src="<%= request.getContextPath() %>/resources/css/eunjee/assets/libs/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="<%= request.getContextPath() %>/resources/css/eunjee/assets/libs/popper.js/dist/umd/popper.min.js"></script>
@@ -464,6 +473,16 @@
     <script src="<%= request.getContextPath() %>/resources/css/eunjee/assets/libs/flot/jquery.flot.crosshair.js"></script>
     <script src="<%= request.getContextPath() %>/resources/css/eunjee/assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
     <script src="<%= request.getContextPath() %>/resources/css/eunjee/dist/js/pages/chart/chart-page-init.js"></script>
-</body>
+    
+    <!-- 체크박스 전체 선택 -->
+    <script src="<%= request.getContextPath() %>/resources/css/eunjee/assets/extra-libs/multicheck/datatable-checkbox-init.js"></script>
+    <script src="<%= request.getContextPath() %>/resources/css/eunjee/assets/extra-libs/multicheck/jquery.multicheck.js"></script>
+    <script src="<%= request.getContextPath() %>/resources/css/eunjee/assets/extra-libs/DataTables/datatables.min.js"></script>
+    <script>
+        /****************************************
+         *       Basic Table                   *
+         ****************************************/
+        $('#zero_config').DataTable();
+    </script>
 </body>
 </html>
