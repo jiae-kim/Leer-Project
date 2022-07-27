@@ -157,7 +157,7 @@
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">상품및결제관리</span></a>
                             <ul aria-expanded="false" class="collapse  first-level">
                                 <li class="sidebar-item"><a href="error-403.html" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 입출고관리 </span></a></li>
-                                <li class="sidebar-item"><a href="error-404.html" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 결제내역조회 </span></a></li>
+                                <li class="sidebar-item"><a href="<%= request.getContextPath() %>/views/admin_main/adminPaymentView.jsp" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 결제내역조회 </span></a></li>
                                 <li class="sidebar-item"><a href="error-405.html" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 환불관리 </span></a></li>
                                 <li class="sidebar-item"><a href="error-405.html" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 배송관리 </span></a></li>
                             </ul>
