@@ -131,68 +131,9 @@
     <section class="product spad">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-5" >
-                    <div class="sidebar">
-                        <div class="sidebar">
-                            <div class="sidebar__item" class="sidebar" style="background-color: #f5f5f5; padding:30px;">
-                                <h4 style="font-family:'NanumSquare'; font-weight:800; margin-bottom: 15px; font-size:20px;">나의 주문 관리</h4>
-                                <ul>
-                                    <li><a href="./mypage_order&dev.html">주문 및 배송 조회</a></li>
-                                    <li><a href="./mypage_ordercancle.html">주문취소 / 환불</a></li>
-                                </ul>
-    
-                                <hr>
-    
-                                <h4 style="font-family:'NanumSquare'; font-weight:800; margin-bottom: 15px; font-size:20px;">장바구니</h4>
-                                <ul>
-                                    <li><a href="#">장바구니</a></li>
-                                    <li><a href="#">찜목록</a></li>
-                                </ul>
-    
-                                <hr>
-    
-                                <h4 style="font-family:'NanumSquare'; font-weight:800; margin-bottom: 15px; font-size:20px;">커뮤니티 활동</h4>
-                                <ul>
-                                    <li><a href="#">내가 쓴 게시글</a></li>
-                                    <li><a href="#">내가 좋아요 한 글</a></li>
-                                </ul>
-    
-                                <hr>
-    
-                                <h4 style="font-family:'NanumSquare'; font-weight:800; margin-bottom: 15px; font-size:20px;">나의 혜택 관리</h4>
-                                <ul>
-                                    <li><a href="./mypage_point.html">적립포인트</a></li>
-                                </ul>
-    
-                                <hr>
-    
-                                <h4 style="font-family:'NanumSquare'; font-weight:800; margin-bottom: 15px; font-size:20px;">회원 정보</h4>
-                                <ul>
-                                    <li><a href="#">배송지관리</a></li>
-                                    <li><a href="#">회원 정보 수정</a></li>
-                                    <li><a href="#">회원 탈퇴 신청</a></li>
-                                </ul>
-    
-                                <hr>
-    
-                                <h4 style="font-family:'NanumSquare'; font-weight:800; margin-bottom: 15px; font-size:20px;">상품 리뷰</h4>
-                                <ul>
-                                    <li><a href="./mypage_myReview.html">작성 가능한 리뷰</a></li>
-                                    <li><a href="./mypage_myReviewHistory.html">작성한 리뷰</a></li>
-                                </ul>
-    
-                                <hr>
-    
-                                <h4 style="font-family:'NanumSquare'; font-weight:800; margin-bottom: 15px; font-size:20px;">상품문의</h4>
-                                <ul>
-                                    <li><a href="#">상품문의</a></li>
-                                </ul>
-                        
-                            </div>    
-                        </div>
-                    </div>
+            
+            	<%@ include file="../common/myPageSidebar.jsp" %>
                 
-                </div>
                 <div class="col-lg-9 col-md-7" style="padding-left:120px; flex-grow:1;">
                     
                     <div class="filter__item">
