@@ -11,12 +11,12 @@
 	<%@ include file="../common/menubar.jsp" %>
 
     <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section set-bg" data-setbg="<%=contextPath %>/resources/images/productCategory/lifestyle.jpg">
+    <section class="breadcrumb-section set-bg" style="background-image:url(<%=contextPath%>/resources/images/productCategory/lifestyle.jpg)">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="breadcrumb__text">
-                        <h2>카테고리</h2>
+                <div class="col-lg-12" style="text-align=left;">
+                    <div class="breadcrumb__text" >
+                        <h2 style="font-size:35px">카테고리</h2>
                         <div class="breadcrumb__option">
                             
                             <span>라이프/인테리어</span>
