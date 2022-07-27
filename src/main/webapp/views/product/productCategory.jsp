@@ -19,7 +19,7 @@
                         <h2 style="font-size:35px">카테고리</h2>
                         <div class="breadcrumb__option">
                             
-                            <span>라이프/인테리어</span>
+                            <span>패션/여성</span>
                         </div>
                     </div>
                 </div>
@@ -37,7 +37,7 @@
                         <div class="sidebar__item">
                             <h4>카테고리</h4>
                             <ul>
-                                <li><a href="#">패션/여성</a></li>
+                                <li><a href="<%=contextPath%>/views/product/productCategory.jsp">패션/여성</a></li>
                                 <li><a href="#">라이프/인테리어</a></li>
                                 <li><a href="#">시사/경제</a></li>
                                 <li><a href="#">교육/과학</a></li>
@@ -274,6 +274,8 @@
         </div>
     </section>
     <!-- Product Section End -->
+    
+    <%@ include file="../common/footer.jsp" %>
 	
 </body>
 </html>

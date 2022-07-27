@@ -46,7 +46,7 @@
                     <nav class="header__menu">
                         <ul>
                             <!--  <li><a href="./index.html"><b>홈</b></a></li>-->
-                            <li class="active"><a href="<%=contextPath %>/views/product/productCategory.jsp"><b>카테고리</b></a></li>
+                            <li class="active"><a href="<%=contextPath %>/list.pd"><b>카테고리</b></a></li>
                             <li><a href="#"><b>커뮤니티</b></a>
                                 <ul class="header__menu__dropdown">
                                     <li><a href="./shop-details.html">Shop Details</a></li>
