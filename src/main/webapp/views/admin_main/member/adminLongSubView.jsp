@@ -16,7 +16,7 @@
 </head>
 <body>
 
-	<%@ include file="../common/adminMenubar.jsp" %>
+	<%@ include file="../../common/adminMenubar.jsp" %>
 	
             <!-- ============================================================== -->
              <div class="page-breadcrumb">
