@@ -3,9 +3,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>상품 전체조회 페이지</title>
-	<meta charset="UTF-8">
-    <meta charset="utf-8">
+    <title>결제내역 전체조회 페이지</title>
+	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,16 +12,13 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="<%= request.getContextPath() %>/resources/css/jiae/assets/images/favicon.png">
-    <title>Matrix Template - The Ultimate Multipurpose admin template</title>
     <!-- Custom CSS -->
     <link href="<%= request.getContextPath() %>/resources/css/jiae/assets/libs/flot/css/float-chart.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="<%= request.getContextPath() %>/resources/css/jiae/style.min.css" rel="stylesheet">
+    <link href="<%= request.getContextPath() %>/resources/css/jiae/dist/css/style.min.css" rel="stylesheet">
+</head>
 <body>
-	<!-- ============================================================== -->
-    <!-- Preloader - style you can find in spinners.css -->
-    <!-- ============================================================== -->
-    <div class="preloader">
+	<div class="preloader">
         <div class="lds-ripple">
             <div class="lds-pos"></div>
             <div class="lds-pos"></div>
@@ -43,7 +39,7 @@
                     <!-- ============================================================== -->
                     <!-- Logo -->
                     <!-- ============================================================== -->
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="<%=request.getContextPath()%>/views/admin_main/adminMainPage.jsp">
                         <!-- Logo icon -->
                         <b class="logo-icon p-l-10">
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
@@ -55,7 +51,7 @@
                         <span class="logo-text">
                             <!-- dark Logo text -->
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <img src="<%= request.getContextPath() %>/resources/css/jiae/image/KakaoTalk_20220727_090856741.png" alt="" width="130px">        
+                            <img src="<%= request.getContextPath() %>/resources/css/jiae/image/KakaoTalk_20220727_090856741.png" alt="" width="130px">
                         </span>
                         <!-- ============================================================== -->
                         <!-- Logo icon -->
@@ -69,6 +65,7 @@
                     </a>
                     <!-- ============================================================== -->
                     <!-- End Logo -->
+                    <!-- ============================================================== -->
                     <!-- ============================================================== -->
                     <!-- Toggle which is visible on mobile only -->
                     <!-- ============================================================== -->
@@ -109,6 +106,7 @@
         </header>
         <!-- ============================================================== -->
         <!-- End Topbar header -->
+        <!-- ============================================================== -->
         <!-- ============================================================== -->
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
@@ -176,6 +174,7 @@
         <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
+        <!-- ============================================================== -->
         <!-- Page wrapper  -->
         <!-- ============================================================== -->
         <div class="page-wrapper">
@@ -186,45 +185,17 @@
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
                         <br><br><br>
-                        <h2 class="page-title">상품 전체 조회</h2>
+                        <h2 class="page-title">결제내역 전체조회</h2>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <input class="form-control mr-sm-2" type="text" placeholder="Search">
                         <button class="btn btn-success" type="submit">조회</button>
-                        <div class="ml-auto text-right">
-                            <nav aria-label="breadcrumb">
-                            </nav>
-                            <button type="button" class="btn btn-info btn-lg">등록</button> &nbsp;&nbsp;&nbsp;
-                            <button type="button" class="btn btn-warning btn-lg">수정</button> &nbsp;&nbsp;&nbsp;
-                            <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#Modal2">
-                                삭제
-                            </button>
-                                <!-- Modal -->
-                                <div class="modal fade" id="Modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel" style="font-weight: bolder; color: black;">공지사항 삭제</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body" style="text-align: center; font-size: larger; font-weight: bold;" >
-                                                해당 상품을 삭제하시겠습니까?
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-danger">네</button>
-                                                <button type="button" class="btn btn-info" data-dismiss="modal">아니오</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                        </div>
                     </div>
                 </div>
             </div>
+            
             <!-- ============================================================== -->
             <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
             <!-- ============================================================== -->
             <!-- Container fluid  -->
             <!-- ============================================================== -->
@@ -234,26 +205,17 @@
                 <div class="btn-group">
                     <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">조회방법 선택</button>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">전체조회</a>
-                        <a class="dropdown-item" href="#">등록일 순 조회</a>
-                        <a class="dropdown-item" href="#">재고 순 조회</a>
+                        <a class="dropdown-item" href="#">상품코드</a>
+                        <a class="dropdown-item" href="#">입금상태</a>
+                        <a class="dropdown-item" href="#">배송상태</a>
                     </div>
                 </div>
                 <!-- ============================================================== -->
-                <!-- 카테고리 조회 -->
-                <div class="btn-group">
-                    <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">카테고리별 조회</button>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">패션/여성</a>
-                        <a class="dropdown-item" href="#">라이프/인테리어</a>
-                        <a class="dropdown-item" href="#">문화/예술</a>
-                        <a class="dropdown-item" href="#">여행/취미</a>
-                        <a class="dropdown-item" href="#">시사/경제</a>
-                        <a class="dropdown-item" href="#">교육/과학</a>
-                    </div>
-                </div>
+
                 <!-- ============================================================== -->
                 <!-- 목록 -->
+                <div class="card-body">
+                </div>
                 <div class="card">
                     <div class="card-body">
                         <!-- <h5 class="card-title m-b-0">상품전체조회</h5> -->
@@ -269,13 +231,13 @@
                                             </label>
                                         </th>
                                         <th scope="col">등록 순번</th>
+                                        <th scope="col">구매자 아이디</th>
+                                        <th scope="col">상품코드</th>
                                         <th scope="col">상품명</th>
-                                        <th scope="col">출간일</th>
-                                        <th scope="col">발행처</th>
-                                        <th scope="col">카테고리</th>
-                                        <th scope="col">판매가</th>
-                                        <th scope="col">등록일</th>
-                                        <th scope="col">재고</th>
+                                        <th scope="col">결제금액</th>
+                                        <th scope="col">결제일시</th>
+                                        <th scope="col">입금상태</th>
+                                        <th scope="col">배송상태</th>
                                     </tr>
                                 </thead>
                                 <tbody class="customtable">
@@ -287,13 +249,13 @@
                                             </label>
                                         </th>
                                         <td>56</td>
-                                        <td>보그</td>
-                                        <td>22-08</td>
-                                        <td>두산매거진</td>
-                                        <td>01</td>
+                                        <td>user56</td>
+                                        <td>FW-34</td>
+                                        <td>나일론</td>
                                         <td>9,800</td>
-                                        <td>22-07</td>
-                                        <td>100</td>
+                                        <td>2022-07-26</td>
+                                        <td style="color: red;">미입금</td>
+                                        <td style="color: red;">배송준비중</td>
                                     </tr>
                                     <tr>
                                         <th>
@@ -303,13 +265,13 @@
                                             </label>
                                         </th>
                                         <td>56</td>
-                                        <td>보그</td>
-                                        <td>22-08</td>
-                                        <td>두산매거진</td>
-                                        <td>01</td>
+                                        <td>user56</td>
+                                        <td>FW-34</td>
+                                        <td>나일론</td>
                                         <td>9,800</td>
-                                        <td>22-07</td>
-                                        <td>100</td>
+                                        <td>2022-07-26</td>
+                                        <td style="color: blue;">입금완료</td>
+                                        <td style="color: blue;">배송완료</td>
                                     </tr>
                                     <tr>
                                         <th>
@@ -319,13 +281,13 @@
                                             </label>
                                         </th>
                                         <td>56</td>
-                                        <td>보그</td>
-                                        <td>22-08</td>
-                                        <td>두산매거진</td>
-                                        <td>01</td>
+                                        <td>user56</td>
+                                        <td>FW-34</td>
+                                        <td>나일론</td>
                                         <td>9,800</td>
-                                        <td>22-07</td>
-                                        <td>100</td>
+                                        <td>2022-07-26</td>
+                                        <td style="color: blue;">입금완료</td>
+                                        <td style="color: red;">배송준비중</td>
                                     </tr>
                                     <tr>
                                         <th>
@@ -335,13 +297,13 @@
                                             </label>
                                         </th>
                                         <td>56</td>
-                                        <td>보그</td>
-                                        <td>22-08</td>
-                                        <td>두산매거진</td>
-                                        <td>01</td>
+                                        <td>user56</td>
+                                        <td>FW-34</td>
+                                        <td>나일론</td>
                                         <td>9,800</td>
-                                        <td>22-07</td>
-                                        <td>100</td>
+                                        <td>2022-07-26</td>
+                                        <td style="color: blue;">입금완료</td>
+                                        <td style="color: red;">배송준비중</td>
                                     </tr>
                                     <tr>
                                         <th>
@@ -351,13 +313,13 @@
                                             </label>
                                         </th>
                                         <td>56</td>
-                                        <td>보그</td>
-                                        <td>22-08</td>
-                                        <td>두산매거진</td>
-                                        <td>01</td>
+                                        <td>user56</td>
+                                        <td>FW-34</td>
+                                        <td>나일론</td>
                                         <td>9,800</td>
-                                        <td>22-07</td>
-                                        <td>100</td>
+                                        <td>2022-07-26</td>
+                                        <td style="color: blue;">입금완료</td>
+                                        <td style="color: red;">배송준비중</td>
                                     </tr>
                                     <tr>
                                         <th>
@@ -367,13 +329,13 @@
                                             </label>
                                         </th>
                                         <td>56</td>
-                                        <td>보그</td>
-                                        <td>22-08</td>
-                                        <td>두산매거진</td>
-                                        <td>01</td>
+                                        <td>user56</td>
+                                        <td>FW-34</td>
+                                        <td>나일론</td>
                                         <td>9,800</td>
-                                        <td>22-07</td>
-                                        <td>100</td>
+                                        <td>2022-07-26</td>
+                                        <td style="color: blue;">입금완료</td>
+                                        <td style="color: red;">배송준비중</td>
                                     </tr>
                                     <tr>
                                         <th>
@@ -383,13 +345,13 @@
                                             </label>
                                         </th>
                                         <td>56</td>
-                                        <td>보그</td>
-                                        <td>22-08</td>
-                                        <td>두산매거진</td>
-                                        <td>01</td>
+                                        <td>user56</td>
+                                        <td>FW-34</td>
+                                        <td>나일론</td>
                                         <td>9,800</td>
-                                        <td>22-07</td>
-                                        <td>100</td>
+                                        <td>2022-07-26</td>
+                                        <td style="color: blue;">입금완료</td>
+                                        <td style="color: red;">배송준비중</td>
                                     </tr>
                                     <tr>
                                         <th>
@@ -399,13 +361,13 @@
                                             </label>
                                         </th>
                                         <td>56</td>
-                                        <td>보그</td>
-                                        <td>22-08</td>
-                                        <td>두산매거진</td>
-                                        <td>01</td>
+                                        <td>user56</td>
+                                        <td>FW-34</td>
+                                        <td>나일론</td>
                                         <td>9,800</td>
-                                        <td>22-07</td>
-                                        <td>100</td>
+                                        <td>2022-07-26</td>
+                                        <td style="color: blue;">입금완료</td>
+                                        <td style="color: red;">배송준비중</td>
                                     </tr>
                                     <tr>
                                         <th>
@@ -415,13 +377,13 @@
                                             </label>
                                         </th>
                                         <td>56</td>
-                                        <td>보그</td>
-                                        <td>22-08</td>
-                                        <td>두산매거진</td>
-                                        <td>01</td>
+                                        <td>user56</td>
+                                        <td>FW-34</td>
+                                        <td>나일론</td>
                                         <td>9,800</td>
-                                        <td>22-07</td>
-                                        <td>100</td>
+                                        <td>2022-07-26</td>
+                                        <td style="color: blue;">입금완료</td>
+                                        <td style="color: red;">배송준비중</td>
                                     </tr>
                                     <tr>
                                         <th>
@@ -431,13 +393,13 @@
                                             </label>
                                         </th>
                                         <td>56</td>
-                                        <td>보그</td>
-                                        <td>22-08</td>
-                                        <td>두산매거진</td>
-                                        <td>01</td>
+                                        <td>user56</td>
+                                        <td>FW-34</td>
+                                        <td>나일론</td>
                                         <td>9,800</td>
-                                        <td>22-07</td>
-                                        <td>100</td>
+                                        <td>2022-07-26</td>
+                                        <td style="color: blue;">입금완료</td>
+                                        <td style="color: red;">배송준비중</td>
                                     </tr>
                                     
                                     <!-- 페이징처리 바 -->
@@ -466,6 +428,7 @@
             </div>
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
+            <!-- ============================================================== -->
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
@@ -505,8 +468,9 @@
     <script src="<%= request.getContextPath() %>/resources/css/jiae/assets/libs/flot/jquery.flot.crosshair.js"></script>
     <script src="<%= request.getContextPath() %>/resources/css/jiae/assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
     <script src="<%= request.getContextPath() %>/resources/css/jiae/dist/js/pages/chart/chart-page-init.js"></script>
-    <!-- 체크박스 전체 선택 -->
+    <!-- 체크박스 전체선택 -->
     <script src="<%= request.getContextPath() %>/resources/css/jiae/assets/extra-libs/multicheck/datatable-checkbox-init.js"></script>
     <script src="<%= request.getContextPath() %>/resources/css/jiae/assets/extra-libs/multicheck/jquery.multicheck.js"></script>
+	
 </body>
 </html>
