@@ -64,6 +64,17 @@ public class Member {
 		this.point = point;
 		this.enrollDate = enrollDate;
 	}
+	
+	public Member(int memNo, String memId, String memName, String phone, String address, int point, Date enrollDate) {
+		super();
+		this.memNo = memNo;
+		this.memId = memId;
+		this.memName = memName;
+		this.phone = phone;
+		this.address = address;
+		this.point = point;
+		this.enrollDate = enrollDate;
+	}
 
 	public int getMemNo() {
 		return memNo;

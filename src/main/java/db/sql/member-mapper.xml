@@ -18,6 +18,15 @@
     		BY MEM_NO DESC
 	</entry>
 	<entry key="memberDatailList">
-	
+		SELECT
+		       MEM_NO
+		     , MEM_ID
+		     , MEM_NAME
+		     , ADDRESS
+		     , PHONE
+		     , ENROLL_DATE
+		     , POINT
+		  FROM MEMBER
+		 WHERE MEM_NO = ?
 	</entry>
 </properties>

@@ -243,7 +243,6 @@
                                     </tr>
                                     <tr align="center">
                                         <th colspan="10">
-                                            <br>
                                             <div class="btn-group" role="group" aria-label="Basic example">
                                                 <button type="button" class="btn btn-outline-secondary"><</button>
                                                 <button type="button" class="btn btn-outline-secondary">1</button>

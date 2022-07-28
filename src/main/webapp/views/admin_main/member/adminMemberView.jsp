@@ -87,7 +87,7 @@
                                 </thead>
                                 <tbody class="custom">
                                 	<% for(Member m : list) { %>
-	                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/member/adminMemberDetail.jsp'">
+	                                    <tr onclick="location.href='<%=request.getContextPath()%>/adMemDetail.do?no=<%=m.getMemNo()%>">
 	                                        <th>
 	                                            <label class="customcheckbox">
 	                                                <span class="checkmark"></span>
@@ -139,5 +139,20 @@
             <footer class="footer text-center">
                 
             </footer>
+            
+            <!-- 스크립트 시작 -->
+            <script>
+            	$(function(){
+            		$(".table>tbody>tr").click(function(){
+            			const num = $(this).children().eq(0).text();
+            			location.href = '<%=request.getContextPath()%>/adMemDetail.do' + num;
+            		})
+            	})
+            </script>
 </body>
 </html>
+
+
+
+
+

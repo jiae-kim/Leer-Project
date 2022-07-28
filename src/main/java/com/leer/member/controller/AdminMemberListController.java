@@ -26,12 +26,11 @@ public class AdminMemberListController extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	/*
+	 *  회원조회기능
+	 *	작성자 김은지
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 회원조회기능
-		// 생성자 김은지
 		ArrayList<Member> list = new MemberService().selectMemberList();
 		request.setAttribute("list", list);
 		

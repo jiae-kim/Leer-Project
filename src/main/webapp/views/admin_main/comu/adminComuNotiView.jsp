@@ -5,14 +5,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
 </head>
 <style>
+.custom>tr:hover {
+    cursor: pointer;
+    opacity: 0.7;
+    background:#cecece;
+    color:dark;
+}
 </style>
 <body>
 
@@ -77,7 +77,7 @@
                                     </tr>
                                 </thead>
                                 <tbody class="custom">
-                                    <tr>
+                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/member/adminMemberDetail.jsp'">
                                         <th>
                                             <label class="customcheckbox">
                                                 <span class="checkmark"></span>
@@ -89,7 +89,7 @@
                                         <td>2022.07.26</td>
                                         <td>2022.07.26</td>
                                     </tr>
-                                    <tr>
+                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/member/adminMemberDetail.jsp'">
                                         <th>
                                             <label class="customcheckbox">
                                                 <span class="checkmark"></span>
@@ -113,7 +113,7 @@
                                         <td>2022.07.26</td>
                                         <td>2022.07.26</td>
                                     </tr>
-                                    <tr>
+                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/member/adminMemberDetail.jsp'">
                                         <th>
                                             <label class="customcheckbox">
                                                 <span class="checkmark"></span>
@@ -125,7 +125,7 @@
                                         <td>2022.07.26</td>
                                         <td>2022.07.26</td>
                                     </tr>
-                                    <tr>
+                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/member/adminMemberDetail.jsp'">
                                         <th>
                                             <label class="customcheckbox">
                                                 <span class="checkmark"></span>
@@ -137,7 +137,7 @@
                                         <td>2022.07.26</td>
                                         <td>2022.07.26</td>
                                     </tr>
-                                    <tr>
+                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/member/adminMemberDetail.jsp'">
                                         <th>
                                             <label class="customcheckbox">
                                                 <span class="checkmark"></span>
@@ -149,7 +149,7 @@
                                         <td>2022.07.26</td>
                                         <td>2022.07.26</td>
                                     </tr>
-                                    <tr>
+                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/member/adminMemberDetail.jsp'">
                                         <th>
                                             <label class="customcheckbox">
                                                 <span class="checkmark"></span>
@@ -161,7 +161,7 @@
                                         <td>2022.07.26</td>
                                         <td>2022.07.26</td>
                                     </tr>
-                                    <tr>
+                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/member/adminMemberDetail.jsp'">
                                         <th>
                                             <label class="customcheckbox">
                                                 <span class="checkmark"></span>
@@ -173,7 +173,7 @@
                                         <td>2022.07.26</td>
                                         <td>2022.07.26</td>
                                     </tr>
-                                    <tr>
+                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/member/adminMemberDetail.jsp'">
                                         <th>
                                             <label class="customcheckbox">
                                                 <span class="checkmark"></span>
@@ -185,7 +185,7 @@
                                         <td>2022.07.26</td>
                                         <td>2022.07.26</td>
                                     </tr>
-                                    <tr>
+                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/member/adminMemberDetail.jsp'">
                                         <th>
                                             <label class="customcheckbox">
                                                 <span class="checkmark"></span>
@@ -196,7 +196,9 @@
                                         <td>admin01</td>
                                         <td>2022.07.26</td>
                                         <td>2022.07.26</td>
-                                    </tr>
+                                    </tbody>
+                                	<tfoot>
+                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/member/adminMemberDetail.jsp'">
                                     <tr align="center">
                                         <th colspan="10">
                                             <br>
@@ -216,7 +218,7 @@
                                               </div>
                                         </th>
                                     </tr>
-                                </tbody>
+                                </tfoot>
                             </table>
                         </div>
                 </div>
