@@ -295,7 +295,7 @@
         <h2 class="product_title">
             <span style="font-size:28px; font-weight: 800;"><%=p.getpName() %></span>
             <br>
-            <p class="title_sub_text" style="margin:0px; font-family: 'NanumSquare';"><%=p.getPublishMonth() %>월호</p>
+            <p class="title_sub_text" style="margin:0px; font-family: 'NanumSquare';">2022년 <%=p.getMonth() %>월호</p>
         </h2>
         <div class="container">
             <div class="row">
@@ -456,7 +456,6 @@
                                     <div class="etc_content_box" >
                                         <ul class="product_review_list" id="review_list"></ul>
                                         <table class="table">
-                                        <%for(Inquiry i : list) {%>
                                             <tr>
                                                 <th>번호</th>
                                                 <th>처리상태</th>
@@ -464,6 +463,8 @@
                                                 <th>작성자</th>
                                                 <th>작성일</th>
                                             </tr>
+                                            
+                                        <%for(Inquiry i : list) {%>
                                             <tr>
                                                 <td>1</td>
                                                 <% if(i.getqYn().equals("N")) {%>

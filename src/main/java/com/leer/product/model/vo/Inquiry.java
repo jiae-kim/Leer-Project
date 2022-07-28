@@ -34,12 +34,12 @@ public class Inquiry {
 		this.qAnswer = qAnswer;
 	}
 
-	public Inquiry(int qNo, String qYn, String title, String content, Date enrollDate) {
+	public Inquiry(int qNo, String qYn, String title, String memName, Date enrollDate) {
 		super();
 		this.qNo = qNo;
 		this.qYn = qYn;
 		this.title = title;
-		this.content = content;
+		this.memName = memName;
 		this.enrollDate = enrollDate;
 	}
 
@@ -137,6 +137,8 @@ public class Inquiry {
 				+ ", title=" + title + ", content=" + content + ", qCategory=" + qCategory + ", enrollDate="
 				+ enrollDate + ", modifyDate=" + modifyDate + ", qAnswer=" + qAnswer + "]";
 	}
+
+	
 
 
 	
