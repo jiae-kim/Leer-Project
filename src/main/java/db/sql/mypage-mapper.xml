@@ -3,6 +3,33 @@
 <properties>
 	
 	<entry key="">
+		1-1. 주문 및 배송 조회 주문번호
+		SELECT
+			OR_NO
+		FROM MEMBER M
+		JOIN ORDER USING(MEM_NO)
+		WHERE M.MEM_NO = ?
+
+	</entry>
+	
+	
+	<entry key="">
+		1-2. 주문 및 배송 조회 주문 상품 상세내용
+		SELECT
+			 IMAGE_URL
+			,P_NAME
+			,PRICE
+			,OR_DATE
+		FROM MEMBER M
+		JOIN ORDER USING(MEM_NO)
+		JOIN OR_PRODUCT USING(OR_NO)
+		JOIN PRODUCT USING(P_CODE)
+		WHERE MEM_NO = ?
+		WHERE OR_NO = ?		
+	</entry>
+	
+	
+	<entry key="">
 		2. 주문 취소/ 환불
 		SELECT
 			 P_NAME
