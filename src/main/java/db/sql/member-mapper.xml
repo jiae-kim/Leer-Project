@@ -14,5 +14,10 @@
 		     , POINT
 		  FROM MEMBER
 		 WHERE ADMIN = 'N'
+		 ORDER
+    		BY MEM_NO DESC
+	</entry>
+	<entry key="memberDatailList">
+	
 	</entry>
 </properties>

@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.ArrayList, com.leer.member.model.vo.Member, com.leer.common.model.vo.PageInfo"%>
+<% 
+	PageInfo pi = (PageInfo)request.getAttribute("pi");
+	ArrayList<Member> list = (ArrayList<Member>)request.getAttribute("list");
+%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,7 +61,6 @@
                             </button>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="#">전체조회</a>
-                                <a class="dropdown-item" href="#">등록일 순 조회</a>
                                 <a class="dropdown-item" href="#">가나다 순 조회</a>
                             </div>
                         </div>
@@ -82,166 +86,24 @@
                                     </tr>
                                 </thead>
                                 <tbody class="custom">
-                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/member/adminMemberDetail.jsp'">
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>19</td>
-                                        <td>user01</td>
-                                        <td>김두두</td>
-                                        <td>sdf@naver.com</td>
-                                        <td>010-2222-3333</td>
-                                        <td>서울</td>
-                                        <td>동글이</td>
-                                        <td>2022.07.26</td>
-                                        <td>300</td>
-                                    </tr>
-                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/member/adminMemberDetail.jsp'">
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>18</td>
-                                        <td>user01</td>
-                                        <td>김두두</td>
-                                        <td>sdf@naver.com</td>
-                                        <td>010-2222-3333</td>
-                                        <td>서울</td>
-                                        <td>동글이</td>
-                                        <td>2022.07.26</td>
-                                        <td>300</td>
-                                    </tr>
-                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/member/adminMemberDetail.jsp'">
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>17</td>
-                                        <td>user01</td>
-                                        <td>김두두</td>
-                                        <td>sdf@naver.com</td>
-                                        <td>010-2222-3333</td>
-                                        <td>서울</td>
-                                        <td>동글이</td>
-                                        <td>2022.07.26</td>
-                                        <td>300</td>
-                                    </tr>
-                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/member/adminMemberDetail.jsp'">
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>16</td>
-                                        <td>user01</td>
-                                        <td>김두두</td>
-                                        <td>sdf@naver.com</td>
-                                        <td>010-2222-3333</td>
-                                        <td>서울</td>
-                                        <td>동글이</td>
-                                        <td>2022.07.26</td>
-                                        <td>300</td>
-                                    </tr>
-                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/member/adminMemberDetail.jsp'">
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>15</td>
-                                        <td>user01</td>
-                                        <td>김두두</td>
-                                        <td>sdf@naver.com</td>
-                                        <td>010-2222-3333</td>
-                                        <td>서울</td>
-                                        <td>동글이</td>
-                                        <td>2022.07.26</td>
-                                        <td>300</td>
-                                    </tr>
-                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/member/adminMemberDetail.jsp'">
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>14</td>
-                                        <td>user01</td>
-                                        <td>김두두</td>
-                                        <td>sdf@naver.com</td>
-                                        <td>010-2222-3333</td>
-                                        <td>서울</td>
-                                        <td>동글이</td>
-                                        <td>2022.07.26</td>
-                                        <td>300</td>
-                                    </tr>
-                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/member/adminMemberDetail.jsp'">
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>13</td>
-                                        <td>user01</td>
-                                        <td>김두두</td>
-                                        <td>sdf@naver.com</td>
-                                        <td>010-2222-3333</td>
-                                        <td>서울</td>
-                                        <td>동글이</td>
-                                        <td>2022.07.26</td>
-                                        <td>300</td>
-                                    </tr>
-                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/member/adminMemberDetail.jsp'">
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>12</td>
-                                        <td>user01</td>
-                                        <td>김두두</td>
-                                        <td>sdf@naver.com</td>
-                                        <td>010-2222-3333</td>
-                                        <td>서울</td>
-                                        <td>동글이</td>
-                                        <td>2022.07.26</td>
-                                        <td>300</td>
-                                    </tr>
-                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/member/adminMemberDetail.jsp'">
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>11</td>
-                                        <td>user01</td>
-                                        <td>김두두</td>
-                                        <td>sdf@naver.com</td>
-                                        <td>010-2222-3333</td>
-                                        <td>서울</td>
-                                        <td>동글이</td>
-                                        <td>2022.07.26</td>
-                                        <td>300</td>
-                                    </tr>
-                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/member/adminMemberDetail.jsp'">
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>10</td>
-                                        <td>user01</td>
-                                        <td>김두두</td>
-                                        <td>sdf@naver.com</td>
-                                        <td>010-2222-3333</td>
-                                        <td>서울</td>
-                                        <td>동글이</td>
-                                        <td>2022.07.26</td>
-                                        <td>300</td>
-                                    </tr>
+                                	<% for(Member m : list) { %>
+	                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/member/adminMemberDetail.jsp'">
+	                                        <th>
+	                                            <label class="customcheckbox">
+	                                                <span class="checkmark"></span>
+	                                            </label>
+	                                        </th>
+	                                        <td><%=m.getMemNo()%></td>
+	                                        <td><%=m.getMemId()%></td>
+	                                        <td><%=m.getMemName()%></td>
+	                                        <td><%=m.getEmail()%></td>
+	                                        <td><%=m.getPhone()%></td>
+	                                        <td><%=m.getAddress()%></td>
+	                                        <td><%=m.getNickname()%></td>
+	                                        <td><%=m.getEnrollDate()%></td>
+	                                        <td><%=m.getPoint()%></td>
+	                                    </tr>
+                                    <% } %>
                                 </tbody>
                                 <tfoot>
                                     <tr align="center">
