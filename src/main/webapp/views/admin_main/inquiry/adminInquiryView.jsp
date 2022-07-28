@@ -93,10 +93,11 @@
                                             </label>
                                         </th>
                                         <th scope="col">글번호</th>
-                                        <th scope="col">문의 유형</th>
-                                        <th scope="col">접수일</th>
-                                        <th scope="col">문의 제목</th>
                                         <th scope="col">작성자</th>
+                                        <th scope="col">문의 유형</th>
+                                        <th scope="col">문의 상품</th>
+                                        <th scope="col">제목</th>
+                                        <th scope="col">접수일</th>
                                         <th scope="col">진행단계</th>
                                     </tr>
                                 </thead>
@@ -109,10 +110,11 @@
                                             </label>
                                         </th>
                                         <td>10</td>
-                                        <td>주문취소/환불</td>
-                                        <td>2022-07-09</td>
-                                        <td>책 환불</td>
                                         <td>user56</td>
+                                        <td>주문취소/환불</td>
+                                        <td>FW-123</td>
+                                        <td>책 환불</td>
+                                        <td>2022-07-09</td>
                                         <td style="color: red;">미답변</td>
                                     </tr>
                                     <tr>
@@ -123,10 +125,11 @@
                                             </label>
                                         </th>
                                         <td>10</td>
-                                        <td>주문취소/환불</td>
-                                        <td>2022-07-09</td>
-                                        <td>책 환불</td>
                                         <td>user56</td>
+                                        <td>주문취소/환불</td>
+                                        <td>FW-123</td>
+                                        <td>책 환불</td>
+                                        <td>2022-07-09</td>
                                         <td style="color: red;">미답변</td>
                                     </tr>
                                     <tr>
@@ -137,10 +140,11 @@
                                             </label>
                                         </th>
                                         <td>10</td>
-                                        <td>주문취소/환불</td>
-                                        <td>2022-07-09</td>
-                                        <td>책 환불</td>
                                         <td>user56</td>
+                                        <td>주문취소/환불</td>
+                                        <td>FW-123</td>
+                                        <td>책 환불</td>
+                                        <td>2022-07-09</td>
                                         <td style="color: red;">미답변</td>
                                     </tr>
                                     <tr>
@@ -151,10 +155,11 @@
                                             </label>
                                         </th>
                                         <td>10</td>
-                                        <td>주문취소/환불</td>
-                                        <td>2022-07-09</td>
-                                        <td>책 환불</td>
                                         <td>user56</td>
+                                        <td>주문취소/환불</td>
+                                        <td>FW-123</td>
+                                        <td>책 환불</td>
+                                        <td>2022-07-09</td>
                                         <td style="color: red;">미답변</td>
                                     </tr>
                                     <tr>
@@ -165,10 +170,11 @@
                                             </label>
                                         </th>
                                         <td>10</td>
-                                        <td>주문취소/환불</td>
-                                        <td>2022-07-09</td>
-                                        <td>책 환불</td>
                                         <td>user56</td>
+                                        <td>주문취소/환불</td>
+                                        <td>FW-123</td>
+                                        <td>책 환불</td>
+                                        <td>2022-07-09</td>
                                         <td style="color: red;">미답변</td>
                                     </tr>
                                     <tr>
@@ -179,10 +185,11 @@
                                             </label>
                                         </th>
                                         <td>10</td>
-                                        <td>주문취소/환불</td>
-                                        <td>2022-07-09</td>
-                                        <td>책 환불</td>
                                         <td>user56</td>
+                                        <td>주문취소/환불</td>
+                                        <td>FW-123</td>
+                                        <td>책 환불</td>
+                                        <td>2022-07-09</td>
                                         <td style="color: red;">미답변</td>
                                     </tr>
                                     <tr>
@@ -193,10 +200,11 @@
                                             </label>
                                         </th>
                                         <td>10</td>
-                                        <td>주문취소/환불</td>
-                                        <td>2022-07-09</td>
-                                        <td>책 환불</td>
                                         <td>user56</td>
+                                        <td>주문취소/환불</td>
+                                        <td>FW-123</td>
+                                        <td>책 환불</td>
+                                        <td>2022-07-09</td>
                                         <td style="color: red;">미답변</td>
                                     </tr>
                                     <tr>
@@ -207,10 +215,11 @@
                                             </label>
                                         </th>
                                         <td>10</td>
-                                        <td>주문취소/환불</td>
-                                        <td>2022-07-09</td>
-                                        <td>책 환불</td>
                                         <td>user56</td>
+                                        <td>주문취소/환불</td>
+                                        <td>FW-123</td>
+                                        <td>책 환불</td>
+                                        <td>2022-07-09</td>
                                         <td style="color: red;">미답변</td>
                                     </tr>
                                     <tr>
@@ -221,10 +230,11 @@
                                             </label>
                                         </th>
                                         <td>10</td>
-                                        <td>주문취소/환불</td>
-                                        <td>2022-07-09</td>
-                                        <td>책 환불</td>
                                         <td>user56</td>
+                                        <td>주문취소/환불</td>
+                                        <td>FW-123</td>
+                                        <td>책 환불</td>
+                                        <td>2022-07-09</td>
                                         <td style="color: red;">미답변</td>
                                     </tr>
                                     <tr>
@@ -235,10 +245,11 @@
                                             </label>
                                         </th>
                                         <td>10</td>
-                                        <td>주문취소/환불</td>
-                                        <td>2022-07-09</td>
-                                        <td>책 환불</td>
                                         <td>user56</td>
+                                        <td>주문취소/환불</td>
+                                        <td>FW-123</td>
+                                        <td>책 환불</td>
+                                        <td>2022-07-09</td>
                                         <td style="color: red;">미답변</td>
                                     </tr>
                                     
