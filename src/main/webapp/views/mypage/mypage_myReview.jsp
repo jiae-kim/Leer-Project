@@ -158,8 +158,8 @@
                                         <td>제품 구매 날짜 작성</td>
                                     </tr>
                                     <tr height="100px">
-                                        <td> 제품설명</td>
-                                        <td colspan="2"> 제품관련 설명작성</td>
+                                        <td>주문번호</td>
+                                        <td colspan="2"> 주문번호 작성</td>
                                     </tr>
                                     <tr>
                                         <td>제품가격</td>

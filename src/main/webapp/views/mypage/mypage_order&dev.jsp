@@ -161,79 +161,126 @@
                         </div>
 
                         <div id="dev_pro">
-                            <br><hr>
-
+                            <br>
+                            <!-- 주문 번호 갯수만큼 반복처리 -->
+                            <hr>
                             <form action="">
-                                <table>
-                                    <tr>
-                                        <td rowspan="4" width="200px"><img class="product__details__pic__item"
-                                            src=http://www.walbox.co.kr/upfile/item/111_1618565835.jpg alt=""></td>
-                                        <td width="80px">제품명</td>
-                                        <td width="150px" colspan="2"> <b>BBC사이언스</b></td>
-                                    </tr>
-                                    <tr height="100px">
-                                        <td> 제품설명</td>
-                                        <td colspan="2"> 제품관련 설명작성</td>
-                                    </tr>
-                                    <tr>
-                                        <td>제품가격</td>
-                                        <td width="150px"> 12,160원</td>
-                                        <td><a href="" onclick="window.open('<%= request.getContextPath() %>/review.me','review','width=700, height=900, scrollbars=no, resizable=no, toolbars=no, menubar=no')" class="btn btn-sm btn-secondary">리뷰 쓰기</a>
-                                            <a href="http://www.walbox.co.kr/item_view.html?item_cate=11103&item_no=999668" class="btn btn-sm btn-secondary">재구매</a>
-                                            <a class="btn btn-sm btn-secondary">배송조회</a>
-                                        </td>
-                                    </tr>
-                                </table>
+                                <div>
+	                                <table>
+	                                    <tr>
+	                                        <td width="600px"><h4>주문번호 : 1</h4></td>
+	                                        <td><a class="btn btn-sm btn-secondary">배송조회</a></td>
+	                                    </tr>
+	                                </table>
+                               		<div>
+                                        <table> 
+                                        	<!--  주문번호 arrayList 로 받아서 길이만큼 반복처리해서 table 생성 -->
+                                            <tr>
+                                                <td rowspan="4" width="200px"><img class="product__details__pic__item"
+                                                    src=http://www.walbox.co.kr/upfile/item/111_1618565835.jpg alt=""></td>
+                                                <td width="80px">제품명</td>
+                                                <td width="150px" colspan="2"> <b>BBC사이언스</b></td>
+                                            </tr>
+                                            <tr height="100px">
+                                                <td> 제품설명</td>
+                                                <td colspan="2"> 제품관련 설명작성</td>
+                                            </tr>
+                                            <tr>
+                                                <td>제품가격</td>
+                                                <td width="150px"> 12,160원</td>
+                                                <td><a href="" onclick="window.open('./review_write.html','review','width=700, height=900, scrollbars=no, resizable=no, toolbars=no, menubar=no')" class="btn btn-sm btn-secondary">리뷰 쓰기</a>
+                                                    <a href="http://www.walbox.co.kr/item_view.html?item_cate=11103&item_no=999668" class="btn btn-sm btn-secondary">재구매</a>
+                                                    
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    
+
+                                        <table>
+                                            <tr>
+                                                <td rowspan="4" width="200px"> <img class="product__details__pic__item"
+                                                    src=http://www.walbox.co.kr/upfile/item/%EB%A6%AC%EB%B9%998_1658642603.jpg alt=""></td>
+                                                <td width="80px">제품명</td>
+                                                <td width="150px" colspan="2"> <b>리빙센스</b></td>
+                                            </tr>
+                                            <tr height="100px">
+                                                <td> 제품설명</td>
+                                                <td colspan="2"> 제품관련 설명작성</td>
+                                            </tr>
+                                            <tr>
+                                                <td>제품가격</td>
+                                                <td width="150px"> 7,410원</td>
+                                                <td><a href="" onclick="window.open('./review_write.html','review','width=700, height=900, scrollbars=no, resizable=no, toolbars=no, menubar=no')" class="btn btn-sm btn-secondary">리뷰 쓰기</a>
+                                                    <a href="http://www.walbox.co.kr/item_view.html?item_cate=11100&item_no=999933" class="btn btn-sm btn-secondary">재구매</a>
+                                                    
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
                                 <hr>
                             </form>
                             
+                            
                             <form action="">
-                                <table>
-                                    <tr>
-                                        <td rowspan="4" width="200px"> <img class="product__details__pic__item"
-                                            src=http://www.walbox.co.kr/upfile/item/%EB%A6%AC%EB%B9%998_1658642603.jpg alt=""></td>
-                                        <td width="80px">제품명</td>
-                                        <td width="150px" colspan="2"> <b>리빙센스</b></td>
-                                    </tr>
-                                    <tr height="100px">
-                                        <td> 제품설명</td>
-                                        <td colspan="2"> 제품관련 설명작성</td>
-                                    </tr>
-                                    <tr>
-                                        <td>제품가격</td>
-                                        <td width="150px"> 7,410원</td>
-                                        <td><a href="" onclick="window.open('<%= request.getContextPath() %>/review.me','review','width=700, height=900, scrollbars=no, resizable=no, toolbars=no, menubar=no')" class="btn btn-sm btn-secondary">리뷰 쓰기</a>
-                                            <a href="http://www.walbox.co.kr/item_view.html?item_cate=11100&item_no=999933" class="btn btn-sm btn-secondary">재구매</a>
-                                            <a class="btn btn-sm btn-secondary">배송조회</a>
-                                        </td>
-                                    </tr>
-                                </table>
-                                <hr>
-                            </form>
+                                <div>
+	                                <table>
+	                                    <tr>
+	                                        <td width="600px"><h4>주문번호 : 2</h4></td>
+	                                        <td><a class="btn btn-sm btn-secondary">배송조회</a></td>
+	                                    </tr>
+	                                </table>
+                               		<div>
+                                        <table> 
+                                        	<!--  주문번호 arrayList 로 받아서 길이만큼 반복처리해서 table 생성 -->
+                                            <tr>
+                                                <td rowspan="4" width="200px"><img class="product__details__pic__item"
+                                                    src=http://www.walbox.co.kr/upfile/item/111_1618565835.jpg alt=""></td>
+                                                <td width="80px">제품명</td>
+                                                <td width="150px" colspan="2"> <b>BBC사이언스</b></td>
+                                            </tr>
+                                            <tr height="100px">
+                                                <td> 제품설명</td>
+                                                <td colspan="2"> 제품관련 설명작성</td>
+                                            </tr>
+                                            <tr>
+                                                <td>제품가격</td>
+                                                <td width="150px"> 12,160원</td>
+                                                <td><a href="" onclick="window.open('./review_write.html','review','width=700, height=900, scrollbars=no, resizable=no, toolbars=no, menubar=no')" class="btn btn-sm btn-secondary">리뷰 쓰기</a>
+                                                    <a href="http://www.walbox.co.kr/item_view.html?item_cate=11103&item_no=999668" class="btn btn-sm btn-secondary">재구매</a>
+                                                    
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    
 
-                            <form action="">
-                                <table>
-                                    <tr> 
-                                        <td rowspan="4" width="200px"><img class="product__details__pic__item"
-                                            src=http://www.walbox.co.kr/upfile/item/%EB%8F%99%EC%95%84_1648388049.jpg alt=""></td>
-                                        <td width="80px">제품명</td>
-                                        <td width="150px" colspan="2"> <b>과학동아</b></td>
-                                    </tr>
-                                    <tr height="100px">
-                                        <td> 제품설명</td>
-                                        <td colspan="2"> 제품관련 설명작성</td>
-                                    </tr>
-                                    <tr>
-                                        <td>제품가격</td>
-                                        <td width="150px"> 	14,250원</td>
-                                        <td><a href="" onclick="window.open('<%= request.getContextPath() %>/review.me','review','width=750, height=900, scrollbars=no, resizable=no, toolbars=no, menubar=no')" class="btn btn-sm btn-secondary">리뷰 쓰기</a>
-                                            <a href="http://www.walbox.co.kr/item_view.html?item_cate=11103&item_no=999884" class="btn btn-sm btn-secondary">재구매</a>
-                                            <a class="btn btn-sm btn-secondary">배송조회</a>
-                                        </td>
-                                    </tr>
-                                </table>
+                                        <table>
+                                            <tr>
+                                                <td rowspan="4" width="200px"> <img class="product__details__pic__item"
+                                                    src=http://www.walbox.co.kr/upfile/item/%EB%A6%AC%EB%B9%998_1658642603.jpg alt=""></td>
+                                                <td width="80px">제품명</td>
+                                                <td width="150px" colspan="2"> <b>리빙센스</b></td>
+                                            </tr>
+                                            <tr height="100px">
+                                                <td> 제품설명</td>
+                                                <td colspan="2"> 제품관련 설명작성</td>
+                                            </tr>
+                                            <tr>
+                                                <td>제품가격</td>
+                                                <td width="150px"> 7,410원</td>
+                                                <td><a href="" onclick="window.open('./review_write.html','review','width=700, height=900, scrollbars=no, resizable=no, toolbars=no, menubar=no')" class="btn btn-sm btn-secondary">리뷰 쓰기</a>
+                                                    <a href="http://www.walbox.co.kr/item_view.html?item_cate=11100&item_no=999933" class="btn btn-sm btn-secondary">재구매</a>
+                                                    
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
                                 <hr>
                             </form>
+                            
+                            
+                            
 
                         </div>
 
