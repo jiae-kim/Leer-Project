@@ -40,7 +40,7 @@
                     <div class="col-lg-12 grid-margin stretch-card">
                         <div class="card">
                           <div class="card-body">
-                            <h2 class="card-title" align="center">이용약관 상세</h2>
+                            <h2 class="card-title" align="center">이용약관 등록</h2>
                             <div class="table-responsive pt-3">
                               <table class="tt1" border="1" align="center">
                                 <tbody>
@@ -49,7 +49,7 @@
                                       이용약관명
                                     </td>
                                     <td width="700px">
-                                        <label for="" style="float: left;">&nbsp;&nbsp; 이용약관 제목</label> 
+                                        <input type="text" placeholder="이용약관명 입력">
                                     </td>
                                   </tr>
                                   <tr>
@@ -57,7 +57,12 @@
                                       상태
                                     </td>
                                     <td>
-                                        <label for="" style="float: left;">&nbsp;&nbsp; 작성완료</label> 
+                                        <select name="address">
+                                            <option value="upload">작성완료</option>
+                                            <option value="ing">작성중</option>
+                                            <option value="discuss">회의중</option>
+                                            <option value="keep">보류</option>
+                                        </select>
                                     </td>
                                   </tr>
                                   <tr>
@@ -65,14 +70,14 @@
                                       작성자
                                     </td>
                                     <td>
-                                        <label for="" style="float: left;">&nbsp;&nbsp; admin01</label> 
+                                      <input type="text" placeholder="관리자아이디 자동노출">
                                     </td>
                                   </tr>
                                 </tbody>
                               </table>
                               <br>
                               <table class="tarea" align="center" style="margin:5px 5px 5px 5px">
-                                <textarea name="" id="" cols="133.5" rows="20" resize="none" placeholder="">이용약관 내용 이용약관 내용 이용약관 내용</textarea>
+                                <textarea name="" id="" cols="133.5" rows="20" resize="none" placeholder="이용약관 내용 입력"></textarea>
                               </table>
                               <div class="">
                                 <table class="tt1" border="1" align="center">
@@ -82,7 +87,7 @@
                                         이용약관명
                                       </td>
                                       <td width="700px">
-                                        <label for="" style="float: left;">&nbsp;&nbsp; 비고내용</label> 
+                                        <input type="text" placeholder="비고 입력">
                                       </td>
                                     </tr>
                                   </tbody>                                  
@@ -91,7 +96,8 @@
                             <br>
                             <c:if test="${sessionMemberLv == 1}">
                                     <div class="d-grid gap-3" style="text-align: center">
-                                        <a href="<%= request.getContextPath() %>/views/admin_main/adminTermsView.jsp" id="btn" class="btn btn-dark" style="width:150px">목록으로</a>
+                                        <a href="" id="btn" class="btn btn-dark" style="width:150px">취소</a>
+                                        <a href="" class="btn btn-dark" style="width:150px">이용약관등록</a>
                                     </div>
                             </c:if>
                           </div>
@@ -108,5 +114,6 @@
             <footer class="footer text-center">
                 
             </footer>
+
 </body>
 </html>
