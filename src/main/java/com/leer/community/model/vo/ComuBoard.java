@@ -1,5 +1,6 @@
 package com.leer.community.model.vo;
 
+import java.sql.Clob;
 import java.sql.Date;
 
 import oracle.sql.CLOB;
@@ -7,10 +8,11 @@ import oracle.sql.CLOB;
 public class ComuBoard {
 	
 	private int comuNo;
-	private int memNo;
+	private String memNo;
+	private String categoryNo;
 	private String tag;
 	private String title;
-	private CLOB content;
+	private	Clob content;
 	private Date enrollDate;
 	private Date modifyDate;
 	private int viewCount;
@@ -20,9 +22,40 @@ public class ComuBoard {
 	
 	
 	public ComuBoard() {}
-	
 
 
+
+
+	public ComuBoard(int comuNo, String memNo, String categoryNo, String tag, String title, Clob content,
+			Date enrollDate, Date modifyDate, int viewCount, String deleteYN) {
+		super();
+		this.comuNo = comuNo;
+		this.memNo = memNo;
+		this.categoryNo = categoryNo;
+		this.tag = tag;
+		this.title = title;
+		this.content = content;
+		this.enrollDate = enrollDate;
+		this.modifyDate = modifyDate;
+		this.viewCount = viewCount;
+		this.deleteYN = deleteYN;
+	}
+
+
+
+
+	public ComuBoard(int comuNo, String memNo, String categoryNo, String tag, String title, Clob content,
+			Date enrollDate, int viewCount) {
+		super();
+		this.comuNo = comuNo;
+		this.memNo = memNo;
+		this.categoryNo = categoryNo;
+		this.tag = tag;
+		this.title = title;
+		this.content = content;
+		this.enrollDate = enrollDate;
+		this.viewCount = viewCount;
+	}
 
 
 
@@ -34,8 +67,6 @@ public class ComuBoard {
 
 
 
-
-
 	public void setComuNo(int comuNo) {
 		this.comuNo = comuNo;
 	}
@@ -43,22 +74,30 @@ public class ComuBoard {
 
 
 
-
-
-	public int getMemNo() {
+	public String getMemNo() {
 		return memNo;
 	}
 
 
 
 
-
-
-	public void setMemNo(int memNo) {
+	public void setMemNo(String memNo) {
 		this.memNo = memNo;
 	}
 
 
+
+
+	public String getCategoryNo() {
+		return categoryNo;
+	}
+
+
+
+
+	public void setCategoryNo(String categoryNo) {
+		this.categoryNo = categoryNo;
+	}
 
 
 
@@ -70,13 +109,9 @@ public class ComuBoard {
 
 
 
-
-
 	public void setTag(String tag) {
 		this.tag = tag;
 	}
-
-
 
 
 
@@ -88,8 +123,6 @@ public class ComuBoard {
 
 
 
-
-
 	public void setTitle(String title) {
 		this.title = title;
 	}
@@ -97,22 +130,16 @@ public class ComuBoard {
 
 
 
-
-
-	public CLOB getContent() {
+	public Clob getContent() {
 		return content;
 	}
 
 
 
 
-
-
-	public void setContent(CLOB content) {
+	public void setContent(Clob content) {
 		this.content = content;
 	}
-
-
 
 
 
@@ -124,13 +151,9 @@ public class ComuBoard {
 
 
 
-
-
 	public void setEnrollDate(Date enrollDate) {
 		this.enrollDate = enrollDate;
 	}
-
-
 
 
 
@@ -142,13 +165,9 @@ public class ComuBoard {
 
 
 
-
-
 	public void setModifyDate(Date modifyDate) {
 		this.modifyDate = modifyDate;
 	}
-
-
 
 
 
@@ -160,13 +179,9 @@ public class ComuBoard {
 
 
 
-
-
 	public void setViewCount(int viewCount) {
 		this.viewCount = viewCount;
 	}
-
-
 
 
 
@@ -178,8 +193,6 @@ public class ComuBoard {
 
 
 
-
-
 	public void setDeleteYN(String deleteYN) {
 		this.deleteYN = deleteYN;
 	}
@@ -187,34 +200,14 @@ public class ComuBoard {
 
 
 
-
-
-	public ComuBoard(int comuNo, int memNo, String tag, String title, CLOB content, Date enrollDate, Date modifyDate,
-			int viewCount, String deleteYN) {
-		super();
-		this.comuNo = comuNo;
-		this.memNo = memNo;
-		this.tag = tag;
-		this.title = title;
-		this.content = content;
-		this.enrollDate = enrollDate;
-		this.modifyDate = modifyDate;
-		this.viewCount = viewCount;
-		this.deleteYN = deleteYN;
-	}
-
-
-
-
-
-
 	@Override
 	public String toString() {
-		return "comuBoard [comuNo=" + comuNo + ", memNo=" + memNo + ", tag=" + tag + ", title=" + title + ", content="
-				+ content + ", enrollDate=" + enrollDate + ", modifyDate=" + modifyDate + ", viewCount=" + viewCount
-				+ ", deleteYN=" + deleteYN + "]";
+		return "ComuBoard [comuNo=" + comuNo + ", memNo=" + memNo + ", categoryNo=" + categoryNo + ", tag=" + tag
+				+ ", title=" + title + ", content=" + content + ", enrollDate=" + enrollDate + ", modifyDate="
+				+ modifyDate + ", viewCount=" + viewCount + ", deleteYN=" + deleteYN + "]";
 	}
-	
-	
 
-}
+
+
+
+	}
