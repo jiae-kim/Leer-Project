@@ -50,6 +50,20 @@ public class Member {
 		this.admin = admin;
 		this.profileLink = profileLink;
 	}
+	
+	public Member(int memNo, String memId, String nickname, String memName, String phone, String email, String address,
+			int point, Date enrollDate) {
+		super();
+		this.memNo = memNo;
+		this.memId = memId;
+		this.nickname = nickname;
+		this.memName = memName;
+		this.phone = phone;
+		this.email = email;
+		this.address = address;
+		this.point = point;
+		this.enrollDate = enrollDate;
+	}
 
 	public int getMemNo() {
 		return memNo;
