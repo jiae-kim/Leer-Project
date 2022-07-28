@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>관리자 메뉴바</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Tell the browser to be responsive to screen width -->
@@ -140,15 +140,15 @@
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">고객센터</span></a>
                             <ul aria-expanded="false" class="collapse  first-level">
-                                <li class="sidebar-item"><a href="error-403.html" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 공지사항 </span></a></li>
-                                <li class="sidebar-item"><a href="error-404.html" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 1:1상담 </span></a></li>
-                                <li class="sidebar-item"><a href="error-405.html" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> FAQ </span></a></li>
+                                <li class="sidebar-item"><a href="<%=request.getContextPath()%>/views/admin_main/notice/adminNoticeView.jsp" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 공지사항 </span></a></li>
+                                <li class="sidebar-item"><a href="<%=request.getContextPath()%>/views/admin_main/mtm/adminMtmView.jsp" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 1:1상담 </span></a></li>
+                                <li class="sidebar-item"><a href="<%=request.getContextPath()%>/views/admin_main/faq/adminFaqView.jsp" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> FAQ </span></a></li>
                             </ul>
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-chart-bubble"></i><span class="hide-menu">제품관리</span></a>
                             <ul aria-expanded="false" class="collapse  first-level">
-                                <li class="sidebar-item"><a href="error-403.html" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 리뷰관리 </span></a></li>
-                                <li class="sidebar-item"><a href="error-404.html" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 상품문의 </span></a></li>
+                                <li class="sidebar-item"><a href="<%=request.getContextPath()%>/views/admin_main/review/adminReviewView.jsp" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 리뷰관리 </span></a></li>
+                                <li class="sidebar-item"><a href="<%=request.getContextPath()%>/views/admin_main/inquiry/adminInquiryView.jsp" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 상품문의 </span></a></li>
                                 <li class="sidebar-item"><a href="<%=request.getContextPath()%>/views/admin_main/product/adminProductView.jsp" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 상품조회 </span></a></li>
                                 <li class="sidebar-item"><a href="error-405.html" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 상품등록 </span></a></li>
                             </ul>
@@ -156,7 +156,7 @@
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">상품및결제관리</span></a>
                             <ul aria-expanded="false" class="collapse  first-level">
                                 <li class="sidebar-item"><a href="error-403.html" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 입출고관리 </span></a></li>
-                                <li class="sidebar-item"><a href="<%= request.getContextPath() %>/views/admin_main/payment/adminPaymentView.jsp" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 결제내역조회 </span></a></li>
+                                <li class="sidebar-item"><a href="<%=request.getContextPath()%>/views/admin_main/payment/adminPaymentView.jsp" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 결제내역조회 </span></a></li>
                                 <li class="sidebar-item"><a href="error-405.html" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 환불관리 </span></a></li>
                                 <li class="sidebar-item"><a href="error-405.html" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 배송관리 </span></a></li>
                             </ul>
