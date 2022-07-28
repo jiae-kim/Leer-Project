@@ -21,7 +21,46 @@
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                             </nav>
-                            <button type="button" class="btn btn-primary btn-lg">운송장 등록</button> &nbsp;&nbsp;&nbsp;
+                            <!-- 운송장 등록 Button trigger modal -->
+                            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#deleteReview">
+                                운송장 등록
+                            </button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="deleteReview" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel" style="font-weight: bolder; color: black;">운송장 등록</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body" style="text-align: center; font-size: larger; font-weight: bold;" >
+                                                <table>
+                                                    <tr>
+                                                        <td>택배사</td>
+                                                        <td>
+                                                            <select name="" id="" class="col-md-12">
+                                                                <option value="" disabled selected hidden>택배사를 선택하세요</option>
+                                                                <option value="">CJ대한통운</option>
+                                                                <option value="">한진택배</option>
+                                                                <option value="">우체국택배</option>
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>운송장 번호</td>
+                                                        <td><input type="text" name="" class="col-md-12" required placeholder="운송장 번호('-'포함)"></td>
+                                                    </tr>
+                                                </table>        
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="submit" class="btn btn-info">등록</button>
+                                                <button type="reset" class="btn btn-dark" data-dismiss="modal">취소</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                         </div>
                     </div>
                 </div>
