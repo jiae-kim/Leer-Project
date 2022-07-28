@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+	<entry key="">
+	작성 가능한 리뷰 
+		SELECT
+			 IMAGE_URL
+			,P_NAME
+			,OR_DATE
+			,PRICE
+		FROM REVIEW
+		JOIN ORDER USING(MEM_NO)
+		JOIN OR_PRODUCT USING(OR_NO)
+		JOIN PRODUCT USING(P_CODE)
+		WHERE MEM_NO=?
+			 ,WRITE_YN='N'
+	</entry>
+	
+	
+	<entry key="">
+	내가 작성한 리뷰
+		SELECT
+			 IMAGE_URL
+			,P_NAME
+			,OR_DATE
+			,PRICE
+			,REVIEW_SCORE
+			,REVIEW_CONTENT
+		FROM REVIEW
+		JOIN ORDER USING(MEM_NO)
+		JOIN OR_PRODUCT USING(OR_NO)
+		JOIN PRODUCT USING(P_CODE)
+		WHERE MEM_NO=?
+			,WRITE_YN='Y'
+	</entry>
+
+	<entry key="">
+		리뷰 쓰기창 필요한 내용 불러오기
+		SELECT
+			 IMAGE_URL
+			,P_NAME
+			,OR_DATE
+			,PRICE
+		FROM REVIEW
+		JOIN ORDER USING(MEM_NO)
+		JOIN OR_PRODUCT USING(OR_NO)
+		JOIN PRODUCT USING(P_CODE)
+		WHERE MEM_NO = ?
+	</entry>
+	
+	<entry key="">
+	리뷰 쓰기창 작성한 내용 추가하기
+		INSERT
+		  INTO REVIEW 
+		  (
+		    REVIEW_SCOPE
+		  , REVIEW_CONTENT
+		  , FILE_PATH
+		  )
+		  VALUES
+		  (
+		    ?
+		  , ?
+		  , ?
+		  )
+	</entry>
+
+	
+</properties>

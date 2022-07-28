@@ -2,4 +2,21 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
 	
+	<entry key="">
+		2. 주문 취소/ 환불
+		SELECT
+			 P_NAME
+			,OR_DATE
+			,PRICE
+			,IMAGE_URL
+			,O.OR_NO
+			FROM MEMBER M
+			JOIN ORDER O USING(MEM_NO)
+			JOIN OR_PRODUCT USING(OR_NO)
+			JOIN PRODUCT USING(P_CODE)
+			WHERE M.MEM_NO = ?
+	</entry>
+	
+	
+	
 </properties>

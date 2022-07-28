@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<properties>
+
+	<entry key="">
+		3. 적립 포인트
+		SELECT 
+			 POINT_NO
+			,POINT
+			,DATE
+			,HISTORY
+		FROM POINT
+		WHERE MEM_NO= ?
+	
+	</entry>
+
+
+	
+</properties>
