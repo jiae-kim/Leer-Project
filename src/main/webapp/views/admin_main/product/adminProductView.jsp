@@ -5,12 +5,9 @@
 <head>
 	<title>상품 전체조회 페이지</title>
 <body>
-
-	<%@ include file="../common/adminMenubar.jsp" %>
+	<%@ include file="../../common/adminMenubar.jsp" %>
+	<%@ include file="../../common/adminScript.jsp" %>
 	
-            <!-- ============================================================== -->
-            <!-- Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
              <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
@@ -307,9 +304,6 @@
         <!-- ============================================================== -->
         <!-- End Page wrapper  -->
         <!-- ============================================================== -->
-  
-    <!-- 체크박스 전체 선택 -->
-    <script src="<%= request.getContextPath() %>/resources/css/jiae/assets/extra-libs/multicheck/datatable-checkbox-init.js"></script>
-    <script src="<%= request.getContextPath() %>/resources/css/jiae/assets/extra-libs/multicheck/jquery.multicheck.js"></script>
+
 </body>
 </html>
