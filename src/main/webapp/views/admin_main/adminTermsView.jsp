@@ -5,12 +5,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+<style>
+.custom>tr:hover {
+    cursor: pointer;
+    opacity: 0.7;
+    background:#cecece;
+    color:dark;
+}
+</style>
 </head>
 <body>
 
@@ -76,7 +78,7 @@
                                     </tr>
                                 </thead>
                                 <tbody class="custom">
-                                    <tr>
+                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/terms/adminTermsDetail.jsp'">
                                         <th>
                                             <label class="customcheckbox">
                                                 <span class="checkmark"></span>
@@ -90,7 +92,7 @@
                                         <td>admin01</td>
                                         <td></td>
                                     </tr>
-                                    <tr>
+                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/terms/adminTermsDetail.jsp'">
                                         <th>
                                             <label class="customcheckbox">
                                                 <span class="checkmark"></span>
@@ -104,7 +106,7 @@
                                         <td>admin01</td>
                                         <td></td>
                                     </tr>
-                                    <tr>
+                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/terms/adminTermsDetail.jsp'">
                                         <th>
                                             <label class="customcheckbox">
                                                 <span class="checkmark"></span>
@@ -118,7 +120,7 @@
                                         <td>admin01</td>
                                         <td>저작권에대한 논의 필요</td>
                                     </tr>
-                                    <tr>
+                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/terms/adminTermsDetail.jsp'">
                                         <th>
                                             <label class="customcheckbox">
                                                 <span class="checkmark"></span>
@@ -132,7 +134,7 @@
                                         <td>admin01</td>
                                         <td></td>
                                     </tr>
-                                    <tr>
+                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/terms/adminTermsDetail.jsp'">
                                         <th>
                                             <label class="customcheckbox">
                                                 <span class="checkmark"></span>
@@ -146,7 +148,7 @@
                                         <td>admin01</td>
                                         <td>아직 논의중</td>
                                     </tr>
-                                    <tr>
+                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/terms/adminTermsDetail.jsp'">
                                         <th>
                                             <label class="customcheckbox">
                                                 <span class="checkmark"></span>
@@ -160,7 +162,7 @@
                                         <td>admin01</td>
                                         <td></td>
                                     </tr>
-                                    <tr>
+                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/terms/adminTermsDetail.jsp'">
                                         <th>
                                             <label class="customcheckbox">
                                                 <span class="checkmark"></span>
@@ -174,7 +176,7 @@
                                         <td>admin01</td>
                                         <td></td>
                                     </tr>
-                                    <tr>
+                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/terms/adminTermsDetail.jsp'">
                                         <th>
                                             <label class="customcheckbox">
                                                 <span class="checkmark"></span>
@@ -188,7 +190,7 @@
                                         <td>admin01</td>
                                         <td></td>
                                     </tr>
-                                    <tr>
+                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/terms/adminTermsDetail.jsp'">
                                         <th>
                                             <label class="customcheckbox">
                                                 <span class="checkmark"></span>
@@ -202,7 +204,7 @@
                                         <td>admin01</td>
                                         <td></td>
                                     </tr>
-                                    <tr>
+                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/terms/adminTermsDetail.jsp'">
                                         <th>
                                             <label class="customcheckbox">
                                                 <span class="checkmark"></span>
@@ -216,6 +218,8 @@
                                         <td>admin01</td>
                                         <td></td>
                                     </tr>
+                                </tbody>
+                                <tfoot>
                                     <tr align="center">
                                         <th colspan="10">
                                             <br>
@@ -235,7 +239,7 @@
                                               </div>
                                         </th>
                                     </tr>
-                                </tbody>
+                                </tfoot>
                             </table>
                         </div>
                 </div>

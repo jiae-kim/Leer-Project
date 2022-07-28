@@ -12,6 +12,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 </head>
+<style>
+</style>
 <body>
 
 	<%@ include file="../common/adminMenubar.jsp" %>
