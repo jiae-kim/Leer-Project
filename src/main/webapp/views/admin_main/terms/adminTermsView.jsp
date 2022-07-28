@@ -5,25 +5,25 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-</head>
 <style>
+.custom>tr:hover {
+    cursor: pointer;
+    opacity: 0.7;
+    background:#cecece;
+    color:dark;
+}
 </style>
+</head>
 <body>
 
-	<%@ include file="../common/adminMenubar.jsp" %>
+	<%@ include file="../../common/adminMenubar.jsp" %>
 	
             <!-- ============================================================== -->
              <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
                         <br><br><br>
-                        <h2 class="page-title">커뮤니티 관리</h2>
+                        <h2 class="page-title">홈페이지관리</h2>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <input class="form-control mr-sm-2" type="text" placeholder="Search">
                         <button class="btn btn-success" type="submit">Search</button>
@@ -47,7 +47,7 @@
                 <!-- ============================================================== -->
                 <div class="card">
                     <div class="card-body" style="height:55px">
-                        <h5 class="card-title m-b-0" style="vertical-align:45px">공지사항</h5>
+                        <h5 class="card-title m-b-0" style="vertical-align:45px">이용약관</h5>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <div class="btn-group bb1" style="margin: 0px 0px 150px 0px;">
@@ -57,8 +57,7 @@
                                 <a class="dropdown-item" href="#">등록일 순 조회</a>
                             </div>
                         </div>
-                        <!-- /views/admin_main/comu_noti/adminComuNotiDetail.jsp -->
-                        <button onClick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuNotiDetail.jsp'" class="btn btn-dark" style="float:right" id="btnn">공지사항 등록</button>
+                        <button class="btn btn-dark bb2" onClick="location.href='<%=request.getContextPath()%>/views/admin_main/terms/adminTermsEnroll.jsp'" style="float:right" id="btnn">이용약관 등록</button>
                     </div>
                         <div class="table-responsive">
                             <table class="table">
@@ -70,133 +69,157 @@
                                             </label>
                                         </th>
                                         <th scope="col">No.</th>
-                                        <th scope="col">제목</th>
+                                        <th scope="col">상태</th>
+                                        <th scope="col">이용약관명</th>
+                                        <th scope="col">게시등록일</th>
+                                        <th scope="col">수정일자</th>
                                         <th scope="col">작성자</th>
-                                        <th scope="col">작성일</th>
-                                        <th scope="col">마지막수정일</th>
+                                        <th scope="col">비고</th>
                                     </tr>
                                 </thead>
                                 <tbody class="custom">
-                                    <tr>
+                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/terms/adminTermsDetail.jsp'">
                                         <th>
                                             <label class="customcheckbox">
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
                                         <td>19</td>
-                                        <td>이벤트 참여 방법</td>
+                                        <td>사용중</td>
+                                        <td>회원이용약관(1)</td>
+                                        <td>2022.07.26</td>
+                                        <td>2022.07.26</td>
                                         <td>admin01</td>
-                                        <td>2022.07.26</td>
-                                        <td>2022.07.26</td>
+                                        <td></td>
                                     </tr>
-                                    <tr>
+                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/terms/adminTermsDetail.jsp'">
                                         <th>
                                             <label class="customcheckbox">
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
                                         <td>18</td>
-                                        <td>공지사항 읽어주세요</td>
+                                        <td>사용중</td>
+                                        <td>회원이용약관(2)</td>
+                                        <td>2022.07.26</td>
+                                        <td>2022.07.26</td>
                                         <td>admin01</td>
-                                        <td>2022.07.26</td>
-                                        <td>2022.07.26</td>
+                                        <td></td>
                                     </tr>
-                                    <tr>
+                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/terms/adminTermsDetail.jsp'">
                                         <th>
                                             <label class="customcheckbox">
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
                                         <td>17</td>
-                                        <td>저작권 관련 공지</td>
+                                        <td>보류</td>
+                                        <td>회원이용약관(3)</td>
+                                        <td>2022.07.26</td>
+                                        <td>2022.07.26</td>
                                         <td>admin01</td>
-                                        <td>2022.07.26</td>
-                                        <td>2022.07.26</td>
+                                        <td>저작권에대한 논의 필요</td>
                                     </tr>
-                                    <tr>
+                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/terms/adminTermsDetail.jsp'">
                                         <th>
                                             <label class="customcheckbox">
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
                                         <td>16</td>
-                                        <td>불량회원에 대한 공지</td>
+                                        <td>보류</td>
+                                        <td>회원이용약관(4)</td>
+                                        <td>2022.07.26</td>
+                                        <td>2022.07.26</td>
                                         <td>admin01</td>
-                                        <td>2022.07.26</td>
-                                        <td>2022.07.26</td>
+                                        <td></td>
                                     </tr>
-                                    <tr>
+                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/terms/adminTermsDetail.jsp'">
                                         <th>
                                             <label class="customcheckbox">
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
                                         <td>15</td>
-                                        <td>꼭 지켜주세요</td>
+                                        <td>회의중</td>
+                                        <td>회원이용약관(5)</td>
+                                        <td>2022.07.26</td>
+                                        <td>2022.07.26</td>
                                         <td>admin01</td>
-                                        <td>2022.07.26</td>
-                                        <td>2022.07.26</td>
+                                        <td>아직 논의중</td>
                                     </tr>
-                                    <tr>
+                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/terms/adminTermsDetail.jsp'">
                                         <th>
                                             <label class="customcheckbox">
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
                                         <td>14</td>
-                                        <td>사이트 이용 공지</td>
+                                        <td>회의중</td>
+                                        <td>회원이용약관(6)</td>
+                                        <td>2022.07.26</td>
+                                        <td>2022.07.26</td>
                                         <td>admin01</td>
-                                        <td>2022.07.26</td>
-                                        <td>2022.07.26</td>
+                                        <td></td>
                                     </tr>
-                                    <tr>
+                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/terms/adminTermsDetail.jsp'">
                                         <th>
                                             <label class="customcheckbox">
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
                                         <td>13</td>
-                                        <td>공지</td>
+                                        <td>회의중</td>
+                                        <td>회원이용약관(7)</td>
+                                        <td>2022.07.26</td>
+                                        <td>2022.07.26</td>
                                         <td>admin01</td>
-                                        <td>2022.07.26</td>
-                                        <td>2022.07.26</td>
+                                        <td></td>
                                     </tr>
-                                    <tr>
+                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/terms/adminTermsDetail.jsp'">
                                         <th>
                                             <label class="customcheckbox">
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
                                         <td>12</td>
-                                        <td>공지22</td>
+                                        <td>보류</td>
+                                        <td>회원이용약관(8)</td>
+                                        <td>2022.07.26</td>
+                                        <td>2022.07.26</td>
                                         <td>admin01</td>
-                                        <td>2022.07.26</td>
-                                        <td>2022.07.26</td>
+                                        <td></td>
                                     </tr>
-                                    <tr>
+                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/terms/adminTermsDetail.jsp'">
                                         <th>
                                             <label class="customcheckbox">
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
                                         <td>11</td>
-                                        <td>공지333</td>
+                                        <td>보류</td>
+                                        <td>회원이용약관(9)</td>
+                                        <td>2022.07.26</td>
+                                        <td>2022.07.26</td>
                                         <td>admin01</td>
-                                        <td>2022.07.26</td>
-                                        <td>2022.07.26</td>
+                                        <td></td>
                                     </tr>
-                                    <tr>
+                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/terms/adminTermsDetail.jsp'">
                                         <th>
                                             <label class="customcheckbox">
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
                                         <td>10</td>
-                                        <td>공지44</td>
+                                        <td>user01</td>
+                                        <td>회원이용약관(10)</td>
+                                        <td>2022.07.26</td>
+                                        <td>2022.07.26</td>
                                         <td>admin01</td>
-                                        <td>2022.07.26</td>
-                                        <td>2022.07.26</td>
+                                        <td></td>
                                     </tr>
+                                </tbody>
+                                <tfoot>
                                     <tr align="center">
                                         <th colspan="10">
                                             <br>
@@ -216,7 +239,7 @@
                                               </div>
                                         </th>
                                     </tr>
-                                </tbody>
+                                </tfoot>
                             </table>
                         </div>
                 </div>
