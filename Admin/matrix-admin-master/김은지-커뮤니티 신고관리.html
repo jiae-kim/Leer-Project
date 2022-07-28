@@ -238,6 +238,26 @@
                                 <a class="dropdown-item" href="#">조회수 많은순으로 조회</a>
                             </div>
                         </div>
+                        <button class="btn btn-dark" style="float:right" id="btnn" data-toggle="modal" data-target="#Modal2">게시물 삭제</button>
+                        <div class="modal fade" id="Modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel" style="font-weight: bolder; color: black;">게시물 삭제</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body" style="text-align: center; font-size: larger; font-weight: bold;" >
+                                                해당 글을 삭제하시겠습니까?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-danger">네</button>
+                                                <button type="button" class="btn btn-info" data-dismiss="modal">아니오</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                         <!-- <button class="btn btn-dark" style="float:right" id="btnn">게시물 삭제</button> -->
                     </div>
                         <div class="table-responsive">
@@ -246,6 +266,7 @@
                                     <tr>
                                         <th width="1">
                                             <label class="customcheckbox m-b-20">
+                                                <input type="checkbox" id="mainCheckbox"/>
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
@@ -262,6 +283,7 @@
                                     <tr>
                                         <th>
                                             <label class="customcheckbox">
+                                                <input type="checkbox" class="listCheckbox" />
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
@@ -276,6 +298,7 @@
                                     <tr>
                                         <th>
                                             <label class="customcheckbox">
+                                                <input type="checkbox" class="listCheckbox" />
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
@@ -290,6 +313,7 @@
                                     <tr>
                                         <th>
                                             <label class="customcheckbox">
+                                                <input type="checkbox" class="listCheckbox" />
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
@@ -304,6 +328,7 @@
                                     <tr>
                                         <th>
                                             <label class="customcheckbox">
+                                                <input type="checkbox" class="listCheckbox" />
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
@@ -318,6 +343,7 @@
                                     <tr>
                                         <th>
                                             <label class="customcheckbox">
+                                                <input type="checkbox" class="listCheckbox" />
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
@@ -332,6 +358,7 @@
                                     <tr>
                                         <th>
                                             <label class="customcheckbox">
+                                                <input type="checkbox" class="listCheckbox" />
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
@@ -346,6 +373,7 @@
                                     <tr>
                                         <th>
                                             <label class="customcheckbox">
+                                                <input type="checkbox" class="listCheckbox" />
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
@@ -360,6 +388,7 @@
                                     <tr>
                                         <th>
                                             <label class="customcheckbox">
+                                                <input type="checkbox" class="listCheckbox" />
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
@@ -374,6 +403,7 @@
                                     <tr>
                                         <th>
                                             <label class="customcheckbox">
+                                                <input type="checkbox" class="listCheckbox" />
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
@@ -388,6 +418,7 @@
                                     <tr>
                                         <th>
                                             <label class="customcheckbox">
+                                                <input type="checkbox" class="listCheckbox" />
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
@@ -469,6 +500,16 @@
     <script src="assets/libs/flot/jquery.flot.crosshair.js"></script>
     <script src="assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
     <script src="dist/js/pages/chart/chart-page-init.js"></script>
+    <!-- 체크박스 전체 선택 -->
+    <script src="assets/extra-libs/multicheck/datatable-checkbox-init.js"></script>
+    <script src="assets/extra-libs/multicheck/jquery.multicheck.js"></script>
+    <script src="assets/extra-libs/DataTables/datatables.min.js"></script>
+    <script>
+        /****************************************
+         *       Basic Table                   *
+         ****************************************/
+        $('#zero_config').DataTable();
+    </script>
 
 </body>
 

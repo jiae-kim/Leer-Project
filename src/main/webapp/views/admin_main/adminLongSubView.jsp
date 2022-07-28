@@ -47,13 +47,11 @@
                 <!-- ============================================================== -->
                 <div class="card">
                     <div class="card-body" style="height:55px">
-                        <h5 class="card-title m-b-0" style="vertical-align:45px">회원전체조회</h5>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <div class="btn-group bb1">
-                            <button type="button" class="btn btn-success dropdown-toggle" style="margin:-40px 0px 200px 0px" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            	조회방법 선택
-                            </button>
+                        <h5 class="card-title m-b-0" style="vertical-align:45px">장기구독자조회</h5>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <div class="btn-group bb1" style="margin: 0px 0px 150px 0px;">
+                            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">조회방법 선택</button>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="#">전체조회</a>
                                 <a class="dropdown-item" href="#">등록일 순 조회</a>
@@ -76,8 +74,8 @@
                                         <th scope="col">이메일</th>
                                         <th scope="col">휴대폰</th>
                                         <th scope="col">주소</th>
-                                        <th scope="col">닉네임</th>
-                                        <th scope="col">가입일</th>
+                                        <th scope="col">구독시작일</th>
+                                        <th scope="col">구독종료일</th>
                                         <th scope="col">포인트</th>
                                     </tr>
                                 </thead>
@@ -94,11 +92,11 @@
                                         <td>sdf@naver.com</td>
                                         <td>010-2222-3333</td>
                                         <td>서울</td>
-                                        <td>동글이</td>
                                         <td>2022.07.26</td>
+                                        <td>2023.07.26</td>
                                         <td>300</td>
                                     </tr>
-                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/member/adminMemberDetail.jsp'">
+                                    <tr>
                                         <th>
                                             <label class="customcheckbox">
                                                 <span class="checkmark"></span>
@@ -110,8 +108,8 @@
                                         <td>sdf@naver.com</td>
                                         <td>010-2222-3333</td>
                                         <td>서울</td>
-                                        <td>동글이</td>
                                         <td>2022.07.26</td>
+                                        <td>2023.07.26</td>
                                         <td>300</td>
                                     </tr>
                                     <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/member/adminMemberDetail.jsp'">
@@ -126,8 +124,8 @@
                                         <td>sdf@naver.com</td>
                                         <td>010-2222-3333</td>
                                         <td>서울</td>
-                                        <td>동글이</td>
                                         <td>2022.07.26</td>
+                                        <td>2023.07.26</td>
                                         <td>300</td>
                                     </tr>
                                     <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/member/adminMemberDetail.jsp'">
@@ -142,8 +140,8 @@
                                         <td>sdf@naver.com</td>
                                         <td>010-2222-3333</td>
                                         <td>서울</td>
-                                        <td>동글이</td>
                                         <td>2022.07.26</td>
+                                        <td>2023.07.26</td>
                                         <td>300</td>
                                     </tr>
                                     <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/member/adminMemberDetail.jsp'">
@@ -158,8 +156,8 @@
                                         <td>sdf@naver.com</td>
                                         <td>010-2222-3333</td>
                                         <td>서울</td>
-                                        <td>동글이</td>
                                         <td>2022.07.26</td>
+                                        <td>2023.07.26</td>
                                         <td>300</td>
                                     </tr>
                                     <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/member/adminMemberDetail.jsp'">
@@ -174,8 +172,8 @@
                                         <td>sdf@naver.com</td>
                                         <td>010-2222-3333</td>
                                         <td>서울</td>
-                                        <td>동글이</td>
                                         <td>2022.07.26</td>
+                                        <td>2023.07.26</td>
                                         <td>300</td>
                                     </tr>
                                     <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/member/adminMemberDetail.jsp'">
@@ -190,8 +188,8 @@
                                         <td>sdf@naver.com</td>
                                         <td>010-2222-3333</td>
                                         <td>서울</td>
-                                        <td>동글이</td>
                                         <td>2022.07.26</td>
+                                        <td>2023.07.26</td>
                                         <td>300</td>
                                     </tr>
                                     <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/member/adminMemberDetail.jsp'">
@@ -206,8 +204,8 @@
                                         <td>sdf@naver.com</td>
                                         <td>010-2222-3333</td>
                                         <td>서울</td>
-                                        <td>동글이</td>
                                         <td>2022.07.26</td>
+                                        <td>2023.07.26</td>
                                         <td>300</td>
                                     </tr>
                                     <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/member/adminMemberDetail.jsp'">
@@ -222,8 +220,8 @@
                                         <td>sdf@naver.com</td>
                                         <td>010-2222-3333</td>
                                         <td>서울</td>
-                                        <td>동글이</td>
                                         <td>2022.07.26</td>
+                                        <td>2023.07.26</td>
                                         <td>300</td>
                                     </tr>
                                     <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/member/adminMemberDetail.jsp'">
@@ -238,8 +236,8 @@
                                         <td>sdf@naver.com</td>
                                         <td>010-2222-3333</td>
                                         <td>서울</td>
-                                        <td>동글이</td>
                                         <td>2022.07.26</td>
+                                        <td>2023.07.26</td>
                                         <td>300</td>
                                     </tr>
                                 </tbody>
