@@ -10,18 +10,20 @@ public class Product {
 	private int price; 
 	private String publisher;
 	private Date publishMonth;
+	private int month;
 	private int pStock;
 	private String supYn;
 	private int point;
 	private int deliFee; 
 	private String sellYn;
 	private String imageUrl1;
-	private String imageUrl2; 
+	private String imageUrl2;
+	private String imageUrlS;
 	
 	public Product() {}
 
 	public Product(String pCode, int categoryNo, String pName, int price, String publisher, Date publishMonth,
-			int pStock, String supYn, int point, int deliFee, String sellYn, String imageUrl1, String imageUrl2) {
+			int pStock, String supYn, int point, int deliFee, String sellYn, String imageUrl1, String imageUrl2, String imageUrlS) {
 		super();
 		this.pCode = pCode;
 		this.categoryNo = categoryNo;
@@ -36,15 +38,40 @@ public class Product {
 		this.sellYn = sellYn;
 		this.imageUrl1 = imageUrl1;
 		this.imageUrl2 = imageUrl2;
+		this.imageUrlS = imageUrlS;
 	}
 
-	public Product(int categoryNo, String pName, int price, Date publishMonth, String imageUrl1) {
+	public Product(String pCode, int categoryNo, String pName, int price, Date publishMonth, String imageUrl1) {
 		super();
+		this.pCode = pCode;
 		this.categoryNo = categoryNo;
 		this.pName = pName;
 		this.price = price;
 		this.publishMonth = publishMonth;
 		this.imageUrl1 = imageUrl1;
+	}
+
+	public Product(String pName, int price, String publisher, int month, int pStock, String supYn,
+			String imageUrl1, String imageUrl2, String imageUrlS) {
+		super();
+		this.pName = pName;
+		this.price = price;
+		this.publisher = publisher;
+		this.month = month;
+		this.pStock = pStock;
+		this.supYn = supYn;
+		this.imageUrl1 = imageUrl1;
+		this.imageUrl2 = imageUrl2;
+		this.imageUrlS = imageUrlS; 
+		
+	}
+
+	public int getMonth() {
+		return month;
+	}
+
+	public void setMonth(int month) {
+		this.month = month;
 	}
 
 	public String getpCode() {
@@ -151,13 +178,23 @@ public class Product {
 		this.imageUrl2 = imageUrl2;
 	}
 
+	public String getImageUrlS() {
+		return imageUrlS;
+	}
+
+	public void setImageUrlS(String imageUrlS) {
+		this.imageUrlS = imageUrlS;
+	}
+
 	@Override
 	public String toString() {
 		return "Product [pCode=" + pCode + ", categoryNo=" + categoryNo + ", pName=" + pName + ", price=" + price
 				+ ", publisher=" + publisher + ", publishMonth=" + publishMonth + ", pStock=" + pStock + ", supYn="
 				+ supYn + ", point=" + point + ", deliFee=" + deliFee + ", sellYn=" + sellYn + ", imageUrl1="
-				+ imageUrl1 + ", imageUrl2=" + imageUrl2 + "]";
+				+ imageUrl1 + ", imageUrl2=" + imageUrl2 + ", imageUrlS=" + imageUrlS + "]";
 	}
+
+
 	
 	
 }

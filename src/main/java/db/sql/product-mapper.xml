@@ -3,7 +3,8 @@
 <properties>
 	<entry key="selectProductList">
 		SELECT
-			    CATEGORY_NO
+				P_CODE
+			  , CATEGORY_NO
 			  , P_NAME
 			  , PRICE
 			  , PUBLISH_MONTH
@@ -15,7 +16,8 @@
 	
 	<entry key="selectProductListOld">
 		SELECT
-			    CATEGORY_NO
+			    P_CODE
+			  , CATEGORY_NO
 			  , P_NAME
 			  , PRICE
 			  , PUBLISH_MONTH
@@ -23,5 +25,33 @@
 			FROM PRODUCT
 			WHERE CATEGORY_NO = 10
 			ORDER BY PUBLISH_MONTH ASC
+	</entry>
+	
+	<entry key="selectProductDetail">
+		SELECT 
+		       P_NAME
+		     , PRICE
+		     , PUBLISHER
+		     , EXTRACT(MONTH FROM PUBLISH_MONTH)"MONTH"
+		     , P_STOCK
+		     , SUP_YN
+		     , IMAGE_URL1
+		     , IMAGE_URL2
+		     , S.IMAGE_URL 
+		  FROM PRODUCT 
+		  left JOIN SUPPLEMENT S USING(P_CODE)
+		 WHERE P_CODE = ?
+	</entry>
+	
+	<entry key="selectInquiryList">
+		 SELECT Q_NO
+		      , Q_YN
+		      , TITLE
+		      , M.MEM_NAME
+		      , I.ENROLL_DATE
+		   FROM INQUIRY I
+		   JOIN MEMBER M USING (MEM_NO)
+		  WHERE P_CODE = ?
+		  ORDER BY I.ENROLL_DATE
 	</entry>
 </properties>

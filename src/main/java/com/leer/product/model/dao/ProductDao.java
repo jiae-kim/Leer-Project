@@ -1,5 +1,7 @@
 package com.leer.product.model.dao;
 
+import static com.leer.common.JDBCTemplate.close;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
@@ -9,9 +11,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Properties;
 
+import com.leer.product.model.vo.Inquiry;
 import com.leer.product.model.vo.Product;
-
-import static com.leer.common.JDBCTemplate.*;
 
 public class ProductDao {
 	
@@ -38,7 +39,8 @@ public class ProductDao {
 			
 			while(rset.next()) {
 				
-				list.add(new Product(rset.getInt("category_no"),
+				list.add(new Product(rset.getString("p_code"),
+						 rset.getInt("category_no"),
 						 rset.getString("p_name"),
 						 rset.getInt("price"),
 						 rset.getDate("publish_month"),
@@ -67,7 +69,8 @@ public class ProductDao {
 			
 			while(rset.next()) {
 				
-				list.add(new Product(rset.getInt("category_no"),
+				list.add(new Product(rset.getString("p_code"),
+						 rset.getInt("category_no"),
 						 rset.getString("p_name"),
 						 rset.getInt("price"),
 						 rset.getDate("publish_month"),
@@ -82,5 +85,72 @@ public class ProductDao {
 			close(pstmt);
 		}
 		return list;
+	}
+	
+	public Product selectProductDetail(Connection conn, String pCode) {
+		Product p = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectProductDetail");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, pCode);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				p = new Product(rset.getString("p_name"),
+						        rset.getInt("price"),
+						        rset.getString("publisher"),
+						        rset.getInt("month"),
+						        rset.getInt("p_stock"),
+						        rset.getString("sup_yn"),
+						        rset.getString("image_url1"),
+						        rset.getString("image_url2"),
+						        rset.getString("image_url"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return p;
+		
+		
+	}
+	
+	public ArrayList<Inquiry> selectInquiryList(Connection conn, String pCode){
+		ArrayList<Inquiry> list = new ArrayList<Inquiry>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectInquiryList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, pCode);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				list.add(new Inquiry(rset.getInt("q_no"),
+						  			 rset.getString("q_yn"),
+						  			 rset.getString("title"),
+						  			 rset.getString("mem_name"),
+						  			 rset.getDate("enroll_date")
+									));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+			
+		}
+		return list; 
 	}
 }
