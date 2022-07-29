@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.leer.common.model.vo.Category"%>
+<%
+	ArrayList<Category> list = (ArrayList<Category>)request.getAttribute("list");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -140,11 +143,11 @@
                                                             <option value="" disabled selected hidden>
                                                                 카테고리를 선택하세요.
                                                             </option>
-                                                            <% for() %>
-                                                            <option value="">
-                                                                패션/여성
+                                                          	<% for(Category c : list) { %>
+                                                            <option value="<%=c.getCategoryNo()%>">
+                                                                <%=c.getCategoryName() %>
                                                             </option>
-                                                    
+                                                    		<% } %>
                                                     </select>
                                                 </td>
                                             </tr>

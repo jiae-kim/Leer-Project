@@ -67,7 +67,7 @@ public class ComuMainController extends HttpServlet {
 				request.setAttribute("pi", pi);
 				request.setAttribute("list", list);
 				
-				request.getRequestDispatcher("views/community/communityMain.jsp").forward(request, response);
+				request.getRequestDispatcher("views/community/viewList.jsp").forward(request, response);
 	}
 
 	/**

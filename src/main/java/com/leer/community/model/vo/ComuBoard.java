@@ -3,8 +3,6 @@ package com.leer.community.model.vo;
 import java.sql.Clob;
 import java.sql.Date;
 
-import oracle.sql.CLOB;
-
 public class ComuBoard {
 	
 	private int comuNo;
