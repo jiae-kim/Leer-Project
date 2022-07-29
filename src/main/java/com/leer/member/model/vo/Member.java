@@ -20,15 +20,13 @@ public class Member {
 	private String admin;
 	private String profileLink;
 	
+	
+	
+	
 	public Member() {}
 
-	@Override
-	public String toString() {
-		return "Member [memNo=" + memNo + ", memId=" + memId + ", memPwd=" + memPwd + ", nickname=" + nickname
-				+ ", memName=" + memName + ", memBirth=" + memBirth + ", phone=" + phone + ", email=" + email
-				+ ", address=" + address + ", categoryNo=" + categoryNo + ", point=" + point + ", memStatus="
-				+ memStatus + ", enrollDate=" + enrollDate + ", admin=" + admin + ", profileLink=" + profileLink + "]";
-	}
+	
+	
 
 	public Member(int memNo, String memId, String memPwd, String nickname, String memName, String memBirth,
 			String phone, String email, String address, String categoryNo, int point, String memStatus, Date enrollDate,
@@ -51,6 +49,30 @@ public class Member {
 		this.profileLink = profileLink;
 	}
 	
+	
+	
+	
+	public Member(int memNo, String memId, String memPwd, String nickname, String memName, String memBirth,
+			String phone, String email, String address, String categoryNo, int point, String memStatus, String admin) {
+		super();
+		this.memNo = memNo;
+		this.memId = memId;
+		this.memPwd = memPwd;
+		this.nickname = nickname;
+		this.memName = memName;
+		this.memBirth = memBirth;
+		this.phone = phone;
+		this.email = email;
+		this.address = address;
+		this.categoryNo = categoryNo;
+		this.point = point;
+		this.memStatus = memStatus;
+		this.admin = admin;
+	}
+
+
+
+
 	public Member(int memNo, String memId, String nickname, String memName, String phone, String email, String address,
 			int point, Date enrollDate) {
 		super();
@@ -65,6 +87,9 @@ public class Member {
 		this.enrollDate = enrollDate;
 	}
 	
+	
+	
+	
 	public Member(int memNo, String memId, String memName, String phone, String address, int point, Date enrollDate) {
 		super();
 		this.memNo = memNo;
@@ -75,6 +100,12 @@ public class Member {
 		this.point = point;
 		this.enrollDate = enrollDate;
 	}
+	
+	
+	
+	
+	
+	
 
 	public int getMemNo() {
 		return memNo;
@@ -197,5 +228,14 @@ public class Member {
 	}
 	
 	
+	
+
+	@Override
+	public String toString() {
+		return "Member [memNo=" + memNo + ", memId=" + memId + ", memPwd=" + memPwd + ", nickname=" + nickname
+				+ ", memName=" + memName + ", memBirth=" + memBirth + ", phone=" + phone + ", email=" + email
+				+ ", address=" + address + ", categoryNo=" + categoryNo + ", point=" + point + ", memStatus="
+				+ memStatus + ", enrollDate=" + enrollDate + ", admin=" + admin + ", profileLink=" + profileLink + "]";
+	}
 
 }

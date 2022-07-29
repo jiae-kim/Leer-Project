@@ -13,11 +13,11 @@
         }
 
         .login-info{
-            margin-bottom: 50px;
+            /* margin-bottom: 50px; */
         }
 
         .login-form{
-            background-color:rgb(250, 250, 250);
+            background-color:rgba(241, 241, 241, 0.329);
             padding: 50px;
             margin-bottom: 5px;
         }
@@ -27,18 +27,22 @@
             margin: 10px;
             height: 40px;
             width: 400px;
+            border-radius: 5px;
+            border: 1px solid lightgrey;
         }
 
         .login-form button{
             margin: 10px;
             height: 40px;
-            width: 408px;
+            width: 400px;
+            border-radius: 5px;
+            border: 1px solid lightgrey;
         }
 
         .login-form-etc a{
             text-decoration: none;
             color: rgb(58, 60, 66);
-            font-size: 11px;
+            font-size: 13px;
         }
 
     </style>
@@ -53,29 +57,28 @@
 
 
         <div class="login-info" align="center">
-            <label for="" style="font-size: 35px; font-weight: 900;">로그인</label><br>
-            <label for="" style="font-size: 20px; font-weight: 600; color: grey;">로그인 후 리에르의 다양한 서비스를 만나보세요</label><br>
+            <label style="font-size: 35px; font-weight: 900;">로그인</label><br>
+            <label style="font-size: 20px; font-weight: 600; color: grey;">로그인 후 리에르의 다양한 서비스를 만나보세요</label><br>
         </div>
 
 
         <div class="login-form" align="center">
-            <form action="">
+            <form action="<%=contextPath%>/login.me">
                 <div class="login-input">
-                    <input type="text" id="userId" placeholder=" 아이디"><br>
-                    <input type="password" id="password" placeholder=" 비밀번호"><br>
+                    <input type="text" name="memId" id="id" placeholder="  아이디" required><br>
+                    <input type="password" name="memPwd" id="password" placeholder="  비밀번호" required><br>
                 </div>
 
                 <div class="login-btn">
-                    <button>로그인</button>
+                    <button type="submit">로그인</button>
                 </div>
-
-
+                
+                
                 <div class="login-form-etc" align="center">
-                    <a href="" id="a1">회원가입</a>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="" id="a1" style="float: left; margin-left: 39%">회원가입</a>
 
-                    <a href="" id="a2">아이디 찾기</a>
-                    <a href="" id="a3">비밀번호 찾기</a>
+                    <a href="" id="a3" style="float:right; margin-right:39%">비밀번호 찾기</a>
+                    <a href="" id="a2" style="float:right; margin-right:1%">아이디 찾기</a>
                 </div>
 
                 
