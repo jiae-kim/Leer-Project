@@ -78,8 +78,22 @@
 
 			<div class="col-lg-12">
 				<div class="product__pagination blog__pagination">
-					<a href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#"><i
-						class="fa fa-long-arrow-right"></i></a>
+					<% if(currentPage != 1){ %>
+            			<button onclick="location.href='<%=contextPath%>/list.bo?cpage=<%=currentPage-1%>';">&lt;</button>
+		            <% } %>
+		            
+		         	<% for(int p=startPage; p<=endPage; p++) {%>
+		         
+			            <% if(p == currentPage){ %>
+	            			<button disabled><%= p %></button>
+	            		<% }else { %>
+	              			 <button onclick="location.href='<%=contextPath%>/list.bo?cpage=<%= p %>';"><%= p %></button>
+	              		<% } %>
+          		   <% } %>
+         
+		         <% if(currentPage != maxPage){ %>
+		            <button onclick="location.href='<%=contextPath%>/list.bo?cpage=<%=currentPage+1%>';">&gt;</button>
+		            <% } %>
 				</div>
 			</div>
 		</div>
