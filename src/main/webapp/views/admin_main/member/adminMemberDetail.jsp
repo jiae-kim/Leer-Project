@@ -1,10 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.ArrayList, com.leer.member.model.vo.Member, com.leer.common.model.vo.PageInfo"%>    
 <!DOCTYPE html>
+<%
+	Member m = (Member)request.getAttribute("member");
+%>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+.text-center {
+	width:400px
+}
+</style>
 </head>
 <body>
 
@@ -40,36 +49,36 @@
 	            <div class="card-body">
                 <a href="${pageContext.request.contextPath}/lec/lecList" class="btn btn-dark" style="float:right">이전으로</a>
 	            <div class ="printView">
-	            <h2 style="text-align:center;"> 회원상세정보 </h2>
+	            <h2 style="text-align:center"> 회원상세정보 </h2>
 					<table class="table">
-						<tr>
-							<th class="text-center">회원번호</th>
-							<td>001</td>
-						</tr>
-						<tr>
-							<th class="text-center" style="width:400px">아이디</th>
-							<td>tttt01</td>
-						</tr>
-						<tr>
-							<th class="text-center">이름</th>
-							<td>홍길동</td>
-						</tr>
-						<tr>
-							<th class="text-center">주소</th>
-							<td>서울시 관악구</td>
-						</tr>
-						<tr>
-							<th class="text-center">휴대폰 번호</th>
-							<td>010-1111-2222</td>
-						</tr>
-						<tr>
-							<th class="text-center">가입일</th>
-							<td>2022-07-22</td>
-						</tr>
-						<tr>
-							<th class="text-center">보유 포인트</th>
-							<td>500</td>
-						</tr>
+							<tr>
+								<th class="text-center">회원번호</th>
+								<td><%=m.getMemNo()%></td>
+							</tr>
+							<tr>
+								<th class="text-center">아이디</th>
+								<td><%=m.getMemId()%></td>
+							</tr>
+							<tr>
+								<th class="text-center">이름</th>
+								<td><%=m.getMemName()%></td>
+							</tr>
+							<tr>
+								<th class="text-center">주소</th>
+								<td><%=m.getAddress()%></td>
+							</tr>
+							<tr>
+								<th class="text-center">휴대폰 번호</th>
+								<td><%=m.getPhone()%></td>
+							</tr>
+							<tr>
+								<th class="text-center">가입일</th>
+								<td><%=m.getEnrollDate()%></td>
+							</tr>
+							<tr>
+								<th class="text-center">보유 포인트</th>
+								<td><%=m.getPoint()%></td>
+							</tr>
 						<tr>
 							<th class="text-center">구매내역</th>
 							<td>
