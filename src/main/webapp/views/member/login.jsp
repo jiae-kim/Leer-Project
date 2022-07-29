@@ -37,6 +37,8 @@
             width: 400px;
             border-radius: 5px;
             border: 1px solid lightgrey;
+            line-height: 40px;
+            font-size: 14px;
         }
 
         .login-form-etc a{
@@ -52,6 +54,7 @@
 
 	<%@ include file="/views/common/menubar.jsp" %>
 
+    <hr>
 
 	<div class="login-wrap">
 
@@ -63,7 +66,7 @@
 
 
         <div class="login-form" align="center">
-            <form action="<%=contextPath%>/login.me">
+            <form action="<%=contextPath%>/login.me" method="post">
                 <div class="login-input">
                     <input type="text" name="memId" id="id" placeholder="  아이디" required><br>
                     <input type="password" name="memPwd" id="password" placeholder="  비밀번호" required><br>
@@ -80,8 +83,7 @@
                     <a href="" id="a3" style="float:right; margin-right:39%">비밀번호 찾기</a>
                     <a href="" id="a2" style="float:right; margin-right:1%">아이디 찾기</a>
                 </div>
-
-                
+                <br>
             </form>
         </div>
 

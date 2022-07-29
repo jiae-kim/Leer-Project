@@ -65,7 +65,10 @@
                 </div>
                 
                 <div class="col-lg-3">
+
+                    <!-- case1. 로그인 전 -->
                     <div class="header__cart">
+
                         <ul>
                         	<li><a href="<%=contextPath%>/views/member/login.jsp" class="login-btn">로그인</a></li>
                         	<li style="font-size:12px">|</li> 
@@ -74,6 +77,24 @@
                             <li><a href="#"><i class="fa fa-shopping-bag"></i></a></li>
                         </ul>
                     </div>
+
+
+
+
+
+                    <!-- case2. 로그인 후 -->
+                    <!--
+                    <div>
+                        <label for="">xxx님</label>
+                        <ul>
+                            <li><a href=""> <i class=""><a href="" style="text-decoration: none; color:black">마이페이지</a></li>
+                            <li id="login-icon"><a href=""><i class="fa fa-heart"></i></a></li>
+                            <li><a href="#"><i class="fa fa-shopping-bag"></i></a></li>
+                        </ul>
+                    </div>
+                    -->
+
+
                 </div>
             </div>
             <div class="humberger__open">
