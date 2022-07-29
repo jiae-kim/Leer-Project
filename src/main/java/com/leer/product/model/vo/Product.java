@@ -204,13 +204,24 @@ public class Product {
 		this.imageUrlS = imageUrlS;
 	}
 
+	public Date getEnrollDate() {
+		return enrollDate;
+	}
+
+	public void setEnrollDate(Date enrollDate) {
+		this.enrollDate = enrollDate;
+	}
+
 	@Override
 	public String toString() {
 		return "Product [pCode=" + pCode + ", categoryNo=" + categoryNo + ", pName=" + pName + ", price=" + price
-				+ ", publisher=" + publisher + ", publishMonth=" + publishMonth + ", pStock=" + pStock + ", supYn="
-				+ supYn + ", point=" + point + ", deliFee=" + deliFee + ", sellYn=" + sellYn + ", imageUrl1="
-				+ imageUrl1 + ", imageUrl2=" + imageUrl2 + ", imageUrlS=" + imageUrlS + "]";
+				+ ", publisher=" + publisher + ", publishMonth=" + publishMonth + ", month=" + month + ", pStock="
+				+ pStock + ", supYn=" + supYn + ", point=" + point + ", deliFee=" + deliFee + ", sellYn=" + sellYn
+				+ ", imageUrl1=" + imageUrl1 + ", imageUrl2=" + imageUrl2 + ", imageUrlS=" + imageUrlS + ", enrollDate="
+				+ enrollDate + "]";
 	}
+
+	
 
 
 	

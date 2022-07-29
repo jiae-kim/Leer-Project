@@ -39,7 +39,7 @@ public class AdminProductListController extends HttpServlet {
 		ArrayList<Product> list = new AdminProductService().selectProductList();
 		request.setAttribute("list", list);
 		
-		request.getRequestDispatcher("views/admin_main/product/adminProductView.jsp");
+		request.getRequestDispatcher("views/admin_main/product/adminProductView.jsp").forward(request, response);
 	}
 
 	/**

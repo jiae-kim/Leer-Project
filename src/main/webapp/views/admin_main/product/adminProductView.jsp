@@ -109,6 +109,7 @@
                           </tr>
                       </thead>
                       <tbody class="customtable">
+	                    <% int number = list.size(); %>
                       	<% for(Product p : list) { %>
                           <tr>
                               <th>
@@ -117,14 +118,14 @@
                                       <span class="checkmark"></span>
                                   </label>
                               </th>
-                              <td>등록순번for문으로</td>
+                              <td><%= number-- %></td>
                               <td><%=p.getpName()%></td>
                               <td><%=p.getCategoryNo()%></td>
                               <td><%=p.getpCode()%></td>
                               <td><%=p.getPublisher()%></td>
                               <td><%=p.getPublishMonth()%></td>
                               <td><%=p.getPrice()%></td>
-                              <td><%=p.getenrollDate()%></td>
+                              <td><%=p.getEnrollDate()%></td>
                               <td><%=p.getpStock()%></td>
                           </tr>
                     	<% } %>
