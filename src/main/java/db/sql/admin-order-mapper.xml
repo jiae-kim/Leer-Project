@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
-	<entry key="">
+	<entry key="selectMemberOrderDetail">
+		SELECT
+		       OR_NO
+		     , OR_DATE
+		     , P_NAME
+		     , ENROLL_DATE
+		  FROM "ORDER"
+		  JOIN OR_PRODUCT USING (OR_NO)
+		  JOIN PRODUCT USING (P_CODE)
+		 ORDER
+		    BY OR_NO DESC
 	</entry>
 </properties>

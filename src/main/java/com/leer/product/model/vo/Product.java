@@ -19,6 +19,7 @@ public class Product {
 	private String imageUrl1;
 	private String imageUrl2;
 	private String imageUrlS;
+	private Date enrollDate;
 	
 	public Product() {}
 
@@ -64,6 +65,23 @@ public class Product {
 		this.imageUrl2 = imageUrl2;
 		this.imageUrlS = imageUrlS; 
 		
+	}
+
+	/* [제품관리 - 상품조회]
+	 * 상품 전체 조회
+	 * 작성자 김지애
+	 */
+	public Product(String pName, int categoryNo, String pCode, String publisher, Date publishMonth, int price, Date enrollDate,
+			int pStock) {
+		super();
+		this.pName = pName;
+		this.categoryNo = categoryNo;
+		this.pCode = pCode;
+		this.publisher = publisher;
+		this.publishMonth = publishMonth;
+		this.price = price;
+		this.enrollDate = enrollDate;
+		this.pStock = pStock;
 	}
 
 	public int getMonth() {
