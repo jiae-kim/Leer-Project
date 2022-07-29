@@ -72,7 +72,7 @@
                         <ul>
                         	<li><a href="<%=contextPath%>/views/member/login.jsp" class="login-btn">로그인</a></li>
                         	<li style="font-size:12px">|</li> 
-                        	<li id="login-icon"><a href="" class="login-btn">회원가입</a></li>
+                        	<li id="login-icon"><a href="<%=contextPath %>/views/member/signup.jsp" class="login-btn">회원가입</a></li>
                             <li id="login-icon"><a href=""><i class="fa fa-heart"></i></a></li>
                             <li><a href="#"><i class="fa fa-shopping-bag"></i></a></li>
                         </ul>
