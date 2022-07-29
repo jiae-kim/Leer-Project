@@ -49,7 +49,7 @@
 					<div class="blog__item">
 						<% for(ComuBoard b : list) { %>
 						<div class="blog__item__text" align="left">
-							<h5 style="margin-bottom: -10px;">
+							<h5 style="marin-bottom: -10px;">
 								<a href="#">여기는 게시글 제목쓰는곳</a>
 							</h5>
 							<span style="font-size: 12px">2022/07/20</span> <a
