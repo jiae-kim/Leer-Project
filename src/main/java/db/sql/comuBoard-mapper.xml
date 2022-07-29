@@ -19,14 +19,14 @@
 	                     , TAG
 	                     , TITLE
 	                     , CONTENT
-	                     , ENROLL_DATE
+	                     , B.ENROLL_DATE
 	                     , VIEW_COUNT
 	                  FROM COMU_BOARD B
 	                  JOIN CATEGORY USING(CATEGORY_NO)
 	                  JOIN MEMBER USING (MEM_NO)
 	                 WHERE DELETE_YN = 'N'
 	                 ORDER 
-	                    BY BOARD_NO DESC
+	                    BY COMU_NO DESC
 	               ) A
 	        )
 	 WHERE RNUM BETWEEN ? AND ?
