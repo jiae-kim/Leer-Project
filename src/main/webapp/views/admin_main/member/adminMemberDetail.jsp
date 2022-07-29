@@ -1,9 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="java.util.ArrayList, com.leer.member.model.vo.Member, com.leer.common.model.vo.PageInfo"%>    
+<%@ page import="java.util.ArrayList, 
+				 com.leer.member.model.vo.Member, 
+				 com.leer.common.model.vo.PageInfo,
+				 com.leer.order.model.vo.Order"%>    
 <!DOCTYPE html>
 <%
 	Member m = (Member)request.getAttribute("member");
+	ArrayList<Order> list = (ArrayList<Order>)request.getAttribute("list");
 %>
 <html>
 <head>
@@ -89,24 +93,14 @@
                                         <td width="300px">잡지명</td>
                                         <td width="200px">출간연월</td>
                                     </tr>
-                                    <tr>
-                                        <td>17</td>
-                                        <td>2022-07-26</td>
-                                        <td>보그VOGUE</td>
-                                        <td>2022-08</td>
-                                    </tr>
-                                    <tr>
-                                        <td>16</td>
-                                        <td>2022-07-26</td>
-                                        <td>보그VOGUE</td>
-                                        <td>2022-08</td>
-                                    </tr>
-                                    <tr>
-                                        <td>15</td>
-                                        <td>2022-07-26</td>
-                                        <td>보그VOGUE</td>
-                                        <td>2022-08</td>
-                                    </tr>
+                                   	<% for(Order o : list) { %>
+	                                    <tr>
+	                                        <td><%=o.getOrNo()%></td>
+	                                        <td><%=o.getOrDate() %></td>
+	                                        <td><%=o.getpName()%></td>
+	                                        <td><%=o.getEnrollDate()%></td>
+	                                    </tr>
+                                    <% } %>
                                 </table>
                             </td>
 						</tr>

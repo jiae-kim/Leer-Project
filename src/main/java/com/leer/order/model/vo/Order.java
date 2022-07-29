@@ -21,6 +21,9 @@ public class Order {
 	private String payment;
 	private Date orDate;
 	
+	private String pName;
+	private Date enrollDate;
+	
 	public Order() {}
 
 	public Order(String orNo, int memNo, int orPrice, int orPoint, String reviewYn, String orYn, String orReturn,
@@ -43,6 +46,14 @@ public class Order {
 		this.parcelStatus = parcelStatus;
 		this.payment = payment;
 		this.orDate = orDate;
+	}
+
+	public Order(String orNo, Date orDate, String pName, Date enrollDate) {
+		super();
+		this.orNo = orNo;
+		this.orDate = orDate;
+		this.pName = pName;
+		this.enrollDate = enrollDate;
 	}
 
 	public String getOrNo() {
@@ -172,6 +183,22 @@ public class Order {
 	public void setOrDate(Date orDate) {
 		this.orDate = orDate;
 	}
+	
+	public String getpName() {
+		return pName;
+	}
+
+	public void setpName(String pName) {
+		this.pName = pName;
+	}
+
+	public Date getEnrollDate() {
+		return enrollDate;
+	}
+
+	public void setEnrollDate(Date enrollDate) {
+		this.enrollDate = enrollDate;
+	}
 
 	@Override
 	public String toString() {
@@ -179,7 +206,8 @@ public class Order {
 				+ ", reviewYn=" + reviewYn + ", orYn=" + orYn + ", orReturn=" + orReturn + ", returnReson="
 				+ returnReson + ", takeName=" + takeName + ", phone=" + phone + ", location=" + location
 				+ ", parcelName=" + parcelName + ", parcelNum=" + parcelNum + ", parcelStatus=" + parcelStatus
-				+ ", payment=" + payment + ", orDate=" + orDate + "]";
+				+ ", payment=" + payment + ", orDate=" + orDate + ", pName=" + pName + ", enrollDate=" + enrollDate
+				+ "]";
 	}
 	
 }
