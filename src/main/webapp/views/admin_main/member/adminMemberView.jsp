@@ -140,15 +140,14 @@
                 
             </footer>
             
-            <!-- 스크립트 시작 -->
-            <script>
-            	$(function(){
-            		<%-- $(".table>tbody>tr").click(function(){
-            			const num = $(this).children().eq(0).text();
-            			location.href = '<%=request.getContextPath()%>/adMemDetail.do' + num;
-            		}) --%>
-            	})
-            </script>
+            
+		
+		<!--------- 스크립트 ----------->
+		<script>
+			$(function(){
+				
+			})
+		</script>
 </body>
 </html>
 

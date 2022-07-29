@@ -10,6 +10,7 @@
 		  FROM "ORDER"
 		  JOIN OR_PRODUCT USING (OR_NO)
 		  JOIN PRODUCT USING (P_CODE)
+		 WHERE MEM_NO = ?
 		 ORDER
 		    BY OR_NO DESC
 	</entry>

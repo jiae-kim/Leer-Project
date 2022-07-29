@@ -13,10 +13,10 @@ public class AdminOrderService {
 	
 	// 관리자 회원상세조회-주문내역리스트 조회
 	// 작성자 김은지
-	public ArrayList<Order> selectMemberOrderDetail(){
+	public ArrayList<Order> selectMemberOrderDetail(int memNo){
 		Connection conn = getConnection();
 		
-		ArrayList<Order> list = new AdminOrderDao().selectMemberOrderDetail(conn);
+		ArrayList<Order> list = new AdminOrderDao().selectMemberOrderDetail(conn, memNo);
 		
 		close(conn);
 		return list;

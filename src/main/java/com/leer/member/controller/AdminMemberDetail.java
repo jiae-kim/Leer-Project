@@ -42,7 +42,7 @@ public class AdminMemberDetail extends HttpServlet {
 		
 		// 주문내역에대한 데이터리스트 조회
 		// 리퀘스트에 다시 담고 반복문으로 뿌리기
-		ArrayList<Order> list = new AdminOrderService().selectMemberOrderDetail();
+		ArrayList<Order> list = new AdminOrderService().selectMemberOrderDetail(memNo);
 		request.setAttribute("list", list);
 		
 		request.getRequestDispatcher("views/admin_main/member/adminMemberDetail.jsp").forward(request, response);

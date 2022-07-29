@@ -30,7 +30,7 @@ private Properties prop = new Properties();
 	
 	// 관리자 회원조회상세-주문내역리스트
 	// 작성자 김은지
-	public ArrayList<Order> selectMemberOrderDetail(Connection conn){
+	public ArrayList<Order> selectMemberOrderDetail(Connection conn, int memNo){
 		ArrayList<Order> list = new ArrayList<>(); 
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -38,6 +38,8 @@ private Properties prop = new Properties();
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memNo);
+			
 			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
