@@ -47,7 +47,16 @@
                     <nav class="header__menu">
                         <ul>
                             <!--  <li><a href="./index.html"><b>홈</b></a></li>-->
-                            <li class="active"><a href="<%=contextPath %>/list.pd"><b>카테고리</b></a></li>
+                            <li class="active"><a href="<%=contextPath %>/list.pd"><b>카테고리</b></a>
+                            	 <ul class="header__menu__dropdown">
+                                    <li><a href="./shop-details.html">패션 여성</a></li>
+                                    <li><a href="./shoping-cart.html">라이프 인테리어</a></li>
+                                    <li><a href="./checkout.html">문화 예술</a></li>
+                                    <li><a href="./blog-details.html">여행 취미</a></li>
+                                    <li><a href="./blog-details.html">시사 경제</a></li>
+                                    <li><a href="./blog-details.html">교육 과학</a></li>
+                                </ul>
+                            </li>
                             <li><a href="<%=contextPath%>/comu.bo?cpage=1"><b>커뮤니티</b></a></li>
                             <li><a href="./blog.html"><b>고객센터</b></a></li>
                             <li><a href="<%= contextPath %>/myPage.me"><b>마이페이지</b></a></li>
