@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.ArrayList, com.leer.product.model.vo.Product" %>
+<%
+	ArrayList<Product> list = (ArrayList<Product>)request.getAttribute("list");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -95,15 +99,17 @@
                               </th>
                               <th scope="col">등록 순번</th>
                               <th scope="col">상품명</th>
-                              <th scope="col">출간일</th>
-                              <th scope="col">발행처</th>
                               <th scope="col">카테고리</th>
+                              <th scope="col">상품코드</th>
+                              <th scope="col">발행처</th>
+                              <th scope="col">출간일</th>
                               <th scope="col">판매가</th>
                               <th scope="col">등록일</th>
                               <th scope="col">재고</th>
                           </tr>
                       </thead>
                       <tbody class="customtable">
+                      	<% for(Product p : list) { %>
                           <tr>
                               <th>
                                   <label class="customcheckbox">
@@ -111,159 +117,17 @@
                                       <span class="checkmark"></span>
                                   </label>
                               </th>
-                              <td>56</td>
-                              <td>보그</td>
-                              <td>22-08</td>
-                              <td>두산매거진</td>
-                              <td>01</td>
-                              <td>9,800</td>
-                              <td>22-07</td>
-                              <td>100</td>
+                              <td>등록순번for문으로</td>
+                              <td><%=p.getpName()%></td>
+                              <td><%=p.getCategoryNo()%></td>
+                              <td><%=p.getpCode()%></td>
+                              <td><%=p.getPublisher()%></td>
+                              <td><%=p.getPublishMonth()%></td>
+                              <td><%=p.getPrice()%></td>
+                              <td><%=p.getenrollDate()%></td>
+                              <td><%=p.getpStock()%></td>
                           </tr>
-                          <tr>
-                              <th>
-                                  <label class="customcheckbox">
-                                      <input type="checkbox" class="listCheckbox" />
-                                      <span class="checkmark"></span>
-                                  </label>
-                              </th>
-                              <td>56</td>
-                              <td>보그</td>
-                              <td>22-08</td>
-                              <td>두산매거진</td>
-                              <td>01</td>
-                              <td>9,800</td>
-                              <td>22-07</td>
-                              <td>100</td>
-                          </tr>
-                          <tr>
-                              <th>
-                                  <label class="customcheckbox">
-                                      <input type="checkbox" class="listCheckbox" />
-                                      <span class="checkmark"></span>
-                                  </label>
-                              </th>
-                              <td>56</td>
-                              <td>보그</td>
-                              <td>22-08</td>
-                              <td>두산매거진</td>
-                              <td>01</td>
-                              <td>9,800</td>
-                              <td>22-07</td>
-                              <td>100</td>
-                          </tr>
-                          <tr>
-                              <th>
-                                  <label class="customcheckbox">
-                                      <input type="checkbox" class="listCheckbox" />
-                                      <span class="checkmark"></span>
-                                  </label>
-                              </th>
-                              <td>56</td>
-                              <td>보그</td>
-                              <td>22-08</td>
-                              <td>두산매거진</td>
-                              <td>01</td>
-                              <td>9,800</td>
-                              <td>22-07</td>
-                              <td>100</td>
-                          </tr>
-                          <tr>
-                              <th>
-                                  <label class="customcheckbox">
-                                      <input type="checkbox" class="listCheckbox" />
-                                      <span class="checkmark"></span>
-                                  </label>
-                              </th>
-                              <td>56</td>
-                              <td>보그</td>
-                              <td>22-08</td>
-                              <td>두산매거진</td>
-                              <td>01</td>
-                              <td>9,800</td>
-                              <td>22-07</td>
-                              <td>100</td>
-                          </tr>
-                          <tr>
-                              <th>
-                                  <label class="customcheckbox">
-                                      <input type="checkbox" class="listCheckbox" />
-                                      <span class="checkmark"></span>
-                                  </label>
-                              </th>
-                              <td>56</td>
-                              <td>보그</td>
-                              <td>22-08</td>
-                              <td>두산매거진</td>
-                              <td>01</td>
-                              <td>9,800</td>
-                              <td>22-07</td>
-                              <td>100</td>
-                          </tr>
-                          <tr>
-                              <th>
-                                  <label class="customcheckbox">
-                                      <input type="checkbox" class="listCheckbox" />
-                                      <span class="checkmark"></span>
-                                  </label>
-                              </th>
-                              <td>56</td>
-                              <td>보그</td>
-                              <td>22-08</td>
-                              <td>두산매거진</td>
-                              <td>01</td>
-                              <td>9,800</td>
-                              <td>22-07</td>
-                              <td>100</td>
-                          </tr>
-                          <tr>
-                              <th>
-                                  <label class="customcheckbox">
-                                      <input type="checkbox" class="listCheckbox" />
-                                      <span class="checkmark"></span>
-                                  </label>
-                              </th>
-                              <td>56</td>
-                              <td>보그</td>
-                              <td>22-08</td>
-                              <td>두산매거진</td>
-                              <td>01</td>
-                              <td>9,800</td>
-                              <td>22-07</td>
-                              <td>100</td>
-                          </tr>
-                          <tr>
-                              <th>
-                                  <label class="customcheckbox">
-                                      <input type="checkbox" class="listCheckbox" />
-                                      <span class="checkmark"></span>
-                                  </label>
-                              </th>
-                              <td>56</td>
-                              <td>보그</td>
-                              <td>22-08</td>
-                              <td>두산매거진</td>
-                              <td>01</td>
-                              <td>9,800</td>
-                              <td>22-07</td>
-                              <td>100</td>
-                          </tr>
-                          <tr>
-                              <th>
-                                  <label class="customcheckbox">
-                                      <input type="checkbox" class="listCheckbox" />
-                                      <span class="checkmark"></span>
-                                  </label>
-                              </th>
-                              <td>56</td>
-                              <td>보그</td>
-                              <td>22-08</td>
-                              <td>두산매거진</td>
-                              <td>01</td>
-                              <td>9,800</td>
-                              <td>22-07</td>
-                              <td>100</td>
-                          </tr>
+                    	<% } %>
                       </tbody>
                   </table>
               </div>
