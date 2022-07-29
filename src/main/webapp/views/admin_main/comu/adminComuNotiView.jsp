@@ -58,7 +58,7 @@
                             </div>
                         </div>
                         <!-- /views/admin_main/comu_noti/adminComuNotiDetail.jsp -->
-                        <button onClick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuNotiDetail.jsp'" class="btn btn-dark" style="float:right" id="btnn">공지사항 등록</button>
+                        <button onClick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminNotiInsert.jsp'" class="btn btn-dark" style="float:right" id="btnn">공지사항 등록</button>
                     </div>
                         <div class="table-responsive">
                             <table class="table">
@@ -77,7 +77,7 @@
                                     </tr>
                                 </thead>
                                 <tbody class="custom">
-                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/member/adminMemberDetail.jsp'">
+                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuDetail.jsp'">
                                         <th>
                                             <label class="customcheckbox">
                                                 <span class="checkmark"></span>
@@ -89,7 +89,7 @@
                                         <td>2022.07.26</td>
                                         <td>2022.07.26</td>
                                     </tr>
-                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/member/adminMemberDetail.jsp'">
+                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuDetail.jsp'">
                                         <th>
                                             <label class="customcheckbox">
                                                 <span class="checkmark"></span>
@@ -101,7 +101,7 @@
                                         <td>2022.07.26</td>
                                         <td>2022.07.26</td>
                                     </tr>
-                                    <tr>
+                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuDetail.jsp'">
                                         <th>
                                             <label class="customcheckbox">
                                                 <span class="checkmark"></span>
@@ -113,7 +113,7 @@
                                         <td>2022.07.26</td>
                                         <td>2022.07.26</td>
                                     </tr>
-                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/member/adminMemberDetail.jsp'">
+                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuDetail.jsp'">
                                         <th>
                                             <label class="customcheckbox">
                                                 <span class="checkmark"></span>
@@ -125,7 +125,7 @@
                                         <td>2022.07.26</td>
                                         <td>2022.07.26</td>
                                     </tr>
-                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/member/adminMemberDetail.jsp'">
+                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuDetail.jsp'">
                                         <th>
                                             <label class="customcheckbox">
                                                 <span class="checkmark"></span>
@@ -137,7 +137,7 @@
                                         <td>2022.07.26</td>
                                         <td>2022.07.26</td>
                                     </tr>
-                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/member/adminMemberDetail.jsp'">
+                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuDetail.jsp'">
                                         <th>
                                             <label class="customcheckbox">
                                                 <span class="checkmark"></span>
@@ -149,7 +149,7 @@
                                         <td>2022.07.26</td>
                                         <td>2022.07.26</td>
                                     </tr>
-                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/member/adminMemberDetail.jsp'">
+                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuDetail.jsp'">
                                         <th>
                                             <label class="customcheckbox">
                                                 <span class="checkmark"></span>
@@ -161,7 +161,7 @@
                                         <td>2022.07.26</td>
                                         <td>2022.07.26</td>
                                     </tr>
-                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/member/adminMemberDetail.jsp'">
+                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuDetail.jsp'">
                                         <th>
                                             <label class="customcheckbox">
                                                 <span class="checkmark"></span>
@@ -173,7 +173,7 @@
                                         <td>2022.07.26</td>
                                         <td>2022.07.26</td>
                                     </tr>
-                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/member/adminMemberDetail.jsp'">
+                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuDetail.jsp'">
                                         <th>
                                             <label class="customcheckbox">
                                                 <span class="checkmark"></span>
@@ -185,7 +185,7 @@
                                         <td>2022.07.26</td>
                                         <td>2022.07.26</td>
                                     </tr>
-                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/member/adminMemberDetail.jsp'">
+                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuDetail.jsp'">
                                         <th>
                                             <label class="customcheckbox">
                                                 <span class="checkmark"></span>
@@ -198,7 +198,7 @@
                                         <td>2022.07.26</td>
                                     </tbody>
                                 	<tfoot>
-                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/member/adminMemberDetail.jsp'">
+                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuDetail.jsp'">
                                     <tr align="center">
                                         <th colspan="10">
                                             <br>
