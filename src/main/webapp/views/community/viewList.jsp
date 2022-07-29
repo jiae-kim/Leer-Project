@@ -24,6 +24,20 @@
 </head>
 <body>
     <%@ include file="../common/menubar.jsp"%> 
+    <section class="breadcrumb-section set-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-left">
+                    <div class="breadcrumb__text">
+                        <h2>커뮤니티</h2>
+                        <div class="breadcrumb__option">
+                            <span>전체게시글</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 	<%@ include file="../community/communityMain.jsp"%>
 	
 	<link rel="stylesheet" href="<%=contextPath %>/resources/css/beomjin/css/bootstrap.min.css" type="text/css">

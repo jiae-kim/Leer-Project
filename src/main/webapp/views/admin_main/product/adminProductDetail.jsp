@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>상품 등록/수정 페이지</title>
+    <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/resources/css/jiae/assets/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
 </head>
 <body>
 	<%@ include file="../../common/adminMenubar.jsp" %>
@@ -24,11 +25,6 @@
             <!-- Container fluid  -->
             <!-- ============================================================== -->
             <div class="container-fluid">
-                <h4 class="card-title">
-                    <div class="col-sm-2" style="height: 40px;">등록순번</div>
-                    <div class="col-sm-2" style="height: 10px;">상품코드</div>
-                </h4>
-
                 <!-- ============================================================== -->
                 <div class="card-body">
                     <!-- 잡지명 -->
@@ -40,29 +36,10 @@
                     </div>
                     <!-- 출간일 -->
                     <div class="form-group row">
-                        <label class="col-sm-1">출간일</label>
-                        <div class="col-sm-2">
-                            <select class="select2 form-control custom-select" required>
-                                <option>출간 월 선택 (2022)</option>
-                                <optgroup label="이번달호">
-                                    <option value="">08</option>
-                                </optgroup>
-                                <optgroup label="과월호">
-                                    <option value="">01</option>
-                                    <option value="">02</option>
-                                    <option value="">03</option>
-                                    <option value="">04</option>
-                                    <option value="">05</option>
-                                    <option value="">06</option>
-                                    <option value="">07</option>
-                                </optgroup>
-                                <optgroup label="출간준비">
-                                    <option value="">09</option>
-                                    <option value="">10</option>
-                                    <option value="">11</option>
-                                    <option value="">12</option>
-                                </optgroup>
-                            </select>
+                        <label for="fname" class="col-sm-1 control-label col-form-label">출간일</label>
+                        <input type="text" class="form-control col-sm-2" id="datepicker-autoclose" placeholder="mm/dd/yyyy" style="margin-left: 10px;">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fa fa-calendar"></i></span>
                         </div>
                     </div>
                     <!-- 발행사 -->
@@ -84,6 +61,21 @@
                                 <option value="">여행/취미</option>
                                 <option value="">시사/경제</option>
                                 <option value="">교육/과학</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- 상품코드 -->
+                    <div class="form-group row">
+                        <label class="col-sm-1">상품코드</label>
+                        <div class="col-sm-2">
+                            <select class="select2 form-control custom-select" required>
+                                <option>상품코드 선택</option>
+                                    <option value="">FW-</option>
+                                    <option value="">LI-</option>
+                                    <option value="">CA-</option>
+                                    <option value="">TH-</option>
+                                    <option value="">SE-</option>
+                                    <option value="">ES-</option>
                             </select>
                         </div>
                     </div>
@@ -135,7 +127,6 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- 상세 이미지 -->
                     <div class="form-group row">
                         <label class="col-md-1">상세 이미지</label>
@@ -276,5 +267,17 @@
         <!-- ============================================================== -->
     </div>
 
+	<!-- autoclose datepicker -->
+    <script src="<%= request.getContextPath() %>/resources/css/jiae/assets/libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+    <script>
+    jQuery('.mydatepicker').datepicker();
+        jQuery('#datepicker-autoclose').datepicker({
+            autoclose: true,
+            todayHighlight: true
+        });
+        var quill = new Quill('#editor', {
+            theme: 'snow'
+        });
+    </script>
 </body>
 </html>
