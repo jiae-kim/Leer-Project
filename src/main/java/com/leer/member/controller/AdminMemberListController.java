@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.leer.member.model.service.MemberService;
+import com.leer.member.model.service.AdminMemberService;
 import com.leer.member.model.vo.Member;
 
 /**
@@ -31,7 +31,7 @@ public class AdminMemberListController extends HttpServlet {
 	 *	작성자 김은지
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ArrayList<Member> list = new MemberService().selectMemberList();
+		ArrayList<Member> list = new AdminMemberService().selectMemberList();
 		request.setAttribute("list", list);
 		
 		request.getRequestDispatcher("views/admin_main/member/adminMemberView.jsp").forward(request, response);

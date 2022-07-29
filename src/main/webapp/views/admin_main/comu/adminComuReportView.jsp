@@ -5,6 +5,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+.custom>tr:hover {
+    cursor: pointer;
+    opacity: 0.7;
+    background:#cecece;
+    color:dark;
+}
+</style>
 </head>
 <body>
 
@@ -241,6 +249,8 @@
                                         <td>2020.07.26</td>
                                         <td>33</td>
                                     </tr>
+                                  </tbody>
+                               <tfoot>
                                     <tr align="center">
                                         <th colspan="10">
                                             <div class="btn-group" role="group" aria-label="Basic example">
@@ -259,7 +269,7 @@
                                               </div>
                                         </th>
                                     </tr>
-                                </tbody>
+                                </tfoot>
                             </table>
                         </div>
                 </div>

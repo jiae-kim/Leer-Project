@@ -5,6 +5,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+.custom>tr:hover {
+    cursor: pointer;
+    opacity: 0.7;
+    background:#cecece;
+    color:dark;
+}
+</style>
 </head>
 <body>
 
@@ -242,7 +250,9 @@
                                         <td>232</td>
                                         <td>3</td>
                                         <td>N</td>
-                                    </tr>
+                                	  </tr>
+                                   </tbody>
+                                <tfoot>
                                     <tr align="center">
                                         <th colspan="10">
                                             <div class="btn-group" role="group" aria-label="Basic example">
@@ -261,7 +271,7 @@
                                               </div>
                                         </th>
                                     </tr>
-                                </tbody>
+                                </tfoot>
                             </table>
                         </div>
                 </div>

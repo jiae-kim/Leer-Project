@@ -5,7 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-</head>
 <style>
 .custom>tr:hover {
     cursor: pointer;
@@ -14,6 +13,7 @@
     color:dark;
 }
 </style>
+</head>
 <body>
 
 	<%@ include file="../../common/adminMenubar.jsp" %>
@@ -196,8 +196,9 @@
                                         <td>admin01</td>
                                         <td>2022.07.26</td>
                                         <td>2022.07.26</td>
-                                    </tbody>
-                                	<tfoot>
+                                    </tr>
+                                  </tbody>
+                               <tfoot>
                                     <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuDetail.jsp'">
                                     <tr align="center">
                                         <th colspan="10">

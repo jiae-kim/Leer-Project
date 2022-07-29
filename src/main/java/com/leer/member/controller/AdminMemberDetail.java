@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.leer.member.model.service.MemberService;
+import com.leer.member.model.service.AdminMemberService;
 import com.leer.member.model.vo.Member;
 
 /**
@@ -33,9 +33,9 @@ public class AdminMemberDetail extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int memNo = Integer.parseInt(request.getParameter("no"));
 		
-		Member m = new MemberService().memberDatailList(memNo);
+		Member m = new AdminMemberService().memberDatailList(memNo);
 		request.setAttribute("member", m);
-		request.getRequestDispatcher("views/admin_main/member/adminMembeDetail.jsp").forward(request, response);
+		request.getRequestDispatcher("views/admin_main/member/adminMemberDetail.jsp").forward(request, response);
 	}
 
 	/**
