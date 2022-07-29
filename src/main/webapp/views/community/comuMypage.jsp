@@ -8,15 +8,7 @@
 </head>
 <body>
 <div class="col-bj-1 blog__sidebar__item">
-				<div class="col-bj-1 blog__sidebar__item">
-                    <!-- <div>
-                        <div>
-                            <a href="">
-                                <i class="fa fa-user-circle fa-2x"></i>
-                            </a>
-                            <a href="">xxx님</a>
-                        </div>
-                    </div> -->
+				
                     <div class="myPageList">
                         <div id="myPage" style="display: block;">
                             <div class="box-g">

@@ -8,18 +8,15 @@
 	</entry>
 	
 	<entry key="selectList">
-	SELECT *
+	<!-- SELECT *
 	  FROM (
 	        SELECT ROWNUM RNUM, A.*
 	          FROM (
 	                SELECT 
-	                       COMU_NO
-	                     , NICKNAME
-	                     , CATEGORY_NAME
-	                     , TAG
+	                       TAG
 	                     , TITLE
 	                     , CONTENT
-	                     , B.ENROLL_DATE
+	                     , ENROLL_DATE
 	                     , VIEW_COUNT
 	                  FROM COMU_BOARD B
 	                  JOIN CATEGORY USING(CATEGORY_NO)
@@ -29,7 +26,17 @@
 	                    BY COMU_NO DESC
 	               ) A
 	        )
-	 WHERE RNUM BETWEEN ? AND ?
+	 WHERE RNUM BETWEEN ? AND ? -->
+	  	SELECT 
+               TAG
+             , TITLE
+             , CONTENT
+             , ENROLL_DATE
+             , VIEW_COUNT
+          FROM COMU_BOARD 
+         WHERE DELETE_YN = 'N'
+         ORDER 
+            BY COMU_NO DESC
 	</entry>
 	
 	<entry key="selectCategoryList">
@@ -40,3 +47,4 @@
 	      FROM CATEGORY		
 	</entry>
 </properties>
+

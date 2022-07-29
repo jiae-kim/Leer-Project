@@ -1,6 +1,5 @@
 package com.leer.community.model.vo;
 
-import java.sql.Clob;
 import java.sql.Date;
 
 public class ComuBoard {
@@ -10,7 +9,7 @@ public class ComuBoard {
 	private String categoryNo;
 	private String tag;
 	private String title;
-	private	Clob content;
+	private	String content;
 	private Date enrollDate;
 	private Date modifyDate;
 	private int viewCount;
@@ -24,7 +23,7 @@ public class ComuBoard {
 
 
 
-	public ComuBoard(int comuNo, String memNo, String categoryNo, String tag, String title, Clob content,
+	public ComuBoard(int comuNo, String memNo, String categoryNo, String tag, String title, String content,
 			Date enrollDate, Date modifyDate, int viewCount, String deleteYN) {
 		super();
 		this.comuNo = comuNo;
@@ -42,15 +41,12 @@ public class ComuBoard {
 
 
 
-	public ComuBoard(int comuNo, String memNo, String categoryNo, String tag, String title, Clob content,
+	public ComuBoard(String tag, String title, 
 			Date enrollDate, int viewCount) {
 		super();
-		this.comuNo = comuNo;
-		this.memNo = memNo;
-		this.categoryNo = categoryNo;
+		
 		this.tag = tag;
 		this.title = title;
-		this.content = content;
 		this.enrollDate = enrollDate;
 		this.viewCount = viewCount;
 	}
@@ -128,14 +124,14 @@ public class ComuBoard {
 
 
 
-	public Clob getContent() {
+	public String getContent() {
 		return content;
 	}
 
 
 
 
-	public void setContent(Clob content) {
+	public void setContent(String content) {
 		this.content = content;
 	}
 

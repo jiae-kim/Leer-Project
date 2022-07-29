@@ -21,9 +21,9 @@ public class CommunityService {
 		close(conn);
 		return listCount;
 	}
-	public ArrayList<ComuBoard> selectList(PageInfo pi) {
+	public ArrayList<ComuBoard> selectList() {
 		Connection conn = getConnection();
-		ArrayList<ComuBoard> list = new CommunityDao().selectList(conn, pi);
+		ArrayList<ComuBoard> list = new CommunityDao().selectList(conn);
 
 		close(conn);
 		return list;

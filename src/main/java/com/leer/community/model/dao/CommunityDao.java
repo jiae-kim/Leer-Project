@@ -4,6 +4,8 @@ import static com.leer.common.JDBCTemplate.close;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.Reader;
+import java.sql.Clob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,7 +14,6 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 import com.leer.common.model.vo.Category;
-import com.leer.common.model.vo.PageInfo;
 import com.leer.community.model.vo.ComuBoard;
 
 public class CommunityDao {
@@ -20,7 +21,7 @@ public class CommunityDao {
 
 	public CommunityDao() {
 		try {
-			prop.loadFromXML(new FileInputStream(CommunityDao.class.getResource("/db/sql/community-mapper.xml").getPath()));
+			prop.loadFromXML(new FileInputStream(CommunityDao.class.getResource("/db/sql/comuBoard-mapper.xml").getPath()));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -53,7 +54,7 @@ public class CommunityDao {
 		return listCount;
 	}
 
-	public ArrayList<ComuBoard> selectList(Connection conn, PageInfo pi) {
+	public ArrayList<ComuBoard> selectList(Connection conn) {
 
 		ArrayList<ComuBoard> list = new ArrayList<>();
 
@@ -65,25 +66,38 @@ public class CommunityDao {
 
 		try {
 			pstmt = conn.prepareStatement(sql);
-			int startRow = (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1;
-			int endRow = startRow + pi.getBoardLimit() - 1;
-			pstmt.setInt(1, startRow);
-			pstmt.setInt(2, endRow);
+//			int startRow = (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1;
+//			int endRow = startRow + pi.getBoardLimit() - 1;
+//			pstmt.setInt(1, startRow);
+//			pstmt.setInt(2, endRow);
 
 			rset = pstmt.executeQuery();
 
 			while (rset.next()) {
-				list.add(new ComuBoard(
-						rset.getInt("comu_no"),
-						rset.getString("nickname"), 
-						rset.getString("category_name"),
-						rset.getString("tag"),
-						rset.getString("title"), 
-						rset.getClob("content"), 
-						rset.getDate("enroll_date"),
-						rset.getInt("view_count")));
+				ComuBoard cb = new ComuBoard(
+									rset.getString("tag"),
+									rset.getString("title"), 
+									rset.getDate("enroll_date"),
+									rset.getInt("view_count"));
+				
+				Clob clob = rset.getClob("content");
+				Reader r = clob.getCharacterStream();
+				
+				StringBuffer buffer = new StringBuffer();
+				int ch;
+				while((ch = r.read()) != -1) {
+					buffer.append("" + (char)ch);
+				}
+				
+				cb.setContent(buffer.toString());
+				
+				list.add(cb);				
+				
 			}
 		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			close(rset);
