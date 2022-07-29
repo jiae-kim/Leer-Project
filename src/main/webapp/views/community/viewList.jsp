@@ -22,10 +22,7 @@
 
 </head>
 <body>
-    <%-- <%@ include file="../common/menubar.jsp"%>  --%>
-
-	<section class="blog spad" style="margin-left: 50px">
-	
+    <%@ include file="../common/menubar.jsp"%> 
 	<%@ include file="../community/communityMain.jsp"%>
 	
 	<link rel="stylesheet" href="<%=contextPath %>/resources/css/beomjin/css/bootstrap.min.css" type="text/css">
@@ -98,7 +95,6 @@
 			</div>
 		</div>
 	 <%@ include file="../community/comuMypage.jsp" %>
-	</section>
 	 <%@ include file="../common/footer.jsp" %>
 	 
 	<script src="<%=contextPath%>/resources/js/beomjin/js/jquery-3.3.1.min.js"></script>
