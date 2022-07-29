@@ -48,7 +48,7 @@
                         <ul>
                             <!--  <li><a href="./index.html"><b>홈</b></a></li>-->
                             <li class="active"><a href="<%=contextPath %>/list.pd"><b>카테고리</b></a></li>
-                            <li><a href="<%=contextPath%>/comu.bo?no=1"><b>커뮤니티</b></a></li>
+                            <li><a href="<%=contextPath%>/comu.bo"><b>커뮤니티</b></a></li>
                             <li><a href="./blog.html"><b>고객센터</b></a></li>
                             <li><a href="<%= contextPath %>/myPage.me"><b>마이페이지</b></a></li>
                         </ul>

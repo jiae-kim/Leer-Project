@@ -93,7 +93,11 @@
 					<div class="row">
 						<div class="col-lg-6 col-md-6 col-sm-6">
 							<div class="blog__item">
+								
 								<div class="blog__item__text" align="left">
+								<% if(list.isEmpty()) { %>
+									<p>조회된 게시글이 없습니다.</p>
+								<% }%>
 									<h5 style="margin-bottom: -10px;">
 										<a href="#">여기는 게시글 제목쓰는곳</a>
 									</h5>
@@ -117,6 +121,7 @@
 										</div>
 									</div>
 								</div>
+								
 							</div>
 						</div>
 					</div>
