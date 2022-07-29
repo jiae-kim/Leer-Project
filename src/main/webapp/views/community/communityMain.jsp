@@ -20,21 +20,7 @@
 	
 </head>
 <body>
-	<section class="breadcrumb-section set-bg">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-left">
-                    <div class="breadcrumb__text">
-                        <h2>커뮤니티</h2>
-                        <div class="breadcrumb__option">
-                            <span>전체게시글</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Breadcrumb Section End -->
+	
 
     <!-- Blog Section Begin -->
     <section class="blog spad" style="margin-left: 50px">
