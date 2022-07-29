@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="com.leer.common.model.vo.PageInfo, java.util.ArrayList, com.leer.community.model.vo.ComuBoard" %>
 <%
-	String contextPath = request.getContextPath();
+	//String contextPath = request.getContextPath();
 
    PageInfo pi = (PageInfo)request.getAttribute("pi");
    ArrayList<ComuBoard> list = (ArrayList<ComuBoard>)request.getAttribute("list");
@@ -28,6 +28,10 @@
 	rel="stylesheet">
 
 <!-- Css Styles -->
+</head>
+<body>
+
+  <%@include file="../common/menubar.jsp" %>
 <link rel="stylesheet" href="<%=contextPath %>/resources/css/beomjin/css/bootstrap.min.css" type="text/css">
 <link rel="stylesheet" href="<%=contextPath %>/resources/css/beomjin/css/font-awesome.min.css" type="text/css">
 <link rel="stylesheet" href="<%=contextPath %>/resources/css/beomjin/css/elegant-icons.css" type="text/css">
@@ -36,10 +40,6 @@
 <link rel="stylesheet" href="<%=contextPath %>/resources/css/beomjin/css/owl.carousel.min.css" type="text/css">
 <link rel="stylesheet" href="<%=contextPath %>/resources/css/beomjin/css/slicknav.min.css" type="text/css">
 <link rel="stylesheet" href="<%=contextPath %>/resources/css/beomjin/css/style.css" type="text/css">
-</head>
-<body>
-
-	<%-- <%@include file="../common/menubar.jsp" %> --%>
 	<!-- Breadcrumb Section Begin -->
 	<section class="breadcrumb-section set-bg">
 		<div class="container">

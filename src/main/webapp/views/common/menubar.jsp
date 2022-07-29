@@ -48,13 +48,7 @@
                         <ul>
                             <!--  <li><a href="./index.html"><b>홈</b></a></li>-->
                             <li class="active"><a href="<%=contextPath %>/list.pd"><b>카테고리</b></a></li>
-                            <li><a href="#"><b>커뮤니티</b></a>
-                                <ul class="header__menu__dropdown">
-                                    <li><a href="./shop-details.html">Shop Details</a></li>
-                                    <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-                                    <li><a href="./checkout.html">Check Out</a></li>
-                                    <li><a href="./blog-details.html">Blog Details</a></li>
-                                </ul>
+                            <li><a href="<%=contextPath%>/comu.bo"><b>커뮤니티</b></a>
                             </li>
                             <li><a href="./blog.html"><b>고객센터</b></a></li>
                             <li><a href="<%= contextPath %>/myPage.me"><b>마이페이지</b></a></li>
