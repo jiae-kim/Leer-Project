@@ -1,41 +1,32 @@
-package com.leer.member.controller;
+package com.leer.community.controller;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.leer.member.model.service.AdminMemberService;
-import com.leer.member.model.vo.Member;
-
 /**
- * Servlet implementation class AdminMemberDetail
+ * Servlet implementation class BoardEnrollFormController
  */
-@WebServlet("/adMemDetail.do")
-public class AdminMemberDetail extends HttpServlet {
+@WebServlet("/comuEnrollForm.bo")
+public class BoardEnrollFormController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdminMemberDetail() {
+    public BoardEnrollFormController() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-	/*
-    	관리자 회원 상세조회페이지
-    	작성자 김은지
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int memNo = Integer.parseInt(request.getParameter("no"));
-		
-		Member m = new AdminMemberService().memberDatailList(memNo);
-		request.setAttribute("member", m);
-		request.getRequestDispatcher("views/admin_main/member/adminMemberDetail.jsp").forward(request, response);
+		ArrayList<CATEGORY>
 	}
 
 	/**

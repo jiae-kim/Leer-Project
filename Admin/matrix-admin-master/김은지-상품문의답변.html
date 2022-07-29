@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
-    <title>상품 재고 전체조회 페이지</title>
+    <title>1:1상담 전체조회 페이지</title>
     <!-- Custom CSS -->
     <link href="assets/libs/flot/css/float-chart.css" rel="stylesheet">
     <!-- Custom CSS -->
@@ -183,6 +183,7 @@
         <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
+        <!-- ============================================================== -->
         <!-- Page wrapper  -->
         <!-- ============================================================== -->
         <div class="page-wrapper">
@@ -193,16 +194,39 @@
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
                         <br><br><br>
-                        <h2 class="page-title">상품 재고 현황 조회</h2>
+                        <h2 class="page-title">상품문의 전체 조회</h2>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <input class="form-control mr-sm-2" type="text" placeholder="Search">
                         <button class="btn btn-success" type="submit">조회</button>
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                             </nav>
-                            <button type="button" class="btn btn-info btn-lg">상품 입고</button> &nbsp;&nbsp;&nbsp;
-                            <button type="button" class="btn btn-warning btn-lg">상품 출고</button> &nbsp;&nbsp;&nbsp;
-                            <button type="button" class="btn btn-dark btn-lg">상품 취소</button> &nbsp;&nbsp;&nbsp;
+                            <button type="button" class="btn btn-info btn-lg">답변 등록</button> &nbsp;&nbsp;&nbsp;
+                            <button type="button" class="btn btn-warning btn-lg">답변 수정</button> &nbsp;&nbsp;&nbsp;
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#Modal2">
+                                문의 삭제
+                            </button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="Modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel" style="font-weight: bolder; color: black;">공지사항 삭제</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body" style="text-align: center; font-size: larger; font-weight: bold;" >
+                                                해당 글을 삭제하시겠습니까?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-danger">네</button>
+                                                <button type="button" class="btn btn-info" data-dismiss="modal">아니오</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                         </div>
                     </div>
                 </div>
@@ -214,222 +238,81 @@
             <!-- ============================================================== -->
             <div class="container-fluid">
                 <!-- ============================================================== -->
-                <!-- 전체조회  -->
+                <!-- Sales Cards  -->
                 <!-- ============================================================== -->
-                <div class="card">
-                    <div class="card-body" style="height:55px">
-                        <!-- <h5 class="card-title m-b-0">상품전체조회</h5> -->
-                        <!-- 조회방법 선택 -->
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">조회방법 선택</button>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">상품코드</a>
-                                <a class="dropdown-item" href="#">상품명</a>
-                                <a class="dropdown-item" href="#">출간일</a>
-                            </div>
-                        </div>
-                    </div>
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead class="thead-light">
+                <div class="card mb-4">
+                    <div class="col-lg-12 grid-margin stretch-card">
+                        <div class="card">
+                          <div class="card-body">
+                            <h2 class="card-title" align="center">상품문의 답변 상세</h2>
+                            <div class="table-responsive pt-3">
+                              <table class="tt1" border="1" align="center">
+                                <tbody>
                                     <tr>
-                                        <th>
-                                            <label class="customcheckbox m-b-20">
-                                                <input type="checkbox" id="mainCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <th scope="col">입고번호</th>
-                                        <th scope="col">상품코드</th>
-                                        <th scope="col">상품명</th>
-                                        <th scope="col">출간일</th>
-                                        <th scope="col">입고수량</th>
-                                        <th scope="col">출고수량</th>
-                                        <th scope="col">재고수량</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="customtable">
-                                    <tr>
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>56</td>
-                                        <td>FW-14</td>
-                                        <td>보그</td>
-                                        <td>22-08</td>
-                                        <td>500</td>
-                                        <td>200</td>
-                                        <td>300</td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>56</td>
-                                        <td>FW-14</td>
-                                        <td>보그</td>
-                                        <td>22-08</td>
-                                        <td>500</td>
-                                        <td>200</td>
-                                        <td>300</td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>56</td>
-                                        <td>FW-14</td>
-                                        <td>보그</td>
-                                        <td>22-08</td>
-                                        <td>500</td>
-                                        <td>200</td>
-                                        <td>300</td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>56</td>
-                                        <td>FW-14</td>
-                                        <td>보그</td>
-                                        <td>22-08</td>
-                                        <td>500</td>
-                                        <td>200</td>
-                                        <td>300</td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>56</td>
-                                        <td>FW-14</td>
-                                        <td>보그</td>
-                                        <td>22-08</td>
-                                        <td>500</td>
-                                        <td>200</td>
-                                        <td>300</td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>56</td>
-                                        <td>FW-14</td>
-                                        <td>보그</td>
-                                        <td>22-08</td>
-                                        <td>500</td>
-                                        <td>200</td>
-                                        <td>300</td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>56</td>
-                                        <td>FW-14</td>
-                                        <td>보그</td>
-                                        <td>22-08</td>
-                                        <td>500</td>
-                                        <td>200</td>
-                                        <td>300</td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>56</td>
-                                        <td>FW-14</td>
-                                        <td>보그</td>
-                                        <td>22-08</td>
-                                        <td>500</td>
-                                        <td>200</td>
-                                        <td>300</td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>56</td>
-                                        <td>FW-14</td>
-                                        <td>보그</td>
-                                        <td>22-08</td>
-                                        <td>500</td>
-                                        <td>200</td>
-                                        <td>300</td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>56</td>
-                                        <td>FW-14</td>
-                                        <td>보그</td>
-                                        <td>22-08</td>
-                                        <td>500</td>
-                                        <td>200</td>
-                                        <td>300</td>
+                                      <td width="150px" height="45px" style="background:hsl(0, 0%, 77%); color:rgb(80, 80, 80); font-weight: bold;">
+                                        제목
+                                      </td>
+                                      <td width="350px">
+                                          <label for="" style="float: left;">&nbsp;&nbsp; 책환불</label> 
+                                      </td>
+                                      <td width="150px" height="45px" style="background:hsl(0, 0%, 77%); color:rgb(80, 80, 80); font-weight: bold;">
+                                        문의유형
+                                      </td>
+                                      <td width="350px">
+                                          <label for="" style="float: left;">&nbsp;&nbsp; 주문취소/환불</label> 
+                                      </td>
                                     </tr>
                                     
-                                </tbody>
-                            </table>
+                                    <tr>
+                                      <td width="" height="45px" style="background:hsl(0, 0%, 77%); color:rgb(80, 80, 80); font-weight: bold;">
+                                        작성자
+                                      </td>
+                                      <td>
+                                          <label for="" style="float: left;">&nbsp;&nbsp; tttt1</label> 
+                                      </td>
+                                      <td width="" height="45px" style="background:hsl(0, 0%, 77%); color:rgb(80, 80, 80); font-weight: bold;">
+                                        문의상품
+                                      </td>
+                                      <td>
+                                          <label for="" style="float: left;">&nbsp;&nbsp; FW-123</label> 
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                              </table>
+                              <br>
+                              <table class="tarea" align="center" style="margin:5px 5px 5px 5px">
+                                <textarea name="" id="" cols="133.5" rows="10" resize="none" placeholder="">문의내용문의내용문의내용</textarea>
+                              </table>
+                              <br>
+                              <table class="tarea" align="center" style="margin:5px 5px 5px 5px">
+                                <h2>상품문의 답변등록</h2>
+                                <textarea name="" id="" cols="133.5" rows="10" resize="none" placeholder="상품문의 답변 내용 입력"></textarea>
+                              </table>
+                              <div class="">
+                                <table class="tt1" border="1" align="center">
+                                                                 
+                                </table>
+                            </div>
+                            <br>
+                            <c:if test="${sessionMemberLv == 1}">
+                                    <div class="d-grid gap-3" style="text-align: center">
+                                        <a href="" id="btn" class="btn btn-dark" style="width:150px">취소</a>
+                                        <a href="" class="btn btn-dark" style="width:150px">답변등록</a>
+                                    </div>
+                            </c:if>
+                          </div>
                         </div>
+                      </div>
                 </div>
             </div>
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
             <!-- ============================================================== -->
+            <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer text-center">
-                <!-- 페이징처리 바 -->
-                <tr align="center">
-                    <th colspan="10">
-                        <div class="btn-group" role="group" aria-label="Basic example">
-                            <button type="button" class="btn btn-outline-secondary"><</button>
-                            <button type="button" class="btn btn-outline-secondary">1</button>
-                            <button type="button" class="btn btn-outline-secondary">2</button>
-                            <button type="button" class="btn btn-outline-secondary">3</button>
-                            <button type="button" class="btn btn-outline-secondary">4</button>
-                            <button type="button" class="btn btn-outline-secondary">5</button>
-                            <button type="button" class="btn btn-outline-secondary">6</button>
-                            <button type="button" class="btn btn-outline-secondary">7</button>
-                            <button type="button" class="btn btn-outline-secondary">8</button>
-                            <button type="button" class="btn btn-outline-secondary">9</button>
-                            <button type="button" class="btn btn-outline-secondary">10</button>
-                            <button type="button" class="btn btn-outline-secondary">></button>
-                        </div>
-                    </th>
-                </tr>
+                
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->
@@ -441,6 +324,7 @@
     </div>
     <!-- ============================================================== -->
     <!-- End Wrapper -->
+    <!-- ============================================================== -->
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
@@ -467,6 +351,10 @@
     <script src="assets/libs/flot/jquery.flot.crosshair.js"></script>
     <script src="assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
     <script src="dist/js/pages/chart/chart-page-init.js"></script>
+    <!-- 체크박스 전체 선택 -->
+    <script src="assets/extra-libs/multicheck/datatable-checkbox-init.js"></script>
+    <script src="assets/extra-libs/multicheck/jquery.multicheck.js"></script>
+    <script src="assets/extra-libs/DataTables/datatables.min.js"></script>
 
 </body>
 

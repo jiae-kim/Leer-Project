@@ -2,11 +2,11 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="com.leer.common.model.vo.PageInfo, java.util.ArrayList, com.leer.community.model.vo.ComuBoard" %>
 <%
-	String contextPath = request.getContextPath();
-
+	//String contextPath = request.getContextPath();
+ 
    PageInfo pi = (PageInfo)request.getAttribute("pi");
    ArrayList<ComuBoard> list = (ArrayList<ComuBoard>)request.getAttribute("list");
-   
+
    int currentPage = pi.getCurrentPage();
    int startPage = pi.getStartPage();
    int endPage = pi.getEndPage();
@@ -28,18 +28,18 @@
 	rel="stylesheet">
 
 <!-- Css Styles -->
-<link rel="stylesheet" href="<%=contextPath %>/resources/css/beomjin/css/bootstrap.min.css" type="text/css">
-<link rel="stylesheet" href="<%=contextPath %>/resources/css/beomjin/css/font-awesome.min.css" type="text/css">
-<link rel="stylesheet" href="<%=contextPath %>/resources/css/beomjin/css/elegant-icons.css" type="text/css">
-<link rel="stylesheet" href="<%=contextPath %>/resources/css/beomjin/css/nice-select.css" type="text/css">
-<link rel="stylesheet" href="<%=contextPath %>/resources/css/beomjin/css/jquery-ui.min.css" type="text/css">
-<link rel="stylesheet" href="<%=contextPath %>/resources/css/beomjin/css/owl.carousel.min.css" type="text/css">
-<link rel="stylesheet" href="<%=contextPath %>/resources/css/beomjin/css/slicknav.min.css" type="text/css">
-<link rel="stylesheet" href="<%=contextPath %>/resources/css/beomjin/css/style.css" type="text/css">
 </head>
 <body>
 
-	<%-- <%@include file="../common/menubar.jsp" %> --%>
+ <%@ include file="../common/menubar.jsp" %> 
+	<link rel="stylesheet" href="<%=contextPath %>/resources/css/beomjin/css/bootstrap.min.css" type="text/css">
+	<link rel="stylesheet" href="<%=contextPath %>/resources/css/beomjin/css/font-awesome.min.css" type="text/css">
+	<link rel="stylesheet" href="<%=contextPath %>/resources/css/beomjin/css/elegant-icons.css" type="text/css">
+	<link rel="stylesheet" href="<%=contextPath %>/resources/css/beomjin/css/nice-select.css" type="text/css">
+	<link rel="stylesheet" href="<%=contextPath %>/resources/css/beomjin/css/jquery-ui.min.css" type="text/css">
+	<link rel="stylesheet" href="<%=contextPath %>/resources/css/beomjin/css/owl.carousel.min.css" type="text/css">
+	<link rel="stylesheet" href="<%=contextPath %>/resources/css/beomjin/css/slicknav.min.css" type="text/css">
+	<link rel="stylesheet" href="<%=contextPath %>/resources/css/beomjin/css/style.css" type="text/css">
 	<!-- Breadcrumb Section Begin -->
 	<section class="breadcrumb-section set-bg">
 		<div class="container">
@@ -93,7 +93,11 @@
 					<div class="row">
 						<div class="col-lg-6 col-md-6 col-sm-6">
 							<div class="blog__item">
+								
 								<div class="blog__item__text" align="left">
+								<% if(list.isEmpty()) { %>
+									<p>조회된 게시글이 없습니다.</p>
+								<% }%>
 									<h5 style="margin-bottom: -10px;">
 										<a href="#">여기는 게시글 제목쓰는곳</a>
 									</h5>
@@ -117,6 +121,7 @@
 										</div>
 									</div>
 								</div>
+								
 							</div>
 						</div>
 					</div>
@@ -128,8 +133,8 @@
 						</div>
 					</div>
 				</div>
+				
 				<div class="col-bj-1 blog__sidebar__item">
-
 					<div class="myPageList">
 						<div id="myPage" style="display: block;">
 							<div class="box-g">
@@ -137,7 +142,7 @@
 								<div class="myList">
 									<ul>
 										<li title="" id="profile">
-											<div class="profileNic" align="">
+											<div class="profileNic">
 												<img
 													src="https://ssl.pstatic.net/static/cafe/cafe_pc/default/cafe_profile_70.png"
 													width="58" height="58" alt="프로필사진" class="imgChange">
@@ -161,6 +166,7 @@
 							</div>
 						</div>
 					</div>
+					
 					<div class="bestTag">
 						<p>인기태그</p>
 						<div class="blog__sidebar__item__tags">

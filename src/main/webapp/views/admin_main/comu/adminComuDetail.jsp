@@ -14,7 +14,7 @@
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
                         <br><br><br>
-                        <h2 class="page-title">홈페이지관리</h2>
+                        <h2 class="page-title">커뮤니티관리</h2>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <input class="form-control mr-sm-2" type="text" placeholder="Search">
                         <button class="btn btn-success" type="submit">Search</button>
@@ -40,26 +40,19 @@
                     <div class="col-lg-12 grid-margin stretch-card">
                         <div class="card">
                           <div class="card-body">
-                            <h2 class="card-title" align="center">이용약관 상세</h2>
+                            <h2 class="card-title" align="center">커뮤니티 공지사항 상세</h2>
                             <div class="table-responsive pt-3">
                               <table class="tt1" border="1" align="center">
                                 <tbody>
                                   <tr>
                                     <td width="300px" height="45px" style="background:hsl(0, 0%, 77%); color:rgb(80, 80, 80); font-weight: bold;">
-                                      이용약관명
+                                      공지사항 제목
                                     </td>
                                     <td width="700px">
-                                        <label for="" style="float: left;">&nbsp;&nbsp; 이용약관 제목</label> 
+                                        <label for="" style="float: left;">&nbsp;&nbsp; 공지 제목</label> 
                                     </td>
                                   </tr>
-                                  <tr>
-                                    <td width="300px" height="45px" style="background:hsl(0, 0%, 77%); color:rgb(80, 80, 80); font-weight: bold;">
-                                      상태
-                                    </td>
-                                    <td>
-                                        <label for="" style="float: left;">&nbsp;&nbsp; 작성완료</label> 
-                                    </td>
-                                  </tr>
+                                  
                                   <tr>
                                     <td width="300px" height="45px" style="background:hsl(0, 0%, 77%); color:rgb(80, 80, 80); font-weight: bold;">
                                       작성자
@@ -72,27 +65,19 @@
                               </table>
                               <br>
                               <table class="tarea" align="center" style="margin:5px 5px 5px 5px">
-                                <textarea name="" id="" cols="133.5" rows="20" resize="none" placeholder="">이용약관 내용 이용약관 내용 이용약관 내용</textarea>
+                                <textarea name="" id="" cols="133.5" rows="23" resize="none" placeholder="">공지내용공지내용공지내용</textarea>
                               </table>
                               <div class="">
                                 <table class="tt1" border="1" align="center">
                                   <tbody>
-                                    <tr>
-                                      <td width="300px" height="45px" style="background:hsl(0, 0%, 77%); color:rgb(80, 80, 80); font-weight: bold;">
-                                        이용약관명
-                                      </td>
-                                      <td width="700px">
-                                        <label for="" style="float: left;">&nbsp;&nbsp; 비고내용</label> 
-                                      </td>
-                                    </tr>
                                   </tbody>                                  
                                 </table>
                             </div>
                             <br>
                             <c:if test="${sessionMemberLv == 1}">
                                     <div class="d-grid gap-3" style="text-align: center">
-                                    	<a href="<%= request.getContextPath() %>/views/admin_main/adminTermsView.jsp" id="btn" class="btn btn-dark" style="width:150px">이용약관 삭제</a>
-                                        <a href="<%= request.getContextPath() %>/views/admin_main/adminTermsView.jsp" id="btn" class="btn btn-dark" style="width:150px">목록으로</a>
+                                        <a href="" id="btn" class="btn btn-dark" style="width:150px">공지사항 삭제</a>
+                                        <a href="" id="btn" class="btn btn-dark" style="width:150px">목록으로</a>
                                     </div>
                             </c:if>
                           </div>

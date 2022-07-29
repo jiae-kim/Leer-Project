@@ -21,7 +21,7 @@
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                             </nav>
-                            <button type="button" class="btn btn-info btn-lg">등록</button> &nbsp;&nbsp;&nbsp;
+                            <button type="button" class="btn btn-info btn-lg" onclick="location.href='<%=request.getContextPath()%>/views/admin_main/faq/adminFaqInsert.jsp'">등록</button> &nbsp;&nbsp;&nbsp;
                             <button type="button" class="btn btn-warning btn-lg">수정</button> &nbsp;&nbsp;&nbsp;
                             <!-- Button trigger modal -->
                             <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#Modal2">

@@ -16,7 +16,7 @@
     --teal: #20c997;
     --cyan: #17a2b8;
     --white: #fff;
-    --gray: #6c757d;
+    --gray: #cecece;
     --gray-dark: #343a40;
     --primary: #007bff;
     --secondary: #6c757d;
@@ -11417,15 +11417,6 @@ a.text-dark:hover {
         border-color: #dee2e6
     }
    
-    .boardBtn button {
-        border: 1px solid black;
-        color: white;
-        width: 15%;
-        background-color: #878787;
-        font-size: 14px;
-        line-height: 40px;
-        margin: -300px 0px 0px 0px;
-    }
 }
 
 /*# sourceMappingURL=bootstrap.min.css.map */

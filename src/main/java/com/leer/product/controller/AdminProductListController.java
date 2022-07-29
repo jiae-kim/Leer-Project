@@ -1,6 +1,7 @@
-package com.leer.member.controller;
+package com.leer.product.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,34 +9,34 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.leer.member.model.service.AdminMemberService;
-import com.leer.member.model.vo.Member;
+import com.leer.product.model.service.AdminProductService;
+import com.leer.product.model.vo.Product;
 
 /**
- * Servlet implementation class AdminMemberDetail
- */
-@WebServlet("/adMemDetail.do")
-public class AdminMemberDetail extends HttpServlet {
+ * Servlet implementation class AdminProductListController
+ */ 
+@WebServlet("/adProList.do") 
+public class AdminProductListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdminMemberDetail() {
+    public AdminProductListController() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-	/*
-    	관리자 회원 상세조회페이지
-    	작성자 김은지
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+    
+    /* [제품관리 - 상품조회]
+     * 상품 전체조회 기능
+     * 작성자 김지애
+     */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int memNo = Integer.parseInt(request.getParameter("no"));
-		
-		Member m = new AdminMemberService().memberDatailList(memNo);
-		request.setAttribute("member", m);
-		request.getRequestDispatcher("views/admin_main/member/adminMemberDetail.jsp").forward(request, response);
+		ArrayList<Product> list = new AdminProductService().selectProductList();
 	}
 
 	/**
