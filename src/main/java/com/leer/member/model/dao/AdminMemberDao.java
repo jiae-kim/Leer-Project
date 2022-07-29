@@ -1,5 +1,7 @@
 package com.leer.member.model.dao;
 
+import static com.leer.common.JDBCTemplate.close;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
@@ -8,8 +10,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Properties;
-import static com.leer.common.JDBCTemplate.*;
 
+import com.leer.common.model.vo.PageInfo;
 import com.leer.member.model.vo.Member;
 
 public class AdminMemberDao {
@@ -27,7 +29,7 @@ public class AdminMemberDao {
 		
 	// 관리자 회원조회 Dao
 	// 작성자 김은지
-	public ArrayList<Member> selectMemberList(Connection conn){
+	public ArrayList<Member> selectMemberList(Connection conn, PageInfo pi){
 		ArrayList<Member> list = new ArrayList<>();
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -35,6 +37,13 @@ public class AdminMemberDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
+			
+			int startRow = (pi.getCurrentPage()-1) * pi.getBoardLimit()+1;
+			int endRow = startRow + pi.getBoardLimit()-1;
+			
+			pstmt.setInt(1, startRow);
+			pstmt.setInt(2, endRow);
+			
 			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
@@ -59,6 +68,33 @@ public class AdminMemberDao {
 			close(pstmt);
 		}
 		return list;
+	}
+	
+	// 관리자 회원조회리스트 페이징처리
+	// 작성자 김은지
+	public int selectMemberListCount(Connection conn) {
+		int listCount = 0;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectMemberListCount");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				listCount = rset.getInt("COUNT");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return listCount;		
 	}
 	
 	// 관리자 회원 상세조회

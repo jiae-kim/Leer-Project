@@ -4,6 +4,11 @@
 <% 
 	PageInfo pi = (PageInfo)request.getAttribute("pi");
 	ArrayList<Member> list = (ArrayList<Member>)request.getAttribute("list");
+
+	int currentPage = pi.getCurrentPage();
+	int startPage = pi.getStartPage();
+	int endPage = pi.getEndPage();
+	int maxPage = pi.getMaxPage();
 %>    
 <!DOCTYPE html>
 <html>
@@ -59,9 +64,9 @@
                             <button type="button" class="btn btn-success dropdown-toggle" style="margin:-40px 0px 200px 0px" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             	조회방법 선택
                             </button>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">전체조회</a>
-                                <a class="dropdown-item" href="#">가나다 순 조회</a>
+                            <div class="dropdown-menu" id="selectBox">
+                                <a class="dropdown-item" id="all" onclick="changeList();">전체조회</a>
+                                <a class="dropdown-item" id="ganada" onclick="changeList();">가나다 순 조회</a>
                             </div>
                         </div>
                     </div>
@@ -109,19 +114,38 @@
                                     <tr align="center">
                                         <th colspan="10">
                                             <br>
-                                            <div class="btn-group" role="group" aria-label="Basic example">
-                                                <button type="button" class="btn btn-outline-secondary"><</button>
-                                                <button type="button" class="btn btn-outline-secondary">1</button>
-                                                <button type="button" class="btn btn-outline-secondary">2</button>
-                                                <button type="button" class="btn btn-outline-secondary">3</button>
-                                                <button type="button" class="btn btn-outline-secondary">4</button>
-                                                <button type="button" class="btn btn-outline-secondary">5</button>
-                                                <button type="button" class="btn btn-outline-secondary">6</button>
-                                                <button type="button" class="btn btn-outline-secondary">7</button>
-                                                <button type="button" class="btn btn-outline-secondary">8</button>
-                                                <button type="button" class="btn btn-outline-secondary">9</button>
-                                                <button type="button" class="btn btn-outline-secondary">10</button>
-                                                <button type="button" class="btn btn-outline-secondary">></button>
+                                            <div class="btn-group paging-area" role="group" aria-label="Basic example">
+                                            
+                                            	<% if(currentPage != 1) { %>
+	                                                <button type="button" onclick="location.href='<%=request.getContextPath()%>/adMemList.do?cpage=<%=currentPage-1%>';"  
+	                                                		class="btn btn-outline-secondary">&lt;</button>
+	                                            <% } %>
+	                                            <% for(int p=startPage; p<=endPage; p++) { %>
+	                                            	<% if(p == currentPage) { %>
+	                                                	<button type="button" disabled class="btn btn-outline-secondary"><%=p%></button>
+	                                                <% } else { %>
+	                                                	<button type="button" onclick="location.href='<%=request.getContextPath()%>/adMemList.do?cpage=<%=p%>';" 
+	                                                			class="btn btn-outline-secondary"><%=p%></button>
+	                                                <% } %>
+	                                            <% } %>
+	                                            
+	                                            <% if(currentPage != maxPage) { %>
+	                                            	<button type="button" onclick="location.href='<%=request.getContextPath()%>/adMemList.do?cpage=<%=currentPage+1%>';" 
+	                                                		    class="btn btn-outline-secondary">&gt;</button>
+	                                            <% } %>
+	                                                
+	                                                
+	                                                <!-- 
+	                                                <button type="button" class="btn btn-outline-secondary">2</button>
+	                                                <button type="button" class="btn btn-outline-secondary">3</button>
+	                                                <button type="button" class="btn btn-outline-secondary">4</button>
+	                                                <button type="button" class="btn btn-outline-secondary">5</button>
+	                                                <button type="button" class="btn btn-outline-secondary">6</button>
+	                                                <button type="button" class="btn btn-outline-secondary">7</button>
+	                                                <button type="button" class="btn btn-outline-secondary">8</button>
+	                                                <button type="button" class="btn btn-outline-secondary">9</button>
+	                                                <button type="button" class="btn btn-outline-secondary">&gt;</button>
+	                                                 -->
                                               </div>
                                         </th>
                                     </tr>
@@ -143,13 +167,18 @@
             
 		
 		<!--------- 스크립트 ----------->
+		<!--  -->
 		<script>
-			$(function(){
-				
-			})
+			function changeList(){
+												
+			}
 		</script>
 </body>
 </html>
+
+
+
+
 
 
 

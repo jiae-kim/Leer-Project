@@ -107,6 +107,7 @@ public class Member {
 	
 	
 
+
 	public int getMemNo() {
 		return memNo;
 	}

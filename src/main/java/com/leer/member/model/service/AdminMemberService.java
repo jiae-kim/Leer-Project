@@ -6,6 +6,7 @@ import static com.leer.common.JDBCTemplate.getConnection;
 import java.sql.Connection;
 import java.util.ArrayList;
 
+import com.leer.common.model.vo.PageInfo;
 import com.leer.member.model.dao.AdminMemberDao;
 import com.leer.member.model.vo.Member;
 
@@ -13,13 +14,22 @@ public class AdminMemberService {
 	
 	// 관리자 회원리스트 조회
 	// 작성자 김은지
-	public ArrayList<Member> selectMemberList(){
+	public ArrayList<Member> selectMemberList(PageInfo pi){
 		Connection conn = getConnection();
 		
-		ArrayList<Member> list = new AdminMemberDao().selectMemberList(conn);
+		ArrayList<Member> list = new AdminMemberDao().selectMemberList(conn, pi);
 		
 		close(conn);
 		return list;
+	}
+	
+	// 관리자 회원리스트 조회 페이징처리
+	// 작성자 김은지
+	public int selectMemberListCount() {
+		Connection conn = getConnection();
+		int listCount = new AdminMemberDao().selectMemberListCount(conn);
+		close(conn);
+		return listCount;
 	}
 	
 	// 관리자 회원상세조회
