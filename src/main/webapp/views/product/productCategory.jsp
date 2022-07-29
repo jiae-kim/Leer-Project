@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.ArrayList, com.leer.product.model.vo.Product"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.leer.product.model.vo.Product,java.text.DecimalFormat"%>
 <%
 	ArrayList<Product> list = (ArrayList<Product>)request.getAttribute("list");
+	DecimalFormat comma = new DecimalFormat("###,###");
 %>
 <!DOCTYPE html>
 <html>
@@ -72,6 +73,10 @@
                                 </div>
                                 
                                 <script>
+                                function number_format(num){
+                                    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',');
+                                }
+                                출처: https://solbel.tistory.com/1576 [개발자의 끄적끄적:티스토리]
                                 	function changeItem(){
                                 		$.ajax({
                         					url:"<%=contextPath%>/nlist.pd",
@@ -93,7 +98,7 @@
                 	                                		'</div>' +
                 	                                		'<div class="product__item__text">' + 
                 	                                   			'<h6><a href="#">' + list[i].pName + '</a></h6>' + 
-                	                                    		'<h5>' + list[i].price + '원</h5>' + 
+                	                                    		'<h5>' + number_format(list[i].price) + '원</h5>' + 
                 	                              			'</div>' +
                 	                            		'</div>' + 
                 	                       			'</div>'   
@@ -134,7 +139,7 @@
 	                                </div>
 	                                <div class="product__item__text">
 	                                    <h6><a href="#"><%= p.getpName() %></a></h6>
-	                                    <h5><%= p.getPrice() %> 원</h5>
+	                                    <h5><%= comma.format(p.getPrice())%> 원</h5>
 	                                </div>
 	                            </div>
 	                        </div>  

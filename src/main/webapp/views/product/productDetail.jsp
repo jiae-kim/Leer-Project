@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.util.ArrayList, com.leer.product.model.vo.Product, com.leer.product.model.vo.Inquiry"%>
+<%@ page import='java.text.DecimalFormat' %>    
 
 <% Product p = (Product)request.getAttribute("p");
    ArrayList<Inquiry> list = (ArrayList<Inquiry>)request.getAttribute("list");
+   DecimalFormat comma = new DecimalFormat("###,###");
 %>
 <!DOCTYPE html>
 <html>
@@ -316,7 +318,7 @@
                             <li class="option_row">
                                 <span class="option_title">판매가</span> 
                                 <span class="option_content">
-                                    <strong style="font-size:30px; font-weight:800;"><%=p.getPrice() %>원</strong>
+                                    <strong style="font-size:30px; font-weight:800;"><%=comma.format(p.getPrice())%>원</strong>
                                 </span>
                             </li>
                         </ul>
@@ -355,12 +357,12 @@
                                             <label for="one_cycle">개별구매</label>
                                         </div>
                                         <div class="radio_item">
-                                            <input type="radio" name="shipping_cycle" id="one_cycle" value="1" checked>
-                                            <label for="one_cycle">1달에 한번</label>
+                                            <input type="radio" name="shipping_cycle" id="one_month" value="1">
+                                            <label for="one_month">1달에 한번</label>
                                         </div>
                                         <div class="radio_item">
-                                            <input type="radio" name="shipping_cycle" id="one_cycle" value="1" checked>
-                                            <label for="one_cycle">2달에 한번</label>
+                                            <input type="radio" name="shipping_cycle" id="two_month" value="1">
+                                            <label for="two_month">2달에 한번</label>
                                         </div>
 
                                     </div>
@@ -368,7 +370,10 @@
                             </li>
                         </ul>
                     </div>
-
+					
+					<script>
+					
+					</script>
                     <div class="option_info_box delivery">
                         <ul class="product_option_table">
                             <li class="option_row">
@@ -398,7 +403,7 @@
 
                     <div class="price_box">
                         총 상품금액(수량) :
-                        <strong id="total_item_krw_price" style="font-size:30px; font-weight:800;">8,450</strong>
+                        <strong id="total_item_krw_price" style="font-size:30px; font-weight:800;"><%=comma.format(p.getPrice()) %></strong>
                         원 (
                         <span id="total_item_qty">1</span>
                         개) X
@@ -463,10 +468,10 @@
                                                 <th>작성자</th>
                                                 <th>작성일</th>
                                             </tr>
-                                            
+                                        <% int number = list.size(); %>
                                         <%for(Inquiry i : list) {%>
                                             <tr>
-                                                <td>1</td>
+                                                <td><%= number--%></td>
                                                 <% if(i.getqYn().equals("N")) {%>
                                                 <td>답변대기</td>
                                                 <% } else { %>
