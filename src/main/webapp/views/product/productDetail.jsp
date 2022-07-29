@@ -338,9 +338,9 @@
                     <div class="option_info_box delivery">
                         <ul class="product_option_table">
                             <li class="option_row">
-                                <span class="option_title">배송방법</span>
+                                <span class="option_title">배송비</span>
                                 <span class="option_content">
-                                    3,000원  
+                                    3,000원(정기구독시 무료)
                                 </span>
                             </li>
                         </ul>
@@ -351,17 +351,17 @@
                             <li class="option_row">
                                 <span class="option_title">배송주기</span>
                                 <span class="option_content">
-                                    <div class="design_radio_box">
+                                    <div class="design_radio_box" >
                                         <div class="radio_item">
                                             <input type="radio" name="shipping_cycle" id="one_cycle" value="1" checked>
                                             <label for="one_cycle">개별구매</label>
                                         </div>
                                         <div class="radio_item">
-                                            <input type="radio" name="shipping_cycle" id="one_month" value="1">
+                                            <input type="radio" name="shipping_cycle" id="one_month" value="2">
                                             <label for="one_month">1달에 한번</label>
                                         </div>
                                         <div class="radio_item">
-                                            <input type="radio" name="shipping_cycle" id="two_month" value="1">
+                                            <input type="radio" name="shipping_cycle" id="two_month" value="3">
                                             <label for="two_month">2달에 한번</label>
                                         </div>
 
@@ -372,8 +372,86 @@
                     </div>
 					
 					<script>
+					function number_format(num){
+                        return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',');
+                    }
 					
+					$(function(){
+						 
+						let count = 1;
+						let price = <%=p.getPrice()%>;
+						
+						$(".radio_item").click(function(){
+							if($(this).children().eq(0).val() == 1){
+								price = <%=p.getPrice()%>
+								let priceStr = number_format(price);
+								
+								$("#total_item_qty1").html(1);
+								count = 1;
+								$(".but_cnt").val(count);
+								$("#total_item_qty2").html(1);
+								$("#total_item_krw_price").html(priceStr);
+							}
+							
+							if($(this).children().eq(0).val() == 2){
+								price = (<%=p.getPrice()%>) * 12 ;
+								let priceStr = number_format(price);
+								
+								$("#total_item_qty1").html(1);
+								count = 1;
+								$(".but_cnt").val(count);
+								$("#total_item_qty2").html(12);
+								$("#total_item_krw_price").html(priceStr);
+							}
+							
+							if($(this).children().eq(0).val() == 3){
+								price = (<%=p.getPrice()%>) * 6;
+								let priceStr = number_format(price);
+								
+								$("#total_item_qty1").html(1);
+								count = 1;
+								$(".but_cnt").val(count);
+								$("#total_item_qty2").html(6);
+								$("#total_item_krw_price").html(priceStr);
+							}
+						})
+						
+						let sum = price;
+						$(".up_btn").click(function(){
+							
+							$("#total_item_qty1").html(++count);
+							$(".but_cnt").val(count);
+							sum = price * count;
+							
+							let sumStr = number_format(sum);
+							$("#total_item_krw_price").html(sumStr);
+							
+						})
+						
+						$(".down_btn").click(function(){
+							
+							if(count >=1){
+								if(count >= 2){
+									$("#total_item_qty1").html(--count);
+									$(".but_cnt").val(count);
+									sum = price * count;
+									
+									let sumStr = number_format(sum);
+									$("#total_item_krw_price").html(sumStr);
+								}else{
+									$(".but_cnt").val(count);
+									sum = price * count;
+									
+									let sumStr = number_format(sum);
+									$("#total_item_krw_price").html(sumStr);
+								}
+							}
+							
+							
+						})
+					})
 					</script>
+					
                     <div class="option_info_box delivery">
                         <ul class="product_option_table">
                             <li class="option_row">
@@ -403,11 +481,11 @@
 
                     <div class="price_box">
                         총 상품금액(수량) :
-                        <strong id="total_item_krw_price" style="font-size:30px; font-weight:800;"><%=comma.format(p.getPrice()) %></strong>
+                        <strong id="total_item_krw_price" style="font-size:30px; font-weight:800;"><%=comma.format(p.getPrice() + 3000) %></strong>
                         원 (
-                        <span id="total_item_qty">1</span>
+                        <span id="total_item_qty1">1</span>
                         개) X
-                        <span id="total_item_qty">6</span>
+                        <span id="total_item_qty2">1</span>개월 
                     </div>
                     <div class="payment_btn_box">
                         <button type="button" class="site-btn" style="padding:0px; margin-right:5px; font-size: 15px; color:#303030; background-color: #ffffff; border: #303030 solid 1px;" >장바구니</button>
