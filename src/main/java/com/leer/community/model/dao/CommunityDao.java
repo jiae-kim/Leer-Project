@@ -147,11 +147,11 @@ public class CommunityDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, c.getMemNo());
-			pstmt.setString(2, c.getCategoryNo());
-			pstmt.setString(3, c.getTag());
-			pstmt.setString(4, c.getTitle());
-			pstmt.setString(5, c.getContent());
+//			pstmt.setString(1, c.getMemNo());
+			pstmt.setString(1, c.getCategoryNo());
+			pstmt.setString(2, c.getTag());
+			pstmt.setString(3, c.getTitle());
+			pstmt.setString(4, c.getContent());
 			result = pstmt.executeUpdate();
 			
 		} catch (SQLException e) {

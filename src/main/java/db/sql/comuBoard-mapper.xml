@@ -61,7 +61,7 @@
 		 VALUES
 		 (
 		   SEQ_COMU.NEXTVAL
-		 , ?	
+		 , 1
 		 , ?
 		 , ?
 		 , ?
