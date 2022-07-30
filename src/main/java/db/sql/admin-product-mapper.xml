@@ -8,8 +8,28 @@
 	 * 작성자 김지애
 	 -->
 	<entry key="selectProductList">
-		SELECT
-	            P_NAME
+		SELECT *
+		  FROM (
+		  		SELECT ROWNUM RNUM, A.*
+		  		  FROM (
+		  		  		SELECT 
+		  		  			    P_NAME
+					          , CATEGORY_NO
+					          , P_CODE
+					          , PUBLISHER
+					          , PUBLISH_MONTH
+					          , PRICE
+					          , ENROLL_DATE
+					          , P_STOCK
+					       FROM PRODUCT
+		  		 		) A
+		  		)
+		  WHERE RNUM BETWEEN ? AND ?           
+	</entry>
+	
+	<!-- selectProductList 기존 구문
+		SELECT 
+ 			    P_NAME
 	          , CATEGORY_NO
 	          , P_CODE
 	          , PUBLISHER
@@ -18,8 +38,17 @@
 	          , ENROLL_DATE
 	          , P_STOCK
 	       FROM PRODUCT
-	</entry>
-		
+	 -->
+	
+	<!-- 
+		* [제품관리 - 상품조회]
+		* 페이징 처리
+	 	* 작성자 김지애
+	 -->
+	<entry key="selectProductListCount">
+		SELECT COUNT(*) AS "COUNT"
+		  FROM PRODUCT
+	</entry>	
 		
                              
                               
