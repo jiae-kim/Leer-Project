@@ -90,11 +90,12 @@
 					<%} else{ %>
 
                     <!-- case2. 로그인 후 -->
-                    <div class="header__cart">
+                    <div class="header__cart afterLogin">
                         <ul>
-                            <li><label for=""><%=loginUser.getMemName() %> 님</label><li>
-                            <li><a href="" style="text-decoration: none; color:black">로그아웃</a></li>
-                            <li><i class=""><a href="" style="text-decoration: none; color:black">마이페이지</a></li>
+                            <li><a href="" style="text-decoration: none; color:black;"><%=loginUser.getMemName() %> 님</a><li>
+                            <li><a href="<%=contextPath %>/logout.me" style="text-decoration: none; color:darkgrey">로그아웃</a></li>
+                            &nbsp;
+                            <!-- <li><a href="" style="text-decoration: none; color:darkgrey">마이페이지</a></li> -->
                             <li id="login-icon"><a href=""><i class="fa fa-heart"></i></a></li>
                             <li><a href="#"><i class="fa fa-shopping-bag"></i></a></li>
                         </ul>
