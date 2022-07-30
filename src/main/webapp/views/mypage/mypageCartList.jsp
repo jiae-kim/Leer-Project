@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="java.util.ArrayList, com.leer.mypage.model.vo.Cart" %>
+<%@ page import="java.util.ArrayList, com.leer.mypage.model.vo.Cart, java.text.DecimalFormat" %>
 <%
-	ArrayList<Cart> list = (ArrayList<Cart>)request.getAttribute("list");
+	ArrayList<Cart> list = (ArrayList<Cart>)session.getAttribute("list");
+	DecimalFormat comma = new DecimalFormat("###,###");
 %>
 <!DOCTYPE html>
 <html>
@@ -305,67 +306,7 @@
 	<section class="product spad">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-5" style="max-width:20%; background-color: #f5f5f5; padding:30px;">
-                    <div class="sidebar">
-                        <div class="sidebar">
-                            <div class="sidebar__item" class="sidebar">
-                                <h4 style="font-family:'NanumSquare'; font-weight:800; margin-bottom: 15px; font-size:20px;">나의 주문 관리</h4>
-                                <ul>
-                                    <li><a href="#">주문 및 배송 조회</a></li>
-                                    <li><a href="#">주문취소 / 환불</a></li>
-                                </ul>
-    
-                                <hr>
-    
-                                <h4 style="font-family:'NanumSquare'; font-weight:800; margin-bottom: 15px; font-size:20px;">장바구니</h4>
-                                <ul>
-                                    <li><a href="#">장바구니</a></li>
-                                    <li><a href="#">찜목록</a></li>
-                                </ul>
-    
-                                <hr>
-    
-                                <h4 style="font-family:'NanumSquare'; font-weight:800; margin-bottom: 15px; font-size:20px;">커뮤니티 활동</h4>
-                                <ul>
-                                    <li><a href="#">내가 쓴 게시글</a></li>
-                                    <li><a href="#">내가 좋아요 한 글</a></li>
-                                </ul>
-    
-                                <hr>
-    
-                                <h4 style="font-family:'NanumSquare'; font-weight:800; margin-bottom: 15px; font-size:20px;">나의 혜택 관리</h4>
-                                <ul>
-                                    <li><a href="#">적립포인트</a></li>
-                                </ul>
-    
-                                <hr>
-    
-                                <h4 style="font-family:'NanumSquare'; font-weight:800; margin-bottom: 15px; font-size:20px;">회원 정보</h4>
-                                <ul>
-                                    <li><a href="#">회원 정보 수정</a></li>
-                                    <li><a href="#">회원 탈퇴 신청</a></li>
-                                </ul>
-    
-                                <hr>
-    
-                                <h4 style="font-family:'NanumSquare'; font-weight:800; margin-bottom: 15px; font-size:20px;">상품 리뷰</h4>
-                                <ul>
-                                    <li><a href="#">작성 가능한 리뷰</a></li>
-                                    <li><a href="#">작성한 리뷰</a></li>
-                                </ul>
-    
-                                <hr>
-    
-                                <h4 style="font-family:'NanumSquare'; font-weight:800; margin-bottom: 15px; font-size:20px;">상품문의</h4>
-                                <ul>
-                                    <li><a href="#">상품문의</a></li>
-                                </ul>
-                        
-                            </div>    
-                        </div>
-                    </div>
-                
-                </div>
+                <%@ include file="../common/myPageSidebar.jsp" %>
 
                 <div class="col-lg-9 col-md-7" style="padding-left:120px; flex-grow:1;">
                     <div class="etc_area" id="product_review">
@@ -377,7 +318,7 @@
                                         <ul class="product_review_list" id="review_list"></ul>
                                         <table class="table">
                                             <tr style="font-size:14px;">
-                                                <th><input type="checkbox"></th>
+                                                <th><input type="checkbox" id="check-all" checked></th>
                                                 <th style="width:30%;" width:40%;>상품정보</th>
                                                 <th>수량</th>
                                                 <th>상품금액</th>
@@ -386,10 +327,10 @@
                                             </tr>
                                             <% for(Cart c : list) { %>
 	                                            <tr style="font-size:14px;">
-	                                                <td><input type="checkbox"></td>
+	                                                <td><input type="checkbox" name="chk" checked></td>
 	                                                <td style="width:40%;">
 	                                                    <span style="display:inline">
-	                                                        <img src="http://www.walbox.co.kr/upfile/item/111_1613734143.jpg" width="15%;" >
+	                                                        <img src="<%=c.getImageUrl() %>" width="15%;" >
 	                                                    </span>
 	                                                    <span style="height:100%;">
 	                                                        <a><%=c.getpName() %></a>
@@ -405,18 +346,27 @@
 	                                                    </span>  
 	                                                </td>
 	                                                <td><%=c.getAmount() %></td>
-	                                                <td><%=c.getPrice() %></td>
+	                                                <td><%=comma.format(c.getPrice()) %>원</td>
 	                                                <% if(c.getOrCycle() == 1){ %>
-	                                                	<td class="total-price"><%= (c.getPrice() + 3000) * c.getAmount() %></td>
+	                                                	<td class="total-price"><%= comma.format((c.getPrice() * c.getAmount()) + 3000) %>
+	                                                		<span>원</span>
+	                                                	</td>
+	                                                	
 	                                                <%} %>
 	                                                <% if(c.getOrCycle() == 2){ %>
-	                                                	<td class="total-price"><%=c.getPrice() * 12 * c.getAmount() %></td>
+	                                                	<td class="total-price"><%= comma.format(c.getPrice() * 12 * c.getAmount())%>
+	                                                		<span>원</span>
+	                                                	</td>
+	                                                	
 	                                                <%} %>
 	                                                <% if(c.getOrCycle() == 3){ %>
-	                                                	<td class="total-price"><%=c.getPrice() * 6 * c.getAmount() %></td>
+	                                                	<td class="total-price"><%=comma.format(c.getPrice() * 6 * c.getAmount() )%>
+	                                                		<span>원</span>
+	                                                	</td>
+	                                                	
 	                                                <%} %>
 	                                                <% if(c.getOrCycle() == 1){ %>
-	                                                	<td>3000원</td>
+	                                                	<td>3,000원</td>
 	                                                <% } else{ %>
 	                                                	<td>무료배송</td>
 	                                                <% } %>
@@ -425,32 +375,69 @@
 
                                         </table>
 										
-										<script>
-											$(function(){ 
-												let sumPrice = 0;
-												for(let i= 0; i<<%=list.size()%>{
-													sumPrice += $(".total-price").text();
-												}
-												$("#sum-price").html(sumPrice);
-											})
-										</script>
-										
                                         <div style="text-align:right">
                                             <span style="font-size:20px; font-weight: 800;">상품총액 : </span>
+                                            
                                             <span id="sum-price" style="font-size:20px; color:red; font-weight: 600;">20,900</span>
                                             <span style="font-size:20px; color:red; font-weight: 600;">원</span>
                                         </div>
 
                                         <br>
-                                        <span style="text-align:left; padding-right:370px;">
-                                            <button type="button" class="site-btn" style="font-size: 15px; color:#303030; background-color: #ffffff; border: #303030 solid 1.5px;" >선택상품 삭제</button>
+                                        <span style="text-align:left; ">
+                                            <button type="button" class="site-btn" style="font-size: 15px; margin-right:370px; color:#303030; background-color: #ffffff; border: #303030 solid 1.5px;" >선택상품 삭제</button>
                                         </span>
                                         <span style="text-align:right">
                                             
                                             <button type="button" class="site-btn" style="font-size: 15px; color:#303030; background-color: #ffffff; border: #303030 solid 1.5px;" >계속 쇼핑하기</button>
                                             <button type="button" class="site-btn" style="font-size: 15px; border:#303030 solid 1.5px;">주문하기</button>
                                         </span>
+                                        
+										<script>
 
+										function number_format(num){
+					                        return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',');
+					                    }
+									
+										
+
+										
+
+
+										$(function(){ 
+											
+											let sumPrice = 0;
+											for(let i= 0; i<<%=list.size()%>; i++){
+												console.log($(".total-price").text());
+												sumPrice += parseInt($(".total-price").text().split(',').join(""));
+											}
+											$("#sum-price").html(number_format(sumPrice));  
+											
+											$("#check-all").click(function(){
+												if($("#check-all").prop("checked")){
+													$("input[name=chk]").prop("checked", true)
+													$("#sum-price").html(number_format(sumPrice)); 
+													
+												}else{
+													$("input[name=chk]").prop("checked", false)
+													$("#sum-price").html(0); 
+												}
+											})
+											
+											let sumPrice2 = 0;
+											$("input[name=chk]").click(function(){
+												for(let i=0; i<<%=list.size()%>; i++){
+													sumPrice2 += parseInt($("input[name=chk]:checked").text().split(',').join(""));
+													
+												}
+												$("sum-price").html(number_format(sumPrice2));
+											})
+										
+										});
+											 
+										
+
+											
+										</script>
 
                                     </div>
                                 </div>

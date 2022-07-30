@@ -68,14 +68,15 @@
 		SELECT 
 		      MEM_NO
 		    , P_CODE
+		    , P.IMAGE_URL1
 		    , AMOUNT
 		    , OR_CYCLE
 		    , CART_DATE
 		    , P_NAME
 		    , PRICE
 		    , DELI_FEE
-		 FROM CART
-		 JOIN PRODUCT USING (P_CODE)
+		 FROM CART 
+		 JOIN PRODUCT P USING (P_CODE)
 		WHERE MEM_NO = ?
 	</entry>
 	

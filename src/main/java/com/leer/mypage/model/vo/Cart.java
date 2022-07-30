@@ -6,12 +6,14 @@ public class Cart {
 	
 	private int memNo;
 	private String pCode;
+	private String imageUrl;
 	private int amount;
 	private int orCycle;
 	private Date cartDate;
 	private String pName;
 	private int price;
 	private int deliFee;
+	
 	
 	
 	public Cart() {}
@@ -27,10 +29,11 @@ public class Cart {
 	}
 
 
-	public Cart(int memNo, String pCode, int amount, int orCycle, Date cartDate, String pName, int price, int deliFee) {
+	public Cart(int memNo, String pCode, String imageUrl, int amount, int orCycle, Date cartDate, String pName, int price, int deliFee) {
 		super();
 		this.memNo = memNo;
 		this.pCode = pCode;
+		this.imageUrl = imageUrl;
 		this.amount = amount;
 		this.orCycle = orCycle;
 		this.cartDate = cartDate;
@@ -79,6 +82,16 @@ public class Cart {
 
 	public int getOrCycle() {
 		return orCycle;
+	}
+
+
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
 	}
 
 

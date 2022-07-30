@@ -39,7 +39,7 @@ public class MypageDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, 3); // pstmt.setInt(1, c.getMemNo())
+			pstmt.setInt(1, c.getMemNo());
 			pstmt.setString(2, c.getpCode());
 			pstmt.setInt(3, c.getAmount());
 			pstmt.setInt(4, c.getOrCycle());
@@ -72,6 +72,7 @@ public class MypageDao {
 			while(rset.next()) {
 				list.add(new Cart( rset.getInt("mem_no"),
 								   rset.getString("p_code"),
+								   rset.getString("image_url1"),
 								   rset.getInt("amount"),
 								   rset.getInt("or_cycle"),
 								   rset.getDate("cart_date"),

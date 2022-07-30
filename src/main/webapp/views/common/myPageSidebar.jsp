@@ -37,7 +37,7 @@
     
                                 <h4 style="font-family:'NanumSquare'; font-weight:800; margin-bottom: 15px; font-size:20px;">장바구니</h4>
                                 <ul>
-                                    <li><a href="#">장바구니</a></li>
+                                    <li><a href="<%= request.getContextPath()%>/clist.me">장바구니</a></li>
                                     <li><a href="#">찜목록</a></li>
                                 </ul>
     
