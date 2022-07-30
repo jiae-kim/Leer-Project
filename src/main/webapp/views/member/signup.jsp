@@ -30,6 +30,9 @@
         #enroll-form button{
             width: 300px;
             height: 50px;
+            border: 1px ;
+            font-size: 14px;
+            line-height: 14px;
         }
 
 
@@ -37,6 +40,8 @@
             margin: 5px;
             height: 40px;
             width: 400px;
+            border-radius: 5px;
+            border: 1px solid lightgrey;
         }
 
 
@@ -91,7 +96,7 @@
 
                     <tr>
                         <td>비밀번호</td>
-                        <td colspan="3"><input type="password" name="memPwd" required placeholder=" (6-10자의 영문, 숫자만 사용 가능합니다."></td>
+                        <td colspan="3"><input type="password" name="memPwd" required placeholder=" (6-10자의 영문, 숫자만 사용 가능합니다.)"></td>
                     </tr>
 
                     <tr>
@@ -164,11 +169,11 @@
                             <label for="">여행 취미</label> 
                         </td>
                         <td>
-                            <input type="checkbox" name="interest" value=""> 
+                            <input type="checkbox" name="interest" value="se"> 
                             <label for="">시사 경제</label> 
                         </td>
                         <td>
-                            <input type="checkbox" name="interest" value="">
+                            <input type="checkbox" name="interest" value="es">
                             <label for="">교육 과학</label> 
                         </td>
                     </tr>
@@ -176,7 +181,7 @@
                 </table>
 
 
-                <br><br><br><br><br>
+                <br>
 
 
                 <div align="center">

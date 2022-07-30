@@ -78,7 +78,7 @@
                 
                 
                 <div class="login-form-etc" align="center">
-                    <a href="" id="a1" style="float: left; margin-left: 39%">회원가입</a>
+                    <a href="<%=contextPath %>/views/member/signup.jsp" id="a1" style="float: left; margin-left: 39%">회원가입</a>
 
                     <a href="" id="a3" style="float:right; margin-right:39%">비밀번호 찾기</a>
                     <a href="" id="a2" style="float:right; margin-right:1%">아이디 찾기</a>
