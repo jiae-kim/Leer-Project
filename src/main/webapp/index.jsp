@@ -10,15 +10,14 @@
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ogani | Template</title>
+    <title>Leer</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans:400" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
 
-   <!-- Css Styles -->
+    <!-- Css Styles -->
     <link rel="stylesheet" href="resources/css/dahye/bootstrap.min.css" type="text/css">
-    
     <link rel="stylesheet" href="resources/css/dahye/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="resources/css/dahye/elegant-icons.css" type="text/css">
     <link rel="stylesheet" href="resources/css/dahye/nice-select.css" type="text/css">
@@ -26,6 +25,7 @@
     <link rel="stylesheet" href="resources/css/dahye/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="resources/css/dahye/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="resources/css/heeyeong/style.css" type="text/css">
+    
 </head>
 
 
@@ -46,11 +46,13 @@
                
                 <div class="col-lg-12">
                     
-                    <div class="hero__item set-bg" data-setbg="images/mainImg.jpg">
+                    <div class="hero__item set-bg" data-setbg="<%=contextPath %>/resources/images/mainImg.jpg">
                         <div class="hero__text">
-                            <!-- <h2>Vegetable <br />100% Organic</h2>
+                            <!-- 
+                            <h2>Vegetable <br />100% Organic</h2>
                             <p>Free Pickup and Delivery Available</p>
-                            <a href="#" class="primary-btn">SHOP NOW</a> -->
+                            <a href="#" class="primary-btn">SHOP NOW</a> 
+                            -->
                         </div>
                     </div>
                 </div>
@@ -68,7 +70,7 @@
                 </div>
                 -->
                 <input type="text">
-                <button type="submit" class="site-btn">SEARCH</button>
+                <button type="submit" class="site-btn" style="background:lightgrey;">SEARCH</button>
             </form>
         </div>
     </div> 
@@ -78,6 +80,7 @@
 	
 	<div class="outer">
 
+	<!-- 첫번째 단 -->
     <section class="featured spad">
         <div class="container">
             <div class="row">
@@ -164,12 +167,7 @@
     </section>
 
 
-
-
-
-
     <!-- 두번째 단 -->
-
     <section class="featured spad">
         <div class="container">
             <div class="row">
@@ -245,9 +243,6 @@
             </div>
         </div>
     </section>
-
-
-
 
 
 
@@ -343,6 +338,8 @@
     </section>
     
     </div>
+    
+    
 	
 	
 	<%@ include file="views/common/footer.jsp" %>
