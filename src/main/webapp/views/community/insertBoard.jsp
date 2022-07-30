@@ -93,33 +93,7 @@
         </div>
     </section>
     <!-- Breadcrumb Section End -->
-
-    <!-- Blog Section Begin -->
-    <section class="blog spad" style="margin-left: 50px">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-5">
-                    <div class="blog__sidebar">
-                        <div class="sidebar__item">
-                            <p style="font-size: small;">카테고리</p>
-                            <ul>
-                                <li><a href="#">전체게시글</a></li>
-                                <li><a href="#">패션/여성</a></li>
-                                <li><a href="#">라이프/인테리어</a></li>
-                                <li><a href="#">시사/경제</a></li>
-                                <li><a href="#">교육/과학</a></li>
-                                <li><a href="#">문화/예술</a></li>
-                                <li><a href="#">여행/취미</a></li>
-                            </ul>
-                            <p style="font-size: small;" id="noti">leer이야기</p>
-                            <ul>
-                                <li><a href="#">커뮤니티 공지사항</a></li>
-                                <li><a href="#">내가 쓴 게시글</a></li>
-                                <li><a href="#">북마크 목록</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+ <%@ include file="../community/communityMain.jsp"%>
 
                 <div class="col-lg-8 col-md-7">
                     <div class="row">
@@ -176,57 +150,9 @@
                             </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="col-bj-1 blog__sidebar__item">
-                        <div class="myPageList">
-                            <div id="myPage" style="display: block;">
-                                <div class="box-g">
-                                    <h4 class="">나의활동</h4>
-                                    <div class="myList">
-                                        <ul>
-                                            <li title="" id="profile">
-                                                <div class="profileNic" align="">
-                                                    <img src="https://ssl.pstatic.net/static/cafe/cafe_pc/default/cafe_profile_70.png"
-                                                        width="58" height="58" alt="프로필사진" class="imgChange">
-                                                    <strong>밤톨이님</strong>
-
-                                                </div>
-                                            </li>
-
-                                            <li class="myBoard">
-                                                <span class=""><strong class=""><a href="">내가 쓴 글</a></strong></span>
-                                                <a href="" class="">49</a><span>개</span>
-                                            </li>
-
-                                            <li class="myComment">
-                                                <span class=""><strong class=""><a href="">내가 좋아요 한 글</a></strong></span>
-                                                <a href="" class="">49</a><span>개</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="writeBoard" align="center">
-                                    <button class="write">글쓰기</button>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="bestTag">
-                            <p>인기태그</p>
-                            <div class="blog__sidebar__item__tags">
-                                <a href="#">공유</a>
-                                <a href="#">후기</a>
-                                <a href="#">부록</a>
-                                <a href="#">추천</a>
-                                <a href="#">질문</a>
-                                <a href="#">보그</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    </section>
+                    </div>	
+		 <%@ include file="../community/comuMypage.jsp" %>
+	 <%@ include file="../common/footer.jsp" %>
     <!-- Blog Section End -->
 <script>
         
@@ -264,7 +190,7 @@
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
     
-    <script src="js/summernote/summernote-lite.js"></script>
-    <script src="js/summernote/summernote-ko-KR.js"></script>
+    <script src="<%=contextPath%>/resources/js/beomjin/js/summernote/summernote-lite.js"></script>
+    <script src="<%=contextPath%>/resources/js/beomjin/js/summernote/summernote-ko-KR.js"></script>
 </body>
 </html>

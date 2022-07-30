@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%
-	String contextPath = request.getContextPath();
-%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,7 +37,7 @@
                                     </div>
                             </div>
                             <div class="writeBoard" align="center">
-                                <button location href="<%=contextPath%>/comuEnrollForm.bo"class="write">글쓰기</button>
+                                <button onclick="location.href='<%=contextPath%>/comuEnrollForm.bo'"class="write">글쓰기</button>
                             </div>
                         </div> 
             

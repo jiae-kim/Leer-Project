@@ -24,6 +24,7 @@
 </head>
 <body>
     <%@ include file="../common/menubar.jsp"%> 
+    
     <section class="breadcrumb-section set-bg">
         <div class="container">
             <div class="row">
@@ -66,12 +67,9 @@
 								<a href="#"><%= b.getTitle() %></a>
 							</h5>
 							<span style="font-size: 12px"><%=b.getEnrollDate() %></span>
-							<a class="hashtag" href="#" style="display: inline"><%= b.getTag() %></a>
+							<a class="hashtag" href="#" style="display: inline"><%= b.getTag() %></a> <!-- 댓글수 구하는 구문 찾아보기  -->
 							<p><%=b.getContent()%></p>
 							<div>
-								<div style="float: left">
-									<a href="#" class="blog__btn">더보기 <span class="arrow_right"></span></a>
-								</div>
 								<div style="float: right">
 									<i class="fa fa-heart-o"> <sup>123</sup>
 									</i> <i class="fa fa-comment-o"> <sup><%= b.getViewCount() %></sup>
