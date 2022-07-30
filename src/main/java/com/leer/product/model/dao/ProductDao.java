@@ -100,7 +100,8 @@ public class ProductDao {
 			rset = pstmt.executeQuery();
 			
 			if(rset.next()) {
-				p = new Product(rset.getString("p_name"),
+				p = new Product(rset.getString("p_code"),
+								rset.getString("p_name"),
 						        rset.getInt("price"),
 						        rset.getString("publisher"),
 						        rset.getInt("month"),
