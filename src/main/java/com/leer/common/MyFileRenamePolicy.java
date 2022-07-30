@@ -4,8 +4,11 @@ import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class MyFileRenamePolicy {
+import com.oreilly.servlet.multipart.FileRenamePolicy;
 
+public class MyFileRenamePolicy implements FileRenamePolicy {
+	
+	@Override
 	public File rename(File originFile) {
 		String originName = originFile.getName();
 		

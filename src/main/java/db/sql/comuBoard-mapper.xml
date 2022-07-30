@@ -46,5 +46,49 @@
 			 , CATEGORY_NAME
 	      FROM CATEGORY		
 	</entry>
+	
+	<entry key="insertBoard">
+		INSERT
+		  INTO COMU_BOARD
+		  (
+		  	COMU_NO
+		  , MEM_NO	
+		  , CATEGORY_NO
+		  , TAG
+		  , TITLE
+		  , CONTENT
+		  )
+		 VALUES
+		 (
+		   SEQ_COMU.NEXTVAL
+		 , ?	
+		 , ?
+		 , ?
+		 , ?
+		 , ?
+		 )
+	</entry>
+	
+	<entry key="insertAttachMent">
+		INSERT
+		  INTO ATTACHMENT
+		  (
+		  	FILE_NO
+		  , REF_CODE	
+		  ,	REF_BNO
+		  , ORIGIN_NAME
+		  , CHANGE_NAME
+		  , FILE_PATH
+		  )
+		  VALUES
+		  (
+		  , SEQ_FILE.NEXTVAL
+		  , COMU
+		  , SEQ_COMU.CURRVAL
+		  , ?
+		  , ?
+		  , ?
+		  )
+	</entry>
 </properties>
 

@@ -1,5 +1,6 @@
 package com.leer.community.controller;
 
+import java.io.File;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -12,6 +13,8 @@ import javax.servlet.http.HttpSession;
 import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 
 import com.leer.common.MyFileRenamePolicy;
+import com.leer.common.model.vo.Attachment;
+import com.leer.community.model.service.CommunityService;
 import com.leer.community.model.vo.ComuBoard;
 import com.leer.member.model.vo.Member;
 import com.oreilly.servlet.MultipartRequest;
@@ -47,21 +50,46 @@ public class InsertBoardController extends HttpServlet {
 			MultipartRequest multiRequest = new MultipartRequest(request, savePath, maxSize, "UTF-8", new MyFileRenamePolicy());
 			
 			String category = multiRequest.getParameter("category");
-//			String tag[] = multiRequest.getParameterValues("tag");
+			String[] allTag = multiRequest.getParameterValues("tag");
 			String title = multiRequest.getParameter("title");
 			String content = multiRequest.getParameter("content");
-			int nickname = ((Member)session.getAttribute("loginUser")).getMemNo();
+			int memNo = ((Member)session.getAttribute("loginUser")).getMemNo();
 			
+			String tag = "";
+			if(allTag != null) {
+				tag = String.join(",", allTag);
+			}
 			ComuBoard c = new ComuBoard();
 			c.setCategoryNo(category);
-//			c.setTag(tag[]);
+			c.setTag(tag);
 			c.setTitle(title);
-			c.setContent("content");
-			c.setMemNo(String.valueOf(nickname));
+			c.setContent(content);
+			c.setMemNo(String.valueOf(memNo));
 			
 			Attachment at = null;
 			
+			if(multiRequest.getOriginalFileName("upfile") != null) {
+				at = new Attachment();
+				
+				at.setOriginName(multiRequest.getOriginalFileName("upfile"));
+				at.setChangeName(multiRequest.getFilesystemName("upfile"));
+				at.setFilePath("resources/board_upfiles/");
+				
+			}
 			
+			int result = new CommunityService().insertBoard(c, at);
+			
+			if(result > 0) {
+				response.sendRedirect(request.getContextPath() + "/comu.bo?cpage=1");
+				
+			}else {
+				if(at != null) {
+					new File(savePath + at.getChangeName()).delete();
+					
+				}
+//				request.setAttribute("errorPage","게시글 작성을 실패하셨습니다.");
+//				request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
+			}
 			
 			
 		}

@@ -101,17 +101,17 @@
                                 <div class="blog__item__text2">
                                     <h4 align="left" class="boardTitle"><b>커뮤니티 작성하기</b></h4><hr style="color: black">
 
-                                    <form action="<%=contextPath %>/insert.bo" method="post" id="enroll-form"
+                                    <form action="<%=contextPath %>/comuinsert.bo" method="post" id="enroll-form"
                                         enctype="multipart/form-data">
                                         <!--게시글은 post방식으로 작성 get방식은 데이터가 부족해서 날아감-->
                                         <!-- 카테고리번호, 제목, 내용, 로그인한 회원번호, 첨부파일 한개 -->
                                         <table align="center">
                                             <tr>
-                                                <th width="300">#해쉬태그</th>
+                                                <th width="300">태그 작성</th>
                                                 <th width="300">게시판 선택</th>
                                             </tr>
                                             <tr>
-                                                    <td><input type="text"></td>
+                                                    <td><input type="text" name="tag"></td>
                                                 <td>
                                                     <select name="category">
                                                             <option value="" disabled selected hidden>
@@ -136,9 +136,16 @@
                                                 
                                             </tr>
                                             <tr>
-                                                <td colspan="2"><textarea id="summernote" name="editordata" rows="10" required
+                                                <td colspan="2"><textarea id="summernote" name="content" rows="10" required
                                                     style="resize:none"></textarea></td>
+                                                    
                                             </tr>
+                                             <tr>
+							                    <th>첨부파일</th>
+							                </tr>
+							               	<tr>
+							                    <td><input type="file" name="upfile"></td>
+							               	</tr>
                                         </table>
                                         <br>
 
@@ -171,7 +178,7 @@
 			    ['style', ['bold']],
 			    ['color', ['forecolor']],
 			    ['para', ['ul', 'ol', 'paragraph']],
-			    ['insert',['picture']],
+			    /* ['insert',['picture']], */
 			  ],
 			fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New','맑은 고딕','궁서','굴림체','굴림','돋움체','바탕체'],
 			fontSizes: ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50','72']

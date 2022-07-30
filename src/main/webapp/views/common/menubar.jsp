@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%
 	String contextPath = request.getContextPath();
+
+	/* String alertMsg = (String)session.getAttribute("alertMsg"); */
 %>
 <!DOCTYPE html>
 <html>
@@ -34,6 +36,10 @@
 </head>
 
 <body>
+
+	<%-- 	<script>
+			alert("<%=alertMsg%>");
+		</script> --%>
     <header class="header">
         
         <div class="container">

@@ -1,13 +1,13 @@
 package com.leer.community.model.service;
 
-import static com.leer.common.JDBCTemplate.close;
+import static com.leer.common.JDBCTemplate.*;
 import static com.leer.common.JDBCTemplate.getConnection;
 
 import java.sql.Connection;
 import java.util.ArrayList;
 
+import com.leer.common.model.vo.Attachment;
 import com.leer.common.model.vo.Category;
-import com.leer.common.model.vo.PageInfo;
 import com.leer.community.model.dao.CommunityDao;
 import com.leer.community.model.vo.ComuBoard;
 
@@ -40,5 +40,21 @@ public class CommunityService {
 		
 		
 	}
-	
+	public int insertBoard(ComuBoard c, Attachment at) {
+		Connection conn = getConnection();
+		
+		int result1 = new CommunityDao().insertBoard(conn, c);
+		
+		int result2 = 1;
+		
+		if(at != null) {
+			result2 = new CommunityDao().insertAttachment(conn, at);
+		}
+		if( result1 > 0 && result2 > 0) {
+			commit(conn);
+		} else {
+			rollback(conn);
+		}
+		return result1 * result2;
+	}
 }

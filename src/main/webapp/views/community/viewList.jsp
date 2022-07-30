@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="com.leer.common.model.vo.PageInfo, java.util.ArrayList, com.leer.community.model.vo.ComuBoard" %>
+<%@ page import="com.leer.common.model.vo.PageInfo, java.util.ArrayList, com.leer.community.model.vo.ComuBoard, com.leer.member.model.vo.Member" %>
 <%
  /*  PageInfo pi = (PageInfo)request.getAttribute("pi"); */
   ArrayList<ComuBoard> list = (ArrayList<ComuBoard>)request.getAttribute("list");
-
+  Member loginUser = (Member)session.getAttribute("loginUser");
  /*  int currentPage = pi.getCurrentPage();
   int startPage = pi.getStartPage();
   int endPage = pi.getEndPage();

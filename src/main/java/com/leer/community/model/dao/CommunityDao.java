@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Properties;
 
+import com.leer.common.model.vo.Attachment;
 import com.leer.common.model.vo.Category;
 import com.leer.community.model.vo.ComuBoard;
 
@@ -134,6 +135,56 @@ public class CommunityDao {
 			
 		}
 		return list;
+		
+	}
+	
+	public int insertBoard(Connection conn, ComuBoard c) {
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("insertBoard");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, c.getMemNo());
+			pstmt.setString(2, c.getCategoryNo());
+			pstmt.setString(3, c.getTag());
+			pstmt.setString(4, c.getTitle());
+			pstmt.setString(5, c.getContent());
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+			
+		}
+		return result;
+	}
+	
+	public int insertAttachment(Connection conn, Attachment at) {
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("insertAttachment");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, at.getOriginName());
+			pstmt.setString(2, at.getChangeName());
+			pstmt.setString(3, at.getFilePath());
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return result;
+		
 		
 	}
 }
