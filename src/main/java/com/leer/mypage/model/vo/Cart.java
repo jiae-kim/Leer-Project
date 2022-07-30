@@ -9,6 +9,10 @@ public class Cart {
 	private int amount;
 	private int orCycle;
 	private Date cartDate;
+	private String pName;
+	private int price;
+	private int deliFee;
+	
 	
 	public Cart() {}
 	
@@ -20,6 +24,19 @@ public class Cart {
 		this.amount = amount;
 		this.orCycle = orCycle;
 		this.cartDate = cartDate;
+	}
+
+
+	public Cart(int memNo, String pCode, int amount, int orCycle, Date cartDate, String pName, int price, int deliFee) {
+		super();
+		this.memNo = memNo;
+		this.pCode = pCode;
+		this.amount = amount;
+		this.orCycle = orCycle;
+		this.cartDate = cartDate;
+		this.pName = pName;
+		this.price = price;
+		this.deliFee = deliFee;
 	}
 
 
@@ -77,6 +94,36 @@ public class Cart {
 
 	public void setCartDate(Date cartDate) {
 		this.cartDate = cartDate;
+	}
+
+
+	public String getpName() {
+		return pName;
+	}
+
+
+	public void setpName(String pName) {
+		this.pName = pName;
+	}
+
+
+	public int getPrice() {
+		return price;
+	}
+
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+
+	public int getDeliFee() {
+		return deliFee;
+	}
+
+
+	public void setDeliFee(int deliFee) {
+		this.deliFee = deliFee;
 	}
 	
 	

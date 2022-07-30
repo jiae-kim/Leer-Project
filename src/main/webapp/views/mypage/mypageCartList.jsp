@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="com.leer.mypage.model.vo.Cart"%>
+    pageEncoding="UTF-8"%>
+<%@ page import="java.util.ArrayList, com.leer.mypage.model.vo.Cart" %>
 <%
-	Cart c = (Cart)request.getAttribute("cart");
+	ArrayList<Cart> list = (ArrayList<Cart>)request.getAttribute("list");
 %>
 <!DOCTYPE html>
 <html>
@@ -383,46 +384,60 @@
                                                 <th>상품총액</th>
                                                 <th>배송비</th>
                                             </tr>
-                                            <tr style="font-size:14px;">
-                                                <td><input type="checkbox"></td>
-                                                <td style="width:40%;">
-                                                    <span style="display:inline">
-                                                        <img src="http://www.walbox.co.kr/upfile/item/111_1613734143.jpg" width="15%;" >
-                                                    </span>
-                                                    <span style="height:100%;">
-                                                        <a>어라운드(격월간)</a>
-                                                        <a style="font-size:12px">구독기간:2달에 한번 </a>
-                                                        
-                                                    </span>  
-                                                </td>
-                                                <td>1개</td>
-                                                <td>14,250원</td>
-                                                <td>14,250원</td>
-                                                <td>무료배송</td>
-                                            </tr>
+                                            <% for(Cart c : list) { %>
+	                                            <tr style="font-size:14px;">
+	                                                <td><input type="checkbox"></td>
+	                                                <td style="width:40%;">
+	                                                    <span style="display:inline">
+	                                                        <img src="http://www.walbox.co.kr/upfile/item/111_1613734143.jpg" width="15%;" >
+	                                                    </span>
+	                                                    <span style="height:100%;">
+	                                                        <a><%=c.getpName() %></a>
+	                                                        <% if(c.getOrCycle() == 1) {%>
+	                                                        	<a style="font-size:12px">구독기간:개별구매</a>
+	                                                        <% } %>
+	                                                        <% if(c.getOrCycle() == 2) {%>
+	                                                        	<a style="font-size:12px">구독기간:1달에 한번</a>
+	                                                        <% } %>
+	                                                        <% if(c.getOrCycle() == 3) {%>
+	                                                        	<a style="font-size:12px">구독기간:2달에 한번</a>
+	                                                        <% } %>
+	                                                    </span>  
+	                                                </td>
+	                                                <td><%=c.getAmount() %></td>
+	                                                <td><%=c.getPrice() %></td>
+	                                                <% if(c.getOrCycle() == 1){ %>
+	                                                	<td class="total-price"><%= (c.getPrice() + 3000) * c.getAmount() %></td>
+	                                                <%} %>
+	                                                <% if(c.getOrCycle() == 2){ %>
+	                                                	<td class="total-price"><%=c.getPrice() * 12 * c.getAmount() %></td>
+	                                                <%} %>
+	                                                <% if(c.getOrCycle() == 3){ %>
+	                                                	<td class="total-price"><%=c.getPrice() * 6 * c.getAmount() %></td>
+	                                                <%} %>
+	                                                <% if(c.getOrCycle() == 1){ %>
+	                                                	<td>3000원</td>
+	                                                <% } else{ %>
+	                                                	<td>무료배송</td>
+	                                                <% } %>
+	                                            </tr>
+                                            <% } %>
 
-                                            <tr style="font-size:14px;">
-                                                <td><input type="checkbox"></td>
-                                                <td style="width:40%;">
-                                                    <span style="display:inline">
-                                                        <img src="http://www.walbox.co.kr/upfile/item/111_1613734143.jpg" width="15%;" >
-                                                    </span>
-                                                    <span style="height:100%;">
-                                                        <a>어라운드(격월간)</a>
-                                                        <a style="font-size:12px">구독기간:2달에 한번 </a>
-                                                        
-                                                    </span> 
-                                                </td>
-                                                <td>1개</td>
-                                                <td>14,250원</td>
-                                                <td>14,250원</td>
-                                                <td>무료배송</td>
-                                            </tr>
                                         </table>
-
+										
+										<script>
+											$(function(){ 
+												let sumPrice = 0;
+												for(let i= 0; i<<%=list.size()%>{
+													sumPrice += $(".total-price").text();
+												}
+												$("#sum-price").html(sumPrice);
+											})
+										</script>
+										
                                         <div style="text-align:right">
                                             <span style="font-size:20px; font-weight: 800;">상품총액 : </span>
-                                            <span style="font-size:20px; color:red; font-weight: 600;">20,900</span>
+                                            <span id="sum-price" style="font-size:20px; color:red; font-weight: 600;">20,900</span>
                                             <span style="font-size:20px; color:red; font-weight: 600;">원</span>
                                         </div>
 

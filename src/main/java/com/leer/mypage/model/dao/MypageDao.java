@@ -61,9 +61,34 @@ public class MypageDao {
 		ArrayList<Cart> list = new ArrayList<>();
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		//String sql = prop.getProperty()
-		return list;
+		String sql = prop.getProperty("selectCartList");
 		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memNo);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				list.add(new Cart( rset.getInt("mem_no"),
+								   rset.getString("p_code"),
+								   rset.getInt("amount"),
+								   rset.getInt("or_cycle"),
+								   rset.getDate("cart_date"),
+								   rset.getString("p_name"),
+								   rset.getInt("price"),
+								   rset.getInt("deli_fee")
+									));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+			
+		}
+		return list;
 	}
 
 }

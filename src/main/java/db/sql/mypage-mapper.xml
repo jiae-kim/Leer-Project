@@ -65,7 +65,18 @@
 	</entry>
 	
 	<entry key="selectCartList">
-	
+		SELECT 
+		      MEM_NO
+		    , P_CODE
+		    , AMOUNT
+		    , OR_CYCLE
+		    , CART_DATE
+		    , P_NAME
+		    , PRICE
+		    , DELI_FEE
+		 FROM CART
+		 JOIN PRODUCT USING (P_CODE)
+		WHERE MEM_NO = ?
 	</entry>
 	
 </properties>
