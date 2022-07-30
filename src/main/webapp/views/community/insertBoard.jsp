@@ -144,7 +144,7 @@
 							                    <th>첨부파일</th>
 							                </tr>
 							               	<tr>
-							                    <td><input type="file" name="upfile"></td>
+							                    <td><input type="file" name="comuupfile"></td>
 							               	</tr>
                                         </table>
                                         <br>

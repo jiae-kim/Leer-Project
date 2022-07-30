@@ -83,7 +83,7 @@
 		  VALUES
 		  (
 		  , SEQ_FILE.NEXTVAL
-		  , COMU
+		  , 'COMU'
 		  , SEQ_COMU.CURRVAL
 		  , ?
 		  , ?

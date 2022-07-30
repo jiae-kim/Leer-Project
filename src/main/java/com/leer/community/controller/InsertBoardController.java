@@ -68,11 +68,11 @@ public class InsertBoardController extends HttpServlet {
 			
 			Attachment at = null;
 			
-			if(multiRequest.getOriginalFileName("upfile") != null) {
+			if(multiRequest.getOriginalFileName("comuupfile") != null) {
 				at = new Attachment();
 				
-				at.setOriginName(multiRequest.getOriginalFileName("upfile"));
-				at.setChangeName(multiRequest.getFilesystemName("upfile"));
+				at.setOriginName(multiRequest.getOriginalFileName("comuupfile"));
+				at.setChangeName(multiRequest.getFilesystemName("comuupfile"));
 				at.setFilePath("resources/comu_upfiles/");
 				
 			}
