@@ -29,7 +29,8 @@
 	
 	<entry key="selectProductDetail">
 		SELECT 
-		       P_NAME
+			   P_CODE
+		     , P_NAME
 		     , PRICE
 		     , PUBLISHER
 		     , EXTRACT(MONTH FROM PUBLISH_MONTH)"MONTH"
