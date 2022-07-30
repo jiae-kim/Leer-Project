@@ -312,6 +312,9 @@
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
+                
+                <form action="<%= contextPath %>/insert.pd" method="post" id="product-option-form">
+                    <input type="hidden" name="pNo" value="<%= p.getpCode()%>">
                     
                     <div class="option_info_box base_price">
                         <ul class="product_option_table">
@@ -345,7 +348,8 @@
                             </li>
                         </ul>
                     </div>
-
+					
+					
                     <div class="option_info_box delivery">
                         <ul class="product_option_table">
                             <li class="option_row">
@@ -472,7 +476,7 @@
                                 </span>
                                 <span class="acount_box">
                                     <a class="down_btn">-</a>
-                                    <input type="text" class="but_cnt" value="1">
+                                    <input type="text" class="but_cnt" name="amount" value="1">
                                     <a class="up_btn">+</a>
                                 </span>
                             </li>
@@ -481,18 +485,20 @@
 
                     <div class="price_box">
                         총 상품금액(수량) :
-                        <strong id="total_item_krw_price" style="font-size:30px; font-weight:800;"><%=comma.format(p.getPrice() + 3000) %></strong>
+                        <strong id="total_item_krw_price" style="font-size:30px; font-weight:800;"><%=comma.format(p.getPrice()) %></strong>
                         원 (
                         <span id="total_item_qty1">1</span>
                         개) X
                         <span id="total_item_qty2">1</span>개월 
                     </div>
                     <div class="payment_btn_box">
-                        <button type="button" class="site-btn" style="padding:0px; margin-right:5px; font-size: 15px; color:#303030; background-color: #ffffff; border: #303030 solid 1px;" >장바구니</button>
+                        <button type="button" class="site-btn" style="padding:0px; margin-right:5px; font-size: 15px; color:#303030; background-color: #ffffff; border: #303030 solid 1px;" type="submit">장바구니</button>
                         <button type="button" class="site-btn" style="padding:0px; margin-right:5px; font-size: 15px;">바로구매</button>
                         <button type="button" class="site-btn" style="padding:0px; font-size: 15px; color:#303030;  background-color: #ffffff; border: #303030 solid 1px;">찜하기</button>
                     </div>
+                </form>    
                 </div>
+                
                 <div class="col-lg-12">
                     <div class="product__details__tab">
                         <ul class="nav nav-tabs" role="tablist">
