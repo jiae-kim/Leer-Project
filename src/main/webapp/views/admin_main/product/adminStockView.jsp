@@ -10,7 +10,7 @@
 	<%@ include file="../../common/adminMenubar.jsp" %>
 	<%@ include file="../../common/adminScript.jsp" %>
 	
-	<div class="page-breadcrumb">
+            <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
                         <br><br><br>
@@ -21,9 +21,9 @@
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                             </nav>
-                            <button type="button" class="btn btn-info btn-lg">상품 입고</button> &nbsp;&nbsp;&nbsp;
-                            <button type="button" class="btn btn-warning btn-lg">상품 출고</button> &nbsp;&nbsp;&nbsp;
-                            <button type="button" class="btn btn-dark btn-lg">상품 취소</button> &nbsp;&nbsp;&nbsp;
+                            <button type="button" onclick="location.href='<%=request.getContextPath()%>/adProInput.do'" class="btn btn-info btn-lg">상품 입고</button> &nbsp;&nbsp;&nbsp;
+                            <button type="button" onclick="location.href='<%=request.getContextPath()%>/adProOutput.do'" class="btn btn-warning btn-lg">상품 출고</button> &nbsp;&nbsp;&nbsp;
+                            <button type="button" onclick="location.href='<%=request.getContextPath()%>/adProCancel.do'" class="btn btn-dark btn-lg">상품 취소</button> &nbsp;&nbsp;&nbsp;
                         </div>
                     </div>
                 </div>
@@ -38,8 +38,7 @@
                 <!-- 전체조회  -->
                 <!-- ============================================================== -->
                 <div class="card">
-                    <div class="card-body" style="height:55px">
-                        <!-- <h5 class="card-title m-b-0">상품전체조회</h5> -->
+                    <div class="card-body">
                         <!-- 조회방법 선택 -->
                         <div class="btn-group">
                             <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">조회방법 선택</button>
@@ -60,7 +59,6 @@
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
-                                        <th scope="col">입고번호</th>
                                         <th scope="col">상품코드</th>
                                         <th scope="col">상품명</th>
                                         <th scope="col">출간일</th>
