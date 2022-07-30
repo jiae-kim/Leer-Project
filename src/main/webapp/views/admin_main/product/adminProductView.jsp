@@ -13,6 +13,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="UTF-8">
 	<title>상품 전체조회 페이지</title>
 <body>
 	<%@ include file="../../common/adminMenubar.jsp" %>
@@ -29,7 +30,7 @@
               <div class="ml-auto text-right">
                   <nav aria-label="breadcrumb">
                   </nav>
-                  <button type="button" class="btn btn-info btn-lg">등록</button> &nbsp;&nbsp;&nbsp;
+                  <button type="button" onclick="location.href='<%=request.getContextPath()%>/insertProduct.do'" class="btn btn-info btn-lg">등록</button> &nbsp;&nbsp;&nbsp;
                   <button type="button" class="btn btn-warning btn-lg">수정</button> &nbsp;&nbsp;&nbsp;
                   <!-- Button trigger modal -->
                   <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#Modal2">
