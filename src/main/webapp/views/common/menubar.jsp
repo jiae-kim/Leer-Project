@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="<%= contextPath %>/resources/css/heeyeong/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="<%= contextPath %>/resources/css/heeyeong/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="<%= contextPath %>/resources/css/heeyeong/style.css" type="text/css">
+     
     <style>
     	.login-btn{font-size:13px; color:#393939;}
     	.login-btn:hover{color:gray;}
@@ -80,7 +81,7 @@
 
                         <ul>
                         	<li><a href="<%=contextPath%>/views/member/login.jsp" class="login-btn">로그인</a></li>
-                        	<li style="font-size:12px">|</li> 
+                            &nbsp;
                         	<li id="login-icon"><a href="<%=contextPath %>/views/member/signup.jsp" class="login-btn">회원가입</a></li>
                             <li id="login-icon"><a href=""><i class="fa fa-heart"></i></a></li>
                             <li><a href="#"><i class="fa fa-shopping-bag"></i></a></li>
@@ -90,10 +91,10 @@
 					<%} else{ %>
 
                     <!-- case2. 로그인 후 -->
-                    <div class="header__cart afterLogin">
+                    <div class="header__cart">
                         <ul>
-                            <li><a href="" style="text-decoration: none; color:black;"><%=loginUser.getMemName() %> 님</a><li>
-                            <li><a href="<%=contextPath %>/logout.me" style="text-decoration: none; color:darkgrey">로그아웃</a></li>
+                            <li><a href="" style="text-decoration: none; color:black; font-size:13px;"><%=loginUser.getMemName() %> 님</a><li>
+                            <li><a href="<%=contextPath %>/logout.me" style="text-decoration: none; color:darkgrey; font-size:13px;">로그아웃</a></li>
                             &nbsp;
                             <!-- <li><a href="" style="text-decoration: none; color:darkgrey">마이페이지</a></li> -->
                             <li id="login-icon"><a href=""><i class="fa fa-heart"></i></a></li>
