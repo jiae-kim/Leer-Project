@@ -73,7 +73,7 @@ public class InsertBoardController extends HttpServlet {
 				
 				at.setOriginName(multiRequest.getOriginalFileName("upfile"));
 				at.setChangeName(multiRequest.getFilesystemName("upfile"));
-				at.setFilePath("resources/board_upfiles/");
+				at.setFilePath("resources/comu_upfiles/");
 				
 			}
 			

@@ -37,7 +37,6 @@ public class JDBCTemplate {
 				conn = DriverManager.getConnection(prop.getProperty("url"), 
 												   prop.getProperty("username"),
 												   prop.getProperty("password"));
-				conn.setAutoCommit(false);
 				
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
@@ -51,6 +50,7 @@ public class JDBCTemplate {
 		public static void commit(Connection conn) {
 			
 			try {
+				conn.setAutoCommit(false);	
 				if(conn != null && !conn.isClosed()) {
 					conn.commit();
 				}
@@ -65,6 +65,7 @@ public class JDBCTemplate {
 		public static void rollback(Connection conn) {
 			
 			try {
+				conn.setAutoCommit(false);
 				if(conn != null && !conn.isClosed()) {
 					conn.rollback();
 				}
