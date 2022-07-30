@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.ArrayList, com.leer.product.model.vo.Product"%>
+<%
+	ArrayList<Product> list = (ArrayList<Product>)request.getAttribute("list");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,6 +29,8 @@
             <!-- Container fluid  -->
             <!-- ============================================================== -->
             <div class="container-fluid">
+            	<form action="<%=contextPath %>/adProEnroll.do" method="post" id="enroll-form" 
+            	enctype="multipart/form-data">
                 <!-- ============================================================== -->
                 <div class="card-body">
                     <!-- 잡지명 -->
@@ -54,13 +60,13 @@
                         <label class="col-sm-1">카테고리</label>
                         <div class="col-sm-2">
                             <select class="select2 form-control custom-select" required>
-                                <option>카테고리 선택</option>
-                                <option value="">패션/여성</option>
-                                <option value="">라이프/인테리어</option>
-                                <option value="">문화/예술</option>
-                                <option value="">여행/취미</option>
-                                <option value="">시사/경제</option>
-                                <option value="">교육/과학</option>
+                                <option hidden>카테고리 선택</option>
+                                <option value="">10</option> 	<!-- 패션/여성 -->
+                                <option value="">20</option> 	<!-- 라이프/인테리어 -->
+                                <option value="">30</option> 	<!-- 문화/예술 -->
+                                <option value="">40</option> 	<!-- 여행/취미 -->
+                                <option value="">50</option> 	<!-- 시사/경제 -->
+                                <option value="">60</option> 	<!-- 교육/과학 -->
                             </select>
                         </div>
                     </div>
@@ -69,13 +75,13 @@
                         <label class="col-sm-1">상품코드</label>
                         <div class="col-sm-2">
                             <select class="select2 form-control custom-select" required>
-                                <option>상품코드 선택</option>
-                                    <option value="">FW-</option>
-                                    <option value="">LI-</option>
-                                    <option value="">CA-</option>
-                                    <option value="">TH-</option>
-                                    <option value="">SE-</option>
-                                    <option value="">ES-</option>
+			                	<option hidden>상품코드 선택</option>
+			                    <option value="">FW-</option>
+                                <option value="">LI-</option>
+                                <option value="">CA-</option>
+                                <option value="">TH-</option>
+                                <option value="">SE-</option>
+                                <option value="">ES-</option>
                             </select>
                         </div>
                     </div>
@@ -200,9 +206,10 @@
                         <label class="col-sm-1">배송비</label>
                         <div class="col-sm-2">
                             <select class="select2 form-control custom-select" required>
-                                <option value="">3000원</option>
+                            	<option hidden>금액(원) 선택</option>
+                                <option value="">3000</option>
+                                <option value="">2500</option>
                                 <option value="">무료</option>
-                                <option value="">2500원</option>
                             </select>
                         </div>
                     </div>
@@ -211,11 +218,12 @@
                         <label class="col-sm-1">적립금</label>
                         <div class="col-sm-2">
                             <select class="select2 form-control custom-select" required>
-                                <option value="">10% 적립</option>
-                                <option value="">20%</option>
-                                <option value="">30%</option>
-                                <option value="">40%</option>
-                                <option value="">50%</option>
+                            	<option hidden>적립(%) 선택</option>
+                                <option value="">10</option>
+                                <option value="">20</option>
+                                <option value="">30</option>
+                                <option value="">40</option>
+                                <option value="">50</option>
                             </select>
                         </div>
                     </div>
@@ -247,6 +255,7 @@
                                 </div>
                             </div>
                         <button type="reset" class="btn btn-dark btn-lg">뒤로가기</button>
+                        </form>
                     </div>
                 </div>
                 <!-- ============================================================== -->
@@ -261,11 +270,9 @@
             <!-- ============================================================== -->
             <!-- End footer -->
             <!-- ============================================================== -->
-        </div>
         <!-- ============================================================== -->
         <!-- End Page wrapper  -->
         <!-- ============================================================== -->
-    </div>
 
 	<!-- autoclose datepicker -->
     <script src="<%= request.getContextPath() %>/resources/css/jiae/assets/libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>

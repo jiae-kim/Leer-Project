@@ -50,7 +50,60 @@
 		  FROM PRODUCT
 	</entry>	
 		
-                             
+    <!-- 
+    	* [제품관리 - 상품 등록 및 수정]
+		* 상품 등록
+	 	* 작성자 김지애
+     -->          
+     <entry key="insertProduct">
+     	INSERT
+     	  INTO PRODUCT
+     	  (
+     	  	P_NAME
+     	  , PUBLISH_MONTH
+     	  , PUBLISHER
+     	  , CATEGORY_NO
+     	  , P_CODE
+     	  , PRICE
+     	  , P_STOCK
+     	  , DELI_FEE
+     	  , POINT
+     	  )
+     	  VALUES
+     	  (
+     	  	?
+     	  ,	?
+     	  , ?
+     	  , ?
+     	  , ? || SEQ_PCODE.NEXTVAL
+     	  , ?
+     	  , ?
+     	  , ?
+     	  , ?
+     	  )
+     </entry>     
+     
+     <entry key="insertAttachment">
+     	INSERT
+		  INTO ATTACHMENT
+		  (
+		    FILE_NO
+		  , REF_CODE
+		  , REF_BNO
+		  , ORIGIN_NAME
+		  , CHANGE_NAME
+		  , FILE_PATH
+		  )
+		  VALUES
+		  (
+		    SEQ_FILE.NEXTVAL 
+		    , 'PRODUCT'
+		    , <!-- 현재 참조하는 게시물과 동일한이름 -->
+		    , ? 
+		    , ?
+		    , ?
+		  )
+     </entry>         
                               
                               
                               

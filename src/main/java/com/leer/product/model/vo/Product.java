@@ -20,6 +20,7 @@ public class Product {
 	private String imageUrl2;
 	private String imageUrlS;
 	private Date enrollDate;
+	private String publishMonth2; // 상품등록 시 출간일 String형
 	
 	public Product() {}
 
@@ -70,7 +71,7 @@ public class Product {
 
 	/* [제품관리 - 상품조회]
 	 * 상품 전체 조회
-	 * 작성자 김지애
+	 * 작성자 : 김지애
 	 */
 	public Product(String pName, int categoryNo, String pCode, String publisher, Date publishMonth, int price, Date enrollDate,
 			int pStock) {
@@ -213,18 +214,28 @@ public class Product {
 		this.enrollDate = enrollDate;
 	}
 
+	/* [제품관리] - 상품등록
+	 * 출간일 입력시 String형으로 입력
+	 * 작성자 : 김지애
+	 */
+	
+	public String getPublishMonth2() {
+		return publishMonth2;
+	}
+	
+	public void setPublishMonth2(String publishMonth2) {
+		this.publishMonth2 = publishMonth2;
+	}
+
 	@Override
 	public String toString() {
 		return "Product [pCode=" + pCode + ", categoryNo=" + categoryNo + ", pName=" + pName + ", price=" + price
 				+ ", publisher=" + publisher + ", publishMonth=" + publishMonth + ", month=" + month + ", pStock="
 				+ pStock + ", supYn=" + supYn + ", point=" + point + ", deliFee=" + deliFee + ", sellYn=" + sellYn
 				+ ", imageUrl1=" + imageUrl1 + ", imageUrl2=" + imageUrl2 + ", imageUrlS=" + imageUrlS + ", enrollDate="
-				+ enrollDate + "]";
+				+ enrollDate + ", publishMonth2=" + publishMonth2 + "]";
 	}
-
 	
 
-
-	
 	
 }
