@@ -43,6 +43,17 @@ public class MemberLoginController extends HttpServlet {
 		
 		
 		
+		if(loginUser == null) { 
+			
+			
+		}else { 
+			
+			HttpSession session = request.getSession();
+			session.setAttribute("loginUser", loginUser);
+			
+			response.sendRedirect(request.getContextPath());
+		}
+		
 		
 	}
 

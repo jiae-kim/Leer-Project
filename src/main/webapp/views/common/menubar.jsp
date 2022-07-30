@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="com.leer.member.model.vo.Member"%>
 <%
 	String contextPath = request.getContextPath();
 
+	Member loginUser = (Member)session.getAttribute("loginUser");
+	
 	/* String alertMsg = (String)session.getAttribute("alertMsg"); */
 %>
 <!DOCTYPE html>
@@ -72,6 +74,7 @@
                 
                 <div class="col-lg-3">
 
+					<% if(loginUser == null){ %>
                     <!-- case1. 로그인 전 -->
                     <div class="header__cart">
 
@@ -84,22 +87,20 @@
                         </ul>
                     </div>
 
-
-
-
+					<%} else{ %>
 
                     <!-- case2. 로그인 후 -->
-                    <!--
-                    <div>
+                    <div class="header__cart">
                         <ul>
-                            <li><label for="">xxx님</label><li>
-                            <li><a href="">로그아웃</a></li>
-                            <li><a href=""> <i class=""><a href="" style="text-decoration: none; color:black">마이페이지</a></li>
+                            <li><label for=""><%=loginUser.getMemName() %> 님</label><li>
+                            <li><a href="" style="text-decoration: none; color:black">로그아웃</a></li>
+                            <li><i class=""><a href="" style="text-decoration: none; color:black">마이페이지</a></li>
                             <li id="login-icon"><a href=""><i class="fa fa-heart"></i></a></li>
                             <li><a href="#"><i class="fa fa-shopping-bag"></i></a></li>
                         </ul>
                     </div>
-                    -->
+                    
+                    <% } %>
 
 
                 </div>
