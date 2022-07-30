@@ -69,21 +69,21 @@
 		 )
 	</entry>
 	
-	<entry key="insertAttachMent">
+	<entry key="insertAttachment">
 		INSERT
 		  INTO ATTACHMENT
 		  (
-		  	FILE_NO
-		  , REF_CODE	
-		  ,	REF_BNO
+		    FILE_NO
+		  , REF_CODE
+		  , REF_BNO
 		  , ORIGIN_NAME
 		  , CHANGE_NAME
 		  , FILE_PATH
 		  )
 		  VALUES
 		  (
-		  , SEQ_FILE.NEXTVAL
-		  , 'COMU'
+		    SEQ_FILE.NEXTVAL
+		  , 'COMU'  
 		  , SEQ_COMU.CURRVAL
 		  , ?
 		  , ?
