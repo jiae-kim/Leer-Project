@@ -16,7 +16,7 @@ import com.leer.product.model.vo.Product;
 /**
  * Servlet implementation class ProductDetailController
  */
-@WebServlet("/insertProduct.do")
+@WebServlet("/adProEnroll.do")
 public class AdminProductDetailController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
