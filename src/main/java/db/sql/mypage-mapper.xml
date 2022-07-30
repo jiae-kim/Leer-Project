@@ -44,6 +44,28 @@
 			WHERE M.MEM_NO = ?
 	</entry>
 	
+	<entry key="insertProductCart">
+		INSERT
+		  INTO CART
+		  (
+		    MEM_NO
+		  , P_CODE
+		  , AMOUNT
+		  , OR_CYCLE
+		  , CART_DATE
+		  )
+		  VALUES
+		  (
+		    ?
+		  , ?
+		  , ?
+		  , ?
+		  , CURRENT_DATE
+		  )
+	</entry>
 	
+	<entry key="selectCartList">
+	
+	</entry>
 	
 </properties>

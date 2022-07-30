@@ -492,7 +492,7 @@
                         <span id="total_item_qty2">1</span>개월 
                     </div>
                     <div class="payment_btn_box">
-                        <button type="button" class="site-btn" style="padding:0px; margin-right:5px; font-size: 15px; color:#303030; background-color: #ffffff; border: #303030 solid 1px;" type="submit">장바구니</button>
+                        <button type="submit" class="site-btn" style="padding:0px; margin-right:5px; font-size: 15px; color:#303030; background-color: #ffffff; border: #303030 solid 1px;">장바구니</button>
                         <button type="button" class="site-btn" style="padding:0px; margin-right:5px; font-size: 15px;">바로구매</button>
                         <button type="button" class="site-btn" style="padding:0px; font-size: 15px; color:#303030;  background-color: #ffffff; border: #303030 solid 1px;">찜하기</button>
                     </div>

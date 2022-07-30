@@ -52,9 +52,10 @@ public class Product {
 		this.imageUrl1 = imageUrl1;
 	}
 
-	public Product(String pName, int price, String publisher, int month, int pStock, String supYn,
+	public Product(String pCode, String pName, int price, String publisher, int month, int pStock, String supYn,
 			String imageUrl1, String imageUrl2, String imageUrlS) {
 		super();
+		this.pCode = pCode;
 		this.pName = pName;
 		this.price = price;
 		this.publisher = publisher;
