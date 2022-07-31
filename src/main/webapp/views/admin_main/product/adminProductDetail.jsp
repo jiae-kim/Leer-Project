@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="java.util.ArrayList, com.leer.product.model.vo.Product"%>
+<%@ page import="java.util.ArrayList, com.leer.common.model.vo.Category"%>
 <%
-	ArrayList<Product> list = (ArrayList<Product>)request.getAttribute("list");
+	ArrayList<Category> list = (ArrayList<Category>)request.getAttribute("list");
 %>
 <!DOCTYPE html>
 <html>
@@ -30,7 +30,7 @@
     <!-- Container fluid  -->
     <!-- ============================================================== -->
     <div class="container-fluid">
-    <form action="<%= contextPath %>/adProEnroll.do" method="post" enctype="multipart/form-data">
+    <form action="<%=contextPath %>/adProEnroll.do" method="post" enctype="multipart/form-data">
         <div class="card-body">
             <!-- 상품명 -->
             <div class="form-group row">
