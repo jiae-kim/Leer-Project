@@ -91,5 +91,40 @@
 		  , ?
 		  )
 	</entry>
+	
+	<entry key="increaseCount">
+		
+		UPDATE COMU_BOARD
+		   SET VIEW_COUNT = VIEW_COUNT + 1
+		 WHERE COMU_NO = ?
+		   AND DELETE_YN = 'N'  
+	
+	</entry>
+	
+	<entry key="selectBoard">
+		SELECT
+		       COMU_NO
+		     , NICKNAME  
+		     , CATEGORY_NAME
+		     , TAG
+		     , TITLE
+		     , CONTENT
+		     , ENROLL_DATE
+		  FROM COMU_BOARD
+		  LEFT JOIN CATEGORY USING (CATEGORY_NO)  
+		  JOIN MEMBER USING (MEM_NO)
+		 WHERE COMU_NO = ?      
+	</entry>
+	
+	<entry key="selectAttachment">
+		SELECT
+		       FILE_NO
+		     , ORIGIN_NAME
+		     , CHANGE_NAME
+		     , FILE_PATH
+		  FROM ATTACHMENT
+		 WHERE REF_CODE = 'COMU'
+		   AND REF_BNO = ?
+	</entry>
 </properties>
 

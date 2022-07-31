@@ -185,7 +185,92 @@ public class CommunityDao {
 			close(pstmt);
 		}
 		return result;
+	}
+	
+	public int increaseCount(Connection conn, int comuNo) {
+		int result = 0;
 		
+		PreparedStatement pstmt = null;
 		
+		String sql = prop.getProperty("increaseCount");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, comuNo);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}
+	public ComuBoard selectBoard(Connection conn, int comuNo) {
+		ComuBoard c = null;
+		
+		PreparedStatement pstmt = null;
+		
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectBoard");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, comuNo);
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				c = new ComuBoard(
+							rset.getInt("comu_no"),
+							rset.getString("nickname"),
+							rset.getString("category_name"),
+							rset.getString("tag"),
+							rset.getString("title"),
+							rset.getString("content"),
+							rset.getDate("enroll_date")
+						);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return c;
+	}
+	public Attachment selectAttachment(Connection conn, int comuNo) {
+		
+		Attachment at = null;
+		
+		PreparedStatement pstmt = null;
+		
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectAttachment");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, comuNo);
+			rset = pstmt.executeQuery();
+			if(rset.next()) {
+				at = new Attachment();
+				at.setFileNo(rset.getInt("file_no"));
+				at.setOriginName(rset.getString("origin_name"));
+				at.setChangeName(rset.getString("change_name"));
+				at.setFilePath(rset.getString("file_path"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return at;
 	}
 }
