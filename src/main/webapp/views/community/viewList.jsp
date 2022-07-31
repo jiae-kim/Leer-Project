@@ -28,7 +28,7 @@
 </style>
 </head>
 <body>
-    <%@ include file="../common/menubar.jsp"%> 
+ <%--    <%@ include file="../common/menubar.jsp"%>  --%>
     
     <section class="breadcrumb-section set-bg">
         <div class="container">
@@ -44,16 +44,9 @@
             </div>
         </div>
     </section>
+    
 	<%@ include file="../community/communityMain.jsp"%>
-	
-	<link rel="stylesheet" href="<%=contextPath %>/resources/css/beomjin/css/bootstrap.min.css" type="text/css">
-	<link rel="stylesheet" href="<%=contextPath %>/resources/css/beomjin/css/font-awesome.min.css" type="text/css">
-	<link rel="stylesheet" href="<%=contextPath %>/resources/css/beomjin/css/elegant-icons.css" type="text/css">
-	<%-- <link rel="stylesheet" href="<%=contextPath %>/resources/css/beomjin/css/nice-select.css" type="text/css"> --%>
-	<link rel="stylesheet" href="<%=contextPath %>/resources/css/beomjin/css/jquery-ui.min.css" type="text/css">
-	<link rel="stylesheet" href="<%=contextPath %>/resources/css/beomjin/css/owl.carousel.min.css" type="text/css">
-	<link rel="stylesheet" href="<%=contextPath %>/resources/css/beomjin/css/slicknav.min.css" type="text/css">
-	<link rel="stylesheet" href="<%=contextPath %>/resources/css/beomjin/css/style.css" type="text/css">
+
 	
 		<div class="col-lg-8 col-md-7" style="padding-left: 50px">
 			<div class="blog__sidebar__search">
@@ -121,15 +114,5 @@
 	 <%@ include file="../common/footer.jsp" %>
 	 
 	
-	 
-	<script src="<%=contextPath%>/resources/js/beomjin/js/jquery-3.3.1.min.js"></script>
-	<script src="<%=contextPath%>/resources/js/beomjin/js/bootstrap.min.js"></script>
-	<%-- <script src="<%=contextPath%>/resources/js/beomjin/js/jquery.nice-select.min.js"></script> --%>
-	<script src="<%=contextPath%>/resources/js/beomjin/js/jquery-ui.min.js"></script>
-	<script src="<%=contextPath%>/resources/js/beomjin/js/jquery.slicknav.js"></script>
-	<script src="<%=contextPath%>/resources/js/beomjin/js/mixitup.min.js"></script>
-	<script src="<%=contextPath%>/resources/js/beomjin/js/owl.carousel.min.js"></script>
-	<script src="<%=contextPath%>/resources/js/beomjin/js/main.js"></script>
-	 
 </body>
 </html>
