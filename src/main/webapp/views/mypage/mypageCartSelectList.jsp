@@ -390,7 +390,7 @@
 	                                        </span>
 	                                        <span style="text-align:right">
 	                                            
-	                                            <button type="button" class="site-btn" style="font-size: 15px; color:#303030; background-color: #ffffff; border: #303030 solid 1.5px;" >계속 쇼핑하기</button>
+	                                            <a href="<%=contextPath %>/list.pd" class="site-btn" style="font-size: 15px; color:#303030; background-color: #ffffff; border: #303030 solid 1.5px;" >계속 쇼핑하기</a>
 	                                            <button type="button" class="site-btn" style="font-size: 15px; border:#303030 solid 1.5px;">주문하기</button>
 	                                        </span>
 	                                        
