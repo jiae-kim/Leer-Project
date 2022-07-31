@@ -1,7 +1,9 @@
 package com.leer.community.model.service;
 
-import static com.leer.common.JDBCTemplate.*;
+import static com.leer.common.JDBCTemplate.close;
+import static com.leer.common.JDBCTemplate.commit;
 import static com.leer.common.JDBCTemplate.getConnection;
+import static com.leer.common.JDBCTemplate.rollback;
 
 import java.sql.Connection;
 import java.util.ArrayList;
@@ -56,5 +58,36 @@ public class CommunityService {
 			rollback(conn);
 		}
 		return result1 * result2;
+	}
+	public int increaseCount(int comuNo) {
+		Connection conn = getConnection();
+		
+		int result = new CommunityDao().increaseCount(conn, comuNo);
+		
+		if(result > 0) {
+			commit(conn);
+		} else {
+			rollback(conn);
+		} 
+		close(conn);
+		return result;
+	}
+	
+	public ComuBoard selectBoard(int comuNo) {
+		Connection conn = getConnection();
+		
+		ComuBoard c = new CommunityDao().selectBoard(conn, comuNo);
+		
+		close(conn);
+		
+		return c;
+	}
+	
+	public Attachment selectAttachment(int comuNo) {
+		Connection conn = getConnection();
+		Attachment at = new CommunityDao().selectAttachment(conn, comuNo);
+		close(conn);
+		return at;
+		
 	}
 }

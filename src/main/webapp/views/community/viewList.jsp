@@ -20,7 +20,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>LEER</title>
-
+<style>
+	.blog__item__text:hover{
+		cursor:pointer;
+		
+	}
+</style>
 </head>
 <body>
     <%@ include file="../common/menubar.jsp"%> 
@@ -65,7 +70,7 @@
 						<div class="blog__item__text" align="left">
 							<h5 style="marin-bottom: -10px;">
 							<span style="display:none"><%= b.getComuNo() %> </span>
-								<a href="#"><%= b.getTitle() %></a>
+								<span style="font-weight:bold"><%= b.getTitle() %></span>
 							</h5>
 							<span style="font-size: 12px"><%=b.getEnrollDate() %></span>
 							<a class="hashtag" href="#" style="display: inline"><%= b.getTag() %></a> <!-- 댓글수 구하는 구문 찾아보기  -->
@@ -82,7 +87,15 @@
 				</div>
 			</div>
 		<% } %>
-
+      <script>
+           $(function(){
+              $(".blog__item__text").click(function(){
+                 location.href = "<%=contextPath%>/comuDetail.bo?no=" + $(this).children().eq(0).text();
+              })
+              
+           })
+           
+        </script>
 			<%-- <div class="col-lg-12">
 				<div class="product__pagination blog__pagination">
 					<% if(currentPage != 1){ %>

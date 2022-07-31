@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" import="com.leer.community.model.vo.ComuBoard, com.leer.common.model.vo.Attachment"%>
+<%
+ComuBoard c = (ComuBoard)request.getAttribute("c");
+Attachment at = (Attachment)request.getAttribute("at");
+
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -201,7 +206,7 @@ li {
 </head>
 <body>
 
-
+	<%@ include file="../common/menubar.jsp" %>
 	<!-- Breadcrumb Section Begin -->
 	<section class="breadcrumb-section set-bg">
 		<div class="container">
@@ -227,10 +232,10 @@ li {
 				<div class="detailHead">
 					<div class="detailTitle">
 						<div class="boardList">
-							<a href="">현재게시판 목록으로 ></a>
+							<a href="<%=contextPath%>/"><%= c.getCategoryNo() %> 목록으로 ></a>
 						</div>
 						<div style="height: 30px;">
-							<h3>제목나오는 공간</h3>
+							<h3><%= c.getTitle() %></h3>
 						</div>
 
 					</div>
@@ -240,11 +245,12 @@ li {
 							width="36" height="36" alt="프로필사진" class="profileImg">
 						<div class="userNickname">
 							<div class="nick">
-								<button>닉네임</button>
+								<span><%= c.getMemNo() %></span>
 							</div>
 							<div class="create">
-								<span class="date">2022.07.03</span> <span class="count">조회
-									50</span> <a href="" class="boardReport"><span>신고</span></a>
+								<span class="date"><%= c.getEnrollDate() %></span> 
+								<span class="count"><%= c.getViewCount() %></span> 
+								<a href="" class="boardReport"><span>신고</span></a>
 							</div>
 						</div>
 					</div>
@@ -258,19 +264,9 @@ li {
 							src="https://images.pexels.com/photos/1525041/pexels-photo-1525041.jpeg?cs=srgb&dl=pexels-francesco-ungaro-1525041.jpg&fm=jpg"
 							alt="게시글사진" class="boardImg">
 					</div>
-					<p>여기는 내용이 나오는곳z여기는 내용이 나오는곳z여기는 내용이 나오는곳z여기는 내용이 나오는곳z여기는 내용이
-						나오는곳z여기는 내용이 나오는곳z여기는 내용이 나오는곳z여기는 내용이 나오는곳z여기는 내용이 나오는곳z여기는 내용이
-						나오는곳z여기는 내용이 나오는곳z여기는 내용이 나오는곳z여기는 내용이 나오는곳z여기는 내용이 나오는곳z여기는 내용이
-						나오는곳z여기는 내용이 나오는곳z여기는 내용이 나오는곳z여기는 내용이 나오는곳z여기는 내용이 나오는곳z여기는 내용이
-						나오는곳z여기는 내용이 나오는곳z여기는 내용이 나오는곳z여기는 내용이 나오는곳z여기는 내용이 나오는곳z여기는 내용이
-						나오는곳z여기는 내용이 나오는곳z여기는 내용이 나오는곳z여기는 내용이 나오는곳z여기는 내용이 나오는곳z여기는 내용이
-						나오는곳z여기는 내용이 나오는곳z여기는 내용이 나오는곳z여기는 내용이 나오는곳z여기는 내용이 나오는곳z여기는 내용이
-						나오는곳z여기는 내용이 나오는곳z여기는 내용이 나오는곳z여기는 내용이 나오는곳z여기는 내용이 나오는곳z여기는 내용이
-						나오는곳z여기는 내용이 나오는곳z여기는 내용이 나오는곳z여기는 내용이 나오는곳z</p>
-					<a class="hashtag2" href="" style="display: inline">#보그</a> <a
-						class="hashtag2" href="" style="display: inline">#후기</a> <a
-						class="hashtag2" href="" style="display: inline">#추천</a>
-
+					<p> <%= c.getContent() %></p>
+					
+					<a class="hashtag2" href="" style="display: inline"><%= c.getTag() %></a> 
 				</div>
 				<div class="boardTag">
 					<div class="likeComment">
