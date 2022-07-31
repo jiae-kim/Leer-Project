@@ -31,5 +31,15 @@ public class MypageService {
 		close(conn);
 		return list; 
 	}
+	
+	public int deleteCart(String cartNo) {
+		
+		Connection conn = getConnection();
+		
+		int result = new MypageDao().deleteCart(conn, cartNo);
+		
+		close(conn);
+		return result;
+	}
 
 }

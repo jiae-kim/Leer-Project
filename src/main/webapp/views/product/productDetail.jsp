@@ -313,7 +313,7 @@
                 </div>
                 <div class="col-lg-6 col-md-6">
                 
-                <form action="<%= contextPath %>/insert.pd" method="post" id="product-option-form">
+                <form action="<%= contextPath %>/insert.pd" method="" id="product-option-form">
                     <input type="hidden" name="pNo" value="<%= p.getpCode()%>">
              
                     <div class="option_info_box base_price">

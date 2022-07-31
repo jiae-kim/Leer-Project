@@ -1,7 +1,6 @@
-package com.leer.product.controller;
+package com.leer.mypage.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,20 +8,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.leer.product.model.service.ProductService;
-import com.leer.product.model.vo.Product;
+import com.leer.mypage.model.service.MypageService;
 
 /**
- * Servlet implementation class ProductListController
+ * Servlet implementation class MyPageCartDeleteController
  */
-@WebServlet("/list.pd")
-public class ProductListController extends HttpServlet {
+@WebServlet("/cdelete.me")
+public class MyPageCartDeleteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**		
+    /**
      * @see HttpServlet#HttpServlet()
      */
-    public ProductListController() {
+    public MyPageCartDeleteController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,11 +29,16 @@ public class ProductListController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 응답페이지상에 필요한 데이터 조회 기능구현은 나중에 할 예정 
-		ArrayList<Product> list = new ProductService().selectProductList();
-		request.setAttribute("list", list);
-				
-		request.getRequestDispatcher("views/product/productCategory.jsp").forward(request, response);
+		String[] cartNoArr = request.getParameterValues("chk");
+		
+		int result = 0;
+		for(int i=0; i<cartNoArr.length; i++) {
+			result += new MypageService().deleteCart(cartNoArr[i]);
+		}
+		
+		if(result == cartNoArr.length) {
+			response.sendRedirect(request.getContextPath() + "/clist.me"); 
+		}
 	}
 
 	/**

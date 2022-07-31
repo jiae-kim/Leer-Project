@@ -47,12 +47,12 @@
 	<entry key="insertProductCart">
 		INSERT
 		  INTO CART
-		  (
-		    MEM_NO
+		  (	MEM_NO
 		  , P_CODE
 		  , AMOUNT
 		  , OR_CYCLE
 		  , CART_DATE
+		  , CART_NO
 		  )
 		  VALUES
 		  (
@@ -61,12 +61,14 @@
 		  , ?
 		  , ?
 		  , CURRENT_DATE
+		  , SEQ_CARTNO.NEXTVAL
 		  )
 	</entry>
 	
 	<entry key="selectCartList">
-		SELECT 
-		      MEM_NO
+		SELECT
+		 	  CART_NO
+		    , MEM_NO
 		    , P_CODE
 		    , P.IMAGE_URL1
 		    , AMOUNT
@@ -79,5 +81,13 @@
 		 JOIN PRODUCT P USING (P_CODE)
 		WHERE MEM_NO = ?
 	</entry>
+	
+	<entry key="deleteCart">
+		DELETE
+		  FROM CART
+		 WHERE CART_NO = ?
+	</entry>
+	
+	
 	
 </properties>

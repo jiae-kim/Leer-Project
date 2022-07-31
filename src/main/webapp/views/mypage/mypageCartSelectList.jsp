@@ -348,22 +348,22 @@
 		                                                    </span>  
 		                                                </td>
 		                                                <td><%=c.getAmount() %></td>
-		                                                <td><%=comma.format(c.getPrice()) %><span>원</span></td>
+		                                                <td><%=comma.format(c.getPrice()) %></td>
 		                                                <% if(c.getOrCycle() == 1){ %>
 		                                                	<td class="total-price"><%= comma.format((c.getPrice() * c.getAmount()) + 3000) %>
-		                                                		<span>원</span>
+		                                                		
 		                                                	</td>
 		                                                	
 		                                                <%} %>
 		                                                <% if(c.getOrCycle() == 2){ %>
 		                                                	<td class="total-price"><%= comma.format(c.getPrice() * 12 * c.getAmount())%>
-		                                                		<span>원</span>
+		                                                		
 		                                                	</td>
 		                                                	
 		                                                <%} %>
 		                                                <% if(c.getOrCycle() == 3){ %>
 		                                                	<td class="total-price"><%=comma.format(c.getPrice() * 6 * c.getAmount() )%>
-		                                                		<span>원</span>
+		                                                		
 		                                                	</td>
 		                                                	
 		                                                <%} %>
@@ -407,7 +407,7 @@
 												let sumPrice = 0;
 												
 												$(".total-price").each(function(){
-													sumPrice += parseInt($(".total-price").text().split(',').join("")); /* 왜 $(".total-price")로 선택해줬는데 첫번째 값만 반복되는것 같을까  */
+													sumPrice += parseInt($(".total-price").text().split(',').join(""));
 												});
 												$("#sum-price").html(number_format(sumPrice)); 
 												
@@ -455,4 +455,5 @@
     </section>
 	<%@ include file="../common/footer.jsp" %>
 </body>
+
 </html>

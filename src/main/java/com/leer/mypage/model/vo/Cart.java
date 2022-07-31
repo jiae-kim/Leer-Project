@@ -4,6 +4,7 @@ import java.sql.Date;
 
 public class Cart {
 	
+	private int cartNo;
 	private int memNo;
 	private String pCode;
 	private String imageUrl;
@@ -29,8 +30,9 @@ public class Cart {
 	}
 
 
-	public Cart(int memNo, String pCode, String imageUrl, int amount, int orCycle, Date cartDate, String pName, int price, int deliFee) {
+	public Cart( int cartNo, int memNo, String pCode, String imageUrl, int amount, int orCycle, Date cartDate, String pName, int price, int deliFee) {
 		super();
+		this.cartNo = cartNo;
 		this.memNo = memNo;
 		this.pCode = pCode;
 		this.imageUrl = imageUrl;
@@ -137,6 +139,16 @@ public class Cart {
 
 	public void setDeliFee(int deliFee) {
 		this.deliFee = deliFee;
+	}
+
+
+	public int getCartNo() {
+		return cartNo;
+	}
+
+
+	public void setCartNo(int cartNo) {
+		this.cartNo = cartNo;
 	}
 	
 	
