@@ -1,6 +1,7 @@
 package com.leer.mypage.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.leer.mypage.model.service.MypageService;
+import com.leer.mypage.model.vo.Cart;
 
 /**
  * Servlet implementation class MyPageCartDeleteController
@@ -30,6 +32,9 @@ public class MyPageCartDeleteController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String[] cartNoArr = request.getParameterValues("chk");
+		System.out.println(request.getParameter("memNo"));
+		System.out.println(request.getParameter("memNo"));
+		int memNo = Integer.parseInt(request.getParameter("memNo"));
 		
 		int result = 0;
 		for(int i=0; i<cartNoArr.length; i++) {
@@ -37,7 +42,12 @@ public class MyPageCartDeleteController extends HttpServlet {
 		}
 		
 		if(result == cartNoArr.length) {
-			response.sendRedirect(request.getContextPath() + "/clist.me"); 
+			ArrayList<Cart> list  = new MypageService().selectCartList(memNo);
+			request.setAttribute("list", list);
+			request.getRequestDispatcher("views/mypage/mypageCartSelectList.jsp").forward(request, response);
+			
+		}else {
+			
 		}
 	}
 

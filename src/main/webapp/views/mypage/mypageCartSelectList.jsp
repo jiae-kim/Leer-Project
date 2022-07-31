@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.ArrayList, com.leer.mypage.model.vo.Cart, java.text.DecimalFormat" %>
 <%
-	ArrayList<Cart> list = (ArrayList<Cart>)session.getAttribute("list");
+	ArrayList<Cart> list = (ArrayList<Cart>)request.getAttribute("list");
 	DecimalFormat comma = new DecimalFormat("###,###");
 %>
 <!DOCTYPE html>
@@ -315,7 +315,7 @@
                                     </h2>
                                     <div style="border-bottom: 1px solid #303030;"></div>
                                     <form action="<%= contextPath %>/cdelete.me" method="">
-                                    	<input type="hidden" name="pNo" value="">
+                                    	<input type="hidden" name="memNo" value="<%=loginUser.getMemNo()%>">
 	                                    <div class="etc_content_box" >
 	                                        <ul class="product_review_list" id="review_list"></ul>
 	                                        <table class="table">
