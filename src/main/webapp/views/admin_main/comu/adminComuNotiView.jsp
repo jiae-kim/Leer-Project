@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+	<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -11,6 +11,9 @@
     opacity: 0.7;
     background:#cecece;
     color:dark;
+}
+#btnnn{
+	margin: -40px 0px 900px 10px;
 }
 </style>
 </head>
@@ -58,7 +61,10 @@
                             </div>
                         </div>
                         <!-- /views/admin_main/comu_noti/adminComuNotiDetail.jsp -->
-                        <button onClick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminNotiInsert.jsp'" class="btn btn-dark" style="float:right" id="btnn">공지사항 등록</button>
+                        <button onClick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminNotiInsert.jsp'"
+                        		class="btn btn-dark" style="float:right" id="btnnn">공지사항 등록</button>
+                        <button onClick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminNotiModify.jsp'" 
+                        		class="btn btn-dark" style="float:right" id="btnn">공지사항 수정</button>
                     </div>
                         <div class="table-responsive">
                             <table class="table">
@@ -66,6 +72,7 @@
                                     <tr>
                                         <th width="1">
                                             <label class="customcheckbox m-b-20">
+                                            	<input type="checkbox" id="mainCheckbox"/>	
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
@@ -80,6 +87,7 @@
                                     <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuDetail.jsp'">
                                         <th>
                                             <label class="customcheckbox">
+                                            	<input type="checkbox" class="listCheckbox" />
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
@@ -92,6 +100,7 @@
                                     <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuDetail.jsp'">
                                         <th>
                                             <label class="customcheckbox">
+                                            	<input type="checkbox" class="listCheckbox" />
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
@@ -104,6 +113,7 @@
                                     <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuDetail.jsp'">
                                         <th>
                                             <label class="customcheckbox">
+                                            	<input type="checkbox" class="listCheckbox" />
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
@@ -116,6 +126,7 @@
                                     <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuDetail.jsp'">
                                         <th>
                                             <label class="customcheckbox">
+                                            	<input type="checkbox" class="listCheckbox" />
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
@@ -128,6 +139,7 @@
                                     <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuDetail.jsp'">
                                         <th>
                                             <label class="customcheckbox">
+                                            	<input type="checkbox" class="listCheckbox" />
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
@@ -140,6 +152,7 @@
                                     <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuDetail.jsp'">
                                         <th>
                                             <label class="customcheckbox">
+                                            	<input type="checkbox" class="listCheckbox" />
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
@@ -152,6 +165,7 @@
                                     <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuDetail.jsp'">
                                         <th>
                                             <label class="customcheckbox">
+                                            	<input type="checkbox" class="listCheckbox" />
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
@@ -164,6 +178,7 @@
                                     <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuDetail.jsp'">
                                         <th>
                                             <label class="customcheckbox">
+                                            	<input type="checkbox" class="listCheckbox" />
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
@@ -176,6 +191,7 @@
                                     <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuDetail.jsp'">
                                         <th>
                                             <label class="customcheckbox">
+                                            	<input type="checkbox" class="listCheckbox" />
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
@@ -188,6 +204,7 @@
                                     <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuDetail.jsp'">
                                         <th>
                                             <label class="customcheckbox">
+                                            	<input type="checkbox" class="listCheckbox" />
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
@@ -201,8 +218,7 @@
                                <tfoot>
                                     <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuDetail.jsp'">
                                     <tr align="center">
-                                        <th colspan="10">
-                                            <br>
+                                        <th colspan="10">	
                                             <div class="btn-group" role="group" aria-label="Basic example">
                                                 <button type="button" class="btn btn-outline-secondary"><</button>
                                                 <button type="button" class="btn btn-outline-secondary">1</button>
@@ -233,5 +249,15 @@
             <footer class="footer text-center">
                 
             </footer>
+	<!-- 체크박스 전체 선택 -->
+    <script src="<%= request.getContextPath() %>/resources/css/eunjee/assets/extra-libs/multicheck/datatable-checkbox-init.js"></script>
+    <script src="<%= request.getContextPath() %>/resources/css/eunjee/assets/extra-libs/multicheck/jquery.multicheck.js"></script>
+    <script src="<%= request.getContextPath() %>/resources/css/eunjee/assets/extra-libs/DataTables/datatables.min.js"></script>
+    <script>
+        /****************************************
+         *       Basic Table                   *
+         ****************************************/
+        $('#zero_config').DataTable();
+    </script>           
 </body>
 </html>

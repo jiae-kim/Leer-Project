@@ -97,7 +97,9 @@
                             <p style="font-size: small;">글작성 페이지 이동</p>
                             <ul>
                                 <li><a href="#">공지사항</a></li>
+                                <li><a href="#">1:1 상담</a></li>
                                 <li><a href="#">FAQ</a></li>
+                                <li><a href="#">상품문의</a></li>
                             </ul>
                         </div>
                     </div>
@@ -107,7 +109,7 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="blog__item__text2">
-                                    <h4 align="left" class="boardTitle"><b>고객센터 공지사항 작성</b></h4><hr style="color: black">
+                                    <h4 align="left" class="boardTitle"><b>고객센터 공지사항 수정   </b></h4><hr style="color: black">
                                     <form action="" method="post" id="enroll-form"
                                         enctype="multipart/form-data">
                                         <table align="center">
@@ -134,7 +136,7 @@
                                             </tr>
                                             
                                             <tr>
-                                                <td colspan="2"><input type="text" name="title" required></td>
+                                                <td colspan="2"><input type="text" name="title" required placeholder="기존에 작성되어있던 제목"></td>
                                             </tr>
                                             <tr>
                                                 <th colspan="2">내용을 작성해주세요.</th>
@@ -142,7 +144,7 @@
                                             </tr>
                                             <tr>
                                                 <td colspan="2"><textarea id="summernote" name="editordata" rows="10" required
-                                                    style="resize:none"></textarea></td>
+                                                    style="resize:none" placeholder="">기존의 내용(수정가능)</textarea></td>
                                             </tr>
                                         </table>
 
