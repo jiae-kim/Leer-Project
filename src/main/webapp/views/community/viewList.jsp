@@ -63,22 +63,22 @@
 				</form>
 			</div>
 			
-		<% for(ComuBoard b : list) { %>
+		<% for(ComuBoard c : list) { %>
 			<div class="row">
 				<div class="col-lg-6 col-md-6 col-sm-6">
 					<div class="blog__item"> 
 						<div class="blog__item__text" align="left">
+							<span><%= c.getComuNo() %></span>
 							<h5 style="marin-bottom: -10px;">
-							<span style="display:none"><%= b.getComuNo() %> </span>
-								<span style="font-weight:bold"><%= b.getTitle() %></span>
+								<span style="font-weight:bold"><%= c.getTitle() %></span>
 							</h5>
-							<span style="font-size: 12px"><%=b.getEnrollDate() %></span>
-							<a class="hashtag" href="#" style="display: inline"><%= b.getTag() %></a> <!-- 댓글수 구하는 구문 찾아보기  -->
-							<p><%=b.getContent()%></p>
+							<span style="font-size: 12px"><%=c.getEnrollDate() %></span>
+							<a class="hashtag" href="#" style="display: inline"><%= c.getTag() %></a> <!-- 댓글수 구하는 구문 찾아보기  -->
+							<p><%=c.getContent()%></p>
 							<div>
 								<div style="float: right">
 									<i class="fa fa-heart-o"> <sup>123</sup>
-									</i> <i class="fa fa-comment-o"> <sup><%= b.getViewCount() %></sup>
+									</i> <i class="fa fa-comment-o"> <sup><%= c.getViewCount() %></sup>
 									</i>
 								</div>
 							</div>

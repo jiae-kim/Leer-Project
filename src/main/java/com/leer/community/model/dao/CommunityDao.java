@@ -16,6 +16,7 @@ import java.util.Properties;
 import com.leer.common.model.vo.Attachment;
 import com.leer.common.model.vo.Category;
 import com.leer.community.model.vo.ComuBoard;
+import com.leer.community.model.vo.Reply;
 
 public class CommunityDao {
 	private Properties prop = new Properties();
@@ -224,15 +225,38 @@ public class CommunityDao {
 			rset = pstmt.executeQuery();
 			
 			if(rset.next()) {
+//				c = new ComuBoard(
+//							rset.getInt("comu_no"),
+//							rset.getString("nickname"),
+//							rset.getString("category_name"),
+//							rset.getString("tag"),
+//							rset.getString("title"),
+//							rset.getDate("enroll_date")
+//						);
+
 				c = new ComuBoard(
-							rset.getInt("comu_no"),
-							rset.getString("nickname"),
-							rset.getString("category_name"),
-							rset.getString("tag"),
-							rset.getString("title"),
-							rset.getString("content"),
-							rset.getDate("enroll_date")
-						);
+						rset.getInt("comu_no"), 
+						rset.getString("nickname"),
+						rset.getString("category_name"),
+						rset.getString("tag"), 
+						rset.getString("title"),
+						rset.getDate("enroll_date"));
+
+				Clob clob = rset.getClob("content");
+				Reader r = clob.getCharacterStream();
+
+				StringBuffer buffer = new StringBuffer();
+				int ch;
+				try {
+					while ((ch = r.read()) != -1) {
+						buffer.append("" + (char) ch);
+					}
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+				c.setContent(buffer.toString());
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -272,5 +296,61 @@ public class CommunityDao {
 			close(pstmt);
 		}
 		return at;
+	}
+
+	public ArrayList<Reply> selectReplyList(Connection conn, int comuNo) {
+
+		ArrayList<Reply> list = new ArrayList<>();
+
+		PreparedStatement pstmt = null;
+
+		ResultSet rset = null;
+
+		String sql = prop.getProperty("selectReplyList");
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, comuNo);
+
+			rset = pstmt.executeQuery();
+
+			while (rset.next()) {
+				list.add(new Reply(
+						rset.getInt("comm_no"), 
+						rset.getString("nickname"),
+						rset.getString("comm_content"), 
+						rset.getString("enroll_date")));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return list;
+	}
+
+	public int insertReply(Connection conn, Reply r) {
+		
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("insertReply");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, r.getComuNo());
+			pstmt.setString(2, r.getCommContent());
+			pstmt.setString(3, r.getMemNo());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return result;
 	}
 }

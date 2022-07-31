@@ -12,6 +12,7 @@ import com.leer.common.model.vo.Attachment;
 import com.leer.common.model.vo.Category;
 import com.leer.community.model.dao.CommunityDao;
 import com.leer.community.model.vo.ComuBoard;
+import com.leer.community.model.vo.Reply;
 
 public class CommunityService {
 	public int selectListCount() {
@@ -88,6 +89,26 @@ public class CommunityService {
 		Attachment at = new CommunityDao().selectAttachment(conn, comuNo);
 		close(conn);
 		return at;
+		
+	}
+	public ArrayList<Reply> selectReplyList(int comuNo){
+		Connection conn = getConnection();
+		ArrayList<Reply> list = new CommunityDao().selectReplyList(conn, comuNo);
+		close(conn);
+		return list;
+	}
+	public int insertReply(Reply r) {
+		Connection conn = getConnection();
+		
+		int result = new CommunityDao().insertReply(conn, r);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		} close(conn);
+		
+		return result;
 		
 	}
 }

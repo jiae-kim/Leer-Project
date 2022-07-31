@@ -109,9 +109,9 @@
 		     , TAG
 		     , TITLE
 		     , CONTENT
-		     , ENROLL_DATE
-		  FROM COMU_BOARD
-		  LEFT JOIN CATEGORY USING (CATEGORY_NO)  
+		     , C.ENROLL_DATE
+		  FROM COMU_BOARD C
+		  JOIN CATEGORY USING (CATEGORY_NO)  
 		  JOIN MEMBER USING (MEM_NO)
 		 WHERE COMU_NO = ?      
 	</entry>
@@ -126,5 +126,38 @@
 		 WHERE REF_CODE = 'COMU'
 		   AND REF_BNO = ?
 	</entry>
+	
+	<entry key="selectReplyList">
+		SELECT 
+		       COMM_NO
+		     , COMM_CONTENT
+		     , NICKNAME
+		     , TO_CHAR(C.ENROLL_DATE, 'YY/MM/DD HH:MI')"ENROLL_DATE"
+		  FROM COMU_RE C
+		  JOIN MEMBER USING (MEM_NO)
+		 WHERE COMM_YN = 'N'
+		   AND COMU_NO = ?
+		 ORDER
+		    BY COMM_NO DESC
+	</entry>
+	
+	<entry key="insertReply">
+		INSERT
+		  INTO COMU_RE
+		  ( COMM_NO
+		  , COMU_NO
+		  , COMM_CONTENT
+		  , MEM_NO
+		  )
+		  VALUES
+		  (
+		    SEQ_COMM.NEXTVAL
+		  , ? 
+		  , ? 
+		  , ?
+		  )
+	</entry>
+	
+	
 </properties>
 
