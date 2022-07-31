@@ -133,6 +133,28 @@ public class AdminProductDao {
 		return p;
 	} 
 
+	/* [제품관리 - 상품조회]
+	 * 상품전체조회 페이지 : 삭제버튼
+	 * 작성자 김지애
+	 */
+	public int deleteProduct(Connection conn, String pCode) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("deleteProduct");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, pCode);
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}
+	
 	/* [제품관리 - 상품등록]
 	 * 상품 등록
 	 * 작성자 김지애
@@ -190,6 +212,7 @@ public class AdminProductDao {
 		}
 		return result;
 	}
+
 
 	
 	

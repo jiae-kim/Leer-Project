@@ -49,6 +49,22 @@ public class AdminProductService {
 		return p;
 	}
 	
+	/* [제품관리 - 상품등록]
+	 * 삭제버튼 
+	 * 작성자 김지애
+	 */
+	public int deleteProduct(String pCode) {
+		Connection conn = getConnection();
+		int result = new AdminProductDao().deleteProduct(conn, pCode);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		return result;
+	}
 	
 	/* [제품관리 - 상품등록]
 	 * 상품 등록 및 수정
@@ -72,6 +88,7 @@ public class AdminProductService {
 		}
 		return result1 * result2;
 	}
+
 
 	
 	
