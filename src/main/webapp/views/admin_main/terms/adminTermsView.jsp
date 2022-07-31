@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.ArrayList, com.leer.terms.model.vo.Terms, com.leer.common.model.vo.PageInfo"%> 
+<%
+	PageInfo pi = (PageInfo)request.getAttribute("pi");
+	ArrayList<Terms> list = (ArrayList<Terms>)request.getAttribute("list");
+%>   
 <!DOCTYPE html>
 <html>
 <head>
@@ -78,151 +83,26 @@
                                     </tr>
                                 </thead>
                                 <tbody class="custom">
-                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/terms/adminTermsDetail.jsp'">
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>19</td>
-                                        <td>사용중</td>
-                                        <td>회원이용약관(1)</td>
-                                        <td>2022.07.26</td>
-                                        <td>2022.07.26</td>
-                                        <td>admin01</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/terms/adminTermsDetail.jsp'">
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>18</td>
-                                        <td>사용중</td>
-                                        <td>회원이용약관(2)</td>
-                                        <td>2022.07.26</td>
-                                        <td>2022.07.26</td>
-                                        <td>admin01</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/terms/adminTermsDetail.jsp'">
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>17</td>
-                                        <td>보류</td>
-                                        <td>회원이용약관(3)</td>
-                                        <td>2022.07.26</td>
-                                        <td>2022.07.26</td>
-                                        <td>admin01</td>
-                                        <td>저작권에대한 논의 필요</td>
-                                    </tr>
-                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/terms/adminTermsDetail.jsp'">
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>16</td>
-                                        <td>보류</td>
-                                        <td>회원이용약관(4)</td>
-                                        <td>2022.07.26</td>
-                                        <td>2022.07.26</td>
-                                        <td>admin01</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/terms/adminTermsDetail.jsp'">
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>15</td>
-                                        <td>회의중</td>
-                                        <td>회원이용약관(5)</td>
-                                        <td>2022.07.26</td>
-                                        <td>2022.07.26</td>
-                                        <td>admin01</td>
-                                        <td>아직 논의중</td>
-                                    </tr>
-                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/terms/adminTermsDetail.jsp'">
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>14</td>
-                                        <td>회의중</td>
-                                        <td>회원이용약관(6)</td>
-                                        <td>2022.07.26</td>
-                                        <td>2022.07.26</td>
-                                        <td>admin01</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/terms/adminTermsDetail.jsp'">
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>13</td>
-                                        <td>회의중</td>
-                                        <td>회원이용약관(7)</td>
-                                        <td>2022.07.26</td>
-                                        <td>2022.07.26</td>
-                                        <td>admin01</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/terms/adminTermsDetail.jsp'">
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>12</td>
-                                        <td>보류</td>
-                                        <td>회원이용약관(8)</td>
-                                        <td>2022.07.26</td>
-                                        <td>2022.07.26</td>
-                                        <td>admin01</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/terms/adminTermsDetail.jsp'">
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>11</td>
-                                        <td>보류</td>
-                                        <td>회원이용약관(9)</td>
-                                        <td>2022.07.26</td>
-                                        <td>2022.07.26</td>
-                                        <td>admin01</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/terms/adminTermsDetail.jsp'">
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>10</td>
-                                        <td>user01</td>
-                                        <td>회원이용약관(10)</td>
-                                        <td>2022.07.26</td>
-                                        <td>2022.07.26</td>
-                                        <td>admin01</td>
-                                        <td></td>
-                                    </tr>
+                                	<% for(Terms t : list) { %>
+	                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/terms/adminTermsDetail.jsp'">
+	                                        <th>
+	                                            <label class="customcheckbox">
+	                                                <span class="checkmark"></span>
+	                                            </label>
+	                                        </th>
+	                                        <td><%=t.getTrmNo()%></td>
+	                                        <td><%=t.getTrmClass()%></td>
+	                                        <td><%=t.getTrmTitle()%></td>
+	                                        <td><%=t.getEnrollDate()%></td>
+	                                        <td><%=t.getModifyDate()%></td>
+	                                        <td><%=t.getMemId()%></td>
+	                                        <td></td>
+	                                    </tr>
+                                    <% } %>
                                 </tbody>
                                 <tfoot>
                                     <tr align="center">
                                         <th colspan="10">
-                                            <br>
                                             <div class="btn-group" role="group" aria-label="Basic example">
                                                 <button type="button" class="btn btn-outline-secondary"><</button>
                                                 <button type="button" class="btn btn-outline-secondary">1</button>
