@@ -4,11 +4,13 @@
 <%
 	PageInfo pi = (PageInfo)request.getAttribute("pi");
 	ArrayList<Product> list = (ArrayList<Product>)request.getAttribute("list");
-
+	
 	int currentPage = pi.getCurrentPage();
 	int startPage = pi.getStartPage();
 	int endPage = pi.getEndPage();
 	int maxPage = pi.getMaxPage();
+	
+	
 %>
 <!DOCTYPE html>
 <html>
@@ -30,8 +32,8 @@
                 <div class="ml-auto text-right">
                     <nav aria-label="breadcrumb">
                     </nav>
-                    <button type="button" onclick="location.href='<%=request.getContextPath()%>/adProEnroll.do'" class="btn btn-info btn-lg">등록</button> &nbsp;&nbsp;&nbsp;
-                    <button type="button" class="btn btn-warning btn-lg">수정</button> &nbsp;&nbsp;&nbsp;
+                    <button type="button" onclick="location.href='<%=contextPath%>/adProEnroll.do'" class="btn btn-info btn-lg">등록</button> &nbsp;&nbsp;&nbsp;
+                    <button type="button" onclick="location.href='<%=contextPath%>/adProUpdate.do?no=<%=p.getpCode()%>" class="btn btn-warning btn-lg">수정</button> &nbsp;&nbsp;&nbsp;
                     <!-- Button trigger modal -->
                     <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#Modal2">
                         삭제
@@ -41,7 +43,7 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel" style="font-weight: bolder; color: black;">공지사항 삭제</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel" style="font-weight: bolder; color: black;">상품 삭제</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -50,7 +52,7 @@
                                     해당 상품을 삭제하시겠습니까?
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-danger">네</button>
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">네</button>
                                     <button type="button" class="btn btn-info" data-dismiss="modal">아니오</button>
                                 </div>
                             </div>

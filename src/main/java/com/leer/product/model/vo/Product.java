@@ -70,7 +70,7 @@ public class Product {
 	}
 
 	/* [제품관리 - 상품조회]
-	 * 상품 전체 조회
+	 * 상품 전체 조회 / 수정버튼
 	 * 작성자 : 김지애
 	 */
 	public Product(String pName, int categoryNo, String pCode, String publisher, Date publishMonth, int price, Date enrollDate,
@@ -217,8 +217,7 @@ public class Product {
 	/* [제품관리] - 상품등록
 	 * 출간일 입력시 String형으로 입력
 	 * 작성자 : 김지애
-	 */
-	
+	 */	
 	public String getPublishMonth2() {
 		return publishMonth2;
 	}

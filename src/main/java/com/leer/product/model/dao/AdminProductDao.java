@@ -67,10 +67,9 @@ public class AdminProductDao {
 		}
 		return list;
 	}
-
 	
 	/* [제품관리 - 상품조회]
-	 * 페이징 처리
+	 * 상품전체조회 페이지 : 페이징 처리
 	 * 작성자 김지애
 	 */
 	public int selectProductListCount(Connection conn) {
@@ -96,7 +95,48 @@ public class AdminProductDao {
 		}
 		return listCount;
 	}
+	
+	/* [제품관리 - 상품조회]
+	 * 상품전체조회 페이지 : 수정버튼 클릭 시 수정페이지 요청
+	 * 작성자 김지애
+	 */
+	public Product selectProduct(Connection conn, String pCode) {
+		// select문 => ResultSet (한행 : 관리자가 선택한 한개의 상품) => Notice객체에 담아 반환
+		Product p = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectProduct");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, pCode);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				p = new Product(rset.getString("p_name"),
+								rset.getInt("category_no"),
+								rset.getString("p_code"),
+								rset.getString("publisher"),
+								rset.getDate("publish_month"),
+								rset.getInt("price"),
+								rset.getDate("enroll_date"),
+								rset.getInt("p_stock")
+								);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return p;
+	} 
 
+	/* [제품관리 - 상품등록]
+	 * 상품 등록
+	 * 작성자 김지애
+	 */
 	public int insertProduct(Connection conn, Product p) {
 		int result = 0;
 		
@@ -125,6 +165,10 @@ public class AdminProductDao {
 		return result;
 	}
 
+	/* [제품관리 - 상품등록]
+	 * 상품 등록 : 첨부파일 3개
+	 * 작성자 김지애
+	 */
 	public int insertAttachment(Connection conn, Attachment at) {
 		int result = 0;
 		
@@ -145,7 +189,8 @@ public class AdminProductDao {
 			close(pstmt);
 		}
 		return result;
-	} 
+	}
+
 	
 	
 }

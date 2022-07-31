@@ -28,7 +28,7 @@ public class AdminProductService {
 	}
 	
 	/* [제품관리 - 상품조회]
-	 * 페이징 처리
+	 * 상품 전체조회 페이지 : 페이징 처리
 	 * 작성자 김지애
 	 */
 	public int selectProductListCount() {
@@ -38,6 +38,18 @@ public class AdminProductService {
 		return listCount;
 	}
 
+	/* [제품관리 - 상품등록]
+	 * 수정버튼 클릭 시 수정페이지 요청
+	 * 작성자 김지애
+	 */
+	public Product selectProduct(String pCode) {
+		Connection conn = getConnection();
+		Product p = new AdminProductDao().selectProduct(conn, pCode);
+		close(conn);
+		return p;
+	}
+	
+	
 	/* [제품관리 - 상품등록]
 	 * 상품 등록 및 수정
 	 * 작성자 김지애
@@ -60,4 +72,7 @@ public class AdminProductService {
 		}
 		return result1 * result2;
 	}
+
+	
+	
 }
