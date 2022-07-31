@@ -35,11 +35,11 @@ public class ProductInsertCartController extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		
-		//if(session.getAttribute("loginUser") == null) {
-			//response.sendRedirect(request.getContextPath());
-		//}else {
+		if(session.getAttribute("loginUser") == null) {
+			response.sendRedirect(request.getContextPath());
+		}else {
 			
-			//int memNo = Integer.parseInt(request.getParameter("memNo"));
+			int memNo = Integer.parseInt(request.getParameter("memNo"));
 			String pCode = request.getParameter("pNo");	
 			int orCycle = Integer.parseInt(request.getParameter("shipping_cycle"));
 			int amount = Integer.parseInt(request.getParameter("amount"));
@@ -47,8 +47,7 @@ public class ProductInsertCartController extends HttpServlet {
 			
 			Cart c = new Cart();
 			
-			//c.setMemNo(memNo);
-			c.setMemNo(7);
+			c.setMemNo(memNo);
 			c.setpCode(pCode);
 			c.setOrCycle(orCycle);
 			c.setAmount(amount);
@@ -58,8 +57,7 @@ public class ProductInsertCartController extends HttpServlet {
 			ArrayList<Cart> list  = new MypageService().selectCartList(c.getMemNo());
 			
 			if(result > 0) {
-				
-				session.setAttribute("list", list);
+				request.setAttribute("list", list);
 				request.getRequestDispatcher("views/mypage/mypageCartList.jsp").forward(request, response);
 			}else { 
 				
@@ -68,7 +66,7 @@ public class ProductInsertCartController extends HttpServlet {
 		
 	
 		
-	//}
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

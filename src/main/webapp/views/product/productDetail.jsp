@@ -315,6 +315,7 @@
                 
                 <form action="<%= contextPath %>/insert.pd" method="" id="product-option-form">
                     <input type="hidden" name="pNo" value="<%= p.getpCode()%>">
+                    <input type="hidden" name="memNo" value="<%= loginUser.getMemNo()%>">
              
                     <div class="option_info_box base_price">
                         <ul class="product_option_table">
