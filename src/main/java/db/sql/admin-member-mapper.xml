@@ -41,21 +41,4 @@
 		  FROM MEMBER
 		 WHERE ADMIN = 'N'
 	</entry>
-		 
-		<!-- selectMemberList 기존의 구문
-		SELECT
-		       MEM_NO
-		     , MEM_ID
-		     , MEM_NAME
-		     , EMAIL
-		     , PHONE
-		     , ADDRESS
-		     , NICKNAME
-		     , ENROLL_DATE
-		     , POINT
-		  FROM MEMBER
-		 WHERE ADMIN = 'N'
-		 ORDER
-    		BY MEM_NO DESC
-     	 -->
 </properties>

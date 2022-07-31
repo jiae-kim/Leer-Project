@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Properties;
 
+import com.leer.common.model.vo.PageInfo;
 import com.leer.terms.model.vo.Terms;
 
 public class AdminTermsDao {
@@ -28,7 +29,7 @@ public class AdminTermsDao {
 	
 	// 관리자 이용약관리스트 조회
 	// 작성자 김은지
-	public ArrayList<Terms> selectTermsList(Connection conn){
+	public ArrayList<Terms> selectTermsList(Connection conn, PageInfo pi){
 		ArrayList<Terms> list = new ArrayList<>();
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -36,6 +37,13 @@ public class AdminTermsDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
+
+			int startRow = (pi.getCurrentPage()-1) * pi.getBoardLimit()+1;
+			int endRow = startRow + pi.getBoardLimit()-1;
+			
+			pstmt.setInt(1, startRow);
+			pstmt.setInt(2, endRow);
+			
 			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
@@ -57,6 +65,33 @@ public class AdminTermsDao {
 			close(pstmt);
 		}
 		return list;
+	}
+	
+	// 관리자 이용약관조회리스트 페이징처리
+	// 작성자 김은지
+	public int selectTermsListCount(Connection conn) {
+		int listCount = 0;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectTermsListCount");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				listCount = rset.getInt("COUNT");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return listCount;		
 	}
 
 }

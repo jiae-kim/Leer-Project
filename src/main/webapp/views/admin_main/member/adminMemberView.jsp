@@ -132,20 +132,7 @@
 	                                            <% if(currentPage != maxPage) { %>
 	                                            	<button type="button" onclick="location.href='<%=request.getContextPath()%>/adMemList.do?cpage=<%=currentPage+1%>';" 
 	                                                		    class="btn btn-outline-secondary">&gt;</button>
-	                                            <% } %>
-	                                                
-	                                                
-	                                                <!-- 
-	                                                <button type="button" class="btn btn-outline-secondary">2</button>
-	                                                <button type="button" class="btn btn-outline-secondary">3</button>
-	                                                <button type="button" class="btn btn-outline-secondary">4</button>
-	                                                <button type="button" class="btn btn-outline-secondary">5</button>
-	                                                <button type="button" class="btn btn-outline-secondary">6</button>
-	                                                <button type="button" class="btn btn-outline-secondary">7</button>
-	                                                <button type="button" class="btn btn-outline-secondary">8</button>
-	                                                <button type="button" class="btn btn-outline-secondary">9</button>
-	                                                <button type="button" class="btn btn-outline-secondary">&gt;</button>
-	                                                 -->
+	                                            <% } %>	                   
                                               </div>
                                         </th>
                                     </tr>

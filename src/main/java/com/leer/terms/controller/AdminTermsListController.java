@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.leer.common.model.vo.PageInfo;
+import com.leer.member.model.service.AdminMemberService;
 import com.leer.terms.model.service.AdminTermsService;
 import com.leer.terms.model.vo.Terms;
 
@@ -33,8 +35,35 @@ public class AdminTermsListController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 관리자페이지 이용약관 리스트조회
 		// 작성자 김은지
-		ArrayList<Terms> list = new AdminTermsService().selectTermsList();
 		
+		// 페이징처리
+		int listCount;
+		int currentPage;
+		int pageLimit;
+		int boardLimit;
+		
+		int maxPage;
+		int startPage;
+		int endPage;
+		
+		listCount = new AdminMemberService().selectMemberListCount();
+		currentPage = Integer.parseInt(request.getParameter("cpage"));
+		pageLimit = 10;
+		boardLimit = 10;
+		
+		maxPage = (int)Math.ceil( (double)listCount / boardLimit );
+		startPage = (currentPage-1) / pageLimit * pageLimit+1;
+		endPage = startPage + pageLimit - 1;
+		
+		if(endPage > maxPage) {
+			endPage = maxPage;
+		}
+				
+		PageInfo pi = new PageInfo(listCount, currentPage, pageLimit, boardLimit, maxPage, startPage, endPage);
+				
+		ArrayList<Terms> list = new AdminTermsService().selectTermsList(pi);
+		
+		request.setAttribute("pi", pi);
 		request.setAttribute("list", list);
 		
 		request.getRequestDispatcher("views/admin_main/terms/adminTermsView.jsp").forward(request, response);
