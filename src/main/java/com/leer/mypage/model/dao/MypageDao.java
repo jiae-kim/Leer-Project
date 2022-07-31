@@ -70,7 +70,7 @@ public class MypageDao {
 			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
-				list.add(new Cart( rset.getInt("mem_no"),
+				list.add(new Cart( rset.getInt("cart_no"),							   rset.getInt("mem_no"),
 								   rset.getString("p_code"),
 								   rset.getString("image_url1"),
 								   rset.getInt("amount"),

@@ -27,7 +27,7 @@ public class MyPageCartSelectController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		response.sendRedirect(request.getContextPath() + "/insert.pd");
+		request.getRequestDispatcher("views/mypage/mypageCartSelectList.jsp").forward(request, response);
 	}
 
 	/**
