@@ -64,6 +64,7 @@
 					<div class="blog__item"> 
 						<div class="blog__item__text" align="left">
 							<h5 style="marin-bottom: -10px;">
+							<span style="display:none"><%= b.getComuNo() %> </span>
 								<a href="#"><%= b.getTitle() %></a>
 							</h5>
 							<span style="font-size: 12px"><%=b.getEnrollDate() %></span>

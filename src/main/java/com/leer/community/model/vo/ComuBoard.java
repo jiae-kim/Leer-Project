@@ -41,10 +41,10 @@ public class ComuBoard {
 
 
 
-	public ComuBoard(String tag, String title, 
+	public ComuBoard(int comuNo, String tag, String title, 
 			Date enrollDate, int viewCount) {
 		super();
-		
+		this.comuNo = comuNo;
 		this.tag = tag;
 		this.title = title;
 		this.enrollDate = enrollDate;

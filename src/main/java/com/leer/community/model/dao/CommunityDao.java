@@ -76,6 +76,7 @@ public class CommunityDao {
 
 			while (rset.next()) {
 				ComuBoard cb = new ComuBoard(
+									rset.getInt("comu_no"),
 									rset.getString("tag"),
 									rset.getString("title"), 
 									rset.getDate("enroll_date"),

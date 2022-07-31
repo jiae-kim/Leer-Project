@@ -28,7 +28,8 @@
 	        )
 	 WHERE RNUM BETWEEN ? AND ? -->
 	  	SELECT 
-               TAG
+	  		   COMU_NO
+             , TAG
              , TITLE
              , CONTENT
              , ENROLL_DATE
