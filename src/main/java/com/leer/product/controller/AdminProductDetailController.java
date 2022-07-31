@@ -77,17 +77,17 @@ public class AdminProductDetailController extends HttpServlet {
 			// ATTACHMENT 테이블에 사진3개 INSERT
 			Attachment at = null;
 			
-			if(multiRequest.getOriginalFileName("upfile") != null) {
+			if(multiRequest.getOriginalFileName("admin_product_upfiles") != null) {
 				at = new Attachment();
-				at.setOriginName(multiRequest.getOriginalFileName("upfile"));
-				at.setChangeName(multiRequest.getFilesystemName("upfile"));
+				at.setOriginName(multiRequest.getOriginalFileName("admin_product_upfiles"));
+				at.setChangeName(multiRequest.getFilesystemName("admin_product_upfiles"));
 				at.setFilePath("resources/admin_product_upfiles/");
 			}
 			
 			int result = new AdminProductService().insertProduct(p, at);
 			
 			if(result > 0) {
-				response.sendRedirect(request.getContextPath() + "/adProList.do?cpage=1");
+				response.sendRedirect(request.getContextPath() + "/adProList.do");
 			}else {
 				if(at != null) {
 					new File(savePath + at.getChangeName()).delete();
