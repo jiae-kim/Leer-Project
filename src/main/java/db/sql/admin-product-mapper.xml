@@ -82,7 +82,7 @@
      	  , ?
      	  )
      </entry>     
-     
+     <!-- 상품등록 시 첨부파일 -->
      <entry key="insertAttachment">
      	INSERT
 		  INTO ATTACHMENT
@@ -96,9 +96,9 @@
 		  )
 		  VALUES
 		  (
-		    SEQ_FILE.NEXTVAL 
+		      SEQ_FILE.NEXTVAL 
 		    , 'PRODUCT'
-		    , <!-- 현재 참조하는 게시물과 동일한이름 -->
+		    , SEQ_PRODUCT.CURRVAL <!-- 현재 참조하는 게시물과 동일한이름 -->
 		    , ? 
 		    , ?
 		    , ?
