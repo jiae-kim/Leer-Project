@@ -70,7 +70,8 @@ public class MypageDao {
 			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
-				list.add(new Cart( rset.getInt("cart_no"),							   rset.getInt("mem_no"),
+				list.add(new Cart( rset.getInt("cart_no"),
+								   rset.getInt("mem_no"),
 								   rset.getString("p_code"),
 								   rset.getString("image_url1"),
 								   rset.getInt("amount"),
@@ -90,6 +91,26 @@ public class MypageDao {
 			
 		}
 		return list;
+	}
+	
+	public int deleteCart(Connection conn, String cartNo) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("deleteCart");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, cartNo);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return result;
+		
 	}
 
 }

@@ -31,7 +31,14 @@ public class MyPageCartDeleteController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String[] cartNoArr = request.getParameterValues("chk");
 		
-		int result = new MypageService().deleteCart(cartNoArr); 
+		int result = 0;
+		for(int i=0; i<cartNoArr.length; i++) {
+			result += new MypageService().deleteCart(cartNoArr[i]);
+		}
+		
+		if(result == cartNoArr.length) {
+			response.sendRedirect(request.getContextPath() + "/clist.me"); 
+		}
 	}
 
 	/**
