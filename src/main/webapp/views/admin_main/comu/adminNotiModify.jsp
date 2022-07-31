@@ -97,9 +97,7 @@
                             <p style="font-size: small;">글작성 페이지 이동</p>
                             <ul>
                                 <li><a href="#">공지사항</a></li>
-                                <li><a href="#">1:1 상담</a></li>
                                 <li><a href="#">FAQ</a></li>
-                                <li><a href="#">상품문의</a></li>
                             </ul>
                         </div>
                     </div>
