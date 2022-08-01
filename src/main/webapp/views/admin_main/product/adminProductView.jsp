@@ -31,10 +31,10 @@
                 <div class="ml-auto text-right">
                     <nav aria-label="breadcrumb">
                     </nav>
-                    <button type="button" onclick="location.href=<%=request.getContextPath()%>/adProEnrollForm.do" class="btn btn-info btn-lg">등록</button> &nbsp;&nbsp;&nbsp;
-                    <button type="button" onclick="location.href=<%=request.getContextPath()%>/adProUpdateForm.do?do" class="btn btn-warning btn-lg">수정</button> &nbsp;&nbsp;&nbsp;
+                    <button type="button" onclick="location.href='<%=request.getContextPath()%>/adProEnrollForm.do'" class="btn btn-info btn-lg">등록</button> &nbsp;&nbsp;&nbsp;
+                    <button type="button" onclick="location.href='<%=request.getContextPath()%>/adProUpdateForm.do'" class="btn btn-warning btn-lg">수정</button> &nbsp;&nbsp;&nbsp;
                     <!-- Button trigger modal -->
-                    <button type="button" onclick="location.href=<%=request.getContextPath()%>/adProDelete.do?do" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#Modal2">
+                    <button type="button" onclick="location.href='<%=request.getContextPath()%>/adProDelete.do'" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#Modal2">
                         삭제
                     </button>
                     <!-- Modal -->
@@ -74,9 +74,9 @@
                 <div class="btn-group">
                     <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">조회방법 선택</button>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">전체조회</a>
-                        <a class="dropdown-item" href="#">등록일 순 조회</a>
-                        <a class="dropdown-item" href="#">재고 순 조회</a>
+                        <a class="dropdown-item" >전체조회</a>
+                        <a class="dropdown-item" >등록일 순 조회</a>
+                        <a class="dropdown-item" >재고 순 조회</a>
                     </div>
                 </div>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -84,12 +84,12 @@
                 <div class="btn-group">
                     <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">카테고리별 조회</button>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">패션/여성</a>
-                        <a class="dropdown-item" href="#">라이프/인테리어</a>
-                        <a class="dropdown-item" href="#">문화/예술</a>
-                        <a class="dropdown-item" href="#">여행/취미</a>
-                        <a class="dropdown-item" href="#">시사/경제</a>
-                        <a class="dropdown-item" href="#">교육/과학</a>
+                        <a class="dropdown-item" >패션/여성</a>
+                        <a class="dropdown-item" >라이프/인테리어</a>
+                        <a class="dropdown-item" >문화/예술</a>
+                        <a class="dropdown-item" >여행/취미</a>
+                        <a class="dropdown-item" >시사/경제</a>
+                        <a class="dropdown-item" >교육/과학</a>
                     </div>
                 </div>
             </div>

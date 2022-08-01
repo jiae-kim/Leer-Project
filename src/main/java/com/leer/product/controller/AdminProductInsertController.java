@@ -75,15 +75,7 @@ public class AdminProductInsertController extends HttpServlet {
 			p.setPoint2(point);
 			
 			// ATTACHMENT 테이블에 사진3개 INSERT
-			//Attachment at = null;
-			
 			if(multiRequest.getOriginalFileName("url1") != null) {
-				/*
-				at = new Attachment();
-				at.setOriginName(multiRequest.getOriginalFileName("admin_product_upfiles"));
-				at.setChangeName(multiRequest.getFilesystemName("admin_product_upfiles"));
-				at.setFilePath("resources/admin_product_upfiles/");
-				*/
 				p.setImageUrl1("resources/admin_product_upfiles/" + multiRequest.getFilesystemName("url1"));
 			}
 			
@@ -91,6 +83,10 @@ public class AdminProductInsertController extends HttpServlet {
 				p.setImageUrl2("resources/admin_product_upfiles/" + multiRequest.getFilesystemName("url2"));
 			}
 			
+			if(multiRequest.getOriginalFileName("url3") != null) {
+				p.setImageUrlS("resources/admin_product_upfiles/" + multiRequest.getFilesystemName("url3"));
+			}
+
 			int result = new AdminProductService().insertProduct(p);
 			
 			if(result > 0) {// 성공 : 상품전체조회 페이지

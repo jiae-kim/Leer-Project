@@ -21,7 +21,7 @@ public class Product {
 	private String imageUrlS;
 	private Date enrollDate;
 	private String publishMonth2; // 상품등록 시 출간일 String형
-	private double point2;
+	private double point2; // 상품등록 시 포인트 소수로 들어감
 	
 	
 	public Product() {}
@@ -88,12 +88,20 @@ public class Product {
 		this.pStock = pStock;
 	}
 	
-
-	public double getPoint2() {
-		return point2;
-	}
-
-	public void setPoint2(double point2) {
+	public Product(String pCode, int categoryNo, String pName, int price, String publisher, int pStock, int deliFee,
+			String imageUrl1, String imageUrl2, String imageUrlS, String publishMonth2, double point2) {
+		super();
+		this.pCode = pCode;
+		this.categoryNo = categoryNo;
+		this.pName = pName;
+		this.price = price;
+		this.publisher = publisher;
+		this.pStock = pStock;
+		this.deliFee = deliFee;
+		this.imageUrl1 = imageUrl1;
+		this.imageUrl2 = imageUrl2;
+		this.imageUrlS = imageUrlS;
+		this.publishMonth2 = publishMonth2;
 		this.point2 = point2;
 	}
 
@@ -236,6 +244,18 @@ public class Product {
 	public void setPublishMonth2(String publishMonth2) {
 		this.publishMonth2 = publishMonth2;
 	}
+	
+	/* [제품관리] - 상품등록
+	 * 포인트 입력시 Double형으로 입력
+	 * 작성자 : 김지애
+	 */	
+	public double getPoint2() {
+		return point2;
+	}
+
+	public void setPoint2(double point2) {
+		this.point2 = point2;
+	}
 
 	@Override
 	public String toString() {
@@ -243,7 +263,7 @@ public class Product {
 				+ ", publisher=" + publisher + ", publishMonth=" + publishMonth + ", month=" + month + ", pStock="
 				+ pStock + ", supYn=" + supYn + ", point=" + point + ", deliFee=" + deliFee + ", sellYn=" + sellYn
 				+ ", imageUrl1=" + imageUrl1 + ", imageUrl2=" + imageUrl2 + ", imageUrlS=" + imageUrlS + ", enrollDate="
-				+ enrollDate + ", publishMonth2=" + publishMonth2 + "]";
+				+ enrollDate + ", publishMonth2=" + publishMonth2 + ", point2=" + point2 + "]";
 	}
 	
 

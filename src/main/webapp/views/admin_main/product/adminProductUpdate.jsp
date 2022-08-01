@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>상품 등록/수정 '된' 페이지</title>
+<title>상품 수정 페이지</title>
 <!-- 이미 정보 등록되어 있어서 수정할 때 불어오는 페이지용 -->
 
 <!-- datepicker css -->

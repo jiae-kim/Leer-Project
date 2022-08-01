@@ -148,6 +148,7 @@ public class AdminProductDao {
 			pstmt.setDouble(9, p.getPoint2());
 			pstmt.setString(10, p.getImageUrl1());
 			pstmt.setString(11, p.getImageUrl2());
+			pstmt.setString(12, p.getImageUrlS());
 			
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -202,15 +203,19 @@ public class AdminProductDao {
 			rset = pstmt.executeQuery();
 			
 			if(rset.next()) {
-				p = new Product(rset.getString("p_name"),
-								rset.getInt("category_no"),
-								rset.getString("p_code"),
-								rset.getString("publisher"),
-								rset.getDate("publish_month"),
-								rset.getInt("price"),
-								rset.getDate("enroll_date"),
-								rset.getInt("p_stock")
-								);
+//				p = new Product(rset.getString("p_name"),
+//								rset.getString("publish_month2"),
+//								rset.getString("publisher"),
+//								rset.getInt("category_no"),
+//								rset.getString("p_code"),
+//								rset.getInt("price"),
+//								rset.getInt("p_stock"),
+//								rset.getInt("deli_fee"),
+//								rset.getDouble("point2"),
+//								rset.getString("image_url1"),
+//								rset.getString("image_url2"),
+//								rset.getString("imgae_urls")
+//								);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -57,16 +57,14 @@ public class AdminProductService {
 	public int insertProduct(Product p) {
 		Connection conn = getConnection();
 		
-		int result1 = new AdminProductDao().insertProduct(conn, p);
+		int result = new AdminProductDao().insertProduct(conn, p);
 		
-		
-		
-		if(result1 > 0 ) {
+		if(result > 0 ) {
 			commit(conn);
 		}else {
 			rollback(conn);
 		}
-		return result1;
+		return result;
 	}
 
 	/* [제품관리 - 상품등록]

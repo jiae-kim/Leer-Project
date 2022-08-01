@@ -18,9 +18,11 @@
 					          , ENROLL_DATE
 					          , P_STOCK
 					       FROM PRODUCT
+					      ORDER BY PUBLISH_MONTH DESC
 		  		 		) A
 		  		)
-		  WHERE RNUM BETWEEN ? AND ?           
+		  WHERE RNUM BETWEEN ? AND ?  
+		     
 	</entry>
 	
 	<!-- selectProductList 기존 구문
@@ -50,6 +52,10 @@
 		   FROM	CATEGORY
 	</entry>
 	
+	<entry key="">
+	
+	</entry>
+	
 	<!-- 상품등록 -->
      <entry key="insertProduct">
      	INSERT
@@ -66,6 +72,7 @@
      	  , POINT
      	  , IMAGE_URL1
      	  , IMAGE_URL2
+     	  , IMAGE_URLS
      	  )
      	  VALUES
      	  (
@@ -74,6 +81,7 @@
      	  , ?
      	  , ?
      	  , ? || SEQ_pcode.NEXTVAL <!-- 시퀀스 앞에 특정 단어가 올때 그 단어의 시퀀스를 가져오게 -->
+     	  , ?
      	  , ?
      	  , ?
      	  , ?
@@ -108,20 +116,25 @@
      
 	<!-- 상품 전체조회 페이지 : 수정버튼 -->
 	 <entry key="selectProduct">
-	 	SELECT
-			 	P_NAME
-		      , CATEGORY_NO
-		      , P_CODE
-		      , PUBLISHER
-		      , PUBLISH_MONTH
-		      , PRICE
-		      , ENROLL_DATE
-		      , P_STOCK
-		   FROM PRODUCT
-		  WHERE P_CODE = ? <!-- 수정하고자 하는 상품 코드 -->
+		  SELECT
+			        P_NAME
+			     ,  PUBLISH_MONTH
+			     ,  PUBLISHER
+			     ,  CATEGORY_NO
+			     ,  P_CODE
+			     ,  PRICE
+			     ,  P_STOCK
+			     ,  DELI_FEE
+			     ,  POINT
+			     , 	IMAGE_URL1
+			     , 	IMAGE_URL2
+			     ,	IMAGE_URLS
+			  FROM  PRODUCT
+			 WHERE  P_CODE = ? <!-- 수정하고자 하는 상품 코드 -->
 	 </entry>
 	 
-	 <!-- 상품수정 : 기존에 있는 selectproduct문 사용함 -->                
+	 <!-- 상품수정 : update-->             
+	    
     
 	 <!-- 상품전체조회 페이지 : 삭제버튼 -->
 	 <entry key="deleteProduct">
