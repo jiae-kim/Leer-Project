@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
+	
+	<!-- 멤버리스트조회페이지, 김은지 -->
 	<entry key="selectMemberList">
 	    SELECT *
 		  FROM (
@@ -24,6 +26,33 @@
 		       )
 		 WHERE RNUM BETWEEN ? AND ?
 	</entry>
+	
+	<!-- 멤버리스트조회 - 가나다순, 김은지 -->
+	<entry key="selectMemberListGND">
+	    SELECT *
+		  FROM (
+		       SELECT ROWNUM RNUM, A.*
+		         FROM (
+		               SELECT
+		                       MEM_NO
+		                     , MEM_ID
+		                     , MEM_NAME
+		                     , EMAIL
+		                     , PHONE
+		                     , ADDRESS
+		                     , NICKNAME
+		                     , ENROLL_DATE
+		                     , POINT
+		                  FROM MEMBER
+		                 WHERE ADMIN = 'N'
+		                 ORDER
+		                    BY MEM_NAME
+		              ) A
+		       )
+		 WHERE RNUM BETWEEN ? AND ?
+	</entry>
+	
+	<!-- 멤버리스트 상세조회페이지, 김은지 -->
 	<entry key="memberDatailList">
 		SELECT
 		       MEM_NO
@@ -36,11 +65,15 @@
 		  FROM MEMBER
 		 WHERE MEM_NO = ?
 	</entry>
+	
+	<!-- 멤버리스트 페이징처리, 김은지 -->
 	<entry key="selectMemberListCount">
 		SELECT COUNT(*) AS "COUNT"
 		  FROM MEMBER
 		 WHERE ADMIN = 'N'
 	</entry>
+	
+	<!-- 장기구독자리스트조회, 김은지 -->
 	<entry key="selectLongMemberList">
 		SELECT *
 		  FROM (
@@ -68,11 +101,14 @@
 		       )
 		 WHERE RNUM BETWEEN ? AND ?
 	</entry>
+	
+	<!-- 장기구독자리스트 페이징처리, 김은지 -->
 	<entry key="selectLongMemberListCount">
 	    SELECT COUNT(*)
 		  FROM OR_PRODUCT
 		 WHERE OR_CYCLE != 1
 	</entry>
+	
 </properties>
 
 

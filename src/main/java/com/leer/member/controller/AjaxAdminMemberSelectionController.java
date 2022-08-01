@@ -9,27 +9,29 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
 import com.leer.common.model.vo.PageInfo;
 import com.leer.member.model.service.AdminMemberService;
 import com.leer.member.model.vo.Member;
 
 /**
- * Servlet implementation class AdminMemberListController
+ * Servlet implementation class AjaxAdminMemberSelectionController
  */
-@WebServlet("/adMemList.do")
-public class AdminMemberListController extends HttpServlet {
+@WebServlet("/AjaxAdMemSelec.do")
+public class AjaxAdminMemberSelectionController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+       
     /**
-     * Default constructor. 
+     * @see HttpServlet#HttpServlet()
      */
-    public AdminMemberListController() {
+    public AjaxAdminMemberSelectionController() {
+        super();
         // TODO Auto-generated constructor stub
     }
 
-	/*
-	 *  회원조회기능
-	 *	작성자 김은지
+	/**
+	 * 관리자 Ajax 멤버리스트 재정렬 (전체조회, 가나다순)
+	 * 작성자 김은지
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 페이징처리
@@ -58,15 +60,25 @@ public class AdminMemberListController extends HttpServlet {
 		}
 		
 		PageInfo pi = new PageInfo(listCount, currentPage, pageLimit, boardLimit, maxPage, startPage, endPage);
-		
 		*/
 		
-		ArrayList<Member> list = new AdminMemberService().selectMemberList(); //pi
+		String align = request.getParameter("align");
+		
+		ArrayList<Member> list = new ArrayList<>();
+		if(align.equals("전체조회")) {
+			list = new AdminMemberService().selectMemberList();
+		}
+		
+		if(align.equals("가나다 순 조회")) {
+			list = new AdminMemberService().selectMemberListGND(); // pi
+		}
 		
 		//request.setAttribute("pi", pi);
-		request.setAttribute("list", list);
 		
-		request.getRequestDispatcher("views/admin_main/member/adminMemberView.jsp").forward(request, response);
+		response.setContentType("application/json; charset=UTF-8");
+		new Gson().toJson(list, response.getWriter()); 
+		
+		//request.getRequestDispatcher("views/admin_main/member/adminMemberView.jsp").forward(request, response);
 	}
 
 	/**

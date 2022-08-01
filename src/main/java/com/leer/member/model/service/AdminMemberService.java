@@ -14,14 +14,26 @@ public class AdminMemberService {
 	
 	// 관리자 회원리스트 조회
 	// 작성자 김은지
-	public ArrayList<Member> selectMemberList(PageInfo pi){
+	public ArrayList<Member> selectMemberList(){ //PageInfo pi
 		Connection conn = getConnection();
 		
-		ArrayList<Member> list = new AdminMemberDao().selectMemberList(conn, pi);
+		ArrayList<Member> list = new AdminMemberDao().selectMemberList(conn); //, pi
 		
 		close(conn);
 		return list;
 	}
+	
+	// 관리자 회원리스트조회 - 가나다순
+	// 작성자 김은지
+	public ArrayList<Member> selectMemberListGND(){ //PageInfo pi
+		Connection conn = getConnection();
+		
+		ArrayList<Member> list = new AdminMemberDao().selectMemberListGND(conn); //, pi
+		
+		close(conn);
+		return list;
+	}
+	
 	
 	// 관리자 회원리스트 조회 페이징처리
 	// 작성자 김은지
