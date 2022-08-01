@@ -101,11 +101,10 @@
 											success:function(list){
 												console.log(list);
 												
-												<%--
 												let value = "";
 												for(let i=0; i<list.length; i++){
 													value+=
-													'<tr onclick="location.href="' + '<%=request.getContextPath()%>/adMemDetail.do?no=' +  +
+													'<tr onclick="location.href="' + '<%=request.getContextPath()%>/adMemDetail.do?no=' + '<%=m.getMemNo()%>'';"> +                  
 														'<th>' +
 															'<label class="customcheckbox">' +
 																'<span class="checkmark"></span>' +

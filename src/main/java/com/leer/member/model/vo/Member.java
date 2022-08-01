@@ -31,26 +31,9 @@ public class Member {
 	
 	public Member() {}
 	
-<<<<<<< HEAD
 	
 	
-	//회원가입
-	public Member(String memId, String memPwd, String nickname, String memName, String memBirth, String phone,
-			String email, String address, String categoryNo) {
-		super();
-		this.memId = memId;
-		this.memPwd = memPwd;
-		this.nickname = nickname;
-		this.memName = memName;
-		this.memBirth = memBirth;
-		this.phone = phone;
-		this.email = email;
-		this.address = address;
-		this.categoryNo = categoryNo;
 	
-
-
-
 
 	public Member(String orNo) {
 		super();
@@ -62,19 +45,8 @@ public class Member {
 	
 
 
-	public Member(String p_name,Date or_date, int price,  String image_url, String orNo) {
-		this.p_name = p_name;
-		this.or_date = or_date;
-		this.price = price;
-		this.image_url = image_url;
-		this.orNo = orNo;
-	}
-
-
-
-
-
 	public Member(String image_url, String p_name, int price, Date or_date, String p_code) {
+		super();
 		this.image_url = image_url;
 		this.p_name = p_name;
 		this.price = price;
@@ -202,8 +174,6 @@ public class Member {
 
 
 
-=======
->>>>>>> parent of 98e5078 ([정다혜]  깃 충돌...?)
 	public Member(int memNo, String memId, String memPwd, String nickname, String memName, String memBirth,
 			String phone, String email, String address, String categoryNo, int point, String memStatus, Date enrollDate,
 			String admin, String profileLink, Date startDate, Date endDate, String orNo) {
