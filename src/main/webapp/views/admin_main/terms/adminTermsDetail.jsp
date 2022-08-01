@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="com.leer.terms.model.vo.Terms"%>
+<%
+	Terms t = (Terms)request.getAttribute("terms");
+%>     
 <!DOCTYPE html>
 <html>
 <head>

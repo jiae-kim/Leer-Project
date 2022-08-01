@@ -28,6 +28,15 @@ public class Terms {
 		this.memId = memId;
 	}
 
+	public Terms(String trmClass, String trmTitle, String content, String trmRemarks, String memId) {
+		super();
+		this.trmClass = trmClass;
+		this.trmTitle = trmTitle;
+		this.content = content;
+		this.trmRemarks = trmRemarks;
+		this.memId = memId;
+	}
+
 	public int getTrmNo() {
 		return trmNo;
 	}
