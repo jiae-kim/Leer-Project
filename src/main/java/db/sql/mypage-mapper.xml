@@ -2,46 +2,46 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
 	
-	<entry key="">
-		1-1. 주문 및 배송 조회 주문번호
+	<entry key="selectOrderDev">
 		SELECT
 			OR_NO
 		FROM MEMBER M
-		JOIN ORDER USING(MEM_NO)
+		JOIN "ORDER" USING(MEM_NO)
 		WHERE M.MEM_NO = ?
 
 	</entry>
 	
 	
-	<entry key="">
-		1-2. 주문 및 배송 조회 주문 상품 상세내용
+	<entry key="selectOrderDevDetail">
+		
 		SELECT
-			 IMAGE_URL
-			,P_NAME
-			,PRICE
-			,OR_DATE
+		    "ORDER".OR_NO
+		    ,IMAGE_URL1
+		    ,P_NAME
+		    ,PRICE
+		    ,OR_DATE
 		FROM MEMBER M
-		JOIN ORDER USING(MEM_NO)
-		JOIN OR_PRODUCT USING(OR_NO)
-		JOIN PRODUCT USING(P_CODE)
-		WHERE MEM_NO = ?
-		WHERE OR_NO = ?		
+		JOIN "ORDER" USING (MEM_NO)
+		JOIN OR_PRODUCT OP ON ("ORDER".OR_NO = OP.OR_NO)
+		JOIN PRODUCT P ON(OP.P_CODE = P.P_CODE)
+		WHERE MEM_NO = ?	
 	</entry>
 	
 	
-	<entry key="">
-		2. 주문 취소/ 환불
+	<entry key="OrderCancleView">
 		SELECT
-			 P_NAME
+			P.P_CODE
+			,P_NAME
 			,OR_DATE
 			,PRICE
-			,IMAGE_URL
-			,O.OR_NO
+			,IMAGE_URL1
+			,"ORDER".OR_NO
 			FROM MEMBER M
-			JOIN ORDER O USING(MEM_NO)
-			JOIN OR_PRODUCT USING(OR_NO)
-			JOIN PRODUCT USING(P_CODE)
-			WHERE M.MEM_NO = ?
+			JOIN "ORDER" USING (MEM_NO)
+            JOIN OR_PRODUCT OP ON ("ORDER".OR_NO = OP.OR_NO)
+            JOIN PRODUCT P ON(OP.P_CODE = P.P_CODE)
+			WHERE MEM_NO = ?
+			AND OR_YN = ?
 	</entry>
 	
 	<entry key="insertProductCart">

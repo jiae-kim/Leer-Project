@@ -21,6 +21,8 @@ public class Product {
 	private String imageUrlS;
 	private Date enrollDate;
 	private String publishMonth2; // 상품등록 시 출간일 String형
+	private double point2;
+	
 	
 	public Product() {}
 
@@ -85,6 +87,15 @@ public class Product {
 		this.enrollDate = enrollDate;
 		this.pStock = pStock;
 	}
+	
+
+	public double getPoint2() {
+		return point2;
+	}
+
+	public void setPoint2(double point2) {
+		this.point2 = point2;
+	}
 
 	public int getMonth() {
 		return month;
@@ -105,7 +116,7 @@ public class Product {
 	public int getCategoryNo() {
 		return categoryNo;
 	}
-
+	
 	public void setCategoryNo(int categoryNo) {
 		this.categoryNo = categoryNo;
 	}

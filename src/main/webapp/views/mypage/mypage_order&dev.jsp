@@ -1,5 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.leer.member.model.vo.Member" %>
+    
+<%
+	ArrayList<Member> list1 = (ArrayList<Member>)request.getAttribute("list1");
+	ArrayList<Member> list2 = (ArrayList<Member>)request.getAttribute("list2");
+	
+%>
+    
+    
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -164,123 +172,53 @@
                             <br>
                             <!-- 주문 번호 갯수만큼 반복처리 -->
                             <hr>
-                            <form action="">
+                            <form action="<%= contextPath %>/myPage.me">
                                 <div>
 	                                <table>
 	                                    <tr>
-	                                        <td width="600px"><h4>주문번호 : 1</h4></td>
-	                                        <td><a class="btn btn-sm btn-secondary">배송조회</a></td>
-	                                    </tr>
+	                                        <!--  주문번호 arrayList 로 받아서 길이만큼 반복처리해서 table 생성 -->
+                                        	<% if(list1.isEmpty()) { %>
+	                                        	<tr>
+								                    <td colspan="2">조회된 배송정보가 없습니다.</td>
+								                </tr>
+								            <%} else{ %>
+								            <% for(Member m : list1){ %>
+		                                        <td width="600px"><h4>주문번호 : <%= m.getOrNo() %></h4></td>
+		                                        <td><a class="btn btn-sm btn-secondary">배송조회</a></td>
+		                                        <div>
+		                                        	<%for(Member m1:list2){ %>
+		                                        		<%if(m.getOrNo() == m1.getOrNo()){ %>
+		                                        	<table> 
+			                                            <tr>                                            
+			                                                <td rowspan="4" width="200px"><img class="product__details__pic__item"
+			                                                    src=<%= m1.getImage_url() %> alt=""></td>
+			                                                <td width="80px">제품명</td>
+			                                                <td width="150px" colspan="2"> <b><%= m1.getP_name() %></b></td>
+			                                            </tr>
+			                                            <tr height="100px">
+			                                                <td> </td>
+			                                                <td colspan="2"> </td>
+			                                            </tr>
+			                                            <tr>
+			                                                <td>제품가격</td>
+			                                                <td width="150px"><%= m1.getPrice() %></td>
+			                                                <td><a href="" onclick="window.open('./review_write.html','review','width=700, height=900, scrollbars=no, resizable=no, toolbars=no, menubar=no')" class="btn btn-sm btn-secondary">리뷰 쓰기</a>
+			                                                    <a href="http://www.walbox.co.kr/item_view.html?item_cate=11103&item_no=999668" class="btn btn-sm btn-secondary">재구매</a>
+			                                                    
+			                                                </td>
+			                                            </tr>
+			                                        </table>
+	                                        <% }}%>
+	                                        </div>
+	                                        <%} %>
+	                                        <%} %>
+	                                         <hr>
 	                                </table>
-                               		<div>
-                                        <table> 
-                                        	<!--  주문번호 arrayList 로 받아서 길이만큼 반복처리해서 table 생성 -->
-                                            <tr>
-                                                <td rowspan="4" width="200px"><img class="product__details__pic__item"
-                                                    src=http://www.walbox.co.kr/upfile/item/111_1618565835.jpg alt=""></td>
-                                                <td width="80px">제품명</td>
-                                                <td width="150px" colspan="2"> <b>BBC사이언스</b></td>
-                                            </tr>
-                                            <tr height="100px">
-                                                <td> 제품설명</td>
-                                                <td colspan="2"> 제품관련 설명작성</td>
-                                            </tr>
-                                            <tr>
-                                                <td>제품가격</td>
-                                                <td width="150px"> 12,160원</td>
-                                                <td><a href="" onclick="window.open('./review_write.html','review','width=700, height=900, scrollbars=no, resizable=no, toolbars=no, menubar=no')" class="btn btn-sm btn-secondary">리뷰 쓰기</a>
-                                                    <a href="http://www.walbox.co.kr/item_view.html?item_cate=11103&item_no=999668" class="btn btn-sm btn-secondary">재구매</a>
-                                                    
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    
-
-                                        <table>
-                                            <tr>
-                                                <td rowspan="4" width="200px"> <img class="product__details__pic__item"
-                                                    src=http://www.walbox.co.kr/upfile/item/%EB%A6%AC%EB%B9%998_1658642603.jpg alt=""></td>
-                                                <td width="80px">제품명</td>
-                                                <td width="150px" colspan="2"> <b>리빙센스</b></td>
-                                            </tr>
-                                            <tr height="100px">
-                                                <td> 제품설명</td>
-                                                <td colspan="2"> 제품관련 설명작성</td>
-                                            </tr>
-                                            <tr>
-                                                <td>제품가격</td>
-                                                <td width="150px"> 7,410원</td>
-                                                <td><a href="" onclick="window.open('./review_write.html','review','width=700, height=900, scrollbars=no, resizable=no, toolbars=no, menubar=no')" class="btn btn-sm btn-secondary">리뷰 쓰기</a>
-                                                    <a href="http://www.walbox.co.kr/item_view.html?item_cate=11100&item_no=999933" class="btn btn-sm btn-secondary">재구매</a>
-                                                    
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </div>
+                               		
                                 </div>
                                 <hr>
                             </form>
-                            
-                            
-                            <form action="">
-                                <div>
-	                                <table>
-	                                    <tr>
-	                                        <td width="600px"><h4>주문번호 : 2</h4></td>
-	                                        <td><a class="btn btn-sm btn-secondary">배송조회</a></td>
-	                                    </tr>
-	                                </table>
-                               		<div>
-                                        <table> 
-                                        	<!--  주문번호 arrayList 로 받아서 길이만큼 반복처리해서 table 생성 -->
-                                            <tr>
-                                                <td rowspan="4" width="200px"><img class="product__details__pic__item"
-                                                    src=http://www.walbox.co.kr/upfile/item/111_1618565835.jpg alt=""></td>
-                                                <td width="80px">제품명</td>
-                                                <td width="150px" colspan="2"> <b>BBC사이언스</b></td>
-                                            </tr>
-                                            <tr height="100px">
-                                                <td> 제품설명</td>
-                                                <td colspan="2"> 제품관련 설명작성</td>
-                                            </tr>
-                                            <tr>
-                                                <td>제품가격</td>
-                                                <td width="150px"> 12,160원</td>
-                                                <td><a href="" onclick="window.open('./review_write.html','review','width=700, height=900, scrollbars=no, resizable=no, toolbars=no, menubar=no')" class="btn btn-sm btn-secondary">리뷰 쓰기</a>
-                                                    <a href="http://www.walbox.co.kr/item_view.html?item_cate=11103&item_no=999668" class="btn btn-sm btn-secondary">재구매</a>
-                                                    
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    
 
-                                        <table>
-                                            <tr>
-                                                <td rowspan="4" width="200px"> <img class="product__details__pic__item"
-                                                    src=http://www.walbox.co.kr/upfile/item/%EB%A6%AC%EB%B9%998_1658642603.jpg alt=""></td>
-                                                <td width="80px">제품명</td>
-                                                <td width="150px" colspan="2"> <b>리빙센스</b></td>
-                                            </tr>
-                                            <tr height="100px">
-                                                <td> 제품설명</td>
-                                                <td colspan="2"> 제품관련 설명작성</td>
-                                            </tr>
-                                            <tr>
-                                                <td>제품가격</td>
-                                                <td width="150px"> 7,410원</td>
-                                                <td><a href="" onclick="window.open('./review_write.html','review','width=700, height=900, scrollbars=no, resizable=no, toolbars=no, menubar=no')" class="btn btn-sm btn-secondary">리뷰 쓰기</a>
-                                                    <a href="http://www.walbox.co.kr/item_view.html?item_cate=11100&item_no=999933" class="btn btn-sm btn-secondary">재구매</a>
-                                                    
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                </div>
-                                <hr>
-                            </form>
-                            
-                            
-                            
 
                         </div>
 

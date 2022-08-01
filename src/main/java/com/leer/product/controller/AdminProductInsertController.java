@@ -24,14 +24,14 @@ import com.oreilly.servlet.MultipartRequest;
 /**
  * Servlet implementation class ProductDetailController
  */
-@WebServlet("/adProEnroll.do")
-public class AdminProductDetailController extends HttpServlet {
+@WebServlet("/adProInsert.do")
+public class AdminProductInsertController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdminProductDetailController() {
+    public AdminProductInsertController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -53,15 +53,15 @@ public class AdminProductDetailController extends HttpServlet {
 			MultipartRequest multiRequest = new MultipartRequest(request, savePath, maxSize, "UTF-8", new MyFileRenamePolicy());
 			
 			// PRODUCT 테이블에 데이터 INSERT
-			String pName = request.getParameter("pName");
-			String publishMonth = request.getParameter("publishMonth");
-			String publisher = request.getParameter("publisher");
-			int categoryNo = ((Product)session.getAttribute("categoryNo")).getCategoryNo();
-			String pCode = request.getParameter("pCode");
-			int price = ((Product)session.getAttribute("price")).getPrice();
-			int stock = ((Product)session.getAttribute("stock")).getpStock();
-			int deliFee = ((Product)session.getAttribute("deliFee")).getDeliFee();
-			int point = ((Product)session.getAttribute("point")).getPoint();
+			String pName = multiRequest.getParameter("pname");
+			String publishMonth = multiRequest.getParameter("publishmonth2");
+			String publisher = multiRequest.getParameter("publisher");
+			int categoryNo = Integer.parseInt(multiRequest.getParameter("category"));
+			String pCode = multiRequest.getParameter("pcode");
+			int price = Integer.parseInt(multiRequest.getParameter("price"));
+			int stock = Integer.parseInt(multiRequest.getParameter("stock"));
+			int deliFee = Integer.parseInt(multiRequest.getParameter("deliFee"));
+			double point = Double.parseDouble(multiRequest.getParameter("point"));
 			
 			Product p = new Product();
 			p.setpName(pName);
@@ -72,30 +72,37 @@ public class AdminProductDetailController extends HttpServlet {
 			p.setPrice(price);
 			p.setpStock(stock);
 			p.setDeliFee(deliFee);
-			p.setPoint(point);
+			p.setPoint2(point);
 			
 			// ATTACHMENT 테이블에 사진3개 INSERT
-			Attachment at = null;
+			//Attachment at = null;
 			
-			if(multiRequest.getOriginalFileName("admin_product_upfiles") != null) {
+			if(multiRequest.getOriginalFileName("url1") != null) {
+				/*
 				at = new Attachment();
 				at.setOriginName(multiRequest.getOriginalFileName("admin_product_upfiles"));
 				at.setChangeName(multiRequest.getFilesystemName("admin_product_upfiles"));
 				at.setFilePath("resources/admin_product_upfiles/");
+				*/
+				p.setImageUrl1("resources/admin_product_upfiles/" + multiRequest.getFilesystemName("url1"));
 			}
 			
-			int result = new AdminProductService().insertProduct(p, at);
+			if(multiRequest.getOriginalFileName("url2") != null) {
+				p.setImageUrl2("resources/admin_product_upfiles/" + multiRequest.getFilesystemName("url2"));
+			}
 			
-			if(result > 0) {
-				response.sendRedirect(request.getContextPath() + "/adProList.do");
-			}else {
-				if(at != null) {
+			int result = new AdminProductService().insertProduct(p);
+			
+			if(result > 0) {// 성공 : 상품전체조회 페이지
+				response.sendRedirect(request.getContextPath() + "/adProList.do?cpage=1");
+			}else {// 실패 : 에러페이지
+				/*
+				if(at != null) {// 파일 삭제
 					new File(savePath + at.getChangeName()).delete();
-				}
+				}*/
+				request.getRequestDispatcher("views/admin_main/error/adminErrorPage.jsp").forward(request, response);
 			}
-			
 		}
-	
 	}
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

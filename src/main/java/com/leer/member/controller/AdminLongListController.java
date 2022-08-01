@@ -35,6 +35,7 @@ public class AdminLongListController extends HttpServlet {
 		// 관리자페이지 장기구독자리스트 조회
 		// 작성자 김은지
 		// 페이징처리
+		
 		int listCount;
 		int currentPage;
 		int pageLimit;

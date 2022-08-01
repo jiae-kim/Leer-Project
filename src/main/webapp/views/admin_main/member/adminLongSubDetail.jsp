@@ -5,10 +5,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+.tt2{
+    float: left;
+}
+</style>
 </head>
 <body>
 
-	<%@ include file="../common/menubar.jsp" %>
+	<%@ include file="../../common/adminMenubar.jsp" %>	
 	
 	<div class="page-breadcrumb">
                 <div class="row">
@@ -46,7 +51,7 @@
                                 <tbody >
                                     <tr>
                                       <div class="tt2">
-                                          <img src="image/보그8_1658394015.jpg" alt="" width="500px" style="margin: 0px -100px 0px 222px;">
+                                          <img src="http://www.walbox.co.kr/upfile/item/%ED%80%B88_1658464158.jpg" alt="" width="470px" style="margin: 0px -100px 0px 222px;">
                                             <td class="td1" colspan="2" width="500px" height="45px" style="font-weight: bold;
                                                                                         background:hsl(0, 0%, 77%); color:rgb(80, 80, 80); font-weight: bold;">
                                             <h4 style="margin:0px 0px 0px 0px; float:left;">&nbsp;&nbsp;&nbsp;&nbsp; 주문 상세</h4>
@@ -163,7 +168,9 @@
                             <br>
                             <c:if test="${sessionMemberLv == 1}">
                                     <div class="d-grid gap-3" style="text-align: center">
-                                        <a href="" id="btn" class="btn btn-dark" style="width:150px">목록으로</a>
+                                        <a href="<%=request.getContextPath()%>/adLongList.do?cpage=1" id="btn" class="btn btn-dark" style="width:150px"">
+                                        	목록으로
+                                        </a>
                                     </div>
                             </c:if>
                           </div>

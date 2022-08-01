@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 import com.leer.common.model.vo.Attachment;
+import com.leer.common.model.vo.Category;
 import com.leer.common.model.vo.PageInfo;
 import com.leer.product.model.vo.Inquiry;
 import com.leer.product.model.vo.Product;
@@ -96,6 +97,93 @@ public class AdminProductDao {
 		return listCount;
 	}
 	
+	/* [제품관리 - 상품등록]
+	 * 상품 등록 페이지 요청
+	 * 작성자 김지애
+	 */
+	public ArrayList<Category> selectCategoryList(Connection conn) {
+		ArrayList<Category> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectCategoryList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				list.add(new Category(rset.getInt("category_no"),
+									  rset.getString("category_name")
+									  ));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return list;
+	}
+	
+	/* [제품관리 - 상품등록]
+	 * 상품 등록
+	 * 작성자 김지애
+	 */
+	public int insertProduct(Connection conn, Product p) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("insertProduct");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, p.getpName());
+			pstmt.setString(2, p.getPublishMonth2());
+			pstmt.setString(3, p.getPublisher());
+			pstmt.setInt(4, p.getCategoryNo());
+			pstmt.setString(5, p.getpCode());
+			pstmt.setInt(6, p.getPrice());
+			pstmt.setInt(7, p.getpStock());
+			pstmt.setInt(8, p.getDeliFee());
+			pstmt.setDouble(9, p.getPoint2());
+			pstmt.setString(10, p.getImageUrl1());
+			pstmt.setString(11, p.getImageUrl2());
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}
+
+	/* [제품관리 - 상품등록]
+	 * 상품 등록 : 첨부파일 3개
+	 * 작성자 김지애
+	 */
+	public int insertAttachment(Connection conn, Attachment at) {
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("insertAttachment");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, at.getOriginName());
+			pstmt.setString(2, at.getChangeName());
+			pstmt.setString(3, at.getFilePath());
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}
+
 	/* [제품관리 - 상품조회]
 	 * 상품전체조회 페이지 : 수정버튼 클릭 시 수정페이지 요청
 	 * 작성자 김지애
@@ -133,86 +221,6 @@ public class AdminProductDao {
 		return p;
 	} 
 
-	/* [제품관리 - 상품조회]
-	 * 상품전체조회 페이지 : 삭제버튼
-	 * 작성자 김지애
-	 */
-	public int deleteProduct(Connection conn, String pCode) {
-		int result = 0;
-		PreparedStatement pstmt = null;
-		String sql = prop.getProperty("deleteProduct");
-		
-		try {
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, pCode);
-			
-			result = pstmt.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(pstmt);
-		}
-		return result;
-	}
-	
-	/* [제품관리 - 상품등록]
-	 * 상품 등록
-	 * 작성자 김지애
-	 */
-	public int insertProduct(Connection conn, Product p) {
-		int result = 0;
-		
-		PreparedStatement pstmt = null;
-		
-		String sql = prop.getProperty("insertProduct");
-		
-		try {
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, p.getpName());
-			pstmt.setString(2, p.getPublishMonth2());
-			pstmt.setString(3, p.getPublisher());
-			pstmt.setInt(4, p.getCategoryNo());
-			pstmt.setString(5, p.getpCode());
-			pstmt.setInt(6, p.getPrice());
-			pstmt.setInt(7, p.getpStock());
-			pstmt.setInt(8, p.getDeliFee());
-			pstmt.setInt(9, p.getPoint());
-			
-			result = pstmt.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(pstmt);
-		}
-		return result;
-	}
-
-	/* [제품관리 - 상품등록]
-	 * 상품 등록 : 첨부파일 3개
-	 * 작성자 김지애
-	 */
-	public int insertAttachment(Connection conn, Attachment at) {
-		int result = 0;
-		
-		PreparedStatement pstmt = null;
-		
-		String sql = prop.getProperty("insertAttachment");
-		
-		try {
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, at.getOriginName());
-			pstmt.setString(2, at.getChangeName());
-			pstmt.setString(3, at.getFilePath());
-			
-			result = pstmt.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(pstmt);
-		}
-		return result;
-	}
-
 	/* [제품관리 - 상품등록]
 	 * 상품 수정
 	 * 작성자 김지애
@@ -234,6 +242,31 @@ public class AdminProductDao {
 		}
 		return result;
 	}
+	
+	/* [제품관리 - 상품조회]
+	 * 상품전체조회 페이지 : 삭제버튼
+	 * 작성자 김지애
+	 */
+	public int deleteProduct(Connection conn, String pCode) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("deleteProduct");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, pCode);
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}
+
+	
+	
 
 
 	

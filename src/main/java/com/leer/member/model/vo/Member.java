@@ -19,8 +19,15 @@ public class Member {
 	private Date enrollDate;
 	private String admin;
 	private String profileLink;
+	private String image_url;
+	private String p_name;
+	private int price;
+	private Date or_date;
+	private String p_code;
+	
 	private Date startDate; // subscribe테이블
 	private Date endDate; // subscribe테이블
+	private String orNo; // order테이블
 	
 	public Member() {}
 	
@@ -39,14 +46,153 @@ public class Member {
 		this.email = email;
 		this.address = address;
 		this.categoryNo = categoryNo;
+	
+
+
+
+
+	public Member(String orNo) {
+		super();
+		this.orNo = orNo;
 	}
+
+
+
+	
+
+
+	public Member(String image_url, String p_name, int price, Date or_date, String p_code) {
+		super();
+		this.image_url = image_url;
+		this.p_name = p_name;
+		this.price = price;
+		this.or_date = or_date;
+		this.p_code = p_code;
+	}
+
+
+
+
+
+	public String getP_code() {
+		return p_code;
+	}
+
+
+
+
+
+	public void setP_code(String p_code) {
+		this.p_code = p_code;
+	}
+
+
+
+
+
+	public Member(String image_url, String p_name, int price, Date or_date) {
+		super();
+		this.image_url = image_url;
+		this.p_name = p_name;
+		this.price = price;
+		this.or_date = or_date;
+	}
+
+
+
+
+
+
+	public String getImage_url() {
+		return image_url;
+	}
+
+
+
+
+
+
+	public void setImage_url(String image_url) {
+		this.image_url = image_url;
+	}
+
+
+
+
+
+
+	public String getP_name() {
+		return p_name;
+	}
+
+
+
+
+
+
+	public void setP_name(String p_name) {
+		this.p_name = p_name;
+	}
+
+
+
+
+
+
+	public int getPrice() {
+		return price;
+	}
+
+
+
+
+
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+
+
+
+
+
+	public Date getOr_date() {
+		return or_date;
+	}
+
+
+
+
+
+
+	public void setOr_date(Date or_date) {
+		this.or_date = or_date;
+	}
+
+
+
+
+
+
+	public Member(int memNo, String orNo) {
+		super();
+		this.memNo = memNo;
+		this.orNo = orNo;
+	}
+
+
+
+
+
+
 
 
 
 
 	public Member(int memNo, String memId, String memPwd, String nickname, String memName, String memBirth,
 			String phone, String email, String address, String categoryNo, int point, String memStatus, Date enrollDate,
-			String admin, String profileLink, Date startDate, Date endDate) {
+			String admin, String profileLink, Date startDate, Date endDate, String orNo) {
 		super();
 		this.memNo = memNo;
 		this.memId = memId;
@@ -65,7 +211,10 @@ public class Member {
 		this.profileLink = profileLink;
 		this.startDate = startDate;
 		this.endDate = endDate;
+		this.orNo = orNo;
 	}
+
+
 
 	public Member(int memNo, String memId, String memPwd, String nickname, String memName, String memBirth,
 			String phone, String email, String address, String categoryNo, int point, String memStatus, String admin) {
@@ -108,10 +257,10 @@ public class Member {
 		this.address = address;
 		this.point = point;
 		this.enrollDate = enrollDate;
-	}
-	
+	}	
+
 	public Member(int memNo, String memId, String memName, String phone, String email, String address, int point,
-			Date startDate, Date endDate) {
+			Date startDate, Date endDate, String orNo) {
 		super();
 		this.memNo = memNo;
 		this.memId = memId;
@@ -122,6 +271,7 @@ public class Member {
 		this.point = point;
 		this.startDate = startDate;
 		this.endDate = endDate;
+		this.orNo = orNo;
 	}
 
 	public int getMemNo() {
@@ -260,13 +410,21 @@ public class Member {
 		this.endDate = endDate;
 	}
 
+	public String getOrNo() {
+		return orNo;
+	}
+
+	public void setOrNo(String orNo) {
+		this.orNo = orNo;
+	}
+
 	@Override
 	public String toString() {
 		return "Member [memNo=" + memNo + ", memId=" + memId + ", memPwd=" + memPwd + ", nickname=" + nickname
 				+ ", memName=" + memName + ", memBirth=" + memBirth + ", phone=" + phone + ", email=" + email
 				+ ", address=" + address + ", categoryNo=" + categoryNo + ", point=" + point + ", memStatus="
 				+ memStatus + ", enrollDate=" + enrollDate + ", admin=" + admin + ", profileLink=" + profileLink
-				+ ", startDate=" + startDate + ", endDate=" + endDate + "]";
+				+ ", startDate=" + startDate + ", endDate=" + endDate + ", orNo=" + orNo + "]";
 	}
 
 }

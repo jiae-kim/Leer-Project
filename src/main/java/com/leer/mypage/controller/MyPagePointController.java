@@ -1,6 +1,7 @@
 package com.leer.mypage.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,6 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import com.leer.mypage.model.service.MypageService;
+import com.leer.mypage.model.vo.Point;
 
 /**
  * Servlet implementation class MyPagePointController
@@ -31,8 +35,21 @@ public class MyPagePointController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		
-		RequestDispatcher view = request.getRequestDispatcher("views/mypage/mypage_point.jsp");
-		view.forward(request, response);
+		int memNo = Integer.parseInt(request.getParameter("memNo"));
+		
+
+		
+		if(session.getAttribute("loginUser") == null) {
+			response.sendRedirect(request.getContextPath());
+		}else {
+			
+			ArrayList<Point> list  = new MypageService().PointList(memNo);
+			request.setAttribute("list", list);
+			RequestDispatcher view = request.getRequestDispatcher("views/mypage/mypage_point.jsp");
+			view.forward(request, response);
+		}	
+		
+		
 	}
 
 	/**

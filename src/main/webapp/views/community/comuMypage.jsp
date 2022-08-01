@@ -58,13 +58,25 @@
 											</div>
 										</li>
 
-										<li class="myBoard"><span class=""><strong
-												class=""><a href="">내가 쓴 글</a></strong></span> <a href="" class="">49</a><span>개</span>
+										<li class="myBoard">
+										
+										<span>
+										<strong>내가 쓴 글</strong>
+										</span> 
+										<a href="<%= contextPath %>/myBoard.li" class="">222</a>
+										<span>개</span>
+										
 										</li>
-
-										<li class="myComment"><span class=""><strong
-												class=""><a href="">내가 좋아요 한 글</a></strong></span> <a href=""
-											class="">49</a><span>개</span></li>
+										
+										<li class="myComment">
+										
+										<span class="">
+										<strong>내가 좋아요 한 글</strong>
+										</span>
+										<a href="<%= contextPath %>/myLike.li">>49</a>
+										<span>개</span>
+										
+										</li>
 									</ul>
 								</div>
 							</div>

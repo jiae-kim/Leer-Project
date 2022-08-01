@@ -1,26 +1,28 @@
-package com.leer.mypage.controller;
+package com.leer.product.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+
+import com.leer.common.model.vo.Category;
+import com.leer.product.model.service.AdminProductService;
 
 /**
- * Servlet implementation class MyPageRefundController
+ * Servlet implementation class AdminProductEnrollFormController
  */
-@WebServlet("/refund.me")
-public class MyPageRefundController extends HttpServlet {
+@WebServlet("/adProEnrollForm.do")
+public class AdminProductEnrollFormController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MyPageRefundController() {
+    public AdminProductEnrollFormController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,13 +31,11 @@ public class MyPageRefundController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
+		// 상품등록 페이지 요청
+		ArrayList<Category> list = new AdminProductService().selectCategoryList();
+		request.setAttribute("list", list);
 		
-		int memNo = Integer.parseInt(request.getParameter("memNo"));
-		String p_code = request.getParameter("p_code");
-		
-		RequestDispatcher view = request.getRequestDispatcher("views/mypage/mypage_refund.jsp");
-		view.forward(request, response);
+		request.getRequestDispatcher("views/admin_main/product/adminProductEnroll.jsp").forward(request, response);
 	}
 
 	/**

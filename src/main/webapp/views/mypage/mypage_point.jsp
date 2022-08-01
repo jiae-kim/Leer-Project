@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.leer.mypage.model.vo.Point" %>
+<% ArrayList<Point> list = (ArrayList<Point>)request.getAttribute("list"); %>
+	
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -147,93 +149,41 @@
                             <br>
                             <h3>현재 포인트</h3>
                             <br>
-                            <p>ㅁㅁㅁ 님의 포인트 : ~ 원</p>
+                            <p><%=loginUser.getMemName() %>님의 포인트 : <%=loginUser.getPoint() %> 원</p>
                            
                             <br><br><hr><br>
 
                             <h4> 포인트 적립 내역</h4>
 
                             <br>
-                            <p id="pointlist"> 최근 10개만 노출됩니다</p>
+                            <p id="pointlist"> </p>
                             <form action="" id="pointTable">
 
                                 <table border="1px">
                                     <tr>
                                         <th width="100px">번호</th>
                                         <th width="250px">포인트 적립 사유</th>
-                                        <th width="170px">포인트 적립</th>
+                                        <th width="170px">포인트 적립/차감</th>
                                         <th width="170px">포인트 적립일</th>
                                     </tr>
-
-                                    <tr>
-                                        <td height="30px"></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-
-                                    <tr>
-                                        <td height="30px"></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-
-                                    <tr>
-                                        <td height="30px"></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-
-                                    <tr>
-                                        <td height="30px"></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-
-                                    <tr>
-                                        <td height="30px"></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-
-                                    <tr>
-                                        <td height="30px"></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                                                        
-                                    <tr>
-                                        <td height="30px"></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                                                        
-                                    <tr>
-                                        <td height="30px"></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                                                        
-                                    <tr>
-                                        <td height="30px"></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                                                        
-                                    <tr>
-                                        <td height="30px"></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
+									
+									
+								<% if(list.isEmpty()) { %>
+				                <!--case1. 내역이 없을경우-->
+				                <tr>
+				                    <td colspan="4">조회된 내역이 없습니다.</td>
+				                </tr>
+								<% }else { %>
+				                	<!--case2. 게시글이 있을경우-->
+				                	<% for(Point p : list){ %>
+					                <tr>
+					                    <td><%= p.getPointNo() %></td>
+					                    <td><%= p.getHistory() %></td>
+					                    <td><%= p.getPoint() %></td>
+					                    <td><%= p.getDate() %></td>
+					                </tr>
+				                	<% } %>
+								<% } %>
 
                                 </table>
 

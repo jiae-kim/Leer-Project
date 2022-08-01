@@ -12,7 +12,7 @@ import com.leer.product.model.service.AdminProductService;
 /**
  * Servlet implementation class AdminProductDeleteController
  */
-@WebServlet("/AdminProductDeleteController")
+@WebServlet("/adProDelete.do")
 public class AdminProductDeleteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -28,7 +28,9 @@ public class AdminProductDeleteController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// PRODUCT 테이블에 pno 없어서 pcode로 넘김
+		// 상품전체조회 페이지에서 상품 삭제하기
+		
+		// PRODUCT 테이블에 pNo 없어서 상품코드로 넘김
 		String pCode = request.getParameter("pc");
 		int result = new AdminProductService().deleteProduct(pCode);
 		

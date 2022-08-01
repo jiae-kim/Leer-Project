@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <properties>
 
-	<entry key="">
-		3. 적립 포인트
+	<entry key="PointList">
 		SELECT 
 			 POINT_NO
 			,POINT

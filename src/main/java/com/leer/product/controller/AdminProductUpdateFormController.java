@@ -32,7 +32,7 @@ public class AdminProductUpdateFormController extends HttpServlet {
 		// 상품전체조회 페이지에서 수정버튼 클릭 시 수정페이지 요청 
 		
 		// PRODUCT 테이블에는 pNo이 없기 때문에 상품코드를 넘기자
-		String pCode = request.getParameter("pcode");
+		String pCode = request.getParameter("pc");
 		Product p = new AdminProductService().selectProduct(pCode);
 		
 		request.setAttribute("product", p);

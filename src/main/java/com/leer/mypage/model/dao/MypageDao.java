@@ -11,7 +11,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Properties;
 
+import com.leer.member.model.vo.Member;
 import com.leer.mypage.model.vo.Cart;
+import com.leer.mypage.model.vo.Point;
 
 public class MypageDao {
 	
@@ -110,6 +112,125 @@ public class MypageDao {
 			close(pstmt);
 		}
 		return result;
+		
+	}
+	
+	public ArrayList<Member> selectOrderDev(Connection conn,int memNo){
+		
+		ArrayList<Member> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectOrderDev");
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, memNo);
+			rset=pstmt.executeQuery();
+			
+			while(rset.next()) {
+				list.add(new Member(rset.getString("orNo")));
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
+	}
+	
+	
+	
+	public ArrayList<Member> selectOrderDevDetail(Connection conn,int memNo){
+		ArrayList<Member> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectOrderDevDetail");
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, memNo);
+			rset= pstmt.executeQuery();
+		
+			
+			while(rset.next()) {
+				list.add(new Member( 
+								   rset.getString("image_url"),
+								   rset.getString("p_name"),
+								   rset.getInt("price"),
+								   rset.getDate("or_date"),
+								   rset.getString("p_code")
+									));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
+	}
+	
+
+	public ArrayList<Point> PointList(Connection conn,int memNo){
+		ArrayList<Point> list = new ArrayList<>();
+		PreparedStatement pstmt=null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("PointList");
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1,memNo);
+			rset=pstmt.executeQuery();
+			
+			while(rset.next()) {
+				list.add(new Point(
+							rset.getInt("pointNo"),
+							rset.getInt("point"),
+							rset.getDate("date"),
+							rset.getString("history")));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
+	}
+	
+	public ArrayList<Member> OrderCancleView(Connection conn, int memNo){
+		
+		ArrayList<Member> list = new ArrayList<>();
+		PreparedStatement pstmt=null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("OrderCancleView");
+		String yn="N";
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1,memNo);
+			pstmt.setString(2,yn);
+			rset=pstmt.executeQuery();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		
+		
+		return list;
 		
 	}
 

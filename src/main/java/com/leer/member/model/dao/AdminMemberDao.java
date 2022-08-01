@@ -27,7 +27,7 @@ public class AdminMemberDao {
 		}
 	}
 		
-	// 관리자 회원조회 Dao
+	// 관리자 회원리스트 조회
 	// 작성자 김은지
 	public ArrayList<Member> selectMemberList(Connection conn, PageInfo pi){
 		ArrayList<Member> list = new ArrayList<>();
@@ -158,7 +158,8 @@ public class AdminMemberDao {
 									rset.getString("address"),
 									rset.getInt("point"),
 									rset.getDate("start_date"),
-									rset.getDate("end_date")));
+									rset.getDate("end_date"),
+									rset.getString("or_no")));
 				
 			}
 		} catch (SQLException e) {
@@ -185,7 +186,7 @@ public class AdminMemberDao {
 			rset = pstmt.executeQuery();
 			
 			if(rset.next()) {
-				listCount = rset.getInt("RNUM");
+				listCount = rset.getInt("COUNT");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

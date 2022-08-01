@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.util.ArrayList;
 
 import com.leer.common.model.vo.Attachment;
+import com.leer.common.model.vo.Category;
 import com.leer.common.model.vo.PageInfo;
 import com.leer.product.model.dao.AdminProductDao;
 import com.leer.product.model.vo.Inquiry;
@@ -37,6 +38,36 @@ public class AdminProductService {
 		close(conn);
 		return listCount;
 	}
+	
+	/* [제품관리 - 상품등록]
+	 * 상품 등록 페이지 요청
+	 * 작성자 김지애
+	 */
+	public ArrayList<Category> selectCategoryList() {
+		Connection conn = getConnection();
+		ArrayList<Category> list = new AdminProductDao().selectCategoryList(conn);
+		close(conn);
+		return list;
+	}
+	
+	/* [제품관리 - 상품등록]
+	 * 상품 등록 (insert)
+	 * 작성자 김지애
+	 */
+	public int insertProduct(Product p) {
+		Connection conn = getConnection();
+		
+		int result1 = new AdminProductDao().insertProduct(conn, p);
+		
+		
+		
+		if(result1 > 0 ) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		return result1;
+	}
 
 	/* [제품관리 - 상품등록]
 	 * 수정버튼 클릭 시 수정페이지 요청
@@ -48,47 +79,6 @@ public class AdminProductService {
 		close(conn);
 		return p;
 	}
-	
-	/* [제품관리 - 상품등록]
-	 * 삭제버튼 
-	 * 작성자 김지애
-	 */
-	public int deleteProduct(String pCode) {
-		Connection conn = getConnection();
-		int result = new AdminProductDao().deleteProduct(conn, pCode);
-		
-		if(result > 0) {
-			commit(conn);
-		}else {
-			rollback(conn);
-		}
-		close(conn);
-		return result;
-	}
-	
-	/* [제품관리 - 상품등록]
-	 * 상품 등록 
-	 * 작성자 김지애
-	 */
-	public int insertProduct(Product p, Attachment at) {
-		Connection conn = getConnection();
-		
-		int result1 = new AdminProductDao().insertProduct(conn, p);
-		
-		int result2 = 1;
-		
-		if(at != null) {
-			result2 = new AdminProductDao().insertAttachment(conn, at);
-		}
-		
-		if(result1 > 0 && result2 > 0) {
-			commit(conn);
-		}else {
-			rollback(conn);
-		}
-		return result1 * result2;
-	}
-
 
 	/* [제품관리 - 상품등록]
 	 * 상품 수정 
@@ -107,6 +97,24 @@ public class AdminProductService {
 		return result;
 	}
 	
+	/* [제품관리 - 상품등록]
+	 * 삭제버튼 
+	 * 작성자 김지애
+	 */
+	public int deleteProduct(String pCode) {
+		Connection conn = getConnection();
+		int result = new AdminProductDao().deleteProduct(conn, pCode);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		return result;
+	}
+
+
 	
 	
 }
