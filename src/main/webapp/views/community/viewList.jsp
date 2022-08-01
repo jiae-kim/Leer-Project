@@ -4,7 +4,6 @@
 <%
  /*  PageInfo pi = (PageInfo)request.getAttribute("pi"); */
   ArrayList<ComuBoard> list = (ArrayList<ComuBoard>)request.getAttribute("list");
-  Member loginUser = (Member)session.getAttribute("loginUser");
  /*  int currentPage = pi.getCurrentPage();
   int startPage = pi.getStartPage();
   int endPage = pi.getEndPage();
@@ -61,7 +60,7 @@
 				<div class="col-lg-6 col-md-6 col-sm-6">
 					<div class="blog__item"> 
 						<div class="blog__item__text" align="left">
-							<span><%= c.getComuNo() %></span>
+							<span style="display:none"><%= c.getComuNo() %></span>
 							<h5 style="marin-bottom: -10px;">
 								<span style="font-weight:bold"><%= c.getTitle() %></span>
 							</h5>
@@ -87,7 +86,10 @@
               })
               
            })
-           
+           $(function(){
+        	   $(".hashtag").split(',');
+        	   
+           })
         </script>
 			<%-- <div class="col-lg-12">
 				<div class="product__pagination blog__pagination">
@@ -113,6 +115,9 @@
 	 <%@ include file="../community/comuMypage.jsp" %>
 	 <%@ include file="../common/footer.jsp" %>
 	 
+	 <!-- 댓글수 구하는 구문 찾아보기  -->
+	 <!-- 좋아요수 구하는 구문 -->
+	<!-- 태그 자르기 각 태그별 href이동방법 -->
 	
 </body>
 </html>

@@ -203,6 +203,8 @@ li {
 	cursor: pointer;
 }
 </style>
+
+
 </head>
 <body>
 
@@ -233,7 +235,7 @@ li {
 				<div class="detailHead">
 					<div class="detailTitle">
 						<div class="boardList">
-							<a href="#"><%= c.getCategoryNo() %> 목록으로 ></a>
+							<a href="<%=contextPath%>/comu.bo?cpage=1""><%= c.getCategoryNo() %> 목록으로 ></a>
 						</div>
 						<div style="height: 30px;">
 							<input type="hidden" name="no" value="<%= c.getComuNo() %>">
@@ -268,12 +270,18 @@ li {
 					</div>
 					<p> <%= c.getContent() %></p>
 					
-					<a class="hashtag2" href="" style="display: inline"><%= c.getTag() %></a> 
+					<a class="hashtag2" href="" style="display: inline" id="tag"><%= c.getTag() %></a> 
 				</div>
+				<script>
+				
+					var tag = document.getElementById(tag).split(',');
+					document.getElementById(tag).innerHTML;
+				</script>
+				
 				<div class="boardTag">
 					<div class="likeComment">
-						<i class="fa fa-heart-o fa-2x" id="iconH"></i> <span>123</span> <i
-							class="fa fa-comment-o fa-2x" id="iconC"></i> <span>123</span>
+						<i class="fa-solid fa-heart" id="iconH"></i> <span>123</span>
+					    <i class="fa-solid fa-comment" id="iconC"></i> <span>123</span>
 					</div>
 				</div>
 				<div class="detailComment">
@@ -302,7 +310,7 @@ li {
 				</div>
 				
 				
-			<%-- 	<%if(loginUser == null){ //로그인 안되어있을 경우%>
+			<%if(loginUser == null){ //로그인 안되어있을 경우%>
 				<div class="comment-area">
 					<div class="writeComment">
 						<textarea rows="1" id="replyContent" placeholder="로그인 후 작성가능합니다."
@@ -310,7 +318,7 @@ li {
 						<button disabled>등록</button>
 					</div>
 				</div>
-				<% }else{ %> --%>
+				<% }else{ %> 
 				<div class="comment-area">
 					<div class="writeComment">
 						<strong class="commentWriter">로그인한 회원 닉네임</strong>
@@ -319,7 +327,7 @@ li {
 						<button onclick="insertReply()">등록</button>
 					</div>
 				</div>
-				<%-- <% } %> --%>
+				<% } %>
 			</div>
 		</div>
 	</div>
