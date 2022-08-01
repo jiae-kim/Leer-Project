@@ -144,12 +144,19 @@
                                                 <td colspan="2"><textarea id="summernote" name="editordata" rows="10" required
                                                     style="resize:none" placeholder="">기존의 내용(수정가능)</textarea></td>
                                             </tr>
+                                            <tr>
+                                            	<th>첨부파일</th>
+                                            </tr>
+                                            <tr>
+                                            	<td><input type="file"></td>
+                                            </tr>
                                         </table>
 
                                         <div align="center" class="boardBtn bbb1">
                                             <button type="submit">작성하기</button>
                                             <button type="reset">취소하기</button>
                                         </div>
+                                        <br>
                                     </form>
                                 </div>
                             </div>
@@ -178,7 +185,6 @@
 			    ['style', ['bold']],
 			    ['color', ['forecolor']],
 			    ['para', ['ul', 'ol', 'paragraph']],
-			    ['insert',['picture']],
 			  ],
 			fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New','맑은 고딕','궁서','굴림체','굴림','돋움체','바탕체'],
 			fontSizes: ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50','72']

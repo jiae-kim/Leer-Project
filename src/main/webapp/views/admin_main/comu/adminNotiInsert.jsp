@@ -144,12 +144,19 @@
                                                 <td colspan="2"><textarea id="summernote" name="editordata" rows="10" required
                                                     style="resize:none"></textarea></td>
                                             </tr>
+                                            <tr>
+                                            	<th>첨부파일</th>
+                                            </tr>
+                                            <tr>
+                                            	<td><input type="file"></td>
+                                            </tr>
                                         </table>
-
+                                        
                                         <div align="center" class="boardBtn bbb1">
                                             <button type="submit">작성하기</button>
                                             <button type="reset">취소하기</button>
                                         </div>
+                                        <br>
                                     </form>
                                 </div>
                             </div>

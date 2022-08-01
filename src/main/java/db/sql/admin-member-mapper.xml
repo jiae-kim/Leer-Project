@@ -41,4 +41,26 @@
 		  FROM MEMBER
 		 WHERE ADMIN = 'N'
 	</entry>
+	<entry key="selectLongMemberList">
+	    SELECT *
+	      FROM (
+	           SELECT ROWNUM RNUM, A.*
+	             FROM (SELECT 
+	                          M.MEM_NO
+	                        , MEM_ID
+	                        , MEM_NAME
+	                        , EMAIL
+	                        , M.PHONE
+	                        , ADDRESS
+	                        , START_DATE
+	                        , END_DATE
+	                        , POINT
+	                     FROM MEMBER M
+	                     JOIN SUBSCRIBE S ON(M.MEM_NO = S.MEM_NO)
+	                     JOIN "ORDER" O ON(M.MEM_NO = O.MEM_NO)
+	                    WHERE END_DATE IS NOT NULL
+	                 ) A
+	           )
+	     WHERE RNUM BETWEEN 0 AND 1
+	</entry>
 </properties>
