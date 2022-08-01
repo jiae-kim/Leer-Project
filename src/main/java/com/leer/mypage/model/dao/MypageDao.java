@@ -227,11 +227,42 @@ public class MypageDao {
 			close(rset);
 			close(pstmt);
 		}
-		
-		
-		
 		return list;
+	}
+	
+	public Member RefundController(Connection conn,int memNo,String p_code,String orNo){
 		
+		Member m = null;
+		PreparedStatement pstmt=null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("RefundController");
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, memNo);
+			pstmt.setString(2, orNo);
+			pstmt.setString(3, p_code);
+			rset=pstmt.executeQuery();
+			
+			if(rset.next()) {
+				m = new Member(
+							rset.getString("p_name"),
+							rset.getDate("or_date"),
+							rset.getInt("price"),
+							rset.getString("image_url"),
+							rset.getString("or_no")
+						);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return m;
 	}
 
 }
