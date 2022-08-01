@@ -14,11 +14,63 @@ public class Review {
 	private Date enrollDate;
 	private Date mofifyDate;
 	private String writeYN;
+	private int price;
+	private String image_url;
+	private Date or_date;
 	
 	
 	public Review() {}
 	
 	
+	public Review(String pName, int price, String image_url, Date or_date) {
+		super();
+		this.pName = pName;
+		this.price = price;
+		this.image_url = image_url;
+		this.or_date = or_date;
+	}
+
+
+	public String getWriteYN() {
+		return writeYN;
+	}
+
+
+	public void setWriteYN(String writeYN) {
+		this.writeYN = writeYN;
+	}
+
+
+	public int getPrice() {
+		return price;
+	}
+
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+
+	public String getImage_url() {
+		return image_url;
+	}
+
+
+	public void setImage_url(String image_url) {
+		this.image_url = image_url;
+	}
+
+
+	public Date getOr_date() {
+		return or_date;
+	}
+
+
+	public void setOr_date(Date or_date) {
+		this.or_date = or_date;
+	}
+
+
 	public Review(int reviewNo, int memNo, String pCode, String memId, String pName, int reviewScope,
 			String reviewContent, Date enrollDate, Date mofifyDate, String writeYN) {
 		super();

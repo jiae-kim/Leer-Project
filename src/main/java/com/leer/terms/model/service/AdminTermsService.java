@@ -32,5 +32,14 @@ public class AdminTermsService {
 		close(conn);
 		return listCount;
 	}
+	
+	// 관리자 이용약관 상세조회
+	// 작성자 김은지
+	public Terms termsDetailList(int trmNo) {
+		Connection conn = getConnection();
+		Terms t = new AdminTermsDao().termsDetailList(conn, trmNo);
+		close(conn);
+		return t;
+	}
 
 }

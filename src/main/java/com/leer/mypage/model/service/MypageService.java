@@ -6,6 +6,7 @@ import static com.leer.common.JDBCTemplate.getConnection;
 import java.sql.Connection;
 import java.util.ArrayList;
 
+import com.leer.member.model.service.MemberService;
 import com.leer.member.model.vo.Member;
 import com.leer.mypage.model.dao.MypageDao;
 import com.leer.mypage.model.vo.Cart;
@@ -83,6 +84,16 @@ public class MypageService {
 		
 		close(conn);
 		return list;
+	}
+	
+	public Member RefundController(int memNo,String p_code,String orNo){
+		
+		Connection conn = getConnection();
+		Member m = new MypageDao().RefundController(conn,memNo,p_code,orNo);
+		
+		close(conn);
+		return m;
+		
 	}
 
 }

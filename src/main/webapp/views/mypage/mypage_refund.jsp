@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="com.leer.member.model.vo.Member" %>
+<%
+	Member m = (Member)session.getAttribute("m");
+%>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -196,13 +199,13 @@
                                    <table>
                                         <tr height="100px">
                                              <td width="200px" rowspan="2"><img class="product__details__pic__item"
-                                                  src=http://www.walbox.co.kr/upfile/item/111_1618565835.jpg alt=""></td>
+                                                  src=<%=m.getImage_url() %> alt=""></td>
                                              <td width="70px">주문일시:</td>
-                                             <td width="200px">xxxx-xx-xx</td>
+                                             <td width="200px"><%=m.getOr_date() %></td>
                                         </tr>
                                         <tr height="100px">
                                              <td>상품가격:</td>
-                                             <td>~~~~원</td>
+                                             <td><%=m.getPrice() %></td>
                                         </tr>
                                    </table>
                                    <div style="border-bottom: 1px solid #303030;"></div>

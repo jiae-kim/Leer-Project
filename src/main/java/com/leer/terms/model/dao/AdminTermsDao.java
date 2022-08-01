@@ -93,6 +93,37 @@ public class AdminTermsDao {
 		}
 		return listCount;		
 	}
+	
+	// 관리자 이용약관상세페이지
+	// 작성자 김은지
+	public Terms termsDetailList(Connection conn, int trmNo) {
+		Terms t = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("termsDetailList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, trmNo);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				t = new Terms(rset.getString("trm_class"),
+							  rset.getString("trm_title"),
+							  rset.getString("content"),
+							  rset.getString("trm_remarks"),
+							  rset.getString("mem_id")
+						);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return t;
+	}
 
 }
 

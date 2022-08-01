@@ -1,44 +1,42 @@
-package com.leer.review.controller;
+package com.leer.terms.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import com.leer.member.model.vo.Member;
-import com.leer.mypage.model.service.MypageService;
-import com.leer.review.model.service.ReviewService;
-import com.leer.review.model.vo.Review;
+import com.leer.terms.model.service.AdminTermsService;
+import com.leer.terms.model.vo.Terms;
 
 /**
- * Servlet implementation class ReviewWriteController
+ * Servlet implementation class AdminTermsDetailController
  */
-@WebServlet("/review.me")
-public class ReviewWriteController extends HttpServlet {
+@WebServlet("/adTListDetail.do")
+public class AdminTermsDetailController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ReviewWriteController() {
+    public AdminTermsDetailController() {
         super();
         // TODO Auto-generated constructor stub
     }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * 관리자 이용약관 상세조회페이지
+	 * 작성자 김은지
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
+		int trmNo = Integer.parseInt(request.getParameter("no"));
 		
-		RequestDispatcher view = request.getRequestDispatcher("views/review/review_write.jsp");
-		view.forward(request, response);
+		Terms t = new AdminTermsService().termsDetailList(trmNo);
+		
+		request.setAttribute("terms", t);
+		request.getRequestDispatcher("").forward(request, response);
 	}
 
 	/**

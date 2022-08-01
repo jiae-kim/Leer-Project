@@ -4,12 +4,14 @@
 <% 
 	PageInfo pi = (PageInfo)request.getAttribute("pi");
 	ArrayList<Member> list = (ArrayList<Member>)request.getAttribute("list");
-
+	
+	/*
 	int currentPage = pi.getCurrentPage();
 	int startPage = pi.getStartPage();
 	int endPage = pi.getEndPage();
 	int maxPage = pi.getMaxPage();
-%>    
+	*/
+  %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -90,6 +92,45 @@
                                         <th scope="col">포인트</th>
                                     </tr>
                                 </thead>
+  						<!--//--------------- 스크립트 ----------------->                              
+                                <script>
+									function changeList(){
+										$.ajax({
+											url:"<%=request.getContextPath()%>/adMemList.do",
+											data:{align:$("#selectBox option:onclick").val()},
+											success:function(list){
+												console.log(list);
+												
+												<%--
+												let value = "";
+												for(let i=0; i<list.length; i++){
+													value+=
+													'<tr onclick="location.href="' + '<%=request.getContextPath()%>/adMemDetail.do?no=' +  +
+														'<th>' +
+															'<label class="customcheckbox">' +
+																'<span class="checkmark"></span>' +
+															'</label>' +
+														'</th>' +	
+														'<td>' + list[i].memNo + '</td>' +
+														'<td>' + '<%=m.getMemId()%>' + '</td>' +
+														'<td>' + '<%=m.getMemName()%>' + '</td>' +
+														'<td>' + '<%=m.getEmail()%>' + '</td>' +
+														'<td>' + '<%=m.getPhone()%>' + '</td>' +
+														'<td>' + '<%=m.getAddress()%>' + '</td>' +
+														'<td>' + '<%=m.getNickname()%>' + '</td>' +
+														'<td>' + '<%=m.getEnrollDate()%>' + '</td>' +
+														'<td>' + '<%=m.getPoint()%>' + '</td>' +
+													'</tr>'	
+												}
+												$("#custom").html(value);	
+												--%>
+											}, error:function(){
+												console.log("조회실패");
+											}
+										});												
+									}
+								</script>
+						<!----------------- 스크립트 ---------------//-->		
                                 <tbody class="custom">
                                 	<% for(Member m : list) { %>
 	                                    <tr onclick="location.href='<%=request.getContextPath()%>/adMemDetail.do?no=<%=m.getMemNo()%>';">
@@ -115,7 +156,22 @@
                                         <th colspan="10">
                                             <br>
                                             <div class="btn-group paging-area" role="group" aria-label="Basic example">
-                                            
+                                            	
+                                            	
+                                            	<button type="button" class="btn btn-outline-secondary"><</button>
+                                                <button type="button" class="btn btn-outline-secondary">1</button>
+                                                <button type="button" class="btn btn-outline-secondary">2</button>
+                                                <button type="button" class="btn btn-outline-secondary">3</button>
+                                                <button type="button" class="btn btn-outline-secondary">4</button>
+                                                <button type="button" class="btn btn-outline-secondary">5</button>
+                                                <button type="button" class="btn btn-outline-secondary">6</button>
+                                                <button type="button" class="btn btn-outline-secondary">7</button>
+                                                <button type="button" class="btn btn-outline-secondary">8</button>
+                                                <button type="button" class="btn btn-outline-secondary">9</button>
+                                                <button type="button" class="btn btn-outline-secondary">10</button>
+                                                <button type="button" class="btn btn-outline-secondary">></button>
+                                                
+                                            	<%--  
                                             	<% if(currentPage != 1) { %>
 	                                                <button type="button" onclick="location.href='<%=request.getContextPath()%>/adMemList.do?cpage=<%=currentPage-1%>';"  
 	                                                		class="btn btn-outline-secondary">&lt;</button>
@@ -132,7 +188,9 @@
 	                                            <% if(currentPage != maxPage) { %>
 	                                            	<button type="button" onclick="location.href='<%=request.getContextPath()%>/adMemList.do?cpage=<%=currentPage+1%>';" 
 	                                                		    class="btn btn-outline-secondary">&gt;</button>
-	                                            <% } %>	                   
+	                                            <% } %>	    
+	                                            --%>
+	                                                            
                                               </div>
                                         </th>
                                     </tr>
@@ -142,39 +200,11 @@
                 </div>
             </div>
             <!-- ============================================================== -->
-            <!-- End Container fluid  -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer text-center">
                 
             </footer>
-            
-            
-		
-		<!--------- 스크립트 ----------->
-		<!--  -->
-		<script>
-			function changeList(){
-				$.ajax({
-					url:"<%=request.getContextPath()%>/adMemList.do",
-					data:{align:$("#selectBox option:onclick").val()},
-					success:function(list){
-						console.log("list");
-						
-						let value = "";
-						for(let i=0; i<list.length; i++){
-							value+=
-							''		
-						}
-												
-					}, error:function(){
-						console.log("조회실패");
-					}
-				});												
-			}
-		</script>
 </body>
 </html>
 
