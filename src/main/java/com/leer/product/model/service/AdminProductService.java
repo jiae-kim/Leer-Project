@@ -54,23 +54,19 @@ public class AdminProductService {
 	 * 상품 등록 (insert)
 	 * 작성자 김지애
 	 */
-	public int insertProduct(Product p, Attachment at) {
+	public int insertProduct(Product p) {
 		Connection conn = getConnection();
 		
 		int result1 = new AdminProductDao().insertProduct(conn, p);
 		
-		int result2 = 1;
 		
-		if(at != null) {
-			result2 = new AdminProductDao().insertAttachment(conn, at);
-		}
 		
-		if(result1 > 0 && result2 > 0) {
+		if(result1 > 0 ) {
 			commit(conn);
 		}else {
 			rollback(conn);
 		}
-		return result1 * result2;
+		return result1;
 	}
 
 	/* [제품관리 - 상품등록]

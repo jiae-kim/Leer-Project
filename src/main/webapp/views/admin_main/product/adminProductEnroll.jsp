@@ -30,19 +30,19 @@
     <!-- Container fluid  -->
     <!-- ============================================================== -->
     <div class="container-fluid">
-    <form action="<%=request.getContextPath()%>/adProEnrollForm.do" method="post" enctype="multipart/form-data">
+    <form action="<%=request.getContextPath()%>/adProInsert.do" method="post" enctype="multipart/form-data">
         <div class="card-body">
             <!-- 상품명 -->
             <div class="form-group row">
                 <label for="fname" class="col-sm-1 control-label col-form-label">상품명</label>
                 <div class="col-sm-2">
-                    <input type="text" class="form-control" id="fname" placeholder="잡지명을 입력하세요" required>
+                    <input type="text" class="form-control" name="pname" id="fname" placeholder="잡지명을 입력하세요" required>
                 </div>
             </div>
             <!-- 출간일 -->
             <div class="form-group row">
                 <label for="fname" class="col-sm-1 control-label col-form-label">출간일</label>
-                <input type="text" class="form-control col-sm-2" id="datepicker-autoclose" placeholder="mm/dd/yyyy" style="margin-left: 10px;">
+                <input type="text" name="publishmonth2" class="form-control col-sm-2" id="datepicker-autoclose" placeholder="mm/dd/yyyy" style="margin-left: 10px;">
                 <div class="input-group-append">
                     <span class="input-group-text"><i class="fa fa-calendar"></i></span>
                 </div>
@@ -51,14 +51,14 @@
             <div class="form-group row">
                 <label for="fname" class="col-sm-1 control-label col-form-label">발행사</label>
                 <div class="col-sm-2">
-                    <input type="text" class="form-control" id="fname" placeholder="발행사를 입력하세요" required>
+                    <input type="text" name="publisher" class="form-control" id="fname" placeholder="발행사를 입력하세요" required>
                 </div>
             </div>
             <!-- 카테고리 -->
             <div class="form-group row">
                 <label class="col-sm-1">카테고리</label>
                 <div class="col-sm-2">
-                    <select class="select2 form-control custom-select" required>
+                    <select class="select2 form-control custom-select" required name="category">
                         <option hidden>카테고리 선택</option>
                         <% for(Category c : list) { %>
                         	<option value="<%=c.getCategoryNo()%>"><%=c.getCategoryName()%></option>
@@ -76,14 +76,14 @@
             <div class="form-group row">
                 <label class="col-sm-1">상품코드</label>
                 <div class="col-sm-2">
-                    <select class="select2 form-control custom-select" required>
+                    <select class="select2 form-control custom-select" name="pcode" required>
                         <option hidden>상품코드 선택</option>
-                        <option value="">FW-</option>
-                        <option value="">LI-</option>
-                        <option value="">CA-</option>
-                        <option value="">TH-</option>
-                        <option value="">SE-</option>
-                        <option value="">ES-</option>
+                        <option>FW-</option>
+                        <option>LI-</option>
+                        <option>CA-</option>
+                        <option>TH-</option>
+                        <option>SE-</option>
+                        <option>ES-</option>
                     </select>
                 </div>
             </div>
@@ -91,14 +91,14 @@
             <div class="form-group row">
                 <label for="fname" class="col-sm-1 control-label col-form-label">판매가</label>
                 <div class="col-sm-2">
-                    <input type="text" class="form-control" id="fname" placeholder="가격을 입력하세요" required>
+                    <input type="text" name="price" class="form-control" id="fname" placeholder="가격을 입력하세요" required>
                 </div>
             </div>
             <!-- 재고 -->
             <div class="form-group row">
                 <label for="fname" class="col-sm-1 control-label col-form-label">재고</label>
                 <div class="col-sm-2">
-                    <input type="text" class="form-control" id="fname" placeholder="입고수량을 입력하세요" required>
+                    <input type="text"  name="stock" class="form-control" id="fname" placeholder="입고수량을 입력하세요" required>
                 </div>
             </div>
             <!-- 표지 이미지 -->
@@ -106,7 +106,7 @@
                 <label class="col-md-1">표지 이미지</label>
                 <div class="col-sm-3">
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="validatedCustomFile">
+                        <input type="file" class="custom-file-input" id="validatedCustomFile" name="url1">
                         <label class="custom-file-label" for="validatedCustomFile">표지 이미지를 선택하세요</label>
                         <!-- <div class="invalid-feedback">Example invalid custom file feedback</div> -->
                     </div>
@@ -140,7 +140,7 @@
                 <label class="col-md-1">상세 이미지</label>
                 <div class="col-sm-3">
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="validatedCustomFile">
+                        <input type="file" class="custom-file-input" id="validatedCustomFile" name="url2">
                         <label class="custom-file-label" for="validatedCustomFile">상세 이미지를 선택하세요</label>
                         <!-- <div class="invalid-feedback">Example invalid custom file feedback</div> -->
                     </div>
@@ -174,7 +174,7 @@
                 <label class="col-md-1">부록 이미지</label>
                 <div class="col-sm-3">
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="validatedCustomFile">
+                        <input type="file" class="custom-file-input" id="validatedCustomFile" name="url3">
                         <label class="custom-file-label" for="validatedCustomFile">부록 이미지를 선택하세요</label>
                         <!-- <div class="invalid-feedback">Example invalid custom file feedback</div> -->
                     </div>
@@ -207,11 +207,11 @@
             <div class="form-group row">
                 <label class="col-sm-1">배송비</label>
                 <div class="col-sm-2">
-                    <select class="select2 form-control custom-select" required>
+                    <select name="deliFee" class="select2 form-control custom-select" required>
                         <option hidden>금액(원) 선택</option>
-                        <option value="">3000</option>
-                        <option value="">2500</option>
-                        <option value="">무료</option>
+                        <option value="3000">3000</option>
+                        <option value="2500">2500</option>
+                        <option value="0">무료</option>
                     </select>
                 </div>
             </div>
@@ -219,13 +219,13 @@
             <div class="form-group row">
                 <label class="col-sm-1">적립금</label>
                 <div class="col-sm-2">
-                    <select class="select2 form-control custom-select" required>
+                    <select name="point" class="select2 form-control custom-select" required>
                         <option hidden>적립(%) 선택</option>
-                        <option value="">10</option>
-                        <option value="">20</option>
-                        <option value="">30</option>
-                        <option value="">40</option>
-                        <option value="">50</option>
+                        <option value="0.1">10</option>
+                        <option value="0.2">20</option>
+                        <option value="0.3">30</option>
+                        <option value="0.4">40</option>
+                        <option value="0.5">50</option>
                     </select>
                 </div>
             </div>

@@ -64,14 +64,18 @@
      	  , P_STOCK
      	  , DELI_FEE
      	  , POINT
+     	  , IMAGE_URL1
+     	  , IMAGE_URL2
      	  )
      	  VALUES
      	  (
      	  	?
-     	  ,	?
+     	  ,	to_date(?, 'MM/DD/YYYY')
      	  , ?
      	  , ?
-     	  , ? || SEQ_?.NEXTVAL <!-- 시퀀스 앞에 특정 단어가 올때 그 단어의 시퀀스를 가져오게 -->
+     	  , ? || SEQ_pcode.NEXTVAL <!-- 시퀀스 앞에 특정 단어가 올때 그 단어의 시퀀스를 가져오게 -->
+     	  , ?
+     	  , ?
      	  , ?
      	  , ?
      	  , ?
@@ -85,7 +89,7 @@
 		  INTO ATTACHMENT
 		  (
 		    FILE_NO
-		  , REF_CODE
+		  , REF_CODE 
 		  , REF_BNO
 		  , ORIGIN_NAME
 		  , CHANGE_NAME
@@ -94,7 +98,7 @@
 		  VALUES
 		  (
 		      SEQ_FILE.NEXTVAL 
-		    , 'PRODUCT'
+		    , 'PRODUCT' 
 		    , SEQ_PRODUCT.CURRVAL <!-- 현재 참조하는 게시물과 동일한이름 -->
 		    , ? 
 		    , ?

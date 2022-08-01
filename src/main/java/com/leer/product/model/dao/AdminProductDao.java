@@ -132,9 +132,7 @@ public class AdminProductDao {
 	 */
 	public int insertProduct(Connection conn, Product p) {
 		int result = 0;
-		
 		PreparedStatement pstmt = null;
-		
 		String sql = prop.getProperty("insertProduct");
 		
 		try {
@@ -147,7 +145,9 @@ public class AdminProductDao {
 			pstmt.setInt(6, p.getPrice());
 			pstmt.setInt(7, p.getpStock());
 			pstmt.setInt(8, p.getDeliFee());
-			pstmt.setInt(9, p.getPoint());
+			pstmt.setDouble(9, p.getPoint2());
+			pstmt.setString(10, p.getImageUrl1());
+			pstmt.setString(11, p.getImageUrl2());
 			
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
