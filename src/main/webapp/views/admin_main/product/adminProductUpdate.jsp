@@ -26,10 +26,13 @@
 		String publisher = p.getPublisher();
 		int categoryNo = p.getCategoryNo();
 		String pCode = p.getpCode();
-		String price = p.getPrice();
+		int price = p.getPrice();
 		int pStock = p.getpStock();
 		int deliFee = p.getDeliFee();
-		int point = p.getPoint();
+		double point = p.getPoint2();
+		String url1 = p.getImageUrl1();
+		String url2 = p.getImageUrl2();
+		String url3 = p.getUmageUrls();
 	 %>
 	
 	<div class="page-breadcrumb">
@@ -46,19 +49,19 @@
     <!-- Container fluid  -->
     <!-- ============================================================== -->
     <div class="container-fluid">
-    <form action="<%=contextPath %>/adProEnroll.do" method="post" enctype="multipart/form-data">
+    <form action="<%=request.getContextPath()%>/adProUpdate.do" method="post" enctype="multipart/form-data">
         <div class="card-body">
             <!-- 상품명 -->
             <div class="form-group row">
                 <label for="fname" class="col-sm-1 control-label col-form-label">상품명</label>
                 <div class="col-sm-2">
-                    <input type="text" value="<%=pName%>" class="form-control" id="fname" placeholder="잡지명을 입력하세요" required>
+                    <input type="text" name="pName" value="<%=pName%>" class="form-control" id="fname" placeholder="잡지명을 입력하세요" required>
                 </div>
             </div>
             <!-- 출간일 -->
             <div class="form-group row">
                 <label for="fname" class="col-sm-1 control-label col-form-label">출간일</label>
-                <input type="text" value="<%=PublishMonth2%>class="form-control col-sm-2" id="datepicker-autoclose" placeholder="mm/dd/yyyy" style="margin-left: 10px;">
+                <input type="text" name="PublishMonth" value="<%=PublishMonth2%>" class="form-control col-sm-2" id="datepicker-autoclose" placeholder="mm/dd/yyyy" style="margin-left: 10px;">
                 <div class="input-group-append">
                     <span class="input-group-text"><i class="fa fa-calendar"></i></span>
                 </div>
@@ -67,7 +70,7 @@
             <div class="form-group row">
                 <label for="fname" class="col-sm-1 control-label col-form-label">발행사</label>
                 <div class="col-sm-2">
-                    <input type="text" vlaue="<%=Publisher%>class="form-control" id="fname" placeholder="발행사를 입력하세요" required>
+                    <input type="text" name="Publisher" vlaue="<%=Publisher%>" class="form-control" id="fname" placeholder="발행사를 입력하세요" required>
                 </div>
             </div>
             <!-- 카테고리 -->
@@ -77,14 +80,16 @@
                     <select class="select2 form-control custom-select" required>
                         <option hidden>카테고리 선택</option>
                         <% for(Category c : list) { %>
-                        	<option value="<%=c.getCategoryNo()%>"><%=c.getCategoryName()%></option>
+                        	<option name="categoryNo" value="<%=c.getCategoryNo()%>"><%=c.getCategoryName()%></option>
                         <% } %>	
-                        <!-- <option value="">10</option> 	패션/여성 
-                        <option value="">20</option> 	    라이프/인테리어
-                        <option value="">30</option> 	    문화/예술
-                        <option value="">40</option> 	    여행/취미 
-                        <option value="">50</option> 	    시사/경제
-                        <option value="">60</option> 	    교육/과학 -->
+                        <!-- 
+                        <option value="10">패션/여성</option> 	
+                        <option value="20">라이프/인테리어</option> 	    
+                        <option value="30">문화/예술</option> 	    
+                        <option value="40">여행/취미</option> 	   
+                        <option value="50">시사/경제</option> 	    
+                        <option value="60">교육/과학</option> 	    
+                        -->
                     </select>
                 </div>
             </div>
@@ -92,14 +97,14 @@
             <div class="form-group row">
                 <label class="col-sm-1">상품코드</label>
                 <div class="col-sm-2">
-                    <select class="select2 form-control custom-select" required>
+                    <select name="pCode" value="<%=pCode%>" class="select2 form-control custom-select" required>
                         <option hidden>상품코드 선택</option>
-                        <option value="">FW-</option>
-                        <option value="">LI-</option>
-                        <option value="">CA-</option>
-                        <option value="">TH-</option>
-                        <option value="">SE-</option>
-                        <option value="">ES-</option>
+                        <option>FW-</option>
+                        <option>LI-</option>
+                        <option>CA-</option>
+                        <option>TH-</option>
+                        <option>SE-</option>
+                        <option>ES-</option>
                     </select>
                 </div>
             </div>
@@ -107,14 +112,14 @@
             <div class="form-group row">
                 <label for="fname" class="col-sm-1 control-label col-form-label">판매가</label>
                 <div class="col-sm-2">
-                    <input type="text" value="<%=Price%>class="form-control" id="fname" placeholder="가격을 입력하세요" required>
+                    <input type="text" name="price" value="<%=price%>" class="form-control" id="fname" placeholder="가격을 입력하세요" required>
                 </div>
             </div>
             <!-- 재고 -->
             <div class="form-group row">
                 <label for="fname" class="col-sm-1 control-label col-form-label">재고</label>
                 <div class="col-sm-2">
-                    <input type="text" value="<%pStock%>class="form-control" id="fname" placeholder="입고수량을 입력하세요" required>
+                    <input type="text" name="stock" value="<%=pStock%>" class="form-control" id="fname" placeholder="입고수량을 입력하세요" required>
                 </div>
             </div>
             <!-- 표지 이미지 -->
@@ -122,7 +127,7 @@
                 <label class="col-md-1">표지 이미지</label>
                 <div class="col-sm-3">
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="validatedCustomFile">
+                        <input name="" value="" type="file" class="custom-file-input" id="validatedCustomFile">
                         <label class="custom-file-label" for="validatedCustomFile">표지 이미지를 선택하세요</label>
                         <!-- <div class="invalid-feedback">Example invalid custom file feedback</div> -->
                     </div>

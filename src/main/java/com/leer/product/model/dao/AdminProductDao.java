@@ -261,11 +261,23 @@ public class AdminProductDao {
 	public int updateProduct(Connection conn, Product p) {
 		int result = 0;
 		PreparedStatement pstmt = null;
-		String sql = prop.getProperty("selectProduct");
+		String sql = prop.getProperty("updateProduct");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, p.getpCode());
+			pstmt.setString(1, p.getpName());
+			pstmt.setString(2, p.getPublishMonth2());
+			pstmt.setString(3, p.getPublisher());
+			pstmt.setInt(4, p.getCategoryNo());
+			pstmt.setString(5, p.getpCode());
+			pstmt.setInt(6, p.getPrice());
+			pstmt.setInt(7, p.getpStock());
+			pstmt.setInt(8, p.getDeliFee());
+			pstmt.setDouble(9, p.getPoint2());
+			pstmt.setString(10, p.getImageUrl1());
+			pstmt.setString(11, p.getImageUrl2());
+			pstmt.setString(12, p.getImageUrlS());
+			pstmt.setString(13, p.getpCode());
 			
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {

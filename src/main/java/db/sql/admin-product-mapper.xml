@@ -145,8 +145,24 @@
 	 	    BY	FILE_LEVEL ASC
 	 </entry>
 	 
-	 <!-- 상품수정 : update-->             
-	    
+	 <!-- 상품수정 -->             
+	 <entry key="updateProduct">
+	 	UPDATE
+		        PRODUCT
+		   SET  P_NAME = ?
+		     ,  PUBLISH_MONTH = ?
+		     ,  PUBLISHER = ?
+		     ,  CATEGORY_NO = ?
+		     ,  P_CODE = ? || SEQ_PCODE.NEXTVAL
+		     ,  PRICE = ?
+		     ,  P_STOCK = ?
+		     ,  DELI_FEE = ?
+		     ,  POINT = ?
+		     , 	IMAGE_URL1 = ?
+		     , 	IMAGE_URL2 = ?
+		     ,	IMAGE_URLS = ?
+		 WHERE  P_CODE = ? <!-- 수정하고자 하는 상품 -->
+	 </entry>
     
 	 <!-- 상품전체조회 페이지 : 삭제버튼 -->
 	 <entry key="deleteProduct">

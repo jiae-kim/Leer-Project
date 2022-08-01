@@ -62,9 +62,8 @@ public class AdminProductUpdateController extends HttpServlet {
 			p.setPrice(price);
 			p.setpStock(stock);
 			p.setDeliFee(deliFee);
-			p.setPoint2(point);
 		
-			// 첨부파일
+			// 첨부파일 3개
 			if(multiRequest.getOriginalFileName("url1") != null) {
 				p.setImageUrl1("resources/admin_product_upfiles/" + multiRequest.getFilesystemName("url1"));
 			
