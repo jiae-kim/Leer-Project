@@ -160,8 +160,17 @@
 				$.ajax({
 					url:"<%=request.getContextPath()%>/adMemList.do",
 					data:{align:$("#selectBox option:onclick").val()},
-					success:function(){
-						console.log("aaaa");
+					success:function(list){
+						console.log("list");
+						
+						let value = "";
+						for(let i=0; i<list.length; i++){
+							value+=
+							''		
+						}
+												
+					}, error:function(){
+						console.log("조회실패");
 					}
 				});												
 			}

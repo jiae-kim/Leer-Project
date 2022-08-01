@@ -21,12 +21,15 @@ public class Member {
 	private String profileLink;
 	private Date startDate; // subscribe테이블
 	private Date endDate; // subscribe테이블
+	private String orNo; // order테이블
 	
 	public Member() {}
 	
+	
+
 	public Member(int memNo, String memId, String memPwd, String nickname, String memName, String memBirth,
 			String phone, String email, String address, String categoryNo, int point, String memStatus, Date enrollDate,
-			String admin, String profileLink, Date startDate, Date endDate) {
+			String admin, String profileLink, Date startDate, Date endDate, String orNo) {
 		super();
 		this.memNo = memNo;
 		this.memId = memId;
@@ -45,7 +48,10 @@ public class Member {
 		this.profileLink = profileLink;
 		this.startDate = startDate;
 		this.endDate = endDate;
+		this.orNo = orNo;
 	}
+
+
 
 	public Member(int memNo, String memId, String memPwd, String nickname, String memName, String memBirth,
 			String phone, String email, String address, String categoryNo, int point, String memStatus, String admin) {
@@ -88,10 +94,10 @@ public class Member {
 		this.address = address;
 		this.point = point;
 		this.enrollDate = enrollDate;
-	}
-	
+	}	
+
 	public Member(int memNo, String memId, String memName, String phone, String email, String address, int point,
-			Date startDate, Date endDate) {
+			Date startDate, Date endDate, String orNo) {
 		super();
 		this.memNo = memNo;
 		this.memId = memId;
@@ -102,6 +108,7 @@ public class Member {
 		this.point = point;
 		this.startDate = startDate;
 		this.endDate = endDate;
+		this.orNo = orNo;
 	}
 
 	public int getMemNo() {
@@ -240,13 +247,21 @@ public class Member {
 		this.endDate = endDate;
 	}
 
+	public String getOrNo() {
+		return orNo;
+	}
+
+	public void setOrNo(String orNo) {
+		this.orNo = orNo;
+	}
+
 	@Override
 	public String toString() {
 		return "Member [memNo=" + memNo + ", memId=" + memId + ", memPwd=" + memPwd + ", nickname=" + nickname
 				+ ", memName=" + memName + ", memBirth=" + memBirth + ", phone=" + phone + ", email=" + email
 				+ ", address=" + address + ", categoryNo=" + categoryNo + ", point=" + point + ", memStatus="
 				+ memStatus + ", enrollDate=" + enrollDate + ", admin=" + admin + ", profileLink=" + profileLink
-				+ ", startDate=" + startDate + ", endDate=" + endDate + "]";
+				+ ", startDate=" + startDate + ", endDate=" + endDate + ", orNo=" + orNo + "]";
 	}
 
 }
