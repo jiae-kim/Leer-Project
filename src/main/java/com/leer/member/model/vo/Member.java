@@ -24,6 +24,26 @@ public class Member {
 	
 	public Member() {}
 	
+	
+	
+	//회원가입
+	public Member(String memId, String memPwd, String nickname, String memName, String memBirth, String phone,
+			String email, String address, String categoryNo) {
+		super();
+		this.memId = memId;
+		this.memPwd = memPwd;
+		this.nickname = nickname;
+		this.memName = memName;
+		this.memBirth = memBirth;
+		this.phone = phone;
+		this.email = email;
+		this.address = address;
+		this.categoryNo = categoryNo;
+	}
+
+
+
+
 	public Member(int memNo, String memId, String memPwd, String nickname, String memName, String memBirth,
 			String phone, String email, String address, String categoryNo, int point, String memStatus, Date enrollDate,
 			String admin, String profileLink, Date startDate, Date endDate) {
