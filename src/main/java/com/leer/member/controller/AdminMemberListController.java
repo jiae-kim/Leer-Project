@@ -33,8 +33,6 @@ public class AdminMemberListController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 페이징처리
-		
-		/*
 		int listCount;
 		int currentPage;
 		int pageLimit;
@@ -59,11 +57,10 @@ public class AdminMemberListController extends HttpServlet {
 		
 		PageInfo pi = new PageInfo(listCount, currentPage, pageLimit, boardLimit, maxPage, startPage, endPage);
 		
-		*/
 		
-		ArrayList<Member> list = new AdminMemberService().selectMemberList(); //pi
+		ArrayList<Member> list = new AdminMemberService().selectMemberList(pi);
 		
-		//request.setAttribute("pi", pi);
+		request.setAttribute("pi", pi);
 		request.setAttribute("list", list);
 		
 		request.getRequestDispatcher("views/admin_main/member/adminMemberView.jsp").forward(request, response);

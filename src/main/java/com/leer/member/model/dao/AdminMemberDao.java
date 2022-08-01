@@ -22,14 +22,13 @@ public class AdminMemberDao {
 		try {
 			prop.loadFromXML(new FileInputStream(AdminMemberDao.class.getResource("/db/sql/admin-member-mapper.xml").getPath()));
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 		
 	// 관리자 회원리스트 조회
 	// 작성자 김은지
-	public ArrayList<Member> selectMemberList(Connection conn){ //, PageInfo pi
+	public ArrayList<Member> selectMemberList(Connection conn, PageInfo pi){
 		ArrayList<Member> list = new ArrayList<>();
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -38,11 +37,11 @@ public class AdminMemberDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
-			//int startRow = (pi.getCurrentPage()-1) * pi.getBoardLimit()+1;
-			//int endRow = startRow + pi.getBoardLimit()-1;
+			int startRow = (pi.getCurrentPage()-1) * pi.getBoardLimit()+1;
+			int endRow = startRow + pi.getBoardLimit()-1;
 			
-			//pstmt.setInt(1, startRow);
-			//pstmt.setInt(2, endRow);
+			pstmt.setInt(1, startRow);
+			pstmt.setInt(2, endRow);
 			
 			rset = pstmt.executeQuery();
 			
@@ -71,7 +70,7 @@ public class AdminMemberDao {
 	
 	// 관리자 회원리스트 조회 - 가나다순
 	// 작성자 김은지
-	public ArrayList<Member> selectMemberListGND(Connection conn){ //, PageInfo pi
+	public ArrayList<Member> selectMemberListGND(Connection conn, PageInfo pi){ 
 		ArrayList<Member> list = new ArrayList<>();
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -80,11 +79,11 @@ public class AdminMemberDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 
-			//int startRow = (pi.getCurrentPage()-1) * pi.getBoardLimit()+1;
-			//int endRow = startRow + pi.getBoardLimit()-1;
+			int startRow = (pi.getCurrentPage()-1) * pi.getBoardLimit()+1;
+			int endRow = startRow + pi.getBoardLimit()-1;
 			
-			//pstmt.setInt(1, startRow);
-			//pstmt.setInt(2, endRow);
+			pstmt.setInt(1, startRow);
+			pstmt.setInt(2, endRow);
 			
 			rset = pstmt.executeQuery(); 
 			
