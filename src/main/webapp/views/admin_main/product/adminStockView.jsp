@@ -1,5 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.ArrayList, com.leer.product.model.vo.Product, com.leer.common.model.vo.PageInfo" %>
+<%
+	PageInfo pi = (PageInfo)request.getAttribute("pi");
+	ArrayList<Product> list = (ArrayList<Product>)request.getAttribute("list");
+	
+	int currentPage = pi.getCurrentPage();
+	int startPage = pi.getStartPage();
+	int endPage = pi.getEndPage();
+	int maxPage = pi.getMaxPage();
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -68,6 +78,7 @@
                                     </tr>
                                 </thead>
                                 <tbody class="customtable">
+                                	<% for(Product p : list) %>
                                     <tr>
                                         <th>
                                             <label class="customcheckbox">
@@ -75,31 +86,14 @@
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
-                                        <td>56</td>
-                                        <td>FW-14</td>
-                                        <td>보그</td>
-                                        <td>22-08</td>
-                                        <td>500</td>
-                                        <td>200</td>
+                                        <td><%=p.getpCode()%></td>
+                                        <td><%=p.getpName()%></td>
+                                        <td><%=p.getPublishMonth()%></td>
+                                        <td><%=p.getStatusAmount()%></td> <!-- join : PRODUCT_IO -->
+                                        <td><%= %></td> <!-- 입고랑 출고 어떻게 구분? -->
+                                        <td><%p.getpStock()%></td>
                                         <td>300</td>
                                     </tr>
-                                    <tr>
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>56</td>
-                                        <td>FW-14</td>
-                                        <td>보그</td>
-                                        <td>22-08</td>
-                                        <td>500</td>
-                                        <td>200</td>
-                                        <td>300</td>
-                                    </tr>
-                                    <tr>
-                                    
                                 </tbody>
                             </table>
                         </div>
@@ -114,20 +108,26 @@
                 <!-- 페이징처리 바 -->
                 <tr align="center">
                     <th colspan="10">
-                        <div class="btn-group" role="group" aria-label="Basic example">
-                            <button type="button" class="btn btn-outline-secondary"><</button>
-                            <button type="button" class="btn btn-outline-secondary">1</button>
-                            <button type="button" class="btn btn-outline-secondary">2</button>
-                            <button type="button" class="btn btn-outline-secondary">3</button>
-                            <button type="button" class="btn btn-outline-secondary">4</button>
-                            <button type="button" class="btn btn-outline-secondary">5</button>
-                            <button type="button" class="btn btn-outline-secondary">6</button>
-                            <button type="button" class="btn btn-outline-secondary">7</button>
-                            <button type="button" class="btn btn-outline-secondary">8</button>
-                            <button type="button" class="btn btn-outline-secondary">9</button>
-                            <button type="button" class="btn btn-outline-secondary">10</button>
-                            <button type="button" class="btn btn-outline-secondary">></button>
-                        </div>
+                        <br>
+                <div class="btn-group paging-area" role="group" aria-label="Basic example">
+                <% if(currentPage != 1) { %>
+                    <button type="button" onclick="location.href='<%=request.getContextPath()%>/adStockList.do?cpage=<%=currentPage-1%>';"
+                        class="btn btn-outline-secondary">&lt;</button>
+                <% } %>
+                <% for(int p=startPage; p<=endPage; p++) { %>
+                    <% if(p == currentPage) { %>
+                        <button type="button" disabled class="btn btn-outline-secondary"><%=p%></button>
+                    <% } else { %>
+                        <button type="button" onclick="location.href='<%=request.getContextPath()%>/adStockList.do?cpage=<%=p%>';"
+                            class="btn btn-outline-secondary"><%=p%></button>
+                    <% } %>
+                <% } %>
+                
+                <% if(currentPage != maxPage) { %>
+                    <button type="button" onclick="location.href='<%=request.getContextPath()%>/adStockList.do?cpage=<%=currentPage+1%>';"
+                        class="btn btn-outline-secondary">&gt;</button>
+                <% } %>
+                </div>
                     </th>
                 </tr>
             </footer>
