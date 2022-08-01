@@ -30,7 +30,7 @@ public class AdminProductDao {
 	}
 	
 	/* [제품관리 - 상품조회]
-	 * 상품 전체 조회
+	 * 상품 전체 조회 : select
 	 * 작성자 김지애
 	 */
 	public ArrayList<Product>selectProductList(Connection conn, PageInfo pi){
@@ -98,7 +98,7 @@ public class AdminProductDao {
 	}
 	
 	/* [제품관리 - 상품등록]
-	 * 상품 등록 페이지 요청
+	 * 상품 등록 페이지 요청 : select
 	 * 작성자 김지애
 	 */
 	public ArrayList<Category> selectCategoryList(Connection conn) {
@@ -127,7 +127,7 @@ public class AdminProductDao {
 	}
 	
 	/* [제품관리 - 상품등록]
-	 * 상품 등록
+	 * 상품 등록 : insert
 	 * 작성자 김지애
 	 */
 	public int insertProduct(Connection conn, Product p) {
@@ -160,7 +160,7 @@ public class AdminProductDao {
 	}
 
 	/* [제품관리 - 상품등록]
-	 * 상품 등록 : 첨부파일 3개
+	 * 상품 등록 : 첨부파일 3개 insert
 	 * 작성자 김지애
 	 */
 	public int insertAttachment(Connection conn, Attachment at) {
@@ -186,7 +186,7 @@ public class AdminProductDao {
 	}
 
 	/* [제품관리 - 상품조회]
-	 * 상품전체조회 페이지 : 수정버튼 클릭 시 수정페이지 요청
+	 * 상품전체조회 페이지 : 수정버튼 클릭 시 수정페이지 요청 select
 	 * 작성자 김지애
 	 */
 	public Product selectProduct(Connection conn, String pCode) {
@@ -203,19 +203,19 @@ public class AdminProductDao {
 			rset = pstmt.executeQuery();
 			
 			if(rset.next()) {
-//				p = new Product(rset.getString("p_name"),
-//								rset.getString("publish_month2"),
-//								rset.getString("publisher"),
-//								rset.getInt("category_no"),
-//								rset.getString("p_code"),
-//								rset.getInt("price"),
-//								rset.getInt("p_stock"),
-//								rset.getInt("deli_fee"),
-//								rset.getDouble("point2"),
-//								rset.getString("image_url1"),
-//								rset.getString("image_url2"),
-//								rset.getString("imgae_urls")
-//								);
+				p = new Product(rset.getString("p_name"),
+								rset.getString("publish_month2"),
+								rset.getString("publisher"),
+								rset.getInt("category_no"),
+								rset.getString("p_code"),
+								rset.getInt("price"),
+								rset.getInt("p_stock"),
+								rset.getInt("deli_fee"),
+								rset.getDouble("point2"),
+								rset.getString("image_url1"),
+								rset.getString("image_url2"),
+								rset.getString("imgae_urls")
+								);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -226,8 +226,36 @@ public class AdminProductDao {
 		return p;
 	} 
 
+	public Attachment selectAttachment(Connection conn, String pCode) {
+		Attachment at = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectAttachment");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, pCode);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				at = new Attachment();
+				at.setFileNo(rset.getInt("file_no"));
+				at.setOriginName(rset.getString("origin_name"));
+				at.setChangeName(rset.getString("change_name"));
+				at.setFilePath(rset.getString("file_path"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return at;
+	}
+	
 	/* [제품관리 - 상품등록]
-	 * 상품 수정
+	 * 상품 수정 : update
 	 * 작성자 김지애
 	 */
 	public int updateProduct(Connection conn, Product p) {
@@ -249,7 +277,7 @@ public class AdminProductDao {
 	}
 	
 	/* [제품관리 - 상품조회]
-	 * 상품전체조회 페이지 : 삭제버튼
+	 * 상품전체조회 페이지 : 삭제버튼 delete
 	 * 작성자 김지애
 	 */
 	public int deleteProduct(Connection conn, String pCode) {
@@ -269,6 +297,8 @@ public class AdminProductDao {
 		}
 		return result;
 	}
+
+	
 
 	
 	

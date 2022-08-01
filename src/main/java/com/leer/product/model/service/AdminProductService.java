@@ -78,6 +78,13 @@ public class AdminProductService {
 		return p;
 	}
 
+	public Attachment selectAttachment(String pCode) {
+		Connection conn = getConnection();
+		Attachment at = new AdminProductDao().selectAttachment(conn, pCode);
+		close(conn);
+		return at;
+	}
+	
 	/* [제품관리 - 상품등록]
 	 * 상품 수정 
 	 * 작성자 김지애

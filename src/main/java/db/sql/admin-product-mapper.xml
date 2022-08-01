@@ -133,6 +133,18 @@
 			 WHERE  P_CODE = ? <!-- 수정하고자 하는 상품 코드 -->
 	 </entry>
 	 
+	 <entry key="selectAttachment">
+	 	SELECT
+	 			FILE_NO 
+	 		  ,	ORIGIN_NAME
+	 		  , CHANGE_NAME
+	 		  , FILE_PATH
+	 	  FROM	ATTACHMENT
+	 	 WHERE	REF_BNO = ? <!-- 참조 게시글 번호 -->
+	 	 ORDER
+	 	    BY	FILE_LEVEL ASC
+	 </entry>
+	 
 	 <!-- 상품수정 : update-->             
 	    
     
