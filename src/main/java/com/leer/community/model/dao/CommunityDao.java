@@ -152,11 +152,11 @@ public class CommunityDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-//			pstmt.setString(1, c.getMemNo());
-			pstmt.setString(1, c.getCategoryNo());
-			pstmt.setString(2, c.getTag());
-			pstmt.setString(3, c.getTitle());
-			pstmt.setString(4, c.getContent());
+     		pstmt.setString(1, c.getMemNo());
+			pstmt.setString(2, c.getCategoryNo());
+			pstmt.setString(3, c.getTag());
+			pstmt.setString(4, c.getTitle());
+			pstmt.setString(5, c.getContent());
 			result = pstmt.executeUpdate();
 			
 		} catch (SQLException e) {
@@ -237,7 +237,8 @@ public class CommunityDao {
 						rset.getString("title"),
 						rset.getDate("enroll_date"),
 						rset.getInt("like_count"),
-						rset.getInt("comment_count")
+						rset.getInt("comment_count"),
+						rset.getInt("view_count")
 						);
 
 				Clob clob = rset.getClob("content");
@@ -352,7 +353,7 @@ public class CommunityDao {
 		return result;
 	}
 	
-	public ArrayList<ComuBoard> selectMyBoardList(Connection conn, int memNo){
+	public ArrayList<ComuBoard> selectMyBoardList(Connection conn, PageInfo pi, int memNo ){
 		
 		ArrayList<ComuBoard> list = new ArrayList<>();
 		
@@ -363,8 +364,11 @@ public class CommunityDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			
+			int startRow = (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1;
+			int endRow = startRow + pi.getBoardLimit() - 1;
 			pstmt.setInt(1, memNo);
+			pstmt.setInt(2, startRow);
+			pstmt.setInt(3, endRow);
 			
 			rset = pstmt.executeQuery();
 			
@@ -374,7 +378,7 @@ public class CommunityDao {
 						rset.getInt("comu_no"),
 						rset.getString("nickname"),
 						rset.getString("title"),
-						rset.getDate("enroll_date"),
+						rset.getDate("enroll"),
 						rset.getInt("view_count")
 						));
 				

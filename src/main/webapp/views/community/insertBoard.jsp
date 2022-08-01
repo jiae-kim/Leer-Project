@@ -61,7 +61,11 @@
             height: 48px;
             text-align: center;
         }
-
+		.categorySelect option{
+			position:absolute !important;
+			right:0 !important;
+			margin-left:100px;
+		}
        
     </style>
 </head>
@@ -114,7 +118,7 @@
                                             <tr>
                                                     <td><input type="text" name="tag"></td>
                                                 <td>
-                                                    <select name="category">
+                                                    <select class="categorySelect" name="category">
                                                             <option value="" disabled selected hidden>
                                                                 카테고리를 선택하세요.
                                                             </option>

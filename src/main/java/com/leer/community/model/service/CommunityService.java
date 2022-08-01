@@ -113,10 +113,10 @@ public class CommunityService {
 		
 	}
 	
-	public ArrayList<ComuBoard> selectMyBoardList(int memNo){
+	public ArrayList<ComuBoard> selectMyBoardList(PageInfo pi, int memNo){
 		Connection conn = getConnection();
 		
-		ArrayList<ComuBoard> list = new CommunityDao().selectMyBoardList(conn, memNo);
+		ArrayList<ComuBoard> list = new CommunityDao().selectMyBoardList(conn,  pi, memNo);
 		
 		close(conn);
 		

@@ -61,7 +61,7 @@ public class ComuBoard {
 
 
 	public ComuBoard(int comuNo, String memNo, String categoryNo, String tag, String title,
-			Date enrollDate, int likeCount, int commentCount) {
+			Date enrollDate, int likeCount, int commentCount, int viewCount) {
 		super();
 		this.comuNo = comuNo;
 		this.memNo = memNo;
@@ -71,6 +71,7 @@ public class ComuBoard {
 		this.enrollDate = enrollDate;
 		this.likeCount = likeCount;
 		this.commentCount = commentCount;
+		this.viewCount = viewCount;
 	}
 
 	

@@ -101,7 +101,7 @@
 		</section>
     <script src="<%=contextPath%>/resources/js/beomjin/js/jquery-3.3.1.min.js"></script>
 	<script src="<%=contextPath%>/resources/js/beomjin/js/bootstrap.min.js"></script>
-	 <script src="<%=contextPath%>/resources/js/beomjin/js/jquery.nice-select.min.js"></script> 
+<%-- 	 <script src="<%=contextPath%>/resources/js/beomjin/js/jquery.nice-select.min.js"></script>  --%>
 	<script src="<%=contextPath%>/resources/js/beomjin/js/jquery-ui.min.js"></script>
 	<script src="<%=contextPath%>/resources/js/beomjin/js/jquery.slicknav.js"></script>
 	<script src="<%=contextPath%>/resources/js/beomjin/js/mixitup.min.js"></script>

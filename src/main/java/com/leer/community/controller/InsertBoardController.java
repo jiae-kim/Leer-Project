@@ -53,7 +53,7 @@ public class InsertBoardController extends HttpServlet {
 			String[] allTag = multiRequest.getParameterValues("tag");
 			String title = multiRequest.getParameter("title");
 			String content = multiRequest.getParameter("content");
-//			int memNo = ((Member)session.getAttribute("loginUser")).getMemNo();
+			int memNo = ((Member)session.getAttribute("loginUser")).getMemNo();
 			
 			String tag = "";
 			if(allTag != null) {
@@ -64,7 +64,7 @@ public class InsertBoardController extends HttpServlet {
 			c.setTag(tag);
 			c.setTitle(title);
 			c.setContent(content);
-//			c.setMemNo(String.valueOf(memNo));
+			c.setMemNo(String.valueOf(memNo));
 			
 			Attachment at = null;
 			

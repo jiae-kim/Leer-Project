@@ -242,7 +242,7 @@ li {
 						</div>
 						<div style="height: 30px;">
 							<input type="hidden" name="no" value="<%=c.getComuNo()%>">
-							<h3><%=c.getTitle()%></h3>
+							<h4><%=c.getTitle()%></h4>
 						</div>
 
 					</div>
@@ -256,8 +256,8 @@ li {
 							</div>
 							<div class="create">
 								<span class="date"><%=c.getEnrollDate()%></span> <span
-									class="count"><%=c.getViewCount()%></span> <a href=""
-									class="boardReport"><span>신고</span></a>
+									class="count"><b>조회수 : <%=c.getViewCount()%></b></span>
+									<a href="" class="boardReport" style="margin-left:5px"><span>신고</span></a>
 							</div>
 						</div>
 					</div>

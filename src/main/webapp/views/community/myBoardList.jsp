@@ -2,12 +2,12 @@
     pageEncoding="UTF-8" import="java.util.ArrayList, com.leer.community.model.vo.ComuBoard, com.leer.common.model.vo.PageInfo"%>
     
 <%
-	/* PageInfo pi = (PageInfo)request.getAttribute("pi");  */
+	 PageInfo pi = (PageInfo)request.getAttribute("pi");  
 	ArrayList<ComuBoard> list = (ArrayList<ComuBoard>)request.getAttribute("list");
-	/* int currentPage = pi.getCurrentPage();
+	int currentPage = pi.getCurrentPage();
 	int startPage = pi.getStartPage();
 	int endPage = pi.getEndPage();
-	int maxPage = pi.getMaxPage();  */
+	int maxPage = pi.getMaxPage();  
 %>
 <!DOCTYPE html>
 <html>
@@ -57,10 +57,39 @@
             font-weight: bold;
             font-size: 14px;
         }
+         .boardTitle:hover{
+	         color:red !import;
+	       	background:white !import;
+         }
+        .boardTitle{
+        	font-size:12px;
+        	color:#212529;
+        	 
+        }
     </style>
 </head>
 <body>
 
+
+
+<!-- Breadcrumb Section Begin -->
+    <section class="breadcrumb-section set-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-left">
+                    <div class="breadcrumb__text">
+                        <h2>커뮤니티</h2>
+                        <div class="breadcrumb__option">
+                            <span>내가 작성한 게시글</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Section End -->
+    
+    
 <%@ include file="../community/communityMain.jsp" %>
 
 <div class="col-lg-8 col-md-7">
@@ -87,23 +116,26 @@
                                         <!--case1. 공지글이 없을 경우-->
                                         <% if(list.isEmpty()) { %>
                                          <tr>
-                                            <td colspan="5">존재하는 게시글이 없습니다.</td>
+                                            <td colspan="6">존재하는 게시글이 없습니다.</td>
                                         </tr> 
                                         <!--case2. 공지글이 있을 경우-->
                                         <% }else{ %>
+                                        	<% int num = list.size(); %>
                                         	<% for(ComuBoard c : list) { %>
 		                                        <tr>
 		                                            <td>
-		                                                
+		                                      		   <span style="display:none"><%= c.getComuNo() %></span>
+		                                               <span><%= num-- %></span>
+		                                               		 
 		                                            </td>
 		                                            <td align="left">
-		                                                <span><%= c.getTitle() %></span>
+		                                                <a class="boardTitle"href="<%=contextPath%>/comuDetail.bo?no=<%= c.getComuNo()%>"><%= c.getTitle() %></span>
 		                                            </td>
 		                                            <td>
 		                                                <span name="nickname"><%= c.getMemNo() %></span>
 		                                            </td>
 		                                            <td>
-		                                                24
+		                                                <%= c.getViewCount() %>
 		                                            </td>
 		                                            <td>
 		                                                <span><%= c.getEnrollDate() %></span>
@@ -114,30 +146,34 @@
                                     <% } %>
                                     </tbody>
                                 </table>
-                                <div class="col-lg-12" style="padding: 0;" align="right">
-                                        <button class="boardDelete">삭제하기</button>
-                                </div>
-                                <div class="product__pagination blog__pagination" align="center">
-                   <%--              <% if(currentPage != 1){ %>
-                                	<a href="<%=contextPath%>/myBoard.li?memNo=<%=loginUser.getMemNo()%>?cpage=<%=currentPage-1%>">&lt;</a>
-                                 <% } %>
-                                 
-                                 <% for(int p=startPage; p<=endPage; p++) {%>
-                                 <% if(p == currentPage){ %>
-				            			<a disabled style="opacity:0.7"><%= p %></button>
-				            		<% }else { %>
-				              			 <a href="<%=contextPath%>/myBoard.li?memNo=<%=loginUser.getMemNo()%>?cpage=<%= p %>"><%= p %></a>
-				              		<% } %>
-			          		   <% } %>
-			         
-					         <% if(currentPage != maxPage){ %>
-					            <a href="<%=contextPath%>/myBoard.li?memNo=<%=loginUser.getMemNo()%>?cpage=<%=currentPage+1%>" >&gt;</a>
-					            <% } %> --%>
-                                </div>
+                                <% if(!list.isEmpty()){ %>
+	                                <div class="col-lg-12" style="padding: 0;" align="right">
+	                                        <button class="boardDelete">삭제하기</button>
+	                                </div>
+	                                
+	                                <div class="product__pagination blog__pagination" align="center">
+	                                <% if(currentPage != 1){ %>
+	                                	<a href="<%=contextPath%>/myBoard.li?memNo=<%=loginUser.getMemNo()%>&cpage=<%=currentPage-1%>">&lt;</a>
+	                                <% } %>
+	                                 
+	                                <% for(int p=startPage; p<=endPage; p++) {%>
+	                                <% if(p == currentPage){ %>
+					            			<a disabled style="opacity:0.7"><%= p %></button>
+					            		<% }else { %>
+					              			 <a href="<%=contextPath%>/myBoard.li?memNo=<%=loginUser.getMemNo()%>&cpage=<%= p %>"><%= p %></a>
+					              		<% } %>
+				          		   <% } %>
+				         
+						           <% if(currentPage != maxPage){ %>
+						            <a href="<%=contextPath%>/myBoard.li?memNo=<%=loginUser.getMemNo()%>&cpage=<%=currentPage+1%>" >&gt;</a>
+						            <% } %> 
+	                                </div>
+                                <% }%>
                             </div>
                         </div>
                     </div>
                 </div>
+    
 	 <%@ include file="../community/comuMypage.jsp" %>
 	 <%@ include file="../common/footer.jsp" %>
 </body>

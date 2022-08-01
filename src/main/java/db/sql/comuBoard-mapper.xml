@@ -61,7 +61,7 @@
 		 VALUES
 		 (
 		   SEQ_COMU.NEXTVAL
-		 , 1
+		 , ?
 		 , ?
 		 , ?
 		 , ?
@@ -119,6 +119,7 @@
                     FROM COMU_RE CR
                    WHERE CR.COMU_NO = CB.COMU_NO
                 ) "COMMENT_COUNT"
+              , VIEW_COUNT  
 		  FROM COMU_BOARD CB
 		  JOIN CATEGORY USING (CATEGORY_NO)  
 		  JOIN MEMBER USING (MEM_NO)
@@ -168,20 +169,25 @@
 	</entry>
 	
 	<entry key="selectMyBoardList">
-	
-		SELECT
-		       COMU_NO
-		     , NICKNAME
-		     , TITLE
-		     , VIEW_COUNT
-		     , CB.ENROLL_DATE "ENROLL_DATE"
-		     , VIEW_COUNT
-	      FROM COMU_BOARD CB
-	      JOIN MEMBER USING(MEM_NO)
-	     WHERE MEM_NO = ?
-	       AND DELETE_YN = 'N'
-	     ORDER
-	        BY COMU_NO DESC
+	SELECT COMU_NO, NICKNAME, TITLE, ENROLL, VIEW_COUNT
+	  FROM (
+	        SELECT ROWNUM RNUM2, B.COMU_NO, B.NICKNAME, B.TITLE, B.ENROLL, B.VIEW_COUNT 
+	          FROM (
+					SELECT
+					       COMU_NO
+					     , NICKNAME
+					     , TITLE
+					     , CB.ENROLL_DATE  "ENROLL"
+					     , VIEW_COUNT 
+				      FROM COMU_BOARD CB
+                     JOIN MEMBER USING (MEM_NO)
+				     WHERE MEM_NO = ?
+				       AND DELETE_YN = 'N'
+				     ORDER
+				        BY COMU_NO DESC
+	                 ) B
+	        )
+	 WHERE RNUM2 BETWEEN ? AND ?
 	</entry>
 	
 </properties>

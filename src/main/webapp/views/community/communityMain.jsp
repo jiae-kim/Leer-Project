@@ -23,7 +23,7 @@ Member loginUser = (Member)session.getAttribute("loginUser");
 	<link rel="stylesheet" href="<%=contextPath %>/resources/css/beomjin/css/bootstrap.min.css" type="text/css">
 	<link rel="stylesheet" href="<%=contextPath %>/resources/css/beomjin/css/font-awesome.min.css" type="text/css">
 	<link rel="stylesheet" href="<%=contextPath %>/resources/css/beomjin/css/elegant-icons.css" type="text/css">
-	 <link rel="stylesheet" href="<%=contextPath %>/resources/css/beomjin/css/nice-select.css" type="text/css">
+	<%--  <link rel="stylesheet" href="<%=contextPath %>/resources/css/beomjin/css/nice-select.css" type="text/css"> --%>
 	<link rel="stylesheet" href="<%=contextPath %>/resources/css/beomjin/css/jquery-ui.min.css" type="text/css">
 	<link rel="stylesheet" href="<%=contextPath %>/resources/css/beomjin/css/owl.carousel.min.css" type="text/css">
 	<link rel="stylesheet" href="<%=contextPath %>/resources/css/beomjin/css/slicknav.min.css" type="text/css">
@@ -57,7 +57,7 @@ Member loginUser = (Member)session.getAttribute("loginUser");
                                 <li><a href="#">커뮤니티 공지사항</a></li>
                                 
                                 <% if(loginUser != null){ %>
-                                <li><a href="<%=contextPath%>/myBoard.li?memNo=<%=loginUser.getMemNo()%>">내가 쓴 게시글</a></li>
+                                <li><a href="<%=contextPath%>/myBoard.li?memNo=<%=loginUser.getMemNo()%>&cpage=1">내가 쓴 게시글</a></li>
                                 <li><a href="#">북마크 목록</a></li>
                                 <% } %>
                                 

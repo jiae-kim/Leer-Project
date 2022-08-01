@@ -79,25 +79,24 @@
 			<div class="row">
 				<div class="col-lg-6 col-md-6 col-sm-6">
 					<div class="blog__item"> 
-						<div class="blog__item__text" align="left">
+						<div class="blog__item__text" align="left" onclick="location.href='<%=contextPath%>/comuDetail.bo?no=<%= c.getComuNo()%>'">
 							<span style="display:none"><%= c.getComuNo() %></span>
-							<h5 style="marin-bottom: -10px;">
+							<h5>
 								<span style="font-weight:bold"><%= c.getTitle() %></span>
 							</h5>
+							<span style="font-size:12px"><b>조회수 : <%= c.getViewCount() %></b></span>
 							<span style="font-size: 12px"><%=c.getEnrollDate() %></span>
 							
-							<%
-								if(c.getTag() != null) {
-									String[] tagArr = c.getTag().split(",");  // ["패션", "라이프"]
-									
-									for(String tag : tagArr){ %>
+							<% if(c.getTag() != null) { 
+								String[] tagArr = c.getTag().split(",");  // ["패션", "라이프"]
+								for(String tag : tagArr){ %>
 							
 										<a class="hashtag" href="<%= contextPath %>/xxxxx?tag=<%=tag %>"><%= tag %></a> <!-- 댓글수 구하는 구문 찾아보기  -->
 							
 									<%} %>
 							<% } %>
 							
-							<p><%=c.getContent()%></p>
+							<span><%=c.getContent()%></span>
 							<div>
 								<div style="float: right">
 									<i class="fa fa-heart-o"> <sup><%= c.getLikeCount() %></sup>
@@ -111,12 +110,12 @@
 			</div>
 		<% } %>
       <script>
-           $(function(){
+        <%--    $(function(){
               $(".blog__item__text").click(function(){
                  location.href = "<%=contextPath%>/comuDetail.bo?no=" + $(this).children().eq(0).text();
               })
               
-           })
+           }) --%>
            $(function(){
         	   $(".hashtag").split(',');
         	   
