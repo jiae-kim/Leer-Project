@@ -350,25 +350,29 @@
 		                                                <td><%=c.getAmount() %></td>
 		                                                <td><%=comma.format(c.getPrice()) %></td>
 		                                                <% if(c.getOrCycle() == 1){ %>
-		                                                	<td class="total-price"><%= comma.format((c.getPrice() * c.getAmount()) + 3000) %>
-		                                                		
+		                                                	<td class="total-price"> 
+			                                                	<span><%= comma.format((c.getPrice() * c.getAmount()) + 3000) %></span>
+			                                                	<span>원</span>	
 		                                                	</td>
 		                                                	
 		                                                <%} %>
 		                                                <% if(c.getOrCycle() == 2){ %>
-		                                                	<td class="total-price"><%= comma.format(c.getPrice() * 12 * c.getAmount())%>
+		                                                	<td class="total-price">
+		                                                		<span><%= comma.format(c.getPrice() * 12 * c.getAmount())%></span>
+			                                                	<span>원</span>
 		                                                		
 		                                                	</td>
 		                                                	
 		                                                <%} %>
 		                                                <% if(c.getOrCycle() == 3){ %>
-		                                                	<td class="total-price"><%=comma.format(c.getPrice() * 6 * c.getAmount() )%>
-		                                                		
+		                                                	<td class="total-price">
+		                                                		<span><%=comma.format(c.getPrice() * 6 * c.getAmount() )%></span>
+		                                                		<span>원</span>
 		                                                	</td>
 		                                                	
 		                                                <%} %>
 		                                                <% if(c.getOrCycle() == 1){ %>
-		                                                	<td>3,000원</td>
+		                                                	<td>3,000 원</td>
 		                                                <% } else{ %>
 		                                                	<td>무료배송</td>
 		                                                <% } %>
@@ -407,9 +411,14 @@
 												let sumPrice = 0;
 												
 												$(".total-price").each(function(){
-													sumPrice += parseInt($(".total-price").text().split(',').join(""));
+													
+													//console.log($(this).children().eq(0).text().replace(",", ""))
+													
+													sumPrice += parseInt($(this).children().eq(0).text().replace(",", "")); /* 왜 $(".total-price")로 선택해줬는데 첫번째 값만 반복되는것 같을까  */
 												});
+												
 												$("#sum-price").html(number_format(sumPrice)); 
+												
 												
 												$("#check-all").click(function(){
 													if($("#check-all").prop("checked")){
@@ -427,15 +436,15 @@
 													let sumPrice2 = 0;
 														
 														$("input:checkbox[name=chk]:checked").each(function(){
-															sumPrice2 += parseInt($(".total-price").text().split(',').join(""));
+															sumPrice2 += parseInt($(this).parent().siblings(".total-price").children().eq(0).text().replace(",", ""));
 															
 														});
 														console.log(sumPrice2);
 														$("#sum-price").html(number_format(sumPrice2));
 													
 												})
+												
 											});
-	
 												 
 											
 	
@@ -445,9 +454,7 @@
 	                                    </div>
                                     </form>
                                 </div>
-                            </div>
-                        </div>
-                    </div>   
+                         
                     
                 </div>   
             </div>

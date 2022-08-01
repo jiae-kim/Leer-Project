@@ -348,7 +348,7 @@
 		                                                    </span>  
 		                                                </td>
 		                                                <td><%=c.getAmount() %></td>
-		                                                <td><%=comma.format(c.getPrice()) %><span>원</span></td>
+		                                                <td><%=comma.format(c.getPrice()) %><span> 원</span></td>
 		                                                <% if(c.getOrCycle() == 1){ %>
 		                                                	<td class="total-price">
 		                                                		<span><%= comma.format((c.getPrice() * c.getAmount()) + 3000) %></span>
@@ -371,7 +371,7 @@
 		                                                	
 		                                                <%} %>
 		                                                <% if(c.getOrCycle() == 1){ %>
-		                                                	<td>3,000원</td>
+		                                                	<td>3,000 원</td>
 		                                                <% } else{ %>
 		                                                	<td>무료배송</td>
 		                                                <% } %>
@@ -418,7 +418,7 @@
 												
 												$("#sum-price").html(number_format(sumPrice)); 
 												
-												/*
+												
 												$("#check-all").click(function(){
 													if($("#check-all").prop("checked")){
 														$("input[name=chk]").prop("checked", true)
@@ -435,14 +435,14 @@
 													let sumPrice2 = 0;
 														
 														$("input:checkbox[name=chk]:checked").each(function(){
-															sumPrice2 += parseInt($(".total-price").text().split(',').join(""));
+															sumPrice2 += parseInt($(this).parent().siblings(".total-price").children().eq(0).text().replace(",", ""));
 															
 														});
 														console.log(sumPrice2);
 														$("#sum-price").html(number_format(sumPrice2));
 													
 												})
-												*/
+												
 											});
 	
 												 
