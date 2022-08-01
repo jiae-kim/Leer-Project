@@ -540,7 +540,7 @@
 
                                 <div class="etc_area" id="product_review">
                                     <h2 class="etc_title" >상품문의
-                                        <button type="button" class="etn_write_btn">상품문의</button>
+                                        <button type="button" class="etn_write_btn" data-toggle="modal" data-target="#updatePwdModal">상품문의</button>
                                     </h2>
                                     <div style="border-bottom: 1px solid #303030;"></div>
                                     <div class="etc_content_box" >
@@ -572,6 +572,54 @@
                                 </div>
 
                             </div>
+                            
+                            <div class="modal" id="updatePwdModal">
+						    <div class="modal-dialog">
+						      <div class="modal-content">
+						
+						      <!-- Modal Header -->
+						        <div class="modal-header">
+						          <h4 class="modal-title">비밀번호 변경</h4>
+						          <button type="button" class="close" data-dismiss="modal">&times;</button>
+						        </div>
+						
+						      <!-- Modal body -->
+						        <div class="modal-body" align="center">
+						      
+						          <form action="<%= contextPath %>" method="post">
+						        	  <input type="hidden" name="userId" value=""> <!-- form 요청시 같이 넘어가게 -->
+						        	  <table>
+						        		  <tr>
+						        			  <td>현재 비밀번호</td>
+						        			  <td><input type="password" name="userPwd" required></td>
+						        		  </tr>
+						        		  <tr>
+						        			  <td>변경할 비밀번호</td>
+						        			  <td><input type="password" name="updatePwd" required></td>
+						        		  </tr>
+						        		  <tr>
+						        			  <td>변경할 비밀번호 확인</td>
+						        			  <td><input type="password" name="checkPwd" required></td>
+						        		  </tr>
+						        	  </table>
+						        	
+						        	  <br>
+						        	
+						        	  <button type="submit" class="btn btn-sm btn-secondary" onclick="return validatePwd();">비밀번호 변경</button>
+						          </form>
+						          <script>
+						        	  function validatePwd(){
+						        		  if($("input[name=updatePwd]").val() != $("input[name=checkPwd]").val()){
+						        			  alert("변경할 비밀번호가 일치하지 않습니다.");
+						        			  return false;
+						        		  }
+						        	  }
+						          </script>
+						        </div>
+						
+						      </div>
+						    </div>
+						  </div>
                             <div class="tab-pane" id="tabs-2" role="tabpanel">
                                 <div class="etc_area" id="product_review">
                                     <h2 class="etc_title">리뷰
