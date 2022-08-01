@@ -29,7 +29,7 @@
                 <h1 class="error-title text-danger">error</h1>
                 <h3 class="text-uppercase error-subtitle">PAGE NOT FOUND !</h3>
                 <p class="text-muted m-t-30 m-b-30" style="color: red;">아래 버튼 클릭 시 관리자 메인페이지로 돌아갑니다</p>
-                <a href="index.html" class="btn btn-danger btn-rounded waves-effect waves-light m-b-40">Back to Admin Mainpage</a> </div>
+                <a href="<%=request.getContextPath()%>/views/admin_main/adminMainPage.jsp" class="btn btn-danger btn-rounded waves-effect waves-light m-b-40">돌아가기</a> </div>
         </div>
         <!-- ============================================================== -->
         <!-- Login box.scss -->
