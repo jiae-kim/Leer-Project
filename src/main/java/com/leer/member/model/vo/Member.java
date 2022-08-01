@@ -19,18 +19,14 @@ public class Member {
 	private Date enrollDate;
 	private String admin;
 	private String profileLink;
-	
-	
-	
+	private Date startDate; // subscribe테이블
+	private Date endDate; // subscribe테이블
 	
 	public Member() {}
-
 	
-	
-
 	public Member(int memNo, String memId, String memPwd, String nickname, String memName, String memBirth,
 			String phone, String email, String address, String categoryNo, int point, String memStatus, Date enrollDate,
-			String admin, String profileLink) {
+			String admin, String profileLink, Date startDate, Date endDate) {
 		super();
 		this.memNo = memNo;
 		this.memId = memId;
@@ -47,11 +43,10 @@ public class Member {
 		this.enrollDate = enrollDate;
 		this.admin = admin;
 		this.profileLink = profileLink;
+		this.startDate = startDate;
+		this.endDate = endDate;
 	}
-	
-	
-	
-	
+
 	public Member(int memNo, String memId, String memPwd, String nickname, String memName, String memBirth,
 			String phone, String email, String address, String categoryNo, int point, String memStatus, String admin) {
 		super();
@@ -69,10 +64,7 @@ public class Member {
 		this.memStatus = memStatus;
 		this.admin = admin;
 	}
-
-
-
-
+	
 	public Member(int memNo, String memId, String nickname, String memName, String phone, String email, String address,
 			int point, Date enrollDate) {
 		super();
@@ -87,9 +79,6 @@ public class Member {
 		this.enrollDate = enrollDate;
 	}
 	
-	
-	
-	
 	public Member(int memNo, String memId, String memName, String phone, String address, int point, Date enrollDate) {
 		super();
 		this.memNo = memNo;
@@ -101,12 +90,19 @@ public class Member {
 		this.enrollDate = enrollDate;
 	}
 	
-	
-	
-	
-	
-	
-
+	public Member(int memNo, String memId, String memName, String phone, String email, String address, int point,
+			Date startDate, Date endDate) {
+		super();
+		this.memNo = memNo;
+		this.memId = memId;
+		this.memName = memName;
+		this.phone = phone;
+		this.email = email;
+		this.address = address;
+		this.point = point;
+		this.startDate = startDate;
+		this.endDate = endDate;
+	}
 
 	public int getMemNo() {
 		return memNo;
@@ -228,15 +224,29 @@ public class Member {
 		this.profileLink = profileLink;
 	}
 	
+	public Date getStartDate() {
+		return startDate;
+	}
 	
-	
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
+	}
+
+	public Date getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
+	}
 
 	@Override
 	public String toString() {
 		return "Member [memNo=" + memNo + ", memId=" + memId + ", memPwd=" + memPwd + ", nickname=" + nickname
 				+ ", memName=" + memName + ", memBirth=" + memBirth + ", phone=" + phone + ", email=" + email
 				+ ", address=" + address + ", categoryNo=" + categoryNo + ", point=" + point + ", memStatus="
-				+ memStatus + ", enrollDate=" + enrollDate + ", admin=" + admin + ", profileLink=" + profileLink + "]";
+				+ memStatus + ", enrollDate=" + enrollDate + ", admin=" + admin + ", profileLink=" + profileLink
+				+ ", startDate=" + startDate + ", endDate=" + endDate + "]";
 	}
 
 }
