@@ -73,16 +73,47 @@ public class MemberDao {
 		
 	}
 		
+	
+	
+	public int insertMember(Connection conn, Member m) {
+		
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("insertMemeber");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, m.getMemId());
+			pstmt.setString(2, m.getMemPwd());
+			pstmt.setString(3, m.getNickname());
+			pstmt.setString(4, m.getMemName());
+			pstmt.setString(5, m.getMemBirth());
+			pstmt.setString(6, m.getPhone());
+			pstmt.setString(7, m.getEmail());
+			pstmt.setString(8, m.getAddress());
+			pstmt.setString(9, m.getCategoryNo());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		return result;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
-
-
-
-
-
-
-
-
-
-
-
-

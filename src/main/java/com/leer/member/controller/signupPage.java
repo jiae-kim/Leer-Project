@@ -8,22 +8,18 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
-import com.leer.member.model.service.MemberService;
-import com.leer.member.model.vo.Member;
 
 /**
- * Servlet implementation class MemberLoginController
+ * Servlet implementation class MemberTermsController
  */
-@WebServlet("/login.me")
-public class MemberLoginController extends HttpServlet {
+@WebServlet("/signupPage.me")
+public class signupPage extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MemberLoginController() {
+    public signupPage() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,29 +29,8 @@ public class MemberLoginController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
-		request.setCharacterEncoding("UTF-8");
-		
-		String memId = request.getParameter("memId");
-		String memPwd = request.getParameter("memPwd");
-		
-		Member loginUser = new MemberService().loginMember(memId, memPwd);
-		
-		
-		
-		if(loginUser == null) { 
-			
-			//로그인 실패 시 alert 또는 modal로 사용자에게 알려주기
-			
-			
-		}else { 
-			
-			HttpSession session = request.getSession();
-			session.setAttribute("loginUser", loginUser);
-			
-			response.sendRedirect(request.getContextPath());
-		}
-		
+		RequestDispatcher view = request.getRequestDispatcher("views/member/signup.jsp");
+		view.forward(request, response);
 		
 	}
 

@@ -28,7 +28,7 @@
         }
 
         #enroll-form button{
-            width: 300px;
+            width: 250px;
             height: 50px;
             border: 1px ;
             font-size: 14px;
@@ -85,23 +85,23 @@
 
         <div class="signup-input">
 
-            <form action="" id="enroll-form">
+            <form action="<%=contextPath %>/signup.me" method="post" id="enroll-form">
 
                 <table id="table1">
 
                     <tr>
                         <td>아이디</td>
-                        <td colspan="3"><input type="text" name="memId" required placeholder=" (6-10자의 영문 소문자, 숫자만 사용 가능합니다.)"></td>
+                        <td colspan="3"><input type="text" name="memId" maxlength="10" required placeholder=" (6-10자의 영문 소문자, 숫자만 사용 가능합니다.)"></td>
                     </tr>
 
                     <tr>
                         <td>비밀번호</td>
-                        <td colspan="3"><input type="password" name="memPwd" required placeholder=" (6-10자의 영문, 숫자만 사용 가능합니다.)"></td>
+                        <td colspan="3"><input type="password" name="memPwd" maxlength="10" required placeholder=" (6-10자의 영문, 숫자만 사용 가능합니다.)"></td>
                     </tr>
 
                     <tr>
                         <td>비밀번호 확인</td>
-                        <td colspan="3"><input type="password" name="pwdCheck" required></td>
+                        <td colspan="3"><input type="password" name="pwdCheck" maxlength="10" required></td>
                     </tr>
 
                     <tr>
@@ -116,12 +116,13 @@
 
                     <tr>
                         <td>생년월일</td>
-                        <td colspan="3"><input type="text" name="birth"></td>
+                        <td colspan="3"><input type="text" name="birth" placeholder=" (6자리 숫자로만 입력해주세요.)"></td>
+                        
                     </tr>
 
                     <tr>
                         <td>전화번호</td>
-                        <td colspan="3"><input type="text" name="phone" required placeholder=" (-)을 제외하고 입력해주세요."></td>
+                        <td colspan="3"><input type="text" name="phone" required placeholder=" (-)을 제외하고 숫자만 입력해주세요."></td>
                     </tr>
 
                     <tr>
@@ -144,36 +145,35 @@
 
 
                     <tr>
-                        <td>관심분야</td>
+                        <td rowspan="2">관심분야</td>
                     
                         <td>
-                            <input type="checkbox" name="intereset" value="fw">
+                            <input type="checkbox" name="category" value="10">
                             <label for="">패션 여성</label>
                         </td>
 
                         <td>
-                            <input type="checkbox" name="interset" value="li">
+                            <input type="checkbox" name="category" value="20">
                             <label for="">라이프 인테리어</label>
                         </td>
 
                         <td>
-                            <input type="checkbox" name="interest" value="ca"> 
+                            <input type="checkbox" name="category" value="30"> 
                             <label for="">문화 예술</label> <br>
 
                         </td>
                     </tr>
                     <tr>
-                        <td></td>
                         <td> 
-                            <input type="checkbox" name="interest" value="th"> 
+                            <input type="checkbox" name="category" value="40"> 
                             <label for="">여행 취미</label> 
                         </td>
                         <td>
-                            <input type="checkbox" name="interest" value="se"> 
+                            <input type="checkbox" name="category" value="50"> 
                             <label for="">시사 경제</label> 
                         </td>
                         <td>
-                            <input type="checkbox" name="interest" value="es">
+                            <input type="checkbox" name="category" value="60">
                             <label for="">교육 과학</label> 
                         </td>
                     </tr>
@@ -185,14 +185,28 @@
 
 
                 <div align="center">
-                    <button type="submit">회원가입</button>
+                	<button type="reset" onclick="termsPage();">이전</button>
+                    <button type="submit" onclick="signupSuccess();">회원가입</button>
                 </div>
+                
+                <script>
+                	function termsPage(){
+                		location.href="<%=contextPath%>/views/member/terms.jsp";
+                	}
+                	function signupSuccess(){
+                		alert("회원가입 완료 되었습니다.");
+                	}
+                </script>
+                
+                <!-- 회원가입 완료 창 보여주고 로그인 화면으로 넘겨주기 -->
 
             </form>
 
         </div>
 
     </div>
+
+    <br><br>
     
     
 </body>

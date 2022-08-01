@@ -2,28 +2,26 @@ package com.leer.member.controller;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.leer.member.model.service.MemberService;
 import com.leer.member.model.vo.Member;
 
 /**
- * Servlet implementation class MemberLoginController
+ * Servlet implementation class MemberSignupController
  */
-@WebServlet("/login.me")
-public class MemberLoginController extends HttpServlet {
+@WebServlet("/signup.me")
+public class MemberSignupController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MemberLoginController() {
+    public MemberSignupController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,29 +31,41 @@ public class MemberLoginController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
 		request.setCharacterEncoding("UTF-8");
 		
 		String memId = request.getParameter("memId");
 		String memPwd = request.getParameter("memPwd");
+		String nickname = request.getParameter("nickname");
+		String memName = request.getParameter("memName");
+		String birth = request.getParameter("birth"); //""빈문자열 넘어올 수 있음
+		String phone = request.getParameter("phone");
+		String email = request.getParameter("email");
+		String address = request.getParameter("address");
 		
-		Member loginUser = new MemberService().loginMember(memId, memPwd);
+		String[] categoryArr = request.getParameterValues("category"); //null일 수 있음
 		
-		
-		
-		if(loginUser == null) { 
-			
-			//로그인 실패 시 alert 또는 modal로 사용자에게 알려주기
-			
-			
-		}else { 
-			
-			HttpSession session = request.getSession();
-			session.setAttribute("loginUser", loginUser);
-			
-			response.sendRedirect(request.getContextPath());
+		String category = null;
+		if(categoryArr != null) {
+			category = String.join(",", categoryArr);
 		}
 		
+		
+		Member m = new Member(memId, memPwd, nickname, memName, birth, phone, email, address, category);
+		
+		
+		int result = new MemberService().insertMember(m);
+		
+		
+		
+		if(result > 0) {
+			//alert로 회원가입 성공했음 알려주기
+			
+			response.sendRedirect(request.getContextPath()); //메인페이지로 돌아가도록
+			
+		}else {
+			//alert로 회원강비 실패했음 알려주기
+			
+		}
 		
 	}
 
