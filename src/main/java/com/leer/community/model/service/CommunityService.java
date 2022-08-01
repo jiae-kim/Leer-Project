@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 import com.leer.common.model.vo.Attachment;
 import com.leer.common.model.vo.Category;
+import com.leer.common.model.vo.PageInfo;
 import com.leer.community.model.dao.CommunityDao;
 import com.leer.community.model.vo.ComuBoard;
 import com.leer.community.model.vo.Reply;
@@ -24,9 +25,9 @@ public class CommunityService {
 		close(conn);
 		return listCount;
 	}
-	public ArrayList<ComuBoard> selectList() {
+	public ArrayList<ComuBoard> selectList(PageInfo pi) {
 		Connection conn = getConnection();
-		ArrayList<ComuBoard> list = new CommunityDao().selectList(conn);
+		ArrayList<ComuBoard> list = new CommunityDao().selectList(conn, pi);
 
 		close(conn);
 		return list;
@@ -110,5 +111,15 @@ public class CommunityService {
 		
 		return result;
 		
+	}
+	
+	public ArrayList<ComuBoard> selectMyBoardList(int memNo){
+		Connection conn = getConnection();
+		
+		ArrayList<ComuBoard> list = new CommunityDao().selectMyBoardList(conn, memNo);
+		
+		close(conn);
+		
+		return list;
 	}
 }

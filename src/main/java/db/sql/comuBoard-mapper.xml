@@ -8,46 +8,35 @@
 	</entry>
 	
 	<entry key="selectList">
-	<!-- SELECT *
+
+	 SELECT *
 	  FROM (
 	        SELECT ROWNUM RNUM, A.*
 	          FROM (
-	                SELECT 
-	                       TAG
-	                     , TITLE
-	                     , CONTENT
-	                     , ENROLL_DATE
-	                     , VIEW_COUNT
-	                  FROM COMU_BOARD B
-	                  JOIN CATEGORY USING(CATEGORY_NO)
-	                  JOIN MEMBER USING (MEM_NO)
-	                 WHERE DELETE_YN = 'N'
-	                 ORDER 
-	                    BY COMU_NO DESC
-	               ) A
+				  	SELECT 
+				  		   CB.COMU_NO
+			             , TAG
+			             , TITLE
+			             , CONTENT
+			             , ENROLL_DATE
+			             , VIEW_COUNT
+			             , (
+			                  SELECT COUNT(*)
+			                    FROM COMU_LIKE CL
+			                   WHERE CL.COMU_NO = CB.COMU_NO
+			                ) "LIKE_COUNT"
+			             , (
+			                  SELECT COUNT(*)
+			                    FROM COMU_RE CR
+			                   WHERE CR.COMU_NO = CB.COMU_NO
+			                ) "COMMENT_COUNT"
+			          FROM COMU_BOARD CB
+			         WHERE DELETE_YN = 'N'
+			         ORDER 
+			            BY COMU_NO DESC
+                    ) A
 	        )
-	 WHERE RNUM BETWEEN ? AND ? -->
-	  	SELECT 
-	  		   CB.COMU_NO
-             , TAG
-             , TITLE
-             , CONTENT
-             , ENROLL_DATE
-             , VIEW_COUNT
-             , (
-                  SELECT COUNT(*)
-                    FROM COMU_LIKE CL
-                   WHERE CL.COMU_NO = CB.COMU_NO
-                ) "LIKE_COUNT"
-             , (
-                  SELECT COUNT(*)
-                    FROM COMU_RE CR
-                   WHERE CR.COMU_NO = CB.COMU_NO
-                ) "COMMENT_COUNT"
-          FROM COMU_BOARD CB
-         WHERE DELETE_YN = 'N'
-         ORDER 
-            BY COMU_NO DESC
+	 WHERE RNUM BETWEEN ? AND ?
 	</entry>
 	
 	<entry key="selectCategoryList">
@@ -113,14 +102,24 @@
 	
 	<entry key="selectBoard">
 		SELECT
-		       COMU_NO
+		       CB.COMU_NO
 		     , NICKNAME  
 		     , CATEGORY_NAME
 		     , TAG
 		     , TITLE
 		     , CONTENT
-		     , C.ENROLL_DATE
-		  FROM COMU_BOARD C
+		     , CB.ENROLL_DATE
+		     , (
+                  SELECT COUNT(*)
+                    FROM COMU_LIKE CL
+                   WHERE CL.COMU_NO = CB.COMU_NO
+                ) "LIKE_COUNT"
+             , (
+                  SELECT COUNT(*)
+                    FROM COMU_RE CR
+                   WHERE CR.COMU_NO = CB.COMU_NO
+                ) "COMMENT_COUNT"
+		  FROM COMU_BOARD CB
 		  JOIN CATEGORY USING (CATEGORY_NO)  
 		  JOIN MEMBER USING (MEM_NO)
 		 WHERE COMU_NO = ?      
@@ -168,6 +167,22 @@
 		  )
 	</entry>
 	
+	<entry key="selectMyBoardList">
+	
+		SELECT
+		       COMU_NO
+		     , NICKNAME
+		     , TITLE
+		     , VIEW_COUNT
+		     , CB.ENROLL_DATE "ENROLL_DATE"
+		     , VIEW_COUNT
+	      FROM COMU_BOARD CB
+	      JOIN MEMBER USING(MEM_NO)
+	     WHERE MEM_NO = ?
+	       AND DELETE_YN = 'N'
+	     ORDER
+	        BY COMU_NO DESC
+	</entry>
 	
 </properties>
 

@@ -24,14 +24,14 @@ import com.oreilly.servlet.MultipartRequest;
 /**
  * Servlet implementation class ProductDetailController
  */
-@WebServlet("/adProEnroll.do")
-public class AdminProductDetailController extends HttpServlet {
+@WebServlet("/adProInsert.do")
+public class AdminProductInsertController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdminProductDetailController() {
+    public AdminProductInsertController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -86,7 +86,7 @@ public class AdminProductDetailController extends HttpServlet {
 			
 			int result = new AdminProductService().insertProduct(p, at);
 			
-			if(result > 0) {
+			if(result > 0) {// 성공 : 상품전체조회 페이지
 				response.sendRedirect(request.getContextPath() + "/adProList.do");
 			}else {
 				if(at != null) {

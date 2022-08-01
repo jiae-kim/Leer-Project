@@ -55,8 +55,12 @@ Member loginUser = (Member)session.getAttribute("loginUser");
                             <p style="font-size: small;" id="noti">leer이야기</p>
                             <ul>
                                 <li><a href="#">커뮤니티 공지사항</a></li>
-                                <li><a href="#">내가 쓴 게시글</a></li>
+                                
+                                <% if(loginUser != null){ %>
+                                <li><a href="<%=contextPath%>/myBoard.li?memNo=<%=loginUser.getMemNo()%>">내가 쓴 게시글</a></li>
                                 <li><a href="#">북마크 목록</a></li>
+                                <% } %>
+                                
                             </ul>
                         </div>
                     </div>

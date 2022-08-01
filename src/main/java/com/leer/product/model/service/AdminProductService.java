@@ -37,34 +37,6 @@ public class AdminProductService {
 		close(conn);
 		return listCount;
 	}
-
-	/* [제품관리 - 상품등록]
-	 * 수정버튼 클릭 시 수정페이지 요청
-	 * 작성자 김지애
-	 */
-	public Product selectProduct(String pCode) {
-		Connection conn = getConnection();
-		Product p = new AdminProductDao().selectProduct(conn, pCode);
-		close(conn);
-		return p;
-	}
-	
-	/* [제품관리 - 상품등록]
-	 * 삭제버튼 
-	 * 작성자 김지애
-	 */
-	public int deleteProduct(String pCode) {
-		Connection conn = getConnection();
-		int result = new AdminProductDao().deleteProduct(conn, pCode);
-		
-		if(result > 0) {
-			commit(conn);
-		}else {
-			rollback(conn);
-		}
-		close(conn);
-		return result;
-	}
 	
 	/* [제품관리 - 상품등록]
 	 * 상품 등록 
@@ -89,6 +61,16 @@ public class AdminProductService {
 		return result1 * result2;
 	}
 
+	/* [제품관리 - 상품등록]
+	 * 수정버튼 클릭 시 수정페이지 요청
+	 * 작성자 김지애
+	 */
+	public Product selectProduct(String pCode) {
+		Connection conn = getConnection();
+		Product p = new AdminProductDao().selectProduct(conn, pCode);
+		close(conn);
+		return p;
+	}
 
 	/* [제품관리 - 상품등록]
 	 * 상품 수정 
@@ -107,6 +89,22 @@ public class AdminProductService {
 		return result;
 	}
 	
+	/* [제품관리 - 상품등록]
+	 * 삭제버튼 
+	 * 작성자 김지애
+	 */
+	public int deleteProduct(String pCode) {
+		Connection conn = getConnection();
+		int result = new AdminProductDao().deleteProduct(conn, pCode);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		return result;
+	}
 	
 	
 }

@@ -30,6 +30,7 @@ public class AdminProductUpdateController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// 상품 수정 시 기존에 작성했던 데이터가 들어있어야함
 		request.setCharacterEncoding("UTF-8");
 		
 		HttpSession session = request.getSession();

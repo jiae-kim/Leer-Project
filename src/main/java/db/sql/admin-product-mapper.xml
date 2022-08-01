@@ -42,29 +42,7 @@
 		  FROM PRODUCT
 	</entry>	
 	
-	<!-- 상품 전체조회 페이지 : 수정버튼 -->
-	 <entry key="selectProduct">
-	 	SELECT
-			 	P_NAME
-		      , CATEGORY_NO
-		      , P_CODE
-		      , PUBLISHER
-		      , PUBLISH_MONTH
-		      , PRICE
-		      , ENROLL_DATE
-		      , P_STOCK
-		   FROM PRODUCT
-		  WHERE P_CODE = ? <!-- 수정하고자 하는 상품 코드 -->
-	 </entry>
-	 
-	 <!-- 상품전체조회 페이지 : 삭제버튼 -->
-	 <entry key="deleteProduct">
-	 	UPDATE PRODUCT
-	 	   SET P_STATUS = 'N'
-	 	 WHERE P_CODE = ? <!-- 삭제하고자 하는 상품 코드 -->
-	 </entry>
-	 
-    <!-- 상품등록 -->
+	<!-- 상품등록 -->
      <entry key="insertProduct">
      	INSERT
      	  INTO PRODUCT
@@ -85,7 +63,7 @@
      	  ,	?
      	  , ?
      	  , ?
-     	  , ? || SEQ_PCODE.NEXTVAL
+     	  , ? || SEQ_?.NEXTVAL <!-- 시퀀스 앞에 특정 단어가 올때 그 단어의 시퀀스를 가져오게 -->
      	  , ?
      	  , ?
      	  , ?
@@ -115,11 +93,31 @@
 		    , ?
 		  )
      </entry>         
-              
-    <!-- 상품수정 -->                
-    <entry key="updateProduct">
-    	
-    </entry>      
+     
+	<!-- 상품 전체조회 페이지 : 수정버튼 -->
+	 <entry key="selectProduct">
+	 	SELECT
+			 	P_NAME
+		      , CATEGORY_NO
+		      , P_CODE
+		      , PUBLISHER
+		      , PUBLISH_MONTH
+		      , PRICE
+		      , ENROLL_DATE
+		      , P_STOCK
+		   FROM PRODUCT
+		  WHERE P_CODE = ? <!-- 수정하고자 하는 상품 코드 -->
+	 </entry>
+	 
+	 <!-- 상품수정 : 기존에 있는 selectproduct문 사용함 -->                
+    
+	 <!-- 상품전체조회 페이지 : 삭제버튼 -->
+	 <entry key="deleteProduct">
+	 	UPDATE PRODUCT
+	 	   SET P_STATUS = 'N'
+	 	 WHERE P_CODE = ? <!-- 삭제하고자 하는 상품 코드 -->
+	 </entry>
+	   
                               
                               
                               
