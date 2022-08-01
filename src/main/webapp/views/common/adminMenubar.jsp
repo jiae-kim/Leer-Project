@@ -150,7 +150,7 @@
                                 <li class="sidebar-item"><a href="<%=request.getContextPath()%>/views/admin_main/review/adminReviewView.jsp" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 리뷰관리 </span></a></li>
                                 <li class="sidebar-item"><a href="<%=request.getContextPath()%>/views/admin_main/inquiry/adminInquiryView.jsp" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 상품문의 </span></a></li>
                                 <li class="sidebar-item"><a href="<%=request.getContextPath()%>/adProList.do?cpage=1" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 상품조회 </span></a></li>
-                                <li class="sidebar-item"><a href="<%=request.getContextPath()%>/adProEnroll.do" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 상품등록 </span></a></li>
+                                <li class="sidebar-item"><a href="<%=request.getContextPath()%>/adProEnrollForm.do" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 상품등록 </span></a></li>
                             </ul>
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">상품및결제관리</span></a>
