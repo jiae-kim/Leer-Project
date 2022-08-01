@@ -41,16 +41,17 @@
 </head>
 
 <body>
-	<% if( alertMsg != null){ %>
-	<script>
+
+
+	<% if(alertMsg != null){ %>
+		<script>
 			alert("<%=alertMsg%>");
-	</script> 
+		</script> 
+		<% session.removeAttribute("alertMsg"); %>
 	<%} %>
+	
+	
     <header class="header">
-    
-    
-    	
-        
         <div class="container">
             <div class="row">
                 <div class="col-lg-3">

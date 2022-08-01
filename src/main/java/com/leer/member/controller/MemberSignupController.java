@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.leer.member.model.service.MemberService;
 import com.leer.member.model.vo.Member;
@@ -53,20 +54,24 @@ public class MemberSignupController extends HttpServlet {
 		Member m = new Member(memId, memPwd, nickname, memName, birth, phone, email, address, category);
 		
 		
+		
 		int result = new MemberService().insertMember(m);
 		
 		
 		
 		if(result > 0) {
-			//alert로 회원가입 성공했음 알려주기
+			
+			HttpSession session = request.getSession();
+			session.setAttribute("alertMsg", "회원가입이 완료되었습니다.");
 			
 			response.sendRedirect(request.getContextPath()); //메인페이지로 돌아가도록
 			
 		}else {
-			//alert로 회원강비 실패했음 알려주기
 			
+			HttpSession session = request.getSession();
+			session.setAttribute("alertMsg", "회원가입에 실패했습니다. 다시 시도해주세요.");
+
 		}
-		
 	}
 
 	/**
