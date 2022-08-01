@@ -14,6 +14,8 @@ public class ComuBoard {
 	private Date modifyDate;
 	private int viewCount;
 	private String deleteYN;
+	private int likeCount;
+	private int commentCount;
 	
 	
 	
@@ -24,7 +26,7 @@ public class ComuBoard {
 
 
 	public ComuBoard(int comuNo, String memNo, String categoryNo, String tag, String title, String content,
-			Date enrollDate, Date modifyDate, int viewCount, String deleteYN) {
+			Date enrollDate, Date modifyDate, int viewCount, String deleteYN, int likeCount, int commentCount) {
 		super();
 		this.comuNo = comuNo;
 		this.memNo = memNo;
@@ -36,19 +38,23 @@ public class ComuBoard {
 		this.modifyDate = modifyDate;
 		this.viewCount = viewCount;
 		this.deleteYN = deleteYN;
+		this.likeCount = likeCount;
+		this.commentCount = commentCount;
 	}
 
 
 
 
 	public ComuBoard(int comuNo, String tag, String title, 
-			Date enrollDate, int viewCount) {
+			Date enrollDate, int viewCount, int likeCount, int commentCount) {
 		super();
 		this.comuNo = comuNo;
 		this.tag = tag;
 		this.title = title;
 		this.enrollDate = enrollDate;
 		this.viewCount = viewCount;
+		this.likeCount = likeCount;
+		this.commentCount = commentCount;
 	}
 
 	
@@ -63,6 +69,34 @@ public class ComuBoard {
 		this.tag = tag;
 		this.title = title;
 		this.enrollDate = enrollDate;
+	}
+
+
+
+
+	public int getLikeCount() {
+		return likeCount;
+	}
+
+
+
+
+	public void setLikeCount(int likeCount) {
+		this.likeCount = likeCount;
+	}
+
+
+
+
+	public int getCommentCount() {
+		return commentCount;
+	}
+
+
+
+
+	public void setCommentCount(int commentCount) {
+		this.commentCount = commentCount;
 	}
 
 
@@ -212,8 +246,14 @@ public class ComuBoard {
 	public String toString() {
 		return "ComuBoard [comuNo=" + comuNo + ", memNo=" + memNo + ", categoryNo=" + categoryNo + ", tag=" + tag
 				+ ", title=" + title + ", content=" + content + ", enrollDate=" + enrollDate + ", modifyDate="
-				+ modifyDate + ", viewCount=" + viewCount + ", deleteYN=" + deleteYN + "]";
+				+ modifyDate + ", viewCount=" + viewCount + ", deleteYN=" + deleteYN + ", likeCount=" + likeCount
+				+ ", commentCount=" + commentCount + "]";
 	}
+
+
+
+
+
 
 
 

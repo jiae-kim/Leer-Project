@@ -98,6 +98,7 @@
                 <div class="col-lg-8 col-md-7">
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6">
+                        
                                 <div class="blog__item__text2">
                                     <h4 align="left" class="boardTitle"><b>커뮤니티 작성하기</b></h4><hr style="color: black">
 

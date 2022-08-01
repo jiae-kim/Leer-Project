@@ -81,7 +81,9 @@ public class CommunityDao {
 									rset.getString("tag"),
 									rset.getString("title"), 
 									rset.getDate("enroll_date"),
-									rset.getInt("view_count"));
+									rset.getInt("view_count"),
+									rset.getInt("like_count"),
+									rset.getInt("comment_count"));
 				
 				Clob clob = rset.getClob("content");
 				Reader r = clob.getCharacterStream();

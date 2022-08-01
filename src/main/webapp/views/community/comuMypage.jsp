@@ -6,35 +6,33 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+
+	.loginBtn{
+		border:1px solid black;
+		
+	}
+</style>
 </head>
 <body>
 <div class="col-bj-1 blog__sidebar__item">
 				
 				<%if(loginUser == null){ //로그인 안되어있을 경우%>
-		<div class="myPageList">
+					<div class="myPageList" style="height:150px">
 						<div id="myPage" style="display: block;">
 							<div class="box-g">
-								<h4 class="">나의활동</h4>
+								<h4 class="login">로그인 필요</h4>
 								<div class="myList">
 									<ul>
 										<li id="profile">
-											<div class="profileNic"align="left">
-												<button onclick="location.href='<%=contextPath%>/views/member/login.jsp'">로그인을 해주세요</button>
+											<div class="profileNic" align="left" style="margin: 30px 0px 0px 10px">
+												<button class="loginBtn" onclick="location.href='<%=contextPath%>/views/member/login.jsp'">로그인 화면으로</button>
 											</div>
 										</li>
-
-										<li class="myBoard"><span class=""><strong
-												class=""><a href="">내가 쓴 글</a></strong></span> <a href="" class="">-</a><span>개</span>
-										</li>
-
-										<li class="myComment"><span class=""><strong
-												class=""><a href="">내가 좋아요 한 글</a></strong></span> <a href=""
-											class="">-</a><span>개</span></li>
 									</ul>
 								</div>
 							</div>
 							<div class="writeBoard" align="center">
-								<button class="write" disabled>글쓰기</button>
 							</div>
 						</div>
 					</div>
@@ -50,9 +48,11 @@
 									<ul>
 										<li id="profile">
 											<div class="profileNic" align="">
+											
 												<img
 													src="https://ssl.pstatic.net/static/cafe/cafe_pc/default/cafe_profile_70.png"
 													width="58" height="58" alt="프로필사진" class="imgChange">
+													
 												<strong><%=loginUser.getNickname() %></strong>
 
 											</div>

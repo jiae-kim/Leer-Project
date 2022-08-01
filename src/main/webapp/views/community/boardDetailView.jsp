@@ -235,7 +235,7 @@ li {
 				<div class="detailHead">
 					<div class="detailTitle">
 						<div class="boardList">
-							<a href="<%=contextPath%>/comu.bo?cpage=1""><%= c.getCategoryNo() %> 목록으로 ></a>
+							<a href="<%=contextPath%>/comu.bo?cpage=1"><%= c.getCategoryNo() %> 목록으로 ></a>
 						</div>
 						<div style="height: 30px;">
 							<input type="hidden" name="no" value="<%= c.getComuNo() %>">
@@ -313,15 +313,15 @@ li {
 			<%if(loginUser == null){ //로그인 안되어있을 경우%>
 				<div class="comment-area">
 					<div class="writeComment">
-						<textarea rows="1" id="replyContent" placeholder="로그인 후 작성가능합니다."
-							onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
+						<textarea rows="1" id="replyContent" placeholder="로그인 후 작성이 가능합니다."
+							onkeydown="resize(this)" onkeyup="resize(this)" disabled></textarea>
 						<button disabled>등록</button>
 					</div>
 				</div>
 				<% }else{ %> 
 				<div class="comment-area">
 					<div class="writeComment">
-						<strong class="commentWriter">로그인한 회원 닉네임</strong>
+						<strong class="commentWriter"><%= loginUser.getNickname() %></strong>
 						<textarea rows="1" id="replyContent" placeholder="댓글을 남겨보세요"
 							onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
 						<button onclick="insertReply()">등록</button>

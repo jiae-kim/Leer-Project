@@ -65,12 +65,23 @@
 								<span style="font-weight:bold"><%= c.getTitle() %></span>
 							</h5>
 							<span style="font-size: 12px"><%=c.getEnrollDate() %></span>
-							<a class="hashtag" href="#" style="display: inline"><%= c.getTag() %></a> <!-- 댓글수 구하는 구문 찾아보기  -->
+							
+							<%
+								if(c.getTag() != null) {
+									String[] tagArr = c.getTag().split(",");  // ["패션", "라이프"]
+									
+									for(String tag : tagArr){ %>
+							
+										<a class="hashtag" href="<%= contextPath %>/xxxxx?tag=<%=tag %>" style="display: inline"><%= tag %></a> <!-- 댓글수 구하는 구문 찾아보기  -->
+							
+									<%} %>
+							<% } %>
+							
 							<p><%=c.getContent()%></p>
 							<div>
 								<div style="float: right">
-									<i class="fa fa-heart-o"> <sup>123</sup>
-									</i> <i class="fa fa-comment-o"> <sup><%= c.getViewCount() %></sup>
+									<i class="fa fa-heart-o"> <sup><%= c.getLikeCount() %></sup>
+									</i> <i class="fa fa-comment-o"> <sup><%= c.getCommentCount() %></sup>
 									</i>
 								</div>
 							</div>
