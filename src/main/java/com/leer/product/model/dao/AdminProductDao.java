@@ -213,6 +213,28 @@ public class AdminProductDao {
 		return result;
 	}
 
+	/* [제품관리 - 상품등록]
+	 * 상품 수정
+	 * 작성자 김지애
+	 */
+	public int updateProduct(Connection conn, Product p) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("selectProduct");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, p.getpCode());
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}
+
 
 	
 	

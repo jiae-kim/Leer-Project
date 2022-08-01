@@ -67,7 +67,7 @@ public class AdminProductService {
 	}
 	
 	/* [제품관리 - 상품등록]
-	 * 상품 등록 및 수정
+	 * 상품 등록 
 	 * 작성자 김지애
 	 */
 	public int insertProduct(Product p, Attachment at) {
@@ -90,6 +90,23 @@ public class AdminProductService {
 	}
 
 
+	/* [제품관리 - 상품등록]
+	 * 상품 수정 
+	 * 작성자 김지애
+	 */
+	public int updateProduct(Product p) {
+		Connection conn = getConnection();
+		int result = new AdminProductDao().updateProduct(conn, p);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		return result;
+	}
+	
 	
 	
 }

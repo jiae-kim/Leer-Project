@@ -30,8 +30,8 @@
                 <div class="ml-auto text-right">
                     <nav aria-label="breadcrumb">
                     </nav>
-                    <button type="button" onclick="location.href='<%=request.getContextPath()%>/adProEnroll.do'" class="btn btn-info btn-lg">등록</button> &nbsp;&nbsp;&nbsp;
-                    <button type="button" onclick="location.href='<%=request.getContextPath()%>/adProUpdate.do?no=<%=p.getpCode()%>" class="btn btn-warning btn-lg">수정</button> &nbsp;&nbsp;&nbsp;
+                    <button type="button" onclick="location.href='<%=request.getContextPath()%>/adProEnroll.do" class="btn btn-info btn-lg">등록</button> &nbsp;&nbsp;&nbsp;
+                    <button type="button" onclick="location.href='<%=request.getContextPath()%>/adProUpdateForm.do" class="btn btn-warning btn-lg">수정</button> &nbsp;&nbsp;&nbsp;
                     <!-- Button trigger modal -->
                     <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#Modal2">
                         삭제
