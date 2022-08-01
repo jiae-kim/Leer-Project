@@ -19,7 +19,11 @@ public class Member {
 	private Date enrollDate;
 	private String admin;
 	private String profileLink;
-	
+	private int orNo;
+	private String image_url;
+	private String p_name;
+	private int price;
+	private Date or_date;
 	
 	
 	
@@ -27,6 +31,128 @@ public class Member {
 
 	
 	
+	
+	
+
+	public Member(int orNo) {
+		super();
+		this.orNo = orNo;
+	}
+
+
+
+
+
+
+	public Member(String image_url, String p_name, int price, Date or_date) {
+		super();
+		this.image_url = image_url;
+		this.p_name = p_name;
+		this.price = price;
+		this.or_date = or_date;
+	}
+
+
+
+
+
+
+	public String getImage_url() {
+		return image_url;
+	}
+
+
+
+
+
+
+	public void setImage_url(String image_url) {
+		this.image_url = image_url;
+	}
+
+
+
+
+
+
+	public String getP_name() {
+		return p_name;
+	}
+
+
+
+
+
+
+	public void setP_name(String p_name) {
+		this.p_name = p_name;
+	}
+
+
+
+
+
+
+	public int getPrice() {
+		return price;
+	}
+
+
+
+
+
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+
+
+
+
+
+	public Date getOr_date() {
+		return or_date;
+	}
+
+
+
+
+
+
+	public void setOr_date(Date or_date) {
+		this.or_date = or_date;
+	}
+
+
+
+
+
+
+	public Member(int memNo, int orNo) {
+		super();
+		this.memNo = memNo;
+		this.orNo = orNo;
+	}
+
+
+
+
+
+
+	public int getOrNo() {
+		return orNo;
+	}
+
+
+
+
+	public void setOrNo(int orNo) {
+		this.orNo = orNo;
+	}
+
+
+
 
 	public Member(int memNo, String memId, String memPwd, String nickname, String memName, String memBirth,
 			String phone, String email, String address, String categoryNo, int point, String memStatus, Date enrollDate,
