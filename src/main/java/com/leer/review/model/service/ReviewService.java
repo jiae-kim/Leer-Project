@@ -26,4 +26,17 @@ public class ReviewService {
 		
 	}
 	
+	public ArrayList<Review> WriteReviewHistory(int memNo){
+		
+		Connection conn = getConnection();
+		
+		
+		ArrayList<Review> list = new ReviewDao().WriteReviewView(conn,memNo);
+		
+		close(conn);
+		return list;
+		
+		
+	}
+	
 }

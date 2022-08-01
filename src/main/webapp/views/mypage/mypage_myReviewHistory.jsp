@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.leer.review.model.vo.Review" %>
+    
+<%
+	ArrayList<Review> list = (ArrayList<Review>)request.getAttribute("list");	
+%>
+
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -151,93 +156,36 @@
 
                         <div id="dev_pro">
                             <hr>
-
+							<% for(Review r : list){ %>
                             <form action="" class="myReview">
                                 <table>
                                     <tr>
                                         <td rowspan="4" width="200px"><img class="product__details__pic__item"
-                                            src=http://www.walbox.co.kr/upfile/item/111_1618565835.jpg alt=""></td>
+                                            src=<%= r.getImage_url() %> alt=""></td>
                                         <td width="100px">제품명</td>
-                                        <td width="250px"><b>BBC사이언스</b></td>
-                                        <td>제품 구매 날짜 작성</td>
+                                        <td width="250px"><b><%= r.getpName() %></b></td>
+                                        <td><%= r.getOr_date() %></td>
                                     </tr>
                                     <tr height="100px">
                                         <td id="rev"> 리뷰 내용 : </td>
-                                        <td colspan="2"> 작성한 리뷰 내용작성</td>
+                                        <td colspan="2"> <%= r.getReviewContent() %></td>
                                     </tr>
                                     <tr>
                                         <td>별점</td>
-                                        <td width="150px"> ⭐⭐⭐ </td>
+                                        <td width="150px"> 
+                                        <% 
+                                        	int i=0;
+                                        	for(i=0;i<r.getReviewScope();i++ ){
+                                        	System.out.print("⭐");
+                                        }%>
+										</td>
                                         <td><button class="btn btn-sm btn-secondary">리뷰삭제</button></td>
                                     </tr>
                                 </table>
                                 <hr>
                             
-                                <hr>
-                            
-                                <table>
-                                    <tr>
-                                        <td rowspan="4" width="200px"><img class="product__details__pic__item"
-                                            src=http://www.walbox.co.kr/upfile/item/%EB%A6%AC%EB%B9%998_1658642603.jpg alt=""></td>
-                                        <td width="100px">제품명</td>
-                                        <td width="250px"><b>리빙센스</b></td>
-                                        <td>제품 구매 날짜 작성</td>
-                                    </tr>
-                                    <tr height="100px">
-                                        <td id="rev"> 리뷰 내용 : </td>
-                                        <td colspan="2"> 작성한 리뷰 내용작성</td>
-                                    </tr>
-                                    <tr>
-                                        <td>별점</td>
-                                        <td width="150px"> ⭐⭐⭐⭐⭐ </td>
-                                        <td><button class="btn btn-sm btn-secondary">리뷰삭제</button></td>
-                                    </tr>
-                                </table>
-                                <hr>
-                                <hr>
-                            
-                                <table>
-                                    <tr>
-                                        <td rowspan="4" width="200px"><img class="product__details__pic__item"
-                                            src=http://www.walbox.co.kr/upfile/item/%EB%8F%99%EC%95%84_1648388049.jpg alt=""></td>
-                                        <td width="100px">제품명</td>
-                                        <td width="250px"><b>과학동아</b></td>
-                                        <td>제품 구매 날짜 작성</td>
-                                    </tr>
-                                    <tr height="100px">
-                                        <td id="rev"> 리뷰 내용 : </td>
-                                        <td colspan="2"> 작성한 리뷰 내용작성</td>
-                                    </tr>
-                                    <tr>
-                                        <td>별점</td>
-                                        <td width="150px"> ⭐ </td>
-                                        <td><button class="btn btn-sm btn-secondary">리뷰삭제</button></td>
-                                    </tr>
-                                </table>
-                                <hr>
-                            
-                           
-                                <hr>
-                                <table>
-                                    <tr>
-                                        <td rowspan="4" width="200px"><img class="product__details__pic__item"
-                                            src=http://www.walbox.co.kr/upfile/item/%EC%9E%85%ED%8A%B8%EC%98%817_1656061985.jpg alt=""></td>
-                                        <td width="100px">제품명</td>
-                                        <td width="250px"><b>EBS 입이트이는영어</b></td>
-                                        <td>제품 구매 날짜 작성</td>
-                                    </tr>
-                                    <tr height="100px">
-                                        <td id="rev"> 리뷰 내용 : </td>
-                                        <td colspan="2"> 작성한 리뷰 내용작성</td>
-                                    </tr>
-                                    <tr>
-                                        <td>별점</td>
-                                        <td width="150px"> ⭐⭐ </td>
-                                        <td><button class="btn btn-sm btn-secondary">리뷰삭제</button></td>
-                                    </tr>
-                                </table>
-                                <hr>
                             </form>
+                            <%} %>
 
                         </div>
 

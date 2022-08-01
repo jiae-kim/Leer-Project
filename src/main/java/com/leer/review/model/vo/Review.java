@@ -22,6 +22,19 @@ public class Review {
 	public Review() {}
 	
 	
+	
+	public Review(String pName, int reviewScope, String reviewContent, int price, String image_url, Date or_date) {
+		super();
+		this.pName = pName;
+		this.reviewScope = reviewScope;
+		this.reviewContent = reviewContent;
+		this.price = price;
+		this.image_url = image_url;
+		this.or_date = or_date;
+	}
+
+
+
 	public Review(String pName, int price, String image_url, Date or_date) {
 		super();
 		this.pName = pName;

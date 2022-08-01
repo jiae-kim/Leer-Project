@@ -12,26 +12,26 @@
         JOIN PRODUCT P ON (R.P_CODE = P.P_CODE)
         JOIN OR_PRODUCT OP ON (P.P_CODE = OP.P_CODE)
         JOIN "ORDER" O ON (OP.OR_NO = O.OR_NO)
-		WHERE R.MEM_NO=1
+		WHERE R.MEM_NO=?
         AND WRITE_YN='N'
 	</entry>
 	
 	
 	<entry key="">
-	내가 작성한 리뷰
 		SELECT
-			 IMAGE_URL
-			,P_NAME
+			 P.IMAGE_URL1
+			,P.P_NAME
 			,OR_DATE
-			,PRICE
-			,REVIEW_SCORE
+			,P.PRICE
+			,REVIEW_SCOPE
 			,REVIEW_CONTENT
-		FROM REVIEW
-		JOIN ORDER USING(MEM_NO)
-		JOIN OR_PRODUCT USING(OR_NO)
-		JOIN PRODUCT USING(P_CODE)
-		WHERE MEM_NO=?
-		AND	WRITE_YN='Y'
+		FROM REVIEW R
+        JOIN PRODUCT P ON (R.P_CODE = P.P_CODE)
+        JOIN OR_PRODUCT OP ON (P.P_CODE = OP.P_CODE)
+        JOIN "ORDER" O ON (OP.OR_NO = O.OR_NO)
+		WHERE R.MEM_NO=?
+        AND WRITE_YN='Y'
+		
 	</entry>
 
 	<entry key="">

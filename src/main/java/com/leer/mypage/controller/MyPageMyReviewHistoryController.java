@@ -1,6 +1,7 @@
 package com.leer.mypage.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,6 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import com.leer.review.model.service.ReviewService;
+import com.leer.review.model.vo.Review;
 
 /**
  * Servlet implementation class MyPageMyReviewHistoryController
@@ -30,6 +34,10 @@ public class MyPageMyReviewHistoryController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
+		int memNo = Integer.parseInt(request.getParameter("memNo"));
+		
+		ArrayList<Review> list = new ReviewService().WriteReviewHistory(memNo);
+		request.setAttribute("list", list);
 		
 		RequestDispatcher view = request.getRequestDispatcher("views/mypage/mypage_myReviewHistory.jsp");
 		view.forward(request, response);
