@@ -29,14 +29,14 @@ public class AdminProductUpdateFormController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 상품전체조회 페이지에서 수정버튼 클릭 시 수정페이지 요청
+		// 상품전체조회 페이지에서 수정버튼 클릭 시 수정페이지 요청 
 		
 		// PRODUCT 테이블에는 pNo이 없기 때문에 상품코드를 넘기자
 		String pCode = request.getParameter("pcode");
 		Product p = new AdminProductService().selectProduct(pCode);
 		
-		request.setAttribute("pcode", p);
-		request.getRequestDispatcher("views/admin_main/product.adminProductDetail.jsp").forward(request, response);
+		request.setAttribute("product", p);
+		request.getRequestDispatcher("views/admin_main/product.adminProductDetailed.jsp").forward(request, response);
 	}
 
 	/**

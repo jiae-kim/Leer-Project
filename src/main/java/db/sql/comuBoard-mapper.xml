@@ -28,13 +28,23 @@
 	        )
 	 WHERE RNUM BETWEEN ? AND ? -->
 	  	SELECT 
-	  		   COMU_NO
+	  		   CB.COMU_NO
              , TAG
              , TITLE
              , CONTENT
              , ENROLL_DATE
              , VIEW_COUNT
-          FROM COMU_BOARD 
+             , (
+                  SELECT COUNT(*)
+                    FROM COMU_LIKE CL
+                   WHERE CL.COMU_NO = CB.COMU_NO
+                ) "LIKE_COUNT"
+             , (
+                  SELECT COUNT(*)
+                    FROM COMU_RE CR
+                   WHERE CR.COMU_NO = CB.COMU_NO
+                ) "COMMENT_COUNT"
+          FROM COMU_BOARD CB
          WHERE DELETE_YN = 'N'
          ORDER 
             BY COMU_NO DESC

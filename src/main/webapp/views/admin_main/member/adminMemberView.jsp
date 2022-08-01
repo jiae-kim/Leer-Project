@@ -157,7 +157,13 @@
 		<!--  -->
 		<script>
 			function changeList(){
-												
+				$.ajax({
+					url:"<%=request.getContextPath()%>/adMemList.do",
+					data:{align:$("#selectBox option:onclick").val()},
+					success:function(){
+						console.log("aaaa");
+					}
+				});												
 			}
 		</script>
 </body>
