@@ -88,6 +88,22 @@
 		 WHERE CART_NO = ?
 	</entry>
 	
+	<entry key="RefundController">
+		SELECT
+			P_NAME
+			,OR_DATE
+			,PRICE
+			,IMAGE_URL1
+			,"ORDER".OR_NO
+			FROM MEMBER M
+			JOIN "ORDER" USING (MEM_NO)
+            JOIN OR_PRODUCT OP ON ("ORDER".OR_NO = OP.OR_NO)
+            JOIN PRODUCT P ON(OP.P_CODE = P.P_CODE)
+			WHERE MEM_NO = ?
+			AND OR_YN = ?
+			AND P.P_CODE = ?
+	</entry>
+	
 	
 	
 </properties>

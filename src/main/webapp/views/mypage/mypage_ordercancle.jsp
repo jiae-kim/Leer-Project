@@ -171,7 +171,7 @@
                                         <td width="150px">  <%= m.getPrice() %></td>
                                         <td>
                                             <a href="" class="btn btn-sm btn-secondary">주문취소</a>
-                                            <a href="<%= request.getContextPath() %>/refund.me?memNo=<%=loginUser.getMemNo()%>&p_code=<%= m.getP_code() %>" method="post" class="btn btn-sm btn-danger">환불</a>
+                                            <a href="<%= request.getContextPath() %>/refund.me?memNo=<%=loginUser.getMemNo()%>&p_code=<%= m.getP_code() %>&or_No<%=m.getOrNo() %>" method="post" class="btn btn-sm btn-danger">환불</a>
                                         </td>
                                     </tr>
                                 </table>

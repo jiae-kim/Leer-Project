@@ -73,7 +73,7 @@
     
                                 <h4 style="font-family:'NanumSquare'; font-weight:800; margin-bottom: 15px; font-size:20px;">상품 리뷰</h4>
                                 <ul>
-                                    <li><a href="<%= request.getContextPath() %>/myreviewwrite.me">작성 가능한 리뷰</a></li>
+                                    <li><a href="<%= request.getContextPath() %>/myreviewwrite.me?memNo=<%=loginUser.getMemNo()%>">작성 가능한 리뷰</a></li>
                                     <li><a href="<%= request.getContextPath() %>/myreviewhistory.me">작성한 리뷰</a></li>
                                 </ul>
     

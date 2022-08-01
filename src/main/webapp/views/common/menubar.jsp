@@ -5,7 +5,7 @@
 
 	Member loginUser = (Member)session.getAttribute("loginUser");
 	
-	/* String alertMsg = (String)session.getAttribute("alertMsg"); */
+	String alertMsg = (String)session.getAttribute("alertMsg");
 %>
 
 <!DOCTYPE html>
@@ -41,11 +41,12 @@
 </head>
 
 <body>
-
-	<%-- 	<script>
+	<!--
+	<script>
 			alert("<%=alertMsg%>");
-		</script> --%>
+	</script> 
     <header class="header">
+    -->
     
     	
         

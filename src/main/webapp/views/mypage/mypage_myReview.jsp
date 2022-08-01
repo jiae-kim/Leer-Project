@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.leer.review.model.vo.Review" %>
+    
+<%
+	ArrayList<Review> list = (ArrayList<Review>)request.getAttribute("list");	
+%>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -147,96 +151,30 @@
 
                         <div id="dev_pro">
                             <hr>
-
+							<% for(Review r : list){ %>
                             <form action="" class="myReview">
                                 <table>
                                     <tr>
                                         <td rowspan="4" width="200px"><img class="product__details__pic__item"
-                                            src=http://www.walbox.co.kr/upfile/item/111_1618565835.jpg alt=""></td>
+                                            src=<%= r.getImage_url() %> alt=""></td>
                                         <td width="80px">제품명</td>
-                                        <td width="250px" > <b>BBC사이언스</b></td>
-                                        <td>제품 구매 날짜 작성</td>
+                                        <td width="250px" > <b><%= r.getpName() %></b></td>
+                                        <td><%= r.getOr_date() %></td>
                                     </tr>
                                     <tr height="100px">
-                                        <td>주문번호</td>
-                                        <td colspan="2"> 주문번호 작성</td>
+                                        <td></td>
+                                        <td colspan="2"> </td>
                                     </tr>
                                     <tr>
                                         <td>제품가격</td>
-                                        <td width="150px"> 12,160원</td>
+                                        <td width="150px"> <%= r.getPrice() %></td>
                                         <td><a href="" onclick="window.open('<%= request.getContextPath() %>/review.me','review','width=700, height=900, scrollbars=no, resizable=no, toolbars=no, menubar=no')" class="btn btn-sm btn-secondary">리뷰 쓰기</a></td>
                                     </tr>
                                 </table>
                                 <hr>
                             
-                                <hr>
-                            
-                                <table>
-                                    <tr>
-                                        <td rowspan="4" width="200px"><img class="product__details__pic__item"
-                                            src=http://www.walbox.co.kr/upfile/item/%EB%A6%AC%EB%B9%998_1658642603.jpg alt=""></td>
-                                        <td width="80px">제품명</td>
-                                        <td width="250px" ><b>리빙센스</b></td>
-                                        <td>제품 구매 날짜 작성</td>
-                                    </tr>
-                                    <tr height="100px">
-                                        <td> 제품설명</td>
-                                        <td colspan="2"> 제품관련 설명작성</td>
-                                    </tr>
-                                    <tr>
-                                        <td>제품가격</td>
-                                        <td width="150px">7,410원</td>
-                                        <td><a href="" onclick="window.open('<%= request.getContextPath() %>/review.me','review','width=700, height=900, scrollbars=no, resizable=no, toolbars=no, menubar=no')" class="btn btn-sm btn-secondary">리뷰 쓰기</a></td>
-                                    </tr>
-                                </table>
-                                <hr>
-                            
-                             <hr>
-                            
-                                <table>
-                                    <tr>
-                                        <td rowspan="4" width="200px"><img class="product__details__pic__item"
-                                            src=http://www.walbox.co.kr/upfile/item/%EB%8F%99%EC%95%84_1648388049.jpg alt=""></td>
-                                        <td width="80px">제품명</td>
-                                        <td width="250px" ><b>과학동아</b></td>
-                                        <td>제품 구매 날짜 작성</td>
-                                    </tr>
-                                    <tr height="100px">
-                                        <td> 제품설명</td>
-                                        <td colspan="2"> 제품관련 설명작성</td>
-                                    </tr>
-                                    <tr>
-                                        <td>제품가격</td>
-                                        <td width="150px">14,250원</td>
-                                        <td><a href="" onclick="window.open('<%= request.getContextPath() %>/review.me','review','width=700, height=900, scrollbars=no, resizable=no, toolbars=no, menubar=no')" class="btn btn-sm btn-secondary">리뷰 쓰기</a></td>
-                                    </tr>
-                                </table>
-                                <hr>
-                            
-                                <hr>
-                            
-                                <table>
-                                    <tr>
-                                        <td rowspan="4" width="200px"><img class="product__details__pic__item"
-                                            src=http://www.walbox.co.kr/upfile/item/%EC%9E%85%ED%8A%B8%EC%98%817_1656061985.jpg alt=""></td>
-                                        <td width="80px">제품명</td>
-                                        <td width="250px" ><b>EBS 입이트이는영어</b></td>
-                                        <td>제품 구매 날짜 작성</td>
-                                    </tr>
-                                    <tr height="100px">
-                                        <td> 제품설명</td>
-                                        <td colspan="2"> 제품관련 설명작성</td>
-                                    </tr>
-                                    <tr>
-                                        <td>제품가격</td>
-                                        <td width="150px"> 9,500원</td>
-                                        <td><a href="" onclick="window.open('<%= request.getContextPath() %>/review.me','review','width=700, height=900, scrollbars=no, resizable=no, toolbars=no, menubar=no')" class="btn btn-sm btn-secondary">리뷰 쓰기</a></td>
-                                        
-                                        
-                                    </tr>
-                                </table>
-                                <hr>
                             </form>
+                            <%} %>
                            
 
                         </div>
