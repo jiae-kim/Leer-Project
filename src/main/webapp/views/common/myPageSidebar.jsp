@@ -38,7 +38,11 @@
     
                                 <h4 style="font-family:'NanumSquare'; font-weight:800; margin-bottom: 15px; font-size:20px;">장바구니</h4>
                                 <ul>
-                                    <li><a href="<%= request.getContextPath()%>/clist.me?memNo=<%=loginUser.getMemNo()%>">장바구니</a></li>
+                                	<% if(loginUser == null) { %>
+                                		<li><a href="<%= request.getContextPath()%>">장바구니</a></li>
+                                	<%}else { %>
+                                    	<li><a href="<%= request.getContextPath()%>/clist.me?memNo=<%=loginUser.getMemNo()%>">장바구니</a></li>
+                                    <% } %>
                                     <li><a href="#">찜목록</a></li>
                                 </ul>
     
