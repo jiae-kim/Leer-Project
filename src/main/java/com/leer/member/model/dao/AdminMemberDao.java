@@ -61,7 +61,6 @@ public class AdminMemberDao {
 			}
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			close(rset);
@@ -88,7 +87,6 @@ public class AdminMemberDao {
 				listCount = rset.getInt("COUNT");
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			close(rset);
@@ -130,8 +128,81 @@ public class AdminMemberDao {
 		}
 		return m;
 	}
-
+	
+	// 관리자 장기구독자 조회
+	// 작성자 김은지
+	public ArrayList<Member> selectLongMemberList(Connection conn, PageInfo pi){
+		ArrayList<Member> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectLongMemberList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+						
+			int startRow = (pi.getCurrentPage()-1) * pi.getBoardLimit()+1;
+			int endRow = startRow + pi.getBoardLimit()-1;
+			
+			pstmt.setInt(1, startRow);
+			pstmt.setInt(2, endRow);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				
+				list.add(new Member(rset.getInt("mem_no"),
+									rset.getString("mem_id"),
+									rset.getString("mem_name"),
+									rset.getString("phone"),
+									rset.getString("email"),
+									rset.getString("address"),
+									rset.getInt("point"),
+									rset.getDate("start_date"),
+									rset.getDate("end_date")));
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return list;
+	}
+	
+	// 관리자 장기구독자조회리스트 페이징처리
+	// 작성자 김은지	
+	public int selectLongMemberListCount(Connection conn) {
+		int listCount = 0;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectLongMemberListCount");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				listCount = rset.getInt("RNUM");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return listCount;		
+	}
+	
 }
+
+
+
+
+
+
 
 
 

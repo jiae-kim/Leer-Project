@@ -40,5 +40,25 @@ public class AdminMemberService {
 		close(conn);
 		return m;
 	}
+	
+	// 관리자 장기구독자리스트 조회
+	// 작성자 김은지
+	public ArrayList<Member> selectLongMemberList(PageInfo pi){
+		Connection conn = getConnection();
+		
+		ArrayList<Member> list = new AdminMemberDao().selectLongMemberList(conn, pi);
+		
+		close(conn);
+		return list;
+	}
+	
+	// 관리자 장기구독자 조회 페이징처리
+	// 작성자 김은지	
+	public int selectLongMemberListCount() {
+		Connection conn = getConnection();
+		int listCount = new AdminMemberDao().selectLongMemberListCount(conn);
+		close(conn);
+		return listCount;
+	}
 
 }
