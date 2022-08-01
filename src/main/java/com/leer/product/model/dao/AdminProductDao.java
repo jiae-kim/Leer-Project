@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 import com.leer.common.model.vo.Attachment;
+import com.leer.common.model.vo.Category;
 import com.leer.common.model.vo.PageInfo;
 import com.leer.product.model.vo.Inquiry;
 import com.leer.product.model.vo.Product;
@@ -94,6 +95,35 @@ public class AdminProductDao {
 			close(pstmt);
 		}
 		return listCount;
+	}
+	
+	/* [제품관리 - 상품등록]
+	 * 상품 등록 페이지 요청
+	 * 작성자 김지애
+	 */
+	public ArrayList<Category> selectCategoryList(Connection conn) {
+		ArrayList<Category> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectCategoryList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				list.add(new Category(rset.getInt("category_no"),
+									  rset.getString("category_name")
+									  ));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return list;
 	}
 	
 	/* [제품관리 - 상품등록]
@@ -234,6 +264,7 @@ public class AdminProductDao {
 		}
 		return result;
 	}
+
 	
 	
 

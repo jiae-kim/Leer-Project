@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.util.ArrayList;
 
 import com.leer.common.model.vo.Attachment;
+import com.leer.common.model.vo.Category;
 import com.leer.common.model.vo.PageInfo;
 import com.leer.product.model.dao.AdminProductDao;
 import com.leer.product.model.vo.Inquiry;
@@ -39,7 +40,18 @@ public class AdminProductService {
 	}
 	
 	/* [제품관리 - 상품등록]
-	 * 상품 등록 
+	 * 상품 등록 페이지 요청
+	 * 작성자 김지애
+	 */
+	public ArrayList<Category> selectCategoryList() {
+		Connection conn = getConnection();
+		ArrayList<Category> list = new AdminProductDao().selectCategoryList(conn);
+		close(conn);
+		return list;
+	}
+	
+	/* [제품관리 - 상품등록]
+	 * 상품 등록 (insert)
 	 * 작성자 김지애
 	 */
 	public int insertProduct(Product p, Attachment at) {
@@ -105,6 +117,8 @@ public class AdminProductService {
 		close(conn);
 		return result;
 	}
+
+
 	
 	
 }

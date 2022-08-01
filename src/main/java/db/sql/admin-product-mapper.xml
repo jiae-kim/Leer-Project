@@ -42,6 +42,14 @@
 		  FROM PRODUCT
 	</entry>	
 	
+	<!-- 상품등록 페이지 요청 -->
+	<entry key="selectCategoryList">
+		SELECT
+			  	CATEGORY_NO
+			  ,	CATEGORY_NAME
+		   FROM	CATEGORY
+	</entry>
+	
 	<!-- 상품등록 -->
      <entry key="insertProduct">
      	INSERT
