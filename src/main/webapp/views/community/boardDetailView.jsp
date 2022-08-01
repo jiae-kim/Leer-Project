@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="com.leer.community.model.vo.ComuBoard, com.leer.common.model.vo.Attachment"%>
+	pageEncoding="UTF-8"
+	import="com.leer.community.model.vo.ComuBoard, com.leer.common.model.vo.Attachment"%>
 <%
-ComuBoard c = (ComuBoard)request.getAttribute("c");
-Attachment at = (Attachment)request.getAttribute("at");
-
+ComuBoard c = (ComuBoard) request.getAttribute("c");
+Attachment at = (Attachment) request.getAttribute("at");
 %>
 <!DOCTYPE html>
 <html>
@@ -104,9 +104,11 @@ div {
 	height: 40px;
 }
 
-.hashtag2 {
+.hashtag {
+	
 	display: inline;
 	color: #1c1c1c;
+	padding:2px;
 	background-color: rgb(221, 221, 221);
 	border-radius: 3px;
 	margin-left: 5px;
@@ -208,7 +210,7 @@ li {
 </head>
 <body>
 
-<%-- 	<%@ include file="../common/menubar.jsp" %> --%>
+	<%-- 	<%@ include file="../common/menubar.jsp" %> --%>
 
 	<!-- Breadcrumb Section Begin -->
 	<section class="breadcrumb-section set-bg">
@@ -235,11 +237,12 @@ li {
 				<div class="detailHead">
 					<div class="detailTitle">
 						<div class="boardList">
-							<a href="<%=contextPath%>/comu.bo?cpage=1"><%= c.getCategoryNo() %> 목록으로 ></a>
+							<a href="<%=contextPath%>/comu.bo?cpage=1"><%=c.getCategoryNo()%>
+								목록으로 ></a>
 						</div>
 						<div style="height: 30px;">
-							<input type="hidden" name="no" value="<%= c.getComuNo() %>">
-							<h3><%= c.getTitle() %></h3>
+							<input type="hidden" name="no" value="<%=c.getComuNo()%>">
+							<h3><%=c.getTitle()%></h3>
 						</div>
 
 					</div>
@@ -249,12 +252,12 @@ li {
 							width="36" height="36" alt="프로필사진" class="profileImg">
 						<div class="userNickname">
 							<div class="nick">
-								<span><%= c.getMemNo() %></span>
+								<span><%=c.getMemNo()%></span>
 							</div>
 							<div class="create">
-								<span class="date"><%= c.getEnrollDate() %></span> 
-								<span class="count"><%= c.getViewCount() %></span> 
-								<a href="" class="boardReport"><span>신고</span></a>
+								<span class="date"><%=c.getEnrollDate()%></span> <span
+									class="count"><%=c.getViewCount()%></span> <a href=""
+									class="boardReport"><span>신고</span></a>
 							</div>
 						</div>
 					</div>
@@ -268,20 +271,38 @@ li {
 							src="https://images.pexels.com/photos/1525041/pexels-photo-1525041.jpeg?cs=srgb&dl=pexels-francesco-ungaro-1525041.jpg&fm=jpg"
 							alt="게시글사진" class="boardImg">
 					</div>
-					<p> <%= c.getContent() %></p>
-					
-					<a class="hashtag2" href="" style="display: inline" id="tag"><%= c.getTag() %></a> 
+					<p>
+						<%=c.getContent()%></p>
+
+					<%
+					if (c.getTag() != null) {
+						String[] tagArr = c.getTag().split(","); // ["패션", "라이프"]
+
+						for (String tag : tagArr) {
+					%>
+
+					<a class="hashtag" href="<%=contextPath%>/xxxxx?tag=<%=tag%>"
+						style="display: inline"><%=tag%></a>
+					<!-- 댓글수 구하는 구문 찾아보기  -->
+
+					<%
+					}
+					%>
+					<%
+					}
+					%>
 				</div>
 				<script>
 				
 					var tag = document.getElementById(tag).split(',');
 					document.getElementById(tag).innerHTML;
 				</script>
-				
+
 				<div class="boardTag">
 					<div class="likeComment">
-						<i class="fa-solid fa-heart" id="iconH"></i> <span>123</span>
-					    <i class="fa-solid fa-comment" id="iconC"></i> <span>123</span>
+						<i class="fa fa-heart-o" id="iconH"></i> <span><%=c.getLikeCount()%></span>
+						<i class="fa fa-comment-o" id="iconC"></i><span
+							style="margin-left: 5px"><%=c.getCommentCount()%></span>
 					</div>
 				</div>
 				<div class="detailComment">
@@ -308,30 +329,37 @@ li {
 						</li>
 					</ul>
 				</div>
-				
-				
-			<%if(loginUser == null){ //로그인 안되어있을 경우%>
+
+
+				<%
+				if (loginUser == null) { //로그인 안되어있을 경우
+				%>
 				<div class="comment-area">
 					<div class="writeComment">
-						<textarea rows="1" id="replyContent" placeholder="로그인 후 작성이 가능합니다."
-							onkeydown="resize(this)" onkeyup="resize(this)" disabled></textarea>
+						<textarea rows="1" id="replyContent"
+							placeholder="로그인 후 작성이 가능합니다." onkeydown="resize(this)"
+							onkeyup="resize(this)" disabled></textarea>
 						<button disabled>등록</button>
 					</div>
 				</div>
-				<% }else{ %> 
+				<%
+				} else {
+				%>
 				<div class="comment-area">
 					<div class="writeComment">
-						<strong class="commentWriter"><%= loginUser.getNickname() %></strong>
+						<strong class="commentWriter"><%=loginUser.getNickname()%></strong>
 						<textarea rows="1" id="replyContent" placeholder="댓글을 남겨보세요"
 							onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
 						<button onclick="insertReply()">등록</button>
 					</div>
 				</div>
-				<% } %>
+				<%
+				}
+				%>
 			</div>
 		</div>
 	</div>
-	
+
 	<script>
 		function resize(obj) {
 			obj.style.height = '1px';
@@ -349,7 +377,7 @@ li {
 				url:"<%=contextPath%>/rinsert.bo",
 				data:{
 					content:$("#replyContent").val(),
-					no:<%= c.getComuNo() %>
+					no:<%=c.getComuNo()%>
 				},
 				type:"post",
 				success:function(result){
@@ -365,32 +393,34 @@ li {
 		
 		function selectReplyList(){
 			$.ajax({
-				url:"<%=contextPath%>/rlist.bo",
-				data:{no:<%= c.getComuNo()%>},
-				success:function(list){
-					let value = "";
-					for(let i=0; i<list.length; i++){
-						value += "<div class='commentList'>"
-								  +  "<img src='https://ssl.pstatic.net/static/cafe/cafe_pc/default/cafe_profile_70.png' width='36' height='36' alt='프로필사진' class='profileImg2'>"
-								  +  "<div class='userNickname'>"
-									  +  "<div class='nick2'>"
-										  +  "<span>" + list[i].memNo + "</span>"
-									  +  "</div>"
-									  +  "<div style='height: 40px;'>"
-										  +  "<span class='date'>" + list[i].enrollDate + "</span>"
-									  +  "</div>"
-									  +  "<div class='comment'>"
-										  +  "<span>" + list[i].commContent + "</span>"
-									  +  "</div>"
-								  +  "</div>"
-							  +  "</div>";
-					}
-					$(".detailComment li").html(value);
-				},
-				error:function(){
-					console.log("댓글목록 조회용 ajax 통신 실패")
-				}
-			})
+				url:"<%=contextPath%>
+		/rlist.bo",
+						data : {
+							no :
+	<%=c.getComuNo()%>
+		},
+						success : function(list) {
+							let value = "";
+							for (let i = 0; i < list.length; i++) {
+								value += "<div class='commentList'>"
+										+ "<img src='https://ssl.pstatic.net/static/cafe/cafe_pc/default/cafe_profile_70.png' width='36' height='36' alt='프로필사진' class='profileImg2'>"
+										+ "<div class='userNickname'>"
+										+ "<div class='nick2'>" + "<span>"
+										+ list[i].memNo + "</span>" + "</div>"
+										+ "<div style='height: 40px;'>"
+										+ "<span class='date'>"
+										+ list[i].enrollDate + "</span>"
+										+ "</div>" + "<div class='comment'>"
+										+ "<span>" + list[i].commContent
+										+ "</span>" + "</div>" + "</div>"
+										+ "</div>";
+							}
+							$(".detailComment li").html(value);
+						},
+						error : function() {
+							console.log("댓글목록 조회용 ajax 통신 실패")
+						}
+					})
 		}
 	</script>
 	<%@ include file="../community/comuMypage.jsp"%>

@@ -2,12 +2,12 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="com.leer.common.model.vo.PageInfo, java.util.ArrayList, com.leer.community.model.vo.ComuBoard, com.leer.member.model.vo.Member" %>
 <%
- /*  PageInfo pi = (PageInfo)request.getAttribute("pi"); */
+ PageInfo pi = (PageInfo)request.getAttribute("pi"); 
   ArrayList<ComuBoard> list = (ArrayList<ComuBoard>)request.getAttribute("list");
- /*  int currentPage = pi.getCurrentPage();
+  int currentPage = pi.getCurrentPage();
   int startPage = pi.getStartPage();
   int endPage = pi.getEndPage();
-  int maxPage = pi.getMaxPage();  */
+  int maxPage = pi.getMaxPage();  
 %>
 
 <!DOCTYPE html>
@@ -24,6 +24,26 @@
 		cursor:pointer;
 		
 	}
+	.hashtag {
+	
+	display: inline;
+	color: #1c1c1c;
+	padding:2px;
+	background-color: rgb(221, 221, 221);
+	border-radius: 3px;
+	margin-left: 5px;
+	}
+	.col-lg-12 button{
+		line-height:20px;
+		border: 1px solid black;
+		background: #870000;
+		color:white;
+		font-weight:bold;
+	}
+	.stmxBtn{
+		background:gray;
+	}
+	
 </style>
 </head>
 <body>
@@ -72,7 +92,7 @@
 									
 									for(String tag : tagArr){ %>
 							
-										<a class="hashtag" href="<%= contextPath %>/xxxxx?tag=<%=tag %>" style="display: inline"><%= tag %></a> <!-- 댓글수 구하는 구문 찾아보기  -->
+										<a class="hashtag" href="<%= contextPath %>/xxxxx?tag=<%=tag %>"><%= tag %></a> <!-- 댓글수 구하는 구문 찾아보기  -->
 							
 									<%} %>
 							<% } %>
@@ -81,7 +101,7 @@
 							<div>
 								<div style="float: right">
 									<i class="fa fa-heart-o"> <sup><%= c.getLikeCount() %></sup>
-									</i> <i class="fa fa-comment-o"> <sup><%= c.getCommentCount() %></sup>
+									</i> <i class="fa fa-comment-o" style="margin-left:5px"> <sup><%= c.getCommentCount() %></sup>
 									</i>
 								</div>
 							</div>
@@ -102,26 +122,26 @@
         	   
            })
         </script>
-			<%-- <div class="col-lg-12">
+			<div class="col-lg-12">
 				<div class="product__pagination blog__pagination">
 					<% if(currentPage != 1){ %>
-            			<button onclick="location.href='<%=contextPath%>/list.bo?cpage=<%=currentPage-1%>';">&lt;</button>
+            			<button onclick="location.href='<%=contextPath%>/comu.bo?cpage=<%=currentPage-1%>';">&lt;</button>
 		            <% } %>
 		            
 		         	<% for(int p=startPage; p<=endPage; p++) {%>
 		         
 			            <% if(p == currentPage){ %>
-	            			<button disabled><%= p %></button>
+	            			<button disabled style="opacity:0.7"><%= p %></button>
 	            		<% }else { %>
-	              			 <button onclick="location.href='<%=contextPath%>/list.bo?cpage=<%= p %>';"><%= p %></button>
+	              			 <button onclick="location.href='<%=contextPath%>/comu.bo?cpage=<%= p %>';"><%= p %></button>
 	              		<% } %>
           		   <% } %>
          
 		         <% if(currentPage != maxPage){ %>
-		            <button onclick="location.href='<%=contextPath%>/list.bo?cpage=<%=currentPage+1%>';">&gt;</button>
+		            <button onclick="location.href='<%=contextPath%>/comu.bo?cpage=<%=currentPage+1%>';" >&gt;</button>
 		            <% } %>
 				</div>
-			</div> --%>
+			</div> 
 		</div>
 	 <%@ include file="../community/comuMypage.jsp" %>
 	 <%@ include file="../common/footer.jsp" %>

@@ -15,6 +15,7 @@ import java.util.Properties;
 
 import com.leer.common.model.vo.Attachment;
 import com.leer.common.model.vo.Category;
+import com.leer.common.model.vo.PageInfo;
 import com.leer.community.model.vo.ComuBoard;
 import com.leer.community.model.vo.Reply;
 
@@ -56,7 +57,7 @@ public class CommunityDao {
 		return listCount;
 	}
 
-	public ArrayList<ComuBoard> selectList(Connection conn) {
+	public ArrayList<ComuBoard> selectList(Connection conn, PageInfo pi) {
 
 		ArrayList<ComuBoard> list = new ArrayList<>();
 
@@ -68,10 +69,10 @@ public class CommunityDao {
 
 		try {
 			pstmt = conn.prepareStatement(sql);
-//			int startRow = (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1;
-//			int endRow = startRow + pi.getBoardLimit() - 1;
-//			pstmt.setInt(1, startRow);
-//			pstmt.setInt(2, endRow);
+			int startRow = (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1;
+			int endRow = startRow + pi.getBoardLimit() - 1;
+			pstmt.setInt(1, startRow);
+			pstmt.setInt(2, endRow);
 
 			rset = pstmt.executeQuery();
 
@@ -227,14 +228,6 @@ public class CommunityDao {
 			rset = pstmt.executeQuery();
 			
 			if(rset.next()) {
-//				c = new ComuBoard(
-//							rset.getInt("comu_no"),
-//							rset.getString("nickname"),
-//							rset.getString("category_name"),
-//							rset.getString("tag"),
-//							rset.getString("title"),
-//							rset.getDate("enroll_date")
-//						);
 
 				c = new ComuBoard(
 						rset.getInt("comu_no"), 
@@ -242,7 +235,10 @@ public class CommunityDao {
 						rset.getString("category_name"),
 						rset.getString("tag"), 
 						rset.getString("title"),
-						rset.getDate("enroll_date"));
+						rset.getDate("enroll_date"),
+						rset.getInt("like_count"),
+						rset.getInt("comment_count")
+						);
 
 				Clob clob = rset.getClob("content");
 				Reader r = clob.getCharacterStream();
@@ -354,5 +350,43 @@ public class CommunityDao {
 			close(pstmt);
 		}
 		return result;
+	}
+	
+	public ArrayList<ComuBoard> selectMyBoardList(Connection conn, int memNo){
+		
+		ArrayList<ComuBoard> list = new ArrayList<>();
+		
+		PreparedStatement pstmt = null;
+		
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectMyBoardList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, memNo);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				
+				list.add(new ComuBoard(
+						rset.getInt("comu_no"),
+						rset.getString("nickname"),
+						rset.getString("title"),
+						rset.getDate("enroll_date"),
+						rset.getInt("view_count")
+						));
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return list;
+		
 	}
 }
