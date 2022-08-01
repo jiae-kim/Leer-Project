@@ -41,12 +41,13 @@
 </head>
 
 <body>
-	<!--
+	<% if( alertMsg != null){ %>
 	<script>
 			alert("<%=alertMsg%>");
 	</script> 
+	<%} %>
     <header class="header">
-    -->
+    
     
     	
         
