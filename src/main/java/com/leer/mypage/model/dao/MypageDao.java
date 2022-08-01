@@ -129,7 +129,7 @@ public class MypageDao {
 			rset=pstmt.executeQuery();
 			
 			while(rset.next()) {
-				list.add(new Member(rset.getInt("orNo")));
+				list.add(new Member(rset.getString("orNo")));
 			}
 			
 		} catch (SQLException e) {
@@ -158,10 +158,12 @@ public class MypageDao {
 		
 			
 			while(rset.next()) {
-				list.add(new Member( rset.getString("image_url"),
+				list.add(new Member( 
+								   rset.getString("image_url"),
 								   rset.getString("p_name"),
 								   rset.getInt("price"),
-								   rset.getDate("or_date")
+								   rset.getDate("or_date"),
+								   rset.getString("p_code")
 									));
 			}
 		} catch (SQLException e) {

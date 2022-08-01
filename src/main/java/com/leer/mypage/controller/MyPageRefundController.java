@@ -31,6 +31,9 @@ public class MyPageRefundController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		
+		int memNo = Integer.parseInt(request.getParameter("memNo"));
+		String p_code = request.getParameter("p_code");
+		
 		RequestDispatcher view = request.getRequestDispatcher("views/mypage/mypage_refund.jsp");
 		view.forward(request, response);
 	}

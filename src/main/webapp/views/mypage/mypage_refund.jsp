@@ -213,10 +213,8 @@
 
                                                   <div> 환불사유</div>
                                                   <select name="refund_reason">
-                                                       <option value="1">단순변심</option>
-                                                       <option value="2">2</option>
-                                                       <option value="3">3</option>
-                                                       <option value="4">4</option>
+                                                       <option value="1">배송오류</option>
+                                                       <option value="2">제품불량</option>
                                                        <option selected >선택안함</option>
                                                    </select>
                                                   <br>

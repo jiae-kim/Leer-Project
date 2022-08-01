@@ -19,12 +19,11 @@ public class Member {
 	private Date enrollDate;
 	private String admin;
 	private String profileLink;
-	private int orNo;
 	private String image_url;
 	private String p_name;
 	private int price;
 	private Date or_date;
-	
+	private String p_code;
 	
 	private Date startDate; // subscribe테이블
 	private Date endDate; // subscribe테이블
@@ -36,11 +35,40 @@ public class Member {
 	
 	
 
-	public Member(int orNo) {
+	public Member(String orNo) {
 		super();
 		this.orNo = orNo;
 	}
 
+
+
+	
+
+
+	public Member(String image_url, String p_name, int price, Date or_date, String p_code) {
+		super();
+		this.image_url = image_url;
+		this.p_name = p_name;
+		this.price = price;
+		this.or_date = or_date;
+		this.p_code = p_code;
+	}
+
+
+
+
+
+	public String getP_code() {
+		return p_code;
+	}
+
+
+
+
+
+	public void setP_code(String p_code) {
+		this.p_code = p_code;
+	}
 
 
 
@@ -131,7 +159,7 @@ public class Member {
 
 
 
-	public Member(int memNo, int orNo) {
+	public Member(int memNo, String orNo) {
 		super();
 		this.memNo = memNo;
 		this.orNo = orNo;
@@ -142,16 +170,6 @@ public class Member {
 
 
 
-	public int getOrNo() {
-		return orNo;
-	}
-
-
-
-
-	public void setOrNo(int orNo) {
-		this.orNo = orNo;
-	}
 
 
 
