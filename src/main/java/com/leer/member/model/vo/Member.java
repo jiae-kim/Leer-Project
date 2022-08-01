@@ -31,6 +31,7 @@ public class Member {
 	
 	public Member() {}
 	
+<<<<<<< HEAD
 	
 	
 	//회원가입
@@ -190,6 +191,8 @@ public class Member {
 
 
 
+=======
+>>>>>>> parent of 98e5078 ([정다혜]  깃 충돌...?)
 	public Member(int memNo, String memId, String memPwd, String nickname, String memName, String memBirth,
 			String phone, String email, String address, String categoryNo, int point, String memStatus, Date enrollDate,
 			String admin, String profileLink, Date startDate, Date endDate, String orNo) {
