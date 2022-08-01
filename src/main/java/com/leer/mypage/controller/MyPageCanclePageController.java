@@ -41,9 +41,9 @@ public class MyPageCanclePageController extends HttpServlet {
 			response.sendRedirect(request.getContextPath());
 		}else {
 			ArrayList<Member> list = new MypageService().OrderCancleView(memNo);
+			request.setAttribute("list", list);
 		}
-		
-		
+				
 		RequestDispatcher view = request.getRequestDispatcher("views/mypage/mypage_ordercancle.jsp");
 		view.forward(request, response);
 		

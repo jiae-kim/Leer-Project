@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.leer.member.model.vo.Member" %>
+    
+<%
+	ArrayList<Member> list = (ArrayList<Member>)request.getAttribute("list");
+%>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -147,23 +151,24 @@
 
                         <div id="dev_pro">
                             <hr>
-
+							
+							<% for( Member m : list){ %>
                             <form action="">
                                 <table>
                                     <tr>
                                         <td rowspan="4" width="200px"><img class="product__details__pic__item"
-                                            src=http://www.walbox.co.kr/upfile/item/111_1618565835.jpg alt=""></td>
+                                            src=<%= m.getImage_url() %> alt=""></td>
                                         <td width="80px">제품명</td>
-                                        <td width="250px" ><b>BBC사이언스</b></td>
+                                        <td width="250px" ><b><%= m.getP_name() %></b></td>
                                         <td>제품 구매 날짜 작성</td>
                                     </tr>
                                     <tr height="100px">
                                         <td> 주문번호</td>
-                                        <td colspan="2"> 주문번호 작성</td>
+                                        <td colspan="2"> <%= m.getOrNo() %></td>
                                     </tr>
                                     <tr>
                                         <td>제품가격</td>
-                                        <td width="150px">  12,160원</td>
+                                        <td width="150px">  <%= m.getPrice() %></td>
                                         <td>
                                             <a href="" class="btn btn-sm btn-secondary">주문취소</a>
                                             <a href="<%= request.getContextPath() %>/refund.me" class="btn btn-sm btn-danger">환불</a>
@@ -172,78 +177,12 @@
                                 </table>
                                 <hr>
                             </form>
+                            <%} %>
                             
-                            <form action="">
-                                <table>
-                                    <tr>
-                                        <td rowspan="4" width="200px"> <img class="product__details__pic__item"
-                                            src=http://www.walbox.co.kr/upfile/item/%EB%A6%AC%EB%B9%998_1658642603.jpg alt=""></td>
-                                        <td width="80px">제품명</td>
-                                        <td width="250px" > <b>리빙센스</b></td>
-                                        <td>제품 구매 날짜 작성</td>
-                                    </tr>
-                                    <tr height="100px">
-                                        <td> 제품설명</td>
-                                        <td colspan="2"> 제품관련 설명작성</td>
-                                    </tr>
-                                    <tr>
-                                        <td>제품가격</td>
-                                        <td width="150px"> 7,410원</td>
-                                        <td>
-                                            <a href="" class="btn btn-sm btn-secondary">주문취소</a>
-                                            <a href="<%= request.getContextPath() %>/refund.me" class="btn btn-sm btn-danger">환불</a>
-                                        </td>
-                                    </tr>
-                                </table>
-                                <hr>
-                            </form>  <form action="">
-                                <table>
-                                    <tr>
-                                        <td rowspan="4" width="200px"><img class="product__details__pic__item"
-                                            src=http://www.walbox.co.kr/upfile/item/%EB%8F%99%EC%95%84_1648388049.jpg alt=""></td>
-                                        <td width="80px">제품명</td>
-                                        <td width="250px" > <b>과학동아</b></td>
-                                        <td>제품 구매 날짜 작성</td>
-                                    </tr>
-                                    <tr height="100px">
-                                        <td> 제품설명</td>
-                                        <td colspan="2"> 제품관련 설명작성</td>
-                                    </tr>
-                                    <tr>
-                                        <td>제품가격</td>
-                                        <td width="150px"> 14,250원</td>
-                                        <td>
-                                            <a href="" class="btn btn-sm btn-secondary">주문취소</a>
-                                            <a href="<%= request.getContextPath() %>/refund.me" class="btn btn-sm btn-danger">환불</a>
-                                        </td>
-                                    </tr>
-                                </table>
-                                <hr>
-                            </form>
-                            <form action="">
-                                <table>
-                                    <tr>
-                                        <td rowspan="4" width="200px"><img class="product__details__pic__item"
-                                            src=http://www.walbox.co.kr/upfile/item/%EC%9E%85%ED%8A%B8%EC%98%817_1656061985.jpg alt=""></td>
-                                        <td width="80px">제품명</td>
-                                        <td width="250px" ><b>EBS 입이트이는영어</b></td>
-                                        <td>제품 구매 날짜 작성</td>
-                                    </tr>
-                                    <tr height="100px">
-                                        <td> 제품설명</td>
-                                        <td colspan="2"> 제품관련 설명작성</td>
-                                    </tr>
-                                    <tr>
-                                        <td>제품가격</td>
-                                        <td width="150px"> 	9,500원</td>
-                                        <td>
-                                            <a href="" class="btn btn-sm btn-secondary">주문취소</a>
-                                            <a href="<%= request.getContextPath() %>/refund.me" class="btn btn-sm btn-danger">환불</a>
-                                        </td>
-                                    </tr>
-                                </table>
-                                <hr>
-                            </form>
+                           
+                           
+                           
+                           
                             <script>
                                 function cancleorder(){
                                     alret("주문이 취소되었습니다");
