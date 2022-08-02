@@ -41,7 +41,7 @@ public class CommunityService {
 		
 		close(conn);
 		
-		return list;
+		return cateList;
 		
 		
 	}

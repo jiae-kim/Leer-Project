@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"
-	import="com.leer.community.model.vo.ComuBoard, com.leer.common.model.vo.Attachment"%>
+	import="com.leer.community.model.vo.ComuBoard, com.leer.common.model.vo.Attachment, com.leer.common.model.vo.Category, java.util.ArrayList"%>
 <%
 ComuBoard c = (ComuBoard) request.getAttribute("c");
 Attachment at = (Attachment) request.getAttribute("at");

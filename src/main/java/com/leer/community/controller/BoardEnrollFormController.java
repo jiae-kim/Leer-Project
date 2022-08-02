@@ -31,9 +31,9 @@ public class BoardEnrollFormController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ArrayList<Category> list = new CommunityService().selectCategoryList();
+		ArrayList<Category> cateList = new CommunityService().selectCategoryList();
 		
-		request.setAttribute("list", list);
+		request.setAttribute("cateList", cateList);
 		
 		request.getRequestDispatcher("views/community/insertBoard.jsp").forward(request, response);;
 	}
