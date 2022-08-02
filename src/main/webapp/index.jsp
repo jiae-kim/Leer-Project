@@ -17,14 +17,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
 
     <!-- Css Styles -->
-    <link rel="stylesheet" href="resources/css/dahye/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/dahye/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/dahye/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/dahye/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/dahye/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/dahye/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/dahye/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/heeyeong/style.css" type="text/css">
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/dahye/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/dahye/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/dahye/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/dahye/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/dahye/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/dahye/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/dahye/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/heeyeong/style.css" type="text/css">
     
 </head>
 

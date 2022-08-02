@@ -615,6 +615,13 @@
 										function number_format(num){
 					                        return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',');
 					                    }
+										
+										/*포인트 계산 : ajax 써야할 것 같음*/
+										let point = <%=point%>
+										$("#point-btn").click(function(){
+											point = 
+										})
+										
 										$(function(){
 											
 											let sumPrice = 0;
