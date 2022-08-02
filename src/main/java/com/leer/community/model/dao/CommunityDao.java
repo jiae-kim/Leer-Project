@@ -115,7 +115,7 @@ public class CommunityDao {
 	
 	public ArrayList<Category> selectCategoryList(Connection conn) {
 		
-		ArrayList<Category> list = new ArrayList<>();
+		ArrayList<Category> cateList = new ArrayList<>();
 		
 		PreparedStatement pstmt = null;
 		
@@ -128,7 +128,7 @@ public class CommunityDao {
 			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
-				list.add(new Category(rset.getInt("category_no")
+				cateList.add(new Category(rset.getInt("category_no")
 									, rset.getString("category_name")
 									  ));
 			}
@@ -140,7 +140,7 @@ public class CommunityDao {
 			close(pstmt);
 			
 		}
-		return list;
+		return cateList;
 		
 	}
 	

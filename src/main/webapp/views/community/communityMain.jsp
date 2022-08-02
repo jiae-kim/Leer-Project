@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import=" com.leer.member.model.vo.Member"%>
+	pageEncoding="UTF-8" import="java.util.ArrayList, com.leer.community.model.vo.ComuBoard, com.leer.member.model.vo.Member, com.leer.common.model.vo.Category"%>
 <%
 String contextPath = request.getContextPath();
 Member loginUser = (Member)session.getAttribute("loginUser");
-%>
+ArrayList<Category> cateList = (ArrayList<Category>)request.getAttribute("cateList"); 
+ %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,7 +35,6 @@ Member loginUser = (Member)session.getAttribute("loginUser");
 </head>
 <body>
 	
-
     <!-- Blog Section Begin -->
     <section class="blog spad" style="margin-left: 50px">
         <div class="container">
@@ -45,15 +45,15 @@ Member loginUser = (Member)session.getAttribute("loginUser");
                             <p style="font-size: small;">카테고리</p>
                             <ul>
                                 <li><a href="<%=contextPath%>/comu.bo?cpage=1">전체게시글</a></li>
-                               <%--  <% for(Category c : catelist) { %>
-                                  <li><a href="<%=contextPath%>/cgory.li?cpage=1&cNo=<%= c.getCategoryNo()%>"><%=c.getCategoryName() %></a></li>
-                                <% } %>  --%>
-         	                    <li><a href="<%=contextPath%>/cgory.li?cpage=1&cNo=">패션/여성</a></li>
-                                <li><a href="<%=contextPath%>/cgory.li?cpage=1&cNo=">라이프/인테리어</a></li>
-                                <li><a href="<%=contextPath%>/cgory.li?cpage=1&cNo=">시사/경제</a></li>
-                                <li><a href="<%=contextPath%>/cgory.li?cpage=1&cNo=">교육/과학</a></li>
-                                <li><a href="<%=contextPath%>/cgory.li?cpage=1&cNo=">문화/예술</a></li>
-                                <li><a href="<%=contextPath%>/cgory.li?cpage=1&cNo=">여행/취미</a></li> 
+                               <% for(Category c : cateList) { %>
+                                  <li><a href="<%=contextPath%>/cgory.li?cpage=1&cNo=<%= c.getCategoryNo()%>"><%= c.getCategoryName() %></a></li>
+                                <% } %>
+         	                    <%-- <li><a href="<%=contextPath%>/cgory.li?cpage=1&cNo=<%=c.getCategoryNo()%>">패션/여성</a></li>
+                                <li><a href="<%=contextPath%>/comu.bo?cpage=1&cNo=">라이프/인테리어</a></li>
+                                <li><a href="<%=contextPath%>/comu.bo?cpage=1&cNo=">시사/경제</a></li>
+                                <li><a href="<%=contextPath%>/comu.bo?cpage=1&cNo=">교육/과학</a></li>
+                                <li><a href="<%=contextPath%>/comu.bo?cpage=1&cNo=">문화/예술</a></li>
+                                <li><a href="<%=contextPath%>/comu.bo?cpage=1&cNo=">여행/취미</a></li>  --%>
                             </ul>
                             <p style="font-size: small;" id="noti">leer이야기</p>
                             <ul>
