@@ -121,23 +121,23 @@
         	   
            })
         </script>
-			<div class="col-lg-12">
+			<div class="col-lg-12" style="margin-left:150px">
 				<div class="product__pagination blog__pagination">
 					<% if(currentPage != 1){ %>
-            			<button onclick="location.href='<%=contextPath%>/comu.bo?cpage=<%=currentPage-1%>';">&lt;</button>
+            			<a href="<%=contextPath%>/comu.bo?cpage=<%=currentPage-1%>">&lt;</a>
 		            <% } %>
 		            
 		         	<% for(int p=startPage; p<=endPage; p++) {%>
 		         
 			            <% if(p == currentPage){ %>
-	            			<button disabled style="opacity:0.7"><%= p %></button>
+	            			<a disabled style="opacity:0.7"><%= p %></a>
 	            		<% }else { %>
-	              			 <button onclick="location.href='<%=contextPath%>/comu.bo?cpage=<%= p %>';"><%= p %></button>
+	              			 <a href="<%=contextPath%>/comu.bo?cpage=<%= p %>"><%= p %></a>
 	              		<% } %>
           		   <% } %>
          
 		         <% if(currentPage != maxPage){ %>
-		            <button onclick="location.href='<%=contextPath%>/comu.bo?cpage=<%=currentPage+1%>';" >&gt;</button>
+		            <a href="<%=contextPath%>/comu.bo?cpage=<%=currentPage+1%>" >&gt;</a>
 		            <% } %>
 				</div>
 			</div> 

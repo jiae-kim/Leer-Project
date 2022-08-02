@@ -63,7 +63,7 @@
 										<span>
 										<strong>내가 쓴 글</strong>
 										</span> 
-										<a href="<%= contextPath %>/myBoard.li" class="">222</a>
+										<a href="<%=contextPath %>/myBoard.li?memNo=<%=loginUser.getMemNo()%>&cpage=1">50</a>
 										<span>개</span>
 										
 										</li>
