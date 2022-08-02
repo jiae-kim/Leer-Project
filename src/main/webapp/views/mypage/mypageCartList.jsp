@@ -352,7 +352,7 @@
 		                                                <td><%=comma.format(c.getPrice()) %><span> 원</span></td>
 		                                                <% if(c.getOrCycle() == 1){ %>
 		                                                	<td class="total-price">
-		                                                		<span><%= comma.format((c.getPrice() * c.getAmount()) + 3000) %></span>
+		                                                		<span><%= comma.format((c.getPrice() * c.getAmount())) %></span>
 		                                                		<span>원</span>
 		                                                	</td>
 		                                                	
@@ -371,10 +371,10 @@
 		                                                	</td>
 		                                                	
 		                                                <%} %>
-		                                                <% if(c.getOrCycle() == 1){ %>
-		                                                	<td>3,000 원</td>
+		                                                <% if(c.getOrCycle() == 1 && c.getAmount() == 1){ %>
+		                                                	<td class="deli-fee">3,000 원</td>
 		                                                <% } else{ %>
-		                                                	<td>무료배송</td>
+		                                                	<td class="deli-fee">무료배송</td>
 		                                                <% } %>
 		                                            </tr>
 	                                            <% } %>
@@ -425,6 +425,10 @@
 												});
 												
 												$("#sum-price").html(number_format(sumPrice)); 
+												
+												if(sumPrice > 10000){
+													$(".deli-fee").html("무료배송");
+												}
 												
 												
 												$("#check-all").click(function(){

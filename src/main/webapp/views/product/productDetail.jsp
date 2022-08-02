@@ -354,7 +354,7 @@
                             <li class="option_row">
                                 <span class="option_title">배송비</span>
                                 <span class="option_content">
-                                    3,000원(정기구독시 무료)
+                                    3,000원(10,000원 이상 구매시 무료)
                                 </span>
                             </li>
                         </ul>

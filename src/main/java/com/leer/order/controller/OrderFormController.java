@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.leer.mypage.model.service.MypageService;
 import com.leer.mypage.model.vo.Cart;
+import com.leer.order.model.service.OrderService;
 
 /**
  * Servlet implementation class OrderFormController
@@ -38,11 +39,14 @@ public class OrderFormController extends HttpServlet {
 		ArrayList<Cart> list = new ArrayList<Cart>();
 		
 		for(int i=0; i<chkArr.length; i++) {
-			Cart c = new MypageService().selectOrderList(chkArr[i]);
+			Cart c = new OrderService().selectOrderList(chkArr[i]);
 			list.add(c);
 		}
 		
+		int point = new OrderService().selectPoint(memNo);
+		
 		request.setAttribute("list", list);
+		request.setAttribute("point", point);
 		request.getRequestDispatcher("views/order/orderForm.jsp").forward(request, response);
 	}
 

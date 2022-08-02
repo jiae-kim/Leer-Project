@@ -97,14 +97,7 @@ public class MypageService {
 	}
 	
 
-	public Cart selectOrderList(String chk){
-		
-		Connection conn = getConnection();
-		Cart c = new MypageDao().selectOrderList(conn, chk);
-		
-		close(conn);
-		return c;
-	}
+	
 
 	public int CancleComplete( int memNo, String p_code, String orNo) {
 		

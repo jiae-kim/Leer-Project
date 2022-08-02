@@ -266,43 +266,9 @@ public class MypageDao {
 	}
 	
 
-	public Cart selectOrderList(Connection conn, String chk){
-		
-		Cart c = null;
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
-		String sql = prop.getProperty("selectOrderList");
-		
-		try {
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, chk);
-			rset = pstmt.executeQuery();
-			
-			if(rset.next()) {
-				c = new Cart(rset.getInt("cart_no"),
-							 rset.getInt("mem_no"),
-							 rset.getString("p_code"),
-							 rset.getString("image_url1"),
-							 rset.getInt("amount"),
-							 rset.getInt("or_cycle"),
-							 rset.getString("p_name"),
-							 rset.getInt("price"),
-							 rset.getInt("deli_fee")
-					
-						     
-							);
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-			close(rset);
-			close(pstmt);
-		}
-		
-		return c;
-	}
-			
+	
+	
+	
 	public int WriteReviewComplete(Connection conn, int memNo, String pname) {
 		
 		int result=0;

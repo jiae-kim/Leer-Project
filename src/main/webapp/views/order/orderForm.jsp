@@ -3,6 +3,7 @@
     
 <% 
 	ArrayList<Cart> list = (ArrayList<Cart>)request.getAttribute("list");
+	int point = (int)request.getAttribute("point");
 	DecimalFormat comma = new DecimalFormat("###,###");
 %>
 <!DOCTYPE html>
@@ -432,7 +433,10 @@
                                                 <th>상품총액</th>
                                                 <th>배송비</th>
                                             </tr>
-                                            <% int count = 1; %>
+                                            <% 
+                                            	int count = 1; 
+                                            	int length = list.size();
+                                            %>
                                             <%for(Cart c : list) {%>
                                             <tr style="font-size:14px;">
                                                 <td style="vertical-align:middle; text-align:center;"><%= count++ %></td>
@@ -453,22 +457,42 @@
                                                         <% } %>
                                                     </span>  
                                                 </td>
-                                                <td style="vertical-align:middle;"><%=c.getAmount() %> 개</td>
-                                                <td style="vertical-align:middle;"><%= comma.format(c.getPrice()) %> 원</td>
+                                                <td style="vertical-align:middle;">
+	                                                <span><%=c.getAmount() %></span> 
+	                                                <span>개</span>
+                                                </td>
+                                                <td style="vertical-align:middle;">
+	                                                 <span><%= comma.format(c.getPrice()) %></span>
+	                                                 <span>원</span>
+                                                </td>
                                                 <%if (c.getOrCycle() == 1) { %>
-                                                	<td style="vertical-align:middle;"><%= comma.format(c.getPrice() * c.getAmount() + 3000)%> 원</td>
+                                                	<td style="vertical-align:middle;" class="sum-price">
+	                                                	<span><%= comma.format(c.getPrice() * c.getAmount())%> </span>
+	                                                	<span>원</span>
+                                                	</td>
                                                 <% } %>
                                                 <%if (c.getOrCycle() == 2) { %>
-                                                	<td style="vertical-align:middle;"><%= comma.format(c.getPrice() * 12 * c.getAmount()) %> 원</td>
+                                                	<td style="vertical-align:middle;" class="sum-price">
+                                                	<span><%= comma.format(c.getPrice() * 12 * c.getAmount()) %></span> 
+                                                	<span>원</span>
+                                                	</td>
                                                 <% } %>
                                                 <%if (c.getOrCycle() == 3) { %>
-                                                	<td style="vertical-align:middle;"><%= comma.format(c.getPrice() * 6 * c.getAmount()) %> 원</td>
+                                                	<td style="vertical-align:middle;" class="sum-price">
+                                                	<span><%= comma.format(c.getPrice() * 6 * c.getAmount()) %></span>
+                                                	<span>원</span>
+                                                	</td>
                                                 <% } %>
                                                 
-                                                <%if (c.getOrCycle() == 1) {%>
-                                                	<td style="vertical-align:middle;">3,000 원</td>
+                                                <%if (c.getOrCycle() == 1 && length == 1 && c.getPrice() < 10000) {%>
+                                                	<td style="vertical-align:middle;"class="deli-fee">
+                                                	<span>3,000</span> 
+                                                	<span>원</span>
+                                                	</td>
                                                 <% } else { %>
-                                                	<td style="vertical-align:middle;">무료배송</td>
+                                                	<td style="vertical-align:middle;" class="deli-fee">
+                                                	<span>무료배송</span>
+                                                	</td>
                                                 <% } %>
                                             </tr>
                                             <%} %>
@@ -537,7 +561,7 @@
                                                 <tr> 
                                                     <th style="background:#f1f1f1" >포인트 </th>
                                                     <td>
-                                                        보유 포인트 : <span>2,300원</span>
+                                                        보유 포인트 : <span><%=point %>P</span>
                                                         <input type="text" placeholder="사용할 적립금 입력" >
                                                         <button class="btn" id="point-btn"  style="padding:14px;">적용</button>
                                                     </td>
@@ -551,7 +575,7 @@
                                                 <li class="cart_price">
                                                    상품총액
                                                    <div style="height:7px;"></div>
-                                                   <strong>0</strong>
+                                                   <strong id="sumPrice">0</strong>
                                                     <strong style="display:inline">원</strong>
                                                    
                                                 </li>
@@ -561,7 +585,7 @@
                                                 <li class="cart_price">
                                                     할인총액
                                                     <div style="height:7px;"></div>
-                                                    <strong>0</strong>
+                                                    <strong id="sum-discount">0</strong>
                                                     <strong>원</strong>
                                                  </li>
                                                  <li class="cart_sign">
@@ -570,7 +594,7 @@
                                                 <li class="cart_price">
                                                     배송비
                                                     <div style="height:7px;"></div>
-                                                    <strong>0</strong>
+                                                    <strong id="deliFee">0</strong>
                                                     <strong>원</strong>
                                                  </li>
                                                 <li class="cart_sign">
@@ -585,7 +609,33 @@
 
                                             </ul>
                                         </div>
-
+										
+										<script>
+											
+										function number_format(num){
+					                        return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',');
+					                    }
+										$(function(){
+											
+											let sumPrice = 0;
+											/* 물건 합계 금액 출력 */
+											$(".sum-price").each(function(){
+												sumPrice += parseInt($(this).children().eq(0).text().replace(",", ""));
+												
+											})
+											
+											$("#sumPrice").html(number_format(sumPrice));
+											
+											/* 배송비 출력 : 총 금액으로 부여해줘야 하나 ?  */
+											
+											
+											let finalPrice = 0;
+											/* 포인트 버튼 누르면 포인트 금액 출력, 최종금액 바꿔줘야함 */
+											
+											
+										});
+										
+										</script>
                                         <br>
                                         <div>
                                             <button class=btn id="order-btn" style="padding:20px 40px; font-size:20px">주문하기</button>
