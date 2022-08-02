@@ -22,7 +22,6 @@ public class AdminTermsDao {
 		try {
 			prop.loadFromXML(new FileInputStream(AdminTermsDao.class.getResource("/db/sql/admin-terms-mapper.xml").getPath()));
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -58,7 +57,6 @@ public class AdminTermsDao {
 				
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace(); 
 		} finally {
 			close(rset);
