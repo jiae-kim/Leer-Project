@@ -46,9 +46,9 @@ public ReviewDao() {
 			
 			while(rset.next()) {
 				list.add( new Review (
-							rset.getString("pname"),
+							rset.getString("p_name"),
 							rset.getInt("price"),
-							rset.getString("image_url"),
+							rset.getString("image_url1"),
 							rset.getDate("or_date")					
 						));
 			}
@@ -78,11 +78,11 @@ public ArrayList<Review> WriteReviewHistory(Connection conn, int memNo){
 			
 			while(rset.next()) {
 				list.add( new Review (
-							rset.getString("pname"),
-							rset.getInt("reviewScope"),
-							rset.getString("reviewConetent"),
+							rset.getString("p_name"),
+							rset.getInt("review_Scope"),
+							rset.getString("review_Content"),
 							rset.getInt("price"),
-							rset.getString("image_url"),
+							rset.getString("image_url1"),
 							rset.getDate("or_date")					
 						));
 			}
@@ -114,8 +114,8 @@ public ArrayList<Review> WriteReviewHistory(Connection conn, int memNo){
 			
 			if(rset.next()) {
 				r = new Review(
-							rset.getString("image_url"),
-							rset.getString("pName"),
+							rset.getString("image_url1"),
+							rset.getString("p_Name"),
 							rset.getDate("or_date"),
 							rset.getInt("price")
 						);

@@ -172,7 +172,7 @@
                             <br>
                             <!-- 주문 번호 갯수만큼 반복처리 -->
                             <hr>
-                            <form action="<%= request.getContextPath() %>/myPage.me">
+                            <form action="<%= request.getContextPath() %>/myPage.me?memNo=<%=loginUser.getMemNo()%>">
                                 <div>
 	                                <table>
 	                                    <tr>

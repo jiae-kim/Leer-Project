@@ -164,6 +164,7 @@
                                         <th width="100px">번호</th>
                                         <th width="250px">포인트 적립 사유</th>
                                         <th width="170px">포인트 적립/차감</th>
+                                        <th width="170px">포인트 적립/차감액</th>
                                         <th width="170px">포인트 적립일</th>
                                     </tr>
 									
@@ -179,6 +180,7 @@
 					                <tr>
 					                    <td><%= p.getPointNo() %></td>
 					                    <td><%= p.getHistory() %></td>
+					                    <td><%= p.getPointUpdate() %></td>
 					                    <td><%= p.getPoint() %></td>
 					                    <td><%= p.getDate() %></td>
 					                </tr>
