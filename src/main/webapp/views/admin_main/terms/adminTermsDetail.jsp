@@ -53,7 +53,7 @@
                                       이용약관명
                                     </td>
                                     <td width="700px">
-                                        <label for="" style="float: left;">&nbsp;&nbsp; 이용약관 제목</label> 
+                                        <label for="" style="float: left;">&nbsp;&nbsp; <%=t.getTrmTitle()%></label> 
                                     </td>
                                   </tr>
                                   <tr>
@@ -61,7 +61,7 @@
                                       상태
                                     </td>
                                     <td>
-                                        <label for="" style="float: left;">&nbsp;&nbsp; 작성완료</label> 
+                                        <label for="" style="float: left;">&nbsp;&nbsp; <%=t.getTrmClass()%></label> 
                                     </td>
                                   </tr>
                                   <tr>
@@ -69,14 +69,14 @@
                                       작성자
                                     </td>
                                     <td>
-                                        <label for="" style="float: left;">&nbsp;&nbsp; admin01</label> 
+                                        <label for="" style="float: left;">&nbsp;&nbsp; <%=t.getMemId()%></label> 
                                     </td>
                                   </tr>
                                 </tbody>
                               </table>
                               <br>
                               <table class="tarea" align="center" style="margin:5px 5px 5px 5px">
-                                <textarea name="" id="" cols="133.5" rows="20" resize="none" placeholder="">이용약관 내용 이용약관 내용 이용약관 내용</textarea>
+                                <textarea name="" id="" cols="133.5" rows="20" resize="none" placeholder=""><%=t.getContent()%></textarea>
                               </table>
                               <div class="">
                                 <table class="tt1" border="1" align="center">
@@ -86,7 +86,7 @@
                                         이용약관명
                                       </td>
                                       <td width="700px">
-                                        <label for="" style="float: left;">&nbsp;&nbsp; 비고내용</label> 
+                                        <label for="" style="float: left;">&nbsp;&nbsp; <%=t.getTrmRemarks()%></label> 
                                       </td>
                                     </tr>
                                   </tbody>                                  
@@ -96,7 +96,7 @@
                             <c:if test="${sessionMemberLv == 1}">
                                     <div class="d-grid gap-3" style="text-align: center">
                                     	<a href="<%= request.getContextPath() %>/views/admin_main/adminTermsView.jsp" id="btn" class="btn btn-dark" style="width:150px">이용약관 삭제</a>
-                                        <a href="<%= request.getContextPath() %>/views/admin_main/adminTermsView.jsp" id="btn" class="btn btn-dark" style="width:150px">목록으로</a>
+                                        <a href="<%= request.getContextPath() %>/adTList.do?cpage=1" id="btn" class="btn btn-dark" style="width:150px">목록으로</a>
                                     </div>
                             </c:if>
                           </div>

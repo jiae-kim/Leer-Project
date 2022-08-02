@@ -36,7 +36,7 @@ public class AdminTermsDetailController extends HttpServlet {
 		Terms t = new AdminTermsService().termsDetailList(trmNo);
 		
 		request.setAttribute("terms", t);
-		request.getRequestDispatcher("").forward(request, response);
+		request.getRequestDispatcher("views/admin_main/terms/adminTermsDetail.jsp").forward(request, response);
 	}
 
 	/**

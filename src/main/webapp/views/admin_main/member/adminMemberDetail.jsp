@@ -51,7 +51,7 @@
 	               	<h4 style="vertical-align:45px"><b> 회원상세조회</b></h4>
 	            </div>
 	            <div class="card-body">
-                <a href="${pageContext.request.contextPath}/lec/lecList" class="btn btn-dark" style="float:right">이전으로</a>
+                <a href="<%=request.getContextPath()%>/adMemList.do?cpage=1" class="btn btn-dark" style="float:right">이전으로</a>
 	            <div class ="printView">
 	            <h2 style="text-align:center"> 회원상세정보 </h2>
 					<table class="table">

@@ -91,7 +91,6 @@
                                     </tr>
                                 </thead>
   						<!--//--------------- 스크립트 ----------------->
-  						<%--                              
                                 <script>
 									function changeList(val){
 										$.ajax({
@@ -127,7 +126,6 @@
 										});												
 									}
 								</script>
-								 --%>
 						<!----------------- 스크립트 ---------------//-->		
                                 <tbody class="custom">
                                 	<% for(Member m : list) { %>
