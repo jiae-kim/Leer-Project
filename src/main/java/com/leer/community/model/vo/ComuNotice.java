@@ -48,6 +48,15 @@ public class ComuNotice {
 		this.memId = memId;
 	}
 
+	public ComuNotice(int notiNo, int memNo, String title, String content, String notiType) {
+		super();
+		this.notiNo = notiNo;
+		this.memNo = memNo;
+		this.title = title;
+		this.content = content;
+		this.notiType = notiType;
+	}
+
 	public int getNotiNo() {
 		return notiNo;
 	}

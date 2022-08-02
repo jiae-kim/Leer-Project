@@ -1,11 +1,12 @@
 package com.leer.community.model.service;
 
-import static com.leer.common.JDBCTemplate.close;
+import static com.leer.common.JDBCTemplate.*;
 import static com.leer.common.JDBCTemplate.getConnection;
 
 import java.sql.Connection;
 import java.util.ArrayList;
 
+import com.leer.common.model.vo.Attachment;
 import com.leer.common.model.vo.PageInfo;
 import com.leer.community.model.dao.AdminCommunityDao;
 import com.leer.community.model.vo.ComuNotice;
@@ -39,6 +40,14 @@ public class AdminCommunityService {
 		ComuNotice c = new AdminCommunityDao().comuNotiDetailList(conn, notiNo);
 		close(conn);
 		return c;
+	}
+	
+	// 관리자 공지사항/커뮤공지 등록
+	// 작성자 김은지	
+	public int insertNotice(ComuNotice c, Attachment at) {
+		Connection conn = getConnection();
+		
+		int result1 = new 
 	}
 
 }

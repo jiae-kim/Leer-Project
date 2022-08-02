@@ -39,6 +39,27 @@
 		  JOIN MEMBER USING(MEM_NO)
 		 WHERE NOTI_NO = ?
 	</entry>
+	
+	<!-- 공지사항/커뮤공지사항 등록, 김은지 -->
+	<entry key="insertNotice">
+		INSERT
+		  INTO NOTICE
+		  (
+		    NOTI_NO
+		  , MEM_NO
+		  , TITLE
+		  , CONTENT
+		  , NOTI_TYPE
+		  )
+		  VALUES
+		  (
+		    SEQ_NOTI.NEXTVAL	
+		  , ?
+		  , ? 
+		  , ?
+		  , ?
+		  )
+	</entry>
 		
 </properties>
 
