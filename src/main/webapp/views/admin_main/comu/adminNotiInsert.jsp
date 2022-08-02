@@ -99,10 +99,8 @@
                         <div class="sidebar__item">
                             <p style="font-size: small;">글작성 페이지 이동</p>
                             <ul>
-                            	<!-- db로부터 조회 -->
-                            	<% for(Category2 c2 : list) { %>
-                                	<li><a value="<%=c2.getCategoryNo()%>"><%=c2.getCategoryName()%></a></li>
-                                <% } %>  
+                                <li><a href="#">공지사항</a></li>
+                                <li><a href="#">FAQ</a></li>
                             </ul>
                         </div>
                     </div>
@@ -121,15 +119,15 @@
                                             <tr style="float: left">
                                                 <td colspan="2" style="">
                                                     <select name="category">
-                                                            <option value="" disabled selected hidden>
-                                                                카테고리를 선택하세요.
-                                                            </option>
-                                                            <option value="">
-                                                                고객센터 공지사항
-                                                            </option>
-                                                            <option value="">
-                                                                커뮤니티 공지사항
-                                                            </option>
+                                                        <option value="" disabled selected hidden>
+                                                            카테고리를 선택하세요.
+                                                        </option>
+                                                    	<!-- db로부터 조회 -->
+                                                    	<% for(Category2 c : list) { %>
+                                                        <option value="<%= c.getCategoryNo() %>">
+                                                            <%= c.getCategoryName() %>
+                                                        </option>
+                                                        <% } %>
                                                     </select>
                                                 </td>
                                             </tr>

@@ -1,4 +1,4 @@
-package com.leer.community.controller;
+package com.leer.terms.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -10,33 +10,32 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.leer.common.model.vo.Category2;
-import com.leer.community.model.service.AdminCommunityService;
+import com.leer.terms.model.service.AdminTermsService;
 
 /**
- * Servlet implementation class AdminNotiEnrollFormController
+ * Servlet implementation class AdminTermsEnrollFormController
  */
-@WebServlet("/adEnrollForm.no")
-public class AdminNotiEnrollFormController extends HttpServlet {
+@WebServlet("/adTinsertForm.te")
+public class AdminTermsEnrollFormController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdminNotiEnrollFormController() {
+    public AdminTermsEnrollFormController() {
         super();
         // TODO Auto-generated constructor stub
     }
 
 	/**
-	 * 관리자 공지사항등록페이지
+	 * 관리자 이용약관등록페이지
 	 * 작성자 김은지
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		ArrayList<Category2> list = new AdminCommunityService().selectCategoryList();
+		ArrayList<Category2> list = new AdminTermsService().selectTermsCategoryList();
 		
 		request.setAttribute("list", list);
-		request.getRequestDispatcher("views/admin_main/comu/adminNotiInsert.jsp").forward(request, response);
+		request.getRequestDispatcher("views/admin_main/terms/adminTermsEnroll.jsp").forward(request, response);
 	}
 
 	/**

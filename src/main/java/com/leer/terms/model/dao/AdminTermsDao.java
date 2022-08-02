@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Properties;
 
+import com.leer.common.model.vo.Category2;
 import com.leer.common.model.vo.PageInfo;
 import com.leer.terms.model.vo.Terms;
 
@@ -120,6 +121,33 @@ public class AdminTermsDao {
 			close(pstmt);
 		}
 		return t;
+	}
+	
+	// 관리자 이용약관등록 카테고리조회
+	// 작성자 김은지	
+	public ArrayList<Category2> selectTermsCategoryList(Connection conn){
+		ArrayList<Category2> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectTermsCategoryList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				list.add(new Category2(rset.getInt("category_no"),
+									   rset.getString("category_name")
+						));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return list;
 	}
 
 }
