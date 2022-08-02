@@ -86,7 +86,7 @@
                         <% } %>	
                     </select>
                     <script>
-                    	$(function()) {
+                    	$(function() {
                     		$("#c option").each(function(){
                     			if($(this).val() == "<%=categoryNo%>") {
                     				$(this).attr("selected", true);
@@ -110,7 +110,7 @@
                         <option value="60">ES-</option>
                     </select>
                     <script>
-                    $(function()) {
+                    $(function() {
                 		$(".pCode option").each(function(){
                 			if($(this).val() == "<%=pCode%>") {
                 				$(this).attr("selected", true);
@@ -246,7 +246,7 @@
                         <option value="무료">무료</option>
                     </select>
                     <script>
-                    $(function()) {
+                    $(function() {
                 		$(".point option").each(function(){
                 			if($(this).val() == "<%=deliFee%>") {
                 				$(this).attr("selected", true);
@@ -269,7 +269,7 @@
                         <option value="0.5">50</option>
                     </select>
                     <script>
-                    $(function()) {
+                    $(function() {
                 		$(".point option").each(function(){
                 			if($(this).val() == "<%=point%>") {
                 				$(this).attr("selected", true);
