@@ -44,7 +44,7 @@
 		SELECT
 			   CATEGORY_NO
 			 , CATEGORY_NAME
-	      FROM CATEGORY		
+	      FROM COMU_CATEGORY		
 	</entry>
 	
 	<entry key="insertBoard">
@@ -121,7 +121,7 @@
                 ) "COMMENT_COUNT"
               , VIEW_COUNT  
 		  FROM COMU_BOARD CB
-		  JOIN CATEGORY USING (CATEGORY_NO)  
+		  JOIN COMU_CATEGORY USING (CATEGORY_NO)  
 		  JOIN MEMBER USING (MEM_NO)
 		 WHERE COMU_NO = ?      
 	</entry>
@@ -272,6 +272,24 @@
 	        )
 	 WHERE RNUM BETWEEN ? AND ?
 				
+	</entry>
+	
+	<entry key="selectMyCount">
+	
+		SELECT 
+		       (
+		       SELECT COUNT(*)
+		         FROM COMU_RE CR
+                 WHERE CR.MEM_NO = M.MEM_NO
+                   AND COMM_YN = 'N'
+		       ) "COMMENT_COUNT"
+		      ,(
+                SELECT COUNT(*)
+                  FROM COMU_LIKE CL
+                    WHERE CL.MEM_NO = M.MEM_NO
+		      ) "LIKE_COUNT"
+		  FROM MEMBER M
+         WHERE MEM_NO = ?
 	</entry>
 </properties>
 

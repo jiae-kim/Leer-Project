@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.util.ArrayList, com.leer.common.model.vo.Category"%>
 <%
-	ArrayList<Category> cateList = (ArrayList<Category>)session.getAttribute("list");
+	ArrayList<Category> cateList = (ArrayList<Category>)request.getAttribute("cateList");
 %>
 <!DOCTYPE html>
 <html>
@@ -118,13 +118,13 @@
                                             <tr>
                                                     <td><input type="text" name="tag"></td>
                                                 <td>
-                                                    <select class="categorySelect" name="category">
+                                                    <select class="categorySelect" name="category" required>
                                                             <option value="" disabled selected hidden>
                                                                 카테고리를 선택하세요.
                                                             </option>
-                                                          	<% for(Category c : list) { %>
-                                                            <option value="<%=c.getCategoryNo()%>">
-                                                                <%=c.getCategoryName() %>
+                                                          	<% for(Category ct : cateList) { %>
+                                                            <option value="<%=ct.getCategoryNo()%>">
+                                                                <%=ct.getCategoryName() %>
                                                             </option>
                                                     		<% } %>
                                                     </select>

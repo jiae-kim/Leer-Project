@@ -37,6 +37,9 @@ public class Member {
 	
 	private int orCycle; // or_product테이블
 	
+	private int commCount; // 커뮤니티 - 테이블 추가 할 필요x
+	private int likeCount; // 커뮤니티 - 테이블 추가 할 필요x
+	
 	public Member() {}
 	
 	
@@ -78,9 +81,15 @@ public class Member {
 	}
 
 
+  
 
 
 
+	public Member(int commCount, int likeCount) {
+		super();
+		this.commCount = commCount;
+		this.likeCount = likeCount;
+	}
 
 
 	public Member(String orNo, String image_url, String p_name, int price, Date or_date, String p_code) {
@@ -105,6 +114,26 @@ public class Member {
 		this.price = price;
 		this.or_date = or_date;
 		this.p_code = p_code;
+	}
+
+
+	public int getCommCount() {
+		return commCount;
+	}
+
+
+	public void setCommCount(int commCount) {
+		this.commCount = commCount;
+	}
+
+
+	public int getLikeCount() {
+		return likeCount;
+	}
+
+
+	public void setLikeCount(int likeCount) {
+		this.likeCount = likeCount;
 	}
 
 
@@ -508,6 +537,7 @@ public class Member {
 		this.orCycle = orCycle;
 	}
 
+
 	@Override
 	public String toString() {
 		return "Member [memNo=" + memNo + ", memId=" + memId + ", memPwd=" + memPwd + ", nickname=" + nickname
@@ -517,7 +547,9 @@ public class Member {
 				+ ", image_url=" + image_url + ", p_name=" + p_name + ", price=" + price + ", or_date=" + or_date
 				+ ", p_code=" + p_code + ", startDate=" + startDate + ", endDate=" + endDate + ", orNo=" + orNo
 				+ ", orPrice=" + orPrice + ", pName=" + pName + ", publishMonth=" + publishMonth + ", imageUrl1="
-				+ imageUrl1 + ", orCycle=" + orCycle + "]";
+				+ imageUrl1 + ", orCycle=" + orCycle + ", commCount=" + commCount + ", likeCount=" + likeCount + "]";
 	}
+
+	
 
 }

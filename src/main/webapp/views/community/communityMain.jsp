@@ -3,7 +3,7 @@
 <%
 String contextPath = request.getContextPath();
 Member loginUser = (Member)session.getAttribute("loginUser");
-ArrayList<Category> cateList = (ArrayList<Category>)request.getAttribute("cateList"); 
+//ArrayList<Category> cateList = (ArrayList<Category>)request.getAttribute("cateList"); 
  %>
 <!DOCTYPE html>
 <html>
@@ -45,8 +45,8 @@ ArrayList<Category> cateList = (ArrayList<Category>)request.getAttribute("cateLi
                             <p style="font-size: small;">카테고리</p>
                             <ul>
                                 <li><a href="<%=contextPath%>/comu.bo?cpage=1">전체게시글</a></li>
-                               <% for(Category c : cateList) { %>
-                                  <li><a href="<%=contextPath%>/cgory.li?cpage=1&cNo=<%= c.getCategoryNo()%>"><%= c.getCategoryName() %></a></li>
+                               <% for(Category ct : cateList) { %>
+                                  <li><a href="<%=contextPath%>/cgory.li?cpage=1&cNo=<%= ct.getCategoryNo()%>"><%= ct.getCategoryName() %></a></li>
                                 <% } %>
          	                    <%-- <li><a href="<%=contextPath%>/cgory.li?cpage=1&cNo=<%=c.getCategoryNo()%>">패션/여성</a></li>
                                 <li><a href="<%=contextPath%>/comu.bo?cpage=1&cNo=">라이프/인테리어</a></li>

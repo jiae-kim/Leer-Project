@@ -18,6 +18,7 @@ import com.leer.common.model.vo.Category;
 import com.leer.common.model.vo.PageInfo;
 import com.leer.community.model.vo.ComuBoard;
 import com.leer.community.model.vo.Reply;
+import com.leer.member.model.vo.Member;
 import com.leer.notice.model.vo.Notice;
 
 public class CommunityDao {
@@ -573,5 +574,33 @@ public class CommunityDao {
 			close(pstmt);
 		}
 		return list;
+	}
+	
+	public Member selectMyCount(Connection conn, int memNo) {
+		
+		Member m = null;
+		
+		PreparedStatement pstmt = null;
+		
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectMyCount");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, memNo);
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				m.set
+			}
+		
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 	}
 }

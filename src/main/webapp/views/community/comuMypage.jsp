@@ -40,6 +40,7 @@
 					<%
 					} else {
 					%>
+					<form action="">
 					<div class="myPageList">
 						<div id="myPage" style="display: block;">
 							<div class="box-g">
@@ -49,10 +50,12 @@
 										<li id="profile">
 											<div class="profileNic" align="">
 											
+												<% if(loginUser.getProfileLink() == null){ %>
 												<img
 													src="https://ssl.pstatic.net/static/cafe/cafe_pc/default/cafe_profile_70.png"
 													width="58" height="58" alt="프로필사진" class="imgChange">
-													
+												<% }else { %>	
+												<img src="<%= loginUser.getProfileLink() %>" width="58" height="58" alt="프로필사진" class="imgChange">
 												<strong><%=loginUser.getNickname() %></strong>
 
 											</div>
@@ -73,7 +76,7 @@
 										<span class="">
 										<strong>내가 좋아요 한 글</strong>
 										</span>
-										<a href="<%= contextPath %>/myLike.li">>49</a>
+										<a href="<%= contextPath %>/myLike.li">49</a>
 										<span>개</span>
 										
 										</li>
@@ -88,6 +91,7 @@
 						</div>
 					</div>
 					<% } %>
+					</form>
 					<div class="bestTag">
 						<p>인기태그</p>
 						<div class="blog__sidebar__item__tags">

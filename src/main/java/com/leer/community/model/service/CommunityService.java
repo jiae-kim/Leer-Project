@@ -14,6 +14,7 @@ import com.leer.common.model.vo.PageInfo;
 import com.leer.community.model.dao.CommunityDao;
 import com.leer.community.model.vo.ComuBoard;
 import com.leer.community.model.vo.Reply;
+import com.leer.member.model.vo.Member;
 import com.leer.notice.model.vo.Notice;
 
 public class CommunityService {
@@ -37,7 +38,7 @@ public class CommunityService {
 		
 		Connection conn = getConnection();
 		
-		ArrayList<Category> list = new CommunityDao().selectCategoryList(conn);
+		ArrayList<Category> cateList = new CommunityDao().selectCategoryList(conn);
 		
 		close(conn);
 		
@@ -172,5 +173,15 @@ public class CommunityService {
 		close(conn);
 		
 		return list;
+	}
+	
+	public Member selectMyCount(int memNo) {
+		Connection conn = getConnection();
+		
+		Member m = new CommunityDao().selectMyCount(conn, memNo);
+		
+		close(conn);
+		
+		return m;
 	}
 }

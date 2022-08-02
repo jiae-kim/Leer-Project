@@ -4,6 +4,7 @@
 <%
 ComuBoard c = (ComuBoard) request.getAttribute("c");
 Attachment at = (Attachment) request.getAttribute("at");
+ArrayList<Category> cateList = (ArrayList<Category>)request.getAttribute("cateList"); 
 %>
 <!DOCTYPE html>
 <html>

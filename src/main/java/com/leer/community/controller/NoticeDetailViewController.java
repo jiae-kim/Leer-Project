@@ -1,6 +1,7 @@
 package com.leer.community.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.leer.common.model.vo.Attachment;
+import com.leer.common.model.vo.Category;
 import com.leer.community.model.service.CommunityService;
 import com.leer.notice.model.vo.Notice;
 
@@ -33,7 +35,9 @@ public class NoticeDetailViewController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int notiNo = Integer.parseInt(request.getParameter("no"));
 		CommunityService cService = new CommunityService();
-		
+		ArrayList<Category> cateList = new CommunityService().selectCategoryList();
+		request.setAttribute("cateList", cateList);
+
 		int result = cService.notiIncreaseCount(notiNo);
 		
 		if(result > 0) {
