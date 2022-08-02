@@ -279,14 +279,14 @@
 		SELECT 
 		       (
 		       SELECT COUNT(*)
-		         FROM COMU_RE CR
-                 WHERE CR.MEM_NO = M.MEM_NO
-                   AND COMM_YN = 'N'
+		         FROM COMU_BOARD CB
+                 WHERE CB.MEM_NO = M.MEM_NO
+                   AND DELETE_YN = 'N'
 		       ) "COMMENT_COUNT"
 		      ,(
                 SELECT COUNT(*)
                   FROM COMU_LIKE CL
-                    WHERE CL.MEM_NO = M.MEM_NO
+                 WHERE CL.MEM_NO = M.MEM_NO
 		      ) "LIKE_COUNT"
 		  FROM MEMBER M
          WHERE MEM_NO = ?

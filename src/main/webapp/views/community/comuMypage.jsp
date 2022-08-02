@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-
+    pageEncoding="UTF-8" import="com.leer.member.model.vo.Member"%>
+<%
+	Member m = (Member)request.getAttribute("m");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,7 +42,6 @@
 					<%
 					} else {
 					%>
-					<form action="">
 					<div class="myPageList">
 						<div id="myPage" style="display: block;">
 							<div class="box-g">
@@ -48,7 +49,7 @@
 								<div class="myList">
 									<ul>
 										<li id="profile">
-											<div class="profileNic" align="">
+											<div class="profileNic" >
 											
 												<% if(loginUser.getProfileLink() == null){ %>
 												<img
@@ -57,28 +58,26 @@
 												<% }else { %>	
 												<img src="<%= loginUser.getProfileLink() %>" width="58" height="58" alt="프로필사진" class="imgChange">
 												<strong><%=loginUser.getNickname() %></strong>
-
+												<% } %>
 											</div>
 										</li>
 
 										<li class="myBoard">
-										
-										<span>
-										<strong>내가 쓴 글</strong>
-										</span> 
-										<a href="<%=contextPath %>/myBoard.li?memNo=<%=loginUser.getMemNo()%>&cpage=1">50</a>
-										<span>개</span>
-										
+											<span>
+											<strong>내가 쓴 글</strong>
+											</span> 
+											<a href="<%=contextPath %>/myBoard.li?memNo=<%=loginUser.getMemNo()%>&cpage=1"><%= m.getCommCount() %></a>
+											<span>개</span>
 										</li>
 										
 										<li class="myComment">
-										
-										<span class="">
-										<strong>내가 좋아요 한 글</strong>
-										</span>
-										<a href="<%= contextPath %>/myLike.li">49</a>
-										<span>개</span>
-										
+										<form action="<%=contextPath%>/comuMypage.me">
+											<span class="">
+											<strong>내가 좋아요 한 글</strong>
+											</span>
+											<a href="#"><%= m.getLikeCount() %></a>
+											<span>개</span>
+										</form>
 										</li>
 									</ul>
 								</div>
@@ -91,7 +90,7 @@
 						</div>
 					</div>
 					<% } %>
-					</form>
+					
 					<div class="bestTag">
 						<p>인기태그</p>
 						<div class="blog__sidebar__item__tags">

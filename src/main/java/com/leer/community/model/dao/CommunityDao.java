@@ -593,14 +593,18 @@ public class CommunityDao {
 			rset = pstmt.executeQuery();
 			
 			if(rset.next()) {
-				m.set
-			}
+				m.setCommCount(rset.getInt("comment_count"));
+				m.setLikeCount(rset.getInt("like_count"));
+			} 
 		
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
 		}
-		
+		return m;
 		
 	}
 }
