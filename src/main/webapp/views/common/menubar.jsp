@@ -77,7 +77,8 @@
                             <li><a href="./blog.html"><b>고객센터</b></a></li>
                             <li>
                             <%if(loginUser == null){ %>
-                            <a href="<%= contextPath %>/index.jsp"><b>마이페이지</b></a>
+	                            
+                            <a href="<%= contextPath %>/views/member/login.jsp"><b>마이페이지</b></a>
                             <%}else{ %>
                             <a href="<%= contextPath %>/myPage.me?memNo=<%=loginUser.getMemNo()%>"><b>마이페이지</b></a>
                             <%} %>

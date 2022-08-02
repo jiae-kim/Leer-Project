@@ -292,7 +292,114 @@
         background-color: #fff;
         border-top: 1px solid #2b2f3a;
         }
-    
+
+        .order_price_box{
+            width:100%;
+            box-sizing: border-box;
+            text-align:center;
+            background-color: #fff;
+            border: 2px solid lightgray;
+            padding:20px 10px;
+            margin-top:25px;
+            margin-bottom:0px;
+            font-size:14px;
+        }
+
+        .order_table_box {
+            width: 100%;
+            height: auto;
+            box-sizing: border-box;
+            margin-bottom: 40px;
+            margin-top:50px;
+        }
+
+        .order_table_box th {
+            font-weight: 400;
+            text-align: center;
+            padding-left: 0;
+            padding-right: 0;
+            background-color: #f0f0f0;
+        }
+
+        .order_table_box input{
+            border: 1px solid #e1e1e1;
+        }
+
+        .order_table_box table{
+            border:#dadada solid;
+        }
+        
+        .order_table_box h3{
+            margin-bottom:15px;
+            margin-top:50px;
+            font-size:23px;
+            font-family: "NanumSquare";
+            font-weight: 600;
+            color:#303030;
+        }
+
+        #tb th{
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        #tb td{
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        .cart_price{
+            font-size: 12px;
+            font-weight: 400;
+            letter-spacing: -0.5px;
+            color: #343434;
+            padding: 0 5px;
+        }
+
+        .order_price_list li{
+            display: inline-block;
+            vertical-align: top;
+            line-height: 1.2;
+            text-align: center;
+        }
+
+        .cart_sign span {
+            display: inline-block;
+            vertical-align: top;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            border-radius: 50%;
+            background-color: #f0f0f0;
+            font-size: 20px;
+            font-weight: 800;
+            color: #343434;
+        }
+
+        .cart_price strong {
+            /* display: block; */
+            font-size: 22px;
+            font-weight: 800;
+            color:#434343;
+            word-break: break-all;
+            padding-top: 20px;
+        }
+
+        .cart_sign{padding-left: 20px;padding-right:20px}
+        
+        #address-btn, #point-btn, #order-btn{
+            background-color: #434343 ;
+            padding-left: 20px;
+            padding-right: 20px;
+            color:#ffffff;
+            font-weight: 500;
+            border:1px #434343;
+        }
+
+        #order-btn{
+            margin:auto;
+            display: block;
+        }
        
     </style>
 </head>
@@ -303,151 +410,181 @@
         <div class="container">
             <div class="row">
 
-                <div class="col-lg-9 col-md-7" style="flex-grow:1;">
+                <div class="col-lg-9 col-md-7" style="padding-left:20px; flex-grow:1;">
                     <div class="etc_area" id="product_review">
-                                    <h2 class="etc_title" style="margin-top:0%" >장바구니
+                                    <h2 class="etc_title" style="margin-top:0%; font-weight: 800; margin-bottom: 10px; font-size: 32px; font-family:NanumSquare;">주문하기
                                         
                                     </h2>
-                                    <div style="border-bottom: 1px solid #303030;"></div>
-                                    <form action="<%= contextPath %>/cdelete.me" method="">
-                                    	<input type="hidden" name="memNo" value="<%=loginUser.getMemNo()%>">
-	                                    <div class="etc_content_box" >
-	                                        <ul class="product_review_list" id="review_list"></ul>
-	                                        <table class="table">
-	                                            <tr style="font-size:14px;">
-	                                                <th><input type="checkbox" id="check-all" checked></th>
-	                                                <th style="width:30%;" width:40%;>상품정보</th>
-	                                                <th>수량</th>
-	                                                <th>상품금액</th>
-	                                                <th>상품총액</th>
-	                                                <th>배송비</th>
-	                                            </tr>
-	                                            <% for(Cart c : list) { %>
-		                                            <tr style="font-size:14px;">
-		                                                <td><input type="checkbox" name="chk" value="<%=c.getCartNo() %>" checked></td>
-		                                                <td style="width:40%;">
-		                                                    <span style="display:inline">
-		                                                        <img src="<%=c.getImageUrl() %>" width="15%;" >
-		                                                    </span>
-		                                                    <span style="height:100%;">
-		                                                        <a><%=c.getpName() %></a>
-		                                                        <% if(c.getOrCycle() == 1) {%>
-		                                                        	<a style="font-size:12px">구독기간:개별구매</a>
-		                                                        <% } %>
-		                                                        <% if(c.getOrCycle() == 2) {%>
-		                                                        	<a style="font-size:12px">구독기간:1달에 한번</a>
-		                                                        <% } %>
-		                                                        <% if(c.getOrCycle() == 3) {%>
-		                                                        	<a style="font-size:12px">구독기간:2달에 한번</a>
-		                                                        <% } %>
-		                                                    </span>  
-		                                                </td>
-		                                                <td><%=c.getAmount() %></td>
-		                                                <td><%=comma.format(c.getPrice()) %><span>원</span></td>
-		                                                <% if(c.getOrCycle() == 1){ %>
-		                                                	<td class="total-price"><%= comma.format((c.getPrice() * c.getAmount()) + 3000) %>
-		                                                		<span>원</span>
-		                                                	</td>
-		                                                	
-		                                                <%} %>
-		                                                <% if(c.getOrCycle() == 2){ %>
-		                                                	<td class="total-price"><%= comma.format(c.getPrice() * 12 * c.getAmount())%>
-		                                                		<span>원</span>
-		                                                	</td>
-		                                                	
-		                                                <%} %>
-		                                                <% if(c.getOrCycle() == 3){ %>
-		                                                	<td class="total-price"><%=comma.format(c.getPrice() * 6 * c.getAmount() )%>
-		                                                		<span>원</span>
-		                                                	</td>
-		                                                	
-		                                                <%} %>
-		                                                <% if(c.getOrCycle() == 1){ %>
-		                                                	<td>3,000원</td>
-		                                                <% } else{ %>
-		                                                	<td>무료배송</td>
-		                                                <% } %>
-		                                            </tr>
-	                                            <% } %>
-	
-	                                        </table>
-											
-	                                        <div style="text-align:right">
-	                                            <span style="font-size:20px; font-weight: 800;">상품총액 : </span>
-	                                            
-	                                            <span id="sum-price" style="font-size:20px; color:red; font-weight: 600;">0</span>
-	                                            <span style="font-size:20px; color:red; font-weight: 600;">원</span>
-	                                        </div>
-	
-	                                        <br>
-	                                        <span style="text-align:left; ">
-	                                            <button type="submit" class="site-btn" style="font-size: 15px; margin-right:370px; color:#303030; background-color: #ffffff; border: #303030 solid 1.5px;" >선택상품 삭제</button>
-	                                        </span>
-	                                        <span style="text-align:right">
-	                                            
-	                                            <a href="<%=contextPath %>/list.pd" class="site-btn" style="font-size: 15px; color:#303030; background-color: #ffffff; border: #303030 solid 1.5px;" >계속 쇼핑하기</a>
-	                                            <button type="button" class="site-btn" style="font-size: 15px; border:#303030 solid 1.5px;">주문하기</button>
-	                                        </span>
-	                                        
-											<script>
-	
-											function number_format(num){
-						                        return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',');
-						                    }
-										
-	
-	
-											$(function(){ 
-												
-												let sumPrice = 0;
-												
-												$(".total-price").each(function(){
-													sumPrice += parseInt($(".total-price").text().split(',').join("")); /* 왜 $(".total-price")로 선택해줬는데 첫번째 값만 반복되는것 같을까  */
-												});
-												$("#sum-price").html(number_format(sumPrice)); 
-												
-												$("#check-all").click(function(){
-													if($("#check-all").prop("checked")){
-														$("input[name=chk]").prop("checked", true)
-														$("#sum-price").html(number_format(sumPrice)); 
-														
-													}else{
-														$("input[name=chk]").prop("checked", false)
-														$("#sum-price").html(0); 
-													}
-												})
-											
-												$("input[name=chk]").click(function(){
-													
-													let sumPrice2 = 0;
-														
-														$("input:checkbox[name=chk]:checked").each(function(){
-															sumPrice2 += parseInt($(".total-price").text().split(',').join(""));
-															
-														});
-														console.log(sumPrice2);
-														$("#sum-price").html(number_format(sumPrice2));
-													
-												})
-											});
-	
-												 
-											
-	
-												
-											</script>
-	
-	                                    </div>
-                                    </form>
+                                    <div style="border-bottom: 2px solid #303030; margin-bottom: 30px;;"></div>
+                                    <div class="etc_content_box" >
+                                        <ul class="product_review_list" id="review_list"></ul>
+                                        <table class="table" style= "border:#dadada solid" id="tb" >
+                                            <tr style="font-size:14px;">
+                                                <th>번호</th>
+                                                <th style="width:30%;" width:40%;>상품정보</th>
+                                                <th>수량</th>
+                                                <th>상품금액</th>
+                                                <th>상품총액</th>
+                                                <th>배송비</th>
+                                            </tr>
+                                            <tr style="font-size:14px;">
+                                                <td style="vertical-align:middle; text-align:center;">1</td>
+                                                <td style="width:40%;">
+                                                    <span style="display:inline">
+                                                        <img src="http://www.walbox.co.kr/upfile/item/111_1613734143.jpg" width="15%;" >
+                                                    </span>
+                                                    <span style="height:100%;">
+                                                        <a>어라운드(격월간)</a>
+                                                        <a style="font-size:12px">구독기간:2달에 한번 </a>
+                                                        
+                                                    </span>  
+                                                </td>
+                                                <td style="vertical-align:middle;">1개</td>
+                                                <td style="vertical-align:middle;">14,250원</td>
+                                                <td style="vertical-align:middle;">14,250원</td>
+                                                <td style="vertical-align:middle;">무료배송</td>
+                                            </tr>
+
+                                        </table>
+
+                                        <div class="order_table_box" >
+                                            <h3>1. 주문자 정보 </h3>
+                                            <table class="table" style="margin-top:20px" >
+                                                <tr> 
+                                                    <th style="background:#f1f1f1" >주문하시는분</th>
+                                                    <td><input type="text" style="width:300px" ></td>
+                                                </tr>
+                                                <tr>
+                                                    <th style="background:#f1f1f1">주문자 연락처</th>
+                                                    <td><input type="text" style="width:300px" > - 
+                                                        <input type="text" style="width:300px" > - 
+                                                        <input type="text" style="width:300px" ></td> 
+                                                </tr>
+                                                <tr>
+                                                    <th style="background:#f1f1f1">주문자 이메일</th>
+                                                    <td><input type="text" style="width:300px" > @ 
+                                                        <input type="text" style="width:300px" & nbsp;>
+                                        
+                                                    
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+                                            <h3>2. 배송지 정보 </h3>
+                                            <table class="table" style="margin-top:20px;">
+                                                <tr> 
+                                                    <th style="background:#f1f1f1" >수취인명 </th>
+                                                    <td><input type="text" style="width:300px" ></td>
+                                                </tr>
+                                                <tr>
+                                                    <th style="background:#f1f1f1">수취인 연락처</th>
+                                                    <td><input type="text" style="width:300px" > - 
+                                                        <input type="text" style="width:300px" > - 
+                                                        <input type="text" style="width:300px" ></td> 
+                                                </tr>
+                                                <tr>
+                                                    <th style="background:#f1f1f1; vertical-align: middle;">배송지주소</th>
+                                                    <td style="vertical-align:middle">
+                                                        <input type="radio">새로운 주소로 입력
+                                                        <input type="radio">내 주소 <br>
+                                                        <span>
+                                                            <input type="text" style="width:300px; margin-bottom:10px;" > 
+                                                            <button id="address-btn" class=btn style="padding:14px;margin-bottom:10px;">배송지주소 검색</button> 
+                                                        </span>
+                                                        <br>
+                                                        <input type="text" style="width:600px; margin-bottom:10px;" ><br>
+                                                        <input type="text" style="width:600px" >
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th style="background:#f1f1f1">배송메세지</th>
+                                                    <td>
+                                                        <input type="text" style="width:600px" >
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+                                            <h3>3. 적립포인트 사용 </h3>
+                                            <table class="table" style="margin-top:20px;">
+                                                <tr> 
+                                                    <th style="background:#f1f1f1" >포인트 </th>
+                                                    <td>
+                                                        보유 포인트 : <span>2,300원</span>
+                                                        <input type="text" placeholder="사용할 적립금 입력" >
+                                                        <button class="btn" id="point-btn"  style="padding:14px;">적용</button>
+                                                    </td>
+                                                </tr>
+                                               
+                                            </table>
+                                        </div>
+
+                                        <div class="order_price_box">
+                                            <ul class="order_price_list">
+                                                <li class="cart_price">
+                                                   상품총액
+                                                   <div style="height:7px;"></div>
+                                                   <strong>0</strong>
+                                                    <strong style="display:inline">원</strong>
+                                                   
+                                                </li>
+                                                <li class="cart_sign">
+                                                    <span>-</span>
+                                                </li>
+                                                <li class="cart_price">
+                                                    할인총액
+                                                    <div style="height:7px;"></div>
+                                                    <strong>0</strong>
+                                                    <strong>원</strong>
+                                                 </li>
+                                                 <li class="cart_sign">
+                                                    <span>+</span>
+                                                </li>
+                                                <li class="cart_price">
+                                                    배송비
+                                                    <div style="height:7px;"></div>
+                                                    <strong>0</strong>
+                                                    <strong>원</strong>
+                                                 </li>
+                                                <li class="cart_sign">
+                                                    <span>=</span>
+                                                </li>
+                                                <li class="cart_price">
+                                                    총 구매금액(상품)
+                                                    <div style="height:7px;"></div>
+                                                    <strong>22,710</strong>
+                                                    <strong>원</strong>
+                                                 </li>
+
+                                            </ul>
+                                        </div>
+
+                                        <br>
+                                        <div>
+                                            <button class=btn id="order-btn" style="padding:20px 40px; font-size:20px">주문하기</button>
+                                        </div>
+
+                                        
+                                       
+
+
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>   
                     
-                </div>   
+                </div>
             </div>
         </div>
     </section>
-	<%@ include file="../common/footer.jsp" %>
+	<script src="<%=contextPath %>/resources/js/jquery-3.3.1.min.js"></script>
+    <script src="<%=contextPath %>/resources/js/bootstrap.min.js"></script>
+    <script src="<%=contextPath %>/resources/js/jquery.nice-select.min.js"></script>
+    <script src="<%=contextPath %>/resources/js/jquery-ui.min.js"></script>
+    <script src="<%=contextPath %>/resources/js/jquery.slicknav.js"></script>
+    <script src="<%=contextPath %>/resources/js/mixitup.min.js"></script>
+    <script src="<%=contextPath %>/resources/js/owl.carousel.min.js"></script>
+    <script src="<%=contextPath %>/resources/js/main.js"></script>
+    
 </body>
 </html>
