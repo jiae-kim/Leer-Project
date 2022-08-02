@@ -117,7 +117,6 @@
                     <tr>
                         <td>생년월일</td>
                         <td colspan="3"><input type="text" name="birth" placeholder=" (6자리 숫자로만 입력해주세요.)"></td>
-                        
                     </tr>
 
                     <tr>

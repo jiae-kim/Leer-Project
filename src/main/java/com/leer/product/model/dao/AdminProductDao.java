@@ -75,10 +75,8 @@ public class AdminProductDao {
 	 */
 	public int selectProductListCount(Connection conn) {
 		int listCount = 0;
-		
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		
 		String sql = prop.getProperty("selectProductListCount");
 		
 		try {
@@ -105,7 +103,6 @@ public class AdminProductDao {
 		ArrayList<Category> list = new ArrayList<>();
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		
 		String sql = prop.getProperty("selectCategoryList");
 		
 		try {
@@ -165,9 +162,7 @@ public class AdminProductDao {
 	 */
 	public int insertAttachment(Connection conn, Attachment at) {
 		int result = 0;
-		
 		PreparedStatement pstmt = null;
-		
 		String sql = prop.getProperty("insertAttachment");
 		
 		try {
@@ -204,17 +199,17 @@ public class AdminProductDao {
 			
 			if(rset.next()) {
 				p = new Product(rset.getString("p_name"),
-								rset.getString("publish_month2"),
+								rset.getString("publish_month"),
 								rset.getString("publisher"),
 								rset.getInt("category_no"),
 								rset.getString("p_code"),
 								rset.getInt("price"),
 								rset.getInt("p_stock"),
 								rset.getInt("deli_fee"),
-								rset.getDouble("point2"),
+								rset.getDouble("point"),
 								rset.getString("image_url1"),
 								rset.getString("image_url2"),
-								rset.getString("imgae_urls")
+								rset.getString("image_urls")
 								);
 			}
 		} catch (SQLException e) {
@@ -268,12 +263,12 @@ public class AdminProductDao {
 			pstmt.setString(1, p.getpName());
 			pstmt.setString(2, p.getPublishMonth2());
 			pstmt.setString(3, p.getPublisher());
-			pstmt.setInt(4, p.getCategoryNo());
+			pstmt.setString(4, p.getCategoryNo2());
 			pstmt.setString(5, p.getpCode());
 			pstmt.setInt(6, p.getPrice());
 			pstmt.setInt(7, p.getpStock());
-			pstmt.setInt(8, p.getDeliFee());
-			pstmt.setDouble(9, p.getPoint2());
+			pstmt.setString(8, p.getDeliFee2());
+			pstmt.setInt(9, p.getPoint());
 			pstmt.setString(10, p.getImageUrl1());
 			pstmt.setString(11, p.getImageUrl2());
 			pstmt.setString(12, p.getImageUrlS());

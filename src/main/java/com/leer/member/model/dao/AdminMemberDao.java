@@ -196,6 +196,43 @@ public class AdminMemberDao {
 		return listCount;		
 	}
 	
+	// 관리자 장기구독자 상세조회
+	// 작성자 김은지	
+	public Member memberLongDetailList(Connection conn, int orNo) {
+		Member m = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("memberLongDetailList");	
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, orNo);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				m = new Member(rset.getInt("mem_no"),
+							   rset.getString("mem_id"),
+							   rset.getString("mem_name"),
+							   rset.getInt("point"),
+							   rset.getString("p_code"),
+							   rset.getString("or_no"),
+							   rset.getInt("or_price"),
+							   rset.getString("p_name"),
+							   rset.getDate("publish_month"),
+							   rset.getString("image_url1"),
+							   rset.getInt("or_cycle")
+						);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return m;
+	}
+	
 }
 
 

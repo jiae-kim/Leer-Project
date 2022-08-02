@@ -65,8 +65,8 @@
                             	조회방법 선택
                             </button>
                             <div class="dropdown-menu" id="selectBox">
-                                <a class="dropdown-item" id="all" onclick="changeList('전체조회');">전체조회</a>
-                                <a class="dropdown-item" id="ganada" onclick="changeList('가나다 순 조회');">가나다 순 조회</a>
+                                <a class="dropdown-item" id="all" onclick="changeList('전체조회', 1);">전체조회</a>
+                                <a class="dropdown-item" id="ganada" onclick="changeList('가나다 순 조회', 1);">가나다 순 조회</a>
                             </div>
                         </div>
                     </div>
@@ -92,10 +92,11 @@
                                 </thead>
   						<!--//--------------- 스크립트 ----------------->
                                 <script>
-									function changeList(val){
+									function changeList(val, page){
 										$.ajax({
 											url:"<%=request.getContextPath()%>/AjaxAdMemSelec.do",
-											data:{align:val},
+											data:{align:val
+												 ,cpage:page},
 											success:function(list){
 												console.log(list);
 												
@@ -119,7 +120,10 @@
 														'<td>' + list[i].point + '</td>' +
 													'</tr>'	
 												}
-												$("#custom").html(value);
+												
+												// 페이징바도 만들어야됨
+												// 이때 페이지숫자 클릭시 다시 changeList 호출시키도록 
+												$(".custom").html(value);
 											}, error:function(){
 												console.log("조회실패");
 											}
@@ -187,12 +191,3 @@
             </footer>
 </body>
 </html>
-
-
-
-
-
-
-
-
-

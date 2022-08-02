@@ -1,6 +1,6 @@
 package com.leer.mypage.model.service;
 
-import static com.leer.common.JDBCTemplate.close;
+import static com.leer.common.JDBCTemplate.*;
 import static com.leer.common.JDBCTemplate.getConnection;
 
 import java.sql.Connection;
@@ -96,6 +96,7 @@ public class MypageService {
 		
 	}
 	
+
 	public Cart selectOrderList(String chk){
 		
 		Connection conn = getConnection();
@@ -104,5 +105,23 @@ public class MypageService {
 		close(conn);
 		return c;
 	}
+
+	public int CancleComplete( int memNo, String p_code, String orNo) {
+		
+		Connection conn = getConnection();
+		int result = new MypageDao().CancleComplete(conn,memNo,p_code,orNo);
+		
+		if(result > 0 ) { // 성공
+			commit(conn);
+		}else { // 실패
+			rollback(conn);
+		}
+		
+		return result;
+		
+	}
+
+
+
 
 }

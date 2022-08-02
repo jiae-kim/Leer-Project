@@ -4,10 +4,10 @@
 
 	<entry key="WriteReviewView">
 		SELECT
-			 P.IMAGE_URL1
-			,P.P_NAME
-			,OR_DATE
-			,P.PRICE
+			 P.P_NAME
+			,P.PRICE 
+			,P.IMAGE_URL1
+			,OR_DATE 
 		FROM REVIEW R
         JOIN PRODUCT P ON (R.P_CODE = P.P_CODE)
         JOIN OR_PRODUCT OP ON (P.P_CODE = OP.P_CODE)
@@ -54,14 +54,18 @@
 		INSERT
 		  INTO REVIEW 
 		  (
-		  	리뷰번호
+		  	REVIEW_NO
+		  	MEM_NO
+		  	P_NAME
 		  , REVIEW_SCOPE
 		  , REVIEW_CONTENT
 		  , FILE_PATH
 		  )
 		  VALUES
 		  (
-		  	?
+		  	SEQ_REV.NEXTVAL
+		  , ?
+		  , ?
 		  , ?
 		  , ?
 		  , ?

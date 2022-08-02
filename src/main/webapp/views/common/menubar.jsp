@@ -56,13 +56,12 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="<%=contextPath %>/index.jsp"><img src="<%= contextPath %>/resources/images/logo.png" alt=""></a>
+                        <a href="<%=contextPath %>"><img src="<%= contextPath %>/resources/images/logo.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <nav class="header__menu">
                         <ul>
-                            <!--  <li><a href="./index.html"><b>홈</b></a></li>-->
                             <li class="active"><a href="<%=contextPath %>/list.pd"><b>카테고리</b></a>
                             	 <ul class="header__menu__dropdown">
                                     <li><a href="./shop-details.html">패션 여성</a></li>
@@ -74,13 +73,14 @@
                                 </ul>
                             </li>
                             <li><a href="<%=contextPath%>/comu.bo?cpage=1"><b>커뮤니티</b></a></li>
+                            
                             <li><a href="./blog.html"><b>고객센터</b></a></li>
+                            
                             <li>
                             <%if(loginUser == null){ %>
-	                            
-                            <a href="<%= contextPath %>/views/member/login.jsp"><b>마이페이지</b></a>
+                                <a href="<%= contextPath %>/views/member/login.jsp"><b>마이페이지</b></a>
                             <%}else{ %>
-                            <a href="<%= contextPath %>/myPage.me?memNo=<%=loginUser.getMemNo()%>"><b>마이페이지</b></a>
+                            	<a href="<%= contextPath %>/myPage.me?memNo=<%=loginUser.getMemNo()%>"><b>마이페이지</b></a>
                             <%} %>
                             </li>
                         </ul>
@@ -107,17 +107,16 @@
                     <!-- case2. 로그인 후 -->
                     <div class="header__cart">
                         <ul>
-                            <li><a href="" style="text-decoration: none; color:black; font-size:13px;"><%=loginUser.getMemName() %> 님</a><li>
+                        	<!-- 로그인 한 회원의 이름을 누르면 회원정보 수정 페이지로 넘어가도록 해둠 -->
+                            <li><a href="<%=contextPath %>/mypage.me" style="text-decoration: none; color:black; font-size:13px;"><%=loginUser.getMemName() %> 님</a><li>
                             <li><a href="<%=contextPath %>/logout.me" style="text-decoration: none; color:darkgrey; font-size:13px;">로그아웃</a></li>
                             &nbsp;
-                            <!-- <li><a href="" style="text-decoration: none; color:darkgrey">마이페이지</a></li> -->
                             <li id="login-icon"><a href=""><i class="fa fa-heart"></i></a></li>
                             <li><a href="#"><i class="fa fa-shopping-bag"></i></a></li>
                         </ul>
                     </div>
                     
                     <% } %>
-
 
                 </div>
             </div>

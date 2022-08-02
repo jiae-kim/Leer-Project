@@ -92,7 +92,7 @@
                                 </thead>
                                 <tbody class="custom">
                                 	<% for(Member m : list) { %>
-	                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/member/adminLongSubDetail.jsp'">
+	                                    <tr onclick="location.href='<%=request.getContextPath()%>/adLongDetail.do?no=<%=m.getOrNo()%>';">
 	                                        <th>
 	                                            <label class="customcheckbox">
 	                                                <span class="checkmark"></span>

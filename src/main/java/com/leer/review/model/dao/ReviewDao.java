@@ -1,5 +1,7 @@
 package com.leer.review.model.dao;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,11 +12,25 @@ import java.util.Properties;
 import static com.leer.common.JDBCTemplate.*;
 
 import com.leer.member.model.vo.Member;
+import com.leer.mypage.model.dao.MypageDao;
 import com.leer.review.model.vo.Review;
 
 public class ReviewDao {
 
 	private Properties prop = new Properties();
+	
+public ReviewDao() {
+		
+		String filePath = ReviewDao.class.getResource("/db/sql/review-mapper.xml").getPath();
+		
+		try {
+			prop.loadFromXML(new FileInputStream(filePath));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 	
 	public ArrayList<Review> WriteReviewView(Connection conn, int memNo){
 		
@@ -111,6 +127,14 @@ public ArrayList<Review> WriteReviewHistory(Connection conn, int memNo){
 		
 		
 		return r;
+	}
+	
+	public int WriteReviewComplete(Connection conn,int memNo,String pname,int reviewscope,String content) {
+		int result = 0;
+		
+		
+		
+		return result;
 	}
 	
 }

@@ -44,7 +44,7 @@ Member loginUser = (Member)session.getAttribute("loginUser");
                         <div class="sidebar__item">
                             <p style="font-size: small;">카테고리</p>
                             <ul>
-                                <li><a href="#">전체게시글</a></li>
+                                <li><a href="<%=contextPath%>/comu.bo?cpage=1">전체게시글</a></li>
                                 <li><a href="#">패션/여성</a></li>
                                 <li><a href="#">라이프/인테리어</a></li>
                                 <li><a href="#">시사/경제</a></li>
@@ -54,7 +54,7 @@ Member loginUser = (Member)session.getAttribute("loginUser");
                             </ul>
                             <p style="font-size: small;" id="noti">leer이야기</p>
                             <ul>
-                                <li><a href="#">커뮤니티 공지사항</a></li>
+                                <li><a href="<%=contextPath%>/comuNoti.li?noti=1">커뮤니티 공지사항</a></li>
                                 
                                 <% if(loginUser != null){ %>
                                 <li><a href="<%=contextPath%>/myBoard.li?memNo=<%=loginUser.getMemNo()%>&cpage=1">내가 쓴 게시글</a></li>

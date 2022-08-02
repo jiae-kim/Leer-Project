@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <properties>
 
-	<entry key="PointList">
-		SELECT 
-			 POINT_NO
-			,POINT
-			,DATE
-			,HISTORY
-		FROM POINT
-		WHERE MEM_NO= ?
-	
-	</entry>
+
 
 
 	

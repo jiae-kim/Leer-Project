@@ -172,7 +172,7 @@
                             <br>
                             <!-- 주문 번호 갯수만큼 반복처리 -->
                             <hr>
-                            <form action="<%= contextPath %>/myPage.me">
+                            <form action="<%= request.getContextPath() %>/myPage.me">
                                 <div>
 	                                <table>
 	                                    <tr>
@@ -202,8 +202,8 @@
 			                                            <tr>
 			                                                <td>제품가격</td>
 			                                                <td width="150px"><%= m1.getPrice() %></td>
-			                                                <td><a href="" onclick="window.open('<%= contextPath %>/review.me?memNo=<%=loginUser.getMemNo()%>&orNo=<%=m1.getOrNo()%>&p_code=<%=m1.getP_code() %>','review','width=700, height=900, scrollbars=no, resizable=no, toolbars=no, menubar=no')" class="btn btn-sm btn-secondary">리뷰 쓰기</a>
-			                                                    <a href="<%= contextPath %>/detail.pd?pNo=<%= m1.getP_code() %>" class="btn btn-sm btn-secondary">재구매</a>
+			                                                <td><a href="" onclick="window.open('<%= request.getContextPath() %>/review.me?memNo=<%=loginUser.getMemNo()%>&orNo=<%=m1.getOrNo()%>&p_code=<%=m1.getP_code() %>','review','width=700, height=900, scrollbars=no, resizable=no, toolbars=no, menubar=no')" class="btn btn-sm btn-secondary">리뷰 쓰기</a>
+			                                                    <a href="<%= request.getContextPath() %>/detail.pd?pNo=<%= m1.getP_code() %>" class="btn btn-sm btn-secondary">재구매</a>
 			                                                    
 			                                                </td>
 			                                            </tr>

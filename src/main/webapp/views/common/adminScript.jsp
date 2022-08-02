@@ -5,7 +5,9 @@
 
 <head>
 <meta charset="UTF-8">
-<title>관리자용 자주 사용하는 script</title> 
+<title>관리자용 자주 사용하는 script</title>
+
+
 </head>
 
 <body>

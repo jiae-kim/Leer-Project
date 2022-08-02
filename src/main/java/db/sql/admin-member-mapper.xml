@@ -109,6 +109,28 @@
 		 WHERE OR_CYCLE != 1
 	</entry>
 	
+	<!-- 장기구독자상세조회, 김은지 -->
+	<entry key="memberLongDetailList">
+		SELECT
+		       O.OR_NO
+		     , O.OR_PRICE
+		     , P.P_NAME
+		     , P.P_CODE
+		     , P.PUBLISH_MONTH  
+		     , OP.OR_CYCLE    
+		     , M.MEM_NO
+		     , M.MEM_ID
+		     , M.MEM_NAME
+		     , M.POINT     
+		     , P.IMAGE_URL1
+		  FROM "ORDER" O
+		  JOIN OR_PRODUCT OP ON(O.OR_NO = OP.OR_NO)
+		  JOIN PRODUCT P ON(OP.P_CODE = P.P_CODE)
+		  JOIN MEMBER M ON(O.MEM_NO = M.MEM_NO)
+		 WHERE OR_CYCLE != 1
+		   AND O.OR_NO = ?
+	</entry>
+	
 </properties>
 
 

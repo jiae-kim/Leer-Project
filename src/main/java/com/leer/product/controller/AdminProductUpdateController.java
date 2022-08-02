@@ -46,34 +46,69 @@ public class AdminProductUpdateController extends HttpServlet {
 			String pName = multiRequest.getParameter("pname");
 			String publishMonth = multiRequest.getParameter("publishmonth2");
 			String publisher = multiRequest.getParameter("publisher");
-			int categoryNo = Integer.parseInt(multiRequest.getParameter("category"));
+			//int categoryNo = Integer.parseInt(multiRequest.getParameter("category"));
+			String categoryNo = multiRequest.getParameter("categoryNo2");
 			String pCode = multiRequest.getParameter("pcode");
 			int price = Integer.parseInt(multiRequest.getParameter("price"));
 			int stock = Integer.parseInt(multiRequest.getParameter("stock"));
-			int deliFee = Integer.parseInt(multiRequest.getParameter("deliFee"));
-			double point = Double.parseDouble(multiRequest.getParameter("point"));
+			String deliFee = multiRequest.getParameter("deliFee2");
+			//int deliFee = Integer.parseInt(multiRequest.getParameter("deliFee"));
+			int point = Integer.parseInt(multiRequest.getParameter("point"));
+			//double point = Double.parseDouble(multiRequest.getParameter("point2"));
 			
 			Product p = new Product();
 			p.setpName(pName);
 			p.setPublishMonth2(publishMonth);
 			p.setPublisher(publisher);
-			p.setCategoryNo(categoryNo);
+			p.setCategoryNo2(categoryNo);
 			p.setpCode(pCode);
 			p.setPrice(price);
 			p.setpStock(stock);
-			p.setDeliFee(deliFee);
+			p.setDeliFee2(deliFee);
+			p.setPoint(point);
 		
 			// 첨부파일 3개
+			// url1
 			if(multiRequest.getOriginalFileName("url1") != null) {
+				// 새로 넘어온 첨부파일이 있을 경우
 				p.setImageUrl1("resources/admin_product_upfiles/" + multiRequest.getFilesystemName("url1"));
-			
+
 				if(multiRequest.getParameter("originFileNo") != null) {
-					
+					// 기존의 첨부파일이 있었을 경우 => update product (기존의첨부파일번호)
+					p.setImageUrl1(multiRequest.getParameter("originFileNo"));
 				}else {
-					
+					// 기존의 첨부파일이 없었을 경우 => insert product (현재 상품코드)
+					p.setpCode(pCode);
 				}
 			}
-		
+			
+			if(multiRequest.getOriginalFileName("url2") != null) {
+				// 새로 넘어온 첨부파일이 있을 경우
+				p.setImageUrl1("resources/admin_product_upfiles/" + multiRequest.getFilesystemName("url2"));
+
+				if(multiRequest.getParameter("originFileNo") != null) {
+					// 기존의 첨부파일이 있었을 경우 => update product (기존의첨부파일번호)
+					p.setImageUrl1(multiRequest.getParameter("originFileNo"));
+				}else {
+					// 기존의 첨부파일이 없었을 경우 => insert product (현재 상품코드)
+					p.setpCode(pCode);
+				}
+			}
+			
+			if(multiRequest.getOriginalFileName("url3") != null) {
+				// 새로 넘어온 첨부파일이 있을 경우
+				p.setImageUrl1("resources/admin_product_upfiles/" + multiRequest.getFilesystemName("url3"));
+
+				if(multiRequest.getParameter("originFileNo") != null) {
+					// 기존의 첨부파일이 있었을 경우 => update product (기존의첨부파일번호)
+					p.setImageUrl1(multiRequest.getParameter("originFileNo"));
+				}else {
+					// 기존의 첨부파일이 없었을 경우 => insert product (현재 상품코드)
+					p.setpCode(pCode);
+				}
+			}
+			// 새로 넘어온 첨부파일이 없었다면 (false) p는 여전히 null
+	
 			int result = new AdminProductService().updateProduct(p);
 			
 			if(result > 0) {//성공 => 상품전체조회 페이지 응답
@@ -82,6 +117,8 @@ public class AdminProductUpdateController extends HttpServlet {
 				request.getRequestDispatcher("views/admin_main/error/adminErrorPage.jsp").forward(request, response);
 			}
 		}
+		
+		
 	}
 
 	/**

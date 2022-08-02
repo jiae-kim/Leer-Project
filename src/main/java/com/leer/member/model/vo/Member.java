@@ -27,15 +27,17 @@ public class Member {
 	
 	private Date startDate; // subscribe테이블
 	private Date endDate; // subscribe테이블
+	
 	private String orNo; // order테이블
+	private int orPrice; // order테이블
+	
+	private String pName; // product테이블
+	private Date publishMonth;  // product테이블
+	private String imageUrl1; // product테이블
+	
+	private int orCycle; // or_product테이블
 	
 	public Member() {}
-	
-	
-	
-	
-	
-	
 	
 	//회원가입
 	public Member(String memId, String memPwd, String nickname, String memName, String memBirth, String phone,
@@ -51,14 +53,13 @@ public class Member {
 		this.address = address;
 		this.categoryNo = categoryNo;
 	}
-
-
-
-
-
-
-
-
+	
+	
+	
+	
+	
+	
+	
 	public Member(String orNo) {
 		super();
 		this.orNo = orNo;
@@ -297,6 +298,22 @@ public class Member {
 		this.endDate = endDate;
 		this.orNo = orNo;
 	}
+	
+	public Member(int memNo, String memId, String memName, int point, String p_code, String orNo, int orPrice,
+			String pName, Date publishMonth, String imageUrl1, int orCycle) {
+		super();
+		this.memNo = memNo;
+		this.memId = memId;
+		this.memName = memName;
+		this.point = point;
+		this.p_code = p_code;
+		this.orNo = orNo;
+		this.orPrice = orPrice;
+		this.pName = pName;
+		this.publishMonth = publishMonth;
+		this.imageUrl1 = imageUrl1;
+		this.orCycle = orCycle;
+	}
 
 	public int getMemNo() {
 		return memNo;
@@ -442,13 +459,56 @@ public class Member {
 		this.orNo = orNo;
 	}
 
+	public int getOrPrice() {
+		return orPrice;
+	}
+
+	public void setOrPrice(int orPrice) {
+		this.orPrice = orPrice;
+	}
+
+	public String getpName() {
+		return pName;
+	}
+
+	public void setpName(String pName) {
+		this.pName = pName;
+	}
+
+	public Date getPublishMonth() {
+		return publishMonth;
+	}
+
+	public void setPublishMonth(Date publishMonth) {
+		this.publishMonth = publishMonth;
+	}
+
+	public String getImageUrl1() {
+		return imageUrl1;
+	}
+
+	public void setImageUrl1(String imageUrl1) {
+		this.imageUrl1 = imageUrl1;
+	}
+
+	public int getOrCycle() {
+		return orCycle;
+	}
+
+	public void setOrCycle(int orCycle) {
+		this.orCycle = orCycle;
+	}
+
 	@Override
 	public String toString() {
 		return "Member [memNo=" + memNo + ", memId=" + memId + ", memPwd=" + memPwd + ", nickname=" + nickname
 				+ ", memName=" + memName + ", memBirth=" + memBirth + ", phone=" + phone + ", email=" + email
 				+ ", address=" + address + ", categoryNo=" + categoryNo + ", point=" + point + ", memStatus="
 				+ memStatus + ", enrollDate=" + enrollDate + ", admin=" + admin + ", profileLink=" + profileLink
-				+ ", startDate=" + startDate + ", endDate=" + endDate + ", orNo=" + orNo + "]";
+				+ ", image_url=" + image_url + ", p_name=" + p_name + ", price=" + price + ", or_date=" + or_date
+				+ ", p_code=" + p_code + ", startDate=" + startDate + ", endDate=" + endDate + ", orNo=" + orNo
+				+ ", orPrice=" + orPrice + ", pName=" + pName + ", publishMonth=" + publishMonth + ", imageUrl1="
+				+ imageUrl1 + ", orCycle=" + orCycle + "]";
 	}
 
 }
