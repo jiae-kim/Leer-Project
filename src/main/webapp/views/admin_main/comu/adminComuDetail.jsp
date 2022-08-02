@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="com.leer.community.model.vo.ComuNotice"%>    
+<%
+	ComuNotice c = (ComuNotice)request.getAttribute("comuNotice");
+%>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,7 +53,7 @@
                                       공지사항 제목
                                     </td>
                                     <td width="700px">
-                                        <label for="" style="float: left;">&nbsp;&nbsp; 공지 제목</label> 
+                                        <label for="" style="float: left;">&nbsp;&nbsp; <%=c.getTitle()%></label> 
                                     </td>
                                   </tr>
                                   
@@ -58,14 +62,14 @@
                                       작성자
                                     </td>
                                     <td>
-                                        <label for="" style="float: left;">&nbsp;&nbsp; admin01</label> 
+                                        <label for="" style="float: left;">&nbsp;&nbsp; <%=c.getMemId()%></label> 
                                     </td>
                                   </tr>
                                 </tbody>
                               </table>
                               <br>
                               <table class="tarea" align="center" style="margin:5px 5px 5px 5px">
-                                <textarea name="" id="" cols="133.5" rows="23" resize="none" placeholder="">공지내용공지내용공지내용</textarea>
+                                <textarea name="" id="" cols="133.5" rows="23" resize="none" placeholder=""><%=c.getContent()%></textarea>
                               </table>
                               <div class="">
                                 <table class="tt1" border="1" align="center">
@@ -77,7 +81,7 @@
                             <c:if test="${sessionMemberLv == 1}">
                                     <div class="d-grid gap-3" style="text-align: center">
                                         <a href="" id="btn" class="btn btn-dark" style="width:150px">공지사항 삭제</a>
-                                        <a href="<%= request.getContextPath() %>/adComuNotiList.do" id="btn" class="btn btn-dark" style="width:150px">목록으로</a>
+                                        <a href="<%= request.getContextPath() %>/adComuNotiList.do?cpage=1" id="btn" class="btn btn-dark" style="width:150px">목록으로</a>
                                     </div>
                             </c:if>
                           </div>

@@ -31,6 +31,15 @@ public class AdminCommunityService {
 		close(conn);
 		return listCount;
 	}
+	
+	// 관리자 커뮤니티공지 상세페이지
+	// 작성자 김은지	
+	public ComuNotice comuNotiDetailList(int notiNo) {
+		Connection conn = getConnection();
+		ComuNotice c = new AdminCommunityDao().comuNotiDetailList(conn, notiNo);
+		close(conn);
+		return c;
+	}
 
 }
 

@@ -95,7 +95,7 @@
                                 </thead>
                                 <tbody class="custom">
                                 	<% for(ComuNotice c : list) { %>
-	                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuDetail.jsp'">
+	                                    <tr onclick="location.href='<%=request.getContextPath()%>/adComuNotiDetail.do?no=<%=c.getNotiNo()%>';">
 	                                        <th>
 	                                            <label class="customcheckbox">
 	                                            	<input type="checkbox" class="listCheckbox" />

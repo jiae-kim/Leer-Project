@@ -90,7 +90,44 @@ public class AdminCommunityDao {
 		return listCount;		
 	}
 	
+	// 관리자 커뮤니티공지 상세페이지
+	// 작성자 김은지
+	public ComuNotice comuNotiDetailList(Connection conn, int notiNo) {
+		ComuNotice c = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("comuNotiDetailList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, notiNo);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				c = new ComuNotice(rset.getString("title"),
+								   rset.getString("content"),
+								   rset.getString("mem_id")
+						);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return c;
+	}
+	
 }
+
+
+
+
+
+
+
+
 
 
 

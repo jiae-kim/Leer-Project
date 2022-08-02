@@ -28,6 +28,17 @@
 		SELECT COUNT(*) AS "COUNT"
 		  FROM NOTICE
 	</entry>
+	
+	<!-- 커뮤니티공지사항 상세보기, 김은지 -->
+	<entry key="comuNotiDetailList">
+		SELECT 
+		       TITLE          
+		     , MEM_ID
+		     , CONTENT
+		  FROM NOTICE
+		  JOIN MEMBER USING(MEM_NO)
+		 WHERE NOTI_NO = ?
+	</entry>
 		
 </properties>
 
