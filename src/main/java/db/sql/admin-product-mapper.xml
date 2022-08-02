@@ -52,10 +52,6 @@
 		   FROM	CATEGORY
 	</entry>
 	
-	<entry key="">
-	
-	</entry>
-	
 	<!-- 상품등록 -->
      <entry key="insertProduct">
      	INSERT

@@ -22,7 +22,8 @@ public class Product {
 	private Date enrollDate;
 	private String publishMonth2; // 상품등록 시 출간일 String형
 	private double point2; // 상품등록 시 포인트 소수로 들어감
-	
+	private String categoryNo2;
+	private String deliFee2;
 	
 	public Product() {}
 
@@ -257,6 +258,22 @@ public class Product {
 		this.point2 = point2;
 	}
 
+	public String getCategoryNo2() {
+		return categoryNo2;
+	}
+
+	public void setCategoryNo2(String categoryNo2) {
+		this.categoryNo2 = categoryNo2;
+	}
+
+	public String getDeliFee2() {
+		return deliFee2;
+	}
+
+	public void setDeliFee2(String deliFee2) {
+		this.deliFee2 = deliFee2;
+	}
+
 	@Override
 	public String toString() {
 		return "Product [pCode=" + pCode + ", categoryNo=" + categoryNo + ", pName=" + pName + ", price=" + price
@@ -265,6 +282,9 @@ public class Product {
 				+ ", imageUrl1=" + imageUrl1 + ", imageUrl2=" + imageUrl2 + ", imageUrlS=" + imageUrlS + ", enrollDate="
 				+ enrollDate + ", publishMonth2=" + publishMonth2 + ", point2=" + point2 + "]";
 	}
+
+	
+
 	
 
 	

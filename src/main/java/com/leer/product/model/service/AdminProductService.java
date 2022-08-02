@@ -10,7 +10,6 @@ import com.leer.common.model.vo.Attachment;
 import com.leer.common.model.vo.Category;
 import com.leer.common.model.vo.PageInfo;
 import com.leer.product.model.dao.AdminProductDao;
-import com.leer.product.model.vo.Inquiry;
 import com.leer.product.model.vo.Product;
 
 public class AdminProductService {
@@ -21,9 +20,7 @@ public class AdminProductService {
 	 */
 	public ArrayList<Product> selectProductList(PageInfo pi){
 		Connection conn = getConnection();
-		
 		ArrayList<Product> list = new AdminProductDao().selectProductList(conn, pi);
-		
 		close(conn);
 		return list;
 	}
@@ -56,7 +53,6 @@ public class AdminProductService {
 	 */
 	public int insertProduct(Product p) {
 		Connection conn = getConnection();
-		
 		int result = new AdminProductDao().insertProduct(conn, p);
 		
 		if(result > 0 ) {

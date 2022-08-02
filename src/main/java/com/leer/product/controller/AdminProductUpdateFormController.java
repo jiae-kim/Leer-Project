@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.leer.common.model.vo.Attachment;
 import com.leer.common.model.vo.Category;
 import com.leer.product.model.service.AdminProductService;
 import com.leer.product.model.vo.Product;
