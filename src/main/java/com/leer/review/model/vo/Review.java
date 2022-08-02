@@ -34,6 +34,17 @@ public class Review {
 	}
 
 
+	
+
+	public Review(String image_url,String pName, Date or_date, int price) {
+		super();
+		this.image_url = image_url;
+		this.pName = pName;
+		this.or_date = or_date;
+		this.price = price;
+	}
+
+
 
 	public Review(String pName, int price, String image_url, Date or_date) {
 		super();

@@ -36,6 +36,13 @@ public class ReviewWriteController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
+		int memNo = Integer.parseInt(request.getParameter("memNo"));
+		String orNo = (String)request.getParameter("orNo");
+		String p_code = (String)request.getParameter("p_code");
+		
+		Review r = new ReviewService().WriteReview(memNo,orNo,p_code);
+		request.setAttribute("r", r);
+		
 		
 		RequestDispatcher view = request.getRequestDispatcher("views/review/review_write.jsp");
 		view.forward(request, response);

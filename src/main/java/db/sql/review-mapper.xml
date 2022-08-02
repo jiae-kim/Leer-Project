@@ -17,7 +17,7 @@
 	</entry>
 	
 	
-	<entry key="">
+	<entry key="WriteReviewHistory">
 		SELECT
 			 P.IMAGE_URL1
 			,P.P_NAME
@@ -34,18 +34,19 @@
 		
 	</entry>
 
-	<entry key="">
-		리뷰 쓰기창 필요한 내용 불러오기
+	<entry key="WriteReview">
 		SELECT
-			 IMAGE_URL
-			,P_NAME
+			 P.IMAGE_URL1
+			,P.P_NAME
 			,OR_DATE
-			,PRICE
-		FROM REVIEW
-		JOIN ORDER USING(MEM_NO)
-		JOIN OR_PRODUCT USING(OR_NO)
-		JOIN PRODUCT USING(P_CODE)
-		WHERE MEM_NO = ?
+			,P.PRICE
+        FROM REVIEW R
+        JOIN PRODUCT P ON (R.P_CODE = P.P_CODE)
+        JOIN OR_PRODUCT OP ON (P.P_CODE = OP.P_CODE)
+        JOIN "ORDER" O ON (OP.OR_NO = O.OR_NO)
+		WHERE R.MEM_NO = ?
+        AND OP.OR_NO = ?
+        AND P.P_CODE = ?
 	</entry>
 	
 	<entry key="">
@@ -53,13 +54,15 @@
 		INSERT
 		  INTO REVIEW 
 		  (
-		    REVIEW_SCOPE
+		  	리뷰번호
+		  , REVIEW_SCOPE
 		  , REVIEW_CONTENT
 		  , FILE_PATH
 		  )
 		  VALUES
 		  (
-		    ?
+		  	?
+		  , ?
 		  , ?
 		  , ?
 		  )

@@ -68,9 +68,14 @@ public class Member {
 
 	
 
+	
 
-	public Member(String image_url, String p_name, int price, Date or_date, String p_code) {
+
+
+
+	public Member(String orNo, String image_url, String p_name, int price, Date or_date, String p_code) {
 		super();
+		this.orNo = orNo;
 		this.image_url = image_url;
 		this.p_name = p_name;
 		this.price = price;
@@ -80,6 +85,17 @@ public class Member {
 
 
 
+
+
+
+
+	public Member( String p_name,String image_url, int price, Date or_date, String p_code) {
+		this.p_name = p_name;
+		this.image_url = image_url;
+		this.price = price;
+		this.or_date = or_date;
+		this.p_code = p_code;
+	}
 
 
 	public String getP_code() {

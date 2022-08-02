@@ -39,4 +39,15 @@ public class ReviewService {
 		
 	}
 	
+	public Review WriteReview(int memNo,String orNo,String p_code) {
+		
+		Connection conn = getConnection();
+		
+		Review r = new ReviewDao().WriteReview(conn,memNo,orNo,p_code);
+		
+		close(conn);
+		return r;
+		
+	}
+	
 }
