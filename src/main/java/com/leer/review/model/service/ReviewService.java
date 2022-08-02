@@ -50,4 +50,20 @@ public class ReviewService {
 		
 	}
 	
+	public int WriteReviewComplete(int memNo,String pname,int reviewscope,String content) {
+		
+		Connection conn = getConnection();
+		int result = 0;
+		result = new ReviewDao().WriteReviewComplete(conn,memNo,pname,reviewscope,content);
+		
+		if(result<0) {
+			
+		}else {
+			
+		}
+		close(conn);
+		return result;
+		
+	}
+	
 }

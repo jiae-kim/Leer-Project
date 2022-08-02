@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="com.leer.review.model.vo.Review" %>
+    pageEncoding="UTF-8" import="com.leer.review.model.vo.Review , com.leer.member.model.vo.Member" %>
     
 <%
 	Review r = (Review)request.getAttribute("r");
+	Member loginUser = (Member)session.getAttribute("loginUser");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,7 +49,7 @@
 </head>
 <body>
 
-     <form action="" id="autor">
+     <form action="<%= request.getContextPath() %>/reviewWrite?memNo=<%=loginUser.getMemNo()%>&pname=<%= r.getpName() %>"  method="post" enctype="multipart/form-data" id="autor">
           <br>
           <h2>리뷰 쓰기</h2>
           <hr>
@@ -79,7 +80,7 @@
           
           <h3> 상품은 어떠셨나요? </h3>
           <div id="box" width="650px">
-               <select name="review" id="reviewscore">
+               <select name="reviewscope" id="reviewscope">
                     <option value="1">★</option>
                     <option value="2">★★</option>
                     <option value="3">★★★</option>
@@ -94,7 +95,7 @@
           <br><br><br>
 
           <h3>사진을 첨부해주세요</h3>
-          <div id="box">
+          <div id="box" name="upfile">
                <input type="file">
           </div>
 

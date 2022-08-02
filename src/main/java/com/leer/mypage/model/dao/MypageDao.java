@@ -265,5 +265,37 @@ public class MypageDao {
 		
 		return m;
 	}
+	
+	public int WriteReviewComplete(Connection conn, int memNo, String pname) {
+		
+		int result=0;
+		PreparedStatement pstmt=null;
+		
+		
+		return 0;
+		
+	}
+	
+	public int CancleComplete(Connection conn,int memNo,String p_code,String orNo) {
+		
+		int result = 0;
+		PreparedStatement pstmt=null;
+		String sql= prop.getProperty("CancleComplete");
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, orNo);
+			pstmt.setInt(2, memNo);
+			pstmt.setString(3,p_code);
+			
+			result=pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
 
 }

@@ -7,7 +7,7 @@
 			OR_NO
 		FROM MEMBER M
 		JOIN "ORDER" USING(MEM_NO)
-		WHERE M.MEM_NO = ?
+		WHERE MEM_NO = ?
 
 	</entry>
 	
@@ -20,7 +20,7 @@
 		    ,P_NAME
 		    ,PRICE
 		    ,OR_DATE
-		    ,P_CODE
+		    ,P.P_CODE
 		FROM MEMBER M
 		JOIN "ORDER" USING (MEM_NO)
 		JOIN OR_PRODUCT OP ON ("ORDER".OR_NO = OP.OR_NO)
@@ -66,6 +66,16 @@
 		  )
 	</entry>
 	
+	<entry key="PointList">
+		SELECT 
+			  POINT_NO
+			, POINT
+			, "DATE"
+			, HISTORY
+		FROM POINT
+		WHERE MEM_NO = ?
+	</entry>
+	
 	<entry key="selectCartList">
 		SELECT
 		 	  CART_NO
@@ -103,6 +113,16 @@
 			WHERE MEM_NO = ?
 			AND OR_YN = ?
 			AND P.P_CODE = ?
+	</entry>
+	
+	<entry key="CancleComplete">
+		UPDATE 
+			   "ORDER" O
+		INNER JOIN OR_PRODUCT OP ON O.OR_NO = OP.OR_NO
+		   SET OR_YN = Y
+		 WHERE OR_NO = ?
+		 AND MEM_NO= ?
+		 AND P_CODE=?
 	</entry>
 	
 	
