@@ -76,7 +76,7 @@ public class AjaxAdminMemberSelectionController extends HttpServlet {
 		response.setContentType("application/json; charset=UTF-8");
 		new Gson().toJson(list, response.getWriter()); 
 		
-		request.getRequestDispatcher("views/admin_main/member/adminMemberView.jsp").forward(request, response);
+		//request.getRequestDispatcher("views/admin_main/member/adminMemberView.jsp").forward(request, response);
 	}
 
 	/**
