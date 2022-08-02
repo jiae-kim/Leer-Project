@@ -92,7 +92,7 @@
 				const pwd2 = $("#checkPwd").val();
 				
 				if( pwd1 == pwd2 ){
-					location.href="<%=contextPath%>/views/member/mypage2.jsp";
+					location.href="<%=contextPath%>/mypage2.me";
 				}else{
 					alert("비밀번호가 틀렸습니다. 다시 입력해주세요.");
 				}
