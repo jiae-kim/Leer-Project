@@ -91,7 +91,7 @@
                                     </tr>
                                     <tr>
                                         <td width="" height="45px" style="background:hsl(0, 0%, 77%); color:rgb(80, 80, 80); font-weight: bold;">
-                                            출간월
+                                            출간일
                                         </td>
                                         <td>
                                             <label for="" style="float: left;">&nbsp;&nbsp; 7</label> 
