@@ -13,7 +13,18 @@
 <title>Insert title here</title>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
+	
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/heeyeong/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/heeyeong/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/heeyeong/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/heeyeong/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/heeyeong/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/heeyeong/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/heeyeong/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/heeyeong/style.css" type="text/css">
+    <style>
+    @import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
 	
     <style>
         @import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
@@ -438,7 +449,7 @@
                                             	int length = list.size();
                                             %>
                                             <%for(Cart c : list) {%>
-                                            <tr style="font-size:14px;">
+                                            <tr style="font-size:14px;" id="cartList">
                                                 <td style="vertical-align:middle; text-align:center;"><%= count++ %></td>
                                                 <td style="width:40%;">
                                                     <span style="display:inline; text-align:left">
@@ -561,8 +572,8 @@
                                                 <tr> 
                                                     <th style="background:#f1f1f1" >포인트 </th>
                                                     <td>
-                                                        보유 포인트 : <span><%=point %>P</span>
-                                                        <input type="text" placeholder="사용할 적립금 입력" >
+                                                        <span>보유 포인트 : </span><span id="point"><%=point %></span><span>P</span>
+                                                        <input type="text" id="point-text" placeholder="사용할 적립금 입력" >
                                                         <button class="btn" id="point-btn"  style="padding:14px;">적용</button>
                                                     </td>
                                                 </tr>
@@ -603,7 +614,7 @@
                                                 <li class="cart_price">
                                                     총 구매금액(상품)
                                                     <div style="height:7px;"></div>
-                                                    <strong>22,710</strong>
+                                                    <strong id="finalPrice">22,710</strong>
                                                     <strong>원</strong>
                                                  </li>
 
@@ -611,33 +622,59 @@
                                         </div>
 										
 										<script>
-											
+										let sumPrice = 0;
+										let deliFee = 0;
+										let finalPrice = 0;	
+										
+										
 										function number_format(num){
 					                        return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',');
 					                    }
 										
 										/*포인트 계산 : ajax 써야할 것 같음*/
-										let point = <%=point%>
+										let point = 0;
 										$("#point-btn").click(function(){
-											point = 
+											point = parseInt($("#point-text").val());
+											$("#point").html(parseInt($("#point").text()) - point);
+											$("#point-text").css("color", "blue");
+											$("#sum-discount").html($("#point-text").val());
+											
+											finalPrice = sumPrice - point + deliFee;
+											console.log(sumPrice);
+											console.log(point);
+											console.log(deliFee);
+											console.log(finalPrice);
+											$("#finalPrice").html(number_format(finalPrice));
 										})
 										
 										$(function(){
 											
-											let sumPrice = 0;
 											/* 물건 합계 금액 출력 */
 											$(".sum-price").each(function(){
 												sumPrice += parseInt($(this).children().eq(0).text().replace(",", ""));
 												
 											})
-											
 											$("#sumPrice").html(number_format(sumPrice));
 											
+											
+											
 											/* 배송비 출력 : 총 금액으로 부여해줘야 하나 ?  */
+											console.log($("#cartList").children().eq(5).children().eq(0).text() );
+											if($("#cartList").children().eq(5).children().eq(0).text() != '무료배송'){
+												deliFee = 3000;
+												$("#deliFee").html("3,000");
+											}else{
+												deliFee = 0;
+												$("#deliFee").html(0);
+											}
 											
 											
-											let finalPrice = 0;
-											/* 포인트 버튼 누르면 포인트 금액 출력, 최종금액 바꿔줘야함 */
+											
+											$("#finalPrice").html(number_format(sumPrice + deliFee));	
+											
+											
+											
+											
 											
 											
 										});

@@ -9,6 +9,18 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<!-- Css Styles -->
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/heeyeong/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/heeyeong/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/heeyeong/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/heeyeong/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/heeyeong/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/heeyeong/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/heeyeong/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/heeyeong/style.css" type="text/css">
+    
+     @import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
+    <style>
 </head>
 <body>
 	
@@ -76,7 +88,7 @@
                                 function number_format(num){
                                     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',');
                                 }
-                                출처: https://solbel.tistory.com/1576 [개발자의 끄적끄적:티스토리]
+                                
                                 	function changeItem(){
                                 		$.ajax({
                         					url:"<%=contextPath%>/nlist.pd",
