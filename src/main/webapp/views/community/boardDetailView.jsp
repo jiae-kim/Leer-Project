@@ -308,24 +308,7 @@ li {
 				<div class="detailComment">
 					<ul>
 						<li>
-							<!-- <div class="commentList">
-								<img src="https://ssl.pstatic.net/static/cafe/cafe_pc/default/cafe_profile_70.png" width="36" height="36" alt="프로필사진" class="profileImg2">
-								<div class="userNickname">
-									<div class="nick2">
-										<button>닉네임</button>
-										내가 쓴글 x 보여줌
-										<>신고</span>
-										내가 쓴글 o 보여줌
-										<span>수정</span> <span>삭제</span>
-									</div>
-									<div style="height: 40px;">
-										<span class="date">2022.07.03</span>
-									</div>
-									<div class="comment">
-										<span>여기는 댓글을 내용</span>
-									</div>
-								</div>
-							</div> -->
+							
 						</li>
 					</ul>
 				</div>

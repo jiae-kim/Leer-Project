@@ -18,6 +18,7 @@ import com.leer.common.model.vo.Category;
 import com.leer.common.model.vo.PageInfo;
 import com.leer.community.model.vo.ComuBoard;
 import com.leer.community.model.vo.Reply;
+import com.leer.notice.model.vo.Notice;
 
 public class CommunityDao {
 	private Properties prop = new Properties();
@@ -391,6 +392,95 @@ public class CommunityDao {
 			close(pstmt);
 		}
 		return list;
+	}
+	
+	public ArrayList<Notice> selectNotiBoardList(Connection conn){
 		
+		ArrayList<Notice> list = new ArrayList<>();
+		
+		PreparedStatement pstmt = null;
+		
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectNotiBoardList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				list.add(new Notice(
+						rset.getInt("noti_no"),
+						rset.getString("nickname"),
+						rset.getString("title"),
+						rset.getDate("enroll"),
+						rset.getInt("noti_views")
+						));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return list;
+	}
+	
+	public int notiIncreaseCount(Connection conn, int notiNo) {
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("notiIncreaseCount");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, notiNo);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}
+	
+	public Notice selectNotice(Connection conn, int notiNo) {
+		Notice n = null;
+		
+		PreparedStatement pstmt = null;
+		
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectNotice");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, notiNo);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				
+				n = new Notice(rset.getInt("noti_no"),
+								rset.getString("nickname"),
+								rset.getString("title"),
+								rset.getString("content"),
+								rset.getDate("enroll"),
+								rset.getInt("noti_views")
+						);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return n;
 	}
 }

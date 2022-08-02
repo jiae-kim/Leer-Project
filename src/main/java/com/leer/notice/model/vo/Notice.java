@@ -6,7 +6,7 @@ public class Notice {
 	
 	
 	private int notiNo;
-	private int memNo;
+	private String memNo;
 	private String title;
 	private String content;
 	private Date enrollDate;
@@ -19,7 +19,7 @@ public class Notice {
 	public Notice() {}
 	
 	
-	public Notice(int notiNo, int memNo, String title, String content, Date enrollDate, Date modifyDate, int notiViews,
+	public Notice(int notiNo, String memNo, String title, String content, Date enrollDate, Date modifyDate, int notiViews,
 			String blindYN, String notiType) {
 		super();
 		this.notiNo = notiNo;
@@ -34,7 +34,29 @@ public class Notice {
 	}
 
 
+	
 
+
+	public Notice(int notiNo, String memNo, String title, Date enrollDate, int notiViews) {
+		super();
+		this.notiNo = notiNo;
+		this.memNo = memNo;
+		this.title = title;
+		this.enrollDate = enrollDate;
+		this.notiViews = notiViews;
+	}
+
+
+	
+	public Notice(int notiNo, String memNo, String title, String content, Date enrollDate, int notiViews) {
+		super();
+		this.notiNo = notiNo;
+		this.memNo = memNo;
+		this.title = title;
+		this.content = content;
+		this.enrollDate = enrollDate;
+		this.notiViews = notiViews;
+	}
 
 
 	public int getNotiNo() {
@@ -47,12 +69,12 @@ public class Notice {
 	}
 
 
-	public int getMemNo() {
+	public String getMemNo() {
 		return memNo;
 	}
 
 
-	public void setMemNo(int memNo) {
+	public void setMemNo(String memNo) {
 		this.memNo = memNo;
 	}
 
