@@ -189,6 +189,89 @@
 	        )
 	 WHERE RNUM2 BETWEEN ? AND ?
 	</entry>
+	<entry key="selectNotiBoardList">
 	
+					SELECT
+					       NOTI_NO
+					     , NICKNAME
+					     , TITLE
+					     , N.ENROLL_DATE  "ENROLL"
+					     , NOTI_VIEWS 
+				      FROM NOTICE N
+                     JOIN MEMBER USING (MEM_NO)
+				     WHERE NOTI_TYPE = '커뮤니티'
+				       AND BLIND_YN = 'N'
+				     ORDER
+				        BY NOTI_NO DESC
+	     
+	</entry>
+	
+	<entry key="notiIncreaseCount">
+	
+			UPDATE NOTICE
+		   SET NOTI_VIEWS = NOTI_VIEWS + 1
+		 WHERE NOTI_NO = ?
+		   AND BLIND_YN = 'N'  
+	
+	</entry>
+	<entry key="selectNotice">
+	
+		SELECT
+		       NOTI_NO
+		     , NICKNAME  
+		     , TITLE
+		     , CONTENT
+		     , N.ENROLL_DATE "ENROLL"
+             , NOTI_VIEWS  
+		  FROM NOTICE N
+		  JOIN MEMBER USING (MEM_NO)
+		 WHERE NOTI_NO = ? 
+	
+	</entry>
+	
+	<entry key="selectAttachment">
+		SELECT
+		       FILE_NO
+		     , ORIGIN_NAME
+		     , CHANGE_NAME
+		     , FILE_PATH
+		  FROM ATTACHMENT
+		 WHERE REF_CODE = '커뮤공지'
+		   AND REF_BNO = ?
+	</entry>
+	
+	<entry key="selectCategory">
+	
+		 SELECT *
+	  FROM (
+	        SELECT ROWNUM RNUM, A.*
+	          FROM (
+				  	SELECT 
+				  		   CB.COMU_NO
+			             , TAG
+			             , TITLE
+			             , CONTENT
+			             , ENROLL_DATE
+			             , VIEW_COUNT
+			             , (
+			                  SELECT COUNT(*)
+			                    FROM COMU_LIKE CL
+			                   WHERE CL.COMU_NO = CB.COMU_NO
+			                ) "LIKE_COUNT"
+			             , (
+			                  SELECT COUNT(*)
+			                    FROM COMU_RE CR
+			                   WHERE CR.COMU_NO = CB.COMU_NO
+			                ) "COMMENT_COUNT"
+			          FROM COMU_BOARD CB
+			         WHERE DELETE_YN = 'N'
+			           AND CATEGORY_NO = ?
+			         ORDER 
+			            BY COMU_NO DESC
+                    ) A
+	        )
+	 WHERE RNUM BETWEEN ? AND ?
+				
+	</entry>
 </properties>
 

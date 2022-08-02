@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="com.leer.common.model.vo.PageInfo, java.util.ArrayList, com.leer.community.model.vo.ComuBoard, com.leer.member.model.vo.Member" %>
+<%@ page import="com.leer.common.model.vo.PageInfo, java.util.ArrayList, com.leer.community.model.vo.ComuBoard, com.leer.member.model.vo.Member, com.leer.common.model.vo.Category" %>
 <%
- PageInfo pi = (PageInfo)request.getAttribute("pi"); 
   ArrayList<ComuBoard> list = (ArrayList<ComuBoard>)request.getAttribute("list");
+  ArrayList<Category> catelist = (ArrayList<Category>)session.getAttribute("list");
+  PageInfo pi = (PageInfo)request.getAttribute("pi"); 
   int currentPage = pi.getCurrentPage();
   int startPage = pi.getStartPage();
   int endPage = pi.getEndPage();
@@ -110,12 +111,6 @@
 			</div>
 		<% } %>
       <script>
-        <%--    $(function(){
-              $(".blog__item__text").click(function(){
-                 location.href = "<%=contextPath%>/comuDetail.bo?no=" + $(this).children().eq(0).text();
-              })
-              
-           }) --%>
            $(function(){
         	   $(".hashtag").split(',');
         	   

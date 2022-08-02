@@ -16,6 +16,7 @@ import com.leer.common.model.vo.Category;
 import com.leer.common.model.vo.PageInfo;
 import com.leer.product.model.vo.Inquiry;
 import com.leer.product.model.vo.Product;
+import com.leer.product.model.vo.ProductIo;
 
 public class AdminProductDao {
 	
@@ -305,7 +306,70 @@ public class AdminProductDao {
 		return result;
 	}
 
+	/* [상품및결제관리 - 입출고관리]
+	 * 재고 전체 조회
+	 * 작성자 김지애
+	 */
+	public ArrayList<ProductIo> selectProductIoList(Connection conn, PageInfo pi) {
+		ArrayList<ProductIo> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectProductIoList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			int startRow = (pi.getCurrentPage()-1) * pi.getBoardLimit()+1;
+			int endRow = startRow + pi.getBoardLimit()-1;
+			
+			pstmt.setInt(1, startRow);
+			pstmt.setInt(2, endRow);
+			
+			rset = pstmt.executeQuery(); 
+			
+			while(rset.next()) {
+				list.add(new ProductIo(rset.getInt("status_no"),
+									   rset.getString("p_code"),
+									   rset.getString("p_name"),
+									   rset.getInt("status_amount"),
+									   rset.getDate("status_date"),
+									   rset.getString("status")));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		return list;
+	}
 	
+	/* [상품및결제관리 - 입출고관리]
+	 * 재고 전체 조회 페이지 : 페이징 처리
+	 * 작성자 김지애
+	 */
+	public int selectProductListIoCount(Connection conn) {
+		int listCount = 0;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectProductListIoCount");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				listCount = rset.getInt("COUNT");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		return listCount;
+	}
+
 
 	
 	

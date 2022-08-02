@@ -14,6 +14,7 @@ import com.leer.common.model.vo.PageInfo;
 import com.leer.community.model.dao.CommunityDao;
 import com.leer.community.model.vo.ComuBoard;
 import com.leer.community.model.vo.Reply;
+import com.leer.notice.model.vo.Notice;
 
 public class CommunityService {
 	public int selectListCount() {
@@ -117,6 +118,56 @@ public class CommunityService {
 		Connection conn = getConnection();
 		
 		ArrayList<ComuBoard> list = new CommunityDao().selectMyBoardList(conn,  pi, memNo);
+		
+		close(conn);
+		
+		return list;
+	}
+	public ArrayList<Notice> selectNotiBoardList(){
+		Connection conn = getConnection();
+		
+		ArrayList<Notice> list = new CommunityDao().selectNotiBoardList(conn);
+		
+		close(conn);
+		
+		return list;
+	}
+	
+	public int notiIncreaseCount(int notiNo) {
+		
+		Connection conn = getConnection();
+		
+		int result = new CommunityDao().increaseCount(conn, notiNo);
+		
+		if(result > 0) {
+			commit(conn);
+		} else {
+			rollback(conn);
+		} 
+		close(conn);
+		return result;
+		
+	}
+	
+	public Notice selectNotice(int notiNo) {
+		Connection conn = getConnection();
+		Notice n = new CommunityDao().selectNotice(conn, notiNo);
+		close(conn);
+		return n;
+	}
+	public Attachment selectNotiAttachment(int notiNo) {
+		Connection conn = getConnection();
+		
+		Attachment at = new CommunityDao().selectNotiAttachment(conn, notiNo);
+		close(conn);
+		return at;
+	}
+	
+	public ArrayList<ComuBoard> selectCategory(PageInfo pi, int cNo){
+		
+		Connection conn = getConnection();
+		
+		ArrayList<ComuBoard> list = new CommunityDao().selectCategory(conn, pi, cNo);
 		
 		close(conn);
 		

@@ -67,7 +67,7 @@
                                 <a class="dropdown-item" href="#">등록일 순 조회</a>
                             </div>
                         </div>
-                        <button class="btn btn-dark bb2" onClick="location.href='<%=request.getContextPath()%>/views/admin_main/terms/adminTermsEnroll.jsp'" style="float:right" id="btnn">이용약관 등록</button>
+                        <button class="btn btn-dark bb2" onClick="location.href='<%=request.getContextPath()%>/adTinsertForm.te';" style="float:right" id="btnn">이용약관 등록</button>
                     </div>
                         <div class="table-responsive">
                             <table class="table">

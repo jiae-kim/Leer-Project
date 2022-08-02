@@ -18,6 +18,7 @@ import com.leer.common.model.vo.Category;
 import com.leer.common.model.vo.PageInfo;
 import com.leer.community.model.vo.ComuBoard;
 import com.leer.community.model.vo.Reply;
+import com.leer.notice.model.vo.Notice;
 
 public class CommunityDao {
 	private Properties prop = new Properties();
@@ -391,6 +392,186 @@ public class CommunityDao {
 			close(pstmt);
 		}
 		return list;
+	}
+	
+	public ArrayList<Notice> selectNotiBoardList(Connection conn){
 		
+		ArrayList<Notice> list = new ArrayList<>();
+		
+		PreparedStatement pstmt = null;
+		
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectNotiBoardList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				list.add(new Notice(
+						rset.getInt("noti_no"),
+						rset.getString("nickname"),
+						rset.getString("title"),
+						rset.getDate("enroll"),
+						rset.getInt("noti_views")
+						));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return list;
+	}
+	
+	public int notiIncreaseCount(Connection conn, int notiNo) {
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("notiIncreaseCount");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, notiNo);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}
+	
+	public Notice selectNotice(Connection conn, int notiNo) {
+		Notice n = null;
+		
+		PreparedStatement pstmt = null;
+		
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectNotice");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, notiNo);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				
+				n = new Notice(rset.getInt("noti_no"),
+								rset.getString("nickname"),
+								rset.getString("title"),
+								rset.getString("content"),
+								rset.getDate("enroll"),
+								rset.getInt("noti_views")
+						);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return n;
+	}
+	
+	public Attachment selectNotiAttachment(Connection conn, int notiNo) {
+		
+		Attachment at = null;
+		
+		PreparedStatement pstmt = null;
+		
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectAttachment");
+		
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, notiNo);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				
+				at = new Attachment(rset.getInt("file_no"),
+								rset.getString("origin_name"),
+								rset.getString("change_name"),
+								rset.getString("file_path")
+						);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return at;
+	}
+	
+	public ArrayList<ComuBoard> selectCategory(Connection conn, PageInfo pi, int cNo){
+		ArrayList<ComuBoard> list = new ArrayList<>();
+		
+		PreparedStatement pstmt = null;
+		
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectCategory");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			int startRow = (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1;
+			int endRow = startRow + pi.getBoardLimit() - 1;
+			pstmt.setInt(1, cNo);
+			pstmt.setInt(2, startRow);
+			pstmt.setInt(3, endRow);
+			
+			rset = pstmt.executeQuery();
+
+			while (rset.next()) {
+				ComuBoard cb = new ComuBoard(
+									rset.getInt("comu_no"),
+									rset.getString("tag"),
+									rset.getString("title"), 
+									rset.getDate("enroll_date"),
+									rset.getInt("view_count"),
+									rset.getInt("like_count"),
+									rset.getInt("comment_count"));
+				
+				Clob clob = rset.getClob("content");
+				Reader r = clob.getCharacterStream();
+				
+				StringBuffer buffer = new StringBuffer();
+				int ch;
+				while((ch = r.read()) != -1) {
+					buffer.append("" + (char)ch);
+				}
+				
+				cb.setContent(buffer.toString());
+				
+				list.add(cb);				
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return list;
 	}
 }

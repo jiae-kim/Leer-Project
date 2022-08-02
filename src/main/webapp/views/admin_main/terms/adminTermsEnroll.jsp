@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.leer.common.model.vo.Category2"%>
+<%
+	ArrayList<Category2> list = (ArrayList<Category2>)request.getAttribute("list");
+%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -70,7 +73,7 @@
                                       작성자
                                     </td>
                                     <td>
-                                      <input type="text" placeholder="관리자아이디 자동노출">
+                                      <input type="text" placeholder="관리자아이디 입력">
                                     </td>
                                   </tr>
                                 </tbody>
@@ -96,7 +99,7 @@
                             <br>
                             <c:if test="${sessionMemberLv == 1}">
                                     <div class="d-grid gap-3" style="text-align: center">
-                                        <a href="" id="btn" class="btn btn-dark" style="width:150px">취소</a>
+                                        <a href="<%=request.getContextPath()%>/adTList.do?cpage=1" id="btn" class="btn btn-dark" style="width:150px">취소</a>
                                         <a href="" class="btn btn-dark" style="width:150px">이용약관등록</a>
                                     </div>
                             </c:if>

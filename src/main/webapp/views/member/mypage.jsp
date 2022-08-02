@@ -67,7 +67,7 @@
 				<table>
 					<tr>
 						<td>아이디 &nbsp;</td>
-						<td><input type="text" value="<%=memId %>" readonly></td>
+						<td><input type="text" value="<%=memId %>" readonly style="border:0px; background:rgba(241, 241, 241, 0)"></td>
 					</tr>
 					<tr>
 						<td>비밀번호&nbsp;&nbsp;&nbsp;</td> 
@@ -77,7 +77,7 @@
 			</div>
 
 			<div class="pwdCheck-btn" align="center">
-				<button type="button">이전</button>
+				<button type="button" id="back">이전</button>
 				<button type="button" id="check">확인</button>
 			</div>
 		</form>
@@ -92,11 +92,18 @@
 				const pwd2 = $("#checkPwd").val();
 				
 				if( pwd1 == pwd2 ){
-					location.href="<%=contextPath%>/views/member/mypage2.jsp";
+					location.href="<%=contextPath%>/mypage2.me";
 				}else{
 					alert("비밀번호가 틀렸습니다. 다시 입력해주세요.");
 				}
 				
+			})
+		})
+		
+		
+		$(function(){
+			$("#back").click(function(){
+				window.history.back();
 			})
 		})
 		

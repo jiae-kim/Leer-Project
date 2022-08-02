@@ -1,6 +1,9 @@
 package com.leer.member.model.service;
 
-import static com.leer.common.JDBCTemplate.*;
+import static com.leer.common.JDBCTemplate.close;
+import static com.leer.common.JDBCTemplate.commit;
+import static com.leer.common.JDBCTemplate.getConnection;
+import static com.leer.common.JDBCTemplate.rollback;
 
 import java.sql.Connection;
 
@@ -43,6 +46,29 @@ public class MemberService {
 	
 	
 	
+	public Member updateMember(Member m) {
+		
+		Connection conn = getConnection();
+		
+		int result = new MemberDao().updateMember(conn, m);
+		
+		
+		Member updateMem = null;
+		
+		if(result > 0) {
+			commit(conn);
+			
+			updateMem = new MemberDao().selectMember(conn, m.getMemId());
+			
+		}else {
+			rollback(conn);
+		}
+		
+		close(conn);
+		
+		return updateMem;
+		
+	}
 	
 	
 	

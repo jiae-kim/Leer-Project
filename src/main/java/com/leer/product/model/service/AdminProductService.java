@@ -11,6 +11,7 @@ import com.leer.common.model.vo.Category;
 import com.leer.common.model.vo.PageInfo;
 import com.leer.product.model.dao.AdminProductDao;
 import com.leer.product.model.vo.Product;
+import com.leer.product.model.vo.ProductIo;
 
 public class AdminProductService {
 
@@ -115,7 +116,27 @@ public class AdminProductService {
 		return result;
 	}
 
-	
+	/* [상품및결제관리 - 입출고관리]
+	 * 재고 전체 조회
+	 * 작성자 김지애
+	 */
+	public ArrayList<ProductIo> selectProductIoList(PageInfo pi) {
+		Connection conn = getConnection();
+		ArrayList<ProductIo> list = new AdminProductDao().selectProductIoList(conn, pi);
+		close(conn);
+		return list;
+	}
+
+	/* [상품및결제관리 - 입출고관리]
+	 * 재고 전체 조회 페이지 : 페이징 처리
+	 * 작성자 김지애
+	 */
+	public int selectProductIoListCount() {
+		Connection conn = getConnection();
+		int listCount = new AdminProductDao().selectProductListIoCount(conn);
+		close(conn);
+		return listCount;
+	}
 	
 	
 }

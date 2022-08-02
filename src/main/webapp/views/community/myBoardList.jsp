@@ -51,10 +51,11 @@
         }
 
         .boardDelete{
-            border: none;
+            border: 1px solid #878787;
             background-color: white;
-            color: wite;
+            color: #878787;
             font-weight: bold;
+            line-height:25px;
             font-size: 14px;
         }
          .boardTitle:hover{
@@ -129,7 +130,7 @@
 		                                               		 
 		                                            </td>
 		                                            <td align="left">
-		                                                <a class="boardTitle"href="<%=contextPath%>/comuDetail.bo?no=<%= c.getComuNo()%>"><%= c.getTitle() %></span>
+		                                                <a class="boardTitle"href="<%=contextPath%>/comuDetail.bo?no=<%= c.getComuNo()%>"><%= c.getTitle() %></a>
 		                                            </td>
 		                                            <td>
 		                                                <span name="nickname"><%= c.getMemNo() %></span>

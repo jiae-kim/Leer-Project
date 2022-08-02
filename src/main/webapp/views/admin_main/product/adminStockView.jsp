@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="java.util.ArrayList, com.leer.product.model.vo.Product, com.leer.common.model.vo.PageInfo" %>
+<%@ page import="java.util.ArrayList, com.leer.product.model.vo.ProductIo, com.leer.common.model.vo.PageInfo" %>
 <%
 	PageInfo pi = (PageInfo)request.getAttribute("pi");
-	ArrayList<Product> list = (ArrayList<Product>)request.getAttribute("list");
+	ArrayList<ProductIo> list = (ArrayList<ProductIo>)request.getAttribute("list");
 	
 	int currentPage = pi.getCurrentPage();
 	int startPage = pi.getStartPage();
@@ -29,11 +29,67 @@
                         <input class="form-control mr-sm-2" type="text" placeholder="Search">
                         <button class="btn btn-success" type="submit">조회</button>
                         <div class="ml-auto text-right">
-                            <nav aria-label="breadcrumb">
-                            </nav>
-                            <button type="button" onclick="location.href='<%=request.getContextPath()%>/adProInput.do'" class="btn btn-info btn-lg">상품 입고</button> &nbsp;&nbsp;&nbsp;
-                            <button type="button" onclick="location.href='<%=request.getContextPath()%>/adProOutput.do'" class="btn btn-warning btn-lg">상품 출고</button> &nbsp;&nbsp;&nbsp;
-                            <button type="button" onclick="location.href='<%=request.getContextPath()%>/adProCancel.do'" class="btn btn-dark btn-lg">상품 취소</button> &nbsp;&nbsp;&nbsp;
+                        <nav aria-label="breadcrumb">
+                        </nav>
+                            <!-- <button type="button" onclick="location.href='<%=request.getContextPath()%>/adProInput.do'" class="btn btn-info btn-lg">상품 입고</button> &nbsp;&nbsp;&nbsp;
+                            <button type="button" onclick="location.href='<%=request.getContextPath()%>/adProOutput.do'" class="btn btn-warning btn-lg">상품 출고</button> &nbsp;&nbsp;&nbsp; -->
+
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="pro-input">
+                                상품 입고 등록
+                            </button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="pro-input" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel" style="font-weight: bolder; color: black;">상품 입고 등록</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body" style="text-align: center; font-size: larger; font-weight: bold;" >
+                                                <table>
+                                                    <tr>
+                                                        <td>상품코드</td>
+                                                        <td><input type="text" name="pCode" required placeholder="상품코드를 입력하세요"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>상품명</td>
+                                                        <td><input type="text" name="pName" required placeholder="잡지명을 입력하세요"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>입고</td>
+                                                        <td><input type="text" name="input" value="입고" readonly></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>수량</td>
+                                                        <td><input type="text" name="" required placeholder="수량을 입력하세요"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>입고일자</td>
+                                                        <td>
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control col-md-9" id="datepicker-autoclose" placeholder="mm/dd/yyyy">
+                                                                <div class="input-group-append">
+                                                                    <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>반품상품 여부</td>
+                                                        <td><input type="checkbox"></td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="submit" class="btn btn-danger">네</button>
+                                                <button type="reset" class="btn btn-info" data-dismiss="modal">아니오</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                         </div>
                     </div>
                 </div>
@@ -71,14 +127,14 @@
                                         </th>
                                         <th scope="col">상품코드</th>
                                         <th scope="col">상품명</th>
-                                        <th scope="col">출간일</th>
-                                        <th scope="col">입고수량</th>
-                                        <th scope="col">출고수량</th>
-                                        <th scope="col">재고수량</th>
+                                        <th scope="col">입고|출고</th>
+                                        <th scope="col">수량</th>
+                                        <th scope="col">일자</th>
+                                        <!-- <th scope="col">재고수량</th> -->
                                     </tr>
                                 </thead>
                                 <tbody class="customtable">
-                                	<% for(Product p : list) %>
+                                	<% for(ProductIo pio : list) { %>
                                     <tr>
                                         <th>
                                             <label class="customcheckbox">
@@ -86,19 +142,19 @@
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
-                                        <td><%=p.getpCode()%></td>
-                                        <td><%=p.getpName()%></td>
-                                        <td><%=p.getPublishMonth()%></td>
-                                        <td><%=p.getStatusAmount()%></td> <!-- join : PRODUCT_IO -->
-                                        <td><%= %></td> <!-- 입고랑 출고 어떻게 구분? -->
-                                        <td><%p.getpStock()%></td>
-                                        <td>300</td>
+                                        <td><%=pio.getpCode()%></td>
+                                        <td><%=pio.getpName()%></td>
+                                        <td><%=pio.getStatus()%></td> <!-- 입고랑 출고 어떻게 구분? -->
+                                        <td><%=pio.getStatusAmount()%></td> <!-- join : PRODUCT -->
+                                        <td><%=pio.getStatusDate()%></td>
+										<!-- <td></td> -->      
                                     </tr>
+                                    <% } %>
                                 </tbody>
                             </table>
                         </div>
-                </div>
-            </div>
+	               </div>
+	           </div>
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
             <!-- ============================================================== -->

@@ -2,7 +2,6 @@ package com.leer.member.controller;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,16 +13,16 @@ import com.leer.member.model.service.MemberService;
 import com.leer.member.model.vo.Member;
 
 /**
- * Servlet implementation class MemberLoginController
+ * Servlet implementation class MemberUpdateController
  */
-@WebServlet("/login.me")
-public class MemberLoginController extends HttpServlet {
+@WebServlet("/update.me")
+public class MemberUpdateController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MemberLoginController() {
+    public MemberUpdateController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,30 +32,39 @@ public class MemberLoginController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
 		request.setCharacterEncoding("UTF-8");
 		
 		String memId = request.getParameter("memId");
-		String memPwd = request.getParameter("memPwd");
+		String nickname = request.getParameter("nickname");
+		String memName = request.getParameter("memName");
+		String memBirth = request.getParameter("memBirth");
+		String phone = request.getParameter("phone");
+		String email = request.getParameter("email");
+		String address = request.getParameter("address");
 		
-		Member loginUser = new MemberService().loginMember(memId, memPwd);
+		Member m = new Member(memId, nickname, memName, memBirth, phone, email, address);
 		
 		
+		Member updateMem = new MemberService().updateMember(m);
 		
-		if(loginUser == null) { 
+		
+		if(updateMem == null) {
 			
 			HttpSession session = request.getSession();
-			session.setAttribute("alertMsg", "아이디 또는 비밀번호가 일치하지 않습니다. 입력하신 내용을 다시 확인해주세요.");
+			session.setAttribute("alertMsg", "회원정보 변경에 실패했습니다. 다시 시도해주세요.");
 			
-			response.sendRedirect(request.getContextPath() + "/loginPage.me");
+			response.sendRedirect(request.getContextPath() + "/mypage.me");
 			
-		}else { 
+		}else {
 			
 			HttpSession session = request.getSession();
-			session.setAttribute("loginUser", loginUser);
+			session.setAttribute("loginUser", updateMem);
+			session.setAttribute("alertMsg", "회원정보 수정 성공했습니다.");
 			
-			response.sendRedirect(request.getContextPath());
+			response.sendRedirect(request.getContextPath() + "/mypage.me");
 		}
+		
+		
 		
 		
 	}

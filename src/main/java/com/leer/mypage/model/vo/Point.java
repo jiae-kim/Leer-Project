@@ -13,12 +13,13 @@ public class Point {
 	
 	public Point() {}
 	
-	public Point(int pointNo, int point, Date date, String history) {
+	public Point(int pointNo, int point, Date date, String history, String pointUpdate) {
 		super();
 		this.pointNo = pointNo;
 		this.point = point;
 		this.date = date;
 		this.history = history;
+		this.pointUpdate = pointUpdate;
 	}
 
 	public Point(int pointNo, int memNo, int point, String pointUpdate, Date date, String history) {

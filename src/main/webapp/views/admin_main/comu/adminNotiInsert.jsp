@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.leer.common.model.vo.Category2"%>
+<%
+	ArrayList<Category2> list = (ArrayList<Category2>)request.getAttribute("list");
+%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -108,8 +111,7 @@
                         <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="blog__item__text2">
                                     <h4 align="left" class="boardTitle"><b>고객센터 공지사항 작성</b></h4><hr style="color: black">
-                                    <form action="" method="post" id="enroll-form"
-                                        enctype="multipart/form-data">
+                                    <form action="<%=request.getContextPath()%>/adInsert.no" method="post" id="enroll-form" enctype="multipart/form-data">
                                         <table align="center">
                                             <tr>
                                                 <th width="800" colspan="2">게시판 선택</th>
@@ -117,15 +119,15 @@
                                             <tr style="float: left">
                                                 <td colspan="2" style="">
                                                     <select name="category">
-                                                            <option value="" disabled selected hidden>
-                                                                카테고리를 선택하세요.
-                                                            </option>
-                                                            <option value="">
-                                                                고객센터 공지사항
-                                                            </option>
-                                                            <option value="">
-                                                                커뮤니티 공지사항
-                                                            </option>
+                                                        <option value="" disabled selected hidden>
+                                                            카테고리를 선택하세요.
+                                                        </option>
+                                                    	<!-- db로부터 조회 -->
+                                                    	<% for(Category2 c : list) { %>
+                                                        <option value="<%= c.getCategoryNo() %>">
+                                                            <%= c.getCategoryName() %>
+                                                        </option>
+                                                        <% } %>
                                                     </select>
                                                 </td>
                                             </tr>

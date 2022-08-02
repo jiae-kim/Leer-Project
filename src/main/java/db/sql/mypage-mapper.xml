@@ -72,6 +72,7 @@
 			, POINT
 			, "DATE"
 			, HISTORY
+			, POINT_UPDATE
 		FROM POINT
 		WHERE MEM_NO = ?
 	</entry>

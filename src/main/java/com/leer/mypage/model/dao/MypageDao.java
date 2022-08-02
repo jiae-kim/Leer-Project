@@ -128,7 +128,7 @@ public class MypageDao {
 			rset=pstmt.executeQuery();
 			
 			while(rset.next()) {
-				list.add(new Member(rset.getString("orNo")));
+				list.add(new Member(rset.getString("or_No")));
 			}
 			
 		} catch (SQLException e) {
@@ -158,8 +158,8 @@ public class MypageDao {
 			
 			while(rset.next()) {
 				list.add(new Member( 
-								   rset.getString("orNo"),
-								   rset.getString("image_url"),
+								   rset.getString("or_no"),
+								   rset.getString("image_url1"),
 								   rset.getString("p_name"),
 								   rset.getInt("price"),
 								   rset.getDate("or_date"),
@@ -191,10 +191,12 @@ public class MypageDao {
 			
 			while(rset.next()) {
 				list.add(new Point(
-							rset.getInt("pointNo"),
+							rset.getInt("point_No"),
 							rset.getInt("point"),
 							rset.getDate("date"),
-							rset.getString("history")));
+							rset.getString("history"),
+							rset.getString("point_update")
+							));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -247,7 +249,7 @@ public class MypageDao {
 			if(rset.next()) {
 				m = new Member(
 							rset.getString("p_name"),
-							rset.getString("image_url"),
+							rset.getString("image_url1"),
 							rset.getInt("price"),
 							rset.getDate("or_date"),
 							rset.getString("or_no")

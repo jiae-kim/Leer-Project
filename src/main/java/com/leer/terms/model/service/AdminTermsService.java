@@ -6,8 +6,8 @@ import static com.leer.common.JDBCTemplate.getConnection;
 import java.sql.Connection;
 import java.util.ArrayList;
 
+import com.leer.common.model.vo.Category2;
 import com.leer.common.model.vo.PageInfo;
-import com.leer.member.model.dao.AdminMemberDao;
 import com.leer.terms.model.dao.AdminTermsDao;
 import com.leer.terms.model.vo.Terms;
 
@@ -41,5 +41,33 @@ public class AdminTermsService {
 		close(conn);
 		return t;
 	}
+	
+	// 관리자 이용약관등록 카테고리조회
+	// 작성자 김은지	
+	public ArrayList<Category2> selectTermsCategoryList(){
+		Connection conn = getConnection();
+		ArrayList<Category2> list = new AdminTermsDao().selectTermsCategoryList(conn);
+		close(conn);
+		return list;
+	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

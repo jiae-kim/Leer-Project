@@ -1,10 +1,67 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.leer.common.model.vo.PageInfo, com.leer.notice.model.vo.Notice"%>
+<%
+	ArrayList<Notice> list = (ArrayList<Notice>)request.getAttribute("list");
+
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+        .list-area th {
+            font-size: 14px;
+            border-top: 1px solid rgba(128, 128, 128, .7);
+            border-bottom: 1px solid gray;
+
+        }
+
+        .list-area td {
+            font-size: 12px;
+            border-bottom: 1px solid rgba(128, 128, 128, .4);
+
+        }
+
+        .list-area {
+            width: 100%;
+            height: 50px;
+            text-align: center;
+
+        }
+
+        .list-area button:hover {
+            cursor: pointer;
+            color: gray;
+        }
+
+        .list-area button {
+            border: none;
+            background-color: white;
+            font-weight: bold;
+        }
+
+        .myBoardTitle {
+            font-size: 14px;
+        }
+
+        .boardDelete{
+            border: none;
+            background-color: white;
+            color: wite;
+            font-weight: bold;
+            font-size: 14px;
+        }
+         .boardTitle:hover{
+	         color:red !import;
+	       	background:white !import;
+         }
+        .boardTitle{
+        	font-size:12px;
+        	color:#212529;
+        	 
+        }
+    </style>
 </head>
 <body>
 	<!-- Breadcrumb Section Begin -->
@@ -31,7 +88,7 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6">
                             <div class="blog__item__text2" style="margin-top:20px">
-                                <div align="left">
+                                <div align="left" style="margin-bottom:10px">
                                     <h4>공지사항</h4>
                                 </div>
                                 <!-- 현재 로그인한 사용자가 관리자일 경우(로그인한회원의아이디가 admin일경우) 보여질 div -->
@@ -43,66 +100,39 @@
                                             <th width="100">작성자</th>
                                             <th width="70">조회수</th>
                                             <th width="100">작성일</th>
-                                            <th width="70"><button>전체선택</button></th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <!--case1. 공지글이 없을 경우-->
                                         <% if(list.isEmpty()) { %>
                                          <tr>
-                                            <td colspan="6">존재하는 게시글이 없습니다.</td>
+                                            <td colspan="5">존재하는 게시글이 없습니다.</td>
                                         </tr> 
                                         <!--case2. 공지글이 있을 경우-->
                                         <% }else{ %>
-                                        	<% int num = list.size(); %>
-                                        	<% for(ComuBoard c : list) { %>
+                                        	<% for(Notice n : list) { %>
 		                                        <tr>
 		                                            <td>
-		                                      		   <span style="display:none"><%= c.getComuNo() %></span>
-		                                               <span><%= num-- %></span>
+		                                      		   <span><%= n.getNotiNo() %></span>
 		                                               		 
 		                                            </td>
 		                                            <td align="left">
-		                                                <a class="boardTitle"href="<%=contextPath%>/comuDetail.bo?no=<%= c.getComuNo()%>"><%= c.getTitle() %></span>
+		                                                <a class="boardTitle" href="<%=contextPath%>/comuNotiDetail.bo?no=<%= n.getNotiNo()%>"><%= n.getTitle() %></a>
 		                                            </td>
 		                                            <td>
-		                                                <span name="nickname"><%= c.getMemNo() %></span>
+		                                                <span name="nickname"><%= n.getMemNo() %></span>
 		                                            </td>
 		                                            <td>
-		                                                <%= c.getViewCount() %>
+		                                                <%= n.getNotiViews() %>
 		                                            </td>
 		                                            <td>
-		                                                <span><%= c.getEnrollDate() %></span>
+		                                                <span><%= n.getEnrollDate() %></span>
 		                                            </td>
-		                                            <td><input type="checkbox"></td>
 		                                        </tr>
                                     		<% } %>
                                     <% } %>
                                     </tbody>
                                 </table>
-                                <% if(!list.isEmpty()){ %>
-	                                <div class="col-lg-12" style="padding: 0;" align="right">
-	                                        <button class="boardDelete">삭제하기</button>
-	                                </div>
-	                                
-	                                <div class="product__pagination blog__pagination" align="center">
-	                                <% if(currentPage != 1){ %>
-	                                	<a href="<%=contextPath%>/myBoard.li?memNo=<%=loginUser.getMemNo()%>&cpage=<%=currentPage-1%>">&lt;</a>
-	                                <% } %>
-	                                 
-	                                <% for(int p=startPage; p<=endPage; p++) {%>
-	                                <% if(p == currentPage){ %>
-					            			<a disabled style="opacity:0.7"><%= p %></button>
-					            		<% }else { %>
-					              			 <a href="<%=contextPath%>/myBoard.li?memNo=<%=loginUser.getMemNo()%>&cpage=<%= p %>"><%= p %></a>
-					              		<% } %>
-				          		   <% } %>
-				         
-						           <% if(currentPage != maxPage){ %>
-						            <a href="<%=contextPath%>/myBoard.li?memNo=<%=loginUser.getMemNo()%>&cpage=<%=currentPage+1%>" >&gt;</a>
-						            <% } %> 
-	                                </div>
-                                <% }%>
                             </div>
                         </div>
                     </div>

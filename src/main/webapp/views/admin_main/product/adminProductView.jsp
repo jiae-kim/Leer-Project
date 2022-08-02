@@ -112,7 +112,6 @@
                                     <span class="checkmark"></span>
                                 </label>
                             </th>
-                            <th scope="col">등록 순번</th>
                             <th scope="col">상품명</th>
                             <th scope="col">카테고리</th>
                             <th scope="col">상품코드</th>
@@ -133,7 +132,6 @@
                                     <span class="checkmark"></span>
                                 </label>
                             </th>
-                            <td><%= number-- %></td>
                             <td><%=p.getpName()%></td>
                             <td><%=p.getCategoryNo()%></td>
                             <td><%=p.getpCode()%></td>
