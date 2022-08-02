@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.leer.common.model.vo.Category2"%>
+<%
+	ArrayList<Category2> list = (ArrayList<Category2>)request.getAttribute("list");
+%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -96,8 +99,10 @@
                         <div class="sidebar__item">
                             <p style="font-size: small;">글작성 페이지 이동</p>
                             <ul>
-                                <li><a href="#">공지사항</a></li>
-                                <li><a href="#">FAQ</a></li>
+                            	<!-- db로부터 조회 -->
+                            	<% for(Category2 c2 : list) { %>
+                                	<li><a value="<%=c2.getCategoryNo()%>"><%=c2.getCategoryName()%></a></li>
+                                <% } %>  
                             </ul>
                         </div>
                     </div>
@@ -108,8 +113,7 @@
                         <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="blog__item__text2">
                                     <h4 align="left" class="boardTitle"><b>고객센터 공지사항 작성</b></h4><hr style="color: black">
-                                    <form action="" method="post" id="enroll-form"
-                                        enctype="multipart/form-data">
+                                    <form action="<%=request.getContextPath()%>/adInsert.no" method="post" id="enroll-form" enctype="multipart/form-data">
                                         <table align="center">
                                             <tr>
                                                 <th width="800" colspan="2">게시판 선택</th>

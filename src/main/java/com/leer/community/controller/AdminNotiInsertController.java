@@ -1,5 +1,6 @@
 package com.leer.community.controller;
 
+import java.io.File;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -13,6 +14,7 @@ import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 
 import com.leer.common.MyFileRenamePolicy;
 import com.leer.common.model.vo.Attachment;
+import com.leer.community.model.service.AdminCommunityService;
 import com.leer.community.model.vo.ComuNotice;
 import com.oreilly.servlet.MultipartRequest;
 
@@ -65,7 +67,16 @@ public class AdminNotiInsertController extends HttpServlet {
 				at.setFilePath("resources/upfiles/");
 			}
 			
-			int result = new 
+			int result = new AdminCommunityService().insertNotice(c, at);
+			
+			if(result > 0) {
+				response.sendRedirect(request.getContentType() + "/adComuNotiList.do?cpage=1");
+			}else {
+				if(at != null) {
+					new File(savePath + at.getChangeName()).delete();
+				}
+				request.setAttribute("errorMsg", "게시글 작성 실패");
+			}
 		}
 	}
 

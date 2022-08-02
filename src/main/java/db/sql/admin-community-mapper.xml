@@ -60,6 +60,37 @@
 		  , ?
 		  )
 	</entry>
+	
+	<!-- 첨부파일업데이트시 Attachment테이블에 업데이트, 김은지 -->
+	<entry key="insertAttachment">
+		INSERT
+		  INTO ATTACHMENT
+		  (
+		    FILE_NO
+		  , REF_CODE
+          , REF_BNO
+		  , ORIGIN_NAME
+		  , CHANGE_NAME
+		  , FILE_PATH
+		  )
+		  VALUES
+		  (
+		    SEQ_FILE.NEXTVAL
+          , ? 
+		  , ?
+		  , ?
+		  , ?
+		  , ?
+		  )
+	</entry>
+	
+	<!-- 공지/커뮤공지 카테고리조회, 김은지 -->
+	<entry key="selectCategoryList">
+		SELECT
+		       CATEGORY_NO
+		     , CATEGORY_NAME
+		  FROM CATEGORY2	
+	</entry>
 		
 </properties>
 
