@@ -35,6 +35,7 @@
 		String url1 = chkpc.getImageUrl1();
 		String url2 = chkpc.getImageUrl2();
 		String url3 = chkpc.getImageUrlS();
+		String psubstring = pCode.substring(0, 3);
 	 %>
 
 	<div class="page-breadcrumb">
@@ -100,19 +101,20 @@
             <div class="form-group row">
                 <label class="col-sm-1">상품코드</label>
                 <div class="col-sm-2">
-                    <select name="pCode" value="<%=pCode%>" class="select2 form-control custom-select" required>
+                    <select id="pc" name="pCode" value="<%=pCode%>" class="select2 form-control custom-select" required>
                         <option hidden>상품코드 선택</option>
-                        <option value="10">FW-</option>
-                        <option value="20">LI-</option>
-                        <option value="30">CA-</option>
-                        <option value="40">TH-</option>
-                        <option value="50">SE-</option>
-                        <option value="60">ES-</option>
+                        <option value="FW-">FW-</option>
+                        <option value="LI-">LI-</option>
+                        <option value="CA-">CA-</option>
+                        <option value="TH-">TH-</option>
+                        <option value="SE-">SE-</option>
+                        <option value="ES-">ES-</option>
                     </select>
                     <script>
                     $(function() {
-                		$(".pCode option").each(function(){
-                			if($(this).val() == "<%=pCode%>") {
+                    	
+                		$("#pc option").each(function(){
+                			if($(this).val() == "<%=psubstring%>") {
                 				$(this).attr("selected", true);
                 			}
                 		})                    		
@@ -239,7 +241,7 @@
             <div class="form-group row">
                 <label class="col-sm-1">배송비</label>
                 <div class="col-sm-2">
-                    <select name="deliFee" value="<%=deliFee %>" class="select2 form-control custom-select" required>
+                    <select id="d" name="deliFee" value="<%=deliFee %>" class="select2 form-control custom-select" required>
                         <option hidden>금액(원) 선택</option>
                         <option value="3000">3000</option>
                         <option value="2500">2500</option>
@@ -247,7 +249,7 @@
                     </select>
                     <script>
                     $(function() {
-                		$(".point option").each(function(){
+                		$("#d option").each(function(){
                 			if($(this).val() == "<%=deliFee%>") {
                 				$(this).attr("selected", true);
                 			}
@@ -260,7 +262,7 @@
             <div class="form-group row">
                 <label class="col-sm-1">적립금</label>
                 <div class="col-sm-2">
-                    <select name="point" value="<%=point%>" class="select2 form-control custom-select" required>
+                    <select id="p" name="point" value="<%=point%>" class="select2 form-control custom-select" required>
                         <option hidden>적립(%) 선택</option>
                         <option value="0.1">10</option>
                         <option value="0.2">20</option>
@@ -270,7 +272,7 @@
                     </select>
                     <script>
                     $(function() {
-                		$(".point option").each(function(){
+                		$("#p option").each(function(){
                 			if($(this).val() == "<%=point%>") {
                 				$(this).attr("selected", true);
                 			}
