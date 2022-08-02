@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.ArrayList, com.leer.product.model.vo.Product, com.leer.common.model.vo.Category" %>
+<%@ page import="com.oreilly.servlet.MultipartRequest, com.leer.common.MyFileRenamePolicy" %>
 <%
-	//ArrayList<Product>  product = (ArrayList<Product>)request.getAttribute("p");
 	ArrayList<Category> list = (ArrayList<Category>)request.getAttribute("list");
-	Product p = (Product)request.getAttribute("p");
+	Product chkpc = (Product)request.getAttribute("product"); 
+	//Product p = (Product)request.getAttribute("p");
 %>
 <!DOCTYPE html>
 <html>
@@ -22,20 +23,20 @@
 
 	<!-- 수정페이지에 입력되어 있어야 되는 값 -->
 	<%
-		String pName = p.getpName();
-		String publishMonth2 = p.getPublishMonth2();
-		String publisher = p.getPublisher();
-		int categoryNo = p.getCategoryNo();
-		String pCode = p.getpCode();
-		int price = p.getPrice();
-		int pStock = p.getpStock();
-		int deliFee = p.getDeliFee();
-		double point = p.getPoint2();
-		String url1 = p.getImageUrl1();
-		String url2 = p.getImageUrl2();
-		String url3 = p.getImageUrlS();
+		String pName = chkpc.getpName();
+		String publishMonth2 = chkpc.getPublishMonth2();
+		String publisher = chkpc.getPublisher();
+		int categoryNo = chkpc.getCategoryNo();
+		String pCode = chkpc.getpCode();
+		int price = chkpc.getPrice();
+		int pStock = chkpc.getpStock();
+		int deliFee = chkpc.getDeliFee();
+		double point = chkpc.getPoint2();
+		String url1 = chkpc.getImageUrl1();
+		String url2 = chkpc.getImageUrl2();
+		String url3 = chkpc.getImageUrlS();
 	 %>
-	
+
 	<div class="page-breadcrumb">
         <div class="row">
             <div class="col-12 d-flex no-block align-items-center">
@@ -50,7 +51,7 @@
     <!-- Container fluid  -->
     <!-- ============================================================== -->
     <div class="container-fluid">
-    <form action="<%=request.getContextPath()%>/adProUpdate.do" method="post" enctype="multipart/form-data">
+    <form action="<%=request.getContextPath()%>/adProUpdate.do" id="update-form" method="post" enctype="multipart/form-data">
         <div class="card-body">
             <!-- 상품명 -->
             <div class="form-group row">
@@ -71,27 +72,28 @@
             <div class="form-group row">
                 <label for="fname" class="col-sm-1 control-label col-form-label">발행사</label>
                 <div class="col-sm-2">
-                    <input type="text" name="publisher" vlaue="<%=publisher%>" class="form-control" id="fname" placeholder="발행사를 입력하세요" required>
+                    <input type="text" name="publisher" value="<%=publisher%>" class="form-control" id="fname" placeholder="발행사를 입력하세요" required>
                 </div>
             </div>
             <!-- 카테고리 -->
             <div class="form-group row">
                 <label class="col-sm-1">카테고리</label>
                 <div class="col-sm-2">
-                    <select class="select2 form-control custom-select" required>
+                    <select id="c" class="select2 form-control custom-select" required>
                         <option hidden>카테고리 선택</option>
                         <% for(Category c : list) { %>
                         	<option name="categoryNo" value="<%=c.getCategoryNo()%>"><%=c.getCategoryName()%></option>
                         <% } %>	
-                        <!-- 
-                        <option value="10">패션/여성</option> 	
-                        <option value="20">라이프/인테리어</option> 	    
-                        <option value="30">문화/예술</option> 	    
-                        <option value="40">여행/취미</option> 	   
-                        <option value="50">시사/경제</option> 	    
-                        <option value="60">교육/과학</option> 	    
-                        -->
                     </select>
+                    <script>
+                    	$(function()) {
+                    		$("#c option").each(function(){
+                    			if($(this).val() == "<%=categoryNo%>") {
+                    				$(this).attr("selected", true);
+                    			}
+                    		})                    		
+                    	})
+                    </script>
                 </div>
             </div>
             <!-- 상품코드 -->
@@ -100,13 +102,22 @@
                 <div class="col-sm-2">
                     <select name="pCode" value="<%=pCode%>" class="select2 form-control custom-select" required>
                         <option hidden>상품코드 선택</option>
-                        <option>FW-</option>
-                        <option>LI-</option>
-                        <option>CA-</option>
-                        <option>TH-</option>
-                        <option>SE-</option>
-                        <option>ES-</option>
+                        <option value="10">FW-</option>
+                        <option value="20">LI-</option>
+                        <option value="30">CA-</option>
+                        <option value="40">TH-</option>
+                        <option value="50">SE-</option>
+                        <option value="60">ES-</option>
                     </select>
+                    <script>
+                    $(function()) {
+                		$(".pCode option").each(function(){
+                			if($(this).val() == "<%=pCode%>") {
+                				$(this).attr("selected", true);
+                			}
+                		})                    		
+                	})
+                    </script>
                 </div>
             </div>
             <!-- 판매가 -->
@@ -130,7 +141,6 @@
                     <div class="custom-file">
                         <input name="url1" value="<%=url1%>" type="file" class="custom-file-input" id="validatedCustomFile">
                         <label class="custom-file-label" for="validatedCustomFile">표지 이미지를 선택하세요</label>
-                        <!-- <div class="invalid-feedback">Example invalid custom file feedback</div> -->
                     </div>
                 </div>
                 <!-- Button trigger modal -->
@@ -231,10 +241,19 @@
                 <div class="col-sm-2">
                     <select name="deliFee" value="<%=deliFee %>" class="select2 form-control custom-select" required>
                         <option hidden>금액(원) 선택</option>
-                        <option value="">3000</option>
-                        <option value="">2500</option>
-                        <option value="">무료</option>
+                        <option value="3000">3000</option>
+                        <option value="2500">2500</option>
+                        <option value="무료">무료</option>
                     </select>
+                    <script>
+                    $(function()) {
+                		$(".point option").each(function(){
+                			if($(this).val() == "<%=deliFee%>") {
+                				$(this).attr("selected", true);
+                			}
+                		})                    		
+                	})
+                    </script>
                 </div>
             </div>
             <!-- 적립금 -->
@@ -243,12 +262,21 @@
                 <div class="col-sm-2">
                     <select name="point" value="<%=point%>" class="select2 form-control custom-select" required>
                         <option hidden>적립(%) 선택</option>
-                        <option value="">10</option>
-                        <option value="">20</option>
-                        <option value="">30</option>
-                        <option value="">40</option>
-                        <option value="">50</option>
+                        <option value="0.1">10</option>
+                        <option value="0.2">20</option>
+                        <option value="0.3">30</option>
+                        <option value="0.4">40</option>
+                        <option value="0.5">50</option>
                     </select>
+                    <script>
+                    $(function()) {
+                		$(".point option").each(function(){
+                			if($(this).val() == "<%=point%>") {
+                				$(this).attr("selected", true);
+                			}
+                		})                    		
+                	})
+                    </script>
                 </div>
             </div>
             <!-- 버튼 -->
@@ -311,10 +339,6 @@
             theme: 'snow'
         });
     </script>
-    <!-- 체크박스 적용 -->
-	<script>
-	
-	</script>
-
+    
 </body>
 </html>

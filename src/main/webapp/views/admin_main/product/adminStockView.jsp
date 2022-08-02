@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="java.util.ArrayList, com.leer.product.model.vo.Product, com.leer.common.model.vo.PageInfo" %>
+<%@ page import="java.util.ArrayList, com.leer.product.model.vo.ProductIo, com.leer.common.model.vo.PageInfo" %>
 <%
 	PageInfo pi = (PageInfo)request.getAttribute("pi");
-	ArrayList<Product> list = (ArrayList<Product>)request.getAttribute("list");
+	ArrayList<ProductIo> list = (ArrayList<ProductIo>)request.getAttribute("list");
 	
 	int currentPage = pi.getCurrentPage();
 	int startPage = pi.getStartPage();
@@ -71,14 +71,14 @@
                                         </th>
                                         <th scope="col">상품코드</th>
                                         <th scope="col">상품명</th>
-                                        <th scope="col">출간일</th>
-                                        <th scope="col">입고수량</th>
-                                        <th scope="col">출고수량</th>
-                                        <th scope="col">재고수량</th>
+                                        <th scope="col">입고|출고</th>
+                                        <th scope="col">수량</th>
+                                        <th scope="col">일자</th>
+                                        <!-- <th scope="col">재고수량</th> -->
                                     </tr>
                                 </thead>
                                 <tbody class="customtable">
-                                	<% for(Product p : list) %>
+                                	<% for(ProductIo pio : list) { %>
                                     <tr>
                                         <th>
                                             <label class="customcheckbox">
@@ -86,19 +86,19 @@
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
-                                        <td><%=p.getpCode()%></td>
-                                        <td><%=p.getpName()%></td>
-                                        <td><%=p.getPublishMonth()%></td>
-                                        <td><%=p.getStatusAmount()%></td> <!-- join : PRODUCT_IO -->
-                                        <td><%= %></td> <!-- 입고랑 출고 어떻게 구분? -->
-                                        <td><%p.getpStock()%></td>
-                                        <td>300</td>
+                                        <td><%=pio.getpCode()%></td>
+                                        <td><%=pio.getpName()%></td>
+                                        <td><%=pio.getstatus()%></td> <!-- 입고랑 출고 어떻게 구분? -->
+                                        <td><%=pio.getStatusAmount()%></td> <!-- join : PRODUCT -->
+                                        <td><%=pio.getstatusDate()%></td>
+										<!-- <td></td> -->      
                                     </tr>
+                                    <% } %>
                                 </tbody>
                             </table>
                         </div>
-                </div>
-            </div>
+	               </div>
+	           </div>
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
             <!-- ============================================================== -->
