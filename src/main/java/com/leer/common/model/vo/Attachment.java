@@ -39,6 +39,16 @@ public class Attachment {
 		this.filePath = filePath;
 	}
 
+	public Attachment(int fileNo, String refCode, int refBno, String originName, String changeName, String filePath) {
+		super();
+		this.fileNo = fileNo;
+		this.refCode = refCode;
+		this.refBno = refBno;
+		this.originName = originName;
+		this.changeName = changeName;
+		this.filePath = filePath;
+	}
+
 	public int getFileNo() {
 		return fileNo;
 	}

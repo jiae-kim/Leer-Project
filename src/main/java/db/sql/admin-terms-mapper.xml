@@ -41,5 +41,15 @@
 		  FROM TERMS
 		 WHERE TRM_NO = ?
 	</entry>
+	
+	<!-- 이용약관등록 카테고리조회, 김은지 -->
+	<entry key="selectTermsCategoryList">
+		SELECT
+		       CATEGORY_NO
+		     , CATEGORY_NAME
+		  FROM CATEGORY2
+		 WHERE CATEGORY_NO != 1
+		   AND CATEGORY_NO != 2
+	</entry>
 
 </properties>

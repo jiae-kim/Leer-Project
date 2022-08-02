@@ -11,6 +11,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Properties;
 
+import com.leer.common.model.vo.Attachment;
+import com.leer.common.model.vo.Category2;
 import com.leer.common.model.vo.PageInfo;
 import com.leer.community.model.vo.ComuNotice;
 
@@ -117,6 +119,84 @@ public class AdminCommunityDao {
 			close(pstmt);
 		}
 		return c;
+	}
+	
+	// 관리자 공지사항/커뮤공지 등록
+	// 작성자 김은지	
+	public int insertNotice(Connection conn, ComuNotice c) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("insertNotice");
+		
+		try {
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, c.getMemNo());
+			pstmt.setString(2, c.getTitle());
+			pstmt.setString(3, c.getContent());
+			pstmt.setString(4, c.getNotiType());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}
+	
+	// 관리자 공지사항/커뮤공지사항 첨부파일 등록
+	// 작성자 김은지	
+	public int insertAttachment(Connection conn, Attachment at) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("insertAttachment");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, at.getRefCode());
+			pstmt.setInt(2, at.getRefBno());
+			pstmt.setString(3, at.getOriginName());
+			pstmt.setString(4, at.getChangeName());
+			pstmt.setString(5, at.getFilePath());
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}
+	
+	// 관리자 공지사항등록페이지 상세
+	// 작성자 김은지
+	public ArrayList<Category2> selectCategoryList(Connection conn){
+		ArrayList<Category2> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectCategoryList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				list.add(new Category2(rset.getInt("category_no"),
+									   rset.getString("category_name")
+						));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return list;
 	}
 	
 }
