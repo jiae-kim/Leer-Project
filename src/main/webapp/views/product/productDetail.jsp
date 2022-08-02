@@ -11,7 +11,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
+	
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/heeyeong/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/heeyeong/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/heeyeong/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/heeyeong/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/heeyeong/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/heeyeong/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/heeyeong/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/heeyeong/style.css" type="text/css">
     <style>
     @import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
 
@@ -296,15 +305,6 @@
 
     </style>
     
-    <!-- Css Styles -->
-    <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/heeyeong/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/heeyeong/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/heeyeong/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/heeyeong/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/heeyeong/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/heeyeong/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/heeyeong/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/heeyeong/style.css" type="text/css">
      
 
 </head>
@@ -650,45 +650,6 @@
 						      </div>
 						    </div>
 						  </div>
-                            <div class="tab-pane" id="tabs-2" role="tabpanel">
-                                <div class="etc_area" id="product_review">
-                                    <h2 class="etc_title">리뷰
-                                        <button type="button" class="etn_write_btn">리뷰 쓰기</button>
-                                    </h2>
-                                    <div style="border-bottom: 1px solid #303030;"></div>
-                                    <div class="etc_content_box">
-                                        <ul class="product_review_list" id="review_list"></ul>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane" id="tabs-3" role="tabpanel">
-                                <div class="etc_area" id="product_review">
-                                    <h2 class="etc_title">상품문의
-                                        <button type="button" class="etn_write_btn">상품문의</button>
-                                    </h2>
-                                    <div style="border-bottom: 1px solid #303030;"></div>
-                                    <div class="etc_content_box">
-                                        <ul class="product_review_list" id="review_list"></ul>
-                                        <table class="table">
-                                            <tr>
-                                                <th>번호</th>
-                                                <th>처리상태</th>
-                                                <th>문의 제목</th>
-                                                <th>작성자</th>
-                                                <th>작성일</th>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>답변대기</td>
-                                                <td>언제 들어오나요?</td>
-                                                <td>name</td>
-                                                <td>2022-07-24</td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
