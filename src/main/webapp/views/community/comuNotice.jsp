@@ -88,7 +88,7 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6">
                             <div class="blog__item__text2" style="margin-top:20px">
-                                <div align="left">
+                                <div align="left" style="margin-bottom:10px">
                                     <h4>공지사항</h4>
                                 </div>
                                 <!-- 현재 로그인한 사용자가 관리자일 경우(로그인한회원의아이디가 admin일경우) 보여질 div -->

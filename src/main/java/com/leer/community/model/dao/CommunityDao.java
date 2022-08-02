@@ -483,4 +483,95 @@ public class CommunityDao {
 		}
 		return n;
 	}
+	
+	public Attachment selectNotiAttachment(Connection conn, int notiNo) {
+		
+		Attachment at = null;
+		
+		PreparedStatement pstmt = null;
+		
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectAttachment");
+		
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, notiNo);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				
+				at = new Attachment(rset.getInt("file_no"),
+								rset.getString("origin_name"),
+								rset.getString("change_name"),
+								rset.getString("file_path")
+						);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return at;
+	}
+	
+	public ArrayList<ComuBoard> selectCategory(Connection conn, PageInfo pi, int cNo){
+		ArrayList<ComuBoard> list = new ArrayList<>();
+		
+		PreparedStatement pstmt = null;
+		
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectCategory");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			int startRow = (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1;
+			int endRow = startRow + pi.getBoardLimit() - 1;
+			pstmt.setInt(1, cNo);
+			pstmt.setInt(2, startRow);
+			pstmt.setInt(3, endRow);
+			
+			rset = pstmt.executeQuery();
+
+			while (rset.next()) {
+				ComuBoard cb = new ComuBoard(
+									rset.getInt("comu_no"),
+									rset.getString("tag"),
+									rset.getString("title"), 
+									rset.getDate("enroll_date"),
+									rset.getInt("view_count"),
+									rset.getInt("like_count"),
+									rset.getInt("comment_count"));
+				
+				Clob clob = rset.getClob("content");
+				Reader r = clob.getCharacterStream();
+				
+				StringBuffer buffer = new StringBuffer();
+				int ch;
+				while((ch = r.read()) != -1) {
+					buffer.append("" + (char)ch);
+				}
+				
+				cb.setContent(buffer.toString());
+				
+				list.add(cb);				
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return list;
+	}
 }

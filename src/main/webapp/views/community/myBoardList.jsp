@@ -51,10 +51,11 @@
         }
 
         .boardDelete{
-            border: none;
+            border: 1px solid #878787;
             background-color: white;
-            color: wite;
+            color: #878787;
             font-weight: bold;
+            line-height:25px;
             font-size: 14px;
         }
          .boardTitle:hover{
