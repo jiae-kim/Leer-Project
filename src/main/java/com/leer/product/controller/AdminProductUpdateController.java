@@ -64,15 +64,15 @@ public class AdminProductUpdateController extends HttpServlet {
 			p.setDeliFee(deliFee);
 		
 			// 첨부파일 3개
-			if(multiRequest.getOriginalFileName("url1") != null) {
-				p.setImageUrl1("resources/admin_product_upfiles/" + multiRequest.getFilesystemName("url1"));
-			
-				if(multiRequest.getParameter("originFileNo") != null) {
-					
-				}else {
-					
-				}
-			}
+//			if(multiRequest.getOriginalFileName("url1") != null) {
+//				p.setImageUrl1("resources/admin_product_upfiles/" + multiRequest.getFilesystemName("url1"));
+//			
+//				if(multiRequest.getParameter("originFileNo") != null) {
+//					
+//				}else {
+//					
+//				}
+//			}
 		
 			int result = new AdminProductService().updateProduct(p);
 			
@@ -82,6 +82,8 @@ public class AdminProductUpdateController extends HttpServlet {
 				request.getRequestDispatcher("views/admin_main/error/adminErrorPage.jsp").forward(request, response);
 			}
 		}
+		
+		
 	}
 
 	/**

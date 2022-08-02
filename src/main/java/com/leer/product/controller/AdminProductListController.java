@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.leer.common.model.vo.PageInfo;
+import com.leer.mypage.model.service.MypageService;
+import com.leer.mypage.model.vo.Cart;
 import com.leer.product.model.service.AdminProductService;
 import com.leer.product.model.vo.Product;
 
@@ -68,6 +70,7 @@ public class AdminProductListController extends HttpServlet {
 		request.setAttribute("list", list);
 		
 		request.getRequestDispatcher("views/admin_main/product/adminProductView.jsp").forward(request, response);
+		
 	}
 
 	/**

@@ -2,15 +2,16 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.ArrayList, com.leer.product.model.vo.Product, com.leer.common.model.vo.Category" %>
 <%
-	ArrayList<Product>  product = (ArrayList<Product>)request.getAttribute("p");
+	//ArrayList<Product>  product = (ArrayList<Product>)request.getAttribute("p");
 	ArrayList<Category> list = (ArrayList<Category>)request.getAttribute("list");
+	Product p = (Product)request.getAttribute("p");
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>상품 수정 페이지</title>
-<!-- 이미 정보 등록되어 있어서 수정할 때 불어오는 페이지용 -->
+<!-- 등록시 입력했던 정보가 있어야됨 -->
 
 <!-- datepicker css -->
 <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/resources/css/jiae/assets/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
@@ -32,7 +33,7 @@
 		double point = p.getPoint2();
 		String url1 = p.getImageUrl1();
 		String url2 = p.getImageUrl2();
-		String url3 = p.getUmageUrls();
+		String url3 = p.getImageUrlS();
 	 %>
 	
 	<div class="page-breadcrumb">
@@ -61,7 +62,7 @@
             <!-- 출간일 -->
             <div class="form-group row">
                 <label for="fname" class="col-sm-1 control-label col-form-label">출간일</label>
-                <input type="text" name="PublishMonth" value="<%=PublishMonth2%>" class="form-control col-sm-2" id="datepicker-autoclose" placeholder="mm/dd/yyyy" style="margin-left: 10px;">
+                <input type="text" name="PublishMonth" value="<%=publishMonth2%>" class="form-control col-sm-2" id="datepicker-autoclose" placeholder="mm/dd/yyyy" style="margin-left: 10px;">
                 <div class="input-group-append">
                     <span class="input-group-text"><i class="fa fa-calendar"></i></span>
                 </div>
@@ -70,7 +71,7 @@
             <div class="form-group row">
                 <label for="fname" class="col-sm-1 control-label col-form-label">발행사</label>
                 <div class="col-sm-2">
-                    <input type="text" name="Publisher" vlaue="<%=Publisher%>" class="form-control" id="fname" placeholder="발행사를 입력하세요" required>
+                    <input type="text" name="publisher" vlaue="<%=publisher%>" class="form-control" id="fname" placeholder="발행사를 입력하세요" required>
                 </div>
             </div>
             <!-- 카테고리 -->
@@ -127,7 +128,7 @@
                 <label class="col-md-1">표지 이미지</label>
                 <div class="col-sm-3">
                     <div class="custom-file">
-                        <input name="" value="" type="file" class="custom-file-input" id="validatedCustomFile">
+                        <input name="url1" value="<%=url1%>" type="file" class="custom-file-input" id="validatedCustomFile">
                         <label class="custom-file-label" for="validatedCustomFile">표지 이미지를 선택하세요</label>
                         <!-- <div class="invalid-feedback">Example invalid custom file feedback</div> -->
                     </div>
@@ -161,7 +162,7 @@
                 <label class="col-md-1">상세 이미지</label>
                 <div class="col-sm-3">
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="validatedCustomFile">
+                        <input type="file" name="url2" value="<%=url2%>" class="custom-file-input" id="validatedCustomFile">
                         <label class="custom-file-label" for="validatedCustomFile">상세 이미지를 선택하세요</label>
                         <!-- <div class="invalid-feedback">Example invalid custom file feedback</div> -->
                     </div>
@@ -195,7 +196,7 @@
                 <label class="col-md-1">부록 이미지</label>
                 <div class="col-sm-3">
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="validatedCustomFile">
+                        <input type="file" name="url3" value="<%=url3%>" class="custom-file-input" id="validatedCustomFile">
                         <label class="custom-file-label" for="validatedCustomFile">부록 이미지를 선택하세요</label>
                         <!-- <div class="invalid-feedback">Example invalid custom file feedback</div> -->
                     </div>
@@ -228,7 +229,7 @@
             <div class="form-group row">
                 <label class="col-sm-1">배송비</label>
                 <div class="col-sm-2">
-                    <select class="select2 form-control custom-select" required>
+                    <select name="deliFee" value="<%=deliFee %>" class="select2 form-control custom-select" required>
                         <option hidden>금액(원) 선택</option>
                         <option value="">3000</option>
                         <option value="">2500</option>
@@ -240,7 +241,7 @@
             <div class="form-group row">
                 <label class="col-sm-1">적립금</label>
                 <div class="col-sm-2">
-                    <select class="select2 form-control custom-select" required>
+                    <select name="point" value="<%=point%>" class="select2 form-control custom-select" required>
                         <option hidden>적립(%) 선택</option>
                         <option value="">10</option>
                         <option value="">20</option>
@@ -310,7 +311,10 @@
             theme: 'snow'
         });
     </script>
-
+    <!-- 체크박스 적용 -->
+	<script>
+	
+	</script>
 
 </body>
 </html>
