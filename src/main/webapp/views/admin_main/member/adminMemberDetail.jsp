@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.ArrayList, 
-				 com.leer.member.model.vo.Member, 
-				 com.leer.common.model.vo.PageInfo,
+				 com.leer.member.model.vo.Member,
 				 com.leer.order.model.vo.Order"%>    
 <!DOCTYPE html>
 <%
