@@ -4,16 +4,31 @@
 	
 	<!-- 커뮤니티공지사항리스트 조회, 김은지 -->
 	<entry key="selectComuNotiList">
-	    SELECT 
-		       NOTI_NO
-		     , TITLE
-		     , M.MEM_ID
-		     , N.ENROLL_DATE
-		     , MODIFY_DATE
-		 FROM NOTICE N
-		 JOIN MEMBER M USING (MEM_NO)
+		SELECT *
+		  FROM (
+		  	   SELECT ROWnUM RNUM, A.*
+		  	     FROM (
+		  	     	  SELECT 
+						     NOTI_NO
+						   , TITLE
+						   , M.MEM_ID
+						   , N.ENROLL_DATE
+						   , MODIFY_DATE
+					    FROM NOTICE N
+						JOIN MEMBER M USING (MEM_NO)
+					   ORDER
+					      BY NOTI_NO DESC
+		  	     	 ) A
+		  	   )
+		WHERE RNUM BETWEEN ? AND ?
 	</entry>
 	
+	<!-- 커뮤니티공지사항리스트 페이징처리, 김은지 -->
+	<entry key="selectComuNotiListCount">
+		SELECT COUNT(*) AS "COUNT"
+		  FROM NOTICE
+	</entry>
+		
 </properties>
 
 

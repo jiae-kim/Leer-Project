@@ -28,7 +28,7 @@ public class AdminCommunityDao {
 	
 	// 관리자 커뮤니티공지리스트 조회
 	// 작성자 김은지
-	public ArrayList<ComuNotice> selectComuNotiList(Connection conn){ //, PageInfo pi
+	public ArrayList<ComuNotice> selectComuNotiList(Connection conn, PageInfo pi){
 		ArrayList<ComuNotice> list = new ArrayList<>();
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -36,6 +36,13 @@ public class AdminCommunityDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
+			
+			int startRow = (pi.getCurrentPage()-1) * pi.getBoardLimit()+1;
+			int endRow = startRow + pi.getBoardLimit()-1;
+			
+			pstmt.setInt(1, startRow);
+			pstmt.setInt(2, endRow);
+			
 			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
@@ -55,6 +62,32 @@ public class AdminCommunityDao {
 			close(pstmt);
 		}
 		return list;
+	}
+	
+	// 관리자 커뮤니티공지리스트 페이징처리
+	// 작성자 김은지	
+	public int selectComuNotiListCount(Connection conn) {
+		int listCount = 0;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectComuNotiListCount");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				listCount = rset.getInt("COUNT");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return listCount;		
 	}
 	
 }

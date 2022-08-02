@@ -9,8 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.leer.common.model.vo.PageInfo;
 import com.leer.community.model.service.AdminCommunityService;
 import com.leer.community.model.vo.ComuNotice;
+import com.leer.member.model.service.AdminMemberService;
 
 /**
  * Servlet implementation class AdminCommunityNotiListController
@@ -32,9 +34,6 @@ public class AdminCommunityNotiListController extends HttpServlet {
 	 * 작성자 김은지
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
-		/*
 		// 페이징처리
 		int listCount;
 		int currentPage;
@@ -59,11 +58,10 @@ public class AdminCommunityNotiListController extends HttpServlet {
 		}
 				
 		PageInfo pi = new PageInfo(listCount, currentPage, pageLimit, boardLimit, maxPage, startPage, endPage);
-		*/
 		
-		ArrayList<ComuNotice> list = new AdminCommunityService().selectComuNotiList(); // pi
+		ArrayList<ComuNotice> list = new AdminCommunityService().selectComuNotiList(pi); 
 		
-		//request.setAttribute("pi", pi);
+		request.setAttribute("pi", pi);
 		request.setAttribute("list", list);
 		
 		request.getRequestDispatcher("views/admin_main/comu/adminComuNotiView.jsp").forward(request, response);

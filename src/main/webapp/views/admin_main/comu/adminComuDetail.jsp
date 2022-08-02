@@ -40,7 +40,7 @@
                     <div class="col-lg-12 grid-margin stretch-card">
                         <div class="card">
                           <div class="card-body">
-                            <h2 class="card-title" align="center">커뮤니티 공지사항 상세</h2>
+                            <h2 class="card-title" align="center">커뮤니티 공지사항 상세정보</h2>
                             <div class="table-responsive pt-3">
                               <table class="tt1" border="1" align="center">
                                 <tbody>
@@ -77,7 +77,7 @@
                             <c:if test="${sessionMemberLv == 1}">
                                     <div class="d-grid gap-3" style="text-align: center">
                                         <a href="" id="btn" class="btn btn-dark" style="width:150px">공지사항 삭제</a>
-                                        <a href="" id="btn" class="btn btn-dark" style="width:150px">목록으로</a>
+                                        <a href="<%= request.getContextPath() %>/adComuNotiList.do" id="btn" class="btn btn-dark" style="width:150px">목록으로</a>
                                     </div>
                             </c:if>
                           </div>

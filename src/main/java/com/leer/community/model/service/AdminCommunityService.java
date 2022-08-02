@@ -14,13 +14,22 @@ public class AdminCommunityService {
 	
 	// 관리자 커뮤니티공지리스트 조회
 	// 작성자 김은지
-	public ArrayList<ComuNotice> selectComuNotiList(){ //PageInfo pi
+	public ArrayList<ComuNotice> selectComuNotiList(PageInfo pi){
 		Connection conn = getConnection();
 		
-		ArrayList<ComuNotice> list = new AdminCommunityDao().selectComuNotiList(conn);
+		ArrayList<ComuNotice> list = new AdminCommunityDao().selectComuNotiList(conn, pi);
 		
 		close(conn);
 		return list;	
+	}
+	
+	// 관리자 커뮤니티공지리스트 페이징처리
+	// 작성자 김은지	
+	public int selectComuNotiListCount() {
+		Connection conn = getConnection();
+		int listCount = new AdminCommunityDao().selectComuNotiListCount(conn);
+		close(conn);
+		return listCount;
 	}
 
 }
