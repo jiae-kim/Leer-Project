@@ -61,6 +61,7 @@
                     	String phone = loginUser.getPhone();
                     	String email = loginUser.getEmail();
                     	String address = loginUser.getAddress();
+                    	String birth = (loginUser.getMemBirth() == null) ? "" : loginUser.getMemBirth();
                     %>
                     
 
@@ -72,7 +73,7 @@
                     	
                         <div class="update-wrap">
 
-                            <form action="<%=contextPath %>/signup.me" method="post" id="enroll-form">
+                            <form action="<%=contextPath %>/update.me" method="post" id="enroll-form">
                 
                                 <fieldset class="f1">
                                     <legend>기본정보 수정</legend>
@@ -84,15 +85,20 @@
                                         </tr>
 
                                         <tr>
-                                            <td>이름</td>
-                                            <td><input type="text" name="memName" required readonly value="<%=memName%>"></td>
-                                        </tr>
-
-                                        <tr>
                                             <td>닉네임</td>
                                             <td><input type="text" name="nickname" required value="<%=nickname%>"></td>
                                             <td></td>
                                         </tr>
+                                        
+                                        <tr>
+                                            <td>이름</td>
+                                            <td><input type="text" name="memName" required readonly value="<%=memName%>"></td>
+                                        </tr>
+
+										<tr>
+											<td>생년월일</td>
+											<td><input type="text" name="birth" value="<%=birth %>"></td>
+										</tr>
                     
                                         <tr>
                                             <td>전화번호</td>

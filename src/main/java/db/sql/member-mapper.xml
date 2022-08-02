@@ -54,4 +54,39 @@
 		  )
 	</entry>
 	
+	
+	
+	<entry key="updateMember">
+		UPDATE MEMBER
+		   SET NICKNAME = ?
+		   	 , MEM_NAME = ?
+		   	 , MEM_BIRTH = ?
+		   	 , PHONE = ?
+		   	 , EMAIL = ? 
+		   	 , ADDRESS = ?
+		 WHERE MEM_ID = ?
+	</entry>
+	
+	
+	
+	<entry key="selectMember">
+		SELECT 
+	           MEM_NO
+	         , MEM_ID
+	         , MEM_PWD
+	         , NICKNAME
+	         , MEM_NAME
+	         , MEM_BIRTH
+	         , PHONE
+	         , EMAIL
+	         , ADDRESS
+	         , CATEGORY_NO
+	         , POINT
+	         , MEM_STATUS
+	         , ADMIN
+	      FROM MEMBER
+	     WHERE MEM_ID = ? 
+	</entry>
+	
+	
 </properties>

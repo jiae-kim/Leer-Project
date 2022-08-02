@@ -106,11 +106,75 @@ public class MemberDao {
 	
 	
 	
+	public int updateMember(Connection conn, Member m) {
+		
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("updateMember");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, m.getNickname());
+			pstmt.setString(2, m.getMemName());
+			pstmt.setString(3, m.getMemBirth());
+			pstmt.setString(4, m.getPhone());
+			pstmt.setString(5, m.getEmail());
+			pstmt.setString(6, m.getAddress());
+			pstmt.setString(7, m.getMemId());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		return result;
+	}
 	
 	
 	
-	
-	
+	public Member selectMember(Connection conn, String memId) {
+		
+		Member m = null;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectMember");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memId);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				m = new Member(rset.getInt("mem_no")
+						 , rset.getString("mem_id")
+						 , rset.getString("mem_pwd")
+						 , rset.getString("nickname")
+						 , rset.getString("mem_name")
+						 , rset.getString("mem_birth")
+						 , rset.getString("phone")
+						 , rset.getString("email")
+						 , rset.getString("address")
+						 , rset.getString("category_no")
+						 , rset.getInt("point")
+						 , rset.getString("mem_status")
+						 , rset.getString("admin")
+						);	
+			}
+				
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return m;
+	}
 	
 	
 	

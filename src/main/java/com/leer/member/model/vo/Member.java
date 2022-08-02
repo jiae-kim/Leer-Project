@@ -39,6 +39,7 @@ public class Member {
 	
 	public Member() {}
 	
+	
 	//회원가입
 	public Member(String memId, String memPwd, String nickname, String memName, String memBirth, String phone,
 			String email, String address, String categoryNo) {
@@ -56,8 +57,19 @@ public class Member {
 	
 	
 	
-	
-	
+	public Member(String memId, String nickname, String memName, String memBirth, String phone, String email,
+			String address) {
+		super();
+		this.memId = memId;
+		this.nickname = nickname;
+		this.memName = memName;
+		this.memBirth = memBirth;
+		this.phone = phone;
+		this.email = email;
+		this.address = address;
+	}
+
+
 	
 	
 	public Member(String orNo) {
@@ -67,9 +79,6 @@ public class Member {
 
 
 
-	
-
-	
 
 
 
