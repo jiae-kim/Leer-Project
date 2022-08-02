@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 import static com.leer.common.JDBCTemplate.*;
+
+import com.leer.member.model.vo.Member;
 import com.leer.review.model.vo.Review;
 
 public class ReviewDao {
@@ -77,6 +79,38 @@ public ArrayList<Review> WriteReviewHistory(Connection conn, int memNo){
 		}	
 		
 		return list;
+	}
+
+	public Review WriteReview(Connection conn, int memNo, String orNo, String p_code) {
+		
+		Review r = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("WriteReview");
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, memNo);
+			pstmt.setString(2, orNo);
+			pstmt.setString(3, p_code);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				r = new Review(
+							rset.getString("image_url"),
+							rset.getString("pName"),
+							rset.getDate("or_date"),
+							rset.getInt("price")
+						);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return r;
 	}
 	
 }

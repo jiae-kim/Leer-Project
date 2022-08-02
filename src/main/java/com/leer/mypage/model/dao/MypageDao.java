@@ -159,6 +159,7 @@ public class MypageDao {
 			
 			while(rset.next()) {
 				list.add(new Member( 
+								   rset.getString("orNo"),
 								   rset.getString("image_url"),
 								   rset.getString("p_name"),
 								   rset.getInt("price"),
@@ -247,9 +248,9 @@ public class MypageDao {
 			if(rset.next()) {
 				m = new Member(
 							rset.getString("p_name"),
-							rset.getDate("or_date"),
-							rset.getInt("price"),
 							rset.getString("image_url"),
+							rset.getInt("price"),
+							rset.getDate("or_date"),
 							rset.getString("or_no")
 						);
 			}
