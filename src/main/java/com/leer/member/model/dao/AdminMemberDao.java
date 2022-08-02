@@ -70,6 +70,8 @@ public class AdminMemberDao {
 	
 	// 관리자 회원리스트 조회 - 가나다순
 	// 작성자 김은지
+	
+	/*
 	public ArrayList<Member> selectMemberListGND(Connection conn, PageInfo pi){ 
 		ArrayList<Member> list = new ArrayList<>();
 		PreparedStatement pstmt = null;
@@ -108,6 +110,7 @@ public class AdminMemberDao {
 		}
 		return list;
 	}
+	*/
 	
 	// 관리자 회원조회리스트 페이징처리
 	// 작성자 김은지

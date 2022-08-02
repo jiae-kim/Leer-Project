@@ -131,7 +131,7 @@
 						<!----------------- 스크립트 ---------------//-->		
                                 <tbody class="custom">
                                 	<% for(Member m : list) { %>
-	                                    <tr onclick="location.href='<%=request.getContextPath()%>/adMemDetail.do?no=<%=m.getMemNo()%>'">
+	                                    <tr onclick="location.href='<%=request.getContextPath()%>/adMemDetail.do?no=<%=m.getMemNo()%>';">
 	                                        <th>
 	                                            <label class="customcheckbox">
 	                                                <span class="checkmark"></span>
