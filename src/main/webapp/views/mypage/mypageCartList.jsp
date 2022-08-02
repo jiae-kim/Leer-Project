@@ -315,6 +315,13 @@
                                     </h2>
                                     <div style="border-bottom: 1px solid #303030;"></div>
                                     <form action="<%= contextPath %>/cdelete.me" method="">
+	                                    <script> 
+										  function submit2(frm) { 
+										    frm.action="<%= contextPath %>/order.od"; 
+										    frm.submit(); 
+										    return true; 
+										  } 
+										</script> 
                                     	<input type="hidden" name="memNo" value="<%=loginUser.getMemNo()%>">
 	                                    <div class="etc_content_box" >
 	                                        <ul class="product_review_list" id="review_list"></ul>
@@ -394,7 +401,7 @@
 	                                        <span style="text-align:right">
 	                                            
 	                                            <a href="<%=contextPath %>/list.pd" class="site-btn" style="font-size: 15px; color:#303030; background-color: #ffffff; border: #303030 solid 1.5px;" >계속 쇼핑하기</a>
-	                                            <button type="button" class="site-btn" style="font-size: 15px; border:#303030 solid 1.5px;">주문하기</button>
+	                                            <button type="button" onclick="return submit2(this.form)" class="site-btn" style="font-size: 15px; border:#303030 solid 1.5px;">주문하기</button>
 	                                        </span>
 	                                        
 											<script>

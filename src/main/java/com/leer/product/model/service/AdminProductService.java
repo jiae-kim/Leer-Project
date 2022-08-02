@@ -51,7 +51,7 @@ public class AdminProductService {
 	}
 	
 	/* [제품관리 - 상품등록]
-	 * 상품 등록 (insert)
+	 * 상품 등록 : insert
 	 * 작성자 김지애
 	 */
 	public int insertProduct(Product p) {
@@ -78,8 +78,15 @@ public class AdminProductService {
 		return p;
 	}
 
+	public Attachment selectAttachment(String pCode) {
+		Connection conn = getConnection();
+		Attachment at = new AdminProductDao().selectAttachment(conn, pCode);
+		close(conn);
+		return at;
+	}
+	
 	/* [제품관리 - 상품등록]
-	 * 상품 수정 
+	 * 상품 수정 : update
 	 * 작성자 김지애
 	 */
 	public int updateProduct(Product p) {
@@ -112,7 +119,7 @@ public class AdminProductService {
 		return result;
 	}
 
-
+	
 	
 	
 }

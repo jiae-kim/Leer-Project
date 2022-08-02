@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 import com.leer.common.model.vo.PageInfo;
+import com.leer.member.model.service.AdminAjaxMemberService;
 import com.leer.member.model.service.AdminMemberService;
 import com.leer.member.model.vo.Member;
 
@@ -35,8 +36,6 @@ public class AjaxAdminMemberSelectionController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 페이징처리
-		
-		/*
 		int listCount;
 		int currentPage;
 		int pageLimit;
@@ -60,20 +59,19 @@ public class AjaxAdminMemberSelectionController extends HttpServlet {
 		}
 		
 		PageInfo pi = new PageInfo(listCount, currentPage, pageLimit, boardLimit, maxPage, startPage, endPage);
-		*/
 		
 		String align = request.getParameter("align");
 		
 		ArrayList<Member> list = new ArrayList<>();
 		if(align.equals("전체조회")) {
-			list = new AdminMemberService().selectMemberList();
+			list = new AdminMemberService().selectMemberList(pi);
 		}
 		
 		if(align.equals("가나다 순 조회")) {
-			list = new AdminMemberService().selectMemberListGND(); // pi
+			list = new AdminAjaxMemberService().selectMemberListGND(pi);
 		}
 		
-		//request.setAttribute("pi", pi);
+		request.setAttribute("pi", pi);
 		
 		response.setContentType("application/json; charset=UTF-8");
 		new Gson().toJson(list, response.getWriter()); 

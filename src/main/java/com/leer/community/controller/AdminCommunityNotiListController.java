@@ -1,4 +1,4 @@
-package com.leer.product.controller;
+package com.leer.community.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,36 +9,32 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.leer.common.model.vo.PageInfo;
-import com.leer.mypage.model.service.MypageService;
-import com.leer.mypage.model.vo.Cart;
-import com.leer.product.model.service.AdminProductService;
-import com.leer.product.model.vo.Product;
+import com.leer.community.model.service.AdminCommunityService;
+import com.leer.community.model.vo.ComuNotice;
 
 /**
- * Servlet implementation class AdminProductListController
- */ 
-@WebServlet("/adProList.do") 
-public class AdminProductListController extends HttpServlet {
+ * Servlet implementation class AdminCommunityNotiListController
+ */
+@WebServlet("/adComuNotiList.do")
+public class AdminCommunityNotiListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdminProductListController() {
+    public AdminCommunityNotiListController() {
         super();
         // TODO Auto-generated constructor stub
     }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * 관리자 커뮤공지리스트 조회
+	 * 작성자 김은지
 	 */
-    
-    /* [제품관리 - 상품조회]
-     * 상품 전체조회 기능
-     * 작성자 김지애
-     */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		
+		/*
 		// 페이징처리
 		int listCount;
 		int currentPage;
@@ -49,7 +45,7 @@ public class AdminProductListController extends HttpServlet {
 		int startPage;
 		int endPage;
 		
-		listCount = new AdminProductService().selectProductListCount();
+		listCount = new AdminMemberService().selectMemberListCount();
 		currentPage = Integer.parseInt(request.getParameter("cpage"));
 		pageLimit = 10;
 		boardLimit = 10;
@@ -61,16 +57,16 @@ public class AdminProductListController extends HttpServlet {
 		if(endPage > maxPage) {
 			endPage = maxPage;
 		}
-		
+				
 		PageInfo pi = new PageInfo(listCount, currentPage, pageLimit, boardLimit, maxPage, startPage, endPage);
+		*/
 		
-		ArrayList<Product> list = new AdminProductService().selectProductList(pi);
+		ArrayList<ComuNotice> list = new AdminCommunityService().selectComuNotiList(); // pi
 		
-		request.setAttribute("pi", pi);
+		//request.setAttribute("pi", pi);
 		request.setAttribute("list", list);
 		
-		request.getRequestDispatcher("views/admin_main/product/adminProductView.jsp").forward(request, response);
-		
+		request.getRequestDispatcher("views/admin_main/comu/adminComuNotiView.jsp").forward(request, response);
 	}
 
 	/**
@@ -82,3 +78,13 @@ public class AdminProductListController extends HttpServlet {
 	}
 
 }
+
+
+
+
+
+
+
+
+
+

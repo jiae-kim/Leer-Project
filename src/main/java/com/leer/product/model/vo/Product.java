@@ -88,21 +88,21 @@ public class Product {
 		this.pStock = pStock;
 	}
 	
-	public Product(String pCode, int categoryNo, String pName, int price, String publisher, int pStock, int deliFee,
-			String imageUrl1, String imageUrl2, String imageUrlS, String publishMonth2, double point2) {
+	public Product(String pName, String publishMonth2, String publisher, int categoryNo, String pCode, int price, int pStock, 
+			int deliFee, double point2, String imageUrl1, String imageUrl2, String imageUrlS) {
 		super();
-		this.pCode = pCode;
-		this.categoryNo = categoryNo;
 		this.pName = pName;
-		this.price = price;
+		this.publishMonth2 = publishMonth2;
 		this.publisher = publisher;
+		this.categoryNo = categoryNo;
+		this.pCode = pCode;
+		this.price = price;
 		this.pStock = pStock;
 		this.deliFee = deliFee;
+		this.point2 = point2;
 		this.imageUrl1 = imageUrl1;
 		this.imageUrl2 = imageUrl2;
 		this.imageUrlS = imageUrlS;
-		this.publishMonth2 = publishMonth2;
-		this.point2 = point2;
 	}
 
 	public int getMonth() {

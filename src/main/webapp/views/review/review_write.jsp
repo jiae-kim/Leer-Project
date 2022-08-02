@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="com.leer.review.model.vo.Review" %>
+    
+<%
+	Review r = (Review)request.getAttribute("r");
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,16 +56,16 @@
           <table id="box" width="650px" > 
                <tr height="10px">
                     <td rowspan="4" width="70px"><img class="product__details__pic__item"
-                         src=http://www.walbox.co.kr/upfile/item/%EC%8B%B1%EA%B8%80%EC%A6%888_1658391373.jpg width="150px" alt=""></td>
+                         src=<%= r.getImage_url() %> width="150px" alt=""></td>
                     <td></td>
                     <td></td>
                </tr>
                <tr>
-                    <td width="150px" id="p_name">싱글즈 Singles </td>
+                    <td width="150px" id="p_name"><%= r.getpName() %> </td>
                     <td></td>
                </tr>
                <tr>
-                    <td width="70px">주문내역:</td>
+                    <td width="70px"><%= r.getOr_date() %></td>
                     <td></td>
                </tr>
                <tr>

@@ -32,7 +32,7 @@
                     <nav aria-label="breadcrumb">
                     </nav>
                     <button type="button" onclick="location.href='<%=request.getContextPath()%>/adProEnrollForm.do'" class="btn btn-info btn-lg">등록</button> &nbsp;&nbsp;&nbsp;
-                    <button type="button" onclick="location.href='<%=request.getContextPath()%>/adProUpdateForm.do'" class="btn btn-warning btn-lg">수정</button> &nbsp;&nbsp;&nbsp;
+                    <button type="button" onclick="updateform();" class="btn btn-warning btn-lg">수정</button> &nbsp;&nbsp;&nbsp;
                     <!-- Button trigger modal -->
                     <button type="button" onclick="location.href='<%=request.getContextPath()%>/adProDelete.do'" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#Modal2">
                         삭제
@@ -61,6 +61,14 @@
             </div>
         </div>
     </div>
+    <!-- 상품 체크 후 수정버튼 눌렀을 때 수정페이지로 넘어가게하는 function -->
+    <script>
+    	function updateform(){
+    		location.href='<%=request.getContextPath()%>/adProUpdateForm.do?chkpCode='+$('input[name=chkpCode]:checked').val();
+    	}
+    </script>
+    <!-- 상품 체크 후 삭제버튼 눌렀을 때 삭제되게하는 function -->
+    
     <!-- ============================================================== -->
     <!-- End Bread crumb and right sidebar toggle -->
     <!-- ============================================================== -->
@@ -100,7 +108,7 @@
                         <tr>
                             <th>
                                 <label class="customcheckbox m-b-20">
-                                    <input type="checkbox" id="mainCheckbox" />
+                                    <input type="checkbox" id="mainCheckbox">
                                     <span class="checkmark"></span>
                                 </label>
                             </th>
@@ -121,7 +129,7 @@
                         <tr>
                             <th>
                                 <label class="customcheckbox">
-                                    <input type="checkbox" class="listCheckbox" />
+                                    <input type="checkbox" class="listCheckbox" name="chkpCode" value=<%=p.getpCode()%>>
                                     <span class="checkmark"></span>
                                 </label>
                             </th>

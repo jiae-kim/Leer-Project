@@ -1,5 +1,17 @@
-	<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.ArrayList, com.leer.community.model.vo.ComuNotice, com.leer.common.model.vo.PageInfo"%>   
+<% 
+	PageInfo pi = (PageInfo)request.getAttribute("pi");
+	ArrayList<ComuNotice> list = (ArrayList<ComuNotice>)request.getAttribute("list");
+		
+	/*
+	int currentPage = pi.getCurrentPage();
+	int startPage = pi.getStartPage();
+	int endPage = pi.getEndPage();
+	int maxPage = pi.getMaxPage();
+	*/
+  %>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -84,136 +96,21 @@
                                     </tr>
                                 </thead>
                                 <tbody class="custom">
-                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuDetail.jsp'">
-                                        <th>
-                                            <label class="customcheckbox">
-                                            	<input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>19</td>
-                                        <td>이벤트 참여 방법</td>
-                                        <td>admin01</td>
-                                        <td>2022.07.26</td>
-                                        <td>2022.07.26</td>
-                                    </tr>
-                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuDetail.jsp'">
-                                        <th>
-                                            <label class="customcheckbox">
-                                            	<input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>18</td>
-                                        <td>공지사항 읽어주세요</td>
-                                        <td>admin01</td>
-                                        <td>2022.07.26</td>
-                                        <td>2022.07.26</td>
-                                    </tr>
-                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuDetail.jsp'">
-                                        <th>
-                                            <label class="customcheckbox">
-                                            	<input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>17</td>
-                                        <td>저작권 관련 공지</td>
-                                        <td>admin01</td>
-                                        <td>2022.07.26</td>
-                                        <td>2022.07.26</td>
-                                    </tr>
-                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuDetail.jsp'">
-                                        <th>
-                                            <label class="customcheckbox">
-                                            	<input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>16</td>
-                                        <td>불량회원에 대한 공지</td>
-                                        <td>admin01</td>
-                                        <td>2022.07.26</td>
-                                        <td>2022.07.26</td>
-                                    </tr>
-                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuDetail.jsp'">
-                                        <th>
-                                            <label class="customcheckbox">
-                                            	<input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>15</td>
-                                        <td>꼭 지켜주세요</td>
-                                        <td>admin01</td>
-                                        <td>2022.07.26</td>
-                                        <td>2022.07.26</td>
-                                    </tr>
-                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuDetail.jsp'">
-                                        <th>
-                                            <label class="customcheckbox">
-                                            	<input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>14</td>
-                                        <td>사이트 이용 공지</td>
-                                        <td>admin01</td>
-                                        <td>2022.07.26</td>
-                                        <td>2022.07.26</td>
-                                    </tr>
-                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuDetail.jsp'">
-                                        <th>
-                                            <label class="customcheckbox">
-                                            	<input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>13</td>
-                                        <td>공지</td>
-                                        <td>admin01</td>
-                                        <td>2022.07.26</td>
-                                        <td>2022.07.26</td>
-                                    </tr>
-                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuDetail.jsp'">
-                                        <th>
-                                            <label class="customcheckbox">
-                                            	<input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>12</td>
-                                        <td>공지22</td>
-                                        <td>admin01</td>
-                                        <td>2022.07.26</td>
-                                        <td>2022.07.26</td>
-                                    </tr>
-                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuDetail.jsp'">
-                                        <th>
-                                            <label class="customcheckbox">
-                                            	<input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>11</td>
-                                        <td>공지333</td>
-                                        <td>admin01</td>
-                                        <td>2022.07.26</td>
-                                        <td>2022.07.26</td>
-                                    </tr>
-                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuDetail.jsp'">
-                                        <th>
-                                            <label class="customcheckbox">
-                                            	<input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>10</td>
-                                        <td>공지44</td>
-                                        <td>admin01</td>
-                                        <td>2022.07.26</td>
-                                        <td>2022.07.26</td>
-                                    </tr>
+                                	<% for(ComuNotice c : list) { %>
+	                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuDetail.jsp'">
+	                                        <th>
+	                                            <label class="customcheckbox">
+	                                            	<input type="checkbox" class="listCheckbox" />
+	                                                <span class="checkmark"></span>
+	                                            </label>
+	                                        </th>
+	                                        <td><%=c.getNotiNo()%></td>
+	                                        <td><%=c.getTitle()%></td>
+	                                        <td><%=c.getMemId()%></td>
+	                                        <td><%=c.getEnrollDate()%></td>
+	                                        <td><%=c.getModifyDate()%></td>
+	                                    </tr>
+	                                <% } %>
                                   </tbody>
                                <tfoot>
                                     <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuDetail.jsp'">
