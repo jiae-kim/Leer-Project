@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.leer.mypage.model.vo.Cart , java.text.DecimalFormat"%>
+    
+<% 
+	ArrayList<Cart> list = (ArrayList<Cart>)request.getAttribute("list");
+	DecimalFormat comma = new DecimalFormat("###,###");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -427,23 +432,46 @@
                                                 <th>상품총액</th>
                                                 <th>배송비</th>
                                             </tr>
+                                            <% int count = 1; %>
+                                            <%for(Cart c : list) {%>
                                             <tr style="font-size:14px;">
-                                                <td style="vertical-align:middle; text-align:center;">1</td>
+                                                <td style="vertical-align:middle; text-align:center;"><%= count++ %></td>
                                                 <td style="width:40%;">
-                                                    <span style="display:inline">
-                                                        <img src="http://www.walbox.co.kr/upfile/item/111_1613734143.jpg" width="15%;" >
+                                                    <span style="display:inline; text-align:left">
+                                                        <img src=<%=c.getImageUrl() %> width="15%;" >
                                                     </span>
-                                                    <span style="height:100%;">
-                                                        <a>어라운드(격월간)</a>
-                                                        <a style="font-size:12px">구독기간:2달에 한번 </a>
-                                                        
+                                                    <span style="height:100%;text-align:center;">
+                                                        <a><b><%=c.getpName() %></b></a>
+                                                        <%if (c.getOrCycle() == 1) {%>
+                                                        <a style="font-size:12px">배송주기 : 개별구매 </a>
+                                                        <% } %>
+                                                        <%if (c.getOrCycle() == 2) {%>
+                                                        <a style="font-size:12px">배송주기 : 1달에 한번 </a>
+                                                        <% } %>
+                                                        <%if (c.getOrCycle() == 3) {%>
+                                                        <a style="font-size:12px">배송주기 : 2달에 한번 </a>
+                                                        <% } %>
                                                     </span>  
                                                 </td>
-                                                <td style="vertical-align:middle;">1개</td>
-                                                <td style="vertical-align:middle;">14,250원</td>
-                                                <td style="vertical-align:middle;">14,250원</td>
-                                                <td style="vertical-align:middle;">무료배송</td>
+                                                <td style="vertical-align:middle;"><%=c.getAmount() %> 개</td>
+                                                <td style="vertical-align:middle;"><%= comma.format(c.getPrice()) %> 원</td>
+                                                <%if (c.getOrCycle() == 1) { %>
+                                                	<td style="vertical-align:middle;"><%= comma.format(c.getPrice() * c.getAmount() + 3000)%> 원</td>
+                                                <% } %>
+                                                <%if (c.getOrCycle() == 2) { %>
+                                                	<td style="vertical-align:middle;"><%= comma.format(c.getPrice() * 12 * c.getAmount()) %> 원</td>
+                                                <% } %>
+                                                <%if (c.getOrCycle() == 3) { %>
+                                                	<td style="vertical-align:middle;"><%= comma.format(c.getPrice() * 6 * c.getAmount()) %> 원</td>
+                                                <% } %>
+                                                
+                                                <%if (c.getOrCycle() == 1) {%>
+                                                	<td style="vertical-align:middle;">3,000 원</td>
+                                                <% } else { %>
+                                                	<td style="vertical-align:middle;">무료배송</td>
+                                                <% } %>
                                             </tr>
+                                            <%} %>
 
                                         </table>
 

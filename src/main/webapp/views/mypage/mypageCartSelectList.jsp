@@ -335,7 +335,7 @@
 		                                                        <img src="<%=c.getImageUrl() %>" width="15%;" >
 		                                                    </span>
 		                                                    <span style="height:100%;">
-		                                                        <a><%=c.getpName() %></a>
+		                                                        <a><b><%=c.getpName() %></b></a>
 		                                                        <% if(c.getOrCycle() == 1) {%>
 		                                                        	<a style="font-size:12px">구독기간:개별구매</a>
 		                                                        <% } %>

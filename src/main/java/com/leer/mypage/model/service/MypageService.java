@@ -95,5 +95,14 @@ public class MypageService {
 		return m;
 		
 	}
+	
+	public Cart selectOrderList(String chk){
+		
+		Connection conn = getConnection();
+		Cart c = new MypageDao().selectOrderList(conn, chk);
+		
+		close(conn);
+		return c;
+	}
 
 }

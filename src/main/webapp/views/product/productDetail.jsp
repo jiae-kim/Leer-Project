@@ -283,7 +283,16 @@
     border-top: 1px solid #2b2f3a;
     }
 
-   
+   .modal-body th{
+        background-color: #f5f5f5;
+        text-align: center;
+        vertical-align: middle;
+
+    }
+    .modal-body tr{
+        border: #e1e1e1 solid 1px;
+        
+    }
 
     </style>
 
@@ -514,7 +523,7 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab"
-                                    aria-selected="false" style="font-size:18px">상품문의 <span>(1)</span></a>
+                                    aria-selected="false" style="font-size:18px">상품문의 <span></span></a>
                             </li>
                         </ul>
                         <div class="tab-content">
@@ -574,49 +583,58 @@
 
                             </div>
                             
-                            <div class="modal" id="updatePwdModal">
-						    <div class="modal-dialog">
-						      <div class="modal-content">
-						
-						      <!-- Modal Header -->
-						        <div class="modal-header">
-						          <h4 class="modal-title">비밀번호 변경</h4>
-						          <button type="button" class="close" data-dismiss="modal">&times;</button>
-						        </div>
-						
-						      <!-- Modal body -->
-						        <div class="modal-body" align="center">
-						      
-						          <form action="<%= contextPath %>" method="post">
-						        	  <input type="hidden" name="userId" value=""> <!-- form 요청시 같이 넘어가게 -->
-						        	  <table>
-						        		  <tr>
-						        			  <td>현재 비밀번호</td>
-						        			  <td><input type="password" name="userPwd" required></td>
-						        		  </tr>
-						        		  <tr>
-						        			  <td>변경할 비밀번호</td>
-						        			  <td><input type="password" name="updatePwd" required></td>
-						        		  </tr>
-						        		  <tr>
-						        			  <td>변경할 비밀번호 확인</td>
-						        			  <td><input type="password" name="checkPwd" required></td>
-						        		  </tr>
-						        	  </table>
-						        	
-						        	  <br>
-						        	
-						        	  <button type="submit" class="btn btn-sm btn-secondary" onclick="return validatePwd();">비밀번호 변경</button>
-						          </form>
-						          <script>
-						        	  function validatePwd(){
-						        		  if($("input[name=updatePwd]").val() != $("input[name=checkPwd]").val()){
-						        			  alert("변경할 비밀번호가 일치하지 않습니다.");
-						        			  return false;
-						        		  }
-						        	  }
-						          </script>
-						        </div>
+                            <!-- 비밀번호 변경 모달창 -->
+                                <div class="modal" id="updatePwdModal">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                                    
+                                            <!-- Modal Header -->
+                                            <div class="modal-header">
+                                               <h3 class="modal-title">어라운드 상품문의 작성하기</h3>
+                                               <button type="button" class="close" data-dismiss="modal" style="size:40px;">&times;</button>
+                                            </div>
+      
+                                            <!-- Modal body -->
+                                            <div class="modal-body" align="center" style="margin-top:10px;">
+            
+                                                <form action="<%= contextPath %>/updatePwd.me" method="post">
+                                                    <input type="hidden" name="pCode" value="<%=p.getpCode()%>"> <!-- form 요청시 같이 넘어가게 -->
+                                                    <table class="table"style="border-bottom solid 1px">
+                                                        <tr>
+                                                            <th>상품문의 유형</th>
+                                                            <td>
+                                                                <input type="radio" name="type" value="pd">상품
+                                                                <input type="radio" name="type" value="del">배송
+                                                                <input type="radio" name="type" value="cl">주문취소/환불
+                                                            </td>
+
+                                                        </tr>
+                                                        <tr>
+                                                            <th>상품문의 제목</th>
+                                                            <td><input type="text" class="form-control"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>상품문의 내용</th>
+                                                            <td>
+                                                                <textarea class="form-control" style="resize:none; height:200px"></textarea>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                    <button type="submit" class="btn btn-secondary" style="padding:10px 20px;" onclick="return validatePwd();">작성하기</button>
+                                                </form>
+                                                <script>
+                                                    function validatePwd(){
+                                                        if($("input[name=updatePwd]").val() != $("input[name=checkPwd]").val()){
+                                                            alert("변경할 비밀번호가 일치하지 않습니다.");
+                                                            return false;
+                                                        }
+                                                    }
+                                                </script>
+                                            </div>
+        
+                                        </div>
+                                    </div>
+                                </div>
 						
 						      </div>
 						    </div>

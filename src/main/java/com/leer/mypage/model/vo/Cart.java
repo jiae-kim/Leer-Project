@@ -14,6 +14,7 @@ public class Cart {
 	private String pName;
 	private int price;
 	private int deliFee;
+	private int point;
 	
 	
 	
@@ -30,7 +31,7 @@ public class Cart {
 	}
 
 
-	public Cart( int cartNo, int memNo, String pCode, String imageUrl, int amount, int orCycle, Date cartDate, String pName, int price, int deliFee) {
+	public Cart( int cartNo, int memNo, String pCode, String imageUrl, int amount, int orCycle, Date cartDate, String pName, int price, int deliFee, int point) {
 		super();
 		this.cartNo = cartNo;
 		this.memNo = memNo;
@@ -42,6 +43,7 @@ public class Cart {
 		this.pName = pName;
 		this.price = price;
 		this.deliFee = deliFee;
+		this.point = point;
 	}
 
 
@@ -49,6 +51,21 @@ public class Cart {
 	public String toString() {
 		return "Cart [memNo=" + memNo + ", pCode=" + pCode + ", amount=" + amount + ", orCycle=" + orCycle
 				+ ", cartDate=" + cartDate + "]";
+	}
+
+
+	public Cart(int cartNo, int memNo, String pCode, String imageUrl, int amount, int orCycle, String pName, int price,
+			int deliFee) {
+		super();
+		this.cartNo = cartNo;
+		this.memNo = memNo;
+		this.pCode = pCode;
+		this.imageUrl = imageUrl;
+		this.amount = amount;
+		this.orCycle = orCycle;
+		this.pName = pName;
+		this.price = price;
+		this.deliFee = deliFee;
 	}
 
 
@@ -149,6 +166,16 @@ public class Cart {
 
 	public void setCartNo(int cartNo) {
 		this.cartNo = cartNo;
+	}
+
+
+	public int getPoint() {
+		return point;
+	}
+
+
+	public void setPoint(int point) {
+		this.point = point;
 	}
 	
 	

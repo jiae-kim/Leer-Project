@@ -315,13 +315,7 @@
                                     </h2>
                                     <div style="border-bottom: 1px solid #303030;"></div>
                                     <form action="<%= contextPath %>/cdelete.me" method="">
-	                                    <script> 
-										  function submit2(frm) { 
-										    frm.action="<%= contextPath %>/order.od"; 
-										    frm.submit(); 
-										    return true; 
-										  } 
-										</script> 
+	                                    
                                     	<input type="hidden" name="memNo" value="<%=loginUser.getMemNo()%>">
 	                                    <div class="etc_content_box" >
 	                                        <ul class="product_review_list" id="review_list"></ul>
@@ -342,7 +336,7 @@
 		                                                        <img src="<%=c.getImageUrl() %>" width="15%;" >
 		                                                    </span>
 		                                                    <span style="height:100%;">
-		                                                        <a><%=c.getpName() %></a>
+		                                                        <a><b><%=c.getpName() %></b></a>
 		                                                        <% if(c.getOrCycle() == 1) {%>
 		                                                        	<a style="font-size:12px">구독기간:개별구매</a>
 		                                                        <% } %>
@@ -409,7 +403,14 @@
 											function number_format(num){
 						                        return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',');
 						                    }
-										
+											
+											
+											function submit2(frm) { 
+											    frm.action="<%= contextPath %>/order.od"; 
+											    frm.submit(); 
+											    return true; 
+											} 
+											 
 	
 	
 											$(function(){ 

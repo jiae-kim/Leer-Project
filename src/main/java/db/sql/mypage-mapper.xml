@@ -105,6 +105,22 @@
 			AND P.P_CODE = ?
 	</entry>
 	
-	
+	<entry key="selectOrderList">
+		SELECT
+	        CART_NO
+	      , MEM_NO
+	      , C.P_CODE
+	      , P.IMAGE_URL1
+	      , AMOUNT
+	      , OR_CYCLE
+	      , P.P_NAME
+	      , P.PRICE
+	      , P.DELI_FEE
+	   FROM CART C
+	   JOIN PRODUCT P ON (C.P_CODE = P.P_CODE)
+	  WHERE P_STOCK >= 1
+	    AND SELL_YN = 'Y'
+	    AND CART_NO = ?
+	</entry>
 	
 </properties>
