@@ -76,7 +76,7 @@
                 <hr><br>
                 <textarea name="" id="" cols="140" rows="15" style="resize:none;"></textarea><br>
                 <label>회원 이용약관에 동의합니다.</label>
-                <input type="checkbox" id="chk" name="check">
+                <input type="checkbox" id="chk" name="chk">
             </div>
 
             <br><br><br>
@@ -86,7 +86,7 @@
                 <hr><br>
                 <textarea name="" id="" cols="140" rows="15" style="resize:none"></textarea><br>
                 <label for="">회원 이용약관에 동의합니다.</label>
-                <input type="checkbox" id="chk" name="check">
+                <input type="checkbox" id="chk" name="chk">
             </div>
 
             <br>
@@ -99,18 +99,25 @@
 		
             <script>
                 $(function() {
-                // 1 . #checkAll 클릭
+                	
                     $("#checkAll").click(function() {
-                        // 2. #checkAll이 체크되었을 때,
-                        // chk라는 name을 가진 input태그를 찾아 checked를 true로 정의
+                    	
                         if ($("#checkAll").prop("checked")) {
                             $("input[name=chk]").prop("checked", true)
-                            // 3. #checkAll이 체크되지 않았을 때,
-                            // chk라는 name을 가진 input태그를 찾아 checked를 false로 정의
                         } else {
                             $("input[name=chk]").prop("checked", false)
                         }
                     })
+                    
+                    $("input[name=chk]").click(function() {
+                    	
+        				var total = $("input[name=chk]").length;
+        				var checked = $("input[name=chk]:checked").length;
+        				
+        				if(total != checked) $("#checkAll").prop("checked", false);
+        				else $("#checkAll").prop("checked", true); 
+        			});
+                    
                 });
             </script>
 
@@ -122,15 +129,25 @@
 
             <div class="signUp-turms-btn" align="center">
                 <button type="button" onclick="location.href='<%=contextPath %>';">이전</button>
-                <button type="submit" onclick="signupPage();">다음</button>
+                <button type="submit" id="next">다음</button>
             </div>
         
         
         
         <script>
-        	function signupPage(){
-        		location.href="<%=contextPath%>/signupPage.me";
-        	}
+        	$(function(){
+        		$("#next").click(function(){
+        			
+        			const check = document.getElementsByName("chk");
+        			
+        			
+        			if(check[0].checked == true && check[1].checked == true){
+        				location.href="<%=contextPath%>/signupPage.me";
+        			}else{
+        				alert("모든 이용약관에 동의해주세요");
+        			}
+        		})
+        	})
         </script>
 
     </div>
