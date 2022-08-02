@@ -32,7 +32,7 @@ public class Member {
 	private int orPrice; // order테이블
 	
 	private String pName; // product테이블
-	private String publishMonth;  // product테이블
+	private Date publishMonth;  // product테이블
 	private String imageUrl1; // product테이블
 	
 	private int orCycle; // or_product테이블
@@ -300,7 +300,7 @@ public class Member {
 	}
 	
 	public Member(int memNo, String memId, String memName, int point, String p_code, String orNo, int orPrice,
-			String pName, String publishMonth, String imageUrl1, int orCycle) {
+			String pName, Date publishMonth, String imageUrl1, int orCycle) {
 		super();
 		this.memNo = memNo;
 		this.memId = memId;
@@ -475,11 +475,11 @@ public class Member {
 		this.pName = pName;
 	}
 
-	public String getPublishMonth() {
+	public Date getPublishMonth() {
 		return publishMonth;
 	}
 
-	public void setPublishMonth(String publishMonth) {
+	public void setPublishMonth(Date publishMonth) {
 		this.publishMonth = publishMonth;
 	}
 

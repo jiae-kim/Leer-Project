@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.ArrayList, 
+				 com.leer.member.model.vo.Member"%>        
 <!DOCTYPE html>
+<%
+	Member m = (Member)request.getAttribute("member");
+%>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -51,7 +56,7 @@
                                 <tbody >
                                     <tr>
                                       <div class="tt2">
-                                          <img src="http://www.walbox.co.kr/upfile/item/%ED%80%B88_1658464158.jpg" alt="" width="470px" style="margin: 0px -100px 0px 222px;">
+                                          <img src="<%=m.getImageUrl1()%>" alt="" width="470px" style="margin: 0px -100px 0px 222px;">
                                             <td class="td1" colspan="2" width="500px" height="45px" style="font-weight: bold;
                                                                                         background:hsl(0, 0%, 77%); color:rgb(80, 80, 80); font-weight: bold;">
                                             <h4 style="margin:0px 0px 0px 0px; float:left;">&nbsp;&nbsp;&nbsp;&nbsp; 주문 상세</h4>
@@ -62,7 +67,7 @@
                                             주문번호
                                           </td>
                                           <td>
-                                              <label for="" width="300px" style="float: left;">&nbsp;&nbsp; 01</label> 
+                                              <label for="" width="300px" style="float: left;">&nbsp;&nbsp; <%=m.getOrNo()%></label> 
                                           </td>
                                       </tr>
                                       <tr>
@@ -70,7 +75,7 @@
                                             주문금액
                                           </td>
                                           <td>
-                                              <label for="" style="float: left;">&nbsp;&nbsp; 16000</label> 
+                                              <label for="" style="float: left;">&nbsp;&nbsp; <%=m.getPrice()%></label> 
                                           </td>
                                       </tr>
                                       <tr>
@@ -78,7 +83,7 @@
                                             상품명
                                         </td>
                                         <td>
-                                            <label for="" style="float: left;">&nbsp;&nbsp; VOGUE</label> 
+                                            <label for="" style="float: left;">&nbsp;&nbsp; <%=m.getP_name()%></label> 
                                         </td>
                                     </tr>
                                     <tr>
@@ -86,7 +91,7 @@
                                             상품코드
                                         </td>
                                         <td>
-                                            <label for="" style="float: left;">&nbsp;&nbsp; FW-01</label> 
+                                            <label for="" style="float: left;">&nbsp;&nbsp; <%=m.getP_code()%></label> 
                                         </td>
                                     </tr>
                                     <tr>
@@ -94,7 +99,7 @@
                                             출간일
                                         </td>
                                         <td>
-                                            <label for="" style="float: left;">&nbsp;&nbsp; 7</label> 
+                                            <label for="" style="float: left;">&nbsp;&nbsp; <%=m.getPublishMonth()%></label> 
                                         </td>
                                     </tr>
                                     <tr>
@@ -110,7 +115,7 @@
                                             배송주기
                                         </td>
                                         <td>
-                                            <label for="" style="float: left;">&nbsp;&nbsp; 2개월</label> 
+                                            <label for="" style="float: left;">&nbsp;&nbsp; <%=m.getOrCycle()%></label> 
                                         </td>
                                     </tr>
                                      </div>
@@ -128,7 +133,7 @@
                                               회원번호
                                             </td>
                                             <td>
-                                              <label for="" width="300px" style="float: left;">&nbsp;&nbsp; 01</label> 
+                                              <label for="" width="300px" style="float: left;">&nbsp;&nbsp; <%=m.getMemNo()%></label> 
                                             </td>
                                           </tr>
                                           <tr>
@@ -136,7 +141,7 @@
                                               회원아이디
                                             </td>
                                             <td>
-                                              <label for="" width="300px" style="float: left;">&nbsp;&nbsp; ttt01</label> 
+                                              <label for="" width="300px" style="float: left;">&nbsp;&nbsp; <%=m.getMemId()%></label> 
                                             </td>
                                           </tr>
                                           <tr>
@@ -144,7 +149,7 @@
                                               회원이름
                                             </td>
                                             <td>
-                                              <label for="" width="300px" style="float: left;">&nbsp;&nbsp; 김동동</label> 
+                                              <label for="" width="300px" style="float: left;">&nbsp;&nbsp; <%=m.getMemName()%></label> 
                                             </td>
                                           </tr>
                                           <tr>
@@ -152,7 +157,7 @@
                                               포인트
                                             </td>
                                             <td>
-                                              <label for="" width="300px" style="float: left;">&nbsp;&nbsp; 300</label> 
+                                              <label for="" width="300px" style="float: left;">&nbsp;&nbsp; <%=m.getPoint()%></label> 
                                             </td>
                                           </tr>
                                         </tbody>       

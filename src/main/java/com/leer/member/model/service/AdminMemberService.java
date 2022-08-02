@@ -62,4 +62,13 @@ public class AdminMemberService {
 		return listCount;
 	}
 
+	// 관리자 장기구독자 상세조회
+	// 작성자 김은지	
+	public Member memberLongDetailList(int orNo) {
+		Connection conn = getConnection();
+		Member m = new AdminMemberDao().memberLongDetailList(conn, orNo);
+		close(conn);
+		return m;
+	}
+
 }
