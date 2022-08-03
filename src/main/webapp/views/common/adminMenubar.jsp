@@ -132,7 +132,7 @@
                             <ul aria-expanded="false" class="collapse  first-level">
                                 <li class="sidebar-item"><a href="<%=request.getContextPath()%>/adProList.do?cpage=1" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 상품조회 </span></a></li>
                                 <li class="sidebar-item"><a href="<%=request.getContextPath()%>/adProEnrollForm.do" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 상품등록 </span></a></li>
-                                <li class="sidebar-item"><a href="<%=request.getContextPath()%>/views/admin_main/inquiry/adminInquiryView.jsp" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 상품문의 </span></a></li>
+                                <li class="sidebar-item"><a href="<%=request.getContextPath()%>/adProIqList.do?cpage=1" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 상품문의 </span></a></li>
                                 <li class="sidebar-item"><a href="<%=request.getContextPath()%>/views/admin_main/review/adminReviewView.jsp" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 상품리뷰관리 </span></a></li>
                             </ul>
                         </li>

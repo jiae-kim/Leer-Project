@@ -204,6 +204,49 @@
 	<entry key="selectProductListIoCount">
 		SELECT COUNT(*) AS "COUNT"
 		  FROM PRODUCT_IO
-	</entry>	                       
+	</entry>	             
+	
+	<!-- 상품문의 전체조회 -->
+	<entry key = "selectProductIqList">
+	SELECT *
+	  FROM (
+	  		SELECT ROWNUM RNUM, A.*
+	  		  FROM (
+	  		  		SELECT
+					        I.Q_NO
+					     ,  M.MEM_ID 
+					     ,  I.Q_CATEGORY
+					     ,  I.P_CODE
+					     ,  I.TITLE
+					     ,  I.ENROLL_DATE
+					     ,  I.Q_YN
+					  FROM INQUIRY I
+					  LEFT JOIN MEMBER M ON (I.MEM_NO = M.MEM_NO)
+					 ORDER BY Q_NO DESC
+	  		 		) A
+	  		)
+	  WHERE RNUM BETWEEN ? AND ? 	
+	</entry>
+	
+	<!-- 상품문의 전체조회 기존구문 
+		SELECT
+		        I.Q_NO
+		     ,  M.MEM_ID 
+		     ,  I.Q_CATEGORY
+		     ,  I.P_CODE
+		     ,  I.TITLE
+		     ,  I.ENROLL_DATE
+		     ,  I.Q_YN
+		  FROM INQUIRY I
+		  LEFT JOIN MEMBER M ON (I.MEM_NO = M.MEM_NO)
+		 ORDER BY Q_NO DESC
+	-->
+	
+	<!-- 상품문의 전체조회 : 페이징 -->	
+	<entry key = "selectProductIqListCount">
+		SELECT COUNT(*) AS "COUNT"
+		  FROM INQUIRY
+	</entry>
+	          
 
 </properties>

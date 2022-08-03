@@ -10,6 +10,7 @@ import com.leer.common.model.vo.Attachment;
 import com.leer.common.model.vo.Category;
 import com.leer.common.model.vo.PageInfo;
 import com.leer.product.model.dao.AdminProductDao;
+import com.leer.product.model.vo.Inquiry;
 import com.leer.product.model.vo.Product;
 import com.leer.product.model.vo.ProductIo;
 
@@ -128,12 +129,34 @@ public class AdminProductService {
 	}
 
 	/* [상품및결제관리 - 입출고관리]
-	 * 재고 전체 조회 페이지 : 페이징 처리
+	 * 재고 전체조회 페이지 : 페이징 처리
 	 * 작성자 김지애
 	 */
 	public int selectProductIoListCount() {
 		Connection conn = getConnection();
 		int listCount = new AdminProductDao().selectProductListIoCount(conn);
+		close(conn);
+		return listCount;
+	}
+
+	/* [상품관리 - 상품문의]
+	 * 상품문의 전체조회
+	 * 작성자 김지애
+	 */
+	public ArrayList<Inquiry> selectProductIqList(PageInfo pi) {
+		Connection conn = getConnection();
+		ArrayList<Inquiry> list = new AdminProductDao().selectProductIqList(conn, pi);
+		close(conn);
+		return list;
+	}
+
+	/* [상품관리 - 상품문의]
+	 * 상품문의 전체조회 페이지 : 페이징 처리
+	 * 작성자 김지애
+	 */
+	public int selectProductIqListCount() {
+		Connection conn = getConnection();
+		int listCount = new AdminProductDao().selectProductIqListCount(conn);
 		close(conn);
 		return listCount;
 	}

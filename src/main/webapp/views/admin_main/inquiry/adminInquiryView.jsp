@@ -1,10 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.ArrayList, com.leer.product.model.vo.Inquiry, com.leer.common.model.vo.PageInfo" %>
+<%
+	PageInfo pi = (PageInfo)request.getAttribute("pi");
+	ArrayList<Inquiry> list = (ArrayList<Inquiry>)request.getAttribute("list");
+	
+	int currentPage = pi.getCurrentPage();
+	int startPage = pi.getStartPage();
+	int endPage = pi.getEndPage();
+	int maxPage = pi.getMaxPage();
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>상품문의 전체조회 페이지</title>
+<style>
+.customtable>tr:hover {
+    cursor: pointer;
+    opacity: 0.7;
+    background:#cecece;
+    color:dark;
+}
+</style>
 </head>
 <body>
 	<%@ include file="../../common/adminMenubar.jsp" %>
@@ -58,7 +76,11 @@
             <!-- ============================================================== -->
             <div class="container-fluid">
                 <!-- ============================================================== -->
-                <!-- 전체조회  -->
+                <!-- 목록 -->
+                <div class="card">
+                    <div class="card-body">
+                        <!-- <h5 class="card-title m-b-0">상품전체조회</h5> -->
+                                        <!-- 전체조회  -->
                 <div class="btn-group">
                     <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">문의 유형 선택</button>
                     <div class="dropdown-menu">
@@ -76,11 +98,6 @@
                         <a class="dropdown-item" href="#">답변완료</a>
                     </div>
                 </div>
-                <!-- ============================================================== -->
-                <!-- 목록 -->
-                <div class="card">
-                    <div class="card-body">
-                        <!-- <h5 class="card-title m-b-0">상품전체조회</h5> -->
                     </div>
                         <div class="table-responsive">
                             <table class="table">
@@ -93,15 +110,16 @@
                                             </label>
                                         </th>
                                         <th scope="col">글번호</th>
-                                        <th scope="col">작성자</th>
-                                        <th scope="col">문의 유형</th>
-                                        <th scope="col">문의 상품</th>
+                                        <th scope="col">작성자</th> <!--join : member t 아이디-->
+                                        <th scope="col">문의유형</th>
+                                        <th scope="col">문의상품</th> <!-- 상품코드 -->
                                         <th scope="col">제목</th>
-                                        <th scope="col">접수일</th>
-                                        <th scope="col">진행단계</th>
+                                        <th scope="col">작성일</th> 
+                                        <th scope="col">처리상태</th>
                                     </tr>
                                 </thead>
                                 <tbody class="customtable">
+                                	<% for(Inquiry i : list) { %>
                                     <tr>
                                         <th>
                                             <label class="customcheckbox">
@@ -109,169 +127,15 @@
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
-                                        <td>10</td>
-                                        <td>user56</td>
-                                        <td>주문취소/환불</td>
-                                        <td>FW-123</td>
-                                        <td>책 환불</td>
-                                        <td>2022-07-09</td>
-                                        <td style="color: red;">미답변</td>
+                                        <td><%=i.getqNo()%></td>
+                                        <td><%=i.getMemId()%></td>
+                                        <td><%=i.getqCategory()%></td>
+                                        <td><%=i.getpCode2()%></td>
+                                        <td><%=i.getTitle() %></td>
+                                        <td><%=i.getEnrollDate()%></td>
+                                        <td><%=i.getqYn()%></td>
                                     </tr>
-                                    <tr>
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>10</td>
-                                        <td>user56</td>
-                                        <td>주문취소/환불</td>
-                                        <td>FW-123</td>
-                                        <td>책 환불</td>
-                                        <td>2022-07-09</td>
-                                        <td style="color: red;">미답변</td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>10</td>
-                                        <td>user56</td>
-                                        <td>주문취소/환불</td>
-                                        <td>FW-123</td>
-                                        <td>책 환불</td>
-                                        <td>2022-07-09</td>
-                                        <td style="color: red;">미답변</td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>10</td>
-                                        <td>user56</td>
-                                        <td>주문취소/환불</td>
-                                        <td>FW-123</td>
-                                        <td>책 환불</td>
-                                        <td>2022-07-09</td>
-                                        <td style="color: red;">미답변</td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>10</td>
-                                        <td>user56</td>
-                                        <td>주문취소/환불</td>
-                                        <td>FW-123</td>
-                                        <td>책 환불</td>
-                                        <td>2022-07-09</td>
-                                        <td style="color: red;">미답변</td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>10</td>
-                                        <td>user56</td>
-                                        <td>주문취소/환불</td>
-                                        <td>FW-123</td>
-                                        <td>책 환불</td>
-                                        <td>2022-07-09</td>
-                                        <td style="color: red;">미답변</td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>10</td>
-                                        <td>user56</td>
-                                        <td>주문취소/환불</td>
-                                        <td>FW-123</td>
-                                        <td>책 환불</td>
-                                        <td>2022-07-09</td>
-                                        <td style="color: red;">미답변</td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>10</td>
-                                        <td>user56</td>
-                                        <td>주문취소/환불</td>
-                                        <td>FW-123</td>
-                                        <td>책 환불</td>
-                                        <td>2022-07-09</td>
-                                        <td style="color: red;">미답변</td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>10</td>
-                                        <td>user56</td>
-                                        <td>주문취소/환불</td>
-                                        <td>FW-123</td>
-                                        <td>책 환불</td>
-                                        <td>2022-07-09</td>
-                                        <td style="color: red;">미답변</td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>10</td>
-                                        <td>user56</td>
-                                        <td>주문취소/환불</td>
-                                        <td>FW-123</td>
-                                        <td>책 환불</td>
-                                        <td>2022-07-09</td>
-                                        <td style="color: red;">미답변</td>
-                                    </tr>
-                                    
-                                    <!-- 페이징처리 바 -->
-                                    <tr align="center">
-                                        <th colspan="10">
-                                            <div class="btn-group" role="group" aria-label="Basic example">
-                                                <button type="button" class="btn btn-outline-secondary"><</button>
-                                                <button type="button" class="btn btn-outline-secondary">1</button>
-                                                <button type="button" class="btn btn-outline-secondary">2</button>
-                                                <button type="button" class="btn btn-outline-secondary">3</button>
-                                                <button type="button" class="btn btn-outline-secondary">4</button>
-                                                <button type="button" class="btn btn-outline-secondary">5</button>
-                                                <button type="button" class="btn btn-outline-secondary">6</button>
-                                                <button type="button" class="btn btn-outline-secondary">7</button>
-                                                <button type="button" class="btn btn-outline-secondary">8</button>
-                                                <button type="button" class="btn btn-outline-secondary">9</button>
-                                                <button type="button" class="btn btn-outline-secondary">10</button>
-                                                <button type="button" class="btn btn-outline-secondary">></button>
-                                            </div>
-                                        </th>
-                                    </tr>
+                                    <% } %>
                                 </tbody>
                             </table>
                         </div>
@@ -283,6 +147,31 @@
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer text-center">
+            	<!-- 페이징처리 바 -->
+                <tr align="center">
+                   <th colspan="10">
+                   <br>
+		                <div class="btn-group paging-area" role="group" aria-label="Basic example">
+		                <% if(currentPage != 1) { %>
+		                    <button type="button" onclick="location.href='<%=request.getContextPath()%>/adProIqList.do?cpage=<%=currentPage-1%>';"
+		                        class="btn btn-outline-secondary">&lt;</button>
+		                <% } %>
+		                <% for(int p=startPage; p<=endPage; p++) { %>
+		                    <% if(p == currentPage) { %>
+		                        <button type="button" disabled class="btn btn-outline-secondary"><%=p%></button>
+		                    <% } else { %>
+		                        <button type="button" onclick="location.href='<%=request.getContextPath()%>/adProIqList.do?cpage=<%=p%>';"
+		                            class="btn btn-outline-secondary"><%=p%></button>
+		                    <% } %>
+		                <% } %>
+		                
+		                <% if(currentPage != maxPage) { %>
+		                    <button type="button" onclick="location.href='<%=request.getContextPath()%>/adProIqList.do?cpage=<%=currentPage+1%>';"
+		                        class="btn btn-outline-secondary">&gt;</button>
+		                <% } %>
+		                </div>
+                    </th>
+                </tr>
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->

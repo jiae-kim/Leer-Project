@@ -5,7 +5,7 @@ import java.sql.Date;
 public class Inquiry {
 	
 	private int qNo;
-	private int pCode;
+	private int pCode; // db로부터 잘못가져온거임 
 	private int memNo;
 	private String memName;
 	private String qYn;
@@ -16,6 +16,40 @@ public class Inquiry {
 	private Date modifyDate; 
 	private String qAnswer; 
 	
+	/* [상품문의 전체조회]
+	 * JOIN : MEMBER TAABLE
+	 * 작성자 김지애
+	 */
+	private String memId; 
+	private String pCode2;
+	
+	public String getMemId() {
+		return memId;
+	}
+
+	public void setMemId(String memId) {
+		this.memId = memId;
+	}
+	
+	public String getpCode2() {
+		return pCode2;
+	}
+
+	public void setpCode2(String pCode2) {
+		this.pCode2 = pCode2;
+	}
+
+	public Inquiry(int qNo, String memId, String qCategory, String pCode2, String title, Date enrollDate, String qYn) {
+		super();
+		this.qNo = qNo;
+		this.memId = memId;
+		this.qCategory = qCategory;
+		this.pCode2 = pCode2;
+		this.title = title;
+		this.enrollDate = enrollDate;
+		this.qYn = qYn;
+	}
+
 	public Inquiry() {}
 
 	public Inquiry(int qNo, int pCode, int memNo, String memName, String qYn, String title, String content, String qCategory,
