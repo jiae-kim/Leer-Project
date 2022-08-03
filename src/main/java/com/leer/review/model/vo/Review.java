@@ -20,12 +20,12 @@ public class Review {
 	private String p_code;
 	
 	// 리뷰전체조회 시 포인트 지급여부 판단 (작성자 김지애)
-	private String rpoint_yn;
-	public String getRpoint_yn() {
-		return rpoint_yn;
+	private String rpointYn;
+	public String getRpointYn() {
+		return rpointYn;
 	}
-	public void setRpoint_yn(String rpoint_yn) {
-		this.rpoint_yn = rpoint_yn;
+	public void setRpoint_yn(String rpointYn) {
+		this.rpointYn = rpointYn;
 	}
 
 	public Review() {}
@@ -218,12 +218,17 @@ public class Review {
 		this.reviewContent = reviewContent;
 		this.reviewScope = reviewScope;
 		this.enrollDate = enrollDate;
-		this.rpoint_yn = rpoint_yn;
+		this.rpointYn = rpointYn;
 	}
 	
-	
-	
-	
+	@Override
+	public String toString() {
+		return "Review [reviewNo=" + reviewNo + ", memNo=" + memNo + ", memId=" + memId + ", pName=" + pName
+				+ ", reviewScope=" + reviewScope + ", reviewContent=" + reviewContent + ", enrollDate=" + enrollDate
+				+ ", mofifyDate=" + mofifyDate + ", writeYN=" + writeYN + ", price=" + price + ", image_url="
+				+ image_url + ", or_date=" + or_date + ", or_no=" + or_no + ", p_code=" + p_code + ", rpointYn="
+				+ rpointYn + "]";
+	}
 	
 
 }
