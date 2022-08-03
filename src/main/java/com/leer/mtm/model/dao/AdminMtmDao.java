@@ -1,4 +1,4 @@
-package com.leer.notice.model.dao;
+package com.leer.mtm.model.dao;
 
 import static com.leer.common.JDBCTemplate.close;
 
@@ -12,27 +12,28 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 import com.leer.common.model.vo.PageInfo;
-import com.leer.notice.model.vo.Notice;
+import com.leer.mtm.model.vo.Mtm;
+import com.leer.terms.model.vo.Terms;
 
-public class AdminNoticeDao {
+public class AdminMtmDao {
 	
 	private Properties prop = new Properties();
 	
-	public AdminNoticeDao() {
+	public AdminMtmDao() {
 		try {
-			prop.loadFromXML(new FileInputStream(AdminNoticeDao.class.getResource("/db/sql/admin-notice-mapper.xml").getPath()));
+			prop.loadFromXML(new FileInputStream(AdminMtmDao.class.getResource("/db/sql/admin-notice-mapper.xml").getPath()));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 	
-	// 관리자 고객센터리스트조회
+	// 관리자 1:1문의리스트 조회
 	// 작성자 김은지
-	public ArrayList<Notice> selectNoticeList(Connection conn, PageInfo pi){
-		ArrayList<Notice> list = new ArrayList<>();
+	public ArrayList<Mtm> selectMtmList(Connection conn, PageInfo pi){
+		ArrayList<Mtm> list = new ArrayList<>();
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		String sql = prop.getProperty("selectNoticeList");
+		String sql = prop.getProperty("selectMtmList");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -41,20 +42,22 @@ public class AdminNoticeDao {
 			int endRow = startRow + pi.getBoardLimit()-1;
 			
 			pstmt.setInt(1, startRow);
-			pstmt.setInt(2, endRow); 
+			pstmt.setInt(2, endRow);
 			
 			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
 				
-				list.add(new Notice(rset.getInt("noti_no"),
-									rset.getString("title"),
-									rset.getDate("enroll_date"),
-									rset.getInt("noti_views"),
-									rset.getString("mem_id")
+				list.add(new Mtm(rset.getInt("mtm_no"),
+								 rset.getInt("mem_no"),
+								 rset.getInt("mem_no2"),
+								 rset.getString("mtm_title"),
+								 rset.getDate("enroll_date"),
+								 rset.getString("mtm_type"),
+								 rset.getString("ans_yn")
 						));
 				
-			}
+			}				
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -62,18 +65,17 @@ public class AdminNoticeDao {
 			close(pstmt);
 		}
 		return list;
-		
 	}
 	
-	// 관리자 고객센터리스트조회 페이징처리
-	// 작성자 김은지	
-	public int selectNoticeListCount(Connection conn) {
+	// 관리자 1:1문의리스트 조회 페이징처리
+	// 작성자 김은지
+	public int selectMtmListCount(Connection conn) {
 		int listCount = 0;
 		
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
-		String sql = prop.getProperty("selectNoticeListCount");
+		String sql = prop.getProperty("selectMtmListCount");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -88,15 +90,10 @@ public class AdminNoticeDao {
 			close(rset);
 			close(pstmt);
 		}
-		return listCount;
+		return listCount;		
 	}
 
 }
-
-
-
-
-
 
 
 

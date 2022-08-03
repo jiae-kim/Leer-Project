@@ -1,4 +1,4 @@
-package com.leer.member.controller;
+package com.leer.mtm.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -10,26 +10,27 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.leer.common.model.vo.PageInfo;
-import com.leer.member.model.service.AdminMemberService;
-import com.leer.member.model.vo.Member;
+import com.leer.mtm.model.service.AdminMtmService;
+import com.leer.mtm.model.vo.Mtm;
 
 /**
- * Servlet implementation class AdminMemberListController
+ * Servlet implementation class AdminMtmListController
  */
-@WebServlet("/adMemList.do")
-public class AdminMemberListController extends HttpServlet {
+@WebServlet("/adList.mt")
+public class AdminMtmListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+       
     /**
-     * Default constructor. 
+     * @see HttpServlet#HttpServlet()
      */
-    public AdminMemberListController() {
+    public AdminMtmListController() {
+        super();
         // TODO Auto-generated constructor stub
     }
 
-	/*
-	 *  회원조회기능
-	 *	작성자 김은지
+	/**
+	 * 관리자 1:1문의리스트조회
+	 * 작성자 김은지
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 페이징처리
@@ -42,7 +43,7 @@ public class AdminMemberListController extends HttpServlet {
 		int startPage;
 		int endPage;
 		
-		listCount = new AdminMemberService().selectMemberListCount();
+		listCount = new AdminMtmService().selectMtmListCount();
 		currentPage = Integer.parseInt(request.getParameter("cpage"));
 		pageLimit = 10;
 		boardLimit = 10;
@@ -57,13 +58,12 @@ public class AdminMemberListController extends HttpServlet {
 		
 		PageInfo pi = new PageInfo(listCount, currentPage, pageLimit, boardLimit, maxPage, startPage, endPage);
 		
-		
-		ArrayList<Member> list = new AdminMemberService().selectMemberList(pi);
+		ArrayList<Mtm> list = new AdminMtmService().selectMtmList(pi);
 		
 		request.setAttribute("pi", pi);
 		request.setAttribute("list", list);
 		
-		request.getRequestDispatcher("views/admin_main/member/adminMemberView.jsp").forward(request, response);
+		request.getRequestDispatcher("views/admin_main/mtm/adminMtmView.jsp").forward(request, response);
 	}
 
 	/**
@@ -73,19 +73,18 @@ public class AdminMemberListController extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

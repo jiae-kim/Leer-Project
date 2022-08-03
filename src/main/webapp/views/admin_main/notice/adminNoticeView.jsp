@@ -5,11 +5,10 @@
 	PageInfo pi = (PageInfo)request.getAttribute("pi");
 	ArrayList<Notice> list = (ArrayList<Notice>)request.getAttribute("list");
 	
-	/*
 	int currentPage = pi.getCurrentPage();
 	int startPage = pi.getStartPage();
 	int endPage = pi.getEndPage();
-	int maxPage = pi.getMaxPage(); */
+	int maxPage = pi.getMaxPage(); 
 %>       
 <!DOCTYPE html>
 <html>
@@ -126,6 +125,31 @@
 	                                    </tr>
                                     <% } %>
                                 </tbody>
+                                <tfoot>
+                                    <tr align="center">
+                                        <th colspan="10">	
+                                            <div class="btn-group paging-area" role="group" aria-label="Basic example">                                            
+                                            	<% if(currentPage != 1) { %>
+	                                                <button type="button" onclick="location.href='<%=request.getContextPath()%>/adList.no?cpage=<%=currentPage-1%>';"  
+	                                                		class="btn btn-outline-secondary">&lt;</button>
+	                                            <% } %>
+	                                            <% for(int p=startPage; p<=endPage; p++) { %>
+	                                            	<% if(p == currentPage) { %>
+	                                                	<button type="button" disabled class="btn btn-outline-secondary"><%=p%></button>
+	                                                <% } else { %>
+	                                                	<button type="button" onclick="location.href='<%=request.getContextPath()%>/adList.no?cpage=<%=p%>';" 
+	                                                			class="btn btn-outline-secondary"><%=p%></button>
+	                                                <% } %>
+	                                            <% } %>
+	                                            
+	                                            <% if(currentPage != maxPage) { %>
+	                                            	<button type="button" onclick="location.href='<%=request.getContextPath()%>/adList.no?cpage=<%=currentPage+1%>';" 
+	                                                		    class="btn btn-outline-secondary">&gt;</button>
+	                                            <% } %>	                   
+                                              </div>
+                                        </th>
+                                    </tr>
+                                </tfoot>
                             </table>
                         </div>
                 </div>

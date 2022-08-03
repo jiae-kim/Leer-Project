@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.leer.common.model.vo.PageInfo;
 import com.leer.notice.model.service.AdminNoticeService;
 import com.leer.notice.model.vo.Notice;
 
@@ -33,7 +34,6 @@ public class AdminNoticeListController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 페이징처리
-		/*
 		int listCount;
 		int currentPage;
 		int pageLimit;
@@ -56,11 +56,11 @@ public class AdminNoticeListController extends HttpServlet {
 			endPage = maxPage;
 		}
 				
-		PageInfo pi = new PageInfo(listCount, currentPage, pageLimit, boardLimit, maxPage, startPage, endPage); */
+		PageInfo pi = new PageInfo(listCount, currentPage, pageLimit, boardLimit, maxPage, startPage, endPage); 
 		
-		ArrayList<Notice> list = new AdminNoticeService().selectNoticeList(); //pi
+		ArrayList<Notice> list = new AdminNoticeService().selectNoticeList(pi); 
 		
-		//request.setAttribute("pi", pi);
+		request.setAttribute("pi", pi);
 		request.setAttribute("list", list);
 		
 		request.getRequestDispatcher("views/admin_main/notice/adminNoticeView.jsp").forward(request, response);
