@@ -3,7 +3,7 @@
 <properties>
 
 	<!-- 고객센터 공지사항리스트조회, 김은지 -->
-	<entry key="selectMemberOrderDetail">
+	<entry key="selectNoticeList">
 		SELECT 
 		       N.NOTI_NO
 		     , N.TITLE

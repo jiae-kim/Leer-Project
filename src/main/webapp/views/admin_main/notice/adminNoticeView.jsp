@@ -1,5 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.ArrayList, com.leer.notice.model.vo.Notice, com.leer.common.model.vo.PageInfo"%> 
+<%
+	PageInfo pi = (PageInfo)request.getAttribute("pi");
+	ArrayList<Notice> list = (ArrayList<Notice>)request.getAttribute("list");
+	
+	/*
+	int currentPage = pi.getCurrentPage();
+	int startPage = pi.getStartPage();
+	int endPage = pi.getEndPage();
+	int maxPage = pi.getMaxPage(); */
+%>       
 <!DOCTYPE html>
 <html>
 <head>
@@ -98,21 +109,22 @@
                                         <th scope="col">조회수</th>
                                     </tr>
                                 </thead>
-                                <tbody class="customtable">
-                                    <tr>
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>10</td>
-                                        <td>홈페이지 점검 공지</td>
-                                        <td>2022-07-26</td>
-                                        <td>관리자1</td>
-                                        <td>154</td>
-                                    </tr>
-                                    
+                                <tbody class="customtable custom">
+                                	<% for(Notice n : list) { %>	
+	                                    <tr <%-- onclick="location.href='<%=request.getContextPath()%>/adTListDetail.do?no=<%=t.getTrmNo()%>';"--%> >
+	                                        <th>
+	                                            <label class="customcheckbox">
+	                                                <input type="checkbox" class="listCheckbox" />
+	                                                <span class="checkmark"></span>
+	                                            </label>
+	                                        </th>
+	                                        <td><%=n.getNotiNo()%></td>
+	                                        <td><%=n.getTitle()%></td>
+	                                        <td><%=n.getEnrollDate()%></td>
+	                                        <td><%=n.getMemId()%></td>
+	                                        <td><%=n.getNotiViews()%></td>
+	                                    </tr>
+                                    <% } %>
                                 </tbody>
                             </table>
                         </div>
