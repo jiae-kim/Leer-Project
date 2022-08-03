@@ -80,6 +80,7 @@
 		  , ORIGIN_NAME
 		  , CHANGE_NAME
 		  , FILE_PATH
+		  , REF_CODE
 		  )
 		  VALUES
 		  (
@@ -88,6 +89,7 @@
 		  , ?
 		  , ?
 		  , ?
+		  , 'REV'
 		  )
 	</entry>
 

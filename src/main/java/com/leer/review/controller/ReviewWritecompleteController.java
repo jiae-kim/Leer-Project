@@ -126,7 +126,10 @@ public class ReviewWritecompleteController extends HttpServlet {
 				
 				if(result > 0) {
 					// 열려있는 자식창 닫기 (자바스크립트 부모창 자식창 )
-					
+					response.getWriter().print("<script>window.opener.location.reload(); window.close();</script>");
+					// getWriter() 을 통해 부모객체(현재) 와 자식객체의 연결통로 만들기
+					// 이후 script를 진행시켜 자식객체에서 window.opener(부모객체의).location(현재위치).reload(새로고침)
+					// 이후 window.close(); 현재 window 닫기
 				}else {
 					// 첨부파일이 있었을 경우 업로드된 파일 찾아서 삭제시키기
 					if(at != null) {
