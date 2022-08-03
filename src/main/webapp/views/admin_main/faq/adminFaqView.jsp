@@ -1,10 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.ArrayList, com.leer.faq.model.vo.Faq, com.leer.common.model.vo.PageInfo" %>
+<%
+	PageInfo pi = (PageInfo)request.getAttribute("pi");
+	ArrayList<Faq> list = (ArrayList<Faq>)request.getAttribute("list");
+	
+	int currentPage = pi.getCurrentPage();
+	int startPage = pi.getStartPage();
+	int endPage = pi.getEndPage();
+	int maxPage = pi.getMaxPage();
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>FAQ 전체조회 페이지</title>
+<style>
+.customtable>tr:hover {
+    cursor: pointer;
+    opacity: 0.7;
+    background:#cecece;
+    color:dark;
+}   
+</style>
 </head>
 <body>
 	<%@ include file="../../common/adminMenubar.jsp" %>
@@ -62,7 +80,7 @@
                 <div class="card">
                     <div class="card-body">
                         <!-- <h5 class="card-title m-b-0">상품전체조회</h5> -->
-                         <!-- 전체조회  -->
+                        <!-- 전체조회  -->
                         <div class="btn-group">
                             <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">카테고리 선택</button>
                             <div class="dropdown-menu">
@@ -86,12 +104,12 @@
                                         <th scope="col">글번호</th>
                                         <th scope="col">카테고리</th>
                                         <th scope="col">제목</th>
-                                        <th scope="col">작성자</th>
-                                        <th scope="col">작성일</th>
+                                        <th scope="col">등록일</th>
                                         <th scope="col">조회수</th>
                                     </tr>
                                 </thead>
                                 <tbody class="customtable">
+                                	<% for(Faq f : list) { %>
                                     <tr>
                                         <th>
                                             <label class="customcheckbox">
@@ -99,14 +117,13 @@
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
-                                        <td>10</td>
-                                        <td>주문/결제</td>
-                                        <td>정기구독 관련 안내사항</td>
-                                        <td>관리자1</td>
-                                        <td>2022-07-26</td>
-                                        <td>154</td>
+                                        <td><%=f.getFaqNo()%></td>
+                                        <td><%=f.getFaqCategory()%></td>
+                                        <td><%=f.getFaqTitle()%></td>
+                                        <td><%=f.getEnrollDate()%></td>
+                                        <td><%=f.getEnrollDate()%></td>
                                     </tr>
-                                    
+                                    <% } %>
                                 </tbody>
                             </table>
                         </div>
@@ -118,6 +135,31 @@
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer text-center">
+            <!-- 페이징처리 바 -->
+                <tr align="center">
+                   <th colspan="10">
+                   <br>
+		                <div class="btn-group paging-area" role="group" aria-label="Basic example">
+		                <% if(currentPage != 1) { %>
+		                    <button type="button" onclick="location.href='<%=request.getContextPath()%>/adFaqList.do?cpage=<%=currentPage-1%>';"
+		                        class="btn btn-outline-secondary">&lt;</button>
+		                <% } %>
+		                <% for(int p=startPage; p<=endPage; p++) { %>
+		                    <% if(p == currentPage) { %>
+		                        <button type="button" disabled class="btn btn-outline-secondary"><%=p%></button>
+		                    <% } else { %>
+		                        <button type="button" onclick="location.href='<%=request.getContextPath()%>/adFaqList.do?cpage=<%=p%>';"
+		                            class="btn btn-outline-secondary"><%=p%></button>
+		                    <% } %>
+		                <% } %>
+		                
+		                <% if(currentPage != maxPage) { %>
+		                    <button type="button" onclick="location.href='<%=request.getContextPath()%>/adFaqList.do?cpage=<%=currentPage+1%>';"
+		                        class="btn btn-outline-secondary">&gt;</button>
+		                <% } %>
+		                </div>
+                    </th>
+                </tr>
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->

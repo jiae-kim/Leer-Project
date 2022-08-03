@@ -125,7 +125,7 @@
                             <ul aria-expanded="false" class="collapse  first-level">
                                 <li class="sidebar-item"><a href="<%=request.getContextPath()%>/adList.no?cpage=1" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 공지사항 </span></a></li>
                                 <li class="sidebar-item"><a href="<%=request.getContextPath()%>/adList.mt?cpage=1" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 1:1상담 </span></a></li>
-                                <li class="sidebar-item"><a href="<%=request.getContextPath()%>/views/admin_main/faq/adminFaqView.jsp" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> FAQ </span></a></li>
+                                <li class="sidebar-item"><a href="<%=request.getContextPath()%>/adFaqList.do?cpage=1" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> FAQ </span></a></li>
                             </ul>
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-chart-bubble"></i><span class="hide-menu">상품관리</span></a>
