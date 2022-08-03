@@ -71,7 +71,7 @@
     </style>
 </head>
 <body>
-<%-- <%@ include file="../common/menubar.jsp" %>  --%>
+<%@ include file="../common/menubar.jsp" %>
 
 	
 <section class="breadcrumb-section set-bg">

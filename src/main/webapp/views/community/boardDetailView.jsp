@@ -216,7 +216,7 @@ style="margin-left:10px";
 </head>
 <body>
 
-	<%-- 	<%@ include file="../common/menubar.jsp" %> --%>
+	<%@ include file="../common/menubar.jsp" %>
 
 	<!-- Breadcrumb Section Begin -->
 	<section class="breadcrumb-section set-bg">
@@ -414,6 +414,6 @@ style="margin-left:10px";
 		}
 	</script>
 	<%@ include file="../community/comuMypage.jsp"%>
-
+	 <%@ include file="../common/footer.jsp" %>
 </body>
 </html>

@@ -223,6 +223,7 @@ li {
 </style>
 </head>
 <body>
+	<%@ include file="../common/menubar.jsp" %>
 	<!-- Breadcrumb Section Begin -->
 	<section class="breadcrumb-section set-bg">
 		<div class="container">
@@ -286,5 +287,6 @@ li {
 	</div>
 
 	<%@ include file="../community/comuMypage.jsp"%>
+	<%@ include file="../common/footer.jsp" %>
 </body>
 </html>

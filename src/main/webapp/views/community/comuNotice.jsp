@@ -66,6 +66,7 @@ String flag = (String)request.getAttribute("flag");
     </style>
 </head>
 <body>
+<%@ include file="../common/menubar.jsp" %>
 	<!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-section set-bg">
         <div class="container">
