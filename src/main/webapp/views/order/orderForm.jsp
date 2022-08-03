@@ -433,6 +433,7 @@
                                         
                                     </h2>
                                     <div style="border-bottom: 2px solid #303030; margin-bottom: 30px;;"></div>
+                                    <form action="/complete.od">
                                     <div class="etc_content_box" >
                                         <ul class="product_review_list" id="review_list"></ul>
                                         <table class="table" style= "border:#dadada solid" id="tb" >
@@ -622,8 +623,10 @@
                                         
                                          <br>
                                         <div>
-                                            <button class=btn id="order-btn" style="padding:20px 40px; font-size:20px" onclick="requestPay()">주문하기</button>
+                                            <button type="button" class=btn id="order-btn" style="padding:20px 40px; font-size:20px" onclick="requestPay()">주문하기</button>
                                         </div>
+                                        
+                                        </form>
 										
 										<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 										<script src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js" type="text/javascript"></script>
@@ -746,8 +749,8 @@
 									      IMP.request_pay({ // param
 									          pg: "html5_inicis",
 									          pay_method: "card",
-									          merchant_uid: "ORD20180131-0000011",
-									          name: "노르웨이 회전 의자",
+									          merchant_uid: "leer",
+									          name: "LEER 상품 결제",
 									          amount: 1,
 									          buyer_email: "<%=loginUser.getEmail()%>",
 									          buyer_name: "<%=loginUser.getMemName()%>",
@@ -759,6 +762,10 @@
 									          if (rsp.success) {
 									        	  var msg = '결제가 완료되었습니다.';
 									              alert(msg);
+									              
+									              /*  form.mothod = 'GET';*/
+									              form.submit();
+									              
 									              
 									             	
 									          } else {
