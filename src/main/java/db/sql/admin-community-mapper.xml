@@ -138,17 +138,24 @@
 	
 	<!-- 커뮤니티 신고리스트조회, 김은지 -->
 	<entry key="selectReportList">
-		SELECT 
-		       R.REPORT_NO
-		     , R.REPORT_CATEGORY
-		     , R.REPORT_CLASS
-		     , R.REPORTED_NO
-		     , R.MEM_NO
-		     , R.REPORT_DATE
-		     , R.REPORT_YN
-		  FROM REPORT R
-		 ORDER 
-		    BY REPORT_NO DESC
+		SELECT *
+		  FROM (
+		  	   SELECT ROWnUM RNUM, A.*
+		  	     FROM (		
+					  SELECT 
+						     R.REPORT_NO
+						   , R.REPORT_CATEGORY
+						   , R.REPORT_CLASS
+						   , R.REPORTED_NO
+						   , R.MEM_NO
+						   , R.REPORT_DATE
+						   , R.REPORT_YN
+						FROM REPORT R
+					   ORDER 
+					      BY REPORT_NO DESC
+		  	     	  ) A
+		  	   )
+		WHERE RNUM BETWEEN ? AND ?	 		    
 	</entry>
 	
 	<!-- 커뮤니티 신고리스트 페이징처리, 김은지 -->
@@ -156,6 +163,18 @@
 		SELECT COUNT(*) AS "COUNT"
 		  FROM REPORT
 	</entry>
+	
+	<!-- 커뮤니티 신고게시물 상세페이지, 김은지 -->
+	<entry key="reportDetailList">
+		SELECT
+		       REPORT_CATEGORY
+		     , REPORT_CLASS
+		     , REPORTED_NO
+		     , MEM_NO
+		     , REPORT_CONTENT
+		  FROM REPORT
+		 WHERE REPORT_NO = ?
+	</entry>	
 			
 </properties>
 

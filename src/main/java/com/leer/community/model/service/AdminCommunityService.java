@@ -126,6 +126,15 @@ public class AdminCommunityService {
 		close(conn);
 		return listCount;
 	}
+	
+	// 관리자 신고페이지 상세
+	// 작성자 김은지	
+	public Report reportDetailList(int reportNo) {
+		Connection conn = getConnection();
+		Report r = new AdminCommunityDao().reportDetailList(conn, reportNo);
+		close(conn);
+		return r;
+	}
 
 }
 

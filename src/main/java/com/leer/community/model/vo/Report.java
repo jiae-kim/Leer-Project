@@ -42,6 +42,15 @@ public class Report {
 		this.reportYn = reportYn;
 	}
 
+	public Report(int reportNo, int memNo, String reportClass, String reportCategory, String reportContent) {
+		super();
+		this.reportNo = reportNo;
+		this.memNo = memNo;
+		this.reportClass = reportClass;
+		this.reportCategory = reportCategory;
+		this.reportContent = reportContent;
+	}
+
 	public int getReportNo() {
 		return reportNo;
 	}

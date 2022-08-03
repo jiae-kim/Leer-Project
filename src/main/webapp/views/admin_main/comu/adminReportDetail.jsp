@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="com.leer.community.model.vo.Report" %>
+<%
+	Report r = (Report)request.getAttribute("report");
+%>     
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,35 +53,35 @@
                                         게시물 종류
                                       </td>
                                       <td width="350px">
-                                          <label for="" style="float: left;">&nbsp;&nbsp; 커뮤니티 댓글</label> 
+                                          <label for="" style="float: left;">&nbsp;&nbsp; <%=r.getReportCategory()%></label> 
                                       </td>
                                       <td width="150px" height="45px" style="background:hsl(0, 0%, 77%); color:rgb(80, 80, 80); font-weight: bold;">
                                         신고사유
                                       </td>
                                       <td width="350px">
-                                          <label for="" style="float: left;">&nbsp;&nbsp; 욕설 및 비방</label> 
+                                          <label for="" style="float: left;">&nbsp;&nbsp; <%=r.getReportClass()%></label> 
                                       </td>
                                     </tr>
                                     
                                     <tr>
                                       <td width="" height="45px" style="background:hsl(0, 0%, 77%); color:rgb(80, 80, 80); font-weight: bold;">
-                                        작성자
+                                        작성자 회원번호
                                       </td>
                                       <td>
-                                          <label for="" style="float: left;">&nbsp;&nbsp; tttt1</label> 
+                                          <label for="" style="float: left;">&nbsp;&nbsp; <%=r.getReportedNo()%></label> 
                                       </td>
                                       <td width="" height="45px" style="background:hsl(0, 0%, 77%); color:rgb(80, 80, 80); font-weight: bold;">
-                                        신고자
+                                        신고한 회원번호
                                       </td>
                                       <td>
-                                          <label for="" style="float: left;">&nbsp;&nbsp; dddd1</label> 
+                                          <label for="" style="float: left;">&nbsp;&nbsp; <%=r.getMemNo()%></label> 
                                       </td>
                                     </tr>
                                   </tbody>
                               </table>
                               <br>
                               <table class="tarea" align="center" style="margin:5px 5px 5px 5px">
-                                <textarea name="" id="" cols="133.5" rows="23" resize="none" placeholder="">신고된게시물내용</textarea>
+                                <textarea name="" id="" cols="133.5" rows="23" resize="none" placeholder=""><%=r.getReportContent()%></textarea>
                               </table>
                               <div class="">
                                 <table class="tt1" border="1" align="center">
@@ -91,7 +95,7 @@
                                         <a href="" id="btn" class="btn btn-dark" style="width:150px">게시물 삭제</a>
                                         <a href="" id="btn" class="btn btn-dark" style="width:150px">게시물 블라인드</a>
                                         <a href="" id="btn" class="btn btn-dark" style="width:150px">작성자 강퇴</a>
-                                        <a href="" id="btn" class="btn btn-dark" style="width:150px">목록으로</a>
+                                        <a href="<%= request.getContextPath() %>/adRList.co?cpage=1" id="btn" class="btn btn-dark" style="width:150px">목록으로</a>
                                     </div>
                             </c:if>
                           </div>

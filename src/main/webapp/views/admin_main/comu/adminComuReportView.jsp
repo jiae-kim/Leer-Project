@@ -110,7 +110,7 @@
                                 </thead>
                                 <tbody class="custom">
                                 	<% for(Report r : list) { %>
-	                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminReportDetail.jsp';">
+	                                    <tr onclick="location.href='<%=request.getContextPath()%>/adRDetail.co?no=<%=r.getReportNo()%>';">
 	                                        <th>
 	                                            <label class="customcheckbox">
 	                                                <input type="checkbox" class="listCheckbox" />

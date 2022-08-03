@@ -363,6 +363,37 @@ public class AdminCommunityDao {
 		return listCount;
 	}
 	
+	// 관리자 신고페이지 상세
+	// 작성자 김은지
+	public Report reportDetailList(Connection conn, int reportNo) {
+		Report r = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("reportDetailList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, reportNo);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				r = new Report(rset.getInt("reported_no"),
+							   rset.getInt("mem_no"),
+							   rset.getString("report_class"),
+							   rset.getString("report_category"),
+							   rset.getString("report_content")
+						);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return r;
+	}
+	
 }
 
 
