@@ -516,13 +516,13 @@
                                             <table class="table" style="margin-top:20px" >
                                                 <tr> 
                                                     <th style="background:#f1f1f1" >주문하시는분</th>
-                                                    <td><input type="text" style="width:300px" ></td>
+                                                    <td><input type="text" style="width:300px" name="tkName" ></td>
                                                 </tr>
                                                 <tr>
                                                     <th style="background:#f1f1f1">주문자 연락처</th>
-                                                    <td><input type="text" style="width:300px" > - 
-                                                        <input type="text" style="width:300px" > - 
-                                                        <input type="text" style="width:300px" ></td> 
+                                                    <td><input type="text" style="width:300px" name="tkPhone" > - 
+                                                        <input type="text" style="width:300px" name="tkPhone" > - 
+                                                        <input type="text" style="width:300px" name="tkPhone" ></td> 
                                                 </tr>
                                                 <tr>
                                                     <th style="background:#f1f1f1">주문자 이메일</th>
@@ -550,19 +550,19 @@
                                                     <th style="background:#f1f1f1; vertical-align: middle;">배송지주소</th>
                                                     
                                                      <td style="vertical-align:middle">
-                                                     	<input type="radio">새로운 주소로 입력
-                                                        <input type="radio">내 주소 <br>
-                                                        <input type="text" id="sample6_postcode" placeholder="우편번호">
+                                                     	<input type="radio" name="address" checked>새로운 주소로 입력
+                                                        <input type="radio" name="address">내 주소 <br>
+                                                        <input type="text" id="sample6_postcode" placeholder="우편번호" name="postCode">
 														<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
-														<input type="text" id="sample6_address" placeholder="주소"><br>
-														<input type="text" id="sample6_detailAddress" placeholder="상세주소">
-														<input type="text" id="sample6_extraAddress" placeholder="참고항목">
+														<input type="text" id="sample6_address" placeholder="주소" name="address"><br>
+														<input type="text" id="sample6_detailAddress" placeholder="상세주소" name="address">
+														<input type="text" id="sample6_extraAddress" placeholder="참고항목" name="address">
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <th style="background:#f1f1f1">배송메세지</th>
                                                     <td>
-                                                        <input type="text" style="width:600px" >
+                                                        <input type="text" style="width:600px" name="pcMsg" >
                                                     </td>
                                                 </tr>
                                             </table>
@@ -574,7 +574,7 @@
                                                     <td>
                                                         <span>보유 포인트 : </span><span id="point"><%=point %></span><span>P</span>
                                                         <input type="text" id="point-text" placeholder="사용할 적립금 입력" >
-                                                        <button class="btn" id="point-btn"  style="padding:14px;">적용</button>
+                                                        <button type="button" class="btn" id="point-btn"  style="padding:14px;">적용</button>
                                                     </td>
                                                 </tr>
                                                
@@ -626,6 +626,8 @@
                                             <button type="button" class=btn id="order-btn" style="padding:20px 40px; font-size:20px" onclick="requestPay()">주문하기</button>
                                         </div>
                                         
+                                        <input type="hidden" name="product1" value="<%=list.get(0).getpCode()%>">
+                                        <input type="hidden" name="finalPrice" value=sumPrice>
                                         </form>
 										
 										<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
@@ -633,7 +635,7 @@
 										<script>
 										let sumPrice = 0;
 										let deliFee = 0;
-										let finalPrice = 0;	
+										let finalPrice = sumPrice;	
 										
 										
 										function number_format(num){
@@ -646,7 +648,7 @@
 											point = parseInt($("#point-text").val());
 											$("#point").html(parseInt($("#point").text()) - point);
 											$("#point-text").css("color", "blue");
-											$("#sum-discount").html($("#point-text").val());
+											$("#sum-discount").html(number_format(parseInt($("#point-text").val())));
 											
 											finalPrice = sumPrice - point + deliFee;
 											console.log(sumPrice);
@@ -727,7 +729,7 @@
 											
 											
 											
-											$("#finalPrice").html(number_format(sumPrice + deliFee));	
+											$("#finalPrice").html(number_format(finalPrice + deliFee));	
 											
 											
 											
@@ -750,21 +752,32 @@
 									          pg: "html5_inicis",
 									          pay_method: "card",
 									          merchant_uid: "leer",
-									          name: "LEER 상품 결제",
-									          amount: 1,
+									          name: "<%=list.get(0).getpName()%> 외 " + <%=length-1%> + "건",
+									          amount: parseInt($("#finalPrice").text().replace(",", "")),
 									          buyer_email: "<%=loginUser.getEmail()%>",
 									          buyer_name: "<%=loginUser.getMemName()%>",
 									          buyer_tel: "<%=loginUser.getPhone()%>",
 									          buyer_addr: "<%=loginUser.getAddress()%>",
 									          buyer_postcode: $("#sample6_postcode").val()
+									          
 									      }, function (rsp) { // callback
 									    	  console.log(rsp);
 									          if (rsp.success) {
 									        	  var msg = '결제가 완료되었습니다.';
 									              alert(msg);
 									              
-									              /*  form.mothod = 'GET';*/
-									              form.submit();
+									              $.ajax({
+									             		url:"<%=contextPath%>/complete.od"
+									             		method:"POST"
+									             		headers:{ "Content-Type": "application/json" },
+									             		data: {
+									             			imp_uid: rsp.imp_uid,
+              											merchant_uid: rsp.merchant_uid
+									             		}
+									                 }).done(function (data) {
+									                 
+									                 })
+
 									              
 									              
 									             	
