@@ -95,6 +95,23 @@
 	<!-- 커뮤니티 게시글리스트조회, 김은지 -->
 	<entry key="selectBoardList">
 		SELECT 
+		       CB.COMU_NO
+		     , CB.TITLE
+		     , M.MEM_ID
+		     , CB.ENROLL_DATE
+		     , CB.VIEW_COUNT
+		     , REPORT_YN
+		  FROM COMU_BOARD CB
+		  JOIN MEMBER M ON (M.MEM_NO = CB.MEM_NO)
+		  LEFT 
+		  JOIN REPORT ON(COMU_NO = REPORTED_COMU)
+		 ORDER
+		    BY COMU_NO DESC
+	</entry>
+	
+	<!-- 커뮤니티 게시글 상세조회, 김은지 -->
+	<entry key="ComuBoardDetailList">
+		SELECT 
 			   CB.TITLE
 		     , CC.CATEGORY_NAME
 		     , M.MEM_ID

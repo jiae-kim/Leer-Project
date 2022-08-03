@@ -12,6 +12,7 @@ import com.leer.common.model.vo.Attachment;
 import com.leer.common.model.vo.Category2;
 import com.leer.common.model.vo.PageInfo;
 import com.leer.community.model.dao.AdminCommunityDao;
+import com.leer.community.model.vo.ComuBoard;
 import com.leer.community.model.vo.ComuNotice;
 
 public class AdminCommunityService {
@@ -73,6 +74,17 @@ public class AdminCommunityService {
 	public ArrayList<Category2> selectCategoryList(){
 		Connection conn = getConnection();
 		ArrayList<Category2> list = new AdminCommunityDao().selectCategoryList(conn);
+		close(conn);
+		return list;
+	}
+	
+	// 관리자 커뮤게시물리스트 조회
+	// 작성자 김은지
+	public ArrayList<ComuBoard> selectBoardList(){ //PageInfo pi
+		Connection conn = getConnection();
+		
+		ArrayList<ComuBoard> list = new AdminCommunityDao().selectBoardList(conn); // , pi
+		
 		close(conn);
 		return list;
 	}
