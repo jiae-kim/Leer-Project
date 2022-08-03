@@ -14,7 +14,7 @@
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
                         <br><br><br>
-                        <h2 class="page-title">주문내역 전체조회</h2>
+                        <h2 class="page-title">주문 및 배송 전체조회</h2>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <input class="form-control mr-sm-2" type="text" placeholder="Search">
                         <button class="btn btn-success" type="submit">조회</button>
@@ -22,11 +22,11 @@
                     <nav aria-label="breadcrumb">
                     </nav>
                     <!-- 운송장 등록 Button trigger modal -->
-                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#deleteReview">
+                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#inputpackage">
                         운송장 등록
                     </button>
                     <!-- Modal -->
-                    <div class="modal fade" id="deleteReview" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="inputpackage" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -95,14 +95,15 @@
                                             <span class="checkmark"></span>
                                         </label>
                                     </th>
-                                    <th scope="col">회원번호</th>
-                                    <th scope="col">주문번호</th>
+                                    <th scope="col">회원번호</th> <!--주문관리t-->
+                                    <th scope="col">주문번호</th> <!--주문관리t-->
                                     <th scope="col">상품명</th> <!-- join 상품등록 : 잡지명 -->
+                                    <th scope="col">수량</th> <!-- join 주문별상품 : 수량 -->
                                     <th scope="col">결제일시</th> <!-- 주문날짜 컬럼 -->
                                     <th scope="col">결제금액</th> <!-- 총가격 컬럼 -->
+                                    <th scope="col">택배사</th> <!--주문관리t-->
+                                    <th scope="col">운송장번호</th>	 <!--주문관리t-->
                                     <th scope="col">배송상태</th> <!-- 배송현황 컬럼 -->
-                                    <th scope="col">택배사</th>
-                                    <th scope="col">운송장번호</th>	
                                 </tr>
                             </thead>
                             <tbody class="customtable">
@@ -113,14 +114,15 @@
                                             <span class="checkmark"></span>
                                         </label>
                                     </th>
-                                    <td>21</td>
+                                    <td>회원번호</td>
                                     <td>주문번호</td>
-                                    <td>나일론</td>
-                                    <td>2022-07-26</td>
-                                    <td>9,800</td>
-                                    <td>배송상태</td>
-                                    <td>한진택배</td>
+                                    <td>상품명</td>
+                                    <td>수량</td>
+                                    <td>결제일시</td>
+                                    <td>결제금액</td>
+                                    <td>택배사</td>
                                     <td>운송장번호</td>
+                                    <td>배송상태</td>
                                 </tr>
                             </tbody>
                             <tfoot>

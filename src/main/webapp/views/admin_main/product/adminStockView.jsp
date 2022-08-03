@@ -13,8 +13,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>상품 재고 전체조회 페이지</title>
+<meta charset="UTF-8">
+<title>상품 재고 전체조회 페이지</title>
+<!-- datepicker css -->
+<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/resources/css/jiae/assets/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
 </head>
 <body>
 	<%@ include file="../../common/adminMenubar.jsp" %>
@@ -35,11 +37,11 @@
                             <button type="button" onclick="location.href='<%=request.getContextPath()%>/adProOutput.do'" class="btn btn-warning btn-lg">상품 출고</button> &nbsp;&nbsp;&nbsp; -->
 
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="pro-input">
+                            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#input">
                                 상품 입고 등록
                             </button>
                                 <!-- Modal -->
-                                <div class="modal fade" id="pro-input" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal fade" id="input" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -77,10 +79,10 @@
                                                             </div>
                                                         </td>
                                                     </tr>
-                                                    <tr>
+                                                    <!-- <tr>
                                                         <td>반품상품 여부</td>
                                                         <td><input type="checkbox"></td>
-                                                    </tr>
+                                                    </tr> -->
                                                 </table>
                                             </div>
                                             <div class="modal-footer">
@@ -193,6 +195,18 @@
         <!-- ============================================================== -->
         <!-- End Page wrapper  -->
         <!-- ============================================================== -->
-
+        
+        <!-- date picker -->
+        <script src="<%= request.getContextPath() %>/resources/css/jiae/assets/libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+        <script>
+        jQuery('.mydatepicker').datepicker();
+            jQuery('#datepicker-autoclose').datepicker({
+                autoclose: true,
+                todayHighlight: true
+            });
+            var quill = new Quill('#editor', {
+                theme: 'snow'
+            });
+        </script>    
 </body>
 </html>
