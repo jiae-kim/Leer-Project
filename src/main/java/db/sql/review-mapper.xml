@@ -26,6 +26,8 @@
 			,P.PRICE
 			,REVIEW_SCOPE
 			,REVIEW_CONTENT
+			,P.P_CODE
+			,REVIEW_NO
 		FROM REVIEW R
         JOIN PRODUCT P ON (R.P_CODE = P.P_CODE)
         JOIN OR_PRODUCT OP ON (P.P_CODE = OP.P_CODE)
@@ -59,6 +61,7 @@
 		  , P_CODE
 		  , REVIEW_SCOPE
 		  , REVIEW_CONTENT
+		  , WRITE_YN
 		  )
 		  VALUES
 		  (
@@ -68,6 +71,7 @@
 		  , ?
 		  , ?
 		  , ?
+		  , 'Y'
 		  )
 	</entry>
 	
@@ -91,6 +95,14 @@
 		  , ?
 		  , 'REV'
 		  )
+	</entry>
+	
+	<entry key="ReviewCancle">
+		UPDATE REVIEW
+		   SET WRITE_YN = 'N'
+		 WHERE MEM_NO = ?
+        	AND REVIEW_NO = ?
+        	AND P_CODE = ?
 	</entry>
 
 	

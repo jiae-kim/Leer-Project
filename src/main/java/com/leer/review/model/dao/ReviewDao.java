@@ -86,7 +86,9 @@ public ArrayList<Review> WriteReviewHistory(Connection conn, int memNo){
 							rset.getString("review_Content"),
 							rset.getInt("price"),
 							rset.getString("image_url1"),
-							rset.getDate("or_date")					
+							rset.getDate("or_date"),				
+							rset.getString("p_code"),
+							rset.getInt("review_no")
 						));
 			}
 		} catch (SQLException e) {
@@ -178,6 +180,31 @@ public ArrayList<Review> WriteReviewHistory(Connection conn, int memNo){
 		} finally {
 			close(pstmt);
 		}
+		
+		return result;
+		
+	}
+	
+	public int ReviewCancle(Connection conn,int memNo,int reviewNo, String p_code) {
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("ReviewCancle");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memNo);
+			pstmt.setInt(2, reviewNo);
+			pstmt.setString(3, p_code);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
 		
 		return result;
 		

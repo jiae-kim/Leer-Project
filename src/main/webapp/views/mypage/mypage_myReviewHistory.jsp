@@ -176,10 +176,10 @@
                                         <% 
                                         	int i=0;
                                         	for(i=0;i<r.getReviewScope();i++ ){
-                                        	System.out.print("⭐");
+                                        		%>⭐<%
                                         }%>
 										</td>
-                                        <td><button class="btn btn-sm btn-secondary">리뷰삭제</button></td>
+                                        <td><a href="<%= request.getContextPath() %>/reviewcancle.me?memNo=<%=loginUser.getMemNo()%>&reviewNo=<%=r.getReviewNo()%>&p_code=<%=r.getP_code() %>" class="btn btn-sm btn-secondary">리뷰삭제</a></td>
                                     </tr>
                                 </table>
                                 <hr>

@@ -74,4 +74,15 @@ public class ReviewService {
 		
 	}
 	
+	public int ReviewCancle(int memNo,int reviewNo,String p_code) {
+		
+		Connection conn = getConnection();
+		int result = new ReviewDao().ReviewCancle(conn,memNo,reviewNo,p_code);
+		
+		
+		
+		return result;
+		
+	}
+	
 }

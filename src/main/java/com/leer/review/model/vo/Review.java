@@ -52,7 +52,7 @@ public class Review {
 
 
 
-	public Review(String pName, int reviewScope, String reviewContent, int price, String image_url, Date or_date) {
+	public Review(String pName, int reviewScope, String reviewContent, int price, String image_url, Date or_date, String p_code , int reviewNo) {
 		super();
 		this.pName = pName;
 		this.reviewScope = reviewScope;
@@ -60,8 +60,9 @@ public class Review {
 		this.price = price;
 		this.image_url = image_url;
 		this.or_date = or_date;
+		this.p_code = p_code;
+		this.reviewNo = reviewNo;
 	}
-
 
 	
 
