@@ -154,4 +154,85 @@ public class ProductDao {
 		}
 		return list; 
 	}
+	
+	
+	
+	//찜하기 여부 확인
+	public int scrapCheck(Connection conn, String pCode, int memNo) {
+		
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("scrapCheck");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memNo);
+			pstmt.setString(2, pCode);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				result = rset.getInt("A");
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		return result;
+	}
+	
+	
+	
+	public int insertScrap(Connection conn, String pCode, int memNo) {
+		
+		  int result = 0;
+	      PreparedStatement pstmt = null;
+	      
+	      String sql = prop.getProperty("insertScrap");
+	      
+	      try {
+	         pstmt = conn.prepareStatement(sql);
+	         pstmt.setString(1, pCode);
+	         pstmt.setInt(2, memNo);
+	         
+	         result = pstmt.executeUpdate(); 
+	      } catch (SQLException e) {
+	         e.printStackTrace();
+	      } finally {
+	         close(pstmt);
+	      }
+	      
+	      return result;
+	}
+	
+	
+	
+	public int deleteScrap(Connection conn, String pCode, int memNo) {
+		
+		  int result = 0;
+	      PreparedStatement pstmt = null;
+	      
+	      String sql = prop.getProperty("deleteScrap");
+	      
+	      try {
+	         pstmt = conn.prepareStatement(sql);
+	         pstmt.setString(1, pCode);
+	         pstmt.setInt(2, memNo);
+	         
+	         result = pstmt.executeUpdate(); 
+	      } catch (SQLException e) {
+	         e.printStackTrace();
+	      } finally {
+	         close(pstmt);
+	      }
+	      
+	      return result;
+	}
+	
 }

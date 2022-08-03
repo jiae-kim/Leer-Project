@@ -55,4 +55,39 @@
 		  WHERE P_CODE = ?
 		  ORDER BY I.ENROLL_DATE
 	</entry>
+	
+	
+	
+	<entry key="scrapCheck">
+		SELECT COUNT(*) A
+		  FROM SCRAP
+		 WHERE MEM_NO = ?
+		   AND P_CODE = ?
+	</entry>
+	
+	<entry key="insertScrap">
+		INSERT 
+		  INTO SCRAP
+			 (
+			   P_CODE
+			 , MEM_NO
+			 )
+		VALUES
+			 (
+			   ?
+			 , ?
+			 )
+	</entry>
+	
+	
+	
+	<entry key="deleteScrap">
+		DELETE
+		  FROM SCRAP
+		 WHERE P_CODE = ?
+		   AND MEM_NO = ?
+	</entry>
+	
+	
+	
 </properties>

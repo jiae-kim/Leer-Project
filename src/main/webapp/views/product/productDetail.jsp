@@ -5,6 +5,7 @@
 <% Product p = (Product)request.getAttribute("p");
    ArrayList<Inquiry> list = (ArrayList<Inquiry>)request.getAttribute("list");
    DecimalFormat comma = new DecimalFormat("###,###");
+   int scrapResult = (int)request.getAttribute("scrapResult");
 %>
 <!DOCTYPE html>
 <html>
@@ -516,10 +517,87 @@
                     <div class="payment_btn_box">
                         <button type="submit" class="site-btn" style="padding:0px; margin-right:5px; font-size: 15px; color:#303030; background-color: #ffffff; border: #303030 solid 1px;">장바구니</button>
                         <button type="button" class="site-btn" style="padding:0px; margin-right:5px; font-size: 15px;">바로구매</button>
-                        <button type="button" class="site-btn" style="padding:0px; font-size: 15px; color:#303030;  background-color: #ffffff; border: #303030 solid 1px;">찜하기</button>
+                        
+                        <% if(loginUser != null){ %> 
+                        	
+                        	<% if(scrapResult == 1){%> <!-- 이 상품을 이미 찜한 회원 -->
+	                        	<button type="button" id="scrap" class="de site-btn" style="padding:0px; font-size: 15px; color:#303030;  background-color: #ffffff; border: #303030 solid 1px;" id="scrap">
+	                        	찜완료
+	                        	</button>
+                        	<% } else{ %> <!-- 찜하지 않은 회원 -->
+                        		<button type="button" id="scrap" class="in site-btn " style="padding:0px; font-size: 15px; color:#303030;  background-color: #ffffff; border: #303030 solid 1px;" id="scrap">
+	                        	찜하기
+	                        	</button>
+	                        	
+                        	<% } %>
+                        
+                        <% }else{ %>
+                        	<button type="button" onclick="loginPage();" class="site-btn" style="padding:0px; font-size: 15px; color:#303030;  background-color: #ffffff; border: #303030 solid 1px;" id="scrap">찜하기</button>
+                        <% }%>
                     </div>
                 </form>    
                 </div>
+
+                <script>
+                	
+                	//로그인 하지 않은 상태로 찜하기 버튼을 눌렀을 때 => 로그인 페이지 / 그대로
+                 	function loginPage(){
+                 		if(confirm("로그인 후 찜하기 가능합니다.")){
+	                 		location.href="<%=contextPath%>/loginPage.me";
+                 		}
+                 	}
+                	
+                	$("#scrap").click(function(){
+                		
+                		if( $(this).is(".in") ){
+                			console.log("찜하기클릭");
+		                 	// 찜하지 않은 회원이 찜하기 버튼 클릭 시 insert
+	                        $.ajax({
+	                            url:"<%= contextPath%>/insertScrap.pd",
+	                            data:{"pCode":"<%= p.getpCode() %>"},
+	                            
+	                            success:function(result){ 
+                            	   // insert 성공 => btn글자 찜완료로 변경
+	                               if(result > 0) { 
+	                            	   $("#insertScrap").text("찜완료");
+	                            	   
+	                            	   //글자 변경이 바로 안되고 새로고침 해야하는 문제 
+	                            	   location.reload();
+	                            	   
+	                               }
+	                            },
+	                            error:function(){
+	                                console.log("ajax 게시글 삭제 실패")
+	                            }
+	                        })
+                		}else {
+                			console.log("찜완료클릭");
+	                        $.ajax({
+	                            url:"<%= contextPath%>/deleteScrap.pd",
+	                            data:{"pCode":"<%= p.getpCode() %>"},
+	                            
+	                            success:function(result){ 
+                            	   // delete 성공 => btn글자 찜하기로 변경
+	                               if(result > 0) { 
+	                            	   $("#deleteScrap").text("찜하기");
+	                            	   location.reload();
+	                               }
+	                            },
+	                            error:function(){
+	                                console.log("ajax 게시글 삭제 실패")
+	                            }
+	                        })
+                		}
+                		
+                	})
+                	
+                    
+                    
+                    
+                    
+                   
+                </script>
+
                 
                 <div class="col-lg-12">
                     <div class="product__details__tab">
@@ -640,7 +718,7 @@
                                                             return false;
                                                         }
                                                     }
-                                                </script>
+                                                </scrip>
                                             </div>
         
                                         </div>

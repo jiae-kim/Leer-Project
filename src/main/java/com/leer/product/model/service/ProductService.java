@@ -1,6 +1,6 @@
 package com.leer.product.model.service;
 
-import static com.leer.common.JDBCTemplate.close;
+import static com.leer.common.JDBCTemplate.*;
 import static com.leer.common.JDBCTemplate.getConnection;
 
 import java.sql.Connection;
@@ -47,4 +47,56 @@ public class ProductService {
 		close(conn);
 		return list;
 	}
+	
+	
+	
+	public int scrapCheck(String pCode, int memNo) {
+		
+		Connection conn = getConnection();
+		
+		int result = new ProductDao().scrapCheck(conn, pCode, memNo);
+		
+		close(conn);
+		
+		return result;
+	}
+	
+	
+	public int insertScrap(String pCode, int memNo) {
+		
+		Connection conn = getConnection();
+		
+		int result = new ProductDao().insertScrap(conn, pCode, memNo);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		
+		close(conn);
+		
+		return result;
+	}
+	
+	
+	
+	public int deleteScrap(String pCode, int memNo) {
+		
+		Connection conn = getConnection();
+		
+		int result = new ProductDao().deleteScrap(conn, pCode, memNo);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		
+		close(conn);
+		
+		return result;
+	}
+	
+	
 }
