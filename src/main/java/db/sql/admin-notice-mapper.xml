@@ -147,5 +147,39 @@
 
 
 
+	<!-- FAQ 전체조회 -->
+	<entry key="selectFaqList">
+		SELECT *
+		  FROM (
+		  		SELECT ROWNUM RNUM, A.*
+		  		  FROM (
+		  		  		SELECT 
+						        FAQ_NO
+						      , FAQ_CATEGORY
+						      , FAQ_TITLE
+						      , ENROLL_DATE
+						      , FAQ_VIEWS
+						  FROM  FAQ
+						 ORDER  BY FAQ_NO DESC
+		  		 		) A
+		  		)
+		  WHERE RNUM BETWEEN ? AND ?  
+	</entry>
 	
+	<!-- FAQ 전체조회 기존구문
+	SELECT 
+	        FAQ_NO
+	      , FAQ_CATEGORY
+	      , FAQ_TITLE
+	      , ENROLL_DATE
+	      , FAQ_VIEWS
+	  FROM  FAQ
+	 ORDER  BY FAQ_NO DESC
+	 -->
+	
+	<!-- FAQ 전체조회 페이징 -->
+	<entry key="selectFaqListCount">
+		SELECT COUNT(*) AS "COUNT"
+		  FROM FAQ
+	</entry>
 </properties>
