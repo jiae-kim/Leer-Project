@@ -55,9 +55,9 @@
                             <ul>
                                 <li><a href="<%=contextPath%>/list.pd">패션/여성</a></li>
                                 <li><a href="#">라이프/인테리어</a></li>
+                                <li><a href="#">문화/예술</a></li>
                                 <li><a href="#">시사/경제</a></li>
                                 <li><a href="#">교육/과학</a></li>
-                                <li><a href="#">문화/예술</a></li>
                                 <li><a href="#">여행/취미</a></li>
                                 <!-- 
                                 <li><a href="#">Fastfood</a></li>

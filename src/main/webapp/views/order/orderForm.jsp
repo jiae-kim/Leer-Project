@@ -385,10 +385,10 @@
                                                      <td style="vertical-align:middle">
                                                      	<input type="radio" name="address" checked>새로운 주소로 입력
                                                         <input type="radio" name="address">내 주소 <br>
-                                                        <input type="text" id="sample6_postcode" placeholder="우편번호" name="postCode">
-														<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
-														<input type="text" id="sample6_address" placeholder="주소" name="address"><br>
-														<input type="text" id="sample6_detailAddress" placeholder="상세주소" name="address">
+                                                        <input type="text" id="sample6_postcode" placeholder="우편번호" name="postCode" style="margin-right:5px">
+														<input type="button" onclick="sample6_execDaumPostcode()"  value="우편번호 찾기"><br>
+														<input type="text" id="sample6_address" placeholder="주소" name="address" style="width:300px; margin-top:10px;"><br>
+														<input type="text" id="sample6_detailAddress" placeholder="상세주소" name="address" style="width:300px; margin-top:10px; margin-right:5px">
 														<input type="text" id="sample6_extraAddress" placeholder="참고항목" name="address">
                                                     </td>
                                                 </tr>
@@ -475,14 +475,25 @@
 					                        return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',');
 					                    }
 										
-										/*포인트 계산 : ajax 써야할 것 같음*/
+										/*포인트 계산*/
 										let point = 0;
+										let tpoint = 0;
 										$("#point-btn").click(function(){
-											point = parseInt($("#point-text").val());
-											$("#point").html(parseInt($("#point").text()) - point);
-											$("#point-text").css("color", "blue");
-											$("#sum-discount").html(number_format(parseInt($("#point-text").val())));
 											
+											if(parseInt($("#point").text()) >= parseInt($("#point-text").val())){
+												
+												tpoint = parseInt($("#point").text());
+												let p = parseInt($("#point-text").val())
+												point += parseInt($("#point-text").val());
+												
+												$("#point-text").val(point)
+												$("#point").html(tpoint - p);
+												
+												$("#sum-discount").html(number_format(parseInt($("#point-text").val())));
+												
+											}
+											
+											/*최종 가격 계산*/
 											finalPrice = sumPrice - point + deliFee;
 											console.log(sumPrice);
 											console.log(point);
