@@ -150,6 +150,12 @@
 		 ORDER 
 		    BY REPORT_NO DESC
 	</entry>
+	
+	<!-- 커뮤니티 신고리스트 페이징처리, 김은지 -->
+	<entry key="selectReportListCount">
+		SELECT COUNT(*) AS "COUNT"
+		  FROM REPORT
+	</entry>
 			
 </properties>
 

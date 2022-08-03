@@ -9,8 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.leer.common.model.vo.PageInfo;
 import com.leer.community.model.service.AdminCommunityService;
 import com.leer.community.model.vo.Report;
+import com.leer.member.model.service.AdminMemberService;
 
 /**
  * Servlet implementation class AdminComuReportListController
@@ -32,8 +34,6 @@ public class AdminComuReportListController extends HttpServlet {
 	 * 작성자 김은지
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		/*
 		// 페이징처리
 		int listCount;
 		int currentPage;
@@ -58,11 +58,10 @@ public class AdminComuReportListController extends HttpServlet {
 		}
 				
 		PageInfo pi = new PageInfo(listCount, currentPage, pageLimit, boardLimit, maxPage, startPage, endPage);
-		*/
 		
-		ArrayList<Report> list = new AdminCommunityService().selectReportList(); //pi
+		ArrayList<Report> list = new AdminCommunityService().selectReportList(pi); 
 		
-		//request.setAttribute("pi", pi);
+		request.setAttribute("pi", pi);
 		request.setAttribute("list", list);
 					
 		request.getRequestDispatcher("views/admin_main/comu/adminComuReportView.jsp").forward(request, response);

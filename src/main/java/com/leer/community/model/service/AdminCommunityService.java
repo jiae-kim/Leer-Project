@@ -109,13 +109,22 @@ public class AdminCommunityService {
 	
 	// 관리자 신고리스트 조회
 	// 작성자 김은지
-	public ArrayList<Report> selectReportList(){ //PageInfo pi
+	public ArrayList<Report> selectReportList(PageInfo pi){ 
 		Connection conn = getConnection();
 		
-		ArrayList<Report> list = new AdminCommunityDao().selectReportList(conn); //, pi
+		ArrayList<Report> list = new AdminCommunityDao().selectReportList(conn, pi); 
 		
 		close(conn);
 		return list;
+	}
+	
+	// 관리자 신고리스트 페이징처리
+	// 작성자 김은지
+	public int selectReportListCount() {
+		Connection conn = getConnection();
+		int listCount = new AdminCommunityDao().selectComuNotiListCount(conn);
+		close(conn);
+		return listCount;
 	}
 
 }
