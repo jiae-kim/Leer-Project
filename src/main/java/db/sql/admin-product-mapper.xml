@@ -24,7 +24,7 @@
 		  WHERE RNUM BETWEEN ? AND ?  
 	</entry>
 	
-	<!-- selectProductList 기존 구문
+	<!-- 상품전체조회 기존 구문
 		SELECT 
  			    P_NAME
 	          , CATEGORY_NO
@@ -264,7 +264,7 @@
 					      , ENROLL_DATE
 					      , RPOINT_YN
 					  FROM  REVIEW
-					 ORDER  BY REVIEW_NO
+					 ORDER  BY REVIEW_NO DESC
 	  		 		) A
 	  		)
 	  WHERE RNUM BETWEEN ? AND ? 	
