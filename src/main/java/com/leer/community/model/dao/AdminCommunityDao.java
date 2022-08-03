@@ -14,6 +14,7 @@ import java.util.Properties;
 import com.leer.common.model.vo.Attachment;
 import com.leer.common.model.vo.Category2;
 import com.leer.common.model.vo.PageInfo;
+import com.leer.community.model.vo.ComuBoard;
 import com.leer.community.model.vo.ComuNotice;
 
 public class AdminCommunityDao {
@@ -197,6 +198,15 @@ public class AdminCommunityDao {
 			close(pstmt);
 		}
 		return list;
+	}
+	
+	// 관리자 커뮤게시물리스트 조회
+	// 작성자 김은지	
+	public ArrayList<ComuBoard> selectBoardList(Connection conn){ // , PageInfo pi	
+		ArrayList<ComuBoard> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectBoardList");
 	}
 	
 }

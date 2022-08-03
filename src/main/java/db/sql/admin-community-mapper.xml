@@ -91,6 +91,21 @@
 		     , CATEGORY_NAME
 		  FROM CATEGORY2	
 	</entry>
+	
+	<!-- 커뮤니티 게시글리스트조회, 김은지 -->
+	<entry key="selectBoardList">
+		SELECT 
+			   CB.TITLE
+		     , CC.CATEGORY_NAME
+		     , M.MEM_ID
+		     , CB.ENROLL_DATE
+		     , CB.CONTENT
+		  FROM COMU_BOARD CB
+		  JOIN COMU_CATEGORY CC ON (CB.CATEGORY_NO = CC.CATEGORY_NO)
+		  JOIN MEMBER M ON (M.MEM_NO = CB.MEM_NO)
+		 ORDER
+    		BY COMU_NO DESC
+	</entry>
 		
 </properties>
 

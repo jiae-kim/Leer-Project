@@ -101,7 +101,7 @@
                                     </tr>
                                 </thead>
                                 <tbody class="custom">
-                                    <tr>
+                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuBoardDetail.jsp';">
                                         <th>
                                             <label class="customcheckbox">
                                                 <input type="checkbox" class="listCheckbox" />
@@ -116,7 +116,7 @@
                                         <td>3</td>
                                         <td>N</td>
                                     </tr>
-                                    <tr>
+                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuBoardDetail.jsp';">
                                         <th>
                                             <label class="customcheckbox">
                                                 <input type="checkbox" class="listCheckbox" />
@@ -131,7 +131,7 @@
                                         <td>3</td>
                                         <td>N</td>
                                     </tr>
-                                    <tr>
+                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuBoardDetail.jsp';">
                                         <th>
                                             <label class="customcheckbox">
                                                 <input type="checkbox" class="listCheckbox" />
@@ -146,7 +146,7 @@
                                         <td>3</td>
                                         <td>N</td>
                                     </tr>
-                                    <tr>
+                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuBoardDetail.jsp';">
                                         <th>
                                             <label class="customcheckbox">
                                                 <input type="checkbox" class="listCheckbox" />
@@ -161,7 +161,7 @@
                                         <td>3</td>
                                         <td>N</td>
                                     </tr>
-                                    <tr>
+                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuBoardDetail.jsp';">
                                         <th>
                                             <label class="customcheckbox">
                                                 <input type="checkbox" class="listCheckbox" />
@@ -176,7 +176,7 @@
                                         <td>3</td>
                                         <td>N</td>
                                     </tr>
-                                    <tr>
+                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuBoardDetail.jsp';">
                                         <th>
                                             <label class="customcheckbox">
                                                 <input type="checkbox" class="listCheckbox" />
@@ -191,7 +191,7 @@
                                         <td>3</td>
                                         <td>N</td>
                                     </tr>
-                                    <tr>
+                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuBoardDetail.jsp';">
                                         <th>
                                             <label class="customcheckbox">
                                                 <input type="checkbox" class="listCheckbox" />
@@ -206,7 +206,7 @@
                                         <td>3</td>
                                         <td>N</td>
                                     </tr>
-                                    <tr>
+                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuBoardDetail.jsp';">
                                         <th>
                                             <label class="customcheckbox">
                                                 <input type="checkbox" class="listCheckbox" />
@@ -221,7 +221,7 @@
                                         <td>3</td>
                                         <td>N</td>
                                     </tr>
-                                    <tr>
+                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuBoardDetail.jsp';">
                                         <th>
                                             <label class="customcheckbox">
                                                 <input type="checkbox" class="listCheckbox" />
@@ -236,7 +236,7 @@
                                         <td>3</td>
                                         <td>N</td>
                                     </tr>
-                                    <tr>
+                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuBoardDetail.jsp';">
                                         <th>
                                             <label class="customcheckbox">
                                                 <input type="checkbox" class="listCheckbox" />
