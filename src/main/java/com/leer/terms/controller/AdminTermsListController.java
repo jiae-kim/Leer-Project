@@ -44,7 +44,6 @@ public class AdminTermsListController extends HttpServlet {
 		int startPage;
 		int endPage;
 		
-		listCount = new AdminMemberService().selectMemberListCount();
 		listCount = new AdminTermsService().selectTermsListCount();
 		currentPage = Integer.parseInt(request.getParameter("cpage"));
 		pageLimit = 10;

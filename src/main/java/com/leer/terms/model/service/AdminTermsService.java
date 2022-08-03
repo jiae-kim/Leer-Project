@@ -26,7 +26,7 @@ public class AdminTermsService {
 
 	// 관리자 이용약관리스트 조회 페이징처리
 	// 작성자 김은지
-	public int selecTermsListCount() {
+	public int selectTermsListCount() {
 		Connection conn = getConnection();
 		int listCount = new AdminTermsDao().selectTermsListCount(conn);
 		close(conn);

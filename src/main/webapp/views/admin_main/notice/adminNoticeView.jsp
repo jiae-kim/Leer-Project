@@ -5,6 +5,14 @@
 <head>
 <meta charset="UTF-8">
 <title>공지사항 전체조회 페이지</title>
+<style>
+.custom>tr:hover {
+    cursor: pointer;
+    opacity: 0.7;
+    background:#cecece;
+    color:dark;
+}
+</style>
 </head>
 <body>
 	<%@ include file="../../common/adminMenubar.jsp" %>

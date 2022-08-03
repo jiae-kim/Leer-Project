@@ -16,6 +16,7 @@
 						   , MODIFY_DATE
 					    FROM NOTICE N
 						JOIN MEMBER M USING (MEM_NO)
+                       WHERE NOTI_TYPE = '커뮤니티'						
 					   ORDER
 					      BY NOTI_NO DESC
 		  	     	 ) A

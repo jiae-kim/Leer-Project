@@ -42,69 +42,70 @@
                 <div class="card mb-4">
                     <div class="col-lg-12 grid-margin stretch-card">
                         <div class="card">
-                          <div class="card-body">
-                            <h2 class="card-title" align="center">이용약관 등록</h2>
-                            <div class="table-responsive pt-3">
-                              <table class="tt1" border="1" align="center">
-                                <tbody>
-                                  <tr>
-                                    <td width="300px" height="45px" style="background:hsl(0, 0%, 77%); color:rgb(80, 80, 80); font-weight: bold;">
-                                      이용약관명
-                                    </td>
-                                    <td width="700px">
-                                        <input type="text" placeholder="이용약관명 입력">
-                                    </td>
-                                  </tr>
-                                  <tr>
-                                    <td width="300px" height="45px" style="background:hsl(0, 0%, 77%); color:rgb(80, 80, 80); font-weight: bold;">
-                                      상태
-                                    </td>
-                                    <td>
-                                        <select name="address">
-                                            <option value="upload">작성완료</option>
-                                            <option value="ing">작성중</option>
-                                            <option value="discuss">회의중</option>
-                                            <option value="keep">보류</option>
-                                        </select>
-                                    </td>
-                                  </tr>
-                                  <tr>
-                                    <td width="300px" height="45px" style="background:hsl(0, 0%, 77%); color:rgb(80, 80, 80); font-weight: bold;">
-                                      작성자
-                                    </td>
-                                    <td>
-                                      <input type="text" placeholder="관리자아이디 입력">
-                                    </td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                              <br>
-                              <table class="tarea" align="center" style="margin:5px 5px 5px 5px">
-                                <textarea name="" id="" cols="133.5" rows="20" resize="none" placeholder="이용약관 내용 입력"></textarea>
-                              </table>
-                              <div class="">
-                                <table class="tt1" border="1" align="center">
-                                  <tbody>
-                                    <tr>
-                                      <td width="300px" height="45px" style="background:hsl(0, 0%, 77%); color:rgb(80, 80, 80); font-weight: bold;">
-                                        이용약관명
-                                      </td>
-                                      <td width="700px">
-                                        <input type="text" placeholder="비고 입력">
-                                      </td>
-                                    </tr>
-                                  </tbody>                                  
-                                </table>
-                            </div>
-                            <br>
-                            <c:if test="${sessionMemberLv == 1}">
-                                    <div class="d-grid gap-3" style="text-align: center">
-                                        <a href="<%=request.getContextPath()%>/adTList.do?cpage=1" id="btn" class="btn btn-dark" style="width:150px">취소</a>
-                                        <a href="" class="btn btn-dark" style="width:150px">이용약관등록</a>
-                                    </div>
-                            </c:if>
-                          </div>
-                        </div>
+                          <form action="<%=request.getContextPath()%>/adTInsert.te" id="enroll-form" method="post">
+	                          <div class="card-body">
+	                            <h2 class="card-title" align="center">이용약관 등록</h2>
+	                            <div class="table-responsive pt-3">
+	                              <table class="tt1" border="1" align="center">
+	                                <tbody>
+	                                  <tr>
+	                                    <td width="300px" height="45px" style="background:hsl(0, 0%, 77%); color:rgb(80, 80, 80); font-weight: bold;">
+	                                      이용약관명
+	                                    </td>
+	                                    <td width="700px">
+	                                        <input type="text" name="trmTitle" placeholder="이용약관명 입력">
+	                                    </td>
+	                                  </tr>
+	                                  <tr>
+	                                    <td width="300px" height="45px" style="background:hsl(0, 0%, 77%); color:rgb(80, 80, 80); font-weight: bold;">
+	                                      상태
+	                                    </td>
+	                                    <td>
+	                                        <select name="trmClass">
+	                                        	<% for(Category2 c2 : list) { %>
+	                                            	<option value="<%=c2.getCategoryNo()%>"><%=c2.getCategoryName()%></option>
+	                                            <% } %>
+	                                        </select>
+	                                    </td>
+	                                  </tr>
+	                                  <tr>
+	                                    <td width="300px" height="45px" style="background:hsl(0, 0%, 77%); color:rgb(80, 80, 80); font-weight: bold;">
+	                                      작성자
+	                                    </td>
+	                                    <td>
+	                                      <input type="text" name="memId" placeholder="관리자아이디 입력">
+	                                    </td>
+	                                  </tr>
+	                                </tbody>
+	                              </table>
+	                              <br>
+	                              <table class="tarea" align="center" style="margin:5px 5px 5px 5px">
+	                                <textarea name="content" id="" cols="133.5" rows="20" resize="none" placeholder="이용약관 내용 입력"></textarea>
+	                              </table>
+	                              <div class="">
+	                                <table class="tt1" border="1" align="center">
+	                                  <tbody>
+	                                    <tr>
+	                                      <td width="300px" height="45px" style="background:hsl(0, 0%, 77%); color:rgb(80, 80, 80); font-weight: bold;">
+	                                        이용약관명
+	                                      </td>
+	                                      <td width="700px">
+	                                        <input type="text" name="trmRemarks" placeholder="비고 입력">
+	                                      </td>
+	                                    </tr>
+	                                  </tbody>                                  
+	                                </table>
+	                            </div>
+	                            <br>
+	                            <c:if test="${sessionMemberLv == 1}">
+	                                    <div class="d-grid gap-3" style="text-align: center">
+	                                        <a href="<%=request.getContextPath()%>/adTList.do?cpage=1" id="btn" class="btn btn-dark" style="width:150px">취소</a>
+	                                        <button type="submit" class="btn btn-dark" style="width:150px">이용약관등록</button>
+	                                    </div>
+	                            </c:if>
+	                          </div>
+	                        </div>
+                        </form>
                       </div>
                 </div>
             </div>
