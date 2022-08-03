@@ -150,6 +150,31 @@ public class AdminTermsDao {
 		}
 		return list;
 	}
+	
+	// 관리자 이용약관 등록요청
+	// 작성자 김은지
+	public int insertTerms(Connection conn, Terms t) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("insertTerms");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, t.getTrmClass());
+			pstmt.setString(2, t.getTrmTitle());
+			pstmt.setString(3, t.getContent());
+			pstmt.setString(4, t.getTrmRemarks());
+			pstmt.setString(5, t.getMemId());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}
 
 }
 

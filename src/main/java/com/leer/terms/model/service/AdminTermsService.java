@@ -1,6 +1,6 @@
 package com.leer.terms.model.service;
 
-import static com.leer.common.JDBCTemplate.close;
+import static com.leer.common.JDBCTemplate.*;
 import static com.leer.common.JDBCTemplate.getConnection;
 
 import java.sql.Connection;
@@ -26,7 +26,7 @@ public class AdminTermsService {
 
 	// 관리자 이용약관리스트 조회 페이징처리
 	// 작성자 김은지
-	public int selectMemberListCount() {
+	public int selecTermsListCount() {
 		Connection conn = getConnection();
 		int listCount = new AdminTermsDao().selectTermsListCount(conn);
 		close(conn);
@@ -49,6 +49,23 @@ public class AdminTermsService {
 		ArrayList<Category2> list = new AdminTermsDao().selectTermsCategoryList(conn);
 		close(conn);
 		return list;
+	}
+	
+	// 관리자 이용약관 등록요청
+	// 작성자 김은지
+	public int insertTerms(Terms t) {
+		Connection conn = getConnection();
+		
+		int result = new AdminTermsDao().insertTerms(conn, t);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		
+		return result;
 	}
 
 }

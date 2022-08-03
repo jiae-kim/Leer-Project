@@ -51,5 +51,39 @@
 		 WHERE CATEGORY_NO != 1
 		   AND CATEGORY_NO != 2
 	</entry>
+	
+	<!-- 이용약관 등록요청, 김은지 -->
+	<entry key="insertTerms">
+		INSERT
+	      INTO TERMS
+	      (
+	        TRM_NO
+	      , TRM_CLASS
+	      , TRM_TITLE
+	      , CONTENT
+	      , TRM_REMARKS
+	      , MEM_ID
+	      )	
+	      VALUES
+	      (
+	        SEQ_TRM.NEXTVAL
+	      , ?
+	      , ?
+	      , ?
+	      , ?
+	      , ?
+	      )
+	</entry>
 
 </properties>
+
+
+
+
+
+
+
+
+
+
+

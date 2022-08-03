@@ -111,7 +111,6 @@
 	                                <% } %>
                                   </tbody>
                                <tfoot>
-                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuDetail.jsp'">
                                     <tr align="center">
                                         <th colspan="10">	
                                             <div class="btn-group paging-area" role="group" aria-label="Basic example">                                            

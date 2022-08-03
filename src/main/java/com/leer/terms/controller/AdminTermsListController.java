@@ -30,12 +30,10 @@ public class AdminTermsListController extends HttpServlet {
     }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * 관리자페이지 이용약관 리스트조회
+	 * 작성자 김은지
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 관리자페이지 이용약관 리스트조회
-		// 작성자 김은지
-		
 		// 페이징처리
 		int listCount;
 		int currentPage;
@@ -47,6 +45,7 @@ public class AdminTermsListController extends HttpServlet {
 		int endPage;
 		
 		listCount = new AdminMemberService().selectMemberListCount();
+		listCount = new AdminTermsService().selectTermsListCount();
 		currentPage = Integer.parseInt(request.getParameter("cpage"));
 		pageLimit = 10;
 		boardLimit = 10;

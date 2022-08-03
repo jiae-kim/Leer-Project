@@ -44,7 +44,7 @@ public class AdminComuReportListController extends HttpServlet {
 		int startPage;
 		int endPage;
 		
-		listCount = new AdminMemberService().selectMemberListCount();
+		listCount = new AdminCommunityService().selectReportListCount();
 		currentPage = Integer.parseInt(request.getParameter("cpage"));
 		pageLimit = 10;
 		boardLimit = 10;

@@ -115,7 +115,6 @@
                                     <tr align="center">
                                         <th colspan="10">
                                             <div class="btn-group paging-area" role="group" aria-label="Basic example">
-                                            
                                             	<% if(currentPage != 1) { %>
 	                                                <button type="button" onclick="location.href='<%=request.getContextPath()%>/adLongList.do?cpage=<%=currentPage-1%>';"  
 	                                                		class="btn btn-outline-secondary">&lt;</button>

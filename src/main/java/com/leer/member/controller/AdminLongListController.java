@@ -45,7 +45,7 @@ public class AdminLongListController extends HttpServlet {
 		int startPage;
 		int endPage;
 		
-		listCount = new AdminMemberService().selectMemberListCount();
+		listCount = new AdminMemberService().selectLongMemberListCount(); // 이름 맞춰줘야됨
 		currentPage = Integer.parseInt(request.getParameter("cpage"));
 		pageLimit = 10;
 		boardLimit = 10;
