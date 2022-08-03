@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.leer.common.model.vo.Attachment;
 import com.leer.common.model.vo.Category;
 import com.leer.community.model.service.CommunityService;
+import com.leer.member.model.vo.Member;
 import com.leer.notice.model.vo.Notice;
 
 /**
@@ -33,6 +34,17 @@ public class NoticeDetailViewController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		int cNo = Integer.parseInt(request.getParameter("cNo"));
+
+		Member loginUser = (Member)request.getSession().getAttribute("loginUser");
+		int memNo = 0;
+		if(loginUser != null) {
+			memNo = loginUser.getMemNo();
+		}
+		
+		Member m = new CommunityService().selectMyCount(memNo);
+		request.setAttribute("m", m);
 		int notiNo = Integer.parseInt(request.getParameter("no"));
 		CommunityService cService = new CommunityService();
 		ArrayList<Category> cateList = new CommunityService().selectCategoryList();

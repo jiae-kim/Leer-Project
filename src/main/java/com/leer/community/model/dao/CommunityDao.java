@@ -593,6 +593,7 @@ public class CommunityDao {
 			rset = pstmt.executeQuery();
 			
 			if(rset.next()) {
+				m = new Member();
 				m.setCommCount(rset.getInt("comment_count"));
 				m.setLikeCount(rset.getInt("like_count"));
 			} 

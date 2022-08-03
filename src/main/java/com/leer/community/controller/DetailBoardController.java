@@ -13,6 +13,7 @@ import com.leer.common.model.vo.Attachment;
 import com.leer.common.model.vo.Category;
 import com.leer.community.model.service.CommunityService;
 import com.leer.community.model.vo.ComuBoard;
+import com.leer.member.model.vo.Member;
 
 /**
  * Servlet implementation class DetailBoardController
@@ -33,10 +34,17 @@ public class DetailBoardController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Member loginUser = (Member)request.getSession().getAttribute("loginUser");
+		int memNo = 0;
+		if(loginUser != null) {
+			memNo = loginUser.getMemNo();
+		}
+		
+		Member m = new CommunityService().selectMyCount(memNo);
+		request.setAttribute("m", m);
 		int comuNo = Integer.parseInt(request.getParameter("no"));
 		CommunityService cService = new CommunityService();
 		ArrayList<Category> cateList = new CommunityService().selectCategoryList();
-		
 		int result = cService.increaseCount(comuNo);
 		
 		if(result > 0) {

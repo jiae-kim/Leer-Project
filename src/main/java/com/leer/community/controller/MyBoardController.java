@@ -13,6 +13,7 @@ import com.leer.common.model.vo.Category;
 import com.leer.common.model.vo.PageInfo;
 import com.leer.community.model.service.CommunityService;
 import com.leer.community.model.vo.ComuBoard;
+import com.leer.member.model.vo.Member;
 
 /**
  * Servlet implementation class MyBoardController
@@ -34,6 +35,7 @@ public class MyBoardController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
+
 		
 		int listCount; 		
 		int currentPage; 	
@@ -43,6 +45,8 @@ public class MyBoardController extends HttpServlet {
 		int startPage; 		
 		int endPage;		
 		int memNo = Integer.parseInt(request.getParameter("memNo"));
+		Member m = new CommunityService().selectMyCount(memNo);
+		request.setAttribute("m", m);
 		
 		listCount = new CommunityService().selectMyListCount(memNo);
 		

@@ -35,9 +35,16 @@ public class ComuMainController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-				int memNo = Integer.parseInt(request.getParameter("memNo"));
-				
-				Member m = new CommunityService().selectMyCount(memNo);
+		
+		
+		Member loginUser = (Member)request.getSession().getAttribute("loginUser");
+		int memNo = 0;
+		if(loginUser != null) {
+			memNo = loginUser.getMemNo();
+		}
+		
+		Member m = new CommunityService().selectMyCount(memNo);
+		request.setAttribute("m", m);
 				int listCount; 		
 				int currentPage; 	
 				int pageLimit; 		
@@ -69,16 +76,14 @@ public class ComuMainController extends HttpServlet {
 
 				
 				
-				request.setAttribute("m", m);
 				ArrayList<ComuBoard> list = new CommunityService().selectList(pi);
 				ArrayList<Category> cateList = new CommunityService().selectCategoryList();
-				//HttpSession session = request.getSession();
-			//	session.setAttribute("cateList", cateList);
 				request.setAttribute("pi", pi);
 				request.setAttribute("list", list);
 				request.setAttribute("cateList", cateList);
 				request.setAttribute("flag", "all");
 				request.getRequestDispatcher("views/community/viewList.jsp").forward(request, response);
+				
 	}
 
 	/**

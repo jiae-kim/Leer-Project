@@ -31,6 +31,9 @@ public class ReplyInsertController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		
+		
 		String replyContent = request.getParameter("content");
 		
 		int comuNo = Integer.parseInt(request.getParameter("no"));
@@ -38,6 +41,9 @@ public class ReplyInsertController extends HttpServlet {
 		int memNo = ((Member)request.getSession().getAttribute("loginUser")).getMemNo();
 //		int memNo = 3;
 		
+		
+		Member m = new CommunityService().selectMyCount(memNo);
+		request.setAttribute("m", m);
 		Reply r = new Reply();
 		
 		r.setCommContent(replyContent);

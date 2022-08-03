@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"
-	import="com.leer.community.model.vo.ComuBoard, com.leer.common.model.vo.Attachment, com.leer.common.model.vo.Category, java.util.ArrayList"%>
+	import="com.leer.member.model.vo.Member, com.leer.community.model.vo.ComuBoard, com.leer.common.model.vo.Attachment, com.leer.common.model.vo.Category, java.util.ArrayList"%>
 <%
 ComuBoard c = (ComuBoard) request.getAttribute("c");
 Attachment at = (Attachment) request.getAttribute("at");
 ArrayList<Category> cateList = (ArrayList<Category>)request.getAttribute("cateList"); 
+Member m = (Member)request.getAttribute("m");
 %>
 <!DOCTYPE html>
 <html>
@@ -205,6 +206,10 @@ li {
 #iconH:hover {
 	cursor: pointer;
 }
+.updateBoard{
+style="margin-left:10px";
+
+}
 </style>
 
 
@@ -245,7 +250,6 @@ li {
 							<input type="hidden" name="no" value="<%=c.getComuNo()%>">
 							<h4><%=c.getTitle()%></h4>
 						</div>
-
 					</div>
 					<div class="userInfo">
 						<img
@@ -258,7 +262,11 @@ li {
 							<div class="create">
 								<span class="date"><%=c.getEnrollDate()%></span> <span
 									class="count"><b>조회수 : <%=c.getViewCount()%></b></span>
+								<% if(loginUser != null && loginUser.getNickname().equals(c.getMemNo())) { %>
+									<a class="updateBoard">게시글 수정하기</a>
+								<% } else if(loginUser != null && !loginUser.getNickname().equals(c.getMemNo())) { %>
 									<a href="" class="boardReport" style="margin-left:5px"><span>신고</span></a>
+								<% } %>
 							</div>
 						</div>
 					</div>
@@ -301,7 +309,9 @@ li {
 
 				<div class="boardTag">
 					<div class="likeComment">
-						<i class="fa fa-heart-o" id="iconH"></i> <span><%=c.getLikeCount()%></span>
+					
+						<i class="fa fa-heart-o" id="iconH" onclick="likeIcon()"></i> <span><%=c.getLikeCount()%></span>
+						
 						<i class="fa fa-comment-o" id="iconC"></i><span
 							style="margin-left: 5px"><%=c.getCommentCount()%></span>
 					</div>
@@ -313,7 +323,6 @@ li {
 						</li>
 					</ul>
 				</div>
-
 
 				<%
 				if (loginUser == null) { //로그인 안되어있을 경우
@@ -333,7 +342,7 @@ li {
 					<div class="writeComment">
 						<strong class="commentWriter"><%=loginUser.getNickname()%></strong>
 						<textarea rows="1" id="replyContent" placeholder="댓글을 남겨보세요"
-							onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
+							onkeydown="resize(this)" onkeyup="resize(this)" required></textarea>
 						<button onclick="insertReply()">등록</button>
 					</div>
 				</div>
@@ -359,13 +368,12 @@ li {
 		function insertReply(){
 			$.ajax({
 				url:"<%=contextPath%>/rinsert.bo",
-				data:{
-					content:$("#replyContent").val(),
-					no:<%=c.getComuNo()%>
+				data:{ content:$("#replyContent").val(),
+					   no:<%=c.getComuNo()%>
 				},
 				type:"post",
 				success:function(result){
-					if(result > 0){
+							if(result > 0){ 
 						selectReplyList();
 						$("#replyContent").val("");
 					}
@@ -377,31 +385,29 @@ li {
 		
 		function selectReplyList(){
 			$.ajax({
-				url:"<%=contextPath%>
-		/rlist.bo",
-						data : {
-							no :
-	<%=c.getComuNo()%>
-		},
-						success : function(list) {
-							let value = "";
-							for (let i = 0; i < list.length; i++) {
-								value += "<div class='commentList'>"
-										+ "<img src='https://ssl.pstatic.net/static/cafe/cafe_pc/default/cafe_profile_70.png' width='36' height='36' alt='프로필사진' class='profileImg2'>"
-										+ "<div class='userNickname'>"
-										+ "<div class='nick2'>" + "<span>"
-										+ list[i].memNo + "</span>" + "</div>"
-										+ "<div style='height: 40px;'>"
-										+ "<span class='date'>"
-										+ list[i].enrollDate + "</span>"
-										+ "</div>" + "<div class='comment'>"
-										+ "<span>" + list[i].commContent
-										+ "</span>" + "</div>" + "</div>"
-										+ "</div>";
-							}
-							$(".detailComment li").html(value);
-						},
-						error : function() {
+				url:"<%=contextPath%>/rlist.bo",
+				data : { no : <%=c.getComuNo()%> },
+			success : function(list) {
+				let value = "";
+				for (let i = 0; i < list.length; i++) {
+					value += "<div class='commentList'>"
+								+ "<img src='https://ssl.pstatic.net/static/cafe/cafe_pc/default/cafe_profile_70.png' width='36' height='36' alt='프로필사진' class='profileImg2'>"
+								+ "<div class='userNickname'>"
+									+ "<div class='nick2'>" 
+									+ "<span>" + list[i].memNo + "</span>" 
+									+ "</div>"
+									+ "<div style='height: 40px;'>"
+									+ "<span class='date'>" + list[i].enrollDate + "</span>"
+									+ "</div>" 
+									+ "<div class='comment'>"
+										+ "<span>" + list[i].commContent + "</span>" 
+									+ "</div>" 
+								+ "</div>"
+							+ "</div>";
+				}
+				$(".detailComment li").html(value);
+			},
+			error : function() {
 							console.log("댓글목록 조회용 ajax 통신 실패")
 						}
 					})

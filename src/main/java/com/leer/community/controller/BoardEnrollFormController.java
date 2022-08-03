@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.leer.common.model.vo.Category;
 import com.leer.community.model.service.CommunityService;
+import com.leer.member.model.vo.Member;
 
 /**
  * Servlet implementation class BoardEnrollFormController
@@ -31,6 +32,16 @@ public class BoardEnrollFormController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		Member loginUser = (Member)request.getSession().getAttribute("loginUser");
+		int memNo = 0;
+		if(loginUser != null) {
+			memNo = loginUser.getMemNo();
+		}
+		
+		Member m = new CommunityService().selectMyCount(memNo);
+		request.setAttribute("m", m);
+		
 		ArrayList<Category> cateList = new CommunityService().selectCategoryList();
 		
 		request.setAttribute("cateList", cateList);

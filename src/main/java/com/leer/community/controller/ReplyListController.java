@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 import com.leer.community.model.service.CommunityService;
 import com.leer.community.model.vo.Reply;
+import com.leer.member.model.vo.Member;
 
 /**
  * Servlet implementation class ReplyListController
@@ -32,6 +33,16 @@ public class ReplyListController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		Member loginUser = (Member)request.getSession().getAttribute("loginUser");
+		int memNo = 0;
+		if(loginUser != null) {
+			memNo = loginUser.getMemNo();
+		}
+		
+		Member m = new CommunityService().selectMyCount(memNo);
+		request.setAttribute("m", m);
+		
 		int comuNo = Integer.parseInt(request.getParameter("no"));
 		
 		ArrayList<Reply> list = new CommunityService().selectReplyList(comuNo);

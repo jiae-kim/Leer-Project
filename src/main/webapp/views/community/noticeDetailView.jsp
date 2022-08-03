@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="com.leer.common.model.vo.*, java.util.ArrayList, com.leer.notice.model.vo.Notice"%>
+    pageEncoding="UTF-8" import="com.leer.member.model.vo.Member, com.leer.common.model.vo.*, java.util.ArrayList, com.leer.notice.model.vo.Notice"%>
  <%
  	Attachment at = (Attachment)request.getAttribute("at");
 	Notice n = (Notice)request.getAttribute("n");
 	ArrayList<Category> cateList = (ArrayList<Category>)request.getAttribute("cateList"); 
-	
+	Member m = (Member)request.getAttribute("m");
  %>
 <!DOCTYPE html>
 <html>

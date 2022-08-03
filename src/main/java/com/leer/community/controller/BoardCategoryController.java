@@ -36,11 +36,17 @@ public class BoardCategoryController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int cNo = Integer.parseInt(request.getParameter("cNo"));
-		
-		
-		int memNo = Integer.parseInt(request.getParameter("memNo"));
+
+		Member loginUser = (Member)request.getSession().getAttribute("loginUser");
+		int memNo = 0;
+		if(loginUser != null) {
+			memNo = loginUser.getMemNo();
+		}
 		
 		Member m = new CommunityService().selectMyCount(memNo);
+		request.setAttribute("m", m);
+		
+	
 		int listCount; 		
 		int currentPage; 	
 		int pageLimit; 		
@@ -76,17 +82,6 @@ public class BoardCategoryController extends HttpServlet {
 		
 		CommunityService cService = new CommunityService();
 		
-		/*if(categoryNo != null) {
-			switch(categoryNo) {
-			case 10: list = cService.selectCategory10(categoryNo); break;
-			case 20: list = cService.selectCategory20(categoryNo); break;
-			case 30: list = cService.selectCategory30(categoryNo); break;
-			case 40: list = cService.selectCategory40(categoryNo); break;
-			case 50: list = cService.selectCategory50(categoryNo); break;
-			case 60: list = cService.selectCategory60(categoryNo); 
-			}
-		}*/
-		
 		list = cService.selectCategory(pi, cNo);
 		request.setAttribute("pi", pi);
 		request.setAttribute("list", list);
@@ -94,7 +89,8 @@ public class BoardCategoryController extends HttpServlet {
 		request.setAttribute("cateList", cateList);
 		request.setAttribute("flag", String.valueOf(cNo));
 		request.getRequestDispatcher("views/community/viewList.jsp").forward(request, response);
-		request.setAttribute("m", m);
+
+		
 	}
 
 	/**

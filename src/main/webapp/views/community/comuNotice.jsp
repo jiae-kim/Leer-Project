@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.ArrayList, com.leer.common.model.vo.* , com.leer.notice.model.vo.Notice"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList,com.leer.member.model.vo.Member, com.leer.common.model.vo.* , com.leer.notice.model.vo.Notice"%>
 <%
 	ArrayList<Notice> list = (ArrayList<Notice>)request.getAttribute("list");
 ArrayList<Category> cateList = (ArrayList<Category>)request.getAttribute("cateList"); 
+Member m = (Member)request.getAttribute("m");
+String flag = (String)request.getAttribute("flag");
 %>
 <!DOCTYPE html>
 <html>

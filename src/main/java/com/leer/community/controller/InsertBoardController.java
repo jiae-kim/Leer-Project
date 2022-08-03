@@ -44,6 +44,8 @@ public class InsertBoardController extends HttpServlet {
 		
 		if(ServletFileUpload.isMultipartContent(request)) {
 			int maxSize = 10 * 1024 * 1024;
+
+			
 			
 			String savePath = session.getServletContext().getRealPath("/resources/comu_upfiles/");
 			
@@ -54,6 +56,9 @@ public class InsertBoardController extends HttpServlet {
 			String title = multiRequest.getParameter("title");
 			String content = multiRequest.getParameter("content");
 			int memNo = ((Member)session.getAttribute("loginUser")).getMemNo();
+			
+			Member m = new CommunityService().selectMyCount(memNo);
+			request.setAttribute("m", m);
 			
 			String tag = "";
 			if(allTag != null) {

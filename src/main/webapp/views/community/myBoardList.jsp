@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.ArrayList, com.leer.community.model.vo.ComuBoard, com.leer.common.model.vo.*"%>
+    pageEncoding="UTF-8" import="com.leer.member.model.vo.Member, java.util.ArrayList, com.leer.community.model.vo.ComuBoard, com.leer.common.model.vo.*"%>
     
 <%
-	 PageInfo pi = (PageInfo)request.getAttribute("pi");  
+	PageInfo pi = (PageInfo)request.getAttribute("pi");  
 	ArrayList<ComuBoard> list = (ArrayList<ComuBoard>)request.getAttribute("list");
 	ArrayList<Category> cateList = (ArrayList<Category>)request.getAttribute("cateList"); 
+	Member m = (Member)request.getAttribute("m");
 	int currentPage = pi.getCurrentPage();
 	int startPage = pi.getStartPage();
 	int endPage = pi.getEndPage();

@@ -76,7 +76,7 @@
     </section>
     
 	<%@ include file="../community/communityMain.jsp"%>
-
+	<% %>
 		<div class="col-lg-8 col-md-7" style="padding-left: 50px">
 			<div class="blog__sidebar__search">
 				<form action="#">
@@ -110,7 +110,7 @@
 									
 											<%} %>
 									<% } %>
-									
+									<br>
 									<span><%=c.getContent()%></span>
 									<div style="border-bottom:1px solid #878787;">
 										<div class="icon" >
