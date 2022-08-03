@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="com.leer.member.model.vo.Member"%>
+    pageEncoding="UTF-8" import="com.leer.member.model.vo.Member, java.util.ArrayList, com.leer.common.model.vo.Category"%>
 <%
-	Member m = (Member)request.getAttribute("m");
 %>
 <!DOCTYPE html>
 <html>
@@ -66,7 +65,7 @@
 											<span>
 											<strong>내가 쓴 글</strong>
 											</span> 
-											<a href="<%=contextPath %>/myBoard.li?memNo=<%=loginUser.getMemNo()%>&cpage=1"><%= m.getCommCount() %></a>
+											<a href="<%=contextPath %>/myBoard.li?memNo=<%=loginUser.getMemNo()%>&cpage=1"><%=m.getCommCount() %></a>
 											<span>개</span>
 										</li>
 										

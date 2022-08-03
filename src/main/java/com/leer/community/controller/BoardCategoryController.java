@@ -14,6 +14,7 @@ import com.leer.common.model.vo.Category;
 import com.leer.common.model.vo.PageInfo;
 import com.leer.community.model.service.CommunityService;
 import com.leer.community.model.vo.ComuBoard;
+import com.leer.member.model.vo.Member;
 
 /**
  * Servlet implementation class BoardCategoryController
@@ -34,6 +35,12 @@ public class BoardCategoryController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int cNo = Integer.parseInt(request.getParameter("cNo"));
+		
+		
+		int memNo = Integer.parseInt(request.getParameter("memNo"));
+		
+		Member m = new CommunityService().selectMyCount(memNo);
 		int listCount; 		
 		int currentPage; 	
 		int pageLimit; 		
@@ -42,7 +49,7 @@ public class BoardCategoryController extends HttpServlet {
 		int startPage; 		
 		int endPage;		
 		
-		listCount = new CommunityService().selectListCount();
+		listCount = new CommunityService().selectCategoryListCount(cNo);
 		
 		
 		currentPage = Integer.parseInt(request.getParameter("cpage"));
@@ -62,8 +69,8 @@ public class BoardCategoryController extends HttpServlet {
 			endPage = maxPage;
 		}
 		PageInfo pi = new PageInfo(listCount, currentPage, pageLimit, boardLimit, maxPage, startPage, endPage);
+
 		
-		int cNo = Integer.parseInt(request.getParameter("cNo"));
 //		int cNo = 10;
 		ArrayList<ComuBoard> list = new ArrayList<>();
 		
@@ -85,7 +92,9 @@ public class BoardCategoryController extends HttpServlet {
 		request.setAttribute("list", list);
 		ArrayList<Category> cateList = new CommunityService().selectCategoryList();
 		request.setAttribute("cateList", cateList);
+		request.setAttribute("flag", String.valueOf(cNo));
 		request.getRequestDispatcher("views/community/viewList.jsp").forward(request, response);
+		request.setAttribute("m", m);
 	}
 
 	/**

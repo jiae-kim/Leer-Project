@@ -14,6 +14,7 @@ import com.leer.common.model.vo.Category;
 import com.leer.common.model.vo.PageInfo;
 import com.leer.community.model.service.CommunityService;
 import com.leer.community.model.vo.ComuBoard;
+import com.leer.member.model.vo.Member;
 
 /**
  * Servlet implementation class ComuMainController
@@ -34,7 +35,9 @@ public class ComuMainController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+				int memNo = Integer.parseInt(request.getParameter("memNo"));
+				
+				Member m = new CommunityService().selectMyCount(memNo);
 				int listCount; 		
 				int currentPage; 	
 				int pageLimit; 		
@@ -63,7 +66,10 @@ public class ComuMainController extends HttpServlet {
 					endPage = maxPage;
 				}
 				PageInfo pi = new PageInfo(listCount, currentPage, pageLimit, boardLimit, maxPage, startPage, endPage);
+
 				
+				
+				request.setAttribute("m", m);
 				ArrayList<ComuBoard> list = new CommunityService().selectList(pi);
 				ArrayList<Category> cateList = new CommunityService().selectCategoryList();
 				//HttpSession session = request.getSession();
@@ -71,6 +77,7 @@ public class ComuMainController extends HttpServlet {
 				request.setAttribute("pi", pi);
 				request.setAttribute("list", list);
 				request.setAttribute("cateList", cateList);
+				request.setAttribute("flag", "all");
 				request.getRequestDispatcher("views/community/viewList.jsp").forward(request, response);
 	}
 

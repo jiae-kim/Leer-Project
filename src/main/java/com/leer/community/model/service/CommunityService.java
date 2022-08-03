@@ -184,4 +184,21 @@ public class CommunityService {
 		
 		return m;
 	}
+	
+	public int selectCategoryListCount(int cNo) {
+		Connection conn = getConnection();
+		
+		int listCount = new CommunityDao().selectCategoryListCount(conn, cNo);
+		
+		close(conn);
+		return listCount;
+	}
+	
+	public int selectMyListCount(int memNo) {
+		Connection conn = getConnection();
+		int listCount = new CommunityDao().selectMyListCount(conn, memNo);
+		
+		close(conn);
+		return listCount;
+	}
 }

@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.leer.common.model.vo.Category;
 import com.leer.common.model.vo.PageInfo;
 import com.leer.community.model.service.CommunityService;
 import com.leer.community.model.vo.ComuBoard;
@@ -41,8 +42,9 @@ public class MyBoardController extends HttpServlet {
 		int maxPage; 		
 		int startPage; 		
 		int endPage;		
+		int memNo = Integer.parseInt(request.getParameter("memNo"));
 		
-		listCount = new CommunityService().selectListCount();
+		listCount = new CommunityService().selectMyListCount(memNo);
 		
 		
 		currentPage = Integer.parseInt(request.getParameter("cpage"));
@@ -63,13 +65,12 @@ public class MyBoardController extends HttpServlet {
 		}
 		
 		PageInfo pi = new PageInfo(listCount, currentPage, pageLimit, boardLimit, maxPage, startPage, endPage);
-		int memNo = Integer.parseInt(request.getParameter("memNo"));
 		ArrayList<ComuBoard> list = new CommunityService().selectMyBoardList(pi, memNo);
-		
+		ArrayList<Category> cateList = new CommunityService().selectCategoryList();
 		
 		request.setAttribute("pi", pi);
 		request.setAttribute("list", list);
-		
+		request.setAttribute("cateList", cateList);
 		request.getRequestDispatcher("views/community/myBoardList.jsp").forward(request, response);
 	}
 

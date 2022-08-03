@@ -5,10 +5,13 @@
   ArrayList<ComuBoard> list = (ArrayList<ComuBoard>)request.getAttribute("list");
   PageInfo pi = (PageInfo)request.getAttribute("pi"); 
   ArrayList<Category> cateList = (ArrayList<Category>)request.getAttribute("cateList"); 
+  Member m = (Member)request.getAttribute("m");
   int currentPage = pi.getCurrentPage();
   int startPage = pi.getStartPage();
   int endPage = pi.getEndPage();
   int maxPage = pi.getMaxPage();  
+  
+  String flag = (String)request.getAttribute("flag");
 %>
 
 <!DOCTYPE html>
@@ -24,6 +27,10 @@
 	.blog__item__text:hover{
 		cursor:pointer;
 		
+	}
+	.icon{
+	float: right;
+	border-bottom: 1px solid #878787;
 	}
 	.hashtag {
 	
@@ -44,7 +51,10 @@
 	.stmxBtn{
 		background:gray;
 	}
-	
+	.row{
+		
+		
+	}
 </style>
 </head>
 <body>
@@ -76,8 +86,8 @@
 			</div>
 			
 			  <% if(list.isEmpty()){ %>
-				  <div class="row">
-				   	<h4>게시글이 없습니다.</h4>
+				  <div class="row" >
+				   	<h4 Style="margin-left:230px">게시글이 없습니다.</h4>
 				  </div>
 			  <% }else { %>
 				<% for(ComuBoard c : list) { %>
@@ -102,8 +112,8 @@
 									<% } %>
 									
 									<span><%=c.getContent()%></span>
-									<div>
-										<div style="float: right">
+									<div style="border-bottom:1px solid #878787;">
+										<div class="icon" >
 											<i class="fa fa-heart-o"> <sup><%= c.getLikeCount() %></sup>
 											</i> <i class="fa fa-comment-o" style="margin-left:5px"> <sup><%= c.getCommentCount() %></sup>
 											</i>
@@ -123,6 +133,7 @@
         </script>
         
         <% if(!list.isEmpty()){ %>
+        	<%if(flag.equals("all")) { %>
 			<div class="col-lg-12" style="margin-left:150px">
 				<div class="product__pagination blog__pagination">
 					<% if(currentPage != 1){ %>
@@ -143,6 +154,28 @@
 		            <% } %>
 				</div>
 			</div> 
+			<% }else { %>
+			<div class="col-lg-12" style="margin-left:150px">
+				<div class="product__pagination blog__pagination">
+					<% if(currentPage != 1){ %>
+            			<a href="<%=contextPath%>/cgory.li?cpage=<%=currentPage-1%>&cNo=<%=flag%>">&lt;</a>
+		            <% } %>
+		            
+		         	<% for(int p=startPage; p<=endPage; p++) {%>
+		         
+			            <% if(p == currentPage){ %>
+	            			<a disabled style="opacity:0.7"><%= p %></a>
+	            		<% }else { %>
+	              			 <a href="<%=contextPath%>/cgory.li?cpage=<%= p %>&cNo=<%=flag%>"><%= p %></a>
+	              		<% } %>
+          		   <% } %>
+         
+		         <% if(currentPage != maxPage){ %>
+		            <a href="<%=contextPath%>/cgory.li?cpage=<%=currentPage+1%>&cNo=<%=flag%>" >&gt;</a>
+		            <% } %>
+				</div>
+			</div> 
+			<%} %>
 			<% } %>
 		</div>
 	 <%@ include file="../community/comuMypage.jsp" %>

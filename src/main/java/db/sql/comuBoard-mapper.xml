@@ -18,7 +18,7 @@
 			             , TAG
 			             , TITLE
 			             , CONTENT
-			             , ENROLL_DATE
+			             , CB.ENROLL_DATE
 			             , VIEW_COUNT
 			             , (
 			                  SELECT COUNT(*)
@@ -31,7 +31,9 @@
 			                   WHERE CR.COMU_NO = CB.COMU_NO
 			                ) "COMMENT_COUNT"
 			          FROM COMU_BOARD CB
+			          JOIN MEMBER USING (MEM_NO)
 			         WHERE DELETE_YN = 'N'
+			           AND MEM_STATUS = 'N'
 			         ORDER 
 			            BY COMU_NO DESC
                     ) A
@@ -251,7 +253,7 @@
 			             , TAG
 			             , TITLE
 			             , CONTENT
-			             , ENROLL_DATE
+			             , CB.ENROLL_DATE
 			             , VIEW_COUNT
 			             , (
 			                  SELECT COUNT(*)
@@ -264,8 +266,10 @@
 			                   WHERE CR.COMU_NO = CB.COMU_NO
 			                ) "COMMENT_COUNT"
 			          FROM COMU_BOARD CB
+			          JOIN MEMBER USING (MEM_NO)
 			         WHERE DELETE_YN = 'N'
-			           AND CATEGORY_NO = ?
+			           AND MEM_STATUS = 'N'
+			           AND CB.CATEGORY_NO = ?
 			         ORDER 
 			            BY COMU_NO DESC
                     ) A
@@ -291,5 +295,20 @@
 		  FROM MEMBER M
          WHERE MEM_NO = ?
 	</entry>
+	
+	<entry key="selectCategoryListCount">
+		SELECT COUNT(*) as "COUNT"
+      FROM COMU_BOARD
+     WHERE DELETE_YN = 'N'
+       AND CATEGORY_NO = ?
+	</entry>
+	<entry key="selectMyListCount">
+		SELECT COUNT(*) as "COUNT"
+      FROM COMU_BOARD
+     WHERE DELETE_YN = 'N'
+       AND MEM_NO = ?
+	</entry>
+	
+	
 </properties>
 
