@@ -151,7 +151,7 @@
                             <ul aria-expanded="false" class="collapse  first-level">
                                 <li class="sidebar-item"><a href="<%=request.getContextPath()%>/adComuNotiList.do?cpage=1" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 공지사항 </span></a></li>
                                 <li class="sidebar-item"><a href="<%=request.getContextPath()%>/adList.co?cpage=1" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 게시물관리 </span></a></li>
-                                <li class="sidebar-item"><a href="<%=request.getContextPath()%>/views/admin_main/comu/adminComuReportView.jsp" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 신고관리 </span></a></li>
+                                <li class="sidebar-item"><a href="<%=request.getContextPath()%>/adRList.co" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 신고관리 </span></a></li>
                             </ul>
                         </li>
                     </ul>

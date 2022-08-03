@@ -1,5 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.ArrayList, com.leer.community.model.vo.Report, com.leer.common.model.vo.PageInfo"%> 
+<%
+	PageInfo pi = (PageInfo)request.getAttribute("pi");
+	ArrayList<Report> list = (ArrayList<Report>)request.getAttribute("list");
+	
+	/*
+	int currentPage = pi.getCurrentPage();
+	int startPage = pi.getStartPage();
+	int endPage = pi.getEndPage();
+	int maxPage = pi.getMaxPage(); */
+%>      
 <!DOCTYPE html>
 <html>
 <head>
@@ -90,166 +101,33 @@
                                             </label>
                                         </th>
                                         <th scope="col">No.</th>
-                                        <th scope="col">제목</th>
                                         <th scope="col">카테고리</th>
                                         <th scope="col">신고분류</th>
-                                        <th scope="col">작성자</th>
-                                        <th scope="col">작성일</th>
-                                        <th scope="col">조회수</th>
+                                        <th scope="col">작성한 회원번호</th>
+                                        <th scope="col">신고한 회원번호</th>                                        
+                                        <th scope="col">신고일</th>
+                                        <th scope="col">처리여부</th>
                                     </tr>
                                 </thead>
                                 <tbody class="custom">
-                                    <tr>
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>19</td>
-                                        <td>커뮤니티 게시글</td>
-                                        <td>부적절한 내용</td>
-                                        <td>도배</td>
-                                        <td>ttt22</td>
-                                        <td>2020.07.26</td>
-                                        <td>33</td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>18</td>
-                                        <td>제품리뷰</td>
-                                        <td>부적절한 내용</td>
-                                        <td>욕설 및 비방</td>
-                                        <td>ttt22</td>
-                                        <td>2020.07.26</td>
-                                        <td>33</td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>17</td>
-                                        <td>커뮤니티 게시글</td>
-                                        <td>부적절한 내용</td>
-                                        <td>도배</td>
-                                        <td>ttt22</td>
-                                        <td>2020.07.26</td>
-                                        <td>33</td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>16</td>
-                                        <td>커뮤니티 댓글</td>
-                                        <td>부적절한 내용</td>
-                                        <td>성적인 내용</td>
-                                        <td>ttt22</td>
-                                        <td>2020.07.26</td>
-                                        <td>33</td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>15</td>
-                                        <td>커뮤니티 게시글</td>
-                                        <td>부적절한 내용</td>
-                                        <td>도배</td>
-                                        <td>ttt22</td>
-                                        <td>2020.07.26</td>
-                                        <td>33</td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>14</td>
-                                        <td>커뮤니티 게시글</td>
-                                        <td>부적절한 내용</td>
-                                        <td>도배</td>
-                                        <td>ttt22</td>
-                                        <td>2020.07.26</td>
-                                        <td>33</td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>13</td>
-                                        <td>커뮤니티 게시글</td>
-                                        <td>부적절한 내용</td>
-                                        <td>도배</td>
-                                        <td>ttt22</td>
-                                        <td>2020.07.26</td>
-                                        <td>33</td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>12</td>
-                                        <td>커뮤니티 게시글</td>
-                                        <td>부적절한 내용</td>
-                                        <td>도배</td>
-                                        <td>ttt22</td>
-                                        <td>2020.07.26</td>
-                                        <td>33</td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>11</td>
-                                        <td>커뮤니티 게시글</td>
-                                        <td>부적절한 내용</td>
-                                        <td>도배</td>
-                                        <td>ttt22</td>
-                                        <td>2020.07.26</td>
-                                        <td>33</td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>10</td>
-                                        <td>커뮤니티 게시글</td>
-                                        <td>부적절한 내용</td>
-                                        <td>도배</td>
-                                        <td>ttt22</td>
-                                        <td>2020.07.26</td>
-                                        <td>33</td>
-                                    </tr>
-                                  </tbody>
+                                	<% for(Report r : list) { %>
+	                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminReportDetail.jsp';">
+	                                        <th>
+	                                            <label class="customcheckbox">
+	                                                <input type="checkbox" class="listCheckbox" />
+	                                                <span class="checkmark"></span>
+	                                            </label>
+	                                        </th>
+	                                        <td><%=r.getReportNo()%></td>
+	                                        <td><%=r.getReportCategory()%></td>
+	                                        <td><%=r.getReportClass()%></td>
+	                                        <td><%=r.getReportedNo()%></td>
+	                                        <td><%=r.getMemNo()%></td>
+	                                        <td><%=r.getReportDate()%></td>
+	                                        <td><%=r.getReportYn()%></td>
+	                                    </tr>
+                                    <% } %>
+                               </tbody>
                                <tfoot>
                                     <tr align="center">
                                         <th colspan="10">

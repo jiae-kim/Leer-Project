@@ -1,9 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="com.leer.community.model.vo.ComuBoard" %>
-<%
-	ComuBoard cb = (ComuBoard)request.getAttribute("comuBoard");
-%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +10,7 @@
 
 	<%@ include file="../../common/adminMenubar.jsp" %>
 	
-	             <div class="page-breadcrumb">
+             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
                         <br><br><br>
@@ -44,22 +40,22 @@
                     <div class="col-lg-12 grid-margin stretch-card">
                         <div class="card">
                           <div class="card-body">
-                            <h2 class="card-title" align="center">커뮤니티 게시글 상세조회</h2>
+                            <h2 class="card-title" align="center">신고된 게시물 상세조회</h2>
                             <div class="table-responsive pt-3">
                               <table class="tt1" border="1" align="center">
                                 <tbody>
                                     <tr>
                                       <td width="150px" height="45px" style="background:hsl(0, 0%, 77%); color:rgb(80, 80, 80); font-weight: bold;">
-                                        제목
+                                        게시물 종류
                                       </td>
                                       <td width="350px">
-                                          <label for="" style="float: left;">&nbsp;&nbsp; <%=cb.getTitle()%></label> 
+                                          <label for="" style="float: left;">&nbsp;&nbsp; 커뮤니티 댓글</label> 
                                       </td>
                                       <td width="150px" height="45px" style="background:hsl(0, 0%, 77%); color:rgb(80, 80, 80); font-weight: bold;">
-                                        카테고리
+                                        신고사유
                                       </td>
                                       <td width="350px">
-                                          <label for="" style="float: left;">&nbsp;&nbsp; <%=cb.getCategoryName()%></label> 
+                                          <label for="" style="float: left;">&nbsp;&nbsp; 욕설 및 비방</label> 
                                       </td>
                                     </tr>
                                     
@@ -68,20 +64,20 @@
                                         작성자
                                       </td>
                                       <td>
-                                          <label for="" style="float: left;">&nbsp;&nbsp; <%=cb.getMemId()%></label> 
+                                          <label for="" style="float: left;">&nbsp;&nbsp; tttt1</label> 
                                       </td>
                                       <td width="" height="45px" style="background:hsl(0, 0%, 77%); color:rgb(80, 80, 80); font-weight: bold;">
-                                        등록일
+                                        신고자
                                       </td>
                                       <td>
-                                          <label for="" style="float: left;">&nbsp;&nbsp; <%=cb.getEnrollDate()%></label> 
+                                          <label for="" style="float: left;">&nbsp;&nbsp; dddd1</label> 
                                       </td>
                                     </tr>
                                   </tbody>
                               </table>
                               <br>
                               <table class="tarea" align="center" style="margin:5px 5px 5px 5px">
-                                <textarea name="" id="" cols="133.5" rows="23" resize="none" placeholder=""><%=cb.getContent()%></textarea>
+                                <textarea name="" id="" cols="133.5" rows="23" resize="none" placeholder="">신고된게시물내용</textarea>
                               </table>
                               <div class="">
                                 <table class="tt1" border="1" align="center">
@@ -93,7 +89,9 @@
                             <c:if test="${sessionMemberLv == 1}">
                                     <div class="d-grid gap-3" style="text-align: center">
                                         <a href="" id="btn" class="btn btn-dark" style="width:150px">게시물 삭제</a>
-                                        <a href="<%= request.getContextPath() %>/adList.co?cpage=1" id="btn" class="btn btn-dark" style="width:150px">목록으로</a>
+                                        <a href="" id="btn" class="btn btn-dark" style="width:150px">게시물 블라인드</a>
+                                        <a href="" id="btn" class="btn btn-dark" style="width:150px">작성자 강퇴</a>
+                                        <a href="" id="btn" class="btn btn-dark" style="width:150px">목록으로</a>
                                     </div>
                             </c:if>
                           </div>
@@ -109,7 +107,7 @@
             <!-- ============================================================== -->
             <footer class="footer text-center">
                 
-            </footer>
+            </footer>	
 
 </body>
 </html>

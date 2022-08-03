@@ -135,7 +135,22 @@
 		  JOIN MEMBER M ON (M.MEM_NO = CB.MEM_NO)
 		 WHERE COMU_NO = ?
 	</entry>
-		
+	
+	<!-- 커뮤니티 신고리스트조회, 김은지 -->
+	<entry key="selectReportList">
+		SELECT 
+		       R.REPORT_NO
+		     , R.REPORT_CATEGORY
+		     , R.REPORT_CLASS
+		     , R.REPORTED_NO
+		     , R.MEM_NO
+		     , R.REPORT_DATE
+		     , R.REPORT_YN
+		  FROM REPORT R
+		 ORDER 
+		    BY REPORT_NO DESC
+	</entry>
+			
 </properties>
 
 
