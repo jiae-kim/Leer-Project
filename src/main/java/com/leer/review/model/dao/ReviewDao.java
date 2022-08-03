@@ -11,6 +11,7 @@ import java.util.Properties;
 
 import static com.leer.common.JDBCTemplate.*;
 
+import com.leer.common.model.vo.Attachment;
 import com.leer.member.model.vo.Member;
 import com.leer.mypage.model.dao.MypageDao;
 import com.leer.review.model.vo.Review;
@@ -119,7 +120,8 @@ public ArrayList<Review> WriteReviewHistory(Connection conn, int memNo){
 							rset.getString("image_url1"),
 							rset.getString("p_Name"),
 							rset.getDate("or_date"),
-							rset.getInt("price")
+							rset.getInt("price"),
+							rset.getString("p_code")
 						);
 			}
 		} catch (SQLException e) {
@@ -127,16 +129,58 @@ public ArrayList<Review> WriteReviewHistory(Connection conn, int memNo){
 			e.printStackTrace();
 		}
 		
-		
+		System.out.println(r.getP_code());
 		return r;
 	}
 	
-	public int WriteReviewComplete(Connection conn,int memNo,String pname,int reviewscope,String content) {
+	public int WriteReviewComplete(Connection conn,Review r) {
+		
 		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("WriteReviewComplete");
 		
-		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, r.getMemNo());
+			pstmt.setString(2, r.getpName());
+			pstmt.setString(3, r.getP_code());
+			pstmt.setInt(4, r.getReviewScope());
+			pstmt.setString(5, r.getReviewContent());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
 		
 		return result;
+		
+	}
+	
+	public int insertAttachment(Connection conn, Attachment at) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("insertAttachment");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, at.getOriginName());
+			pstmt.setString(2, at.getChangeName());
+			pstmt.setString(3, at.getFilePath());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+		
 	}
 	
 }

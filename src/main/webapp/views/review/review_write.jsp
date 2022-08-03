@@ -14,7 +14,7 @@
      <title>Document</title>
      
      <style>
-          #reviewscore{
+          #reviewscopes{
                box-sizing: border-box;
                width: 650px;
                height: 50px;
@@ -49,11 +49,13 @@
 </head>
 <body>
 
-     <form action="<%= request.getContextPath() %>/reviewWrite?memNo=<%=loginUser.getMemNo()%>&pname=<%= r.getpName() %>"  method="post" enctype="multipart/form-data" id="autor">
+     <form action="<%= request.getContextPath() %>/reviewWrite"  method="post" enctype="multipart/form-data" id="autor">
           <br>
           <h2>리뷰 쓰기</h2>
           <hr>
-          
+          <input type="hidden" name="memNo" value="<%=loginUser.getMemNo()%>">
+          <input type="hidden" name="pname" value="<%= r.getpName() %>">
+          <input type="hidden" name="pcode" value="<%= r.getP_code()%>">
           <table id="box" width="650px" > 
                <tr height="10px">
                     <td rowspan="4" width="70px"><img class="product__details__pic__item"
@@ -80,7 +82,7 @@
           
           <h3> 상품은 어떠셨나요? </h3>
           <div id="box" width="650px">
-               <select name="reviewscope" id="reviewscope">
+               <select name="reviewscope" id="reviewscopes">
                     <option value="1">★</option>
                     <option value="2">★★</option>
                     <option value="3">★★★</option>
@@ -95,8 +97,8 @@
           <br><br><br>
 
           <h3>사진을 첨부해주세요</h3>
-          <div id="box" name="upfile">
-               <input type="file">
+          <div id="box">
+               <input type="file" name="upfile">
           </div>
 
           <br>
@@ -114,7 +116,7 @@
           
 
      </form>
-
+	
 
 </body>
 </html>

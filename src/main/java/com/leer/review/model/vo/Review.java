@@ -6,7 +6,6 @@ public class Review {
 	
 	private int reviewNo;
 	private int memNo;
-	private String pCode;
 	private String memId;
 	private String pName;
 	private int reviewScope;
@@ -66,12 +65,13 @@ public class Review {
 
 	
 
-	public Review(String image_url,String pName, Date or_date, int price) {
+	public Review(String image_url,String pName, Date or_date, int price, String p_code) {
 		super();
 		this.image_url = image_url;
 		this.pName = pName;
 		this.or_date = or_date;
 		this.price = price;
+		this.p_code = p_code;
 	}
 
 
@@ -138,12 +138,11 @@ public class Review {
 	}
 
 
-	public Review(int reviewNo, int memNo, String pCode, String memId, String pName, int reviewScope,
-			String reviewContent, Date enrollDate, Date mofifyDate, String writeYN) {
+	public Review(int reviewNo, int memNo, String memId, String pName, int reviewScope,
+			String reviewContent, Date enrollDate, Date mofifyDate, String writeYN,String p_code) {
 		super();
 		this.reviewNo = reviewNo;
 		this.memNo = memNo;
-		this.pCode = pCode;
 		this.memId = memId;
 		this.pName = pName;
 		this.reviewScope = reviewScope;
@@ -151,15 +150,11 @@ public class Review {
 		this.enrollDate = enrollDate;
 		this.mofifyDate = mofifyDate;
 		this.writeYN = writeYN;
+		this.p_code = p_code;
 	}
 
 
-	@Override
-	public String toString() {
-		return "Review [reviewNo=" + reviewNo + ", memNo=" + memNo + ", pCode=" + pCode + ", memId=" + memId
-				+ ", pName=" + pName + ", reviewScope=" + reviewScope + ", reviewContent=" + reviewContent
-				+ ", enrollDate=" + enrollDate + ", mofifyDate=" + mofifyDate + ", writeYn=" + writeYN + "]";
-	}
+
 
 
 	public int getReviewNo() {
@@ -181,15 +176,6 @@ public class Review {
 		this.memNo = memNo;
 	}
 
-
-	public String getpCode() {
-		return pCode;
-	}
-
-
-	public void setpCode(String pCode) {
-		this.pCode = pCode;
-	}
 
 
 	public String getMemId() {

@@ -31,7 +31,7 @@
         JOIN OR_PRODUCT OP ON (P.P_CODE = OP.P_CODE)
         JOIN "ORDER" O ON (OP.OR_NO = O.OR_NO)
 		WHERE R.MEM_NO=?
-		
+		AND WRITE_YN='Y'
 	</entry>
 
 	<entry key="WriteReview">
@@ -40,32 +40,51 @@
 			,P.P_NAME
 			,OR_DATE
 			,P.PRICE
-        FROM REVIEW R
-        JOIN PRODUCT P ON (R.P_CODE = P.P_CODE)
+			,P.P_CODE
+        FROM PRODUCT P 
         JOIN OR_PRODUCT OP ON (P.P_CODE = OP.P_CODE)
         JOIN "ORDER" O ON (OP.OR_NO = O.OR_NO)
-		WHERE R.MEM_NO = ?
+		WHERE O.MEM_NO = ?
         AND OP.OR_NO = ?
         AND P.P_CODE = ?
 	</entry>
 	
-	<entry key="">
-	리뷰 쓰기창 작성한 내용 추가하기
+	<entry key="WriteReviewComplete">
 		INSERT
 		  INTO REVIEW 
 		  (
 		  	REVIEW_NO
-		  	MEM_NO
-		  	P_NAME
+		  , MEM_NO
+		  ,	P_NAME
+		  , P_CODE
 		  , REVIEW_SCOPE
 		  , REVIEW_CONTENT
-		  , FILE_PATH
 		  )
 		  VALUES
 		  (
 		  	SEQ_REV.NEXTVAL
 		  , ?
 		  , ?
+		  , ?
+		  , ?
+		  , ?
+		  )
+	</entry>
+	
+	<entry key="insertAttachment">
+		INSERT 
+		  INTO ATTACHMENT
+		  (
+		    FILE_NO
+		  , REF_BNO
+		  , ORIGIN_NAME
+		  , CHANGE_NAME
+		  , FILE_PATH
+		  )
+		  VALUES
+		  (
+		    SEQ_FILE.NEXTVAL
+		  , SEQ_REV.CURRVAL
 		  , ?
 		  , ?
 		  , ?

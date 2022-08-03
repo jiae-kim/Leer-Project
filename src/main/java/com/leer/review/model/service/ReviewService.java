@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import static com.leer.common.JDBCTemplate.*;
 
+import com.leer.common.model.vo.Attachment;
 import com.leer.member.model.vo.Member;
 import com.leer.mypage.model.dao.MypageDao;
 import com.leer.review.model.dao.ReviewDao;
@@ -50,19 +51,26 @@ public class ReviewService {
 		
 	}
 	
-	public int WriteReviewComplete(int memNo,String pname,int reviewscope,String content) {
+	public int WriteReviewComplete(Review r, Attachment at) {
 		
 		Connection conn = getConnection();
-		int result = 0;
-		result = new ReviewDao().WriteReviewComplete(conn,memNo,pname,reviewscope,content);
+		int result2 = 1;
+		int result1 = new ReviewDao().WriteReviewComplete(conn,r);
 		
-		if(result<0) {
-			
-		}else {
-			
+		if(at != null ) {
+			result2 = new ReviewDao().insertAttachment(conn, at);
 		}
+		
+		if( result1>0 && result2>0) { //성공
+			commit(conn);
+		} else { // 실패
+			rollback(conn);
+		}
+		
+		
+		
 		close(conn);
-		return result;
+		return result1*result2;
 		
 	}
 	
