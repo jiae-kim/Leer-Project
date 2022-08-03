@@ -248,5 +248,46 @@
 		  FROM INQUIRY
 	</entry>
 	          
+	<!-- 상품리뷰 전제조회 -->
+	<entry key="selectProductReviewList">
+	SELECT *
+	  FROM (
+	  		SELECT ROWNUM RNUM, A.*
+	  		  FROM (
+	  		  		SELECT
+					        REVIEW_NO
+					      , MEM_ID
+					      , P_NAME
+					      , P_CODE
+					      , REVIEW_CONTENT
+					      , REVIEW_SCOPE
+					      , ENROLL_DATE
+					      , RPOINT_YN
+					  FROM  REVIEW
+					 ORDER  BY REVIEW_NO
+	  		 		) A
+	  		)
+	  WHERE RNUM BETWEEN ? AND ? 	
+	</entry>
+	
+	<!-- 상품리뷰 전체조회 기존구문 
+	SELECT
+	        REVIEW_NO
+	      , MEM_ID
+	      , P_NAME
+	      , P_CODE
+	      , REVIEW_CONTENT
+	      , REVIEW_SCOPE
+	      , ENROLL_DATE
+	      , RPOINT_YN
+	  FROM  REVIEW
+	 ORDER  BY REVIEW_NO
+	-->
+	
+	<!-- 상품리뷰 전체조회 : 페이징 -->
+	<entry key="selectProductReviewListCount">
+		SELECT COUNT(*) AS "COUNT"
+	      FROM REVIEW
+	</entry>
 
 </properties>
