@@ -14,6 +14,7 @@ import com.leer.common.model.vo.PageInfo;
 import com.leer.community.model.dao.AdminCommunityDao;
 import com.leer.community.model.vo.ComuBoard;
 import com.leer.community.model.vo.ComuNotice;
+import com.leer.community.model.vo.Report;
 
 public class AdminCommunityService {
 	
@@ -104,6 +105,17 @@ public class AdminCommunityService {
 		ComuBoard cb = new AdminCommunityDao().boardDetailList(conn, comuNo);
 		close(conn);
 		return cb;
+	}
+	
+	// 관리자 신고리스트 조회
+	// 작성자 김은지
+	public ArrayList<Report> selectReportList(){ //PageInfo pi
+		Connection conn = getConnection();
+		
+		ArrayList<Report> list = new AdminCommunityDao().selectReportList(conn); //, pi
+		
+		close(conn);
+		return list;
 	}
 
 }

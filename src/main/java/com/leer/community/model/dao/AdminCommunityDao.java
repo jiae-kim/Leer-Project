@@ -16,6 +16,7 @@ import com.leer.common.model.vo.Category2;
 import com.leer.common.model.vo.PageInfo;
 import com.leer.community.model.vo.ComuBoard;
 import com.leer.community.model.vo.ComuNotice;
+import com.leer.community.model.vo.Report;
 
 public class AdminCommunityDao {
 	
@@ -295,8 +296,59 @@ public class AdminCommunityDao {
 		}
 		return cb;
 	}
+		
+	// 관리자 신고리스트 조회
+	// 작성자 김은지
+	public ArrayList<Report> selectReportList(Connection conn){ //, PageInfo pi
+		ArrayList<Report> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectReportList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			/*
+			int startRow = (pi.getCurrentPage()-1) * pi.getBoardLimit()+1;
+			int endRow = startRow + pi.getBoardLimit()-1;
+			
+			pstmt.setInt(1, startRow);
+			pstmt.setInt(2, endRow);
+			*/
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				
+				list.add(new Report(rset.getInt("report_no"),
+									rset.getInt("mem_no"),
+									rset.getString("report_class"),
+									rset.getString("report_category"),
+									rset.getInt("reported_no"),
+									rset.getDate("report_date"),
+									rset.getString("report_yn")
+						));
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return list;
+	}
 	
 }
+
+
+
+
+
+
+
+
+
 
 
 
