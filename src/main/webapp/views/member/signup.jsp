@@ -185,15 +185,12 @@
 
                 <div align="center">
                 	<button type="reset" onclick="termsPage();">이전</button>
-                    <button type="submit" onclick="signupSuccess();">회원가입</button>
+                    <button type="submit">회원가입</button>
                 </div>
                 
                 <script>
                 	function termsPage(){
                 		location.href="<%=contextPath%>/views/member/terms.jsp";
-                	}
-                	function signupSuccess(){
-                		alert("회원가입 완료 되었습니다.");
                 	}
                 </script>
                 

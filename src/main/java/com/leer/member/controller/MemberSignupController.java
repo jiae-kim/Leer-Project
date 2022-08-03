@@ -59,16 +59,15 @@ public class MemberSignupController extends HttpServlet {
 		
 		
 		
+		//수정필요함
+		HttpSession session = request.getSession();
 		if(result > 0) {
 			
-			HttpSession session = request.getSession();
-			session.setAttribute("alertMsg", "회원가입이 완료되었습니다.");
-			
-			response.sendRedirect(request.getContextPath()); //메인페이지로 돌아가도록
+			session.setAttribute("alertMsg", "회원가입이 완료되었습니다. 로그인 해주세요.");
+			response.sendRedirect(request.getContextPath());
 			
 		}else {
 			
-			HttpSession session = request.getSession();
 			session.setAttribute("alertMsg", "회원가입에 실패했습니다. 다시 시도해주세요.");
 
 		}

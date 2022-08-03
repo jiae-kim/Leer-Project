@@ -80,7 +80,7 @@ public class MemberDao {
 		int result = 0;
 		
 		PreparedStatement pstmt = null;
-		String sql = prop.getProperty("insertMemeber");
+		String sql = prop.getProperty("insertMember");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -178,6 +178,52 @@ public class MemberDao {
 	
 	
 	
+	public int updatePwdMember(Connection conn, String memId, String memPwd, String updatePwd) {
+		
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("updatePwdMember");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, updatePwd);
+			pstmt.setString(2, memId);
+			pstmt.setString(3, memPwd);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		return result;
+	}
+	
+	
+	
+	public int deleteMember(Connection conn, String memId) {
+		
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("deleteMember");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memId);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
 	
 	
 }

@@ -41,7 +41,7 @@
 		  )
 		  VALUES
 		  (
-		     SEQ_BNO.NEXTVAL
+		     SEQ_MNO.NEXTVAL
 		   , ?
 		   , ?
 		   , ?
@@ -87,6 +87,28 @@
 	      FROM MEMBER
 	     WHERE MEM_ID = ? 
 	</entry>
+
+
+	
+	<entry key="updatePwdMember">
+		UPDATE MEMBER
+		   SET MEM_PWD = ?
+		 WHERE MEM_ID = ?
+		   AND MEM_PWD = ?
+	</entry>
+	
+	
+	
+	<entry key="deleteMember">
+			UPDATE MEMBER
+			   SET MEM_STATUS = 'Y'
+			 WHERE MEM_ID = ?
+	</entry>
+	
+	
+	
+	
+	
 	
 	
 </properties>
