@@ -58,29 +58,27 @@
             <!-- ============================================================== -->
             <div class="container-fluid">
                 <!-- ============================================================== -->
-                <!-- 전체조회  -->
-                <div class="btn-group">
-                    <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">문의 유형 선택</button>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">상품</a>
-                        <a class="dropdown-item" href="#">배송</a>
-                        <a class="dropdown-item" href="#">주문취소/환불</a>
-                    </div>
-                </div>
-                <!-- ============================================================== -->
-                <!-- 카테고리 조회 -->
-                <div class="btn-group">
-                    <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">진행 단계 선택</button>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">미답변</a>
-                        <a class="dropdown-item" href="#">답변완료</a>
-                    </div>
-                </div>
-                <!-- ============================================================== -->
                 <!-- 목록 -->
                 <div class="card">
                     <div class="card-body">
                         <!-- <h5 class="card-title m-b-0">상품전체조회</h5> -->
+                        <!-- 전체조회  -->
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">문의 유형 선택</button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">상품</a>
+                                <a class="dropdown-item" href="#">배송</a>
+                                <a class="dropdown-item" href="#">주문취소/환불</a>
+                            </div>
+                        </div>
+                        <!-- 카테고리 조회 -->
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">진행 단계 선택</button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">미답변</a>
+                                <a class="dropdown-item" href="#">답변완료</a>
+                            </div>
+                        </div>
                     </div>
                         <div class="table-responsive">
                             <table class="table">
@@ -115,152 +113,7 @@
                                         <td>user56</td>
                                         <td style="color: red;">미답변</td>
                                     </tr>
-                                    <tr>
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>10</td>
-                                        <td>주문취소/환불</td>
-                                        <td>2022-07-09</td>
-                                        <td>책 환불</td>
-                                        <td>user56</td>
-                                        <td style="color: red;">미답변</td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>10</td>
-                                        <td>주문취소/환불</td>
-                                        <td>2022-07-09</td>
-                                        <td>책 환불</td>
-                                        <td>user56</td>
-                                        <td style="color: red;">미답변</td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>10</td>
-                                        <td>주문취소/환불</td>
-                                        <td>2022-07-09</td>
-                                        <td>책 환불</td>
-                                        <td>user56</td>
-                                        <td style="color: red;">미답변</td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>10</td>
-                                        <td>주문취소/환불</td>
-                                        <td>2022-07-09</td>
-                                        <td>책 환불</td>
-                                        <td>user56</td>
-                                        <td style="color: red;">미답변</td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>10</td>
-                                        <td>주문취소/환불</td>
-                                        <td>2022-07-09</td>
-                                        <td>책 환불</td>
-                                        <td>user56</td>
-                                        <td style="color: red;">미답변</td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>10</td>
-                                        <td>주문취소/환불</td>
-                                        <td>2022-07-09</td>
-                                        <td>책 환불</td>
-                                        <td>user56</td>
-                                        <td style="color: red;">미답변</td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>10</td>
-                                        <td>주문취소/환불</td>
-                                        <td>2022-07-09</td>
-                                        <td>책 환불</td>
-                                        <td>user56</td>
-                                        <td style="color: red;">미답변</td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>10</td>
-                                        <td>주문취소/환불</td>
-                                        <td>2022-07-09</td>
-                                        <td>책 환불</td>
-                                        <td>user56</td>
-                                        <td style="color: red;">미답변</td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>10</td>
-                                        <td>주문취소/환불</td>
-                                        <td>2022-07-09</td>
-                                        <td>책 환불</td>
-                                        <td>user56</td>
-                                        <td style="color: red;">미답변</td>
-                                    </tr>
                                     
-                                    <!-- 페이징처리 바 -->
-                                    <tr align="center">
-                                        <th colspan="10">
-                                            <div class="btn-group" role="group" aria-label="Basic example">
-                                                <button type="button" class="btn btn-outline-secondary"><</button>
-                                                <button type="button" class="btn btn-outline-secondary">1</button>
-                                                <button type="button" class="btn btn-outline-secondary">2</button>
-                                                <button type="button" class="btn btn-outline-secondary">3</button>
-                                                <button type="button" class="btn btn-outline-secondary">4</button>
-                                                <button type="button" class="btn btn-outline-secondary">5</button>
-                                                <button type="button" class="btn btn-outline-secondary">6</button>
-                                                <button type="button" class="btn btn-outline-secondary">7</button>
-                                                <button type="button" class="btn btn-outline-secondary">8</button>
-                                                <button type="button" class="btn btn-outline-secondary">9</button>
-                                                <button type="button" class="btn btn-outline-secondary">10</button>
-                                                <button type="button" class="btn btn-outline-secondary">></button>
-                                              </div>
-                                        </th>
-                                    </tr>
                                 </tbody>
                             </table>
                         </div>
