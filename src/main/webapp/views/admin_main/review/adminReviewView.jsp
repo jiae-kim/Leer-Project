@@ -149,7 +149,7 @@
                                         <td><%=r.getReviewContent()%></td>
                                         <td><%=r.getReviewScope()%></td>
                                         <td><%=r.getEnrollDate()%></td>
-                                        <td><%=r.getRpoint_yn()%></td>
+                                        <td><%=r.getRpointYn()%></td>
                                     </tr>
                                     <% } %>
                                 </tbody>
