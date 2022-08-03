@@ -5,12 +5,10 @@
 	PageInfo pi = (PageInfo)request.getAttribute("pi");
 	ArrayList<ComuBoard> list = (ArrayList<ComuBoard>)request.getAttribute("list");
 	
-	/*
 	int currentPage = pi.getCurrentPage();
 	int startPage = pi.getStartPage();
 	int endPage = pi.getEndPage();
 	int maxPage = pi.getMaxPage();
-	*/
 %>       
 <!DOCTYPE html>
 <html>
@@ -114,7 +112,7 @@
                                 </thead>
                                 <tbody class="custom">
                                 	<% for(ComuBoard cb : list) { %>
-	                                    <tr onclick="location.href='<%=request.getContextPath()%>/adList.co';">
+	                                    <tr onclick="location.href='<%=request.getContextPath()%>/adDetail.co?no=<%=cb.getComuNo()%>';">
 	                                        <th>
 	                                            <label class="customcheckbox">
 	                                                <input type="checkbox" class="listCheckbox" />
@@ -135,18 +133,23 @@
                                     <tr align="center">
                                         <th colspan="10">
                                             <div class="btn-group" role="group" aria-label="Basic example">
-                                                <button type="button" class="btn btn-outline-secondary"><</button>
-                                                <button type="button" class="btn btn-outline-secondary">1</button>
-                                                <button type="button" class="btn btn-outline-secondary">2</button>
-                                                <button type="button" class="btn btn-outline-secondary">3</button>
-                                                <button type="button" class="btn btn-outline-secondary">4</button>
-                                                <button type="button" class="btn btn-outline-secondary">5</button>
-                                                <button type="button" class="btn btn-outline-secondary">6</button>
-                                                <button type="button" class="btn btn-outline-secondary">7</button>
-                                                <button type="button" class="btn btn-outline-secondary">8</button>
-                                                <button type="button" class="btn btn-outline-secondary">9</button>
-                                                <button type="button" class="btn btn-outline-secondary">10</button>
-                                                <button type="button" class="btn btn-outline-secondary">></button>
+                                                <% if(currentPage != 1) { %>
+	                                                <button type="button" onclick="location.href='<%=request.getContextPath()%>/adList.co?cpage=<%=currentPage-1%>';"  
+	                                                		class="btn btn-outline-secondary">&lt;</button>
+	                                            <% } %>
+	                                            <% for(int p=startPage; p<=endPage; p++) { %>
+	                                            	<% if(p == currentPage) { %>
+	                                                	<button type="button" disabled class="btn btn-outline-secondary"><%=p%></button>
+	                                                <% } else { %>
+	                                                	<button type="button" onclick="location.href='<%=request.getContextPath()%>/adList.co?cpage=<%=p%>';" 
+	                                                			class="btn btn-outline-secondary"><%=p%></button>
+	                                                <% } %>
+	                                            <% } %>
+	                                            
+	                                            <% if(currentPage != maxPage) { %>
+	                                            	<button type="button" onclick="location.href='<%=request.getContextPath()%>/adList.co?cpage=<%=currentPage+1%>';" 
+	                                                		    class="btn btn-outline-secondary">&gt;</button>
+	                                            <% } %>	                   
                                               </div>
                                         </th>
                                     </tr>

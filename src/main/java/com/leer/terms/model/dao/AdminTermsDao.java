@@ -54,7 +54,8 @@ public class AdminTermsDao {
 								   rset.getString("trm_remarks"),
 								   rset.getDate("enroll_date"),
 								   rset.getDate("modify_date"),
-								   rset.getString("mem_id")));
+								   rset.getString("mem_id")
+						));
 				
 			}
 		} catch (SQLException e) {

@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="com.leer.community.model.vo.ComuBoard" %>
+<%
+	ComuBoard cb = (ComuBoard)request.getAttribute("comuBoard");
+%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,13 +53,13 @@
                                         제목
                                       </td>
                                       <td width="350px">
-                                          <label for="" style="float: left;">&nbsp;&nbsp; 이거 잡지이름이 뭔가여</label> 
+                                          <label for="" style="float: left;">&nbsp;&nbsp; <%=cb.getTitle()%></label> 
                                       </td>
                                       <td width="150px" height="45px" style="background:hsl(0, 0%, 77%); color:rgb(80, 80, 80); font-weight: bold;">
                                         카테고리
                                       </td>
                                       <td width="350px">
-                                          <label for="" style="float: left;">&nbsp;&nbsp; 자유게시판</label> 
+                                          <label for="" style="float: left;">&nbsp;&nbsp; <%=cb.getCategoryName()%></label> 
                                       </td>
                                     </tr>
                                     
@@ -64,20 +68,20 @@
                                         작성자
                                       </td>
                                       <td>
-                                          <label for="" style="float: left;">&nbsp;&nbsp; tttt1</label> 
+                                          <label for="" style="float: left;">&nbsp;&nbsp; <%=cb.getMemId()%></label> 
                                       </td>
                                       <td width="" height="45px" style="background:hsl(0, 0%, 77%); color:rgb(80, 80, 80); font-weight: bold;">
                                         등록일
                                       </td>
                                       <td>
-                                          <label for="" style="float: left;">&nbsp;&nbsp; 2022-08-03</label> 
+                                          <label for="" style="float: left;">&nbsp;&nbsp; <%=cb.getEnrollDate()%></label> 
                                       </td>
                                     </tr>
                                   </tbody>
                               </table>
                               <br>
                               <table class="tarea" align="center" style="margin:5px 5px 5px 5px">
-                                <textarea name="" id="" cols="133.5" rows="23" resize="none" placeholder="">잡지이름알려주세영</textarea>
+                                <textarea name="" id="" cols="133.5" rows="23" resize="none" placeholder=""><%=cb.getContent()%></textarea>
                               </table>
                               <div class="">
                                 <table class="tt1" border="1" align="center">
@@ -89,7 +93,7 @@
                             <c:if test="${sessionMemberLv == 1}">
                                     <div class="d-grid gap-3" style="text-align: center">
                                         <a href="" id="btn" class="btn btn-dark" style="width:150px">게시물 삭제</a>
-                                        <a href="" id="btn" class="btn btn-dark" style="width:150px">목록으로</a>
+                                        <a href="<%= request.getContextPath() %>/adList.co" id="btn" class="btn btn-dark" style="width:150px">목록으로</a>
                                     </div>
                             </c:if>
                           </div>

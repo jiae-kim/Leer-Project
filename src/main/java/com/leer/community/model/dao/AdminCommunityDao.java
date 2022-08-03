@@ -202,7 +202,7 @@ public class AdminCommunityDao {
 	
 	// 관리자 커뮤게시물리스트 조회
 	// 작성자 김은지	
-	public ArrayList<ComuBoard> selectBoardList(Connection conn){ // , PageInfo pi	
+	public ArrayList<ComuBoard> selectBoardList(Connection conn, PageInfo pi){  
 		ArrayList<ComuBoard> list = new ArrayList<>();
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -210,6 +210,12 @@ public class AdminCommunityDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
+			
+			int startRow = (pi.getCurrentPage()-1) * pi.getBoardLimit()+1;
+			int endRow = startRow + pi.getBoardLimit()-1;
+			
+			pstmt.setInt(1, startRow);
+			pstmt.setInt(2, endRow);
 			
 			rset = pstmt.executeQuery();
 			
@@ -231,6 +237,63 @@ public class AdminCommunityDao {
 			close(pstmt);
 		}
 		return list;
+	}
+	
+	// 관리자 커뮤게시물리스트 페이징처리
+	// 작성자 김은지	
+	public int selectBoardListCount(Connection conn) {
+		int listCount = 0;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectBoardListCount");		
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				listCount = rset.getInt("COUNT");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return listCount;
+	}
+	
+	// 관리자 커뮤게시물 상세페이지
+	// 작성자 김은지
+	public ComuBoard boardDetailList(Connection conn, int comuNo) {
+		ComuBoard cb = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("boardDetailList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, comuNo);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				cb = new ComuBoard(rset.getString("title"),
+								   rset.getString("content"),
+								   rset.getDate("enroll_date"),
+								   rset.getString("mem_id"),
+								   rset.getString("category_name")
+						);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return cb;
 	}
 	
 }

@@ -94,23 +94,36 @@
 	
 	<!-- 커뮤니티 게시글리스트조회, 김은지 -->
 	<entry key="selectBoardList">
-		SELECT 
-		       CB.COMU_NO
-		     , CB.TITLE
-		     , M.MEM_ID
-		     , CB.ENROLL_DATE
-		     , CB.VIEW_COUNT
-		     , REPORT_YN
-		  FROM COMU_BOARD CB
-		  JOIN MEMBER M ON (M.MEM_NO = CB.MEM_NO)
-		  LEFT 
-		  JOIN REPORT ON(COMU_NO = REPORTED_COMU)
-		 ORDER
-		    BY COMU_NO DESC
+		SELECT *
+		  FROM (
+		  	   SELECT ROWnUM RNUM, A.*
+		  	     FROM (
+					  SELECT 
+						      CB.COMU_NO
+					        , CB.TITLE
+						    , M.MEM_ID
+						    , CB.ENROLL_DATE
+					        , CB.VIEW_COUNT
+					        , REPORT_YN
+						 FROM COMU_BOARD CB
+						 JOIN MEMBER M ON (M.MEM_NO = CB.MEM_NO)
+						 LEFT 
+						 JOIN REPORT ON(COMU_NO = REPORTED_COMU)
+						ORDER
+						   BY COMU_NO DESC
+		  	     	  ) A
+		  	   )
+		WHERE RNUM BETWEEN ? AND ?	  		    
+	</entry>
+	
+	<!-- 커뮤니티게시글리스트 페이징처리, 김은지 -->
+	<entry key="selectBoardListCount">
+		SELECT COUNT(*) AS "COUNT"
+		  FROM COMU_BOARD
 	</entry>
 	
 	<!-- 커뮤니티 게시글 상세조회, 김은지 -->
-	<entry key="ComuBoardDetailList">
+	<entry key="boardDetailList">
 		SELECT 
 			   CB.TITLE
 		     , CC.CATEGORY_NAME
@@ -120,8 +133,7 @@
 		  FROM COMU_BOARD CB
 		  JOIN COMU_CATEGORY CC ON (CB.CATEGORY_NO = CC.CATEGORY_NO)
 		  JOIN MEMBER M ON (M.MEM_NO = CB.MEM_NO)
-		 ORDER
-    		BY COMU_NO DESC
+		 WHERE COMU_NO = ?
 	</entry>
 		
 </properties>

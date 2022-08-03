@@ -80,13 +80,30 @@ public class AdminCommunityService {
 	
 	// 관리자 커뮤게시물리스트 조회
 	// 작성자 김은지
-	public ArrayList<ComuBoard> selectBoardList(){ //PageInfo pi
+	public ArrayList<ComuBoard> selectBoardList(PageInfo pi){
 		Connection conn = getConnection();
 		
-		ArrayList<ComuBoard> list = new AdminCommunityDao().selectBoardList(conn); // , pi
+		ArrayList<ComuBoard> list = new AdminCommunityDao().selectBoardList(conn, pi);
 		
 		close(conn);
 		return list;
+	}
+	// 관리자 커뮤게시물리스트 페이징처리
+	// 작성자 김은지	
+	public int selectBoardListCount() {
+		Connection conn = getConnection();
+		int listCount = new AdminCommunityDao().selectBoardListCount(conn);
+		close(conn);
+		return listCount;
+	}
+	
+	// 관리자 커뮤게시물 상세페이지
+	// 작성자 김은지
+	public ComuBoard boardDetailList(int comuNo) {
+		Connection conn = getConnection();
+		ComuBoard cb = new AdminCommunityDao().boardDetailList(conn, comuNo);
+		close(conn);
+		return cb;
 	}
 
 }
