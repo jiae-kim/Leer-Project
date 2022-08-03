@@ -1,5 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.ArrayList, com.leer.community.model.vo.ComuBoard, com.leer.common.model.vo.PageInfo"%> 
+<%
+	PageInfo pi = (PageInfo)request.getAttribute("pi");
+	ArrayList<ComuBoard> list = (ArrayList<ComuBoard>)request.getAttribute("list");
+	
+	/*
+	int currentPage = pi.getCurrentPage();
+	int startPage = pi.getStartPage();
+	int endPage = pi.getEndPage();
+	int maxPage = pi.getMaxPage();
+	*/
+%>       
 <!DOCTYPE html>
 <html>
 <head>
@@ -101,157 +113,24 @@
                                     </tr>
                                 </thead>
                                 <tbody class="custom">
-                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuBoardDetail.jsp';">
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>19</td>
-                                        <td>이거 잡지이름이 뭔가여</td>
-                                        <td>donggle</td>
-                                        <td>2022.07.26</td>
-                                        <td>232</td>
-                                        <td>3</td>
-                                        <td>N</td>
-                                    </tr>
-                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuBoardDetail.jsp';">
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>18</td>
-                                        <td>안녕하세용</td>
-                                        <td>donggle</td>
-                                        <td>2022.07.26</td>
-                                        <td>232</td>
-                                        <td>3</td>
-                                        <td>N</td>
-                                    </tr>
-                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuBoardDetail.jsp';">
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>17</td>
-                                        <td>잡지추천좀해주세여</td>
-                                        <td>donggle</td>
-                                        <td>2022.07.26</td>
-                                        <td>232</td>
-                                        <td>3</td>
-                                        <td>N</td>
-                                    </tr>
-                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuBoardDetail.jsp';">
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>16</td>
-                                        <td>게시물</td>
-                                        <td>donggle</td>
-                                        <td>2022.07.26</td>
-                                        <td>232</td>
-                                        <td>3</td>
-                                        <td>N</td>
-                                    </tr>
-                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuBoardDetail.jsp';">
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>15</td>
-                                        <td>게시물</td>
-                                        <td>donggle</td>
-                                        <td>2022.07.26</td>
-                                        <td>232</td>
-                                        <td>3</td>
-                                        <td>N</td>
-                                    </tr>
-                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuBoardDetail.jsp';">
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>14</td>
-                                        <td>게시물</td>
-                                        <td>donggle</td>
-                                        <td>2022.07.26</td>
-                                        <td>232</td>
-                                        <td>3</td>
-                                        <td>N</td>
-                                    </tr>
-                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuBoardDetail.jsp';">
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>13</td>
-                                        <td>게시물</td>
-                                        <td>donggle</td>
-                                        <td>2022.07.26</td>
-                                        <td>232</td>
-                                        <td>3</td>
-                                        <td>N</td>
-                                    </tr>
-                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuBoardDetail.jsp';">
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>12</td>
-                                        <td>게시물</td>
-                                        <td>donggle</td>
-                                        <td>2022.07.26</td>
-                                        <td>232</td>
-                                        <td>3</td>
-                                        <td>N</td>
-                                    </tr>
-                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuBoardDetail.jsp';">
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>11</td>
-                                        <td>게시물</td>
-                                        <td>donggle</td>
-                                        <td>2022.07.26</td>
-                                        <td>232</td>
-                                        <td>3</td>
-                                        <td>N</td>
-                                    </tr>
-                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminComuBoardDetail.jsp';">
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>10</td>
-                                        <td>게시물</td>
-                                        <td>donggle</td>
-                                        <td>2022.07.26</td>
-                                        <td>232</td>
-                                        <td>3</td>
-                                        <td>N</td>
-                                	  </tr>
-                                   </tbody>
+                                	<% for(ComuBoard cb : list) { %>
+	                                    <tr onclick="location.href='<%=request.getContextPath()%>/adList.co';">
+	                                        <th>
+	                                            <label class="customcheckbox">
+	                                                <input type="checkbox" class="listCheckbox" />
+	                                                <span class="checkmark"></span>
+	                                            </label>
+	                                        </th>
+	                                        <td><%=cb.getComuNo()%></td>
+	                                        <td><%=cb.getTitle()%></td>
+	                                        <td><%=cb.getMemId()%></td>
+	                                        <td><%=cb.getEnrollDate()%></td>
+	                                        <td><%=cb.getViewCount()%></td>
+	                                        <td>0</td>
+	                                        <td><%=cb.getReportYn()%></td>
+	                                    </tr>
+                                    <% } %>
+                                </tbody>
                                 <tfoot>
                                     <tr align="center">
                                         <th colspan="10">

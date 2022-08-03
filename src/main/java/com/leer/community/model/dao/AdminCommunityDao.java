@@ -207,6 +207,30 @@ public class AdminCommunityDao {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		String sql = prop.getProperty("selectBoardList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				
+				list.add(new ComuBoard(rset.getInt("comu_no"),
+									   rset.getString("title"),
+    								   rset.getDate("enroll_date"),
+    								   rset.getInt("view_count"),
+    								   rset.getString("mem_id"),
+									   rset.getString("report_yn")
+						));
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return list;
 	}
 	
 }

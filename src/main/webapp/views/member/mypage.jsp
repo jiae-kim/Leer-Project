@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
+
 	.mypage-wrap{
 		background-color: white;
 		margin-top: 100px;
@@ -38,7 +39,9 @@
 		line-height: 40px;
 		font-size: 14px;
 	}
+
 </style>
+
 </head>
 <body>
 

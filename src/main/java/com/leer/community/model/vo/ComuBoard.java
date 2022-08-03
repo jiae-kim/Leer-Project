@@ -21,6 +21,8 @@ public class ComuBoard {
 	
 	private String categoryName; // comu_category테이블
 	
+	private String reportYn; // report테이블
+	
 	
 	public ComuBoard() {}
 
@@ -86,6 +88,19 @@ public class ComuBoard {
 		this.title = title;
 		this.enrollDate = enrollDate;
 		this.viewCount = viewCount;
+	}
+
+
+
+
+	public ComuBoard(int comuNo, String title, Date enrollDate, int viewCount, String memId, String reportYn) {
+		super();
+		this.comuNo = comuNo;
+		this.title = title;
+		this.enrollDate = enrollDate;
+		this.viewCount = viewCount;
+		this.memId = memId;
+		this.reportYn = reportYn;
 	}
 
 
@@ -299,12 +314,27 @@ public class ComuBoard {
 
 
 
+	public String getReportYn() {
+		return reportYn;
+	}
+
+
+
+
+	public void setReportYn(String reportYn) {
+		this.reportYn = reportYn;
+	}
+
+
+
+
 	@Override
 	public String toString() {
 		return "ComuBoard [comuNo=" + comuNo + ", memNo=" + memNo + ", categoryNo=" + categoryNo + ", tag=" + tag
 				+ ", title=" + title + ", content=" + content + ", enrollDate=" + enrollDate + ", modifyDate="
 				+ modifyDate + ", viewCount=" + viewCount + ", deleteYN=" + deleteYN + ", likeCount=" + likeCount
-				+ ", commentCount=" + commentCount + ", memId=" + memId + ", categoryName=" + categoryName + "]";
+				+ ", commentCount=" + commentCount + ", memId=" + memId + ", categoryName=" + categoryName
+				+ ", reportYn=" + reportYn + "]";
 	}
 
 
