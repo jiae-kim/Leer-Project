@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+	<!-- 고객센터 공지사항리스트조회, 김은지 -->
+	<entry key="selectMemberOrderDetail">
+		SELECT 
+		       N.NOTI_NO
+		     , N.TITLE
+		     , N.ENROLL_DATE
+		     , M.MEM_ID
+		     , NOTI_VIEWS
+		  FROM NOTICE N     
+		  JOIN MEMBER M ON(M.MEM_NO = N.MEM_NO)
+		 ORDER
+		    BY NOTI_NO DESC
+	</entry>
+	
+</properties>

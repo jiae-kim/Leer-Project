@@ -15,6 +15,8 @@ public class Notice {
 	private String blindYN;
 	private String notiType;
 	
+	private String memId; // member테이블
+	
 	
 	public Notice() {}
 	
@@ -56,6 +58,16 @@ public class Notice {
 		this.content = content;
 		this.enrollDate = enrollDate;
 		this.notiViews = notiViews;
+	}
+
+
+	public Notice(int notiNo, String title, Date enrollDate, int notiViews, String memId) {
+		super();
+		this.notiNo = notiNo;
+		this.title = title;
+		this.enrollDate = enrollDate;
+		this.notiViews = notiViews;
+		this.memId = memId;
 	}
 
 
@@ -149,11 +161,21 @@ public class Notice {
 	}
 
 
+	public String getMemId() {
+		return memId;
+	}
+
+
+	public void setMemId(String memId) {
+		this.memId = memId;
+	}
+
+
 	@Override
 	public String toString() {
 		return "Notice [notiNo=" + notiNo + ", memNo=" + memNo + ", title=" + title + ", content=" + content
 				+ ", enrollDate=" + enrollDate + ", modifyDate=" + modifyDate + ", notiViews=" + notiViews
-				+ ", blindYN=" + blindYN + ", notiType=" + notiType + "]";
+				+ ", blindYN=" + blindYN + ", notiType=" + notiType + ", memId=" + memId + "]";
 	}
 	
 	
