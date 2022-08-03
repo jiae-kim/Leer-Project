@@ -734,11 +734,13 @@
 										});
 										
 										
-										const { IMP } = window;
-										IMP.init('imp45723440');
+										
 										
 
 										function requestPay() {
+											
+											
+											IMP.init('imp45723440');
 										
 									      //IMP.request_pay(param, callback) 결제창 호출
 									      IMP.request_pay({ // param
@@ -746,33 +748,22 @@
 									          pay_method: "card",
 									          merchant_uid: "ORD20180131-0000011",
 									          name: "노르웨이 회전 의자",
-									          amount: 64900,
-									          buyer_email: "gildong@gmail.com",
-									          buyer_name: "홍길동",
-									          buyer_tel: "010-4242-4242",
-									          buyer_addr: "서울특별시 강남구 신사동",
-									          buyer_postcode: "01181"
+									          amount: 1,
+									          buyer_email: "<%=loginUser.getEmail()%>",
+									          buyer_name: "<%=loginUser.getMemName()%>",
+									          buyer_tel: "<%=loginUser.getPhone()%>",
+									          buyer_addr: "<%=loginUser.getAddress()%>",
+									          buyer_postcode: $("#sample6_postcode").val()
 									      }, function (rsp) { // callback
 									    	  console.log(rsp);
 									          if (rsp.success) {
 									        	  var msg = '결제가 완료되었습니다.';
 									              alert(msg);
-									              location.href = "결제 완료 후 이동할 페이지 url"
-									             	jQuery.ajax({
-									             		url:
-									             		method:
-									             		headers:
-									             		data: {
-									             			imp_uid: rsp.imp_uid,
-                											merchant_uid: rsp.merchant_uid
-									             		}
-									                 }).done(function (data) {
-									                 
-									                 })
+									              
+									             	
 									          } else {
 									              alert("결제에 실패하였습니다." + rsp.error_msg);
 									          }
-									          $("#order-btn").submit();
 									      });
 									      
 									    }
