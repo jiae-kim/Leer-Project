@@ -100,12 +100,18 @@
 	
 	
 	<entry key="deleteMember">
-			UPDATE MEMBER
-			   SET MEM_STATUS = 'Y'
-			 WHERE MEM_ID = ?
+		UPDATE MEMBER
+		   SET MEM_STATUS = 'Y'
+		 WHERE MEM_ID = ?
 	</entry>
 	
 	
+	
+	<entry key="idCheck">
+		SELECT COUNT(*) AS "COUNT"
+		  FROM MEMBER
+		 WHERE MEM_ID = ?
+	</entry>
 	
 	
 	

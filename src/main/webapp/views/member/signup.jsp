@@ -91,22 +91,93 @@
 
                     <tr>
                         <td>아이디</td>
-                        <td colspan="3"><input type="text" name="memId" maxlength="10" required placeholder=" (6-10자의 영문 소문자, 숫자만 사용 가능합니다.)"></td>
+                        <td colspan="2"><input type="text" id="inputId" name="memId" maxlength="10" required placeholder=" (4-12자의 영문 소문자, 숫자만 사용 가능합니다.)"></td>
+                        <td>&nbsp;&nbsp;<button type="button" onclick="idCheck();" style="width: 80px; height: 40px; border: 1px solid lightgrey; border-radius: 5px;">중복확인</button></td>
                     </tr>
 
                     <tr>
+                        <td colspan="2" id="outId"></td>
+                    </tr>
+
+                    <script>
+                        $(document).ready(function(){
+
+                            $("#inputId").on("keyup", function(event){
+
+                                idRegExp = /^[a-z0-9]{4,12}$/;
+    
+                                if(!idRegExp.test($("#inputId").val())){
+                                    $("#outId").html('<label style="color:red; margin-left: 135px; font-size:12px"> 부적합한 아이디입니다. </label>');
+                                    $("#outId").show();
+                                }else{
+                                   /*  $("#outId").html('<label style="color:black; margin-left: 135px; font-size:12px"> 사용가능한 아이디입니다. </label>'); */
+                                }
+                            })
+                     	})
+                            
+                         function idCheck(){
+                        	
+	                         const inputId = $("#inputId").val();
+	                         console.log(inputId);
+	                         $.ajax({
+	                         	url:"<%=contextPath%>/idCheck.me",
+	                         	data:{checkId:inputId},
+	                         	success:function(result){
+	                         		if(result == "NNNNN"){
+	                         			$("#outId").html('<label style="color:red; margin-left: 135px; font-size:12px"> 이미 존재하는 아이디입니다. </label>');
+	                         			$("#inputId").focus();
+	                         		}else{
+	                         			$("#outId").html('<label style="color:black; margin-left: 135px; font-size:12px"> 사용가능한 아이디입니다. </label>');
+	                         			$("#inputId").focus();
+	                         		}
+	                         	},
+	                         	error:function(){console.log("ajax 통신 실패");},
+	                         })
+	                         
+                        }
+                            
+                    </script>
+
+
+
+                    <tr>
                         <td>비밀번호</td>
-                        <td colspan="3"><input type="password" name="memPwd" maxlength="10" required placeholder=" (6-10자의 영문, 숫자만 사용 가능합니다.)"></td>
+                        <td colspan="3"><input type="password" name="memPwd" maxlength="12" required placeholder=" (6-10자의 영문, 숫자만 사용 가능합니다.)"></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2" id="outPwd"></td>
                     </tr>
 
                     <tr>
                         <td>비밀번호 확인</td>
-                        <td colspan="3"><input type="password" name="pwdCheck" maxlength="10" required></td>
+                        <td colspan="3"><input type="password" id="validatePwd" name="pwdCheck" maxlength="10" required></td>
                     </tr>
+
+                    <tr>
+                        <td colspan="2" id="outPwd2"></td>
+                    </tr>
+                    
+                    
+                    <script>
+	                     $(document).ready(function(){
+	                            $("#validatePwd").on("focusout", function(event){
+	                            	if( $("input[name=memPwd]").val() != $("input[name=pwdCheck]").val() ){
+	                            		$("#outPwd2").html('<label style="color:red; margin-left: 135px; font-size:12px"> 부적합한 아이디입니다. </label>');
+	                         		}
+	                            })
+	                     })
+                    </script>
+                    
+                    
 
                     <tr>
                         <td>닉네임</td>
                         <td colspan="3"><input type="text" name="nickname" placeholder=" (4-10자의 한글, 숫자만 사용 가능합니다.)"></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2"><label id="" style="color:red; margin-left: 120px;">&nbsp;&nbsp;아이디 잘못 썼따</label></td>
                     </tr>
 
                     <tr>
@@ -115,8 +186,16 @@
                     </tr>
 
                     <tr>
+                        <td colspan="2"><label id="" style="color:red; margin-left: 120px;">&nbsp;&nbsp;아이디 잘못 썼따</label></td>
+                    </tr>
+
+                    <tr>
                         <td>생년월일</td>
                         <td colspan="3"><input type="text" name="birth" placeholder=" (6자리 숫자로만 입력해주세요.)"></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2"><label id="" style="color:red; margin-left: 120px;">&nbsp;&nbsp;아이디 잘못 썼따</label></td>
                     </tr>
 
                     <tr>
@@ -125,8 +204,16 @@
                     </tr>
 
                     <tr>
+                        <td colspan="2"><label id="" style="color:red; margin-left: 120px;">&nbsp;&nbsp;아이디 잘못 썼따</label></td>
+                    </tr>
+
+                    <tr>
                         <td>이메일</td>
                         <td colspan="3"><input type="email" name="email" required></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2"><label id="" style="color:red; margin-left: 120px;">&nbsp;&nbsp;아이디 잘못 썼따</label></td>
                     </tr>
 
                     <tr>
@@ -134,6 +221,10 @@
                         <td colspan="3"><input type="text" name="address" required></td>
                     </tr>
                     
+                    <tr>
+                        <td colspan="2"><label id="" style="color:red; margin-left: 120px;">&nbsp;&nbsp;아이디 잘못 썼따</label></td>
+                    </tr>
+
 
                     <tr></tr>
                     <tr></tr>
@@ -192,7 +283,7 @@
                 	function termsPage(){
                 		location.href="<%=contextPath%>/views/member/terms.jsp";
                 	}
-                </script>
+                </scrip>
                 
                 <!-- 회원가입 완료 창 보여주고 로그인 화면으로 넘겨주기 -->
 
