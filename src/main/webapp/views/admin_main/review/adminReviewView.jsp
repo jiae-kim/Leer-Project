@@ -5,6 +5,14 @@
 <head>
 <meta charset="UTF-8">
 <title>리뷰 전체조회(적립금지급) 페이지</title>
+<style>
+.customtable>tr:hover {
+    cursor: pointer;
+    opacity: 0.7;
+    background:#cecece;
+    color:dark;
+}
+</style>
 </head>
 <body>
 	<%@ include file="../../common/adminMenubar.jsp" %>
@@ -105,14 +113,13 @@
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
-                                        <th scope="col">글번호</th>
-                                        <th scope="col">상품코드</th>
-                                        <th scope="col">상품명</th>
+                                        <th scope="col">글번호</th> <!--리뷰번호-->
+                                        <th scope="col">작성자</th> <!--회원아이디-->
+                                        <th scope="col">상품명</th> <!--제품명-->
+                                        <th scope="col">상품코드</th> 
                                         <th scope="col">내용</th>
-                                        <th scope="col">작성자</th>
                                         <th scope="col">별점</th>
-                                        <th scope="col">등록일</th>
-                                        <th scope="col">조회수</th>
+                                        <th scope="col">등록일</th> <!--작성일-->
                                         <th scope="col">적립금 지급</th>
                                     </tr>
                                 </thead>
@@ -124,15 +131,14 @@
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
-                                        <td>56</td>
-                                        <td>FW-12</td>
-                                        <td>보그</td>
-                                        <td>8월호 재밌네요</td>
-                                        <td>user05</td>
-                                        <td>3</td>
-                                        <td>22-07</td>
-                                        <td>11</td>
-                                        <td style="color: blue;">완료</td>
+                                        <td>글번호</td>
+                                        <td>작성자</td>
+                                        <td>상품명</td>
+                                        <td>상품코드</td>
+                                        <td>리뷰내용</td>
+                                        <td>별점</td>
+                                        <td>등록일</td>
+                                        <td>적립금지급</td>
                                     </tr>
                                 </tbody>
                             </table>
