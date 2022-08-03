@@ -1,4 +1,4 @@
-package com.leer.product.controller;
+package com.leer.order.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -10,20 +10,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.leer.common.model.vo.PageInfo;
+import com.leer.order.model.service.AdminOrderService;
+import com.leer.order.model.vo.Order;
 import com.leer.product.model.service.AdminProductService;
-import com.leer.product.model.vo.ProductIo;
 
 /**
- * Servlet implementation class AdminStockListController
+ * Servlet implementation class AdminOrderListController
  */
-@WebServlet("/adStockList.do")
-public class AdminStockListController extends HttpServlet {
+@WebServlet("/adOrderList.do")
+public class AdminOrderListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdminStockListController() {
+    public AdminOrderListController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -42,7 +43,7 @@ public class AdminStockListController extends HttpServlet {
 		int startPage;
 		int endPage;
 		
-		listCount = new AdminProductService().selectProductIoListCount();
+		listCount = new AdminOrderService().selectOrderListCount();
 		currentPage = Integer.parseInt(request.getParameter("cpage"));
 		pageLimit = 10;
 		boardLimit = 10;
@@ -56,13 +57,13 @@ public class AdminStockListController extends HttpServlet {
 		}
 		
 		PageInfo pi = new PageInfo(listCount, currentPage, pageLimit, boardLimit, maxPage, startPage, endPage);
-		
-		ArrayList<ProductIo> list = new AdminProductService().selectProductIoList(pi);
-		
+	
+		ArrayList<Order> list = new AdminOrderService().selectOrderList(pi);
+				
 		request.setAttribute("pi", pi);
 		request.setAttribute("list", list);
 		
-		request.getRequestDispatcher("views/admin_main/product/adminStockView.jsp").forward(request, response);
+		request.getRequestDispatcher("views/admin_main/order/adminOrAdView.jsp").forward(request, response);
 	}
 
 	/**

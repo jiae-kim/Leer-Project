@@ -32,8 +32,8 @@
 					     ,  O.PARCEL_NUM
 					     ,  O.PARCEL_STATUS
 					  FROM  "ORDER" O
-					  JOIN  OR_PRODUCT ORP ON (O.OR_NO = ORP.OR_NO)
-					  JOIN  PRODUCT P ON (ORP.P_CODE = P.P_CODE)
+					  LEFT  JOIN  OR_PRODUCT ORP ON (O.OR_NO = ORP.OR_NO)
+					  LEFT  JOIN  PRODUCT P ON (ORP.P_CODE = P.P_CODE)
 					 ORDER  BY O.OR_DATE DESC
 	  		 		) A
 	  		)
@@ -60,6 +60,6 @@
 	<!-- 주문빛배송 전체조회 : 페이징 -->
 	<entry key="selectOrderListCount">
 		SELECT COUNT(*) AS "COUNT"
-		  FROM ORDER
+		  FROM "ORDER"
 	</entry>
 </properties>

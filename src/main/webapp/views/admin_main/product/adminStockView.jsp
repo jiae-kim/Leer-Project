@@ -129,7 +129,7 @@
                                         </th>
                                         <th scope="col">상품코드</th>
                                         <th scope="col">상품명</th>
-                                        <th scope="col">입고|출고</th>
+                                        <th scope="col">입출고</th>
                                         <th scope="col">수량</th>
                                         <th scope="col">일자</th>
                                         <!-- <th scope="col">재고수량</th> -->

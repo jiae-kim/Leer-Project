@@ -88,8 +88,8 @@
                         <div class="btn-group">
                             <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">조회방법 선택</button>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">상품코드</a>
-                                <a class="dropdown-item" href="#">입금상태</a>
+                                <a class="dropdown-item" href="#">상품명</a>
+                                <a class="dropdown-item" href="#">택배사</a>
                                 <a class="dropdown-item" href="#">배송상태</a>
                             </div>
                         </div>
@@ -155,20 +155,20 @@
                    <br>
 		                <div class="btn-group paging-area" role="group" aria-label="Basic example">
 		                <% if(currentPage != 1) { %>
-		                    <button type="button" onclick="location.href='<%=request.getContextPath()%>/adStockList.do?cpage=<%=currentPage-1%>';"
+		                    <button type="button" onclick="location.href='<%=request.getContextPath()%>/adOrderList.do?cpage=<%=currentPage-1%>';"
 		                        class="btn btn-outline-secondary">&lt;</button>
 		                <% } %>
 		                <% for(int p=startPage; p<=endPage; p++) { %>
 		                    <% if(p == currentPage) { %>
 		                        <button type="button" disabled class="btn btn-outline-secondary"><%=p%></button>
 		                    <% } else { %>
-		                        <button type="button" onclick="location.href='<%=request.getContextPath()%>/adStockList.do?cpage=<%=p%>';"
+		                        <button type="button" onclick="location.href='<%=request.getContextPath()%>/adOrderList.do?cpage=<%=p%>';"
 		                            class="btn btn-outline-secondary"><%=p%></button>
 		                    <% } %>
 		                <% } %>
 		                
 		                <% if(currentPage != maxPage) { %>
-		                    <button type="button" onclick="location.href='<%=request.getContextPath()%>/adStockList.do?cpage=<%=currentPage+1%>';"
+		                    <button type="button" onclick="location.href='<%=request.getContextPath()%>/adOrderList.do?cpage=<%=currentPage+1%>';"
 		                        class="btn btn-outline-secondary">&gt;</button>
 		                <% } %>
 		                </div>
