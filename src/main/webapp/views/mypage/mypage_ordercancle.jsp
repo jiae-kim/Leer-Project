@@ -160,7 +160,7 @@
                                             src=<%= m.getImage_url() %> alt=""></td>
                                         <td width="80px">제품명</td>
                                         <td width="250px" ><b><%= m.getP_name() %></b></td>
-                                        <td>제품 구매 날짜 작성</td>
+                                        <td><%= m.getOr_date() %></td>
                                     </tr>
                                     <tr height="100px">
                                         <td> 주문번호</td>

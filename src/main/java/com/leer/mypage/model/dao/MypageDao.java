@@ -215,12 +215,21 @@ public class MypageDao {
 		PreparedStatement pstmt=null;
 		ResultSet rset = null;
 		String sql = prop.getProperty("OrderCancleView");
-		String yn="N";
 		try {
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setInt(1,memNo);
-			pstmt.setString(2,yn);
 			rset=pstmt.executeQuery();
+			
+			while(rset.next()) {
+				list.add(new Member(
+							rset.getString("or_no"),
+							rset.getString("image_url1"),
+							rset.getString("p_name"),
+							rset.getInt("price"),
+							rset.getDate("or_date"),
+							rset.getString("p_code")
+							));
+			}
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

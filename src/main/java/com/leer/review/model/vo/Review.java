@@ -17,12 +17,42 @@ public class Review {
 	private int price;
 	private String image_url;
 	private Date or_date;
-	
+	private String or_no;
+	private String p_code;
 	
 	public Review() {}
 	
+
 	
 	
+	public String getOr_no() {
+		return or_no;
+	}
+
+
+
+
+	public void setOr_no(String or_no) {
+		this.or_no = or_no;
+	}
+
+
+
+
+	public String getP_code() {
+		return p_code;
+	}
+
+
+
+
+	public void setP_code(String p_code) {
+		this.p_code = p_code;
+	}
+
+
+
+
 	public Review(String pName, int reviewScope, String reviewContent, int price, String image_url, Date or_date) {
 		super();
 		this.pName = pName;
@@ -43,6 +73,19 @@ public class Review {
 		this.or_date = or_date;
 		this.price = price;
 	}
+
+
+
+	public Review(String pName, int price, String image_url, Date or_date, String or_no, String p_code) {
+		super();
+		this.pName = pName;
+		this.price = price;
+		this.image_url = image_url;
+		this.or_date = or_date;
+		this.or_no = or_no;
+		this.p_code = p_code;
+	}
+
 
 
 

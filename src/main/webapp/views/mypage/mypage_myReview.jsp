@@ -168,7 +168,7 @@
                                     <tr>
                                         <td>제품가격</td>
                                         <td width="150px"> <%= r.getPrice() %></td>
-                                        <td><a href="" onclick="window.open('<%= request.getContextPath() %>/review.me','review','width=700, height=900, scrollbars=no, resizable=no, toolbars=no, menubar=no')" class="btn btn-sm btn-secondary">리뷰 쓰기</a></td>
+                                        <td><a href="" onclick="window.open('<%= request.getContextPath() %>/review.me?memNo=<%=loginUser.getMemNo()%>&orNo=<%=r.getOr_no()%>&p_code=<%=r.getP_code() %>','review','width=700, height=900, scrollbars=no, resizable=no, toolbars=no, menubar=no')" class="btn btn-sm btn-secondary">리뷰 쓰기</a></td>
                                     </tr>
                                 </table>
                                 <hr>

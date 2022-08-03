@@ -31,18 +31,18 @@
 	
 	<entry key="OrderCancleView">
 		SELECT
-			P.P_CODE
-			,P_NAME
-			,OR_DATE
-			,PRICE
+			 "ORDER".OR_NO
 			,IMAGE_URL1
-			,"ORDER".OR_NO
+			,P_NAME
+			,PRICE
+			,OR_DATE
+			,P.P_CODE
 			FROM MEMBER M
 			JOIN "ORDER" USING (MEM_NO)
             JOIN OR_PRODUCT OP ON ("ORDER".OR_NO = OP.OR_NO)
             JOIN PRODUCT P ON(OP.P_CODE = P.P_CODE)
 			WHERE MEM_NO = ?
-			AND OR_YN = ?
+			AND OR_YN = 'N'
 	</entry>
 	
 	<entry key="insertProductCart">

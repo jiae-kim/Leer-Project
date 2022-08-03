@@ -7,7 +7,9 @@
 			 P.P_NAME
 			,P.PRICE 
 			,P.IMAGE_URL1
-			,OR_DATE 
+			,OR_DATE
+			,O.OR_NO
+			,P.P_CODE
         FROM PRODUCT p
         JOIN OR_PRODUCT OP ON (P.P_CODE = OP.P_CODE)
         JOIN "ORDER" O ON (OP.OR_NO = O.OR_NO)

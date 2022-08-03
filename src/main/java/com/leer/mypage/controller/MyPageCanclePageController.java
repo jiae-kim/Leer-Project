@@ -39,6 +39,7 @@ public class MyPageCanclePageController extends HttpServlet {
 		
 		if(session.getAttribute("loginUser") == null) {
 			response.sendRedirect(request.getContextPath());
+			return;
 		}else {
 			ArrayList<Member> list = new MypageService().OrderCancleView(memNo);
 			request.setAttribute("list", list);

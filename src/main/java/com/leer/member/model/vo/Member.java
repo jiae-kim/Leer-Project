@@ -107,7 +107,6 @@ public class Member {
 
 
 
-
 	public Member( String p_name,String image_url, int price, Date or_date, String p_code) {
 		this.p_name = p_name;
 		this.image_url = image_url;
@@ -352,6 +351,22 @@ public class Member {
 		this.imageUrl1 = imageUrl1;
 		this.orCycle = orCycle;
 	}
+	
+	
+	
+
+	
+
+	public Member(String image_url, int price, Date or_date, String p_code, String orNo, String pName) {
+		super();
+		this.image_url = image_url;
+		this.price = price;
+		this.or_date = or_date;
+		this.p_code = p_code;
+		this.orNo = orNo;
+		this.pName = pName;
+	}
+
 
 	public int getMemNo() {
 		return memNo;

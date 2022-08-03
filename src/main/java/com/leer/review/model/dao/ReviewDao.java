@@ -49,7 +49,9 @@ public ReviewDao() {
 							rset.getString("p_name"),
 							rset.getInt("price"),
 							rset.getString("image_url1"),
-							rset.getDate("or_date")					
+							rset.getDate("or_date"),
+							rset.getString("or_no"),
+							rset.getString("p_code")
 						));
 			}
 		} catch (SQLException e) {
