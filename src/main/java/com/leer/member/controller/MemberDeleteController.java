@@ -10,19 +10,18 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.leer.member.model.service.MemberService;
-import com.leer.member.model.vo.Member;
 
 /**
- * Servlet implementation class MemberUpdateController
+ * Servlet implementation class MemberDeleteController
  */
-@WebServlet("/update.me")
-public class MemberUpdateController extends HttpServlet {
+@WebServlet("/delete.me")
+public class MemberDeleteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MemberUpdateController() {
+    public MemberDeleteController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,34 +34,22 @@ public class MemberUpdateController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		String memId = request.getParameter("memId");
-		String nickname = request.getParameter("nickname");
-		String memName = request.getParameter("memName");
-		String memBirth = request.getParameter("memBirth");
-		String phone = request.getParameter("phone");
-		String email = request.getParameter("email");
-		String address = request.getParameter("address");
-		
-		Member m = new Member(memId, nickname, memName, memBirth, phone, email, address);
 		
 		
-		Member updateMem = new MemberService().updateMember(m);
+		int result = new MemberService().deleteMember(memId);
 		
-		
-		if(updateMem == null) {
-			
-			HttpSession session = request.getSession();
-			session.setAttribute("alertMsg", "회원정보 변경에 실패했습니다. 다시 시도해주세요.");
-			
-			response.sendRedirect(request.getContextPath() + "/mypage2.me");
+		HttpSession session = request.getSession();
+		if(result > 0) {
+			session.setAttribute("alertMsg", "회원탈퇴에 성공했습니다. 그동안 이용해주셔서 감사합니다.");
+			session.removeAttribute("loginUser");
+			response.sendRedirect(request.getContextPath());
 			
 		}else {
-			
-			HttpSession session = request.getSession();
-			session.setAttribute("loginUser", updateMem);
-			session.setAttribute("alertMsg", "회원정보 수정 성공했습니다.");
-			
+			session.setAttribute("alertMsg", "회원탈퇴에 실패했습니다.");
 			response.sendRedirect(request.getContextPath() + "/mypage2.me");
 		}
+		
+		
 		
 	}
 

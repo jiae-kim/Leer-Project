@@ -45,6 +45,16 @@
         width: 300px; 
         height: 40px;
     }
+
+    #deleteCheck{
+        width: 15px;
+        height: 15px;
+    }
+
+    .deleteInfo{
+        padding: 30px;
+    }
+
 </style>
 
 </head>
@@ -132,7 +142,7 @@
 
                                     <div align="right">
                                         <button type="reset">취소</button>
-                                        <button type="submit">수정</button>
+                                        <button type="submit">확인</button>
                                     </div>
 
                                     <br>
@@ -146,85 +156,114 @@
 
 
 
-                            <form action="">
-                                <fieldset class="f2">
-                                    <legend>비밀번호 변경</legend>
-                                    <ul>
-                                        <li style="color: darkgrey; font-size:14px">안전한 계정 사용을 위해 비밀번호는 주기적으로 변경해 주세요.</li>
-                                        <li style="color: darkgrey; font-size:14px">다른 아이디/사이트에서 사용한 적 없는 비밀번호 이전에 사용한 적 없는 비밀번호가 안전합니다.</li>
-                                    </ul>
+                            <fieldset class="f2">
+                                <legend>비밀번호 변경</legend>
+                                <ul>
+                                    <li style="color: darkgrey; font-size:14px">안전한 계정 사용을 위해 비밀번호는 주기적으로 변경해 주세요.</li>
+                                    <li style="color: darkgrey; font-size:14px">다른 아이디/사이트에서 사용한 적 없는 비밀번호 이전에 사용한 적 없는 비밀번호가 안전합니다.</li>
+                                </ul>
 
-                                    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#updatePwd">비밀번호 변경</button><br><br>
+                                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#updatePwd">비밀번호 변경</button><br><br>
 
-                                    <!-- The Modal -->
-                                    <div class="modal fade" id="updatePwd">
-                                        <div class="modal-dialog modal-dialog-centered">
-                                        <div class="modal-content">
-                                        
-                                            <!-- Modal Header -->
-                                            <div class="modal-header">
-                                                <h4 class="modal-title">비밀번호 변경</h4><br>
-                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                            </div>
-                                            
-                                            <!-- Modal body -->
-                                            <div class="modal-body">
-                                                <form action="" method="post">
-                                                    <div align="center">
-                                                        <table>
-                                                            <tr>
-                                                                <td>기존 비밀번호</td>
-                                                                <td><input type="password" name="memPwd" required></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>새 비밀번호</td>
-                                                                <td><input type="password" name="updatePwd" required></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>새 비밀번호 확인</td>
-                                                                <td><input type="password" name="checkPwd" required></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td colspan="2">&nbsp;</td>
-                                                            </tr>
-                                                        </table>
-
-                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
-                                                        <button type="submit" class="btn btn-secondary" data-dismiss="modal">확인</button>
-
-                                                    </div>
-                                                </form>
-                                            </div>
-
-
+                                <!-- The Modal -->
+                                <div class="modal fade" id="updatePwd">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                    
+                                        <!-- Modal Header -->
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">비밀번호 변경</h4><br>
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
                                         </div>
+                                        
+                                        <!-- Modal body -->
+                                        <div class="modal-body" align="center">
+                                         <form action="<%=contextPath %>/updatePwd.me" method="post">
+                                         <input type="hidden" name="memId" value="<%=memId%>">
+                                         
+                                             <table>
+                                                 <tr>
+                                                     <td>기존 비밀번호</td>
+                                                     <td><input type="password" name="memPwd" required></td>
+                                                 </tr>
+                                                 <tr>
+                                                     <td>새 비밀번호</td>
+                                                     <td><input type="password" name="updatePwd" required></td>
+                                                 </tr>
+                                                 <tr>
+                                                     <td>새 비밀번호 확인</td>
+                                                     <td><input type="password" name="checkPwd" required></td>
+                                                 </tr>
+                                                 <tr>
+                                                     <td colspan="2">&nbsp;</td>
+                                                 </tr>
+                                             </table>
+
+                                             <button type="submit" class="btn btn-secondary" onclick="return validatePwd();">확인</button>
+                                         </form>
+                                         
+                                         <script>
+                                         	function validatePwd(){
+                                         		if( $("input[name=updatePwd]").val() != $("input[name=checkPwd]").val() ){
+                                         			alert("비밀번호가 일치하지 않습니다.");
+                                         			return false;
+                                         		}
+                                         	}
+                                         </script>
+                                         
+                                        </div>
+
                                     </div>
-
-
-                                    <br><br>
-                                </fieldset>
-                            </form>
+                                    </div>
+                                </div><br><br>
+                            </fieldset>
                                 
 
-                            <form action="">
-                                <fieldset class="f3">
-                                    <legend>회원탈퇴</legend>
-                                    <ul>
-                                        <li style="color: darkgrey; font-size:14px">탈퇴한 아이디는 본인과 타인 모두 재사용 및 복구가 불가하오니 신중하게 선택하시기 바랍니다.</li>
-                                        <li style="color: darkgrey; font-size:14px">회원정보 및 메일, 블로그, 주소록 등 개인형 서비스 이용기록은 모두 삭제되며, 삭제된 데이터는 복구되지 않습니다.</li>
-                                    </ul>
+                               <fieldset class="f3">
+                                   <legend>회원탈퇴</legend>
+                                   <ul>
+                                       <li style="color: darkgrey; font-size:14px">탈퇴한 아이디는 본인과 타인 모두 재사용 및 복구가 불가하오니 신중하게 선택하시기 바랍니다.</li>
+                                       <li style="color: darkgrey; font-size:14px">회원정보 및 메일, 블로그, 주소록 등 개인형 서비스 이용기록은 모두 삭제되며, 삭제된 데이터는 복구되지 않습니다.</li>
+                                   </ul>
 
-                                    <button type="button" class="btn btn-secondary">회원탈퇴</button>
-                                    <br><br>
-                                </fieldset>
-                            </form>
-                                
-                        </div>
-                
+                                   <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#deleteMember">회원탈퇴</button>
+                                   <br><br>
+                                   
+                                   <!-- The Modal -->
+                                <div class="modal fade" id="deleteMember">
+                                    <div class="modal-dialog modal-dialog-centered modal-lg">
+                                    <div class="modal-content">
+                                    
+                                        <!-- Modal Header -->
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">회원탈퇴</h4><br>
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        </div>
+                                        
+                                        <!-- Modal body -->
+                                        <div class="modal-body1" align="center">
+                                        
+                                            <form action="<%=contextPath %>/delete.me" method="post">
+                                       	    <input type="hidden" name="memId" value="<%=memId%>">
 
+                                               <div class="deleteInfo">
+                                       	        <label style="font-size: 20px; font-weight:600">Leer를 이용해주셔서 감사합니다</label>
 
+                                                   <label>회원탈퇴 시 모든 회원정보와 포인트, 구매내역 등이 자동으로 삭제 처리되며, 복구가 불가합니다</label><br>
+                                                   <label>회원탈퇴 시 모든 회원정보와 포인트, 구매내역 등이 자동으로 삭제 처리되며, 복구가 불가합니다</label><br>
+                                                   <label>회원탈퇴 시 모든 회원정보와 포인트, 구매내역 등이 자동으로 삭제 처리되며, 복구가 불가합니다</label><br>
+                                                   <label>회원탈퇴 시 모든 회원정보와 포인트, 구매내역 등이 자동으로 삭제 처리되며, 복구가 불가합니다</li><br>
+                                               </div>
+                                       	    <input type="checkbox" id="deleteCheck" name="deleteCheck" required><label style="color: rgba(207, 41, 41, 0.5);">&nbsp;위 사항을 확인하였으며 회원탈퇴에 동의합니다.</label></b><br>
+                                       	
+                                         	<button type="submit" class="btn btn-secondary">탈퇴하기</button><br><br>
+                                            </form>
+                                        </div>
 
-
+                                       </div>
+                                    </div>
+                                </div>
+                            </fieldset>
 
                     </div>
                 </div>   

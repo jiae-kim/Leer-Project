@@ -43,16 +43,15 @@ public class MemberLoginController extends HttpServlet {
 		
 		
 		
+		HttpSession session = request.getSession();
 		if(loginUser == null) { 
 			
-			HttpSession session = request.getSession();
 			session.setAttribute("alertMsg", "아이디 또는 비밀번호가 일치하지 않습니다. 입력하신 내용을 다시 확인해주세요.");
 			
 			response.sendRedirect(request.getContextPath() + "/loginPage.me");
 			
 		}else { 
 			
-			HttpSession session = request.getSession();
 			session.setAttribute("loginUser", loginUser);
 			
 			response.sendRedirect(request.getContextPath());

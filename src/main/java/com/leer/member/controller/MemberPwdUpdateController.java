@@ -13,16 +13,16 @@ import com.leer.member.model.service.MemberService;
 import com.leer.member.model.vo.Member;
 
 /**
- * Servlet implementation class MemberUpdateController
+ * Servlet implementation class MypageUpdatePwdController
  */
-@WebServlet("/update.me")
-public class MemberUpdateController extends HttpServlet {
+@WebServlet("/updatePwd.me")
+public class MemberPwdUpdateController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MemberUpdateController() {
+    public MemberPwdUpdateController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,37 +32,22 @@ public class MemberUpdateController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.setCharacterEncoding("UTF-8");
-		
 		String memId = request.getParameter("memId");
-		String nickname = request.getParameter("nickname");
-		String memName = request.getParameter("memName");
-		String memBirth = request.getParameter("memBirth");
-		String phone = request.getParameter("phone");
-		String email = request.getParameter("email");
-		String address = request.getParameter("address");
+		String memPwd = request.getParameter("memPwd");
+		String updatePwd = request.getParameter("updatePwd");
 		
-		Member m = new Member(memId, nickname, memName, memBirth, phone, email, address);
+		Member updateMem = new MemberService().updatePwdMember(memId, memPwd, updatePwd);
 		
 		
-		Member updateMem = new MemberService().updateMember(m);
-		
-		
+		HttpSession session = request.getSession();
 		if(updateMem == null) {
-			
-			HttpSession session = request.getSession();
-			session.setAttribute("alertMsg", "회원정보 변경에 실패했습니다. 다시 시도해주세요.");
-			
-			response.sendRedirect(request.getContextPath() + "/mypage2.me");
-			
+			session.setAttribute("alertMsg", "비밀번호 변경에 실패했습니다.");
 		}else {
-			
-			HttpSession session = request.getSession();
+			session.setAttribute("alertMsg", "비밀번호 변경에 성공했습니다.");
 			session.setAttribute("loginUser", updateMem);
-			session.setAttribute("alertMsg", "회원정보 수정 성공했습니다.");
-			
-			response.sendRedirect(request.getContextPath() + "/mypage2.me");
 		}
+		
+		response.sendRedirect(request.getContextPath() + "/mypage2.me");
 		
 	}
 
