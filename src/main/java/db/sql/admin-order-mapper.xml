@@ -14,4 +14,52 @@
 		 ORDER
 		    BY OR_NO DESC
 	</entry>
+	
+	<!-- 주문및배송 전체조회 -->
+	<entry key="selectOrderList">
+	SELECT *
+	  FROM (
+	  		SELECT ROWNUM RNUM, A.*
+	  		  FROM (
+	  		  		SELECT
+					        O.MEM_NO
+					     ,  O.OR_NO
+					     ,  P.P_NAME
+					     ,  ORP.OR_AMOUNT
+					     ,  O.OR_DATE
+					     ,  O.OR_PRICE
+					     ,  O.PARCEL_NAME
+					     ,  O.PARCEL_NUM
+					     ,  O.PARCEL_STATUS
+					  FROM  "ORDER" O
+					  JOIN  OR_PRODUCT ORP ON (O.OR_NO = ORP.OR_NO)
+					  JOIN  PRODUCT P ON (ORP.P_CODE = P.P_CODE)
+					 ORDER  BY O.OR_DATE DESC
+	  		 		) A
+	  		)
+	  WHERE RNUM BETWEEN ? AND ? 	
+	</entry>
+	
+	<!-- 주문및배송 전체조회 기존구문
+		SELECT
+		        O.MEM_NO
+		     ,  O.OR_NO
+		     ,  P.P_NAME
+		     ,  ORP.OR_AMOUNT
+		     ,  O.OR_DATE
+		     ,  O.OR_PRICE
+		     ,  O.PARCEL_NAME
+		     ,  O.PARCEL_NUM
+		     ,  O.PARCEL_STATUS
+		  FROM  "ORDER" O
+		  JOIN  OR_PRODUCT ORP ON (O.OR_NO = ORP.OR_NO)
+		  JOIN  PRODUCT P ON (ORP.P_CODE = P.P_CODE)
+		 ORDER  BY O.OR_DATE DESC	
+	 -->
+	 
+	<!-- 주문빛배송 전체조회 : 페이징 -->
+	<entry key="selectOrderListCount">
+		SELECT COUNT(*) AS "COUNT"
+		  FROM ORDER
+	</entry>
 </properties>

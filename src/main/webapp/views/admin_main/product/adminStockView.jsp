@@ -146,10 +146,10 @@
                                         </th>
                                         <td><%=pio.getpCode()%></td>
                                         <td><%=pio.getpName()%></td>
-                                        <td><%=pio.getStatus()%></td> <!-- 입고랑 출고 어떻게 구분? -->
+                                        <td><%=pio.getStatus()%></td> 
                                         <td><%=pio.getStatusAmount()%></td> <!-- join : PRODUCT -->
                                         <td><%=pio.getStatusDate()%></td>
-										<!-- <td></td> -->      
+										<!-- <td>재고수량</td> -->      
                                     </tr>
                                     <% } %>
                                 </tbody>
@@ -166,26 +166,26 @@
                 <!-- 페이징처리 바 -->
                 <tr align="center">
                     <th colspan="10">
-                        <br>
-                <div class="btn-group paging-area" role="group" aria-label="Basic example">
-                <% if(currentPage != 1) { %>
-                    <button type="button" onclick="location.href='<%=request.getContextPath()%>/adStockList.do?cpage=<%=currentPage-1%>';"
-                        class="btn btn-outline-secondary">&lt;</button>
-                <% } %>
-                <% for(int p=startPage; p<=endPage; p++) { %>
-                    <% if(p == currentPage) { %>
-                        <button type="button" disabled class="btn btn-outline-secondary"><%=p%></button>
-                    <% } else { %>
-                        <button type="button" onclick="location.href='<%=request.getContextPath()%>/adStockList.do?cpage=<%=p%>';"
-                            class="btn btn-outline-secondary"><%=p%></button>
-                    <% } %>
-                <% } %>
-                
-                <% if(currentPage != maxPage) { %>
-                    <button type="button" onclick="location.href='<%=request.getContextPath()%>/adStockList.do?cpage=<%=currentPage+1%>';"
-                        class="btn btn-outline-secondary">&gt;</button>
-                <% } %>
-                </div>
+                    <br>
+		                <div class="btn-group paging-area" role="group" aria-label="Basic example">
+		                <% if(currentPage != 1) { %>
+		                    <button type="button" onclick="location.href='<%=request.getContextPath()%>/adStockList.do?cpage=<%=currentPage-1%>';"
+		                        class="btn btn-outline-secondary">&lt;</button>
+		                <% } %>
+		                <% for(int p=startPage; p<=endPage; p++) { %>
+		                    <% if(p == currentPage) { %>
+		                        <button type="button" disabled class="btn btn-outline-secondary"><%=p%></button>
+		                    <% } else { %>
+		                        <button type="button" onclick="location.href='<%=request.getContextPath()%>/adStockList.do?cpage=<%=p%>';"
+		                            class="btn btn-outline-secondary"><%=p%></button>
+		                    <% } %>
+		                <% } %>
+		                
+		                <% if(currentPage != maxPage) { %>
+		                    <button type="button" onclick="location.href='<%=request.getContextPath()%>/adStockList.do?cpage=<%=currentPage+1%>';"
+		                        class="btn btn-outline-secondary">&gt;</button>
+		                <% } %>
+		                </div>
                     </th>
                 </tr>
             </footer>

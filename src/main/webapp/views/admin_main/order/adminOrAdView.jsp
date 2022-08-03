@@ -1,5 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.ArrayList, com.leer.order.model.vo.Order, com.leer.common.model.vo.PageInfo" %>
+<%
+	PageInfo pi = (PageInfo)request.getAttribute("pi");
+	ArrayList<Order> list = (ArrayList<Order>)request.getAttribute("list");
+	
+	int currentPage = pi.getCurrentPage();
+	int startPage = pi.getStartPage();
+	int endPage = pi.getEndPage();
+	int maxPage = pi.getMaxPage();
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,17 +50,17 @@
                                         <tr>
                                             <td>택배사</td>
                                             <td>
-                                                <select name="" id="" class="col-md-12">
-                                                    <option value="" disabled selected hidden>택배사를 선택하세요</option>
-                                                    <option value="">대한통운</option>
-                                                    <option value="">한진택배</option>
-                                                    <option value="">우체국택배</option>
+                                                <select name="parcel" id="parcel-select" class="col-md-12">
+                                                    <option disabled selected hidden>택배사를 선택하세요</option>
+                                                    <option value="d">대한통운</option>
+                                                    <option value="h">한진택배</option>
+                                                    <option value="p">우체국택배</option>
                                                 </select>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>운송장 번호</td>
-                                            <td><input type="text" name="" class="col-md-12" required placeholder="운송장 번호('-'포함)"></td>
+                                            <td><input type="text" name="parcelNo" class="col-md-12" required placeholder="운송장 번호('-'포함)"></td>
                                         </tr>
                                     </table>        
                                 </div>
@@ -107,6 +117,7 @@
                                 </tr>
                             </thead>
                             <tbody class="customtable">
+                            	<% for(Order o : list) { %>
                                 <tr>
                                     <th>
                                         <label class="customcheckbox">
@@ -114,16 +125,17 @@
                                             <span class="checkmark"></span>
                                         </label>
                                     </th>
-                                    <td>회원번호</td>
-                                    <td>주문번호</td>
-                                    <td>상품명</td>
-                                    <td>수량</td>
-                                    <td>결제일시</td>
-                                    <td>결제금액</td>
-                                    <td>택배사</td>
-                                    <td>운송장번호</td>
-                                    <td>배송상태</td>
+                                    <td><%=o.getMemNo()%></td>
+                                    <td><%=o.getOrNo()%></td>
+                                    <td><%=o.getpName()%></td>
+                                    <td><%=o.getOrAmount()%></td>
+                                    <td><%=o.getOrDate()%></td>
+                                    <td><%=o.getOrPrice()%></td>
+                                    <td><%=o.getParcelName()%></td>
+                                    <td><%=o.getParcelNum()%></td>
+                                    <td><%=o.getParcelStatus()%></td>
                                 </tr>
+                                <% } %>
                             </tbody>
                             <tfoot>
                             </tfoot>
@@ -139,10 +151,27 @@
             <footer class="footer text-center">
                 <!-- 페이징처리 바 -->
                 <tr align="center">
-                    <th colspan="10">
-                        <div class="btn-group" role="group" aria-label="Basic example">
-                            
-                        </div>
+                   <th colspan="10">
+                   <br>
+		                <div class="btn-group paging-area" role="group" aria-label="Basic example">
+		                <% if(currentPage != 1) { %>
+		                    <button type="button" onclick="location.href='<%=request.getContextPath()%>/adStockList.do?cpage=<%=currentPage-1%>';"
+		                        class="btn btn-outline-secondary">&lt;</button>
+		                <% } %>
+		                <% for(int p=startPage; p<=endPage; p++) { %>
+		                    <% if(p == currentPage) { %>
+		                        <button type="button" disabled class="btn btn-outline-secondary"><%=p%></button>
+		                    <% } else { %>
+		                        <button type="button" onclick="location.href='<%=request.getContextPath()%>/adStockList.do?cpage=<%=p%>';"
+		                            class="btn btn-outline-secondary"><%=p%></button>
+		                    <% } %>
+		                <% } %>
+		                
+		                <% if(currentPage != maxPage) { %>
+		                    <button type="button" onclick="location.href='<%=request.getContextPath()%>/adStockList.do?cpage=<%=currentPage+1%>';"
+		                        class="btn btn-outline-secondary">&gt;</button>
+		                <% } %>
+		                </div>
                     </th>
                 </tr>
             </footer>

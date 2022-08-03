@@ -24,6 +24,35 @@ public class Order {
 	private String pName;
 	private Date enrollDate;
 	
+	/* [주문및배송 - 주문및배송조회]
+	 * 주문및배송 전체조회
+	 * join : OR_PRODUCT (OR_AMOUNT)
+	 * 작성자 김지애
+	 */
+	private int orAmount;
+	
+	public int getOrAmount() {
+		return orAmount;
+	}
+
+	public void setOrAmount(int orAmount) {
+		this.orAmount = orAmount;
+	}
+	
+	public Order(int memNo, String orNo, String pName, int orAmount, Date orDate, int orPrice, 
+				 String parcelName, String parcelNum, int parcelStatus) {
+		super();
+		this.memNo = memNo;
+		this.orNo = orNo;
+		this.pName = pName;
+		this.orAmount = orAmount;
+		this.orDate = orDate;
+		this.orPrice = orPrice;
+		this.parcelName = parcelName;
+		this.parcelNum = parcelNum;
+		this.parcelStatus = parcelStatus;
+	}
+
 	public Order() {}
 
 	public Order(String orNo, int memNo, int orPrice, int orPoint, String reviewYn, String orYn, String orReturn,
@@ -207,7 +236,9 @@ public class Order {
 				+ returnReson + ", takeName=" + takeName + ", phone=" + phone + ", location=" + location
 				+ ", parcelName=" + parcelName + ", parcelNum=" + parcelNum + ", parcelStatus=" + parcelStatus
 				+ ", payment=" + payment + ", orDate=" + orDate + ", pName=" + pName + ", enrollDate=" + enrollDate
-				+ "]";
+				+ ", orAmount=" + orAmount + "]";
 	}
+
+	
 	
 }
