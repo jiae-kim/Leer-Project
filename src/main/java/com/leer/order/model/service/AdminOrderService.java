@@ -1,7 +1,6 @@
 package com.leer.order.model.service;
 
-import static com.leer.common.JDBCTemplate.close;
-import static com.leer.common.JDBCTemplate.getConnection;
+import static com.leer.common.JDBCTemplate.*;
 
 import java.sql.Connection;
 import java.util.ArrayList;
@@ -47,13 +46,22 @@ public class AdminOrderService {
 		return listCount;
 	}
 
-	//public Order selectParcel(String orNo) {
-		
-	//}
-
+	/* [주문및배송 - 주문및배송조회]
+	 * 운송장 등록
+	 * 작성자 김지애
+	 */
 	public int updateParcel(Order r) {
-		// TODO Auto-generated method stub
-		return 0;
+		Connection conn = getConnection();
+		int result = new AdminOrderDao().updateParcel(conn, r);
+		
+		if(result > 0) {
+			commit(conn);
+		} else {
+			rollback(conn);
+		}
+		close(conn);
+		return result;
 	}
+
 	
 }

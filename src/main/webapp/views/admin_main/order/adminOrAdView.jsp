@@ -50,7 +50,7 @@
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                <form action="">
+                                <form action="<%=request.getContextPath()%>/adPnInsert.do" method="post">
                                 	<input type="hidden" name="orNo" value="" id="parcelOrNo">
                                 	<div class="modal-body" style="text-align: center; font-size: larger; font-weight: bold;" >
 	                                    <table>

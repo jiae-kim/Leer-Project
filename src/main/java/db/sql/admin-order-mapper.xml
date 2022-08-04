@@ -57,9 +57,19 @@
 		 ORDER  BY O.OR_DATE DESC	
 	 -->
 	 
-	<!-- 주문빛배송 전체조회 : 페이징 -->
+	<!-- 주문및배송 전체조회 : 페이징 -->
 	<entry key="selectOrderListCount">
 		SELECT COUNT(*) AS "COUNT"
 		  FROM "ORDER"
 	</entry>
+	
+	<!-- 주문및배송 조회 : 운송장 등록 -->
+	<entry key="updateParcel">
+		UPDATE "ORDER"
+		   SET PARCEL_NAME = ?
+		     , PARCEL_NUM = ?
+		 WHERE OR_NO = ?
+	</entry>
+	
+
 </properties>
