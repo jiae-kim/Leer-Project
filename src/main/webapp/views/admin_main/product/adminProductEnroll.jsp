@@ -112,11 +112,11 @@
                     </div>
                 </div>
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-light margin-5" data-toggle="modal" data-target="#Modal3">
+                <!-- <button type="button" class="btn btn-light margin-5" data-toggle="modal" data-target="#Modal3">
                     표지 이미지 미리보기
-                </button>
+                </button> -->
                 <!-- Modal -->
-                <div class="modal fade" id="Modal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <!-- <div class="modal fade" id="Modal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -133,7 +133,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
             <!-- 상세 이미지 -->
             <div class="form-group row">
@@ -146,11 +146,11 @@
                     </div>
                 </div>
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-light margin-5" data-toggle="modal" data-target="#Modal3">
+                <!-- <button type="button" class="btn btn-light margin-5" data-toggle="modal" data-target="#Modal3">
                     상세 이미지 미리보기
-                </button>
+                </button> -->
                 <!-- Modal -->
-                <div class="modal fade" id="Modal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <!-- <div class="modal fade" id="Modal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -167,7 +167,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
             <!-- 부록 이미지 -->
             <div class="form-group row">
@@ -180,11 +180,11 @@
                     </div>
                 </div>
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-light margin-5" data-toggle="modal" data-target="#Modal3">
+                <!-- <button type="button" class="btn btn-light margin-5" data-toggle="modal" data-target="#Modal3">
                     부록 이미지 미리보기
-                </button>
+                </button> -->
                 <!-- Modal -->
-                <div class="modal fade" id="Modal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <!-- <div class="modal fade" id="Modal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -201,7 +201,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
             <!-- 배송비 -->
             <div class="form-group row">
