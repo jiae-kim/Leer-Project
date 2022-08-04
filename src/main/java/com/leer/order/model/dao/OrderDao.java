@@ -11,6 +11,8 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 import com.leer.mypage.model.vo.Cart;
+import com.leer.order.model.vo.OrProduct;
+import com.leer.order.model.vo.Order;
 
 public class OrderDao {
 	
@@ -92,9 +94,91 @@ public class OrderDao {
 		}
 		return point;
 	}
+	
+	public int insertOrder(Connection conn, Order o) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("insertOrder");
+		
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, o.getMemNo());
+			pstmt.setInt(2, o.getOrPrice());
+			pstmt.setDouble(3, o.getOrPoint());
+			pstmt.setString(4, o.getTakeName());
+			pstmt.setString(5,  o.getLocation());
 			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}
 	
+	public int insertOrProduct(Connection conn, OrProduct op) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("insertOrProduct");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, op.getOrNo());
+			pstmt.setString(2, op.getpCode());
+			pstmt.setInt(3, op.getOrCycle());
+			pstmt.setInt(4, op.getOrAmount());
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}
 	
+	public int insertOutStock(Connection conn, Cart c) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("insertOutStock");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, c.getpCode());
+			pstmt.setInt(2, c.getAmount());
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally{
+			close(pstmt);
+		}
+		return result;
+	}
+	
+	public int updatePoint(Connection conn, int memNo, int finalPrice) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("updatePoint");
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, finalPrice);
+			pstmt.setInt(2, memNo);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}
 	
 
 }
