@@ -3,10 +3,10 @@
 <%@ page import="java.util.ArrayList, 
 				 com.leer.member.model.vo.Member,
 				 com.leer.order.model.vo.Order"%>    
-<%
+<%--
 	Member m = (Member)request.getAttribute("member");
 	ArrayList<Order> list = (ArrayList<Order>)request.getAttribute("list");
-%>				   
+--%>				   
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,10 +21,10 @@
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
                         <br><br><br>
-                        <h2 class="page-title">회원전체조회</h2>
+                        <h2 class="page-title">회원관리</h2>
                         &nbsp;&nbsp;&nbsp;
-                        <input class="form-control mr-sm-2" type="text" placeholder="Search" hidden>
-                        <button class="btn btn-success" type="submit" hidden>Search</button>
+                        <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                        <button class="btn btn-success" type="submit">Search</button>
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                             </nav>
@@ -42,41 +42,41 @@
             <div class="card mb-4">
 	            <div class="card-header">
 	                <i class=""></i>
-	               	<h4 style="vertical-align:45px"><b> </b></h4>
+	               	<h4 style="vertical-align:45px"><b> 회원상세조회</b></h4>
 	            </div>
 	            <div class="card-body">
-                <a href="<%=request.getContextPath()%>/adMemList.do?cpage=1" class="btn btn-dark" style="float:right">이전으로</a>
+                <a href="${pageContext.request.contextPath}/lec/lecList" class="btn btn-dark" style="float:right">이전으로</a>
 	            <div class ="printView">
-	            <h2 style="text-align:center"> 회원상세정보 </h2>
+	            <h2 style="text-align:center;"> 회원상세정보 </h2>
 					<table class="table">
-							<tr>
-								<th class="text-center">회원번호</th>
-								<td><%=m.getMemNo()%></td>
-							</tr>
-							<tr>
-								<th class="text-center">아이디</th>
-								<td><%=m.getMemId()%></td>
-							</tr>
-							<tr>
-								<th class="text-center">이름</th>
-								<td><input type="text" name="" maxlegnth="12" value="<%=m.getMemName()%>"></td>
-							</tr>
-							<tr>
-								<th class="text-center">주소</th>
-								<td><input type="text" name="" value="<%=m.getAddress()%>"></td>
-							</tr>
-							<tr>
-								<th class="text-center">휴대폰 번호</th>
-								<td><input type="text" name="" maxlegnth="15" value="<%=m.getPhone()%>"></td>						
-							</tr>
-							<tr>
-								<th class="text-center">가입일</th>
-								<td><input type="text" name="" maxlegnth="15" value="<%=m.getEnrollDate()%>"></td>	
-							</tr>
-							<tr>
-								<th class="text-center">보유 포인트</th>
-								<td><input type="text" name="" maxlegnth="15" value="<%=m.getPoint()%>"></td>
-							</tr>
+						<tr>
+							<th class="text-center">회원번호</th>
+							<td>001</td>
+						</tr>
+						<tr>
+							<th class="text-center" style="width:400px">아이디</th>
+							<td>tttt01</td>
+						</tr>
+						<tr>
+							<th class="text-center">이름</th>
+							<td><input type="text" name="userName" value="다궁성" required></td>
+						</tr>
+						<tr>
+							<th class="text-center">주소</th>
+							<td><input type="text" name="userName" value="부산시" required></td>
+						</tr>
+						<tr>
+							<th class="text-center">휴대폰 번호</th>
+							<td><input type="text" name="userName" value="01011112222" required></td>
+						</tr>
+						<tr>
+							<th class="text-center">가입일</th>
+							<td><input type="text" name="userName" value="2022.08.10" required></td>
+						</tr>
+						<tr>
+							<th class="text-center">보유 포인트</th>
+							<td>500</td>
+						</tr>
 						<tr>
 							<th class="text-center">구매내역</th>
 							<td>
@@ -87,14 +87,24 @@
                                         <td width="300px">잡지명</td>
                                         <td width="200px">출간연월</td>
                                     </tr>
-                                   	<% for(Order o : list) { %>
-	                                    <tr>
-	                                        <td><%=o.getOrNo()%></td>
-	                                        <td><%=o.getOrDate() %></td>
-	                                        <td><%=o.getpName()%></td>
-	                                        <td><%=o.getEnrollDate()%></td>
-	                                    </tr>
-                                    <% } %>
+                                    <tr>
+                                        <td>17</td>
+                                        <td>2022-07-26</td>
+                                        <td>보그VOGUE</td>
+                                        <td>2022-08</td>
+                                    </tr>
+                                    <tr>
+                                        <td>16</td>
+                                        <td>2022-07-26</td>
+                                        <td>보그VOGUE</td>
+                                        <td>2022-08</td>
+                                    </tr>
+                                    <tr>
+                                        <td>15</td>
+                                        <td>2022-07-26</td>
+                                        <td>보그VOGUE</td>
+                                        <td>2022-08</td>
+                                    </tr>
                                 </table>
                             </td>
 						</tr>
@@ -103,13 +113,12 @@
 					<div>
 					<c:if test="${sessionMemberLv == 1}">
 						<div class="d-grid gap-3" style="text-align: center">
-							<a href="" id="btn" class="btn btn-dark" style="width:150px">목록으로</a>
-                            <a href="" class="btn btn-dark" style="width:150px">회원정보변경</a>
+							<a href="" id="btn" class="btn btn-dark" style="width:150px">회원정보변경</a>
+                            <a href="" class="btn btn-dark" style="width:150px">회원삭제</a>
 						</div>
                     </c:if>
 	            </div>
 	        </div>
-		</div>
 
 </body>
 </html>

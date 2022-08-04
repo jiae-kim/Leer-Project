@@ -81,7 +81,6 @@
 		     , ADDRESS = ?
 		     , PHONE = ?
 		     , ENROLL_DATE = ?
-		     , POINT = ?
 		 WHERE MEM_NO = ?
 	</entry>
 	

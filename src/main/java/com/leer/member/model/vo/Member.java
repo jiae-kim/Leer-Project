@@ -25,6 +25,8 @@ public class Member {
 	private Date or_date;
 	private String p_code;
 	
+	private String enrollDate2;
+	
 	private Date startDate; // subscribe테이블
 	private Date endDate; // subscribe테이블
 	
@@ -112,7 +114,13 @@ public class Member {
 		this.image_url = image_url;
 	}
 
-
+	public Member(String memName, String phone, String address, String enrollDate2) {
+		super();
+		this.memName = memName;
+		this.phone = phone;
+		this.address = address;
+		this.enrollDate2 = enrollDate2;
+	}
 
 
 	public int getCommCount() {
@@ -552,6 +560,16 @@ public class Member {
 	}
 
 
+	public String getEnrollDate2() {
+		return enrollDate2;
+	}
+
+
+	public void setEnrollDate2(String enrollDate2) {
+		this.enrollDate2 = enrollDate2;
+	}
+
+
 	@Override
 	public String toString() {
 		return "Member [memNo=" + memNo + ", memId=" + memId + ", memPwd=" + memPwd + ", nickname=" + nickname
@@ -559,9 +577,10 @@ public class Member {
 				+ ", address=" + address + ", categoryNo=" + categoryNo + ", point=" + point + ", memStatus="
 				+ memStatus + ", enrollDate=" + enrollDate + ", admin=" + admin + ", profileLink=" + profileLink
 				+ ", image_url=" + image_url + ", p_name=" + p_name + ", price=" + price + ", or_date=" + or_date
-				+ ", p_code=" + p_code + ", startDate=" + startDate + ", endDate=" + endDate + ", orNo=" + orNo
-				+ ", orPrice=" + orPrice + ", pName=" + pName + ", publishMonth=" + publishMonth + ", imageUrl1="
-				+ imageUrl1 + ", orCycle=" + orCycle + ", commCount=" + commCount + ", likeCount=" + likeCount + "]";
+				+ ", p_code=" + p_code + ", enrollDate2=" + enrollDate2 + ", startDate=" + startDate + ", endDate="
+				+ endDate + ", orNo=" + orNo + ", orPrice=" + orPrice + ", pName=" + pName + ", publishMonth="
+				+ publishMonth + ", imageUrl1=" + imageUrl1 + ", orCycle=" + orCycle + ", commCount=" + commCount
+				+ ", likeCount=" + likeCount + "]";
 	}
 
 	

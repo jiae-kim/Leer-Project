@@ -7,6 +7,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.leer.member.model.service.AdminMemberService;
+import com.leer.member.model.vo.Member;
 
 /**
  * Servlet implementation class AdminMemberUpdateController
@@ -34,7 +38,21 @@ public class AdminMemberUpdateController extends HttpServlet {
 		String address = request.getParameter("address");
 		String phone = request.getParameter("phone");
 		String enrollDate = request.getParameter("enrollDate");
-		int point = Integer.parseInt(multiRequest.getParameter("point"));
+		
+		Member m = new Member(memName, address, phone, enrollDate);
+		
+		Member updateMem = new AdminMemberService().updateMember(m);
+		
+		if(updateMem == null) {
+			request.setAttribute("errorMsg", "회원정보수정에 실패했습니다.");
+			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
+		}else {
+			HttpSession session = request.getSession();
+			session.setAttribute("alertMsg", "성공적으로 수정했습니다.");
+			
+			response.sendRedirect(request.getContextPath() + "/adMemDetail.do");
+		}
+		
 	}
 
 	/**

@@ -128,6 +128,32 @@ public class AdminMemberDao {
 		return m;
 	}
 	
+	// 관리자 회원정보 변경
+	// 작성자 김은지
+	public int updateMember(Connection conn, Member m) {
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("updateMember");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, m.getMemName());
+			pstmt.setString(2, m.getPhone());
+			pstmt.setString(3, m.getAddress());
+			pstmt.setString(4, m.getEnrollDate2());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}
+	
 	// 관리자 장기구독자 조회
 	// 작성자 김은지
 	public ArrayList<Member> selectLongMemberList(Connection conn, PageInfo pi){
