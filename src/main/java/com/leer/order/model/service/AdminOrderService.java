@@ -46,5 +46,14 @@ public class AdminOrderService {
 		close(conn);
 		return listCount;
 	}
+
+	//public Order selectParcel(String orNo) {
+		
+	//}
+
+	public int updateParcel(Order r) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 }

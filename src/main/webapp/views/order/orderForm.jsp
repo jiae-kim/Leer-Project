@@ -266,7 +266,7 @@
                                         
                                     </h2>
                                     <div style="border-bottom: 2px solid #303030; margin-bottom: 30px;;"></div>
-                                    <form action="/complete.od">
+                                    <form action="/complete.od" id="payForm">
                                     <div class="etc_content_box" >
                                         <ul class="product_review_list" id="review_list"></ul>
                                         <table class="table" style= "border:#dadada solid" id="tb" >
@@ -283,7 +283,7 @@
                                             	int length = list.size();
                                             %>
                                             <%for(Cart c : list) {%>
-                                            <tr style="font-size:14px;" id="cartList">
+                                            <tr style="font-size:14px;" id="cartList" name="cartNo" value=<%=c.getCartNo() %>>
                                                 <td style="vertical-align:middle; text-align:center;"><%= count++ %></td>
                                                 <td style="width:40%;">
                                                     <span style="display:inline; text-align:left">
@@ -383,8 +383,8 @@
                                                     <th style="background:#f1f1f1; vertical-align: middle;">배송지주소</th>
                                                     
                                                      <td style="vertical-align:middle">
-                                                     	<input type="radio" name="address" checked>새로운 주소로 입력
-                                                        <input type="radio" name="address">내 주소 <br>
+                                                     	<input type="radio" name="op-address" checked>새로운 주소로 입력
+                                                        <input type="radio" name="op-address">내 주소 <br>
                                                         <input type="text" id="sample6_postcode" placeholder="우편번호" name="postCode" style="margin-right:5px">
 														<input type="button" onclick="sample6_execDaumPostcode()"  value="우편번호 찾기"><br>
 														<input type="text" id="sample6_address" placeholder="주소" name="address" style="width:300px; margin-top:10px;"><br>
@@ -460,7 +460,9 @@
                                         </div>
                                         
                                         <input type="hidden" name="product1" value="<%=list.get(0).getpCode()%>">
+                                        <input type="hidden" name="cartSize" value="<%=list.size()%>">
                                         <input type="hidden" name="finalPrice" value=sumPrice>
+                                        <input type="hidden" name="memNo" value=<%=loginUser.getMemNo() %>>
                                         </form>
 										
 										<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
@@ -610,19 +612,8 @@
 									        	  var msg = '결제가 완료되었습니다.';
 									              alert(msg);
 									              
-									            <%--   jQueqry.ajax({
-									             		url:"<%=contextPath%>/complete.od"
-									             		method:"POST"
-									             		headers:{ "Content-Type": "application/json" },
-									             		data: {
-									             			imp_uid: rsp.imp_uid,
-              											merchant_uid: rsp.merchant_uid
-									             		}
-									                 }).done(function (data) {
-									                 
-									                 })
-
-									               --%>
+									              $("#payForm").submit(); 
+									            
 									              
 									             	
 									          } else {

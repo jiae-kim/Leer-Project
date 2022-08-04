@@ -119,7 +119,7 @@
                                 </thead>
                                 <tbody class="customtable custom">
                                 	<% for(Mtm m : list) { %>
-	                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/mtm/adminMtmInsert.jsp';">
+	                                    <tr onclick="location.href='<%=request.getContextPath()%>/adDetail.mt?no=<%=m.getMtmNo()%>';">
 	                                        <th>
 	                                            <label class="customcheckbox">
 	                                                <input type="checkbox" class="listCheckbox" />

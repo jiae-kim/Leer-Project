@@ -1,30 +1,26 @@
-package com.leer.community.controller;
+package com.leer.product.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import com.leer.community.model.service.CommunityService;
-import com.leer.community.model.vo.ComuBoard;
-import com.leer.mypage.model.service.MypageService;
+import com.leer.product.model.vo.Inquiry;
 
 /**
- * Servlet implementation class HashtagSearchController
+ * Servlet implementation class AjaxProductInquiryController
  */
-@WebServlet("/hashtagsearch")
-public class HashtagSearchController extends HttpServlet {
+@WebServlet("/inquiry.pd")
+public class AjaxProductInquiryController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public HashtagSearchController() {
+    public AjaxProductInquiryController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,15 +29,15 @@ public class HashtagSearchController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
+		String pCode = request.getParameter("pNo");
+		String memName = request.getParameter("memName");
+		String category = request.getParameter("category");
+		String title = request.getParameter("title");
+		String content = request.getParameter("content");
 		
-		HttpSession session = request.getSession();
-		String hashtag = request.getParameter("hashtag");
-		
-		ArrayList<ComuBoard> list = new CommunityService().HashtagSearch(hashtag);
-
-		session.setAttribute("tagsearchlist", list);
-		
-		response.sendRedirect(request.getContextPath() + "/comu.bo?tag="+hashtag);
+		Inquiry i = new Inquiry();
+		i.setpCode(pCode);
 		
 		
 	}

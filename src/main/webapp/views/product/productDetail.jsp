@@ -644,7 +644,14 @@
 
                                 <div class="etc_area" id="product_review">
                                     <h2 class="etc_title" >상품문의
+                                    <% if (loginUser != null) {%>
                                         <button type="button" class="etn_write_btn" data-toggle="modal" data-target="#updatePwdModal">상품문의</button>
+                                    <%} else { %>
+                                    <button type="button" class="etn_write_btn">
+                                    	<a href="<%=contextPath%>/loginPage.me"></a>
+                                    	상품문의
+                                    </button>
+                                    <% } %>
                                     </h2>
                                     <div style="border-bottom: 1px solid #303030;"></div>
                                     <div class="etc_content_box" >
@@ -676,7 +683,7 @@
                                 </div>
 
                             </div>
-                            
+                            <% if(loginUser != null) {%>
                             <!-- 비밀번호 변경 모달창 -->
                                 <div class="modal" id="updatePwdModal">
                                     <div class="modal-dialog modal-lg">
@@ -691,45 +698,61 @@
                                             <!-- Modal body -->
                                             <div class="modal-body" align="center" style="margin-top:10px;">
             
-                                                <form action="<%= contextPath %>/updatePwd.me" method="post">
+                                                <form action="<%= contextPath %>/inquiry.pd" method="">
                                                     <input type="hidden" name="pCode" value="<%=p.getpCode()%>"> <!-- form 요청시 같이 넘어가게 -->
                                                     <table class="table"style="border-bottom solid 1px">
                                                         <tr>
                                                             <th>상품문의 유형</th>
                                                             <td>
-                                                                <input type="radio" name="type" value="pd">상품
-                                                                <input type="radio" name="type" value="del">배송
-                                                                <input type="radio" name="type" value="cl">주문취소/환불
+                                                                <input type="radio" name="type" name="category" value="pd">상품
+                                                                <input type="radio" name="type" name="category" value="del">배송
+                                                                <input type="radio" name="type" name="category" value="cl">주문취소/환불
                                                             </td>
 
                                                         </tr>
                                                         <tr>
                                                             <th>상품문의 제목</th>
-                                                            <td><input type="text" class="form-control"></td>
+                                                            <td><input type="text" class="form-control" id="title"></td>
                                                         </tr>
                                                         <tr>
                                                             <th>상품문의 내용</th>
                                                             <td>
-                                                                <textarea class="form-control" style="resize:none; height:200px"></textarea>
+                                                                <textarea class="form-control" style="resize:none; height:200px" id="content"></textarea>
                                                             </td>
                                                         </tr>
                                                     </table>
-                                                    <button type="submit" class="btn btn-secondary" style="padding:10px 20px;" onclick="return validatePwd();">작성하기</button>
+                                                    <button type="submit" class="btn btn-secondary" style="padding:10px 20px;" onclick="write();" >작성하기</button>
+                                                   
                                                 </form>
                                                 <script>
-                                                    function validatePwd(){
-                                                        if($("input[name=updatePwd]").val() != $("input[name=checkPwd]").val()){
-                                                            alert("변경할 비밀번호가 일치하지 않습니다.");
-                                                            return false;
-                                                        }
+                                                    function write(){
+                                                        $.ajax({
+                                                        	url:"<%=contextPath%>/inquiry.pd"
+                                                        	data:{
+                                                        		pNo:<%=p.getpCode()%> 
+                                                        		memName:<%=loginUser.getMemNo()%>
+                                                        		category:$("input[type=radio]:checked").val()
+                                                        		title:$("#title").val()
+                                                        		content:$("#content").val()
+                                                        	},
+                                                        	type:"post"
+                                                        	success:function(result){ // 상품문의 성공 
+                                                        		if(result>0){
+                                                        			
+                                                        		    $('html, body').animate({scrollTop: $(this.hash).offset.top}, 300);
+                                                        		    
+                                                        		}
+                                                        		// 그 페이지 부분 목록에 보여지게 다시 
+                                                        	}
+                                                        })
                                                     }
-                                                </scrip>
+                                                </script>
                                             </div>
         
                                         </div>
                                     </div>
                                 </div>
-						
+								<% } %>
 						      </div>
 						    </div>
 						  </div>

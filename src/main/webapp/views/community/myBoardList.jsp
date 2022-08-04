@@ -21,13 +21,12 @@
             font-size: 14px;
             border-top: 1px solid rgba(128, 128, 128, .7);
             border-bottom: 1px solid gray;
-
+			line-height: 22px;
         }
 
         .list-area td {
             font-size: 12px;
             border-bottom: 1px solid rgba(128, 128, 128, .4);
-
         }
 
         .list-area {
@@ -111,16 +110,14 @@
                                             <th width="100">작성자</th>
                                             <th width="70">조회수</th>
                                             <th width="100">작성일</th>
-                                            <th width="70"><button>전체선택</button></th>
+                                            <th width="70" class="allch">전체선택<input type="checkbox" class="allcheck" value="전체선택" ></th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <!--case1. 공지글이 없을 경우-->
                                         <% if(list.isEmpty()) { %>
                                          <tr>
                                             <td colspan="6">존재하는 게시글이 없습니다.</td>
                                         </tr> 
-                                        <!--case2. 공지글이 있을 경우-->
                                         <% }else{ %>
                                         	<% int num = list.size(); %>
                                         	<% for(ComuBoard c : list) { %>
@@ -142,17 +139,88 @@
 		                                            <td>
 		                                                <span><%= c.getEnrollDate() %></span>
 		                                            </td>
-		                                            <td><input type="checkbox"></td>
+		                                            <td><input type="checkbox" name="check"></td>
 		                                        </tr>
                                     		<% } %>
                                     <% } %>
                                     </tbody>
                                 </table>
+                                <script>
+                                	$(document).ready(function(){
+                                		$(".allcheck").click(function(){
+                                			if($(".allcheck").is(":checked")) $("input[name=check]").prop("checked", true);
+                                			
+                                			else $("input[name=check]").prop("checked", false);
+                                			
+                                		});
+                                			$("input[name=check]").click(function() {
+                                				var total = $("input[name=check]").length;
+                                				var checked = $("input[name=check]:checked").length;
+
+                                				if(total != checked) $(".allcheck").prop("checked", false);
+                                				else $(".allcheck").prop("checked", true); 
+                                			});
+                               			});
+                                		
+                                	
+                                		
+                                
+                                </script>
                                 <% if(!list.isEmpty()){ %>
 	                                <div class="col-lg-12" style="padding: 0;" align="right">
-	                                        <button class="boardDelete">삭제하기</button>
+	                                        <button type="button" class="boardDelete" onclick="location.href='<%= contextPath %>/comuDelete.me'" >삭제하기</button>
 	                                </div>
 	                                
+	                                
+								<script>
+								    $(document).on("click", "button.boardDelete", function(){
+										var index = $(this).attr("data-index");
+										if(confirm("선택한 게시글을 삭제하시겠습니까?")){
+											var boardList = [];
+											boardList[0] = index;
+											delAddressItem(itemList);
+										}
+									})
+								function delAddressItem(itemList){
+									var inputData = {
+										csrf : '<?=$this->auth->statusKey?>',
+										itemList : itemList
+									};
+									
+									$.ajax({
+										url : '<?=$this->lib->getUrl("distribute/address/api/delete")?>',
+										type : "POST",
+										async: false,
+										data : inputData,
+										dataTyee : "json",
+										error : function(request, status, error){
+											console.log("Code:"+request.status+" / Message:"+request.responseText+" / Error: "+error);
+										},
+										success: function(data){
+											//console.log(data);
+											if(data.resultCode == 200){
+												window.alert("삭제가 완료가 확인 되었습니다.");
+												document.location.reload(true);
+											}else{
+												window.alert(data.message);
+											}
+										},
+										beforeSend:function(){
+											$('.wrap-loading').removeClass('display-none');
+											$('.wrap-loading .loading-message').html("...삭제 처리중...");
+										},
+										complete:function(){
+											$('.wrap-loading').addClass('display-none');
+											$('.wrap-loading .loading-message').html("...데이터를 저장하는 중입니다...");
+										},
+									})
+									
+								}
+								</script>
+								
+								
+								
+								
 	                                <div class="product__pagination blog__pagination" align="center">
 	                                <% if(currentPage != 1){ %>
 	                                	<a href="<%=contextPath%>/myBoard.li?memNo=<%=loginUser.getMemNo()%>&cpage=<%=currentPage-1%>">&lt;</a>

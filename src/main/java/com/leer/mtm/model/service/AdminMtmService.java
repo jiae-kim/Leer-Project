@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import com.leer.common.model.vo.PageInfo;
 import com.leer.mtm.model.dao.AdminMtmDao;
 import com.leer.mtm.model.vo.Mtm;
-import com.leer.terms.model.dao.AdminTermsDao;
 
 public class AdminMtmService {
 	
@@ -32,5 +31,33 @@ public class AdminMtmService {
 		close(conn);
 		return listCount;		
 	}
+	
+	// 관리자 1:1문의리스트 상세조회
+	// 작성자 김은지
+	public Mtm mtmDetailList(int mtmNo) {
+		Connection conn = getConnection();
+		Mtm m = new AdminMtmDao().mtmDetailList(conn, mtmNo);
+		close(conn);
+		return m;
+	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

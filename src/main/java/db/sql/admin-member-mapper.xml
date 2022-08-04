@@ -20,6 +20,7 @@
 		                     , POINT
 		                  FROM MEMBER
 		                 WHERE ADMIN = 'N'
+		                   AND MEM_STATUS = 'Y'
 		                 ORDER
 		                    BY MEM_NO DESC
 		              ) A
@@ -71,6 +72,13 @@
 		SELECT COUNT(*) AS "COUNT"
 		  FROM MEMBER
 		 WHERE ADMIN = 'N'
+	</entry>
+	
+	<!-- 회원삭제, 김은지 -->
+	<entry key="">
+		UPDATE MEMBER
+		   SET MEM_STATUS = 'N'
+		 WHERE MEM_NO = ?
 	</entry>
 	
 	<!-- 장기구독자리스트조회, 김은지 -->

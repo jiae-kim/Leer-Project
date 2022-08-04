@@ -90,8 +90,44 @@ public class AdminNoticeDao {
 		}
 		return listCount;
 	}
+	
+	// 관리자 고객센터공지 상세페이지
+	// 작성자 김은지
+	public Notice noticeDetailList(Connection conn, int notiNo) {
+		Notice n = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("noticeDetailList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, notiNo);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				n = new Notice(rset.getString("title"),							 
+							   rset.getString("content"),
+							   rset.getString("mem_id")
+						);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return n;
+	}
 
 }
+
+
+
+
+
+
+
 
 
 
