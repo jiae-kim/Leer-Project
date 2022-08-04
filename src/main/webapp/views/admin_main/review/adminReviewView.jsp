@@ -45,6 +45,7 @@
                             </button>
                                 <!-- Modal -->
                                 <div class="modal fade" id="inputPoint" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -57,8 +58,12 @@
                                                 적립금을 지급하시겠습니까?
                                             </div>
                                             <div class="modal-footer">
+                                            	<form action="<%= %>">
                                                 <button type="button" class="btn btn-primary">네</button>
+                                                </form>
+                                                
                                                 <button type="button" class="btn btn-dark" data-dismiss="modal">아니오</button>
+                                                
                                             </div>
                                         </div>
                                     </div>
