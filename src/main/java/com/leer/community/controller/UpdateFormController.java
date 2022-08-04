@@ -34,6 +34,7 @@ public class UpdateFormController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int comuNo = Integer.parseInt(request.getParameter("no"));
 
 		Member loginUser = (Member)request.getSession().getAttribute("loginUser");
 		int memNo = 0;
@@ -44,7 +45,6 @@ public class UpdateFormController extends HttpServlet {
 		Member m = new CommunityService().selectMyCount(memNo);
 		request.setAttribute("m", m);
 		
-		int comuNo = Integer.parseInt(request.getParameter("no"));
 		CommunityService cbService = new CommunityService();
 		ArrayList<Category> cateList = cbService.selectCategoryList();
 		ComuBoard cb = cbService.selectBoard(comuNo);
@@ -54,7 +54,7 @@ public class UpdateFormController extends HttpServlet {
 		request.setAttribute("cb", cb);
 		request.setAttribute("at", at);
 		request.setAttribute("flag", "update");
-		request.getRequestDispatcher("views/board/boardUpdateForm.jsp").forward(request, response);
+		request.getRequestDispatcher("views/community/insertBoard.jsp").forward(request, response);
 	}
 
 	/**

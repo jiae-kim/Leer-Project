@@ -106,6 +106,20 @@ public class Product {
 		this.imageUrlS = imageUrlS;
 	}
 
+	
+	
+	//찜하기
+	public Product(String pCode, String pName, int price, String imageUrl1) {
+		super();
+		this.pCode = pCode;
+		this.pName = pName;
+		this.price = price;
+		this.imageUrl1 = imageUrl1;
+	}
+
+	
+	
+	
 	public int getMonth() {
 		return month;
 	}

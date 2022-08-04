@@ -119,15 +119,11 @@
                                             <tr style="float: left">
                                                 <td colspan="2" style="">
                                                     <select name="category">
-                                                            <option value="" disabled selected hidden>
-                                                                카테고리를 선택하세요.
-                                                            </option>
-                                                            <option value="">
-                                                                주문/결제
-                                                            </option>
-                                                            <option value="">
-                                                                배송문의
-                                                            </option>
+                                                            <option value="" disabled selected hidden>카테고리를 선택하세요.</option>
+                                                            <option value="">주문/결제</option>
+                                                            <option value="">반품</option>
+                                                            <option value="">적립금</option>
+                                                            <option value="">로그인/회원가입</option>
                                                     </select>
                                                 </td>
                                             </tr>

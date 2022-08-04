@@ -10,12 +10,19 @@
 <meta charset="UTF-8">
 <title>FAQ 상세조회 페이지</title>
 <style>
-    #faqtable {
-        color: red;
+    #content{
+        height: 400px;
+        color: black;
     }
-    .faq1 tr td{
-        background-color:;
-        align:center;
+    #title{
+        height: 100px;
+        color: black;
+    }
+    .cc1{
+            height: 800px;
+        }
+    .ttt1{
+        margin: 0px 0px 0px 200px;
     }
 </style>
 </head>
@@ -48,14 +55,14 @@
             <i class=""></i>
             <h4 style="vertical-align:45px"><b>FAQ 상세조회</b></h4>
         </div> -->
-        <div class="card-body">
+        <div class="card-body cc1">
         <div class ="printView">
         <h2 style="text-align:center">FAQ 상세조회</h2>
-            <table class="table faq1">
+            <table class="table" align="center">
                 <tr>
                     <!-- <th class="text-center">구매내역</th> -->
                     <td name="faqtable" colspan="2">
-                        <table border="1" style="text-align: center">
+                        <table border="1" class="ttt1" style="text-align: center">
                             <tr style="background: #343a40; color:white;">
                                 <td width="70px" height="-4840px">No.</td>
                                 <td width="200px">카테고리</td>
@@ -76,17 +83,17 @@
                     </td>
                 </tr>
                 <tr>
-                    <th>제목</th>
-                    <td class="text-center"><%=f.getFaqTitle()%></td>
+                    <th class="text-center" width="400px" style="float: right;">제목</th>
+                    <td id="title" class="text-center" width="2000px"><%=f.getFaqTitle()%></td>
                 </tr>
                 <tr>
-                    <th>내용</th>
-                    <td class="text-center"><%=f.getFaqContent()%></td>
+                    <th class="text-center" width="400px" style="float: right;">내용</th>
+                    <td id="content" class="text-center"><%=f.getFaqContent()%></td>
                 </tr>
             </table>
         </div>
         <div>
-            <a href="<%=request.getContextPath()%>/adFaqList.do?cpage=1" class="btn btn-dark" style="float:right">목록으로</a>
+            <a href="<%=request.getContextPath()%>/adFaqList.do?cpage=1" class="btn btn-primary" tyle="float:center">목록으로</a>
         </div>
     </div>
 </div>

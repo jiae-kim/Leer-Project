@@ -234,13 +234,14 @@ public class CommunityDao {
 				c = new ComuBoard(
 						rset.getInt("comu_no"), 
 						rset.getString("nickname"),
-						rset.getString("category_name"),
+						rset.getString("category_no"),
 						rset.getString("tag"), 
 						rset.getString("title"),
 						rset.getDate("enroll_date"),
 						rset.getInt("like_count"),
 						rset.getInt("comment_count"),
-						rset.getInt("view_count")
+						rset.getInt("view_count"),
+						rset.getString("category_name")
 						);
 
 				Clob clob = rset.getClob("content");
