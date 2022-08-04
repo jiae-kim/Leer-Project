@@ -104,7 +104,7 @@
                             <br>
                             <c:if test="${sessionMemberLv == 1}">
                                     <div class="d-grid gap-3" style="text-align: center">
-                                        <a href="" id="btn" class="btn btn-dark" style="width:150px">취소</a>
+                                        <a href="<%= request.getContextPath() %>/adList.mt?cpage=1" id="btn" class="btn btn-dark" style="width:150px">취소</a>
                                         <a href="" class="btn btn-dark" style="width:150px">답변등록</a>
                                     </div>
                             </c:if>

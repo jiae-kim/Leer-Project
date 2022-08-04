@@ -15,6 +15,14 @@
 <head>
 <meta charset="UTF-8">
 <title>1:1상담 전체조회 페이지</title>
+<style>
+.custom>tr:hover {
+    cursor: pointer;
+    opacity: 0.7;
+    background:#cecece;
+    color:dark;
+}
+</style>
 </head>
 <body>
 	<%@ include file="../../common/adminMenubar.jsp" %>
@@ -111,7 +119,7 @@
                                 </thead>
                                 <tbody class="customtable custom">
                                 	<% for(Mtm m : list) { %>
-	                                    <tr onclick="location.href='<%=request.getContextPath()%>/adList.mt?no=<%=m.getMtmNo()%>';">
+	                                    <tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/mtm/adminMtmInsert.jsp';">
 	                                        <th>
 	                                            <label class="customcheckbox">
 	                                                <input type="checkbox" class="listCheckbox" />
