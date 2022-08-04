@@ -26,10 +26,10 @@
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
                         <br><br><br>
-                        <h2 class="page-title">회원관리</h2>
+                        <h2 class="page-title">회원전체조회</h2>
                         &nbsp;&nbsp;&nbsp;
-                        <!--<input class="form-control mr-sm-2" type="text" placeholder="Search">
-                        <button class="btn btn-success" type="submit">Search</button>-->
+                        <input class="form-control mr-sm-2" type="text" placeholder="Search" hidden>
+                        <button class="btn btn-success" type="submit" hidden>Search</button>
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                             </nav>
@@ -47,7 +47,7 @@
             <div class="card mb-4">
 	            <div class="card-header">
 	                <i class=""></i>
-	               	<h4 style="vertical-align:45px"><b> 회원상세조회</b></h4>
+	               	<h4 style="vertical-align:45px"><b> </b></h4>
 	            </div>
 	            <div class="card-body">
                 <a href="<%=request.getContextPath()%>/adMemList.do?cpage=1" class="btn btn-dark" style="float:right">이전으로</a>

@@ -16,6 +16,7 @@
 						   , NOTI_VIEWS
 						FROM NOTICE N     
 				        JOIN MEMBER M ON(M.MEM_NO = N.MEM_NO)
+           			   WHERE NOTI_TYPE = '고객센터' 				        
 				       ORDER
 					      BY NOTI_NO DESC
 		  	     	  ) A
