@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.ArrayList, com.leer.order.model.vo.OrProduct, com.leer.order.model.vo.Order" %>
+<% 
+	ArrayList<OrProduct> pList = (ArrayList<OrProduct>)request.getAttribute("pList"); 
+	Order o = (Order)request.getAttribute("order");
+%>
 <!DOCTYPE html>
 <html>
 <head>

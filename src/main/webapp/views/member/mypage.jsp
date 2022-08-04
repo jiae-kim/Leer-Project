@@ -74,7 +74,7 @@
 					</tr>
 					<tr>
 						<td>비밀번호&nbsp;&nbsp;&nbsp;</td> 
-						<td><input type="password" name="checkPwd" id="checkPwd" required></td>
+						<td><input type="password" name="checkPwd" id="checkPwd" required style="font-family: Arial;"></td>
 					</tr>
 				</table>
 			</div>

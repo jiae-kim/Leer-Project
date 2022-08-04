@@ -24,7 +24,7 @@
 
     
     <!-- Css Styles -->
-    <link rel="stylesheet" href="<%= contextPath %>/resources/css/heeyeong/bootstrap.min.css" type="text/css">
+    <%-- <link rel="stylesheet" href="<%= contextPath %>/resources/css/heeyeong/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="<%= contextPath %>/resources/css/heeyeong/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="<%= contextPath %>/resources/css/heeyeong/elegant-icons.css" type="text/css">
     <link rel="stylesheet" href="<%= contextPath %>/resources/css/heeyeong/nice-select.css" type="text/css">
@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="<%= contextPath %>/resources/css/heeyeong/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="<%= contextPath %>/resources/css/heeyeong/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="<%= contextPath %>/resources/css/heeyeong/style.css" type="text/css"> 
-    
+     --%>
      
     <style>
     	.login-btn{font-size:13px; color:#393939;}
@@ -100,7 +100,10 @@
                             
                             <li>
                             <%if(loginUser == null){ %>
-                                <a href="<%= contextPath %>/views/member/login.jsp"><b>마이페이지</b></a>
+                            
+                            	<!-- 로그인 전 상태라면 마이페이지 버튼이 보이지 않도록 변경했음 -->
+                                <%-- <a href="<%= contextPath %>/views/member/login.jsp"><b>마이페이지</b></a> --%>
+                                
                             <%}else{ %>
                             	<a href="<%= contextPath %>/myPage.me?memNo=<%=loginUser.getMemNo()%>"><b>마이페이지</b></a>
                             <%} %>
@@ -131,18 +134,37 @@
                     </script>
 
 					<%} else{ %>
+					
+						<%if( loginUser.getMemId().equals("admin1") || loginUser.getMemId().equals("admin2") ) {%>
+						
+							<div class="header__cart">
+		                        <ul>
+		                        	<!-- 로그인 한 회원의 이름을 누르면 회원정보 수정 페이지로 넘어가도록 해둠 -->
+		                            <li><a href="<%=contextPath %>/mypage.me" style="text-decoration: none; color:black; font-size:13px;"><%=loginUser.getMemName() %> 님</a><li>
+		                            <li><a href="<%=contextPath %>/logout.me" style="text-decoration: none; color:darkgrey; font-size:13px;">로그아웃</a></li> 
+		                            <li><a href="<%=contextPath%>/views/admin_main/adminMainPage.jsp" style="text-decoration: none; color:black; font-size:15px; font-weight:600">관리자페이지</a></li>
+		                            
+		                            <%-- <li id="login-icon"><a href="<%=contextPath%>/selectScrap.me"><i class="fa fa-heart"></i></a></li>
+		                            <li><a href="#"><i class="fa fa-shopping-bag"></i></a></li> --%>
+		                        </ul>
+		                    </div>
+							
+						
+						<%}else{ %>
 
-                    <!-- case2. 로그인 후 -->
-                    <div class="header__cart">
-                        <ul>
-                        	<!-- 로그인 한 회원의 이름을 누르면 회원정보 수정 페이지로 넘어가도록 해둠 -->
-                            <li><a href="<%=contextPath %>/mypage.me" style="text-decoration: none; color:black; font-size:13px;"><%=loginUser.getMemName() %> 님</a><li>
-                            <li><a href="<%=contextPath %>/logout.me" style="text-decoration: none; color:darkgrey; font-size:13px;">로그아웃</a></li>
-                            &nbsp;
-                            <li id="login-icon"><a href="<%=contextPath%>/scrapPage.me"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-bag"></i></a></li>
-                        </ul>
-                    </div>
+		                    <!-- case2. 로그인 후 -->
+		                    <div class="header__cart">
+		                        <ul>
+		                        	<!-- 로그인 한 회원의 이름을 누르면 회원정보 수정 페이지로 넘어가도록 해둠 -->
+		                            <li><a href="<%=contextPath %>/mypage.me" style="text-decoration: none; color:black; font-size:13px;"><%=loginUser.getMemName() %> 님</a><li>
+		                            <li><a href="<%=contextPath %>/logout.me" style="text-decoration: none; color:darkgrey; font-size:13px;">로그아웃</a></li>
+		                            &nbsp;
+		                            <li id="login-icon"><a href="<%=contextPath%>/selectScrap.me"><i class="fa fa-heart"></i></a></li>
+		                            <li><a href="#"><i class="fa fa-shopping-bag"></i></a></li>
+		                        </ul>
+		                    </div>
+		                    
+	                    <%} %>
                     
                     <% } %>
 
@@ -154,7 +176,7 @@
         </div>
     </header>
     
-     <!-- Js Plugins -->
+     <!-- Js Plugins --><%-- 
     <script src="<%=contextPath %>/resources/js/jquery-3.3.1.min.js"></script>
     <script src="<%=contextPath %>/resources/js/bootstrap.min.js"></script>
     <script src="<%=contextPath %>/resources/js/jquery.nice-select.min.js"></script>
@@ -163,6 +185,6 @@
     <script src="<%=contextPath %>/resources/js/mixitup.min.js"></script>
     <script src="<%=contextPath %>/resources/js/owl.carousel.min.js"></script>
     <script src="<%=contextPath %>/resources/js/main.js"></script>
-    
+     --%>
     </body>
 </html>

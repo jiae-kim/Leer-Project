@@ -16,7 +16,8 @@
 						   , MODIFY_DATE
 					    FROM NOTICE N
 						JOIN MEMBER M USING (MEM_NO)
-                       WHERE NOTI_TYPE = '커뮤니티'						
+                       WHERE NOTI_TYPE = '커뮤니티'
+                          OR NOTI_TYPE = '2'						
 					   ORDER
 					      BY NOTI_NO DESC
 		  	     	 ) A
@@ -77,8 +78,8 @@
 		  VALUES
 		  (
 		    SEQ_FILE.NEXTVAL
-          , ? 
-		  , ?
+		  , '공지'
+          , SEQ_NOTI.CURRVAL 
 		  , ?
 		  , ?
 		  , ?

@@ -696,7 +696,7 @@ public class CommunityDao {
 	
 	public ArrayList<ComuBoard> HashtagSearch(Connection conn, String hashtag) {
 		
-		ArrayList<ComuBoard> list = new ArrayList<ComuBoard>();
+		ArrayList<ComuBoard> list = new ArrayList<>();
 		PreparedStatement pstmt = null;
 		ResultSet rset= null;
 		
@@ -707,7 +707,9 @@ public class CommunityDao {
 			pstmt.setString(1, hashtag);
 			pstmt.setString(2, hashtag);
 			rset = pstmt.executeQuery();
-			
+			while(rset.next()) {
+				
+			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

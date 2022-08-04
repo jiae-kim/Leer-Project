@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="com.leer.notice.model.vo.Notice"%>    
+<%
+	Notice n = (Notice)request.getAttribute("notice");
+%>      
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,7 +53,7 @@
                                       공지사항 제목
                                     </td>
                                     <td width="700px">
-                                        <label for="" style="float: left;">&nbsp;&nbsp; 공지 제목</label> 
+                                        <label for="" style="float: left;">&nbsp;&nbsp; <%=n.getTitle()%></label> 
                                     </td>
                                   </tr>
                                   
@@ -58,14 +62,14 @@
                                       작성자
                                     </td>
                                     <td>
-                                        <label for="" style="float: left;">&nbsp;&nbsp; admin01</label> 
+                                        <label for="" style="float: left;">&nbsp;&nbsp; <%=n.getMemId()%></label> 
                                     </td>
                                   </tr>
                                 </tbody>
                               </table>
                               <br>
                               <table class="tarea" align="center" style="margin:5px 5px 5px 5px">
-                                <textarea name="" id="" cols="133.5" rows="23" resize="none" placeholder="">공지내용공지내용공지내용</textarea>
+                                <textarea name="" id="" cols="133.5" rows="23" resize="none" placeholder=""><%=n.getContent()%></textarea>
                               </table>
                               <div class="">
                                 <table class="tt1" border="1" align="center">

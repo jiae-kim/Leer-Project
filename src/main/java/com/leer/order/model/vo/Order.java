@@ -7,7 +7,7 @@ public class Order {
 	private String orNo;
 	private int memNo;
 	private int orPrice;
-	private int orPoint;
+	private double orPoint;
 	private String reviewYn;
 	private String orYn;
 	private String orReturn;
@@ -55,7 +55,7 @@ public class Order {
 
 	public Order() {}
 
-	public Order(String orNo, int memNo, int orPrice, int orPoint, String reviewYn, String orYn, String orReturn,
+	public Order(String orNo, int memNo, int orPrice, double orPoint, String reviewYn, String orYn, String orReturn,
 			String returnReson, String takeName, String phone, String location, String parcelName, String parcelNum,
 			int parcelStatus, String payment, Date orDate) {
 		super();
@@ -109,11 +109,11 @@ public class Order {
 		this.orPrice = orPrice;
 	}
 
-	public int getOrPoint() {
+	public double getOrPoint() {
 		return orPoint;
 	}
 
-	public void setOrPoint(int orPoint) {
+	public void setOrPoint(double orPoint) {
 		this.orPoint = orPoint;
 	}
 

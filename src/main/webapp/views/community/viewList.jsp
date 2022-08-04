@@ -50,7 +50,12 @@
 	.stmxBtn{
 		background:gray;
 	}
-	.row{
+	/* .col-md-7{
+	 -ms-flex: 0 0 58.333333% !important;
+        flex: 0 0 58.333333% !important;
+        max-width: 58.333333% !important;
+	} */
+	.col-md-7>.row{
 		width:99%;
 		border-bottom:1px solid #878787 !important;
 	}

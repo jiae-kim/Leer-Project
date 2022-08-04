@@ -28,6 +28,58 @@
 		 WHERE MEM_NO = ?
 	</entry>
 
+	<entry key="insertOrder">
+		INSERT
+		  INTO ORDER
+		       	(
+		       	OR_NO
+		      , MEM_NO
+		      , OR_PRICE
+		      , OR_POINT
+		      , OR_YN
+		      , TAKE_NAME
+		      , LOCATION
+		      , PACEL_STATUS
+		      , PAYMENT
+		      , OR_DATE
+		       	)
+		       VALUES
+		       (
+		        SEQ_OR
+		      , ?
+		      , ?
+		      , ?
+		      , 'Y'
+		      , ?
+		      , ?
+		      , 'N'
+		      , 'Y'
+		      , CURRENT_DATE
+		       ) 
+	</entry>
+	
+	<entry key="insertOrProduct">
+		INSERT
+		  INTO OR_PRODUCT
+		       	(
+		       	OR_NO
+		      , P_CODE
+		      , OR_CYCLE
+		      , OR_AMOUNT
+		      )
+		       VALUES
+		       (
+		        ?
+		      , ?
+		      , ?
+		      , ?
+		      
+		       ) 
+	</entry>
+	
+	<entry key="updateOutStock">
+		
+	</entry>
 
 
 

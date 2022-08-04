@@ -1,4 +1,4 @@
-package com.leer.community.controller;
+package com.leer.product.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -8,23 +8,21 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import com.leer.community.model.service.CommunityService;
-import com.leer.community.model.vo.ComuBoard;
-import com.leer.mypage.model.service.MypageService;
+import com.leer.product.model.service.AdminProductService;
+import com.leer.product.model.vo.ProductIo;
 
 /**
- * Servlet implementation class HashtagSearchController
+ * Servlet implementation class AdminStockEnrollFormController
  */
-@WebServlet("/hashtagsearch")
-public class HashtagSearchController extends HttpServlet {
+@WebServlet("/adStkEnrollForm.do")
+public class AdminStockEnrollFormController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public HashtagSearchController() {
+    public AdminStockEnrollFormController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,17 +31,11 @@ public class HashtagSearchController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// 재고등록 페이지 요청
+		//ArrayList<ProductIo> list = new AdminProductService().selectStockList();
 		
-		HttpSession session = request.getSession();
-		String hashtag = request.getParameter("hashtag");
-		
-		ArrayList<ComuBoard> list = new CommunityService().HashtagSearch(hashtag);
-
-		session.setAttribute("tagsearchlist", list);
-		
-		response.sendRedirect(request.getContextPath() + "/comu.bo?tag="+hashtag);
-		
-		
+		//request.setAttribute("list", list);
+		request.getRequestDispatcher("views/admin_main/product/adminStockView.jsp").forward(request, response);
 	}
 
 	/**
