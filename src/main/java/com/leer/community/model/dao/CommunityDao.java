@@ -665,6 +665,7 @@ public class CommunityDao {
 	}
 	
 	public int updateBoard(Connection conn, ComuBoard cb, Attachment at) {
+		
 		int result = 0;
 		
 		PreparedStatement pstmt = null;
@@ -689,5 +690,34 @@ public class CommunityDao {
 			
 		}
 		return result;
+	}
+	
+	
+	public ArrayList<ComuBoard> HashtagSearch(Connection conn, String hashtag) {
+		
+		ArrayList<ComuBoard> list = new ArrayList<ComuBoard>();
+		PreparedStatement pstmt = null;
+		ResultSet rset= null;
+		
+		String sql = prop.getProperty("HashtagSearch");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, hashtag);
+			pstmt.setString(2, hashtag);
+			rset = pstmt.executeQuery();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);			
+		}
+		
+		
+		
+		return list;
+		
 	}
 }

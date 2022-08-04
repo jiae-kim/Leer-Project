@@ -212,4 +212,15 @@ public class CommunityService {
 		
 		return result;
 	}
+	
+	public ArrayList<ComuBoard> HashtagSearch( String hashtag) {
+		
+		Connection conn = getConnection();
+		
+		ArrayList<ComuBoard> list = new CommunityDao().HashtagSearch(conn,hashtag);
+		
+		close (conn);
+		
+		return list;
+	}
 }

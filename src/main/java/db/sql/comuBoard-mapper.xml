@@ -320,5 +320,32 @@
 	
 	</entry>
 	
+	<entry key="HashtagSearch">
+		SELECT
+		       CB.COMU_NO
+		     , NICKNAME  
+		     , CATEGORY_NAME
+		     , TAG
+		     , TITLE
+		     , CONTENT
+		     , CB.ENROLL_DATE
+		     , (
+                  SELECT COUNT(*)
+                    FROM COMU_LIKE CL
+                   WHERE CL.COMU_NO = CB.COMU_NO
+                ) "LIKE_COUNT"
+             , (
+                  SELECT COUNT(*)
+                    FROM COMU_RE CR
+                   WHERE CR.COMU_NO = CB.COMU_NO
+                ) "COMMENT_COUNT"
+              , VIEW_COUNT  
+		  FROM COMU_BOARD CB
+		  JOIN COMU_CATEGORY USING (CATEGORY_NO)  
+		  JOIN MEMBER USING (MEM_NO)
+		 WHERE CONTENT LIKE '%?%'
+			OR TITLE LIKE '%?%'
+	</entry>
+	
 </properties>
 

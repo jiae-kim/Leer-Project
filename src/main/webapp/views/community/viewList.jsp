@@ -3,6 +3,7 @@
 <%@ page import="com.leer.common.model.vo.PageInfo, java.util.ArrayList, com.leer.community.model.vo.ComuBoard, com.leer.member.model.vo.Member, com.leer.common.model.vo.Category"%>
 <%
   ArrayList<ComuBoard> list = (ArrayList<ComuBoard>)request.getAttribute("list");
+  ArrayList<ComuBoard> tagsearchlist = (ArrayList<ComuBoard>)session.getAttribute("tagsearchlist");
   PageInfo pi = (PageInfo)request.getAttribute("pi"); 
   ArrayList<Category> cateList = (ArrayList<Category>)request.getAttribute("cateList"); 
   Member m = (Member)request.getAttribute("m");
