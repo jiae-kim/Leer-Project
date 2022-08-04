@@ -142,7 +142,11 @@
                 <div class="col-sm-3">
                     <div class="custom-file">
                         <input name="url1" value="<%=url1%>" type="file" class="custom-file-input" id="validatedCustomFile">
+                        <% if ( url1 != null){ %>
+                        <label class="custom-file-label" for="validatedCustomFile"><%=url1 %></label>
+                        <% } else { %>
                         <label class="custom-file-label" for="validatedCustomFile">표지 이미지를 선택하세요</label>
+                        <%} %>
                     </div>
                 </div>
                 <!-- Button trigger modal -->
@@ -175,7 +179,12 @@
                 <div class="col-sm-3">
                     <div class="custom-file">
                         <input type="file" name="url2" value="<%=url2%>" class="custom-file-input" id="validatedCustomFile">
+                        
+                        <% if ( url2 != null){ %>
+                        <label class="custom-file-label" for="validatedCustomFile"><%=url2 %></label>
+                        <% } else { %>
                         <label class="custom-file-label" for="validatedCustomFile">상세 이미지를 선택하세요</label>
+                        <%} %>
                         <!-- <div class="invalid-feedback">Example invalid custom file feedback</div> -->
                     </div>
                 </div>
@@ -209,7 +218,13 @@
                 <div class="col-sm-3">
                     <div class="custom-file">
                         <input type="file" name="url3" value="<%=url3%>" class="custom-file-input" id="validatedCustomFile">
+                        
+                        <% if ( url3 != null){ %>
+                        <label class="custom-file-label" for="validatedCustomFile"><%=url3 %></label>
+                        <% } else { %>
                         <label class="custom-file-label" for="validatedCustomFile">부록 이미지를 선택하세요</label>
+                        <%} %>
+                        
                         <!-- <div class="invalid-feedback">Example invalid custom file feedback</div> -->
                     </div>
                 </div>

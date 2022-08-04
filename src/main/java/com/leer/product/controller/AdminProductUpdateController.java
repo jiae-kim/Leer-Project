@@ -66,9 +66,17 @@ public class AdminProductUpdateController extends HttpServlet {
 			p.setpStock(stock);
 			p.setDeliFee2(deliFee);
 			p.setPoint(point);
-		
+			
+			// 기존의 이미지가 있는경우 -> 기존 이미지를 삭제
+			//
+			// 있을경우 파일을 수정할것인가 그대로 둘것인가
+			// 기존 이미지가 없었을 경우
+			// 이미지를 넣을것인지 안넣을것인지
+			
 			// 첨부파일 3개
 			// url1
+			
+			
 			if(multiRequest.getOriginalFileName("url1") != null) {
 				// 새로 넘어온 첨부파일이 있을 경우
 				p.setImageUrl1("resources/admin_product_upfiles/" + multiRequest.getFilesystemName("url1"));

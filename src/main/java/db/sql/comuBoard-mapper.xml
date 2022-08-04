@@ -345,7 +345,7 @@
 		  JOIN COMU_CATEGORY USING (CATEGORY_NO)  
 		  JOIN MEMBER USING (MEM_NO)
 		 WHERE CONTENT LIKE '%?%'
-			OR TITLE LIKE '%?%'
+			OR TITLE LIKE '%' || ? || '%'
 	</entry>
 	
 </properties>
