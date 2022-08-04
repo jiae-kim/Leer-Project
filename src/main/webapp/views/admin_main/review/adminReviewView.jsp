@@ -1,10 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.ArrayList, com.leer.review.model.vo.Review, com.leer.common.model.vo.PageInfo" %>
+<%
+	PageInfo pi = (PageInfo)request.getAttribute("pi");
+	ArrayList<Review> list = (ArrayList<Review>)request.getAttribute("list");
+	
+	int currentPage = pi.getCurrentPage();
+	int startPage = pi.getStartPage();
+	int endPage = pi.getEndPage();
+	int maxPage = pi.getMaxPage();
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>리뷰 전체조회(적립금지급) 페이지</title>
+<style>
+.customtable>tr:hover {
+    cursor: pointer;
+    opacity: 0.7;
+    background:#cecece;
+    color:dark;
+}
+</style>
 </head>
 <body>
 	<%@ include file="../../common/adminMenubar.jsp" %>
@@ -16,17 +34,17 @@
                         <br><br><br>
                         <h2 class="page-title">상품 리뷰 전체조회</h2>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input class="form-control mr-sm-2" type="text" placeholder="Search">
-                        <button class="btn btn-success" type="submit">조회</button>
+                        <!--<input class="form-control mr-sm-2" type="text" placeholder="Search">
+                        <button class="btn btn-success" type="submit">조회</button>-->
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                             </nav>
                             <!-- 적립금 지급 Button trigger modal -->
-                            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#givePoint">
+                            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#inputPoint">
                                 적립금 지급
                             </button>
                                 <!-- Modal -->
-                                <div class="modal fade" id="givePoint" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal fade" id="inputPoint" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -105,18 +123,18 @@
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
-                                        <th scope="col">글번호</th>
-                                        <th scope="col">상품코드</th>
-                                        <th scope="col">상품명</th>
+                                        <th scope="col">글번호</th> <!--리뷰번호-->
+                                        <th scope="col">작성자</th> <!--회원아이디-->
+                                        <th scope="col">상품명</th> <!--제품명-->
+                                        <th scope="col">상품코드</th> 
                                         <th scope="col">내용</th>
-                                        <th scope="col">작성자</th>
                                         <th scope="col">별점</th>
-                                        <th scope="col">등록일</th>
-                                        <th scope="col">조회수</th>
+                                        <th scope="col">등록일</th> <!--작성일-->
                                         <th scope="col">적립금 지급</th>
                                     </tr>
                                 </thead>
                                 <tbody class="customtable">
+                                	<% for(Review r : list) { %>
                                     <tr>
                                         <th>
                                             <label class="customcheckbox">
@@ -124,16 +142,16 @@
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
-                                        <td>56</td>
-                                        <td>FW-12</td>
-                                        <td>보그</td>
-                                        <td>8월호 재밌네요</td>
-                                        <td>user05</td>
-                                        <td>3</td>
-                                        <td>22-07</td>
-                                        <td>11</td>
-                                        <td style="color: blue;">완료</td>
+                                        <td><%=r.getReviewNo()%></td>
+                                        <td><%=r.getMemId()%></td>
+                                        <td><%=r.getpName()%></td>
+                                        <td><%=r.getP_code()%></td>
+                                        <td><%=r.getReviewContent()%></td>
+                                        <td><%=r.getReviewScope()%></td>
+                                        <td><%=r.getEnrollDate()%></td>
+                                        <td><%=r.getRpointYn()%></td>
                                     </tr>
+                                    <% } %>
                                 </tbody>
                             </table>
                         </div>
@@ -145,6 +163,31 @@
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer text-center">
+            <!-- 페이징처리 바 -->
+                <tr align="center">
+                   <th colspan="10">
+                   <br>
+		                <div class="btn-group paging-area" role="group" aria-label="Basic example">
+		                <% if(currentPage != 1) { %>
+		                    <button type="button" onclick="location.href='<%=request.getContextPath()%>/adRevList.do?cpage=<%=currentPage-1%>';"
+		                        class="btn btn-outline-secondary">&lt;</button>
+		                <% } %>
+		                <% for(int p=startPage; p<=endPage; p++) { %>
+		                    <% if(p == currentPage) { %>
+		                        <button type="button" disabled class="btn btn-outline-secondary"><%=p%></button>
+		                    <% } else { %>
+		                        <button type="button" onclick="location.href='<%=request.getContextPath()%>/adRevList.do?cpage=<%=p%>';"
+		                            class="btn btn-outline-secondary"><%=p%></button>
+		                    <% } %>
+		                <% } %>
+		                
+		                <% if(currentPage != maxPage) { %>
+		                    <button type="button" onclick="location.href='<%=request.getContextPath()%>/adRevList.do?cpage=<%=currentPage+1%>';"
+		                        class="btn btn-outline-secondary">&gt;</button>
+		                <% } %>
+		                </div>
+                    </th>
+                </tr>
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->

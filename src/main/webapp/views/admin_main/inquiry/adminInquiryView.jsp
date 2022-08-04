@@ -34,8 +34,8 @@
                         <br><br><br>
                         <h2 class="page-title">상품문의 전체 조회</h2>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input class="form-control mr-sm-2" type="text" placeholder="Search">
-                        <button class="btn btn-success" type="submit">조회</button>
+                        <!--<input class="form-control mr-sm-2" type="text" placeholder="Search">
+                        <button class="btn btn-success" type="submit">조회</button>-->
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                             </nav>

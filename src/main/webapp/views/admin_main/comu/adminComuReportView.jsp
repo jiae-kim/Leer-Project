@@ -32,10 +32,10 @@
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
                         <br><br><br>
-                        <h2 class="page-title">커뮤니티관리</h2>
+                        <h2 class="page-title">신고관리</h2>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input class="form-control mr-sm-2" type="text" placeholder="Search">
-                        <button class="btn btn-success" type="submit">Search</button>
+                        <input class="form-control mr-sm-2" type="text" placeholder="Search" hidden>
+                        <button class="btn btn-success" type="submit" hidden>Search</button>
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                             </nav>
@@ -57,8 +57,6 @@
                 <div class="card">
                     <div class="card-body" style="height:55px">
                         <h5 class="card-title m-b-0" style="vertical-align:45px">신고관리</h5>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <div class="btn-group bb1" style="margin: 0px 0px 150px 0px;">
                             <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">조회방법 선택</button>
                             <div class="dropdown-menu">

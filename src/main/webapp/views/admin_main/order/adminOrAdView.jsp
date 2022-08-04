@@ -26,8 +26,8 @@
                         <br><br><br>
                         <h2 class="page-title">주문 및 배송 전체조회</h2>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input class="form-control mr-sm-2" type="text" placeholder="Search">
-                        <button class="btn btn-success" type="submit">조회</button>
+                       <!--<input class="form-control mr-sm-2" type="text" placeholder="Search">
+                        <button class="btn btn-success" type="submit">조회</button>-->
                     	<div class="ml-auto text-right">
                     <nav aria-label="breadcrumb">
                     </nav>

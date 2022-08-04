@@ -11,8 +11,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+
 	
     <!-- Css Styles -->
     <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/heeyeong/bootstrap.min.css" type="text/css">
@@ -42,25 +41,7 @@
         line-height: 33px;
         margin-bottom: 13px;
         }
-        .product_view_area {
-            width: 1100px;
-            overflow: hidden;
-            box-sizing: border-box;
-            margin: 0 auto;
-        }
-        .product_view_area .product_title {
-            width: 100%;
-            height: auto;
-            box-sizing: border-box;
-            overflow: hidden;
-            position: relative;
-            text-align: left;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #303030;
-            margin-bottom: 20px;
-            
-        }
-    
+        
         h2 {
             display: block;
             font-size: 1.5em;
@@ -71,31 +52,12 @@
             font-weight: bold;
             font-family: 'NanumSquare';
         }
-    
-        .product_view_area .product_view .product_option_box {
-        display: inline-block;
-        vertical-align: top;
-        width: 50%;
-        height: auto;
-        box-sizing: border-box;
-        padding-left: 50px;
-        }
-    
         .option_info_box {
         width: 100%;
         height: auto;
         box-sizing: border-box;
         padding: 25px 20px 25px 20px;
         border-bottom: 1px solid #e3e3e3;
-        }
-    
-       .product_option_table {
-        display: table;
-        table-layout: fixed;
-        max-width: none;
-        width: auto;
-        min-width: 100%;
-        border-collapse: collapse;
         }
     
         .option_info_box .product_option_table .option_row {
@@ -136,8 +98,6 @@
         float: left;
         width: calc(33.33% - 0.66px);
         height: 30px;
-        /* margin-right: 1px; */
-        /* margin-bottom: 1px; */
         position: relative;
         }
         input[type="radio" i] {
@@ -182,134 +142,7 @@
         vertical-align: top;
         padding-left: 160px;
         }
-        .but_cnt{height:30px;}
-    
-        .acount_box a {
-        display: inline-block;
-        vertical-align: top;
-        width: 30px;
-        height: 30px;
-        box-sizing: border-box;
-        border: 1px solid #d4d4d4;
-        background-color: #fff;
-        text-align: center;
-        line-height: 28px;
-        cursor: pointer;
-        font-size: 16px;
-        -ms-user-select: none;
-        -moz-user-select: -moz-none;
-        -webkit-user-select: none;
-        -khtml-user-select: none;
-        user-select: none;
-        }
-        .acount_box a,input{vertical-align: middle;}
-    
-        .acount_box a.up_btn {
-        margin-left: -1px;
-        }
-        
-    
-    
-    
-        .product_view_area .product_view .product_option_box .selected_option_box .selected_option .selected_list .acount_box a {
-            display: inline-block;
-            vertical-align: top;
-            float: left;
-            width: 30px;
-            height: 30px;
-            box-sizing: border-box;
-            border: 1px solid #d4d4d4;
-            background-color: #fff;
-            text-align: center;
-            line-height: 28px;
-            cursor: pointer;
-            font-size: 16px;
-            -ms-user-select: none;
-            -moz-user-select: -moz-none;
-            -webkit-user-select: none;
-            -khtml-user-select: none;
-            user-select: none;
-        }
-        a {
-            vertical-align: baseline;
-            background: 0 0;
-        }
-    
-        .product_view_area .product_view .product_option_box .selected_option_box .selected_option .selected_list .acount_box a {
-        display: inline-block;
-        vertical-align: top;
-        float: left;
-        width: 30px;
-        height: 30px;
-        box-sizing: border-box;
-        border: 1px solid #d4d4d4;
-        background-color: #fff;
-        text-align: center;
-        line-height: 28px;  
-        cursor: pointer;
-        font-size: 16px;
-        -ms-user-select: none;
-        -moz-user-select: -moz-none;
-        -webkit-user-select: none;
-        -khtml-user-select: none;
-        user-select: none;
-        }
-        li{display: table-row;}
-        
-        .price_box{text-align: right;}
-        .payment_btn_box button{width:32%;}
-    
-        .product_etc_area .etc_area {
-        width: 100%;
-        height: auto;
-        box-sizing: border-box;
-        margin-bottom: 55px;
-        }
-        .etc_title {
-        width: 100%;
-        height: auto;
-        box-sizing: border-box;
-        overflow: hidden;
-        font-size: 24px;
-        font-weight: 700;
-        letter-spacing: -1px;
-        color: #343434;
-        text-align: left;
-        line-height: 33px;
-        margin-bottom: 13px;
-        }
-    
-        .etc_title button {
-        display: inline-block;
-        vertical-align: top;
-        float: right;
-        font-size: 15px;
-        font-weight: 700;
-        letter-spacing: -1px;
-        color: #fff;
-        width: 105px;
-        height: auto;
-        line-height: 33px;
-        text-align: center;
-        background-color:#343434;
-        border: 0;
-        cursor: pointer;
-        }
-    
-        .etc_content_box {
-        width: 100%;
-        height: auto;
-        box-sizing: border-box;
-        background-color: #fff;
-        }
-        .product_etc_area .etc_area .etc_content_box .product_review_list {
-        width: 100%;
-        height: auto;
-        box-sizing: border-box;
-        background-color: #fff;
-        border-top: 1px solid #2b2f3a;
-        }
-
+       
         .order_price_box{
             width:100%;
             box-sizing: border-box;
@@ -552,10 +385,10 @@
                                                      <td style="vertical-align:middle">
                                                      	<input type="radio" name="address" checked>새로운 주소로 입력
                                                         <input type="radio" name="address">내 주소 <br>
-                                                        <input type="text" id="sample6_postcode" placeholder="우편번호" name="postCode">
-														<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
-														<input type="text" id="sample6_address" placeholder="주소" name="address"><br>
-														<input type="text" id="sample6_detailAddress" placeholder="상세주소" name="address">
+                                                        <input type="text" id="sample6_postcode" placeholder="우편번호" name="postCode" style="margin-right:5px">
+														<input type="button" onclick="sample6_execDaumPostcode()"  value="우편번호 찾기"><br>
+														<input type="text" id="sample6_address" placeholder="주소" name="address" style="width:300px; margin-top:10px;"><br>
+														<input type="text" id="sample6_detailAddress" placeholder="상세주소" name="address" style="width:300px; margin-top:10px; margin-right:5px">
 														<input type="text" id="sample6_extraAddress" placeholder="참고항목" name="address">
                                                     </td>
                                                 </tr>
@@ -642,14 +475,25 @@
 					                        return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',');
 					                    }
 										
-										/*포인트 계산 : ajax 써야할 것 같음*/
+										/*포인트 계산*/
 										let point = 0;
+										let tpoint = 0;
 										$("#point-btn").click(function(){
-											point = parseInt($("#point-text").val());
-											$("#point").html(parseInt($("#point").text()) - point);
-											$("#point-text").css("color", "blue");
-											$("#sum-discount").html(number_format(parseInt($("#point-text").val())));
 											
+											if(parseInt($("#point").text()) >= parseInt($("#point-text").val())){
+												
+												tpoint = parseInt($("#point").text());
+												let p = parseInt($("#point-text").val())
+												point += parseInt($("#point-text").val());
+												
+												$("#point-text").val(point)
+												$("#point").html(tpoint - p);
+												
+												$("#sum-discount").html(number_format(parseInt($("#point-text").val())));
+												
+											}
+											
+											/*최종 가격 계산*/
 											finalPrice = sumPrice - point + deliFee;
 											console.log(sumPrice);
 											console.log(point);
@@ -717,7 +561,7 @@
 											
 											
 											
-											/* 배송비 출력 : 총 금액으로 부여해줘야 하나 ?  */
+											/* 배송비 출력  */
 											console.log($("#cartList").children().eq(5).children().eq(0).text() );
 											if($("#cartList").children().eq(5).children().eq(0).text() != '무료배송'){
 												deliFee = 3000;
@@ -728,8 +572,8 @@
 											}
 											
 											
-											
-											$("#finalPrice").html(number_format(finalPrice + deliFee));	
+											/* 최종가격 출력  */
+											$("#finalPrice").html(number_format(sumPrice + deliFee));	
 											
 											
 											
@@ -751,7 +595,7 @@
 									      IMP.request_pay({ // param
 									          pg: "html5_inicis",
 									          pay_method: "card",
-									          merchant_uid: "leer",
+									          merchant_uid: 'leer_'+new Date().getTime(),
 									          name: "<%=list.get(0).getpName()%> 외 " + <%=length-1%> + "건",
 									          amount: parseInt($("#finalPrice").text().replace(",", "")),
 									          buyer_email: "<%=loginUser.getEmail()%>",
@@ -766,7 +610,7 @@
 									        	  var msg = '결제가 완료되었습니다.';
 									              alert(msg);
 									              
-									              $.ajax({
+									            <%--   jQueqry.ajax({
 									             		url:"<%=contextPath%>/complete.od"
 									             		method:"POST"
 									             		headers:{ "Content-Type": "application/json" },
@@ -778,7 +622,7 @@
 									                 
 									                 })
 
-									              
+									               --%>
 									              
 									             	
 									          } else {
