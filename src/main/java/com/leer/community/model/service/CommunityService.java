@@ -208,6 +208,13 @@ public class CommunityService {
 		
 		int result = new CommunityDao().updateBoard(conn, cb, at);
 		
+		if(result > 0) {
+			
+			commit(conn);
+		}else {
+			
+			rollback(conn);
+		}
 		close(conn);
 		
 		return result;
@@ -222,5 +229,20 @@ public class CommunityService {
 		close (conn);
 		
 		return list;
+	}
+	
+	public int deleteBoard(int comuNo) {
+		Connection conn = getConnection();
+		
+		int result = new CommunityDao().deleteBoard(conn, comuNo);
+		if(result > 0) {
+			
+			commit(conn);
+		}else {
+			
+			rollback(conn);
+		}
+		close(conn);
+		return result;
 	}
 }
