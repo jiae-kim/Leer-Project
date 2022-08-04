@@ -347,5 +347,12 @@
 		 WHERE TAG LIKE '%'||?||'%'
 	</entry>
 	
+	<entry key="deleteBoard">
+		
+		DELETE 
+		  FROM COMU_BOARD 
+		 WHERE COMU_NO = ?
+	
+	</entry>
 </properties>
 
