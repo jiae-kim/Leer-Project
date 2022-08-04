@@ -28,8 +28,8 @@
                         <br><br><br>
                         <h2 class="page-title">회원관리</h2>
                         &nbsp;&nbsp;&nbsp;
-                        <input class="form-control mr-sm-2" type="text" placeholder="Search">
-                        <button class="btn btn-success" type="submit">Search</button>
+                        <!--<input class="form-control mr-sm-2" type="text" placeholder="Search">
+                        <button class="btn btn-success" type="submit">Search</button>-->
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                             </nav>
