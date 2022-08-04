@@ -53,6 +53,7 @@ public class DetailBoardController extends HttpServlet {
 			
 			request.setAttribute("c", c);
 			request.setAttribute("at",at);
+			request.setAttribute("comuNo", comuNo);
 			request.setAttribute("cateList", cateList);
 			request.getRequestDispatcher("views/community/boardDetailView.jsp").forward(request, response);
 		} else {

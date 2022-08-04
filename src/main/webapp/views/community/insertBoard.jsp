@@ -5,6 +5,7 @@
 	Member m = (Member)request.getAttribute("m");
 	ComuBoard cb = (ComuBoard)request.getAttribute("cb");
 	Attachment at = (Attachment)request.getAttribute("at");
+	String flag = (String)request.getAttribute("flag");
 %>
 <!DOCTYPE html>
 <html>
@@ -101,7 +102,7 @@
 	<link rel="stylesheet" href="<%=contextPath %>/resources/css/beomjin/css/slicknav.min.css" type="text/css">
 	<link rel="stylesheet" href="<%=contextPath %>/resources/css/beomjin/css/style.css" type="text/css">
 	<link rel="stylesheet" href="<%=contextPath %>/resources/css/beomjin/css/summernote/summernote-lite.css">
-			<%if(flag.equals("all")) { %>
+			<%if(flag.equals("insert")) { %>
                 <div class="col-lg-8 col-md-7">
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6">
@@ -150,9 +151,9 @@
                                              <tr>
 							                    <th>첨부파일</th>
 							                </tr>
-							               	<tr>
+							                <tr>
 							                    <td><input type="file" name="comuupfile"></td>
-							               	</tr>
+						                    </tr>
                                         </table>
                                         <br>
 
@@ -170,23 +171,22 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="blog__item__text2">
-                                    <h4 align="left" class="boardTitle"><b>커뮤니티 작성하기</b></h4><hr style="color: black">
+                                    <h4 align="left" class="boardTitle"><b>커뮤니티 수정하기</b></h4><hr style="color: black">
 
-                                    <form action="<%=contextPath %>/comuinsert.bo" method="post" id="enroll-form"
+                                    <form action="<%=contextPath %>/comuUpdate.bo" method="post" id="enroll-form"
                                         enctype="multipart/form-data">
-                                        <!--게시글은 post방식으로 작성 get방식은 데이터가 부족해서 날아감-->
-                                        <!-- 카테고리번호, 제목, 내용, 로그인한 회원번호, 첨부파일 한개 -->
+                                        <input type="hidden" name="no" value="<%=cb.getComuNo()%>">
                                         <table align="center">
                                             <tr>
                                                 <th width="300">태그 작성</th>
                                                 <th width="300">게시판 선택</th>
                                             </tr>
                                             <tr>
-                                                    <td><input type="text" name="tag"></td>
+                                                    <td><input type="text" name="tag" value="<%= cb.getTag() %>"></td>
                                                 <td>
                                                     <select class="categorySelect" name="category" required>
-                                                            <option value="" disabled selected hidden>
-                                                                카테고리를 선택하세요.
+                                                            <option value="<%= cb.getCategoryNo() %>"  selected hidden>
+                                                               <%=cb.getCategoryName() %>
                                                             </option>
                                                           	<% for(Category ct : cateList) { %>
                                                             <option value="<%=ct.getCategoryNo()%>">
@@ -200,7 +200,7 @@
                                                 <th colspan="2">제목을 작성해주세요.</th>
                                             </tr>
                                             <tr>
-                                                <td colspan="2"><input type="text" name="title" required></td>
+                                                <td colspan="2"><input type="text" name="title" required value="<%=cb.getTitle()%>"></td>
                                             </tr>
                                             <tr>
                                                 <th colspan="2">내용을 작성해주세요.</th>
@@ -208,21 +208,22 @@
                                             </tr>
                                             <tr>
                                                 <td colspan="2"><textarea id="summernote" name="content" rows="10" required
-                                                    style="resize:none"></textarea></td>
+                                                    style="resize:none"><%= cb.getContent() %></textarea></td>
                                                     
                                             </tr>
                                              <tr>
 							                    <th>첨부파일</th>
 							                </tr>
-							               	<tr>
+							                <tr>
 							               		<td>
-							               		<% if(at != null) { %>
-							               			<%= at.getOriginName() %>
-							               			<input type="hidden" name="originFileNo" value="<%=at.getFileNo()%>">
-							               			<br>
-							               		<% } %>
-							                    <input type="file" name="comuupfile"></td>
-							               	</tr>
+								               		<% if(at != null) { %>
+								               			<%= at.getOriginName() %>
+								               			<input type="hidden" name="originFileNo" value="<%=at.getFileNo()%>">
+								               			<br>
+								               		<% } %>
+								                    <input type="file" name="comuupfile">
+							                    </td>
+							                </tr>
                                         </table>
                                         <br>
 

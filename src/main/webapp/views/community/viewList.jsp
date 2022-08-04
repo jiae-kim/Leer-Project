@@ -106,7 +106,7 @@
 									<% if(c.getTag() != null) { 
 										String[] tagArr = c.getTag().split(",");  // ["패션", "라이프"]
 										for(String tag : tagArr){ %>
-												<a class="hashtag" href="<%= contextPath %>/xxxxx?tag=<%=tag %>"><%= tag %></a> <!-- 댓글수 구하는 구문 찾아보기  -->
+												<a class="hashtag" href="<%= contextPath %>/hashtagsearch?tag=<%=tagArr%>"><%= tag %></a> <!-- 댓글수 구하는 구문 찾아보기  -->
 									
 											<%} %>
 									<% } %>
