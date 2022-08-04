@@ -5,6 +5,7 @@ import static com.leer.common.JDBCTemplate.close;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -437,7 +438,31 @@ public class AdminProductDao {
 
 
 	
-	
+	public int StockInsertPage(Connection conn, String pCode, int changestock) {
+		
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("StockInsertPage");
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, pCode);
+			pstmt.setInt(2, changestock);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		
+		return result;
+		
+	}
 
 
 	

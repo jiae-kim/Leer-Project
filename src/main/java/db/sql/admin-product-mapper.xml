@@ -289,5 +289,10 @@
 		SELECT COUNT(*) AS "COUNT"
 	      FROM REVIEW
 	</entry>
+	
+	<entry key="StockInsertPage">
+		INSERT INTO PRODUCT_IO
+		VALUES(SEQ_STAT.NEXTVAL, ?,?,'CURRENT_DATE', '입고')
+	</entry>
 
 </properties>

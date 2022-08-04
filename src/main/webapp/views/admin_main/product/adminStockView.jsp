@@ -79,13 +79,13 @@
                                             </tr>
                                             <tr>
                                                 <td>수량</td>
-                                                <td><input type="text" name="" required placeholder="변경 수량 입력"></td>
+                                                <td><input type="text" name="changestock" required placeholder="변경 수량 입력"></td>
                                             </tr>
                                             <tr>
                                                 <td>입고일자</td>
                                                 <td>
                                                     <div class="input-group">
-                                                        <input type="text" class="form-control col-md-9" id="datepicker-autoclose" placeholder="mm/dd/yyyy">
+                                                        <input type="text" class="form-control col-md-9" name="changedate" id="datepicker-autoclose" placeholder="mm/dd/yyyy">
                                                         <div class="input-group-append">
                                                             <span class="input-group-text"><i class="fa fa-calendar"></i></span>
                                                         </div>

@@ -162,4 +162,15 @@ public class AdminProductService {
 	}
 	
 	
+	public int StockInsertPage(String pCode, int changestock) {
+		
+		Connection conn = getConnection();
+		
+		int result = new AdminProductDao().StockInsertPage(conn,pCode,changestock);
+		close(conn);
+		
+		return result;
+		
+	}
+	
 }
