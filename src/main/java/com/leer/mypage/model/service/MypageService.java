@@ -1,16 +1,18 @@
 package com.leer.mypage.model.service;
 
-import static com.leer.common.JDBCTemplate.*;
+import static com.leer.common.JDBCTemplate.close;
+import static com.leer.common.JDBCTemplate.commit;
 import static com.leer.common.JDBCTemplate.getConnection;
+import static com.leer.common.JDBCTemplate.rollback;
 
 import java.sql.Connection;
 import java.util.ArrayList;
 
-import com.leer.member.model.service.MemberService;
 import com.leer.member.model.vo.Member;
 import com.leer.mypage.model.dao.MypageDao;
 import com.leer.mypage.model.vo.Cart;
 import com.leer.mypage.model.vo.Point;
+import com.leer.product.model.vo.Product;
 
 public class MypageService {
 	
@@ -114,6 +116,19 @@ public class MypageService {
 		
 	}
 
+	
+	
+	public ArrayList<Product> selectScrapList(int memNo) {
+		
+		Connection conn = getConnection();
+		
+		ArrayList<Product> list = new MypageDao().selectScrapList(conn, memNo);
+		
+		close(conn);
+		
+		return list;
+		
+	}
 
 
 

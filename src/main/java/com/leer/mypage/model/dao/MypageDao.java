@@ -14,6 +14,7 @@ import java.util.Properties;
 import com.leer.member.model.vo.Member;
 import com.leer.mypage.model.vo.Cart;
 import com.leer.mypage.model.vo.Point;
+import com.leer.product.model.vo.Product;
 
 public class MypageDao {
 	
@@ -312,4 +313,39 @@ public class MypageDao {
 		return result;
 	}
 
+	
+	
+	//찜한 목록 조회
+	public ArrayList<Product> selectScrapList(Connection conn, int memNo){
+		
+		ArrayList<Product> list = new ArrayList<>();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectScrapList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memNo);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				list.add(new Product(
+						  rset.getString("p_code"),
+						  rset.getString("p_name"),
+						  rset.getInt("price"),
+						  rset.getString("image_url1")
+						 ));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			close(rset);
+			close(pstmt);
+		}
+		return list;
+	}
+	
 }

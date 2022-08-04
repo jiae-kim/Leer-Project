@@ -131,4 +131,17 @@
 	
 	
 	
+	
+	<entry key="selectScrapList">
+		SELECT P_CODE
+			 , P_NAME
+	         , PRICE
+	         , IMAGE_URL1
+		  FROM PRODUCT
+		  JOIN SCRAP USING(P_CODE)
+		 WHERE MEM_NO = ?
+	</entry>
+	
+	
+	
 </properties>
