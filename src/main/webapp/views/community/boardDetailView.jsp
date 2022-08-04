@@ -6,6 +6,7 @@ ComuBoard c = (ComuBoard) request.getAttribute("c");
 Attachment at = (Attachment) request.getAttribute("at");
 ArrayList<Category> cateList = (ArrayList<Category>)request.getAttribute("cateList"); 
 Member m = (Member)request.getAttribute("m");
+int comuNo = (int)request.getAttribute("comuNo");
 %>
 <!DOCTYPE html>
 <html>
@@ -263,7 +264,7 @@ style="margin-left:10px";
 								<span class="date"><%=c.getEnrollDate()%></span> <span
 									class="count"><b>조회수 : <%=c.getViewCount()%></b></span>
 								<% if(loginUser != null && loginUser.getNickname().equals(c.getMemNo())) { %>
-									<a class="updateBoard" href="<%=contextPath%>/comuUpdateForm.bo">게시글 수정하기</a>
+									<a class="updateBoard" href="<%=contextPath%>/comuUpdateForm.bo?no=<%= comuNo %>">게시글 수정하기</a>
 								<% } else if(loginUser != null && !loginUser.getNickname().equals(c.getMemNo())) { %>
 									<a href="" class="boardReport" style="margin-left:5px"><span>신고</span></a>
 								<% } %>

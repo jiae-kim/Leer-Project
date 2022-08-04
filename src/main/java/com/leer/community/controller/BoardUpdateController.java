@@ -75,7 +75,7 @@ public class BoardUpdateController extends HttpServlet {
 				at = new Attachment();
 				at.setOriginName(multiRequest.getOriginalFileName("comuupfile"));
 				at.setChangeName(multiRequest.getFilesystemName("comuupfile"));
-				at.setFilePath("resources/comu_upfiles");
+				at.setFilePath("resources/comu_upfiles/");
 				
 				if(multiRequest.getParameter("originFileNo") != null) {
 					
@@ -90,7 +90,7 @@ public class BoardUpdateController extends HttpServlet {
 				
 				if(result > 0) {
 					request.getSession().setAttribute("alertMsg", "성공적으로 수정되었습니다.");
-					response.sendRedirect(request.getContextPath() + "/detail.bo?no=" + comuNo);
+					response.sendRedirect(request.getContextPath() + "/comuDetail.bo?no=" + comuNo);
 				} else {
 					request.getSession().setAttribute("alertMsg", "수정하는데 실패 하였습니다.");
 				}
