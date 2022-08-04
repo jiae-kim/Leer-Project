@@ -36,11 +36,12 @@ public class MyPageCancleCompleteController extends HttpServlet {
 		int result = 0;
 		int memNo = Integer.parseInt(request.getParameter("memNo"));
 		String p_code = request.getParameter("p_code");
-		String orNo = request.getParameter("orNo");
+		String orNo = request.getParameter("or_No");
 		
 		result = new MypageService().CancleComplete(memNo,p_code,orNo);
 		
-		if(result > 1) { // 성공
+		
+		if(result > 0) { // 성공
 			session.setAttribute("alertMsg", "성공적으로 주문을 취소했습니다.");
 		}else { // 실패
 			session.setAttribute("alertMsg", "정상적으로 주문취소를 진행하지 못했습니다.");

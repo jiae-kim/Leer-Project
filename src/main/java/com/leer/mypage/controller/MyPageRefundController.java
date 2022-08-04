@@ -37,11 +37,12 @@ public class MyPageRefundController extends HttpServlet {
 		
 		int memNo = Integer.parseInt(request.getParameter("memNo"));
 		String p_code = request.getParameter("p_code");
-		String orNo = request.getParameter("orNo");
+		String orNo = request.getParameter("or_No");
 		
 		Member m = new MypageService().RefundController(memNo,p_code,orNo);
 		
 		request.setAttribute("m", m);
+		
 		
 		RequestDispatcher view = request.getRequestDispatcher("views/mypage/mypage_refund.jsp");
 		view.forward(request, response);

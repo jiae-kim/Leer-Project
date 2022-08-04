@@ -254,16 +254,18 @@ public class MypageDao {
 			pstmt.setString(2, orNo);
 			pstmt.setString(3, p_code);
 			rset=pstmt.executeQuery();
+
 			
 			if(rset.next()) {
 				m = new Member(
 							rset.getString("p_name"),
-							rset.getString("image_url1"),
-							rset.getInt("price"),
 							rset.getDate("or_date"),
-							rset.getString("or_no")
+							rset.getInt("price"),
+							rset.getString("image_url1")
 						);
 			}
+			
+			
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -300,8 +302,27 @@ public class MypageDao {
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setString(1, orNo);
 			pstmt.setInt(2, memNo);
-			pstmt.setString(3,p_code);
 			
+			result=pstmt.executeUpdate();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+	
+	public int CancleStockComplete(Connection conn,String p_code) {
+		
+		int result = 0;
+		PreparedStatement pstmt=null;
+		String sql= prop.getProperty("CancleStockComplete");
+		
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, p_code);
 			result=pstmt.executeUpdate();
 		}catch(SQLException e) {
 			e.printStackTrace();

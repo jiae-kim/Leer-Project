@@ -104,16 +104,15 @@ public class Member {
 
 
 
-
-
-
-	public Member( String p_name,String image_url, int price, Date or_date, String p_code) {
+	public Member( String p_name, Date or_date , int price,String image_url) {
+		super();
 		this.p_name = p_name;
-		this.image_url = image_url;
-		this.price = price;
 		this.or_date = or_date;
-		this.p_code = p_code;
+		this.price = price;
+		this.image_url = image_url;
 	}
+
+
 
 
 	public int getCommCount() {

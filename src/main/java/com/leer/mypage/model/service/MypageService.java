@@ -89,7 +89,10 @@ public class MypageService {
 	public Member RefundController(int memNo,String p_code,String orNo){
 		
 		Connection conn = getConnection();
+
 		Member m = new MypageDao().RefundController(conn,memNo,p_code,orNo);
+		
+	
 		
 		close(conn);
 		return m;
@@ -101,19 +104,24 @@ public class MypageService {
 
 	public int CancleComplete( int memNo, String p_code, String orNo) {
 		
+		int result = 0;
 		Connection conn = getConnection();
-		int result = new MypageDao().CancleComplete(conn,memNo,p_code,orNo);
+		int result1 = new MypageDao().CancleComplete(conn,memNo,p_code,orNo);
 		
-		if(result > 0 ) { // 성공
+		int result2 = new MypageDao().CancleStockComplete(conn,p_code);
+		
+		
+		if(result1 > 0 && result2 > 0 ) { // 성공
 			commit(conn);
+			result = 1;
 		}else { // 실패
 			rollback(conn);
+			result = 0;
 		}
 		
 		return result;
 		
 	}
-
 
 
 
