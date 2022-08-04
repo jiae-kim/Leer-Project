@@ -29,7 +29,7 @@
 		  FROM NOTICE		
 	</entry>	
 
-	<!-- FAQ 전체조회 -->
+	<!-- FAQ 전체조회, 김지애 -->
 	<entry key="selectFaqList">
 		SELECT *
 		  FROM (
@@ -59,7 +59,7 @@
 	 ORDER  BY FAQ_NO DESC
 	 -->
 	
-	<!-- FAQ 전체조회 페이징 -->
+	<!-- FAQ 전체조회 페이징, 김지애 -->
 	<entry key="selectFaqListCount">
 		SELECT COUNT(*) AS "COUNT"
 		  FROM FAQ
