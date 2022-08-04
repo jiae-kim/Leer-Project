@@ -58,12 +58,9 @@
                                                 적립금을 지급하시겠습니까?
                                             </div>
                                             <div class="modal-footer">
-                                            	<form action="<%= %>">
+                                            	<!-- 네 버튼만 form으로 감싸기 -->
                                                 <button type="button" class="btn btn-primary">네</button>
-                                                </form>
-                                                
                                                 <button type="button" class="btn btn-dark" data-dismiss="modal">아니오</button>
-                                                
                                             </div>
                                         </div>
                                     </div>
