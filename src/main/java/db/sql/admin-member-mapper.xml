@@ -74,6 +74,17 @@
 		 WHERE ADMIN = 'N'
 	</entry>
 	
+	<!-- 회원정보변경, 김은지 -->
+	<entry key="updateMember">
+		UPDATE MEMBER
+		   SET MEM_NAME = ?
+		     , ADDRESS = ?
+		     , PHONE = ?
+		     , ENROLL_DATE = ?
+		     , POINT = ?
+		 WHERE MEM_NO = ?
+	</entry>
+	
 	<!-- 회원삭제, 김은지 -->
 	<entry key="">
 		UPDATE MEMBER

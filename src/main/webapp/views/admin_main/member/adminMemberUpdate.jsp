@@ -71,11 +71,11 @@
 							</tr>
 							<tr>
 								<th class="text-center">가입일</th>
-								<td><%=m.getEnrollDate()%></td>
+								<td><input type="text" name="" maxlegnth="15" value="<%=m.getEnrollDate()%>"></td>	
 							</tr>
 							<tr>
 								<th class="text-center">보유 포인트</th>
-								<td><%=m.getPoint()%></td>
+								<td><input type="text" name="" maxlegnth="15" value="<%=m.getPoint()%>"></td>
 							</tr>
 						<tr>
 							<th class="text-center">구매내역</th>

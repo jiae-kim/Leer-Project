@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="com.leer.mtm.model.vo.Mtm" %>
 <%
-	Mtm m = (Mtm)request.getAttribute("mtm");
+	Mtm m = (Mtm)request.getAttribute("Mtm");
 %>    
 <!DOCTYPE html>
 <html>
