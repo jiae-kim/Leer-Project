@@ -1,6 +1,9 @@
 package com.leer.member.model.service;
 
-import static com.leer.common.JDBCTemplate.*;
+import static com.leer.common.JDBCTemplate.close;
+import static com.leer.common.JDBCTemplate.commit;
+import static com.leer.common.JDBCTemplate.getConnection;
+import static com.leer.common.JDBCTemplate.rollback;
 
 import java.sql.Connection;
 import java.util.ArrayList;
@@ -84,6 +87,15 @@ public class AdminMemberService {
 	public Member memberLongDetailList(int orNo) {
 		Connection conn = getConnection();
 		Member m = new AdminMemberDao().memberLongDetailList(conn, orNo);
+		close(conn);
+		return m;
+	}
+	
+	// 관리자 회원정보 업데이트페이지
+	// 작성자 김은지
+	public Member updateMemberForm(int memNo) {
+		Connection conn = getConnection();
+		Member m = new AdminMemberDao().updateMemberForm(conn, memNo);
 		close(conn);
 		return m;
 	}

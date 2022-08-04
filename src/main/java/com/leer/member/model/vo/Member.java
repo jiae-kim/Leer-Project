@@ -122,6 +122,18 @@ public class Member {
 		this.enrollDate2 = enrollDate2;
 	}
 
+	public Member(int memNo, String memId, String memName, String phone, String address, int point,
+			String enrollDate2) {
+		super();
+		this.memNo = memNo;
+		this.memId = memId;
+		this.memName = memName;
+		this.phone = phone;
+		this.address = address;
+		this.point = point;
+		this.enrollDate2 = enrollDate2;
+	}
+
 
 	public int getCommCount() {
 		return commCount;

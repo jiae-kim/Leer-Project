@@ -74,6 +74,20 @@
 		 WHERE ADMIN = 'N'
 	</entry>
 	
+	<!-- 회원정보변경페이지조회, 김은지 -->
+	<entry key="updateMemberForm">
+		SELECT
+		       MEM_NO
+		     , MEM_ID
+		     , MEM_NAME
+		     , ADDRESS
+		     , PHONE
+		     , ENROLL_DATE
+		     , POINT
+		  FROM MEMBER
+		 WHERE MEM_NO = ?
+	</entry>
+	
 	<!-- 회원정보변경, 김은지 -->
 	<entry key="updateMember">
 		UPDATE MEMBER

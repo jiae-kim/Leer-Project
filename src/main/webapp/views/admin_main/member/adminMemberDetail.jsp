@@ -108,7 +108,7 @@
 					<div>
 					<c:if test="${sessionMemberLv == 1}">
 						<div class="d-grid gap-3" style="text-align: center">
-							<a href="<%=request.getContextPath()%>/views/admin_main/member/adminMemberUpdate.jsp" id="btn" class="btn btn-dark" style="width:150px">회원정보변경</a>
+							<a href="<%=request.getContextPath()%>/adUpdateForm.me?no=<%=m.getMemNo()%>" id="btn" class="btn btn-dark" style="width:150px">회원정보변경</a>
                             <a href="" class="btn btn-dark" style="width:150px">회원삭제</a>
 						</div>
                     </c:if>
