@@ -436,32 +436,30 @@ public class AdminProductDao {
 		return listCount;
 	}
 
-
-	
-	public int StockInsertPage(Connection conn, String pCode, int changestock) {
-		
+	/* [주문및배송 - 입출고관리]
+	 * 상품 재고 전체조회 페이지 : 입고등록
+	 * 작성자 김지애
+	 */
+	public int StockInsertPage(Connection conn, ProductIo pi) {
 		int result = 0;
-		
 		PreparedStatement pstmt = null;
 		String sql = prop.getProperty("StockInsertPage");
 		
 		try {
-			pstmt=conn.prepareStatement(sql);
-			pstmt.setString(1, pCode);
-			pstmt.setInt(2, changestock);
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, pi.getStatusNo());
+			pstmt.setString(2, pi.getpCode());
+			pstmt.setString(3, pi.getStatus());
+			pstmt.setInt(4, pi.getStatusAmount());
+			pstmt.setString(5, pi.getStatusDate2());
 			
 			result = pstmt.executeUpdate();
-			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			close(pstmt);
 		}
-		
-		
 		return result;
-		
 	}
 
 

@@ -75,17 +75,17 @@
                                             </tr>
                                             <tr>
                                                 <td>입고</td>
-                                                <td><input type="text" name="input" value="입고" readonly></td>
+                                                <td><input type="text" name="status" value="입고" readonly></td>
                                             </tr>
                                             <tr>
                                                 <td>수량</td>
-                                                <td><input type="text" name="changestock" required placeholder="변경 수량 입력"></td>
+                                                <td><input type="text" name="statusAmount" required placeholder="변경 수량 입력"></td>
                                             </tr>
                                             <tr>
                                                 <td>입고일자</td>
                                                 <td>
                                                     <div class="input-group">
-                                                        <input type="text" class="form-control col-md-9" name="changedate" id="datepicker-autoclose" placeholder="mm/dd/yyyy">
+                                                        <input type="text" class="form-control col-md-9" name="statusDate" id="datepicker-autoclose" placeholder="mm/dd/yyyy">
                                                         <div class="input-group-append">
                                                             <span class="input-group-text"><i class="fa fa-calendar"></i></span>
                                                         </div>

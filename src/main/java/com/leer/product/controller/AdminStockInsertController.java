@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import com.leer.product.model.service.AdminProductService;
 import com.leer.product.model.vo.Product;
+import com.leer.product.model.vo.ProductIo;
 
 /**
  * Servlet implementation class AdminProductEnrollController
@@ -35,11 +36,28 @@ public class AdminStockInsertController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		
-		HttpSession session = request.getSession();
-		String pCode = (String)request.getParameter("pCode"); // 상품코드
-		int changestock = Integer.parseInt(request.getParameter("changestock")); // 입고량
-
-		int result = new AdminProductService().StockInsertPage(pCode,changestock);
+		int statusNo = Integer.parseInt(request.getParameter("statusNo"));
+		String pCode = request.getParameter("pCode"); // 상품코드
+		String pName = request.getParameter("pName");
+		String status = request.getParameter("status");
+		int statusAmount = Integer.parseInt(request.getParameter("statusAmount"));
+		String statusDate2 = request.getParameter("statusDate2");
+		
+		ProductIo pi = new ProductIo();
+		pi.setStatusNo(statusNo);
+		pi.setpCode(pCode);
+		pi.setpName(pName);
+		pi.setStatus(status);
+		pi.setStatusAmount(statusAmount);
+		pi.setStatusDate2(statusDate2);
+		
+		int result = new AdminProductService().StockInsertPage(pi);
+		
+		if(result > 0) {
+			response.sendRedirect(request.getContextPath() + "/adStockList.do?cpage=1");
+		}else {
+			//request.getRequestDispatcher("views/admin_main/error/adminErrorPage.jsp").forward(request, response);
+		}
 		
 		
 	}
