@@ -663,4 +663,31 @@ public class CommunityDao {
 		}
 		return listCount;
 	}
+	
+	public int updateBoard(Connection conn, ComuBoard cb, Attachment at) {
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("updateBoard");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, cb.getCategoryNo());
+			pstmt.setString(2, cb.getTag());
+			pstmt.setString(3, cb.getTitle());
+			pstmt.setString(4, cb.getContent());
+			pstmt.setInt(5, cb.getComuNo());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+			
+		}
+		return result;
+	}
 }

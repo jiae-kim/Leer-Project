@@ -308,7 +308,17 @@
      WHERE DELETE_YN = 'N'
        AND MEM_NO = ?
 	</entry>
+	<entry key="updateBoard">
+		
+		UPDATE
+			   COMU_BOARD
+		   SET CATEGORY_NO = ?
+		     , TAG = ?
+		     , TITLE = ?
+		     , CONTENT = ?
+		 WHERE BOARD_NO = ? 
 	
+	</entry>
 	
 </properties>
 

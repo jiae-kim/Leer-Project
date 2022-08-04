@@ -201,4 +201,15 @@ public class CommunityService {
 		close(conn);
 		return listCount;
 	}
+	
+	public int updateBoard(ComuBoard cb, Attachment at) {
+		
+		Connection conn = getConnection();
+		
+		int result = new CommunityDao().updateBoard(conn, cb, at);
+		
+		close(conn);
+		
+		return result;
+	}
 }
