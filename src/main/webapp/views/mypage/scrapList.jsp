@@ -29,7 +29,10 @@
                                 <div class="row featured__filter"> -->
                                 
                                 <%if(list.isEmpty()){ %>
-                                	<label>찜하기 항목이 비어있습니다.</label>
+									<div align="center">
+										<label style="font-size: 30px; font-weight:600">찜한 상품이 없습니다</label> <br>
+										<label style="font-size: 20px;">관심있는 상품을 찜해두면 쇼핑 MY에서 편하게 확인하고 관리할 수 있습니다.</label>
+									</div>
                                 <%}else{%>
                                 
                                     <div class="row" id="list-area">
