@@ -177,7 +177,7 @@
                     </tr>
 
                     <tr>
-                        <td colspan="2"><label id="" style="color:red; margin-left: 120px;">&nbsp;&nbsp;아이디 잘못 썼따</label></td>
+                        <td colspan="2"></td>
                     </tr>
 
                     <tr>
@@ -186,7 +186,7 @@
                     </tr>
 
                     <tr>
-                        <td colspan="2"><label id="" style="color:red; margin-left: 120px;">&nbsp;&nbsp;아이디 잘못 썼따</label></td>
+                        <td colspan="2"></td>
                     </tr>
 
                     <tr>
@@ -195,7 +195,7 @@
                     </tr>
 
                     <tr>
-                        <td colspan="2"><label id="" style="color:red; margin-left: 120px;">&nbsp;&nbsp;아이디 잘못 썼따</label></td>
+                        <td colspan="2"></td>
                     </tr>
 
                     <tr>
@@ -204,7 +204,7 @@
                     </tr>
 
                     <tr>
-                        <td colspan="2"><label id="" style="color:red; margin-left: 120px;">&nbsp;&nbsp;아이디 잘못 썼따</label></td>
+                        <td colspan="2"></td>
                     </tr>
 
                     <tr>
@@ -213,7 +213,7 @@
                     </tr>
 
                     <tr>
-                        <td colspan="2"><label id="" style="color:red; margin-left: 120px;">&nbsp;&nbsp;아이디 잘못 썼따</label></td>
+                        <td colspan="2"></td>
                     </tr>
 
                     <tr>
@@ -222,7 +222,7 @@
                     </tr>
                     
                     <tr>
-                        <td colspan="2"><label id="" style="color:red; margin-left: 120px;">&nbsp;&nbsp;아이디 잘못 썼따</label></td>
+                        <td colspan="2"></td>
                     </tr>
 
 
@@ -283,9 +283,9 @@
                 	function termsPage(){
                 		location.href="<%=contextPath%>/views/member/terms.jsp";
                 	}
-                </scrip>
+                </script>
                 
-                <!-- 회원가입 완료 창 보여주고 로그인 화면으로 넘겨주기 -->
+                //<!-- 회원가입 완료 창 보여주고 로그인 화면으로 넘겨주기 -->
 
             </form>
 

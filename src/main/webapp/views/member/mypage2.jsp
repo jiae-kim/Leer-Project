@@ -215,7 +215,7 @@
 
                                     </div>
                                     </div>
-                                </div><br><br>
+                                </div>
                             </fieldset>
                                 
 
@@ -254,7 +254,7 @@
                                                    <label>회원탈퇴 시 모든 회원정보와 포인트, 구매내역 등이 자동으로 삭제 처리되며, 복구가 불가합니다</label><br>
                                                    <label>회원탈퇴 시 모든 회원정보와 포인트, 구매내역 등이 자동으로 삭제 처리되며, 복구가 불가합니다</li><br>
                                                </div>
-                                       	    <input type="checkbox" id="deleteCheck" name="deleteCheck" required><label style="color: rgba(207, 41, 41, 0.5);">&nbsp;위 사항을 확인하였으며 회원탈퇴에 동의합니다.</label></b><br>
+                                       	    <input type="checkbox" id="deleteCheck" name="deleteCheck" required><label style="color: rgb(253, 0, 0);">&nbsp;위 사항을 확인하였으며 회원탈퇴에 동의합니다.</label></b><br>
                                        	
                                          	<button type="submit" class="btn btn-secondary">탈퇴하기</button><br><br>
                                             </form>
