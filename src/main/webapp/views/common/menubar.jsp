@@ -46,6 +46,12 @@
             font-size: 15px !important;
             margin-top: 30%;
         }
+
+
+        .container0{
+            width: 90%;
+        }
+
     </style>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -74,13 +80,19 @@
 	
 	
     <header class="header">
-        <div class="container">
+        <div class="container" align="center">
             <div class="row">
+
+
+                <!-- 로고 -->
                 <div class="col-lg-3">
                     <div class="header__logo">
                         <a href="<%=contextPath %>"><img src="<%= contextPath %>/resources/images/logo.png" alt=""></a>
                     </div>
                 </div>
+
+
+                <!-- 카테고리 -->
                 <div class="col-lg-6">
                     <nav class="header__menu menuhere">
                         <ul>
@@ -112,6 +124,8 @@
                     </nav>
                 </div>
                 
+
+                <!-- 우측 상단 -->
                 <div class="col-lg-3">
 
 					<% if(loginUser == null){ %>
