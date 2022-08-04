@@ -114,12 +114,11 @@ public class Member {
 		this.image_url = image_url;
 	}
 
-	public Member(String memName, String phone, String address, String enrollDate2) {
+	public Member(String memName, String phone, String address) {
 		super();
 		this.memName = memName;
 		this.phone = phone;
 		this.address = address;
-		this.enrollDate2 = enrollDate2;
 	}
 
 	public Member(int memNo, String memId, String memName, String phone, String address, int point,

@@ -128,6 +128,39 @@ public class AdminMemberDao {
 		return m;
 	}
 	
+	// 관리자 회원정보 업데이트페이지
+	// 작성자 김은지
+	public Member updateMemberForm(Connection conn, int memNo) {
+		Member m = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("updateMemberForm");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memNo);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				m = new Member(rset.getInt("mem_no"),
+							   rset.getString("mem_id"),
+							   rset.getString("mem_name"),
+							   rset.getString("phone"),
+							   rset.getString("address"),
+							   rset.getInt("point"),
+							   rset.getString("enroll_date")
+						);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return m;
+	}
+		
 	// 관리자 회원정보 변경
 	// 작성자 김은지
 	public int updateMember(Connection conn, Member m) {
@@ -142,7 +175,6 @@ public class AdminMemberDao {
 			pstmt.setString(1, m.getMemName());
 			pstmt.setString(2, m.getPhone());
 			pstmt.setString(3, m.getAddress());
-			pstmt.setString(4, m.getEnrollDate2());
 			
 			result = pstmt.executeUpdate();
 			
@@ -248,39 +280,6 @@ public class AdminMemberDao {
 							   rset.getDate("publish_month"),
 							   rset.getString("image_url1"),
 							   rset.getInt("or_cycle")
-						);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(rset);
-			close(pstmt);
-		}
-		return m;
-	}
-	
-	// 관리자 회원정보 업데이트페이지
-	// 작성자 김은지
-	public Member updateMemberForm(Connection conn, int memNo) {
-		Member m = null;
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
-		String sql = prop.getProperty("updateMemberForm");
-		
-		try {
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, memNo);
-			
-			rset = pstmt.executeQuery();
-			
-			if(rset.next()) {
-				m = new Member(rset.getInt("mem_no"),
-							   rset.getString("mem_id"),
-							   rset.getString("mem_name"),
-							   rset.getString("phone"),
-							   rset.getString("address"),
-							   rset.getInt("point"),
-							   rset.getString("enroll_date")
 						);
 			}
 		} catch (SQLException e) {

@@ -43,6 +43,15 @@ public class AdminMemberService {
 		return m;
 	}
 	
+	// 관리자 회원정보 업데이트페이지
+	// 작성자 김은지
+	public Member updateMemberForm(int memNo) {
+		Connection conn = getConnection();
+		Member m = new AdminMemberDao().updateMemberForm(conn, memNo);
+		close(conn);
+		return m;
+	}
+	
 	// 관리자 회원정보 변경
 	// 작성자 김은지
 	public Member updateMember(Member m) {
@@ -53,7 +62,7 @@ public class AdminMemberService {
 		if(result > 0) {
 			commit(conn);
 			
-			updateMem = new AdminMemberDao().memberDatailList(conn, result);
+			updateMem = new AdminMemberDao().sele
 		} else {
 			rollback(conn);
 		}
@@ -91,13 +100,4 @@ public class AdminMemberService {
 		return m;
 	}
 	
-	// 관리자 회원정보 업데이트페이지
-	// 작성자 김은지
-	public Member updateMemberForm(int memNo) {
-		Connection conn = getConnection();
-		Member m = new AdminMemberDao().updateMemberForm(conn, memNo);
-		close(conn);
-		return m;
-	}
-
 }

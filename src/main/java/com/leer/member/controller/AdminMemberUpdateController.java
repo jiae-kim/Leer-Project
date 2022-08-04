@@ -37,9 +37,8 @@ public class AdminMemberUpdateController extends HttpServlet {
 		String memName = request.getParameter("memName");
 		String address = request.getParameter("address");
 		String phone = request.getParameter("phone");
-		String enrollDate = request.getParameter("enrollDate");
 		
-		Member m = new Member(memName, address, phone, enrollDate);
+		Member m = new Member(memName, address, phone);
 		
 		Member updateMem = new AdminMemberService().updateMember(m);
 		
@@ -50,7 +49,7 @@ public class AdminMemberUpdateController extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("alertMsg", "성공적으로 수정했습니다.");
 			
-			response.sendRedirect(request.getContextPath() + "/adMemDetail.do");
+			response.sendRedirect(request.getContextPath() + "/adMemList.do?cpage=1");
 		}
 		
 	}

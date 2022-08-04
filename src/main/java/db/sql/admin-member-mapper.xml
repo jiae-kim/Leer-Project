@@ -88,13 +88,13 @@
 		 WHERE MEM_NO = ?
 	</entry>
 	
-	<!-- 회원정보변경, 김은지 -->
+	<!-- 회원정보변경, 김은지 
+	enroll_date 2022-08-01형식으로 적어야됨-->
 	<entry key="updateMember">
 		UPDATE MEMBER
 		   SET MEM_NAME = ?
 		     , ADDRESS = ?
 		     , PHONE = ?
-		     , ENROLL_DATE = ?
 		 WHERE MEM_NO = ?
 	</entry>
 	
