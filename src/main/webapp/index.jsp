@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
     
 <!DOCTYPE html>
 <html>
@@ -30,6 +31,7 @@
 
 
 <body>
+    
 	<%@ include file="views/common/menubar.jsp" %>
 	<br>
 	<a href="<%=contextPath%>/views/admin_main/adminMainPage.jsp">관리자메인페이지 바로가기</a> <br>
@@ -105,8 +107,7 @@
                 <div class="row featured__filter">
                     <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
                         <div class="featured__item">
-                            <div class="featured__item__pic set-bg" data-setbg="https://www.walbox.co.kr/upfile/item/%EB%A6%AC%EB%B9%998_1658642603.jpg
-                            ">
+                            <div class="featured__item__pic set-bg" data-setbg="">
                                 <ul class="featured__item__pic__hover">
                                     <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                     <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
