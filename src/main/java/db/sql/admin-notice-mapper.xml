@@ -16,7 +16,8 @@
 						   , NOTI_VIEWS
 						FROM NOTICE N     
 				        JOIN MEMBER M ON(M.MEM_NO = N.MEM_NO)
-           			   WHERE NOTI_TYPE = '고객센터' 				        
+           			   WHERE NOTI_TYPE = '고객센터' 	
+                          OR NOTI_TYPE = 1	           			   			        
 				       ORDER
 					      BY NOTI_NO DESC
 		  	     	  ) A
@@ -29,6 +30,17 @@
 		SELECT COUNT(*) AS "COUNT"
 		  FROM NOTICE		
 	</entry>	
+	
+	<!-- 고객센터공지사항 상세, 김은지 -->
+	<entry key="noticeDetailList">
+		SELECT 
+		       N.TITLE
+		     , M.MEM_ID
+		     , N.CONTENT
+		  FROM NOTICE N
+		  JOIN MEMBER M ON(N.MEM_NO = M.MEM_NO)
+		 WHERE NOTI_NO = ?
+	</entry>
 
 	<!-- FAQ 전체조회, 김지애 -->
 	<entry key="selectFaqList">
@@ -94,108 +106,16 @@
 		  FROM MTM		
 	</entry>	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	<!-- 고객센터 1:1문의리스트 상세조회, 김은지 -->
+	<entry key="mtmDetailList">
+		SELECT
+		       MTM_TITLE
+		     , M.MEM_ID
+		     , MTM_CONTENT
+		  FROM MTM T
+		  JOIN MEMBER M ON(T.MEM_NO = M.MEM_NO)
+		 WHERE MTM_NO = ?
+	</entry>
 	
 	<!-- FAQ 상세조회 : 조회수, 김지애 -->
 	<entry key="increaseCount">
@@ -221,3 +141,4 @@
 	  WHERE FAQ_NO = ?
 	</entry>
 </properties>
+

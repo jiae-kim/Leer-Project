@@ -3,20 +3,15 @@
 <%@ page import="java.util.ArrayList, 
 				 com.leer.member.model.vo.Member,
 				 com.leer.order.model.vo.Order"%>    
-<!DOCTYPE html>
 <%
 	Member m = (Member)request.getAttribute("member");
 	ArrayList<Order> list = (ArrayList<Order>)request.getAttribute("list");
-%>
+%>				   
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style>
-.text-center {
-	width:400px
-}
-</style>
 </head>
 <body>
 
@@ -64,15 +59,15 @@
 							</tr>
 							<tr>
 								<th class="text-center">이름</th>
-								<td><%=m.getMemName()%></td>
+								<td><input type="text" name="" maxlegnth="12" value="<%=m.getMemName()%>"></td>
 							</tr>
 							<tr>
 								<th class="text-center">주소</th>
-								<td><%=m.getAddress()%></td>
+								<td><input type="text" name="" value="<%=m.getAddress()%>"></td>
 							</tr>
 							<tr>
 								<th class="text-center">휴대폰 번호</th>
-								<td><%=m.getPhone()%></td>
+								<td><input type="text" name="" maxlegnth="15" value="<%=m.getPhone()%>"></td>						
 							</tr>
 							<tr>
 								<th class="text-center">가입일</th>
@@ -108,8 +103,8 @@
 					<div>
 					<c:if test="${sessionMemberLv == 1}">
 						<div class="d-grid gap-3" style="text-align: center">
-							<a href="<%=request.getContextPath()%>/views/admin_main/member/adminMemberUpdate.jsp" id="btn" class="btn btn-dark" style="width:150px">회원정보변경</a>
-                            <a href="" class="btn btn-dark" style="width:150px">회원삭제</a>
+							<a href="" id="btn" class="btn btn-dark" style="width:150px">목록으로</a>
+                            <a href="" class="btn btn-dark" style="width:150px">회원정보변경</a>
 						</div>
                     </c:if>
 	            </div>

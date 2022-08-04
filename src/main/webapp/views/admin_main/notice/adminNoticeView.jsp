@@ -110,8 +110,7 @@
                                 </thead>
                                 <tbody class="customtable custom">
                                 	<% for(Notice n : list) { %>
-                                		<tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/notice/adminNoticeDetail.jsp';">	
-	                                    <%--<tr  onclick="location.href='<%=request.getContextPath()%>/adTListDetail.do?no=<%=t.getTrmNo()%>';" >--%>
+                                		<tr  onclick="location.href='<%=request.getContextPath()%>/adDetail.no?no=<%=n.getNotiNo()%>';" >
 	                                        <th>
 	                                            <label class="customcheckbox">
 	                                                <input type="checkbox" class="listCheckbox" />

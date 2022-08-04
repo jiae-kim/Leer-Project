@@ -92,6 +92,35 @@ public class AdminMtmDao {
 		}
 		return listCount;		
 	}
+	
+	// 관리자 1:1문의리스트 상세조회
+	// 작성자 김은지
+	public Mtm mtmDetailList(Connection conn, int mtmNo) {
+		Mtm m = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("mtmDetailList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, mtmNo);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				m = new Mtm(rset.getString("mtm_title"),
+							rset.getString("mtm_content"),
+							rset.getString("mem_id")
+						);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return m;
+	}
 
 }
 
