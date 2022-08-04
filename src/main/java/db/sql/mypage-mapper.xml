@@ -43,6 +43,7 @@
             JOIN PRODUCT P ON(OP.P_CODE = P.P_CODE)
 			WHERE MEM_NO = ?
 			AND OR_YN = 'N'
+			AND OR_RETURN = 'N'
 	</entry>
 	
 	<entry key="insertProductCart">

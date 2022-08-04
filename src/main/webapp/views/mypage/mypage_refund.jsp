@@ -2,7 +2,6 @@
     pageEncoding="UTF-8" import="com.leer.member.model.vo.Member" %>
 <%
 	Member m = (Member)request.getAttribute("m");
-	System.out.println(m);
 
 %>
 <!DOCTYPE html>
@@ -231,7 +230,7 @@
                                                   <table>
                                                        <tr>
                                                             <td width="25px"></td>
-                                                            <td width="140px"><a href="" onclick="" class="btn btn-sm btn-danger">환불신청</a></td>
+                                                            <td width="140px"><a href="<%= request.getContextPath() %>/refundcom.me?memNo=<%=loginUser.getMemNo()%>" class="btn btn-sm btn-danger">환불신청</a></td>
                                                             <td width="100px"><a href="" class="btn btn-sm btn-secondary">취소하기</a></td>
                                                        </tr>
                                                   </table>
