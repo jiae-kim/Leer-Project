@@ -1,5 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.ArrayList, com.leer.mtm.model.vo.Mtm, com.leer.common.model.vo.PageInfo"%>   
+<% 
+	PageInfo pi = (PageInfo)request.getAttribute("pi");
+	ArrayList<Mtm> list = (ArrayList<Mtm>)request.getAttribute("list");
+		
+	int currentPage = pi.getCurrentPage();
+	int startPage = pi.getStartPage();
+	int endPage = pi.getEndPage();
+	int maxPage = pi.getMaxPage();
+  %>      
 <!DOCTYPE html>
 <html>
 <head>
@@ -91,30 +101,58 @@
                                             </label>
                                         </th>
                                         <th scope="col">글번호</th>
+                                        <th scope="col">문의자회원번호</th> 
                                         <th scope="col">문의 유형</th>
-                                        <th scope="col">접수일</th>
                                         <th scope="col">문의 제목</th>
-                                        <th scope="col">작성자</th>
-                                        <th scope="col">진행단계</th>
+                                        <th scope="col">등록일</th>
+                                        <th scope="col">답변자회원번호</th>
+                                        <th scope="col">답변여부</th>
                                     </tr>
                                 </thead>
-                                <tbody class="customtable">
-                                    <tr>
-                                        <th>
-                                            <label class="customcheckbox">
-                                                <input type="checkbox" class="listCheckbox" />
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </th>
-                                        <td>10</td>
-                                        <td>주문취소/환불</td>
-                                        <td>2022-07-09</td>
-                                        <td>책 환불</td>
-                                        <td>user56</td>
-                                        <td style="color: red;">미답변</td>
-                                    </tr>
-                                    
+                                <tbody class="customtable custom">
+                                	<% for(Mtm m : list) { %>
+	                                    <tr onclick="location.href='<%=request.getContextPath()%>/adList.mt?no=<%=m.getMtmNo()%>';">
+	                                        <th>
+	                                            <label class="customcheckbox">
+	                                                <input type="checkbox" class="listCheckbox" />
+	                                                <span class="checkmark"></span>
+	                                            </label>
+	                                        </th>
+	                                        <td><%=m.getMtmNo()%></td>
+	                                        <td><%=m.getMemNo()%></td>
+	                                        <td><%=m.getMtmType()%></td>
+	                                        <td><%=m.getMtmTitle()%></td>
+	                                        <td><%=m.getEnrollDate()%></td>
+	                                        <td><%=m.getMemNo2()%></td>
+	                                        <td style="color: red;"><%=m.getAnsYn()%></td>
+	                                    </tr>
+                                	<% } %>    
                                 </tbody>
+                                 <tfoot>
+                                    <tr align="center">
+                                        <th colspan="10">	
+                                            <div class="btn-group paging-area" role="group" aria-label="Basic example">                                            
+                                            	<% if(currentPage != 1) { %>
+	                                                <button type="button" onclick="location.href='<%=request.getContextPath()%>/adList.mt?cpage=<%=currentPage-1%>';"  
+	                                                		class="btn btn-outline-secondary">&lt;</button>
+	                                            <% } %>
+	                                            <% for(int p=startPage; p<=endPage; p++) { %>
+	                                            	<% if(p == currentPage) { %>
+	                                                	<button type="button" disabled class="btn btn-outline-secondary"><%=p%></button>
+	                                                <% } else { %>
+	                                                	<button type="button" onclick="location.href='<%=request.getContextPath()%>/adList.mt?cpage=<%=p%>';" 
+	                                                			class="btn btn-outline-secondary"><%=p%></button>
+	                                                <% } %>
+	                                            <% } %>
+	                                            
+	                                            <% if(currentPage != maxPage) { %>
+	                                            	<button type="button" onclick="location.href='<%=request.getContextPath()%>/adList.mt?cpage=<%=currentPage+1%>';" 
+	                                                		    class="btn btn-outline-secondary">&gt;</button>
+	                                            <% } %>	                   
+                                              </div>
+                                        </th>
+                                    </tr>
+                                </tfoot>
                             </table>
                         </div>
                 </div>

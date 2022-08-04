@@ -1,4 +1,4 @@
-package com.leer.review.controller;
+package com.leer.faq.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -10,20 +10,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.leer.common.model.vo.PageInfo;
-import com.leer.review.model.service.AdminReviewService;
-import com.leer.review.model.vo.Review;
+import com.leer.faq.model.service.AdminFaqService;
+import com.leer.faq.model.vo.Faq;
 
 /**
- * Servlet implementation class AdminReviewListController
+ * Servlet implementation class AdminFaqListController
  */
-@WebServlet("/adRevList.do")
-public class AdminReviewListController extends HttpServlet {
+@WebServlet("/adFaqList.do")
+public class AdminFaqListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdminReviewListController() {
+    public AdminFaqListController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -42,7 +42,8 @@ public class AdminReviewListController extends HttpServlet {
 		int startPage;
 		int endPage;
 		
-		listCount = new AdminReviewService().selectProductReviewListCount();
+		listCount = new AdminFaqService().selectFaqListCount();
+		
 		currentPage = Integer.parseInt(request.getParameter("cpage"));
 		pageLimit = 10;
 		boardLimit = 10;
@@ -57,12 +58,12 @@ public class AdminReviewListController extends HttpServlet {
 		
 		PageInfo pi = new PageInfo(listCount, currentPage, pageLimit, boardLimit, maxPage, startPage, endPage);
 		
-		ArrayList<Review> list = new AdminReviewService().selectProductReviewList(pi);
+		ArrayList<Faq> list = new AdminFaqService().selectFaqList(pi);
 		
 		request.setAttribute("pi", pi);
 		request.setAttribute("list", list);
 		
-		request.getRequestDispatcher("views/admin_main/review/adminReviewView.jsp").forward(request, response);
+		request.getRequestDispatcher("views/admin_main/faq/adminFaqView.jsp").forward(request, response);
 	}
 
 	/**

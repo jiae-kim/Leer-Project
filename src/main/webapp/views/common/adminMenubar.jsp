@@ -123,9 +123,9 @@
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">고객센터</span></a>
                             <ul aria-expanded="false" class="collapse  first-level">
-                                <li class="sidebar-item"><a href="<%=request.getContextPath()%>/views/admin_main/notice/adminNoticeView.jsp" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 공지사항 </span></a></li>
-                                <li class="sidebar-item"><a href="<%=request.getContextPath()%>/views/admin_main/mtm/adminMtmView.jsp" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 1:1상담 </span></a></li>
-                                <li class="sidebar-item"><a href="<%=request.getContextPath()%>/views/admin_main/faq/adminFaqView.jsp" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> FAQ </span></a></li>
+                                <li class="sidebar-item"><a href="<%=request.getContextPath()%>/adList.no?cpage=1" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 공지사항 </span></a></li>
+                                <li class="sidebar-item"><a href="<%=request.getContextPath()%>/adList.mt?cpage=1" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 1:1상담 </span></a></li>
+                                <li class="sidebar-item"><a href="<%=request.getContextPath()%>/adFaqList.do?cpage=1" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> FAQ </span></a></li>
                             </ul>
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-chart-bubble"></i><span class="hide-menu">상품관리</span></a>
@@ -133,7 +133,7 @@
                                 <li class="sidebar-item"><a href="<%=request.getContextPath()%>/adProList.do?cpage=1" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 상품조회 </span></a></li>
                                 <li class="sidebar-item"><a href="<%=request.getContextPath()%>/adProEnrollForm.do" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 상품등록 </span></a></li>
                                 <li class="sidebar-item"><a href="<%=request.getContextPath()%>/adProIqList.do?cpage=1" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 상품문의 </span></a></li>
-                                <li class="sidebar-item"><a href="<%=request.getContextPath()%>/views/admin_main/review/adminReviewView.jsp" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 상품리뷰관리 </span></a></li>
+                                <li class="sidebar-item"><a href="<%=request.getContextPath()%>/adRevList.do?cpage=1" class="sidebar-link"><i class="fas fa-chevron-right"></i><span class="hide-menu"> 상품리뷰 </span></a></li>
                             </ul>
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">주문및배송</span></a>

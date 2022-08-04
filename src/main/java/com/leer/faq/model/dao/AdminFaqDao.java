@@ -1,4 +1,4 @@
-package com.leer.review.model.dao;
+package com.leer.faq.model.dao;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -12,30 +12,30 @@ import java.util.Properties;
 import static com.leer.common.JDBCTemplate.*;
 
 import com.leer.common.model.vo.PageInfo;
+import com.leer.faq.model.vo.Faq;
 import com.leer.product.model.dao.ProductDao;
-import com.leer.review.model.vo.Review;
 
-public class AdminReviewDao {
+public class AdminFaqDao {
 
 	private Properties prop = new Properties();
 	
-	public AdminReviewDao() {
+	public AdminFaqDao() {
 		try {
-			prop.loadFromXML(new FileInputStream(ProductDao.class.getResource("/db/sql/admin-product-mapper.xml").getPath()));
+			prop.loadFromXML(new FileInputStream(ProductDao.class.getResource("/db/sql/admin-notice-mapper.xml").getPath()));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 
-	/* [상품관리 - 상품리뷰]
-	 * 상품리뷰 전체조회
+	/* [고객센터 - FAQ]
+	 * FAQ 전체조회
 	 * 작성자 김지애
 	 */
-	public ArrayList<Review> selectProductReviewList(Connection conn, PageInfo pi) {
-		ArrayList<Review> list = new ArrayList<>();
+	public ArrayList<Faq> selectFaqList(Connection conn, PageInfo pi) {
+		ArrayList<Faq> list = new ArrayList<>();
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		String sql = prop.getProperty("selectProductReviewList");
+		String sql = prop.getProperty("selectFaqList");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -49,14 +49,11 @@ public class AdminReviewDao {
 			rset = pstmt.executeQuery(); 
 			
 			while(rset.next()) {
-				list.add(new Review(rset.getInt("review_no"),
-									rset.getString("mem_id"),
-									rset.getString("p_name"),
-									rset.getString("p_code"),
-									rset.getString("review_content"),
-									rset.getInt("review_scope"),
-									rset.getDate("enroll_date"),
-									rset.getString("rpoint_yn")));
+				list.add(new Faq(rset.getInt("faq_no"),
+								 rset.getString("faq_category"),
+								 rset.getString("faq_title"),
+								 rset.getDate("enroll_date"),
+								 rset.getInt("faq_views")));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -67,15 +64,15 @@ public class AdminReviewDao {
 		return list;
 	}
 
-	/* [상품관리 - 상품리뷰]
-	 * 상품리뷰 전체조회 페이지 : 페이징 처리
+	/* [고객센터 - FAQ]
+	 * FAQ 전체조회 페이지 : 페이징 처리
 	 * 작성자 김지애
 	 */
-	public int selectProductReviewListCount(Connection conn) {
+	public int selectFaqListCount(Connection conn) {
 		int listCount = 0;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		String sql = prop.getProperty("selectProductReviewListCount");
+		String sql = prop.getProperty("selectFaqListCount");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -92,8 +89,5 @@ public class AdminReviewDao {
 		}
 		return listCount;
 	}
-	
-	
-	
 	
 }

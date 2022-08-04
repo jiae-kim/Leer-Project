@@ -1,4 +1,4 @@
-package com.leer.review.controller;
+package com.leer.notice.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -10,26 +10,27 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.leer.common.model.vo.PageInfo;
-import com.leer.review.model.service.AdminReviewService;
-import com.leer.review.model.vo.Review;
+import com.leer.notice.model.service.AdminNoticeService;
+import com.leer.notice.model.vo.Notice;
 
 /**
- * Servlet implementation class AdminReviewListController
+ * Servlet implementation class AdminNoticeListController
  */
-@WebServlet("/adRevList.do")
-public class AdminReviewListController extends HttpServlet {
+@WebServlet("/adList.no")
+public class AdminNoticeListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdminReviewListController() {
+    public AdminNoticeListController() {
         super();
         // TODO Auto-generated constructor stub
     }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * 관리자 고객센터공지사항 리스트조회
+	 * 작성자 김은지
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 페이징처리
@@ -42,7 +43,7 @@ public class AdminReviewListController extends HttpServlet {
 		int startPage;
 		int endPage;
 		
-		listCount = new AdminReviewService().selectProductReviewListCount();
+		listCount = new AdminNoticeService().selectNoticeListCount();
 		currentPage = Integer.parseInt(request.getParameter("cpage"));
 		pageLimit = 10;
 		boardLimit = 10;
@@ -54,15 +55,16 @@ public class AdminReviewListController extends HttpServlet {
 		if(endPage > maxPage) {
 			endPage = maxPage;
 		}
+				
+		PageInfo pi = new PageInfo(listCount, currentPage, pageLimit, boardLimit, maxPage, startPage, endPage); 
 		
-		PageInfo pi = new PageInfo(listCount, currentPage, pageLimit, boardLimit, maxPage, startPage, endPage);
-		
-		ArrayList<Review> list = new AdminReviewService().selectProductReviewList(pi);
+		ArrayList<Notice> list = new AdminNoticeService().selectNoticeList(pi); 
 		
 		request.setAttribute("pi", pi);
 		request.setAttribute("list", list);
 		
-		request.getRequestDispatcher("views/admin_main/review/adminReviewView.jsp").forward(request, response);
+		request.getRequestDispatcher("views/admin_main/notice/adminNoticeView.jsp").forward(request, response);
+		
 	}
 
 	/**

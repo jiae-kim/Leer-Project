@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+	<!-- 고객센터 공지사항리스트조회, 김은지 -->
+	<entry key="selectNoticeList">
+		SELECT *
+		  FROM (
+		  	   SELECT ROWnUM RNUM, A.*
+		  	     FROM (	
+					  SELECT 
+						     N.NOTI_NO
+						   , N.TITLE
+						   , N.ENROLL_DATE
+						   , M.MEM_ID
+						   , NOTI_VIEWS
+						FROM NOTICE N     
+				        JOIN MEMBER M ON(M.MEM_NO = N.MEM_NO)
+				       ORDER
+					      BY NOTI_NO DESC
+		  	     	  ) A
+		  	   )
+		WHERE RNUM BETWEEN ? AND ?	  			    
+	</entry>
+	
+	<!-- 고객센터공지리스트 페이징처리, 김은지 -->
+	<entry key="selectNoticeListCount">
+		SELECT COUNT(*) AS "COUNT"
+		  FROM NOTICE		
+	</entry>	
+
+	<!-- FAQ 전체조회 -->
+	<entry key="selectFaqList">
+		SELECT *
+		  FROM (
+		  		SELECT ROWNUM RNUM, A.*
+		  		  FROM (
+		  		  		SELECT 
+						        FAQ_NO
+						      , FAQ_CATEGORY
+						      , FAQ_TITLE
+						      , ENROLL_DATE
+						      , FAQ_VIEWS
+						  FROM  FAQ
+						 ORDER  BY FAQ_NO DESC
+		  		 		) A
+		  		)
+		  WHERE RNUM BETWEEN ? AND ?  
+	</entry>
+	
+	<!-- FAQ 전체조회 기존구문
+	SELECT 
+	        FAQ_NO
+	      , FAQ_CATEGORY
+	      , FAQ_TITLE
+	      , ENROLL_DATE
+	      , FAQ_VIEWS
+	  FROM  FAQ
+	 ORDER  BY FAQ_NO DESC
+	 -->
+	
+	<!-- FAQ 전체조회 페이징 -->
+	<entry key="selectFaqListCount">
+		SELECT COUNT(*) AS "COUNT"
+		  FROM FAQ
+	</entry>
+	
+	<!-- 고객센터 1:1문의리스트조회, 김은지 -->
+	<entry key="selectMtmList">
+		SELECT *
+		  FROM (
+		  	   SELECT ROWnUM RNUM, A.*
+		  	     FROM (		
+					  SELECT
+						     MTM_NO
+					       , MEM_NO
+						   , MTM_TYPE
+						   , MTM_TITLE
+						   , ENROLL_DATE
+						   , MEM_NO2
+						   , ANS_YN
+						FROM MTM
+					   ORDER
+						  BY MTM_NO DESC
+		  	     	  ) A
+		  	   )
+		WHERE RNUM BETWEEN ? AND ?	 		    
+	</entry>
+	
+	<!-- 고객센터 1:1문의리스트조회 페이징처리, 김은지 -->
+	<entry key="selectMtmListCount">
+		SELECT COUNT(*) AS "COUNT"
+		  FROM MTM		
+	</entry>	
+	
+</properties>
