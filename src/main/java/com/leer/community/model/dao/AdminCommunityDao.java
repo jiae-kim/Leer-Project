@@ -174,7 +174,7 @@ public class AdminCommunityDao {
 		return result;
 	}
 	
-	// 관리자 공지사항등록페이지 상세
+	// 관리자 공지사항등록페이지 카테고리조회
 	// 작성자 김은지
 	public ArrayList<Category2> selectCategoryList(Connection conn){
 		ArrayList<Category2> list = new ArrayList<>();

@@ -90,7 +90,9 @@
 		SELECT
 		       CATEGORY_NO
 		     , CATEGORY_NAME
-		  FROM CATEGORY2	
+		  FROM CATEGORY2
+         WHERE CATEGORY_NAME = '커뮤니티 공지사항'
+            OR CATEGORY_NAME = '고객센터 공지사항'		  	
 	</entry>
 	
 	<!-- 커뮤니티 게시글리스트조회, 김은지 -->
