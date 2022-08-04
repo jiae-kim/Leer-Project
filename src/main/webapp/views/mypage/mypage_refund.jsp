@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="com.leer.member.model.vo.Member" %>
 <%
-	Member m = (Member)session.getAttribute("m");
+	Member m = (Member)request.getAttribute("m");
+	System.out.println(m);
+
 %>
 <!DOCTYPE html>
 <html lang="zxx">
@@ -187,7 +189,7 @@
                               </div>
                          </div>
                          <hr>
-                         <form action="" id="refund_table">
+                         <div id="refund_table">
                               <div  class="content_box" id="content_box1">
                                    
                               </div>
@@ -229,7 +231,7 @@
                                                   <table>
                                                        <tr>
                                                             <td width="25px"></td>
-                                                            <td width="140px"><a href="" onclick="window.open('','review','width=700, height=900, scrollbars=no, resizable=no, toolbars=no, menubar=no')" class="btn btn-sm btn-danger">환불신청</a></td>
+                                                            <td width="140px"><a href="" onclick="" class="btn btn-sm btn-danger">환불신청</a></td>
                                                             <td width="100px"><a href="" class="btn btn-sm btn-secondary">취소하기</a></td>
                                                        </tr>
                                                   </table>
@@ -266,7 +268,7 @@
                               
 
 
-                         </form>
+                         </div>
 
 
                     </div>

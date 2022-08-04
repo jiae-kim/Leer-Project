@@ -110,7 +110,7 @@
                                 </thead>
                                 <tbody class="customtable">
                                 	<% for(Faq f : list) { %>
-                                    <tr>
+                                    <tr onclick="location.href='<%=request.getContextPath()%>/adFaqDetail.do?no=<%=f.getFaqNo()%>';">
                                         <th>
                                             <label class="customcheckbox">
                                                 <input type="checkbox" class="listCheckbox" />
@@ -121,7 +121,7 @@
                                         <td><%=f.getFaqCategory()%></td>
                                         <td><%=f.getFaqTitle()%></td>
                                         <td><%=f.getEnrollDate()%></td>
-                                        <td><%=f.getEnrollDate()%></td>
+                                        <td><%=f.getCount()%></td>
                                     </tr>
                                     <% } %>
                                 </tbody>

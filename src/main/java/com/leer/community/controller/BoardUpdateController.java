@@ -1,6 +1,5 @@
 package com.leer.community.controller;
 
-import java.io.File;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -20,16 +19,16 @@ import com.leer.member.model.vo.Member;
 import com.oreilly.servlet.MultipartRequest;
 
 /**
- * Servlet implementation class InsertBoardController
+ * Servlet implementation class BoardUpdateController
  */
-@WebServlet("/comuinsert.bo")
-public class InsertBoardController extends HttpServlet {
+@WebServlet("/comuUpdate.bo")
+public class BoardUpdateController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public InsertBoardController() {
+    public BoardUpdateController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -44,56 +43,60 @@ public class InsertBoardController extends HttpServlet {
 		
 		if(ServletFileUpload.isMultipartContent(request)) {
 			int maxSize = 10 * 1024 * 1024;
-
 			
-			
-			String savePath = session.getServletContext().getRealPath("/resources/comu_upfiles/");
+			String savePath = request.getSession().getServletContext().getRealPath("/resources/comu_upfiles/");
 			
 			MultipartRequest multiRequest = new MultipartRequest(request, savePath, maxSize, "UTF-8", new MyFileRenamePolicy());
 			
+			int comuNo = Integer.parseInt(multiRequest.getParameter("no"));
 			String category = multiRequest.getParameter("category");
 			String[] allTag = multiRequest.getParameterValues("tag");
 			String title = multiRequest.getParameter("title");
-			String content = multiRequest.getParameter("content");
-			int memNo = ((Member)session.getAttribute("loginUser")).getMemNo();
+			String content = multiRequest.getParameter("title");
 			
+			int memNo = ((Member)session.getAttribute("loginUser")).getMemNo();
 			Member m = new CommunityService().selectMyCount(memNo);
 			request.setAttribute("m", m);
 			
-			String tag = "";
-			if(allTag != null) {
-				tag = String.join(",", allTag);
-			}
-			ComuBoard c = new ComuBoard();
-			c.setCategoryNo(category);
-			c.setTag(tag);
-			c.setTitle(title);
-			c.setContent(content);
-			c.setMemNo(String.valueOf(memNo));
+			String tag  = String.join(",", allTag);
+			
+			ComuBoard cb = new ComuBoard();
+			
+			cb.setComuNo(comuNo);
+			cb.setCategoryNo(category);
+			cb.setTag(tag);
+			cb.setTitle(title);
+			cb.setContent(content);
+			
 			
 			Attachment at = null;
 			
 			if(multiRequest.getOriginalFileName("comuupfile") != null) {
 				at = new Attachment();
-				
 				at.setOriginName(multiRequest.getOriginalFileName("comuupfile"));
 				at.setChangeName(multiRequest.getFilesystemName("comuupfile"));
-				at.setFilePath("resources/comu_upfiles/");
+				at.setFilePath("resources/comu_upfiles");
 				
+				if(multiRequest.getParameter("originFileNo") != null) {
+					
+					at.setFileNo( Integer.parseInt(multiRequest.getParameter("originFileNo")));
+				}else {
+					// 기존의 첨부파일이 없었을 경우 => Insert Attachment(현재게시글번호)
+					at.setRefBno(comuNo);
+				}
+				// 새로 넘어온 첨부파일이 없었다면 at는 여전히 null
 			}
-			
-			int result = new CommunityService().insertBoard(c, at);
-			
-			if(result > 0) {
-				response.sendRedirect(request.getContextPath() + "/comu.bo?cpage=1");
+				int result = new CommunityService().updateBoard(cb, at);
 				
-			}else {
-				if(at != null) {
-					new File(savePath + at.getChangeName()).delete();
+				if(result > 0) {
+					request.getSession().setAttribute("alertMsg", "성공적으로 수정되었습니다.");
+					response.sendRedirect(request.getContextPath() + "/detail.bo?no=" + comuNo);
+				} else {
+					request.getSession().setAttribute("alertMsg", "수정하는데 실패 하였습니다.");
 				}
 			}
+
 		}
-	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

@@ -47,13 +47,13 @@ public class AdminNotiInsertController extends HttpServlet {
 			String savePath = session.getServletContext().getRealPath("/resources/upfiles/");
 			
 			MultipartRequest multiRequest = new MultipartRequest(request, savePath, maxSize, "UTF-8", new MyFileRenamePolicy());
-			
+
 			String notiType = multiRequest.getParameter("notiType");
 			String title = multiRequest.getParameter("title");
 			String content = multiRequest.getParameter("content");				
-			//int notiNo = ((ComuNotice)session.getAttribute("notiNo")).getNotiNo();
 			
 			ComuNotice c = new ComuNotice();
+			
 			c.setNotiType(notiType);
 			c.setTitle(title);
 			c.setContent(content);
@@ -70,12 +70,14 @@ public class AdminNotiInsertController extends HttpServlet {
 			int result = new AdminCommunityService().insertNotice(c, at);
 			
 			if(result > 0) {
+				session.setAttribute("alertMsg", "성공적으로 등록되었습니다.");
 				response.sendRedirect(request.getContentType() + "/adComuNotiList.do?cpage=1");
 			}else {
 				if(at != null) {
 					new File(savePath + at.getChangeName()).delete();
 				}
-				request.setAttribute("errorMsg", "게시글 작성 실패");
+				request.setAttribute("errorMsg", "등록 실패");
+				request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
 			}
 		}
 	}

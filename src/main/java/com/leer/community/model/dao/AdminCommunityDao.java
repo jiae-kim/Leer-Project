@@ -133,11 +133,10 @@ public class AdminCommunityDao {
 		try {
 			
 			pstmt = conn.prepareStatement(sql);
-			
-			pstmt.setInt(1, c.getMemNo());
-			pstmt.setString(2, c.getTitle());
-			pstmt.setString(3, c.getContent());
-			pstmt.setString(4, c.getNotiType());
+
+			pstmt.setString(1, c.getTitle());
+			pstmt.setString(2, c.getContent());
+			pstmt.setString(3, c.getNotiType());
 			
 			result = pstmt.executeUpdate();
 			

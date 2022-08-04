@@ -32,5 +32,33 @@ public class AdminFaqService {
 		close(conn);
 		return listCount;
 	}
+
+	/* [고객센터 - FAQ]
+	 * FAQ 상세조회 페이지 : 조회수 증가
+	 * 작성자 김지애
+	 */
+	public int increaseCount(int faqNo) {
+		Connection conn = getConnection();
+		int result = new AdminFaqDao().increaseCount(conn, faqNo);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		return result;
+	}
+
+	/* [고객센터 - FAQ]
+	 * FAQ 상세조회 페이지
+	 * 작성자 김지애
+	 */
+	public Faq selectFaq(int faqNo) {
+		Connection conn = getConnection();
+		Faq f = new AdminFaqDao().selectFaq(conn, faqNo);
+		close(conn);
+		return f;
+	}
 	
 }

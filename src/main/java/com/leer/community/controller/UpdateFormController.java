@@ -9,21 +9,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.leer.common.model.vo.Attachment;
 import com.leer.common.model.vo.Category;
 import com.leer.community.model.service.CommunityService;
+import com.leer.community.model.vo.ComuBoard;
 import com.leer.member.model.vo.Member;
 
 /**
- * Servlet implementation class BoardEnrollFormController
+ * Servlet implementation class UpdateFormController
  */
-@WebServlet("/comuEnrollForm.bo")
-public class BoardEnrollFormController extends HttpServlet {
+@WebServlet("/comuUpdateForm.bo")
+public class UpdateFormController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public BoardEnrollFormController() {
+    public UpdateFormController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -42,11 +44,17 @@ public class BoardEnrollFormController extends HttpServlet {
 		Member m = new CommunityService().selectMyCount(memNo);
 		request.setAttribute("m", m);
 		
-		ArrayList<Category> cateList = new CommunityService().selectCategoryList();
+		int comuNo = Integer.parseInt(request.getParameter("no"));
+		CommunityService cbService = new CommunityService();
+		ArrayList<Category> cateList = cbService.selectCategoryList();
+		ComuBoard cb = cbService.selectBoard(comuNo);
+		Attachment at = cbService.selectAttachment(comuNo);
 		
 		request.setAttribute("cateList", cateList);
-		request.setAttribute("flag", "insert");
-		request.getRequestDispatcher("views/community/insertBoard.jsp").forward(request, response);;
+		request.setAttribute("cb", cb);
+		request.setAttribute("at", at);
+		request.setAttribute("flag", "update");
+		request.getRequestDispatcher("views/board/boardUpdateForm.jsp").forward(request, response);
 	}
 
 	/**

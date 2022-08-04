@@ -30,7 +30,6 @@
 	}
 	.icon{
 	float: right;
-	border-bottom: 1px solid #878787;
 	}
 	.hashtag {
 	
@@ -39,7 +38,6 @@
 	padding:2px;
 	background-color: rgb(221, 221, 221);
 	border-radius: 3px;
-	margin-left: 5px;
 	}
 	.col-lg-12 button{
 		line-height:20px;
@@ -52,8 +50,11 @@
 		background:gray;
 	}
 	.row{
-		
-		
+		width:99%;
+		border-bottom:1px solid #878787 !important;
+	}
+	.gg123{
+		margin-left: 70%;
 	}
 </style>
 </head>
@@ -96,23 +97,23 @@
 							<div class="blog__item"> 
 								<div class="blog__item__text" align="left" onclick="location.href='<%=contextPath%>/comuDetail.bo?no=<%= c.getComuNo()%>'">
 									<span style="display:none"><%= c.getComuNo() %></span>
-									<h5>
-										<span style="font-weight:bold"><%= c.getTitle() %></span>
-									</h5>
+									<span style="font-weight:bold"><%= c.getTitle() %></span>
+									<div class="gg123" style="display:inline">
 									<span style="font-size:12px"><b>조회수 : <%= c.getViewCount() %></b></span>
 									<span style="font-size: 12px"><%=c.getEnrollDate() %></span>
-									
+									</div>
+									<div style="line-height:12px">
 									<% if(c.getTag() != null) { 
 										String[] tagArr = c.getTag().split(",");  // ["패션", "라이프"]
 										for(String tag : tagArr){ %>
-									
 												<a class="hashtag" href="<%= contextPath %>/xxxxx?tag=<%=tag %>"><%= tag %></a> <!-- 댓글수 구하는 구문 찾아보기  -->
 									
 											<%} %>
 									<% } %>
+									</div>
 									<br>
 									<span><%=c.getContent()%></span>
-									<div style="border-bottom:1px solid #878787;">
+									<div>
 										<div class="icon" >
 											<i class="fa fa-heart-o"> <sup><%= c.getLikeCount() %></sup>
 											</i> <i class="fa fa-comment-o" style="margin-left:5px"> <sup><%= c.getCommentCount() %></sup>

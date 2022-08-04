@@ -106,13 +106,12 @@
 			,OR_DATE
 			,PRICE
 			,IMAGE_URL1
-			,"ORDER".OR_NO
 			FROM MEMBER M
 			JOIN "ORDER" USING (MEM_NO)
             JOIN OR_PRODUCT OP ON ("ORDER".OR_NO = OP.OR_NO)
             JOIN PRODUCT P ON(OP.P_CODE = P.P_CODE)
 			WHERE MEM_NO = ?
-			AND OR_YN = ?
+			AND "ORDER".OR_NO = ?
 			AND P.P_CODE = ?
 	</entry>
 	
@@ -120,13 +119,16 @@
 	
 	
 	<entry key="CancleComplete">
-		UPDATE 
-			   "ORDER" O
-		INNER JOIN OR_PRODUCT OP ON O.OR_NO = OP.OR_NO
-		   SET OR_YN = Y
+		UPDATE "ORDER"
+		   SET OR_YN = 'Y'
 		 WHERE OR_NO = ?
-		 AND MEM_NO= ?
-		 AND P_CODE=?
+		   AND MEM_NO= ?
+		   AND EXISTS (SELECT P_CODE FROM OR_PRODUCT WHERE "ORDER".OR_NO = OR_PRODUCT.OR_NO)
+	</entry>
+	
+	<entry key="CancleStockComplete">
+		INSERT INTO PRODUCT_IO
+		VALUES(SEQ_STAT.NEXTVAL, ?, 1, CURRENT_DATE, '입고')
 	</entry>
 	
 	

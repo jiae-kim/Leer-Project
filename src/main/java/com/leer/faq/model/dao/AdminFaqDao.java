@@ -53,7 +53,7 @@ public class AdminFaqDao {
 								 rset.getString("faq_category"),
 								 rset.getString("faq_title"),
 								 rset.getDate("enroll_date"),
-								 rset.getInt("faq_views")));
+								 rset.getInt("count")));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -88,6 +88,64 @@ public class AdminFaqDao {
 			close(pstmt);
 		}
 		return listCount;
+	}
+
+	/* [고객센터 - FAQ]
+	 * FAQ 상세조회 페이지 : 조회수 증가
+	 * 작성자 김지애
+	 */
+	public int increaseCount(Connection conn, int faqNo) {
+		// update문 => 처리된 행수 반환
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("increaseCount");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, faqNo);
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}
+
+	/* [고객센터 - FAQ]
+	 * FAQ 상세조회 페이지
+	 * 작성자 김지애
+	 */
+	public Faq selectFaq(Connection conn, int faqNo) {
+		Faq f = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectFaq");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, faqNo);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				f = new Faq(rset.getInt("faq_no"),
+							rset.getString("faq_category"),
+							rset.getString("mem_id"),
+							rset.getDate("enroll_date"),
+							rset.getDate("modify_date"),
+							rset.getInt("count"),
+							rset.getString("faq_title"),
+							rset.getString("faq_content"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return f;
 	}
 	
 }
