@@ -22,7 +22,8 @@
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
 
-    <%-- <!-- Css Styles -->
+    
+    <!-- Css Styles -->
     <link rel="stylesheet" href="<%= contextPath %>/resources/css/heeyeong/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="<%= contextPath %>/resources/css/heeyeong/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="<%= contextPath %>/resources/css/heeyeong/elegant-icons.css" type="text/css">
@@ -30,11 +31,21 @@
     <link rel="stylesheet" href="<%= contextPath %>/resources/css/heeyeong/jquery-ui.min.css" type="text/css">
     <link rel="stylesheet" href="<%= contextPath %>/resources/css/heeyeong/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="<%= contextPath %>/resources/css/heeyeong/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="<%= contextPath %>/resources/css/heeyeong/style.css" type="text/css"> --%>
+    <link rel="stylesheet" href="<%= contextPath %>/resources/css/heeyeong/style.css" type="text/css"> 
+    
      
     <style>
     	.login-btn{font-size:13px; color:#393939;}
     	.login-btn:hover{color:gray;}
+
+        .menuhere a{
+            font-size: 18px !important;
+        }
+
+        .carthere a{
+            font-size: 15px !important;
+            margin-top: 30%;
+        }
     </style>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -71,7 +82,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <nav class="header__menu">
+                    <nav class="header__menu menuhere">
                         <ul>
                             <li class="active"><a href="<%=contextPath %>/list.pd"><b>카테고리</b></a>
                             	 <ul class="header__menu__dropdown">
@@ -102,16 +113,22 @@
 
 					<% if(loginUser == null){ %>
                     <!-- case1. 로그인 전 -->
-                    <div class="header__cart">
+                    <div class="header__cart carthere">
 
                         <ul>
                         	<li><a href="<%=contextPath%>/loginPage.me" class="login-btn">로그인</a></li>
                             &nbsp;
                         	<li id="login-icon"><a href="<%=contextPath %>/termsPage.me" class="login-btn">회원가입</a></li>
-                            <li id="login-icon"><a href=""><i class="fa fa-heart"></i></a></li>
+                            <li id="login-icon"><a href="#"><i class="fa fa-heart" onclick="login();"></i></a></li>
                             <li><a href="#"><i class="fa fa-shopping-bag"></i></a></li>
                         </ul>
                     </div>
+
+                    <script>
+                         function login(){
+                            alert("로그인 후 이용 가능한 서비스입니다.");
+                        }
+                    </script>
 
 					<%} else{ %>
 
@@ -122,7 +139,7 @@
                             <li><a href="<%=contextPath %>/mypage.me" style="text-decoration: none; color:black; font-size:13px;"><%=loginUser.getMemName() %> 님</a><li>
                             <li><a href="<%=contextPath %>/logout.me" style="text-decoration: none; color:darkgrey; font-size:13px;">로그아웃</a></li>
                             &nbsp;
-                            <li id="login-icon"><a href=""><i class="fa fa-heart"></i></a></li>
+                            <li id="login-icon"><a href="<%=contextPath%>/scrapPage.me"><i class="fa fa-heart"></i></a></li>
                             <li><a href="#"><i class="fa fa-shopping-bag"></i></a></li>
                         </ul>
                     </div>

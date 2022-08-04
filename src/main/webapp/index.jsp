@@ -31,7 +31,7 @@
 
 
 <body>
-    
+
 	<%@ include file="views/common/menubar.jsp" %>
 	<br>
 	<a href="<%=contextPath%>/views/admin_main/adminMainPage.jsp">관리자메인페이지 바로가기</a> <br>
@@ -109,8 +109,8 @@
                         <div class="featured__item">
                             <div class="featured__item__pic set-bg" data-setbg="">
                                 <ul class="featured__item__pic__hover">
-                                    <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                    <li><a href=""><i class="fa fa-heart"></i></a></li>
+                                    <li><a href="<%=contextPath%>/detail.pd"><i class="fa fa-shopping-cart"></i></a></li>
                                 </ul>
                             </div>
                             <div class="featured__item__text">

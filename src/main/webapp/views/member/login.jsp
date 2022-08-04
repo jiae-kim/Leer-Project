@@ -48,6 +48,8 @@
             font-size: 13px;
         }
 
+
+        
     </style>
 
 </head>
@@ -70,7 +72,7 @@
             <form action="<%=contextPath%>/login.me" method="post">
                 <div class="login-input">
                     <input type="text" name="memId" id="id" placeholder="  아이디" required><br>
-                    <input type="password" name="memPwd" id="password" placeholder="  비밀번호" required><br>
+                    <input type="password" name="memPwd" id="password" placeholder="  비밀번호" required style="font-family: Arial;"><br>
                 </div>
 
                 <div class="login-btn">

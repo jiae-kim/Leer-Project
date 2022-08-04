@@ -42,8 +42,8 @@
                                 		<li><a href="<%= request.getContextPath()%>">장바구니</a></li>
                                 	<%}else { %>
                                     	<li><a href="<%= request.getContextPath()%>/clist.me?memNo=<%=loginUser.getMemNo()%>">장바구니</a></li>
+                                        <li><a href="<%= request.getContextPath()%>/selectScrap.me">찜목록</a></li>
                                     <% } %>
-                                    <li><a href="#">찜목록</a></li>
                                 </ul>
     
                                 <hr>
@@ -65,9 +65,9 @@
     
                                 <h4 style="font-family:'NanumSquare'; font-weight:800; margin-bottom: 15px; font-size:20px;">회원 정보</h4>
                                 <ul>
-                                    <li><a href="#">배송지 관리</a></li>
-                                    <li><a href="#">회원 정보 수정</a></li>
+                                    <li><a href="<%=request.getContextPath()%>/mypage.me">회원 정보 수정</a></li>
                                     <li><a href="#">회원 탈퇴 신청</a></li>
+                                    <li><a href="#">배송지 관리</a></li>
                                 </ul>
     
                                 <hr>
