@@ -35,7 +35,6 @@ public class NoticeDetailViewController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		int cNo = Integer.parseInt(request.getParameter("cNo"));
 
 		Member loginUser = (Member)request.getSession().getAttribute("loginUser");
 		int memNo = 0;

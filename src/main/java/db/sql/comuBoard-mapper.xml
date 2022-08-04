@@ -344,8 +344,7 @@
 		  FROM COMU_BOARD CB
 		  JOIN COMU_CATEGORY USING (CATEGORY_NO)  
 		  JOIN MEMBER USING (MEM_NO)
-		 WHERE CONTENT LIKE '%?%'
-			OR TITLE LIKE '%?%'
+		 WHERE TAG LIKE '%'||?||'%'
 	</entry>
 	
 </properties>
