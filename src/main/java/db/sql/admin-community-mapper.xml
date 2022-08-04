@@ -55,7 +55,7 @@
 		  VALUES
 		  (
 		    SEQ_NOTI.NEXTVAL	
-		  , ?
+		  , 1
 		  , ? 
 		  , ?
 		  , ?

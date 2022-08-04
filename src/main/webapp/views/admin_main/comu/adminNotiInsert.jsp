@@ -118,7 +118,7 @@
                                             </tr>
                                             <tr style="float: left">
                                                 <td colspan="2" style="">
-                                                    <select name="category">
+                                                    <select name="notiType">
                                                         <option value="" disabled selected hidden>
                                                             카테고리를 선택하세요.
                                                         </option>
@@ -143,14 +143,14 @@
                                                 
                                             </tr>
                                             <tr>
-                                                <td colspan="2"><textarea id="summernote" name="editordata" rows="10" required
+                                                <td colspan="2"><textarea id="summernote" name="content" rows="10" required
                                                     style="resize:none"></textarea></td>
                                             </tr>
                                             <tr>
                                             	<th>첨부파일</th>
                                             </tr>
                                             <tr>
-                                            	<td><input type="file"></td>
+                                            	<td><input type="file" name="upfile"></td>
                                             </tr>
                                         </table>
                                         
