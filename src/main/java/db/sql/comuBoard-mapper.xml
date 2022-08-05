@@ -318,6 +318,7 @@
 		     , TAG = ? 
 		     , TITLE = ?
 		     , CONTENT = ?
+		     , MODIFY_DATE = DEFAULT
 		 WHERE COMU_NO = ? 
 	
 	</entry>

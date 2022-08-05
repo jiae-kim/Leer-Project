@@ -194,6 +194,12 @@
 	                            	//window.location.href="url";
 				
 	                         	   }
+	                            
+	                            
+	                            
+	                            
+	                            
+	                            
 	                            	var check = false; 
 	                            function CheckAll(){ 
 	                            	var chk = document.getElementsByName("check[]"); 
