@@ -92,7 +92,7 @@
                                 
                                 	function changeItem(){
                                 		$.ajax({
-                        					url:"<%=contextPath%>/nlist.pd",
+                        					url:"<%=contextPath%>/nlist3.pd",
                         					data:{align:$("#selectBox option:selected").val()},
                         					success:function(list){
                         						console.log(list);
@@ -151,7 +151,7 @@
 	                                    </ul>
 	                                </div>
 	                                <div class="product__item__text">
-	                                    <h6><a href="<%=contextPath%>/detail.pd?pNo=<%=p.getpCode()%>"><%= p.getpName() %></a></h6>
+	                                    <h6><a href="#"><%= p.getpName() %></a></h6>
 	                                    <h5><%= comma.format(p.getPrice())%> 원</h5>
 	                                </div>
 	                            </div>

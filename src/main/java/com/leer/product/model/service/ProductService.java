@@ -32,6 +32,23 @@ public class ProductService {
 		return list;
 	}
 	
+	public ArrayList<Product> selectProductListOld2(){
+		Connection conn = getConnection();
+		
+		ArrayList<Product> list = new ProductDao().selectProductListOld(conn);
+		
+		close(conn);
+		return list;
+	}
+	
+	public ArrayList<Product> selectProductListOld3(){
+		Connection conn = getConnection();
+		
+		ArrayList<Product> list = new ProductDao().selectProductListOld(conn);
+		
+		close(conn);
+		return list;
+	}
 	public Product selectProductDetail(String pCode) {
 		Connection conn = getConnection();
 		
@@ -104,7 +121,7 @@ public class ProductService {
 		
 		Connection conn = getConnection();
 		
-		int result = new ProductDao().insertInquiry(i);
+		int result = new ProductDao().insertInquiry(conn, i);
 		
 		if(result > 0) {
 			commit(conn);
@@ -115,6 +132,24 @@ public class ProductService {
 		
 		return result;
 		
+	}
+	
+	public ArrayList<Product> selectProductList2(){
+		Connection conn = getConnection();
+		
+		ArrayList<Product> list = new ProductDao().selectProductList2(conn);
+		
+		close(conn);
+		return list;
+	}
+	
+	public ArrayList<Product> selectProductList3(){
+		Connection conn = getConnection();
+		
+		ArrayList<Product> list = new ProductDao().selectProductList3(conn);
+		
+		close(conn);
+		return list;
 	}
 	
 }
