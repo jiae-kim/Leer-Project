@@ -56,7 +56,7 @@ public class ReviewService {
 		Connection conn = getConnection();
 		int result2 = 1;
 		int result1 = new ReviewDao().WriteReviewComplete(conn,r);
-		
+		int result3= new ReviewDao().PointTriger(conn,r);
 		
 		if(at != null ) {
 			result2 = new ReviewDao().insertAttachment(conn, at);

@@ -15,6 +15,7 @@ import com.leer.member.model.vo.Member;
 import com.leer.mypage.model.vo.Cart;
 import com.leer.mypage.model.vo.Point;
 import com.leer.product.model.vo.Product;
+import com.leer.review.model.dao.ReviewDao;
 
 public class MypageDao {
 	
@@ -368,5 +369,6 @@ public class MypageDao {
 		}
 		return list;
 	}
+	
 	
 }

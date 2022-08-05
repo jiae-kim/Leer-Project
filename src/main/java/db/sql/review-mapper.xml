@@ -106,5 +106,21 @@
         	AND P_CODE = ?
 	</entry>
 
-	
+	<entry key="PointTriger">
+		INSERT INTO POINT
+            (
+                     POINT_NO
+                    ,MEM_NO
+                    ,POINT
+                    ,POINT_UPDATE
+                    ,HISTORY
+                )
+            VALUES
+            (
+                    SEQ_PTNO.NEXTVAL
+                    ,?
+                    ,50
+                    ,'적립'
+                    ,'리뷰')
+	</entry>
 </properties>

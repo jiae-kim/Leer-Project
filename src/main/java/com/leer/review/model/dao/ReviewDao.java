@@ -209,7 +209,26 @@ public ArrayList<Review> WriteReviewHistory(Connection conn, int memNo){
 		
 	}
 	
-	
+	public int PointTriger(Connection conn,Review r) {
+		
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("PointTriger");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, r.getMemNo());
+			
+			pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return 1;
+		
+	}
 	
 	
 }
