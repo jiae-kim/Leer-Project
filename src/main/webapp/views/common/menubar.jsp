@@ -103,15 +103,15 @@
                             </li>
                             <li><a href="<%=contextPath%>/comu.bo?cpage=1"><b>커뮤니티</b></a></li>
                             
-                            <li><a href="#"><b>고객센터</b></a>
+                            <li><a href="<%=contextPath%>/gogoPage.go"><b>고객센터</b></a>
                             	<ul class="header__menu__dropdown">
-                                    <li><a href="">공지사항</a></li>
-                                    <li><a href="">FAQ</a></li> o9 n
+                                    <li><a href="#">공지사항</a></li>
+                                    <li><a href="">FAQ</a></li>
                                     
                                     <%if(loginUser == null){ %>
                                     	<!-- alert로 로그인 해야 이용 가능함을 알려주고 로그인 페이지로 이동시켜주기 -->
                                     <%}else{ %>
-                                    	<li><a href="<%=contextPath%>/mtmPage.mtm">1:1문의</a></li>
+                                    	<li><a href="<%=contextPath%>/mtmList.go?memNo=<%=loginUser.getMemNo()%>&cpage=1">1:1문의</a></li>
                                     <%} %>
                                     
                                 </ul>
