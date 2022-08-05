@@ -35,7 +35,7 @@ public class ProductService {
 	public ArrayList<Product> selectProductListOld2(){
 		Connection conn = getConnection();
 		
-		ArrayList<Product> list = new ProductDao().selectProductListOld(conn);
+		ArrayList<Product> list = new ProductDao().selectProductListOld2(conn);
 		
 		close(conn);
 		return list;
@@ -44,7 +44,7 @@ public class ProductService {
 	public ArrayList<Product> selectProductListOld3(){
 		Connection conn = getConnection();
 		
-		ArrayList<Product> list = new ProductDao().selectProductListOld(conn);
+		ArrayList<Product> list = new ProductDao().selectProductListOld3(conn);
 		
 		close(conn);
 		return list;
