@@ -40,7 +40,9 @@
                     <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#input">
                         상품 입고 등록
                     </button>
-                    <form action="<%=request.getContextPath()%>/adPnInsert.do" method="post">
+                    
+                    
+                    <form action="<%=request.getContextPath()%>/adStkInsert.do" method="post">
                         <!-- Modal -->
                         <div class="modal fade" id="input" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
@@ -85,7 +87,7 @@
                                                 <td>입고일자</td>
                                                 <td>
                                                     <div class="input-group">
-                                                        <input type="text" class="form-control col-md-9" name="statusDate" id="datepicker-autoclose" placeholder="mm/dd/yyyy">
+                                                        <input type="text" class="form-control col-md-9" name="statusDate2" id="datepicker-autoclose" placeholder="mm/dd/yyyy">
                                                         <div class="input-group-append">
                                                             <span class="input-group-text"><i class="fa fa-calendar"></i></span>
                                                         </div>
@@ -106,6 +108,9 @@
                             </div>
                         </div>
                     </form>
+                    
+                    
+                    
                 </div>
             </div>
         </div>

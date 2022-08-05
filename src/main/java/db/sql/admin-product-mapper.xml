@@ -292,10 +292,11 @@
 	</entry>
 	
 	<entry key="StockInsertPage">
-		INSERT INTO PRODUCT_IO
-		(STATUS_NO, P_CODE, STATUS, STATUS_AMOUNT, STATUS_DATE)
+		INSERT 
+		  INTO PRODUCT_IO
+		  (STATUS_NO, P_CODE, STATUS, STATUS_AMOUNT, STATUS_DATE)
 		VALUES
-		(SEQ_STAT.NEXTVAL, ?, '입고', ?, ?); 
+		  (SEQ_STAT.NEXTVAL, ?, '입고', ?, to_date(?, 'MM/DD/YYYY'))
 	</entry>
 	<!-- 
 		INSERT INTO PRODUCT_IO

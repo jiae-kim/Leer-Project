@@ -36,15 +36,15 @@ public class AdminStockInsertController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		
-		int statusNo = Integer.parseInt(request.getParameter("statusNo"));
+		//int statusNo = Integer.parseInt(request.getParameter("statusNo"));
 		String pCode = request.getParameter("pCode"); // 상품코드
 		String pName = request.getParameter("pName");
 		String status = request.getParameter("status");
 		int statusAmount = Integer.parseInt(request.getParameter("statusAmount"));
-		String statusDate2 = request.getParameter("statusDate2");
+		String statusDate2 = request.getParameter("statusDate2"); // "월/일/년도"
 		
 		ProductIo pi = new ProductIo();
-		pi.setStatusNo(statusNo);
+		//pi.setStatusNo(statusNo);
 		pi.setpCode(pCode);
 		pi.setpName(pName);
 		pi.setStatus(status);
