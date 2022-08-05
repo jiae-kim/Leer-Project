@@ -172,9 +172,10 @@ public class AdminMemberDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(1, m.getMemName());
-			pstmt.setString(2, m.getPhone());
-			pstmt.setString(3, m.getAddress());
+			pstmt.setString(1, m.getMemId());
+			pstmt.setString(2, m.getMemName());
+			pstmt.setString(3, m.getPhone());
+			pstmt.setString(4, m.getAddress());
 			
 			result = pstmt.executeUpdate();
 			
