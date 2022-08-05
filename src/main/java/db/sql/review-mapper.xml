@@ -14,7 +14,8 @@
         JOIN OR_PRODUCT OP ON (P.P_CODE = OP.P_CODE)
         JOIN "ORDER" O ON (OP.OR_NO = O.OR_NO)
 		WHERE O.MEM_NO=?
-        AND REVIEW_YN = 'N'
+		AND O.OR_YN='N'
+		AND O.OR_RETURN= 'N'
 	</entry>
 	
 	

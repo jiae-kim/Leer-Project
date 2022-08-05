@@ -8,6 +8,8 @@
 		FROM MEMBER M
 		JOIN "ORDER" USING(MEM_NO)
 		WHERE MEM_NO = ?
+		AND OR_YN='N'
+		AND OR_RETURN= 'N'
 
 	</entry>
 	
