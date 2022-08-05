@@ -8,7 +8,7 @@
 	Member m = (Member)request.getAttribute("member");
 	ArrayList<Order> list = (ArrayList<Order>)request.getAttribute("list");
 	
-	//int memNo = (int)request.getAttribute("memNo");
+	
 %>
 <html>
 <head>
@@ -122,7 +122,7 @@
 					function del() {
 						if (confirm('정말 삭제하시겠습니까?')) {
 							//document.getElementsByClassName('btn')[index].click();
-							window.location.href="<%=request.getContextPath()%>/adDelete.me";   
+							window.location.href="<%=request.getContextPath()%>/adDelete.me?memNo=<%=m.getMemNo()%>";   
 							//window.location.href="/leer/adMemList.do?cpage=1";      
 						}
 					}

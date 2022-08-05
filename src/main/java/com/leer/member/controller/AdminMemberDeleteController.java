@@ -39,7 +39,7 @@ public class AdminMemberDeleteController extends HttpServlet {
 		HttpSession session = request.getSession();
 		if(result > 0) {
 			session.setAttribute("alertMsg", "회원정보가 삭제되었습니다.");
-			response.sendRedirect(request.getContextPath());
+			response.sendRedirect(request.getContextPath() + "/adMemList.do?cpage=1");
 		}else {
 			session.setAttribute("alertMsg", "회원정보삭제 실패");
 			response.sendRedirect(request.getContextPath() + "/adMemList.do?cpage=1");

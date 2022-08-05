@@ -164,6 +164,8 @@ public class AdminMemberDao {
 	// 관리자 회원정보 변경
 	// 작성자 김은지
 	public int updateMember(Connection conn, Member m) {
+		
+		System.out.println(m);
 		int result = 0;
 		
 		PreparedStatement pstmt = null;
@@ -172,10 +174,10 @@ public class AdminMemberDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(1, m.getMemId());
-			pstmt.setString(2, m.getMemName());
+			pstmt.setString(1, m.getMemName());
+			pstmt.setString(2, m.getAddress());
 			pstmt.setString(3, m.getPhone());
-			pstmt.setString(4, m.getAddress());
+			pstmt.setString(4, m.getMemId());
 			
 			result = pstmt.executeUpdate();
 			
