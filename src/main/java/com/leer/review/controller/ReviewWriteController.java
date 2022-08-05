@@ -43,7 +43,7 @@ public class ReviewWriteController extends HttpServlet {
 		Review r = new ReviewService().WriteReview(memNo,orNo,p_code);
 		request.setAttribute("r", r);
 		
-		System.out.print(r.getpName());
+
 		RequestDispatcher view = request.getRequestDispatcher("views/review/review_write.jsp");
 		view.forward(request, response);
 	}

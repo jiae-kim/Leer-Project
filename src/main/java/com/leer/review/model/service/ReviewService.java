@@ -57,6 +57,7 @@ public class ReviewService {
 		int result2 = 1;
 		int result1 = new ReviewDao().WriteReviewComplete(conn,r);
 		
+		
 		if(at != null ) {
 			result2 = new ReviewDao().insertAttachment(conn, at);
 		}

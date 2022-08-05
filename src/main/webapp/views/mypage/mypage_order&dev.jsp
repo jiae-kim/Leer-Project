@@ -4,7 +4,6 @@
 <%
 	ArrayList<Member> list1 = (ArrayList<Member>)request.getAttribute("list1");
 	ArrayList<Member> list2 = (ArrayList<Member>)request.getAttribute("list2");
-	System.out.println("jsp 도착");
 %>
     
     

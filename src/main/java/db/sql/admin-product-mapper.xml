@@ -254,17 +254,18 @@
 	  FROM (
 	  		SELECT ROWNUM RNUM, A.*
 	  		  FROM (
-	  		  		SELECT
-					        REVIEW_NO
-					      , MEM_ID
-					      , P_NAME
-					      , P_CODE
-					      , REVIEW_CONTENT
-					      , REVIEW_SCOPE
-					      , ENROLL_DATE
-					      , RPOINT_YN
-					  FROM  REVIEW
-					 ORDER  BY REVIEW_NO DESC
+			SELECT
+			        R.REVIEW_NO
+			      , M.MEM_ID
+			      , R.P_NAME
+			      , R.P_CODE
+			      , R.REVIEW_CONTENT
+			      , R.REVIEW_SCOPE
+			      , R.ENROLL_DATE
+			      , R.RPOINT_YN
+			    FROM  REVIEW R
+			    JOIN MEMBER M ON (R.MEM_NO = M.MEM_NO)
+			    ORDER  BY REVIEW_NO DESC
 	  		 		) A
 	  		)
 	  WHERE RNUM BETWEEN ? AND ? 	

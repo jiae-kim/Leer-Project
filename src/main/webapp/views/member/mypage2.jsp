@@ -184,15 +184,15 @@
                                              <table>
                                                  <tr>
                                                      <td>기존 비밀번호</td>
-                                                     <td><input type="password" name="memPwd" required></td>
+                                                     <td><input type="password" name="memPwd" required style="font-family:Verdana;"></td>
                                                  </tr>
                                                  <tr>
                                                      <td>새 비밀번호</td>
-                                                     <td><input type="password" name="updatePwd" required></td>
+                                                     <td><input type="password" name="updatePwd" required style="font-family:Verdana;"></td>
                                                  </tr>
                                                  <tr>
                                                      <td>새 비밀번호 확인</td>
-                                                     <td><input type="password" name="checkPwd" required></td>
+                                                     <td><input type="password" name="checkPwd" required style="font-family:Verdana;"></td>
                                                  </tr>
                                                  <tr>
                                                      <td colspan="2">&nbsp;</td>

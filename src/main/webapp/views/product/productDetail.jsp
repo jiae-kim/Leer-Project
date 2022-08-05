@@ -559,7 +559,7 @@
 	                            success:function(result){ 
                             	   // insert 성공 => btn글자 찜완료로 변경
 	                               if(result > 0) { 
-	                            	   $("#insertScrap").text("찜완료");
+	                            	   $scrapBtn.text("찜완료");
 	                            	   
 	                            	   //글자 변경이 바로 안되고 새로고침 해야하는 문제 
 	                            	   //location.reload();
@@ -581,7 +581,7 @@
 	                            success:function(result){ 
                             	   // delete 성공 => btn글자 찜하기로 변경
 	                               if(result > 0) { 
-	                            	   $("#deleteScrap").text("찜하기");
+	                            	   $scrapBtn.text("찜하기");
 	                            	   //location.reload();
 	                            	   $scrapBtn.removeClass("de");
 	                                   $scrapBtn.addClass("in");
@@ -595,11 +595,6 @@
                 		
                 	})
                 	
-                    
-                    
-                    
-                    
-                   
                 </script>
 
                 

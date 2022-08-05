@@ -8,6 +8,7 @@
    String alertMsg = (String)session.getAttribute("alertMsg");
 %>
 
+
 <!DOCTYPE html>
 <html>
 
@@ -58,14 +59,16 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     
     
+    <!-- 모달 쓰기 위해서 필요한 링크들입니다!!!! 주석처리 하지 말아주세요 ~!!! -->
+    
     <!-- Latest compiled and minified CSS -->
-   <!-- link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"> 
    
-   <!-- Popper JS -->
-   <!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script> -->
+    <!-- Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
    
-   <!-- Latest compiled JavaScript -->
-   <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script> -->
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
     
 </head>
 
@@ -110,7 +113,19 @@
                             </li>
                             <li><a href="<%=contextPath%>/comu.bo?cpage=1"><b>커뮤니티</b></a></li>
                             
-                            <li><a href="<%=contextPath%>/mtmPage.mtm"><b>고객센터</b></a></li>
+                            <li><a href="#"><b>고객센터</b></a>
+                            	<ul class="header__menu__dropdown">
+                                    <li><a href="">공지사항</a></li>
+                                    <li><a href="">FAQ</a></li> o9 n
+                                    
+                                    <%if(loginUser == null){ %>
+                                    	<!-- alert로 로그인 해야 이용 가능함을 알려주고 로그인 페이지로 이동시켜주기 -->
+                                    <%}else{ %>
+                                    	<li><a href="<%=contextPath%>/mtmPage.mtm">1:1문의</a></li>
+                                    <%} %>
+                                    
+                                </ul>
+                            </li>
                             
                             <li>
                             <%if(loginUser == null){ %>
