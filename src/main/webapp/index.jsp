@@ -96,9 +96,9 @@
                             <li data-filter=".10" name="10" onclick="selectNew(10);">패션 / 여성</li>
                             <li data-filter=".20" name="20" onclick="selectNew(20);">라이프 / 인테리어</li>
                             <li data-filter=".30" name="30" onclick="selectNew(30);">문화 / 예술</li>
-                            <li data-filter=".40" name="40">여행 / 취미</li>
-                            <li data-filter=".50" name="50">시사 / 경제</li>
-                            <li data-filter=".60" name="60">교육 / 과학</li>
+                            <li data-filter=".40" name="40" onclick="selectNew(40);">여행 / 취미</li>
+                            <li data-filter=".50" name="50" onclick="selectNew(50);">시사 / 경제</li>
+                            <li data-filter=".60" name="60" onclick="selectNew(60);">교육 / 과학</li>
                         </ul>
                     </div>
                 </div>
