@@ -68,7 +68,7 @@
     <br>
 
     <div class="hero__search">
-        <div class="hero__search__form">
+        <div class="hero__search__formm"> <!-- 클래스명 변경했음 -->
             <form action="#">
                 <!--
                 <div class="hero__search__categories">
@@ -76,8 +76,8 @@
                     <span class="arrow_carrot-down"></span>
                 </div>
                 -->
-                <input type="text">
-                <button type="submit" class="site-btn" style="background:lightgrey;">SEARCH</button>
+                <input type="text" style="width: 30%; height: 52px; border:1px solid lightgrey">
+                <button type="submit" class="site-btn" style="background:lightgrey; height: 52px; margin-left: -3px;">SEARCH</button>
             </form>
         </div>
     </div> 
@@ -110,7 +110,7 @@
             </div>
 
             <div class="row featured__filter">
-                <div class="col-lg-3 col-md-4 col-sm-6 mix ##">
+                <div class="col-lg-3 col-md-4 col-sm-6 mix">
                     <div class="featured__item" id="out">
                     
                         <!-- 출력될 자리 -->
@@ -134,7 +134,7 @@
     	
     		$.ajax({
     			url:"<%=contextPath%>/selectNew.id",
-    			data:{categoryNo:10},
+    			data:{categoryNo:10}, //li요소 클릭시 해당하는 카테고리 값이 여기 데이터로 적용돼 넘어가야 함!!!!
     			success:function(list){
     				
     				console.log(list);
@@ -142,7 +142,7 @@
     					let value = "";
     					for(let i=0; i<list.length; i++){
     						
-	    					value += "<div class='featured__item__pic set-bg' data-setbg='" + list[i].imageUrl1 + "'>"
+	    					value += "<div class='featured__item__pic set-bg' style='background-image:url(" + list[i].imageUrl1 + ")'>" 
 	    						   + "<ul class='featured__item__pic__hover'>"
 	                        	   + "<li><a href=''><i class='fa fa-heart'></i></a></li>"
 	                           	   + "<li><a href=''><i class='fa fa-shopping-cart'></i></a></li>"
@@ -150,7 +150,7 @@
 	                               + "</div>"
 	                        	   + "<div class='featured__item__text'>"
 	                    		   + "<h6><a href='#'>" + list[i].pName + "</a></h6>"
-	                    		   + "<h5>" + list[i].price + "</h5>"
+	                    		   + "<h5>" + list[i].price + "원</h5>"
 	                        	   + "</div>" ;
 	                        		  
 							$("#out").html(value);
