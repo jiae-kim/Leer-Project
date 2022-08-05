@@ -143,7 +143,7 @@
                            <li><a href="<%=contextPath%>/loginPage.me" class="login-btn">로그인</a></li>
                            <li><a href="<%=contextPath %>/termsPage.me" class="login-btn">회원가입</a></li>
                             <li id="login-icon"><a href="#"><i class="fa fa-heart" onclick="login();"></i></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-bag"></i></a></li>
+                              <li><a href= "<%=contextPath %>/loginPage.me"><i class="fa fa-shopping-bag"></i></a></li>
                         </ul>
                     </div>
 
@@ -164,8 +164,8 @@
                                   <li><a href="<%=contextPath %>/logout.me" style="text-decoration: none; color:darkgrey; font-size:13px;">로그아웃</a></li> 
                                   <li><a href="<%=contextPath%>/views/admin_main/adminMainPage.jsp" style="text-decoration: none; color:black; font-size:15px; font-weight:600">관리자페이지</a></li>
                                   
-                                  <%-- <li id="login-icon"><a href="<%=contextPath%>/selectScrap.me"><i class="fa fa-heart"></i></a></li>
-                                  <li><a href="#"><i class="fa fa-shopping-bag"></i></a></li> --%>
+                                  <%-- <li id="login-icon"><a href="<%=contextPath%>/selectScrap.me"><i class="fa fa-heart"></i></a></li>--%>
+                                
                               </ul>
                           </div>
                      
@@ -180,7 +180,9 @@
                                   <li><a href="<%=contextPath %>/logout.me" style="text-decoration: none; color:darkgrey; font-size:13px;">로그아웃</a></li>
                                   &nbsp;
                                   <li id="login-icon"><a href="<%=contextPath%>/selectScrap.me"><i class="fa fa-heart"></i></a></li>
-                                  <li><a href="#"><i class="fa fa-shopping-bag"></i></a></li>
+                                  
+                                  <li><a href= "<%=contextPath %>/clist.me?memNo=<%=loginUser.getMemNo()%>"><i class="fa fa-shopping-bag"></i></a></li>
+                                 
                               </ul>
                           </div>
                           
