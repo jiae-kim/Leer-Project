@@ -551,15 +551,18 @@ public class CommunityDao {
 									rset.getInt("comment_count"));
 				
 				Clob clob = rset.getClob("content");
-				Reader r = clob.getCharacterStream();
-				
 				StringBuffer buffer = new StringBuffer();
-				int ch;
-				while((ch = r.read()) != -1) {
-					buffer.append("" + (char)ch);
-				}
 				
-				cb.setContent(buffer.toString());
+				if(clob != null) {
+					Reader r = clob.getCharacterStream();
+	
+					int ch;
+					while((ch = r.read()) != -1) {
+						buffer.append("" + (char)ch);
+					}
+					
+					cb.setContent(buffer.toString());
+				}
 				
 				list.add(cb);				
 				
