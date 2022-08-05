@@ -245,4 +245,13 @@ public class CommunityService {
 		close(conn);
 		return result;
 	}
+	public ArrayList<ComuBoard> selectMyBoard (int comuNo){
+		Connection conn = getConnection();
+		
+		ArrayList<ComuBoard> cmList = new CommunityDao().selectMyBoard(conn, comuNo);
+		
+		close(conn);
+		return cmList;
+		
+	}
 }

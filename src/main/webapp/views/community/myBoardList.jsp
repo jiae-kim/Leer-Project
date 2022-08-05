@@ -101,7 +101,7 @@
                                     <h4>내가 작성한 게시글 </h4>
                                     <span class="myBoardTitle"><strong><%= loginUser.getNickname() %></strong>님의 게시글 목록</span>
                                 </div>
-                                <!-- 현재 로그인한 사용자가 관리자일 경우(로그인한회원의아이디가 admin일경우) 보여질 div -->
+                                <form action="<%= contextPath%>/deleteBoard.bo"></form>
                                 <table class="list-area" align="center">
                                     <thead>
                                         <tr>
@@ -110,7 +110,7 @@
                                             <th width="100">작성자</th>
                                             <th width="70">조회수</th>
                                             <th width="100">작성일</th>
-                                            <th width="70" class="allch"><input type="checkbox" class="allcheck" id="ch_all" name="ch_all" onclick="CheckAll();"> 전체선택</th>
+                                            <th width="70" class="allch"><input type="checkbox" class="allcheck" id="check_all" name="ch_all" onclick="CheckAll();"> 전체선택</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -123,12 +123,12 @@
                                         	<% for(ComuBoard c : list) { %>
 		                                        <tr>
 		                                            <td>
-		                                      		   <span style="display:none"><%= c.getComuNo() %></span>
+		                                      		   <input type="hidden" name="no"><%= c.getComuNo() %>
 		                                               <span><%= num-- %></span>
 		                                               		 
 		                                            </td>
 		                                            <td align="left">
-		                                                <a class="boardTitle"href="<%=contextPath%>/comuDetail.bo?no=<%= c.getComuNo()%>"><%= c.getTitle() %></a>
+		                                                <a class="boardTitle"><%= c.getTitle() %></a>
 		                                            </td>
 		                                            <td>
 		                                                <span name="nickname"><%= c.getMemNo() %></span>
@@ -139,33 +139,28 @@
 		                                            <td>
 		                                                <span><%= c.getEnrollDate() %></span>
 		                                            </td>
-		                                            <td><input type="checkbox" name="check[]"></td>
+		                                            <td><input type="checkbox" name="chk"></td>
 		                                        </tr>
                                     		<% } %>
                                     <% } %>
                                     </tbody>
                                 </table>
-                         <!--        <script>
-                                	$(document).ready(function(){
-                                		$(".allcheck").click(function(){
-                                			if($(".allcheck").is(":checked")) $("input[name=check]").prop("checked", true);
-                                			
-                                			else $("input[name=check]").prop("checked", false);
-                                			
-                                		});
-                                			$("input[name=check]").click(function() {
-                                				var total = $("input[name=check]").length;
-                                				var checked = $("input[name=check]:checked").length;
-
-                                				if(total != checked) $(".allcheck").prop("checked", false);
-                                				else $(".allcheck").prop("checked", true); 
-                                			});
-                               			});
+								<script>
+                                	
+									$("#check-all").click(function(){
+										if($("#check-all").prop("checked")){
+											$("input[name=chk]").prop("checked", true)
+											
+										}else{
+											$("input[name=chk]").prop("checked", false)
+										}
+									})
+								
                                 		
                                 	
                                 		
                                 
-                                </script> -->
+                                </script>
                                 <% if(!list.isEmpty()){ %>
 	                                <div class="col-lg-12" style="padding: 0;" align="right">
 	                                        <a href="javascript:if(confirm('정말 삭제하시겠습니까?')) del_all('chk[]');" >삭제하기</a>

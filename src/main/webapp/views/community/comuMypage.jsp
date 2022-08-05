@@ -54,9 +54,10 @@
 												<img
 													src="https://ssl.pstatic.net/static/cafe/cafe_pc/default/cafe_profile_70.png"
 													width="58" height="58" alt="프로필사진" class="imgChange">
+													<strong onclick="location.href='<%=contextPath %>/mypage.me'"><%=loginUser.getNickname() %></strong>
 												<% }else { %>	
 												<img src="<%= loginUser.getProfileLink() %>" width="58" height="58" alt="프로필사진" class="imgChange">
-												<strong><%=loginUser.getNickname() %></strong>
+												<strong onclick="location.href='<%=contextPath %>/mypage.me'"><%=loginUser.getNickname() %></strong>
 												<% } %>
 											</div>
 										</li>
