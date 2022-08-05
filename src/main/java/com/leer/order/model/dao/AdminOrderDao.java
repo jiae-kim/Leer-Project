@@ -126,6 +126,30 @@ private Properties prop = new Properties();
 		}
 		return listCount;
 	}
+
+	/* [주문및배송 - 주문및배송조회]
+	 * 운송장 등록
+	 * 작성자 김지애
+	 */
+	public int updateParcel(Connection conn, Order r) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("updateParcel");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, r.getParcelName());
+			pstmt.setString(2, r.getParcelNum());
+			pstmt.setString(3, r.getOrNo());
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}
 	
 }
 

@@ -24,15 +24,15 @@
 
     
     <!-- Css Styles -->
-    <%-- <link rel="stylesheet" href="<%= contextPath %>/resources/css/heeyeong/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="<%= contextPath %>/resources/css/heeyeong/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="<%= contextPath %>/resources/css/heeyeong/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="<%= contextPath %>/resources/css/heeyeong/elegant-icons.css" type="text/css">
     <link rel="stylesheet" href="<%= contextPath %>/resources/css/heeyeong/nice-select.css" type="text/css">
     <link rel="stylesheet" href="<%= contextPath %>/resources/css/heeyeong/jquery-ui.min.css" type="text/css">
     <link rel="stylesheet" href="<%= contextPath %>/resources/css/heeyeong/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="<%= contextPath %>/resources/css/heeyeong/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="<%= contextPath %>/resources/css/heeyeong/style.css" type="text/css"> 
-     --%>
+    <link rel="stylesheet" href="<%= contextPath %>/resources/css/style.css" type="text/css"> 
+    
      
     <style>
     	.login-btn{font-size:13px; color:#393939;}
@@ -44,8 +44,15 @@
 
         .carthere a{
             font-size: 15px !important;
-            margin-top: 30%;
         }
+
+        .carthere ul li{margin-top: 6%;}
+
+
+        .container{
+            width: 100% !important;
+        }
+
     </style>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -74,13 +81,20 @@
 	
 	
     <header class="header">
-        <div class="container">
+    <!-- 화면 전체 비율 조정하려고 클래스명 수정했음 !!!! -->
+        <div class="containerzz">
             <div class="row">
+
+
+                <!-- 로고 -->
                 <div class="col-lg-3">
                     <div class="header__logo">
                         <a href="<%=contextPath %>"><img src="<%= contextPath %>/resources/images/logo.png" alt=""></a>
                     </div>
                 </div>
+
+
+                <!-- 카테고리 -->
                 <div class="col-lg-6">
                     <nav class="header__menu menuhere">
                         <ul>
@@ -96,7 +110,7 @@
                             </li>
                             <li><a href="<%=contextPath%>/comu.bo?cpage=1"><b>커뮤니티</b></a></li>
                             
-                            <li><a href="./blog.html"><b>고객센터</b></a></li>
+                            <li><a href="<%=contextPath%>/mtmPage.mtm"><b>고객센터</b></a></li>
                             
                             <li>
                             <%if(loginUser == null){ %>
@@ -112,6 +126,8 @@
                     </nav>
                 </div>
                 
+
+                <!-- 우측 상단 -->
                 <div class="col-lg-3">
 
 					<% if(loginUser == null){ %>
@@ -120,8 +136,7 @@
 
                         <ul>
                         	<li><a href="<%=contextPath%>/loginPage.me" class="login-btn">로그인</a></li>
-                            &nbsp;
-                        	<li id="login-icon"><a href="<%=contextPath %>/termsPage.me" class="login-btn">회원가입</a></li>
+                        	<li><a href="<%=contextPath %>/termsPage.me" class="login-btn">회원가입</a></li>
                             <li id="login-icon"><a href="#"><i class="fa fa-heart" onclick="login();"></i></a></li>
                             <li><a href="#"><i class="fa fa-shopping-bag"></i></a></li>
                         </ul>
@@ -137,7 +152,7 @@
 					
 						<%if( loginUser.getMemId().equals("admin1") || loginUser.getMemId().equals("admin2") ) {%>
 						
-							<div class="header__cart">
+							<div class="header__cart carthere">
 		                        <ul>
 		                        	<!-- 로그인 한 회원의 이름을 누르면 회원정보 수정 페이지로 넘어가도록 해둠 -->
 		                            <li><a href="<%=contextPath %>/mypage.me" style="text-decoration: none; color:black; font-size:13px;"><%=loginUser.getMemName() %> 님</a><li>
@@ -153,7 +168,7 @@
 						<%}else{ %>
 
 		                    <!-- case2. 로그인 후 -->
-		                    <div class="header__cart">
+		                    <div class="header__cart carthere">
 		                        <ul>
 		                        	<!-- 로그인 한 회원의 이름을 누르면 회원정보 수정 페이지로 넘어가도록 해둠 -->
 		                            <li><a href="<%=contextPath %>/mypage.me" style="text-decoration: none; color:black; font-size:13px;"><%=loginUser.getMemName() %> 님</a><li>

@@ -118,11 +118,27 @@ public class Product {
 	}
 
 	
+	//메인페이지 new product 
+	public Product(String pCode, int categoryNo, String pName, int price, Date publishMonth) {
+		super();
+		this.pCode = pCode;
+		this.categoryNo = categoryNo;
+		this.pName = pName;
+		this.price = price;
+		this.publishMonth = publishMonth;
+	}
+
+	
+	
+	
+	
 	
 	
 	public int getMonth() {
 		return month;
 	}
+
+	
 
 	public void setMonth(int month) {
 		this.month = month;

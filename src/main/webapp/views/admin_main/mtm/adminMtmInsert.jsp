@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="com.leer.mtm.model.vo.Mtm" %>
+<%
+	Mtm m = (Mtm)request.getAttribute("mtm");
+%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -70,10 +74,10 @@
                                 <tbody>
                                     <tr>
                                       <td width="300px" height="45px" style="background:hsl(0, 0%, 77%); color:rgb(80, 80, 80); font-weight: bold;">
-                                        공지사항 제목
+                                        문의사항 제목
                                       </td>
                                       <td width="700px">
-                                          <label for="" style="float: left;">&nbsp;&nbsp; 문의 제목</label> 
+                                          <label for="" style="float: left;">&nbsp;&nbsp; <%=m.getMtmTitle()%></label> 
                                       </td>
                                     </tr>
                                     
@@ -82,14 +86,14 @@
                                         작성자
                                       </td>
                                       <td>
-                                          <label for="" style="float: left;">&nbsp;&nbsp; tttt1</label> 
+                                          <label for="" style="float: left;">&nbsp;&nbsp; <%=m.getMemId()%></label> 
                                       </td>
                                     </tr>
                                   </tbody>
                               </table>
                               <br>
                               <table class="tarea" align="center" style="margin:5px 5px 5px 5px">
-                                <textarea name="" id="" cols="133.5" rows="10" resize="none" placeholder="">문의내용문의내용문의내용</textarea>
+                                <textarea name="" id="" cols="133.5" rows="10" resize="none" placeholder=""><%=m.getMtmContent()%></textarea>
                               </table>
                               <br>
                               <table class="tarea" align="center" style="margin:5px 5px 5px 5px">

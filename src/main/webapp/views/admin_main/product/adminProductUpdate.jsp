@@ -141,16 +141,20 @@
                 <label class="col-md-1">표지 이미지</label>
                 <div class="col-sm-3">
                     <div class="custom-file">
-                        <input name="url1" value="<%=url1%>" type="file" class="custom-file-input" id="validatedCustomFile">
+                        <input name="url1" value="<%=url1%>" type="file" class="custom-file-input" id="validatedCustomFile" style="width:800px">
+                        <% if ( url1 != null){ %>
+                        <label class="custom-file-label" for="validatedCustomFile" style="width:800px" ><%=url1 %></label>
+                        <% } else { %>
                         <label class="custom-file-label" for="validatedCustomFile">표지 이미지를 선택하세요</label>
+                        <%} %>
                     </div>
                 </div>
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-light margin-5" data-toggle="modal" data-target="#Modal3">
+                <!-- <button type="button" class="btn btn-light margin-5" data-toggle="modal" data-target="#Modal3">
                     표지 이미지 미리보기
-                </button>
+                </button> -->
                 <!-- Modal -->
-                <div class="modal fade" id="Modal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <!-- <div class="modal fade" id="Modal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -167,24 +171,28 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
             <!-- 상세 이미지 -->
             <div class="form-group row">
                 <label class="col-md-1">상세 이미지</label>
                 <div class="col-sm-3">
                     <div class="custom-file">
-                        <input type="file" name="url2" value="<%=url2%>" class="custom-file-input" id="validatedCustomFile">
+                        <input type="file" name="url2" value="<%=url2%>" class="custom-file-input" id="validatedCustomFile" style="width:800px">
+                        <% if ( url2 != null){ %>
+                        <label class="custom-file-label" for="validatedCustomFile" style="width:800px"><%=url2 %></label>
+                        <% } else { %>
                         <label class="custom-file-label" for="validatedCustomFile">상세 이미지를 선택하세요</label>
+                        <%} %>
                         <!-- <div class="invalid-feedback">Example invalid custom file feedback</div> -->
                     </div>
                 </div>
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-light margin-5" data-toggle="modal" data-target="#Modal3">
+                <!-- <button type="button" class="btn btn-light margin-5" data-toggle="modal" data-target="#Modal3">
                     상세 이미지 미리보기
-                </button>
+                </button> -->
                 <!-- Modal -->
-                <div class="modal fade" id="Modal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <!-- <div class="modal fade" id="Modal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -201,24 +209,28 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
             <!-- 부록 이미지 -->
             <div class="form-group row">
                 <label class="col-md-1">부록 이미지</label>
                 <div class="col-sm-3">
                     <div class="custom-file">
-                        <input type="file" name="url3" value="<%=url3%>" class="custom-file-input" id="validatedCustomFile">
+                        <input type="file" name="url3" value="<%=url3%>" class="custom-file-input" id="validatedCustomFile" style="width:800px">
+                        <% if ( url3 != null){ %>
+                        <label class="custom-file-label" for="validatedCustomFile" style="width:800px"><%=url3 %></label>
+                        <% } else { %>
                         <label class="custom-file-label" for="validatedCustomFile">부록 이미지를 선택하세요</label>
+                        <%} %>
                         <!-- <div class="invalid-feedback">Example invalid custom file feedback</div> -->
                     </div>
                 </div>
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-light margin-5" data-toggle="modal" data-target="#Modal3">
+                <!-- <button type="button" class="btn btn-light margin-5" data-toggle="modal" data-target="#Modal3">
                     부록 이미지 미리보기
-                </button>
+                </button> -->
                 <!-- Modal -->
-                <div class="modal fade" id="Modal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <!-- <div class="modal fade" id="Modal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -235,7 +247,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
             <!-- 배송비 -->
             <div class="form-group row">

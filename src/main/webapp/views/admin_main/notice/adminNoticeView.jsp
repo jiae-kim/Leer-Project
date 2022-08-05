@@ -39,7 +39,7 @@
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                             </nav>
-                            <button type="button" onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminNotiInsert.jsp'" class="btn btn-info btn-lg">등록</button> &nbsp;&nbsp;&nbsp;
+                            <button type="button" onClick="location.href='<%=request.getContextPath()%>/adEnrollForm.no';" class="btn btn-info btn-lg">등록</button> &nbsp;&nbsp;&nbsp;
                             <button type="button" onclick="location.href='<%=request.getContextPath()%>/views/admin_main/comu/adminNotiModify.jsp'" class="btn btn-warning btn-lg">수정</button> &nbsp;&nbsp;&nbsp;
                             <!-- Button trigger modal -->
                             <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#Modal2">
@@ -110,8 +110,7 @@
                                 </thead>
                                 <tbody class="customtable custom">
                                 	<% for(Notice n : list) { %>
-                                		<tr onclick="location.href='<%=request.getContextPath()%>/views/admin_main/notice/adminNoticeDetail.jsp';">	
-	                                    <%--<tr  onclick="location.href='<%=request.getContextPath()%>/adTListDetail.do?no=<%=t.getTrmNo()%>';" >--%>
+                                		<tr  onclick="location.href='<%=request.getContextPath()%>/adDetail.no?no=<%=n.getNotiNo()%>';" >
 	                                        <th>
 	                                            <label class="customcheckbox">
 	                                                <input type="checkbox" class="listCheckbox" />

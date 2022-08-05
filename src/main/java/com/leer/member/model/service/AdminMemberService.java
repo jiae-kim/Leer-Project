@@ -1,7 +1,9 @@
 package com.leer.member.model.service;
 
 import static com.leer.common.JDBCTemplate.close;
+import static com.leer.common.JDBCTemplate.commit;
 import static com.leer.common.JDBCTemplate.getConnection;
+import static com.leer.common.JDBCTemplate.rollback;
 
 import java.sql.Connection;
 import java.util.ArrayList;
@@ -22,8 +24,7 @@ public class AdminMemberService {
 		close(conn);
 		return list;
 	}
-	
-	
+		
 	// 관리자 회원리스트 조회 페이징처리
 	// 작성자 김은지
 	public int selectMemberListCount() {
@@ -41,6 +42,34 @@ public class AdminMemberService {
 		close(conn);
 		return m;
 	}
+	
+	// 관리자 회원정보 업데이트페이지
+	// 작성자 김은지
+	public Member updateMemberForm(int memNo) {
+		Connection conn = getConnection();
+		Member m = new AdminMemberDao().updateMemberForm(conn, memNo);
+		close(conn);
+		return m;
+	}
+	
+	// 관리자 회원정보 변경
+	// 작성자 김은지
+	public Member updateMember(Member m) {
+		Connection conn = getConnection();
+		int result = new AdminMemberDao().updateMember(conn, m);
+		
+		Member updateMem = null;
+		if(result > 0) {
+			commit(conn);
+			
+			updateMem = new AdminMemberDao().sele
+		} else {
+			rollback(conn);
+		}
+		close(conn);
+		
+		return updateMem;
+	}	
 	
 	// 관리자 장기구독자리스트 조회
 	// 작성자 김은지
@@ -70,5 +99,5 @@ public class AdminMemberService {
 		close(conn);
 		return m;
 	}
-
+	
 }

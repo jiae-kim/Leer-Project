@@ -158,11 +158,9 @@ public class AdminCommunityDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(1, at.getRefCode());
-			pstmt.setInt(2, at.getRefBno());
-			pstmt.setString(3, at.getOriginName());
-			pstmt.setString(4, at.getChangeName());
-			pstmt.setString(5, at.getFilePath());
+			pstmt.setString(1, at.getOriginName());
+			pstmt.setString(2, at.getChangeName());
+			pstmt.setString(3, at.getFilePath());
 			
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {

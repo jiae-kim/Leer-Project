@@ -71,6 +71,14 @@ public class Notice {
 	}
 
 
+	public Notice(String title, String content, String memId) {
+		super();
+		this.title = title;
+		this.content = content;
+		this.memId = memId;
+	}
+
+
 	public int getNotiNo() {
 		return notiNo;
 	}

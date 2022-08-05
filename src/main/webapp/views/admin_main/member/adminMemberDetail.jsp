@@ -106,10 +106,9 @@
 					</table>
 					 </div>
 					<div>
-					<!-- 운영자만 수정, 삭제 버튼을 볼 수 있음 -->
 					<c:if test="${sessionMemberLv == 1}">
 						<div class="d-grid gap-3" style="text-align: center">
-							<a href="" id="btn" class="btn btn-dark" style="width:150px">회원정보변경</a>
+							<a href="<%=request.getContextPath()%>/adUpdateForm.me?no=<%=m.getMemNo()%>" id="btn" class="btn btn-dark" style="width:150px">회원정보변경</a>
                             <a href="" class="btn btn-dark" style="width:150px">회원삭제</a>
 						</div>
                     </c:if>

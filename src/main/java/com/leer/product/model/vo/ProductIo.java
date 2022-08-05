@@ -10,6 +10,7 @@ public class ProductIo {// 상품 입고|출고 테이블
 	private Date statusDate;
 	private String status;
 	private String pName; // product 테이블 조인
+	private String statusDate2; // 입고 등록 시 string형으로 변환
 	
 	public ProductIo() {}
 
@@ -31,12 +32,28 @@ public class ProductIo {// 상품 입고|출고 테이블
 		this.statusDate = statusDate;
 		this.status = status;
 	}
-
+	
+	public ProductIo(int statusNo, String pCode, String status, int statusAmount, String statusDate2) {
+		super();
+		this.statusNo = statusNo;
+		this.pCode = pCode;
+		this.statusAmount = statusAmount;
+		this.status = status;
+		this.statusDate2 = statusDate2;
+	}
+	
 	public int getStatusNo() {
 		return statusNo;
 	}
 
-
+	public String getStatusDate2() {
+		return statusDate2;
+	}
+	
+	public void setStatusDate2(String statusDate2) {
+		this.statusDate2 = statusDate2;
+	}
+	
 	public void setStatusNo(int statusNo) {
 		this.statusNo = statusNo;
 	}

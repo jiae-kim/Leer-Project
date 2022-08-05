@@ -161,5 +161,21 @@ public class AdminProductService {
 		return listCount;
 	}
 	
+	/* [주문및배송 - 입출고관리]
+	 * 상품 재고 전체조회 페이지 : 입고등록
+	 * 작성자 김지애
+	 */
+	public int StockInsertPage(ProductIo pi) {
+		Connection conn = getConnection();
+		int result = new AdminProductDao().StockInsertPage(conn, pi);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		return result;
+	}
 	
 }

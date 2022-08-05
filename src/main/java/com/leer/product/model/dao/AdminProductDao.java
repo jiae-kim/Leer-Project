@@ -5,6 +5,7 @@ import static com.leer.common.JDBCTemplate.close;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -435,9 +436,31 @@ public class AdminProductDao {
 		return listCount;
 	}
 
-
-	
-	
+	/* [주문및배송 - 입출고관리]
+	 * 상품 재고 전체조회 페이지 : 입고등록
+	 * 작성자 김지애
+	 */
+	public int StockInsertPage(Connection conn, ProductIo pi) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("StockInsertPage");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, pi.getStatusNo());
+			pstmt.setString(2, pi.getpCode());
+			pstmt.setString(3, pi.getStatus());
+			pstmt.setInt(4, pi.getStatusAmount());
+			pstmt.setString(5, pi.getStatusDate2());
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}
 
 
 	

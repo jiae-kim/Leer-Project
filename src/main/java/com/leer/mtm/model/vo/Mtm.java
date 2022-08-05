@@ -16,6 +16,8 @@ public class Mtm {
 	private String mtmType;
 	private String ansYn;
 	
+	private String memId; // member테이블
+	
 	public Mtm() {}
 
 	public Mtm(int mtmNo, int memNo, int memNo2, String mtmTitle, String mtmContent, Date enrollDate, Date modifyDate,
@@ -43,6 +45,13 @@ public class Mtm {
 		this.enrollDate = enrollDate;
 		this.mtmType = mtmType;
 		this.ansYn = ansYn;
+	}
+
+	public Mtm(String mtmTitle, String mtmContent, String memId) {
+		super();
+		this.mtmTitle = mtmTitle;
+		this.mtmContent = mtmContent;
+		this.memId = memId;
 	}
 
 	public int getMtmNo() {
@@ -133,12 +142,20 @@ public class Mtm {
 		this.ansYn = ansYn;
 	}
 
+	public String getMemId() {
+		return memId;
+	}
+
+	public void setMemId(String memId) {
+		this.memId = memId;
+	}
+
 	@Override
 	public String toString() {
 		return "Mtm [mtmNo=" + mtmNo + ", memNo=" + memNo + ", memNo2=" + memNo2 + ", mtmTitle=" + mtmTitle
 				+ ", mtmContent=" + mtmContent + ", enrollDate=" + enrollDate + ", modifyDate=" + modifyDate
 				+ ", ansDate=" + ansDate + ", ansContent=" + ansContent + ", mtmType=" + mtmType + ", ansYn=" + ansYn
-				+ "]";
+				+ ", memId=" + memId + "]";
 	}
 	
 }

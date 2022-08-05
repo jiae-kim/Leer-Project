@@ -44,7 +44,7 @@ public class AdminComuBoardListController extends HttpServlet {
 		int startPage;
 		int endPage;
 		
-		listCount = new AdminCommunityService().selectBoardListCount();
+		listCount = new AdminCommunityService().selectComuNotiListCount();
 		currentPage = Integer.parseInt(request.getParameter("cpage"));
 		pageLimit = 10;
 		boardLimit = 10;

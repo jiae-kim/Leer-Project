@@ -57,3 +57,11 @@ public class AdminMemberDetail extends HttpServlet {
 	}
 
 }
+
+
+
+
+
+
+
+
