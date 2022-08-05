@@ -62,7 +62,7 @@ public class AdminMemberService {
 		if(result > 0) {
 			commit(conn);
 			
-			updateMem = new AdminMemberDao().sele
+			updateMem = new AdminMemberDao().updateMemberForm(conn, result);
 		} else {
 			rollback(conn);
 		}

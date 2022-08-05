@@ -55,7 +55,7 @@
 							</tr>
 							<tr>
 								<th class="text-center" style="width:400px">아이디</th>
-								<td><%=m.getMemId()%></td>
+								<td><input type="text" name="memName" value="<%=m.getMemId()%>" required></td>
 							</tr>
 							<tr>
 								<th class="text-center">이름</th>
