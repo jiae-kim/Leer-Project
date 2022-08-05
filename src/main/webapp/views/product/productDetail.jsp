@@ -549,8 +549,6 @@
                 	
                 	$("#scrap").click(function(){
                 		
-                		let $scrapBtn = $(this);
-                		
                 		if( $(this).is(".in") ){
                 			console.log("찜하기클릭");
 		                 	// 찜하지 않은 회원이 찜하기 버튼 클릭 시 insert
@@ -561,12 +559,13 @@
 	                            success:function(result){ 
                             	   // insert 성공 => btn글자 찜완료로 변경
 	                               if(result > 0) { 
-	                            	   $scrapBtn.text("찜완료");
+	                            	   $("#insertScrap").text("찜완료");
 	                            	   
 	                            	   //글자 변경이 바로 안되고 새로고침 해야하는 문제 
 	                            	   //location.reload();
 	                            	   $scrapBtn.removeClass("in");
-	                            	   $scrapBtn.addClass("de");
+	                                   $scrapBtn.addClass("de");
+	                            	   
 	                               }
 	                            },
 	                            error:function(){
@@ -582,10 +581,10 @@
 	                            success:function(result){ 
                             	   // delete 성공 => btn글자 찜하기로 변경
 	                               if(result > 0) { 
-	                            	   $scrapBtn.text("찜하기");
+	                            	   $("#deleteScrap").text("찜하기");
 	                            	   //location.reload();
 	                            	   $scrapBtn.removeClass("de");
-	                            	   $scrapBtn.addClass("in");
+	                                   $scrapBtn.addClass("in");
 	                               }
 	                            },
 	                            error:function(){
@@ -727,20 +726,20 @@
                                                 <script>
                                                     function write(){
                                                         $.ajax({
-                                                        	url:"<%=contextPath%>/inquiry.pd"
+                                                        	url:"<%=contextPath%>/inquiry.pd",
                                                         	data:{
-                                                        		pNo:<%=p.getpCode()%> 
-                                                        		memName:<%=loginUser.getMemNo()%>
-                                                        		category:$("input[type=radio]:checked").val()
-                                                        		title:$("#title").val()
+                                                        		pNo:'<%=p.getpCode()%>' ,
+                                                        		memName:<%=loginUser.getMemNo()%>,
+                                                        		category:$("input[type=radio]:checked").val(),
+                                                        		title:$("#title").val(),
                                                         		content:$("#content").val()
                                                         	},
-                                                        	type:"post"
+                                                        	type:"post",
                                                         	success:function(result){ // 상품문의 성공 
                                                         		if(result>0){
-                                                        			console.log(result);
+                                                        			console.log(result)
                                                         		    $('html, body').animate({scrollTop: $(this.hash).offset.top}, 300);
-                                                        		    let value = "";
+                                                        		   <%--  let value = "";
                                             						for(let i=0; i<list.length; i++){
                                             							value += 
                                             							'<div class="col-lg-4 col-md-6 col-sm-6">' + 
@@ -759,8 +758,8 @@
                                     	                            		'</div>' + 
                                     	                       			'</div>'   
                                             						}
-                                            						$("#list-area").html(value);
-                                                        		    
+                                            						$("#list-area").html(value); --%>
+                                                        		     
                                                         		}
                                                         		// 그 페이지 부분 목록에 보여지게 다시 
                                                         	}

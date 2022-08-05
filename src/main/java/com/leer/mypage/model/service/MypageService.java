@@ -22,6 +22,12 @@ public class MypageService {
 		
 		int result = new MypageDao().insertProductCart(conn, c);
 		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		
 		close(conn);
 		return result;
 		
@@ -42,6 +48,12 @@ public class MypageService {
 		Connection conn = getConnection();
 		
 		int result = new MypageDao().deleteCart(conn, cartNo);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
 		
 		close(conn);
 		return result;

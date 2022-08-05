@@ -77,11 +77,34 @@
 		       ) 
 	</entry>
 	
-	<entry key="updateOutStock">
-		
+	<entry key="insertOutStock">
+		INSERT
+		  INTO PRODUCT_IO
+		       	(
+		       	STATUS_NO
+		      , P_CODE
+		      , STATUS_AMOUNT
+		      , STATUS_DATE
+		      , STATUS
+		      )
+		       VALUES
+		       (
+		        SEQ_STAT.NEXTVAL
+		      , ?
+		      , ?
+		      , CURRENT_DATE
+		      , '출고'
+		      
+		       ) 
+	</entry>
+	
+	<entry key="updatePoint">
+		UPDATE
+			   MEMBER
+		   SET POINT = POINT + (? * 0.1)
+		 WHERE MEM_NO = ?
 	</entry>
 
-
-
+	
 
 </properties>

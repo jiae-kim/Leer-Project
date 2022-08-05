@@ -1,7 +1,9 @@
 package com.leer.product.model.service;
 
-import static com.leer.common.JDBCTemplate.*;
+import static com.leer.common.JDBCTemplate.close;
+import static com.leer.common.JDBCTemplate.commit;
 import static com.leer.common.JDBCTemplate.getConnection;
+import static com.leer.common.JDBCTemplate.rollback;
 
 import java.sql.Connection;
 import java.util.ArrayList;
@@ -98,5 +100,21 @@ public class ProductService {
 		return result;
 	}
 	
+	public int insertInquiry(Inquiry i) {
+		
+		Connection conn = getConnection();
+		
+		int result = new ProductDao().insertInquiry(i);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		
+		return result;
+		
+	}
 	
 }

@@ -1,7 +1,9 @@
 package com.leer.order.model.service;
 
 import static com.leer.common.JDBCTemplate.close;
+import static com.leer.common.JDBCTemplate.commit;
 import static com.leer.common.JDBCTemplate.getConnection;
+import static com.leer.common.JDBCTemplate.rollback;
 
 import java.sql.Connection;
 import java.util.ArrayList;
@@ -36,6 +38,12 @@ public Cart selectOrderList(String chk){
 		Connection conn = getConnection();
 		int result = new OrderDao().insertOrder(conn, o);
 		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		
 		close(conn);
 		return result;
 	}
@@ -45,6 +53,12 @@ public Cart selectOrderList(String chk){
 		Connection conn = getConnection();
 		int result = new OrderDao().insertOrProduct(conn, op);
 		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		
 		close(conn);
 		return result; 
 	}
@@ -53,6 +67,12 @@ public Cart selectOrderList(String chk){
 		
 		Connection conn = getConnection();
 		int result = new OrderDao().insertOutStock(conn, c);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
 		
 		close(conn);
 		return result;

@@ -235,4 +235,29 @@ public class ProductDao {
 	      return result;
 	}
 	
+	public int insertInquiry(Connection conn, Inquiry i) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("insertInquiry");
+		
+		try {
+			pstmt.setString(1, i.getpCode2());
+			pstmt.setInt(2, i.getMemNo());
+			pstmt.setString(3, i.getTitle());
+			pstmt.setString(4, i.getContent());
+			pstmt.setString(4, i.getqCategory());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}
+	
 }

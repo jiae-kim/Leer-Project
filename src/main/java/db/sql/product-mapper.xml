@@ -88,6 +88,29 @@
 		   AND MEM_NO = ?
 	</entry>
 	
+	<entry key="insertInquiry">
+		INSERT
+		  INTO INQUIRY
+		       (
+		         Q_NO
+		       , P_CODE
+		       , MEM_NO
+		       , TITLE
+		       , CONTENT
+		       , Q_CATEGORY
+		       , ENROLL_DATE 
+		       )
+		       VALUES
+		       (
+		         SEQ_QNO
+		       , ?
+		       , ?
+		       , ?
+		       , ?
+		       , ?
+		       , CURRENT_DATE
+		       )
+	</entry>
 	
 	
 </properties>

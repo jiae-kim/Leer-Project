@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+import com.leer.product.model.service.ProductService;
 import com.leer.product.model.vo.Inquiry;
 
 /**
@@ -37,7 +39,22 @@ public class AjaxProductInquiryController extends HttpServlet {
 		String content = request.getParameter("content");
 		
 		Inquiry i = new Inquiry();
-		i.setpCode(pCode);
+		i.setpCode2(pCode);
+		i.setMemName(memName);
+		i.setqCategory(category);
+		i.setTitle(title);
+		i.setContent(content);
+		
+		int result = new ProductService().insertInquiry(i);
+		
+		if(result > 0) {
+			
+			request.setAttribute("inquiry", i);
+			
+			response.setContentType("application/json; charset=UTF-8");
+			new Gson().toJson(i, response.getWriter()); 
+		}
+		
 		
 		
 	}
