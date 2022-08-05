@@ -93,9 +93,9 @@
                     </div>
                     <div class="featured__controls">
                         <ul>
-                            <li class="active" data-filter=".10" name="10">패션 / 여성</li>
-                            <li data-filter=".20" name="20">라이프 / 인테리어</li>
-                            <li data-filter=".30" name="30">문화 / 예술</li>
+                            <li data-filter=".10" name="10" onclick="selectNew(10);">패션 / 여성</li>
+                            <li data-filter=".20" name="20" onclick="selectNew(20);">라이프 / 인테리어</li>
+                            <li data-filter=".30" name="30" onclick="selectNew(30);">문화 / 예술</li>
                             <li data-filter=".40" name="40">여행 / 취미</li>
                             <li data-filter=".50" name="50">시사 / 경제</li>
                             <li data-filter=".60" name="60">교육 / 과학</li>
@@ -104,14 +104,7 @@
                 </div>
             </div>
 
-            <div class="row featured__filter">
-                <div class="col-lg-3 col-md-4 col-sm-6 mix">
-                    <div class="featured__item" id="out">
-                    
-                        <!-- 출력될 자리 -->
-                        
-                    </div>
-                </div>
+            <div class="row featured__filter" id="newSelect">
             </div>
                 
         </div>
@@ -121,15 +114,15 @@
     
     <script>
     	$(function(){
-    		selectNew();
+    		selectNew(10);
     		selectBest();
     	})
     	
-		function selectNew(){
+		function selectNew(cateNo){
     	
     		$.ajax({
     			url:"<%=contextPath%>/selectNew.id",
-    			data:{categoryNo:10}, //li요소 클릭시 해당하는 카테고리 값이 여기 데이터로 적용돼 넘어가야 함!!!!
+    			data:{categoryNo:cateNo}, //li요소 클릭시 해당하는 카테고리 값이 여기 데이터로 적용돼 넘어가야 함!!!!
     			success:function(list){
     				
     				console.log(list);
@@ -137,19 +130,25 @@
     					let value = "";
     					for(let i=0; i<list.length; i++){
     						
-	    					value += "<div class='featured__item__pic set-bg' style='background-image:url(" + list[i].imageUrl1 + ")'>" 
-	    						   + "<ul class='featured__item__pic__hover'>"
-	                        	   + "<li><a href=''><i class='fa fa-heart'></i></a></li>"
-	                           	   + "<li><a href=''><i class='fa fa-shopping-cart'></i></a></li>"
-	                               + "</ul>"
-	                               + "</div>"
-	                        	   + "<div class='featured__item__text'>"
-	                    		   + "<h6><a href='#'>" + list[i].pName + "</a></h6>"
-	                    		   + "<h5>" + list[i].price + "원</h5>"
-	                        	   + "</div>" ;
+    						
+    						value += '<div class="col-lg-3 col-md-4 col-sm-6 mix">'
+				    		       +     '<div class="featured__item">'
+				                   +         '<div class="featured__item__pic set-bg" style="background-image:url(\'' + list[i].imageUrl1 + '\')">'
+				                   +             '<ul class="featured__item__pic__hover">'
+				                   +                 '<li><a href="#"><i class="fa fa-heart"></i></a></li>'
+				                   +                 '<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>'
+				                   +             '</ul>'
+				                   +         '</div>'
+				                   +         '<div class="featured__item__text">'
+				                   +             '<h6><a href="#">' + list[i].pName + '</a></h6>'
+				                   +             '<h5>' + list[i].price + '</h5>'
+				                   +         '</div>'
+				                   +     '</div>'
+				                   + '</div>';	
+			    						
 	                        		  
-							$("#out").html(value);
                     	}	
+						$("#newSelect").html(value);
     					console.log(value);
     			},
     			error:function(){
