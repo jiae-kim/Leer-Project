@@ -25,7 +25,7 @@
 
     
     <!-- Css Styles -->
-    <link rel="stylesheet" href="<%= contextPath %>/resources/css/heeyeong/bootstrap.min.css" type="text/css">
+   <link rel="stylesheet" href="<%= contextPath %>/resources/css/heeyeong/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="<%= contextPath %>/resources/css/heeyeong/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="<%= contextPath %>/resources/css/heeyeong/elegant-icons.css" type="text/css">
     <link rel="stylesheet" href="<%= contextPath %>/resources/css/heeyeong/nice-select.css" type="text/css">
@@ -33,7 +33,6 @@
     <link rel="stylesheet" href="<%= contextPath %>/resources/css/heeyeong/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="<%= contextPath %>/resources/css/heeyeong/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="<%= contextPath %>/resources/css/style.css" type="text/css"> 
-    
      
     <style>
        .login-btn{font-size:13px; color:#393939;}
@@ -198,7 +197,7 @@
         </div>
     </header>
     
-     <!-- Js Plugins --><%-- 
+     <!-- Js Plugins -->
     <script src="<%=contextPath %>/resources/js/jquery-3.3.1.min.js"></script>
     <script src="<%=contextPath %>/resources/js/bootstrap.min.js"></script>
     <script src="<%=contextPath %>/resources/js/jquery.nice-select.min.js"></script>
@@ -207,6 +206,6 @@
     <script src="<%=contextPath %>/resources/js/mixitup.min.js"></script>
     <script src="<%=contextPath %>/resources/js/owl.carousel.min.js"></script>
     <script src="<%=contextPath %>/resources/js/main.js"></script>
-     --%>
+    
     </body>
 </html>

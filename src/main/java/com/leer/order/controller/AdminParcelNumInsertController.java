@@ -45,7 +45,7 @@ public class AdminParcelNumInsertController extends HttpServlet {
 		int result = new AdminOrderService().updateParcel(r);
 		
 		if(result > 0) {// 성공 : 주문배송관리 목록 페이지
-			response.sendRedirect(request.getContextPath() + " /adOrderList.do?cpage=1");
+			response.sendRedirect(request.getContextPath() + "/adOrderList.do?cpage=1");
 		}else {
 			request.getRequestDispatcher("views/admin_main/error/adminErrorPage.jsp").forward(request, response);
 		}

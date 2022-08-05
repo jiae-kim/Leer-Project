@@ -39,18 +39,27 @@ public class AdminMemberUpdateController extends HttpServlet {
 		String address = request.getParameter("address");
 		String phone = request.getParameter("phone");
 		
-		Member m = new Member(memId, memName, address, phone);
+		//Member m = new Member(memId, memName, address, phone);
+		Member m = new Member();
+		m.setMemId(memId);
+		m.setMemName(memName);
+		m.setAddress(address);
+		m.setPhone(phone);
 		
-		Member updateMem = new AdminMemberService().updateMember(m);
+		int result = new AdminMemberService().updateMember(m);
 		
-		if(updateMem == null) {
-			request.setAttribute("errorMsg", "회원정보수정에 실패했습니다.");
-			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
-		}else {
+		if(result > 0) {
+			
 			HttpSession session = request.getSession();
 			session.setAttribute("alertMsg", "성공적으로 수정했습니다.");
 			
 			response.sendRedirect(request.getContextPath() + "/adMemList.do?cpage=1");
+			
+		}else {
+
+			request.setAttribute("errorMsg", "회원정보수정에 실패했습니다.");
+			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
+			
 		}
 		
 	}

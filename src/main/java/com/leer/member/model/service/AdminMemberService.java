@@ -54,21 +54,19 @@ public class AdminMemberService {
 	
 	// 관리자 회원정보 변경
 	// 작성자 김은지
-	public Member updateMember(Member m) {
+	public int updateMember(Member m) {
 		Connection conn = getConnection();
 		int result = new AdminMemberDao().updateMember(conn, m);
 		
-		Member updateMem = null;
 		if(result > 0) {
 			commit(conn);
 			
-			updateMem = new AdminMemberDao().updateMemberForm(conn, result);
 		} else {
 			rollback(conn);
 		}
 		close(conn);
 		
-		return updateMem;
+		return result;
 	}	
 	
 	// 관리자 회원정보 삭제

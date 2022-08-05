@@ -60,5 +60,22 @@ public class AdminFaqService {
 		close(conn);
 		return f;
 	}
+
+	/* [고객센터 - FAQ]
+	 * FAQ 등록
+	 * 작성자 김지애
+	 */
+	public int FaqInsertPage(Faq f) {
+		Connection conn = getConnection();
+		int result = new AdminFaqDao().FaqInsertPage(conn, f);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		return result;
+	}
 	
 }

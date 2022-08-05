@@ -147,5 +147,29 @@ public class AdminFaqDao {
 		}
 		return f;
 	}
+
+	/* [고객센터 - FAQ]
+	 * FAQ 등록
+	 * 작성자 김지애
+	 */
+	public int FaqInsertPage(Connection conn, Faq f) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("FaqInsertPage");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, f.getFaqCategory());
+			pstmt.setString(2, f.getFaqTitle());
+			pstmt.setString(3, f.getFaqContent());
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}
 	
 }

@@ -56,7 +56,7 @@ public class AdminReviewDao {
 									rset.getString("review_content"),
 									rset.getInt("review_scope"),
 									rset.getDate("enroll_date"),
-									rset.getString("rpoint_yn")));
+									rset.getString("write_yn")));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

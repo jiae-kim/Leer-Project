@@ -57,17 +57,17 @@
 	                                        <tr>
 	                                            <td>택배사</td>
 	                                            <td>
-	                                                <select name="parcel" id="parcel-select" class="col-md-12">
+	                                                <select name="parcelName" id="parcel-select" class="col-md-12">
 	                                                    <option disabled selected hidden>택배사를 선택하세요</option>
-	                                                    <option value="d">대한통운</option>
-	                                                    <option value="h">한진택배</option>
-	                                                    <option value="p">우체국택배</option>
+	                                                    <option>대한통운</option>
+	                                                    <option>한진택배</option>
+	                                                    <option>우체국택배</option>
 	                                                </select>
 	                                            </td>
 	                                        </tr>
 	                                        <tr>
 	                                            <td>운송장 번호</td>
-	                                            <td><input type="text" name="parcelNo" class="col-md-12" required placeholder="운송장 번호('-'포함)"></td>
+	                                            <td><input type="text" name="parcelNum" class="col-md-12" required placeholder="운송장 번호('-'포함)"></td>
 	                                        </tr>
 	                                    </table>        
 	                                </div>

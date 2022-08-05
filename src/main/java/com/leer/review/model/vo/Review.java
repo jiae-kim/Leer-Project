@@ -209,7 +209,7 @@ public class Review {
 	 * 작성자 김지애
 	 */
 	public Review(int reviewNo, String memId, String pName, String p_code, String reviewContent, int reviewScope,  
-			Date enrollDate, String rpointYn) {
+			Date enrollDate, String writeYN) {
 		super();
 		this.reviewNo = reviewNo;
 		this.memId = memId;
@@ -218,7 +218,7 @@ public class Review {
 		this.reviewContent = reviewContent;
 		this.reviewScope = reviewScope;
 		this.enrollDate = enrollDate;
-		this.rpointYn = rpointYn;
+		this.writeYN = writeYN;
 	}
 	
 	@Override

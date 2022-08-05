@@ -447,11 +447,9 @@ public class AdminProductDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, pi.getStatusNo());
-			pstmt.setString(2, pi.getpCode());
-			pstmt.setString(3, pi.getStatus());
-			pstmt.setInt(4, pi.getStatusAmount());
-			pstmt.setString(5, pi.getStatusDate2());
+			pstmt.setString(1, pi.getpCode());
+			pstmt.setInt(2, pi.getStatusAmount());
+			pstmt.setString(3, pi.getStatusDate2());
 			
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {

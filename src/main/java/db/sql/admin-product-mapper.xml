@@ -262,9 +262,10 @@
 			      , R.REVIEW_CONTENT
 			      , R.REVIEW_SCOPE
 			      , R.ENROLL_DATE
-			      , R.RPOINT_YN
+			      , R.WRITE_YN
 			    FROM  REVIEW R
 			    JOIN MEMBER M ON (R.MEM_NO = M.MEM_NO)
+			    WHERE R.WRITE_YN = 'Y'
 			    ORDER  BY REVIEW_NO DESC
 	  		 		) A
 	  		)
@@ -280,7 +281,7 @@
 	      , REVIEW_CONTENT
 	      , REVIEW_SCOPE
 	      , ENROLL_DATE
-	      , RPOINT_YN
+	      , RPOINT_YN // 변경함
 	  FROM  REVIEW
 	 ORDER  BY REVIEW_NO
 	-->
@@ -292,10 +293,11 @@
 	</entry>
 	
 	<entry key="StockInsertPage">
-		INSERT INTO PRODUCT_IO
-		(STATUS_NO, P_CODE, STATUS, STATUS_AMOUNT, STATUS_DATE)
+		INSERT 
+		  INTO PRODUCT_IO
+		  (STATUS_NO, P_CODE, STATUS, STATUS_AMOUNT, STATUS_DATE)
 		VALUES
-		(SEQ_STAT.NEXTVAL, ?, '입고', ?, ?); 
+		  (SEQ_STAT.NEXTVAL, ?, '입고', ?, to_date(?, 'MM/DD/YYYY'))
 	</entry>
 	<!-- 
 		INSERT INTO PRODUCT_IO

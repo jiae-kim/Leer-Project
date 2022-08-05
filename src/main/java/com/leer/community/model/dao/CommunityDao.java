@@ -705,4 +705,5 @@ public class CommunityDao {
 		}
 		return result;
 	}
+//	public ArrayList<>
 }

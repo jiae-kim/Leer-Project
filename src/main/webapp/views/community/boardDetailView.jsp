@@ -244,7 +244,7 @@ style="margin-left:10px";
 				<div class="detailHead">
 					<div class="detailTitle">
 						<div class="boardList">
-							<a href="<%=contextPath%>/comu.bo?cpage=1"><%=c.getCategoryNo()%>
+							<a href="<%=contextPath%>/comu.bo?cpage=1"><%=c.getCategoryName()%>
 								목록으로 ></a>
 						</div>
 						<div style="height: 30px;">
