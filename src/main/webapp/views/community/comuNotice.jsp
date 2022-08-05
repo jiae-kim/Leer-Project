@@ -119,6 +119,7 @@ String flag = (String)request.getAttribute("flag");
 		                                      		   <span><%= n.getNotiNo() %></span>
 		                                               		 
 		                                            </td>
+		                                            
 		                                            <td align="left">
 		                                                <a class="boardTitle" href="<%=contextPath%>/comuNotiDetail.bo?no=<%= n.getNotiNo()%>"><%= n.getTitle() %></a>
 		                                            </td>
