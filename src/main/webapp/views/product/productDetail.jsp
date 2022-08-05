@@ -733,8 +733,28 @@
                                                         	type:"post"
                                                         	success:function(result){ // 상품문의 성공 
                                                         		if(result>0){
-                                                        			
+                                                        			console.log(result);
                                                         		    $('html, body').animate({scrollTop: $(this.hash).offset.top}, 300);
+                                                        		    let value = "";
+                                            						for(let i=0; i<list.length; i++){
+                                            							value += 
+                                            							'<div class="col-lg-4 col-md-6 col-sm-6">' + 
+                                        	                            	'<div class="product__item">' + 
+                                    	                                		'<div class="product__item__pic set-bg" style="background-image:url(' + list[i].imageUrl1 + ')">' + 
+                                    	                                    		'<ul class="product__item__pic__hover">' + 
+                                    	                                        		'<li><a href="#"><i class="fa fa-heart"></i></a></li>' + 
+                                    	                                        		'<li><a href="#"><i class="fa fa-retweet"></i></a></li>' +
+                                    	                                        		'<li><a href="' + '<%=contextPath%>/detail.pd?pNo=' + list[i].pCode + '"><i class="fa fa-shopping-cart"></i></a></li>' + 
+                                    	                                    		'</ul>' + 
+                                    	                                		'</div>' +
+                                    	                                		'<div class="product__item__text">' + 
+                                    	                                   			'<h6><a href="#">' + list[i].pName + '</a></h6>' + 
+                                    	                                    		'<h5>' + number_format(list[i].price) + '원</h5>' + 
+                                    	                              			'</div>' +
+                                    	                            		'</div>' + 
+                                    	                       			'</div>'   
+                                            						}
+                                            						$("#list-area").html(value);
                                                         		    
                                                         		}
                                                         		// 그 페이지 부분 목록에 보여지게 다시 
