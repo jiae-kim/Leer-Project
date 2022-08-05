@@ -12,7 +12,7 @@
         .signUp-turms-wrap{
             background-color: white !important;
             margin-top: 100px !important;
-            /* margin: auto; */
+            margin: auto;
         }
 
         .signUp-turms-info{
@@ -69,8 +69,7 @@
         </div>
 
 
-        <!-- <form class="signUp-turms-content" action="" method=""></form> -->
-
+        <div class="signUp-turms-content" action="" method="">
             <div id="turms1">
                 <p>회원 이용약관</p>
                 <hr><br>
@@ -132,7 +131,8 @@
                 <button type="submit" id="next">다음</button>
             </div>
         
-        
+        </div>
+
         
         <script>
         	$(function(){
