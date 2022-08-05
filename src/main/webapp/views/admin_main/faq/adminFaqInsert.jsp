@@ -110,20 +110,19 @@
                         <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="blog__item__text2">
                                     <h4 align="left" class="boardTitle"><b>FAQ작성</b></h4><hr style="color: black">
-                                    <form action="" method="post" id="enroll-form"
-                                        enctype="multipart/form-data">
+                                    <form action="<%=request.getContextPath()%>/adFaqList.do?cpage=1" method="post" id="enroll-form" enctype="multipart/form-data">
                                         <table align="center">
                                             <tr>
                                                 <th width="800" colspan="2">카테고리 선택</th>
                                             </tr>
                                             <tr style="float: left">
                                                 <td colspan="2" style="">
-                                                    <select name="category">
-                                                            <option value="" disabled selected hidden>카테고리를 선택하세요.</option>
-                                                            <option value="">주문/결제</option>
-                                                            <option value="">반품</option>
-                                                            <option value="">적립금</option>
-                                                            <option value="">로그인/회원가입</option>
+                                                    <select name="faqCategory">
+                                                            <option disabled selected hidden>카테고리를 선택하세요.</option>
+                                                            <option value="주문/결제">주문/결제</option>
+                                                            <option value="반품">반품</option>
+                                                            <option value="적립금">적립금</option>
+                                                            <option value="로그인/회원가입">로그인/회원가입</option>
                                                     </select>
                                                 </td>
                                             </tr>
@@ -132,15 +131,14 @@
                                             </tr>
                                             
                                             <tr>
-                                                <td colspan="2"><input type="text" name="title" required></td>
+                                                <td colspan="2"><input type="text" name="faqTitle" required></td>
                                             </tr>
                                             <tr>
                                                 <th colspan="2">내용을 작성해주세요.</th>
                                                 
                                             </tr>
                                             <tr>
-                                                <td colspan="2"><textarea id="summernote" name="editordata" rows="10" required
-                                                    style="resize:none"></textarea></td>
+                                                <td colspan="2"><textarea id="summernote" name="faqContent" rows="10" required style="resize:none"></textarea></td>
                                             </tr>
                                         </table>
 
