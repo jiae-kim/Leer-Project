@@ -35,11 +35,6 @@
 <body>
 
 	<%@ include file="views/common/menubar.jsp" %>
-	<br>
-	<a href="<%=contextPath%>/views/admin_main/adminMainPage.jsp">관리자메인페이지 바로가기</a> <br>
-	<a href="<%=contextPath%>/views/order/orderComplete.jsp">주문완료페이지 바로가기(완료후 삭제 예정)</a> 
-	
-	
 	
 	<!-- 메뉴바 이하 내용들 -->
 	
