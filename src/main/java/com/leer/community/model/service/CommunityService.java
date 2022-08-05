@@ -138,7 +138,7 @@ public class CommunityService {
 		
 		Connection conn = getConnection();
 		
-		int result = new CommunityDao().increaseCount(conn, notiNo);
+		int result = new CommunityDao().notiIncreaseCount(conn, notiNo);
 		
 		if(result > 0) {
 			commit(conn);

@@ -202,7 +202,8 @@
 					     , NOTI_VIEWS 
 				      FROM NOTICE N
                      JOIN MEMBER USING (MEM_NO)
-				     WHERE NOTI_TYPE = '커뮤니티' OR NOTI_TYPE = '2'
+				     WHERE (NOTI_TYPE = '커뮤니티' OR NOTI_TYPE = '2')
+				     
 				       AND BLIND_YN = 'N'
 				     ORDER
 				        BY NOTI_NO DESC
@@ -229,7 +230,7 @@
 		  FROM NOTICE N
 		  JOIN MEMBER USING (MEM_NO)
 		 WHERE NOTI_NO = ?
-		   AND NOTI_TYPE = '커뮤니티' OR NOTI_TYPE = '2' 
+		   AND (NOTI_TYPE = '커뮤니티' OR NOTI_TYPE = '2') 
 	
 	</entry>
 	
@@ -242,6 +243,8 @@
 		  FROM ATTACHMENT
 		 WHERE REF_CODE = '커뮤공지'
 		   AND REF_BNO = ?
+		   
+		   
 	</entry>
 	
 	<entry key="selectCategory">

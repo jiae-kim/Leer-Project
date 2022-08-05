@@ -44,7 +44,9 @@ public class ComuMainController extends HttpServlet {
 		}
 		
 		Member m = new CommunityService().selectMyCount(memNo);
+		
 		request.setAttribute("m", m);
+		
 				int listCount; 		
 				int currentPage; 	
 				int pageLimit; 		
