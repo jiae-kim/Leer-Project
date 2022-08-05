@@ -733,8 +733,8 @@
                                                         	success:function(result){ // 상품문의 성공 
                                                         		if(result>0){
                                                         			console.log(result)
-                                                        		    $('html, body').animate({scrollTop: $(this.hash).offset.top}, 300);
-                                                        		   <%--  let value = "";
+                             
+                                                        		   let value = "";
                                             						for(let i=0; i<list.length; i++){
                                             							value += 
                                             							'<div class="col-lg-4 col-md-6 col-sm-6">' + 
@@ -753,7 +753,7 @@
                                     	                            		'</div>' + 
                                     	                       			'</div>'   
                                             						}
-                                            						$("#list-area").html(value); --%>
+                                            						$("#list-area").html(value); 
                                                         		     
                                                         		}
                                                         		// 그 페이지 부분 목록에 보여지게 다시 

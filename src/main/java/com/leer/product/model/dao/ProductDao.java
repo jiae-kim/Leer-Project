@@ -87,6 +87,65 @@ public class ProductDao {
 		return list;
 	}
 	
+	public ArrayList<Product>selectProductListOld2(Connection conn){
+		ArrayList<Product>list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectProductListOld2");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery(); 
+			
+			while(rset.next()) {
+				
+				list.add(new Product(rset.getString("p_code"),
+						 rset.getInt("category_no"),
+						 rset.getString("p_name"),
+						 rset.getInt("price"),
+						 rset.getDate("publish_month"),
+						 rset.getString("image_url1")));
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return list;
+	}
+	
+	public ArrayList<Product>selectProductListOld3(Connection conn){
+		ArrayList<Product>list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectProductListOld3");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery(); 
+			
+			while(rset.next()) {
+				
+				list.add(new Product(rset.getString("p_code"),
+						 rset.getInt("category_no"),
+						 rset.getString("p_name"),
+						 rset.getInt("price"),
+						 rset.getDate("publish_month"),
+						 rset.getString("image_url1")));
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return list;
+	}
 	public Product selectProductDetail(Connection conn, String pCode) {
 		Product p = null;
 		PreparedStatement pstmt = null;
@@ -258,6 +317,66 @@ public class ProductDao {
 			close(pstmt);
 		}
 		return result;
+	}
+	
+	public ArrayList<Product>selectProductList2(Connection conn){
+		ArrayList<Product>list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectProductList2");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery(); 
+			
+			while(rset.next()) {
+				
+				list.add(new Product(rset.getString("p_code"),
+						 rset.getInt("category_no"),
+						 rset.getString("p_name"),
+						 rset.getInt("price"),
+						 rset.getDate("publish_month"),
+						 rset.getString("image_url1")));
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return list;
+	}
+	
+	public ArrayList<Product>selectProductList3(Connection conn){
+		ArrayList<Product>list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectProductList3");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery(); 
+			
+			while(rset.next()) {
+				
+				list.add(new Product(rset.getString("p_code"),
+						 rset.getInt("category_no"),
+						 rset.getString("p_name"),
+						 rset.getInt("price"),
+						 rset.getDate("publish_month"),
+						 rset.getString("image_url1")));
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return list;
 	}
 	
 }

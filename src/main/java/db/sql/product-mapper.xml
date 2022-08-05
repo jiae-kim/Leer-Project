@@ -14,6 +14,32 @@
 			ORDER BY PUBLISH_MONTH DESC
 	</entry>
 	
+	<entry key="selectProductList2">
+		SELECT
+				P_CODE
+			  , CATEGORY_NO
+			  , P_NAME
+			  , PRICE
+			  , PUBLISH_MONTH
+			  , IMAGE_URL1
+			FROM PRODUCT
+			WHERE CATEGORY_NO = 20
+			ORDER BY PUBLISH_MONTH DESC
+	</entry>
+	
+	<entry key="selectProductList3">
+		SELECT
+				P_CODE
+			  , CATEGORY_NO
+			  , P_NAME
+			  , PRICE
+			  , PUBLISH_MONTH
+			  , IMAGE_URL1
+			FROM PRODUCT
+			WHERE CATEGORY_NO = 30
+			ORDER BY PUBLISH_MONTH DESC
+	</entry>
+	
 	<entry key="selectProductListOld">
 		SELECT
 			    P_CODE
@@ -24,6 +50,32 @@
 			  , IMAGE_URL1
 			FROM PRODUCT
 			WHERE CATEGORY_NO = 10
+			ORDER BY PUBLISH_MONTH ASC
+	</entry>
+	
+	<entry key="selectProductListOld2">
+		SELECT
+			    P_CODE
+			  , CATEGORY_NO
+			  , P_NAME
+			  , PRICE
+			  , PUBLISH_MONTH
+			  , IMAGE_URL1
+			FROM PRODUCT
+			WHERE CATEGORY_NO = 20
+			ORDER BY PUBLISH_MONTH ASC
+	</entry>
+	
+	<entry key="selectProductListOld3">
+		SELECT
+			    P_CODE
+			  , CATEGORY_NO
+			  , P_NAME
+			  , PRICE
+			  , PUBLISH_MONTH
+			  , IMAGE_URL1
+			FROM PRODUCT
+			WHERE CATEGORY_NO = 30
 			ORDER BY PUBLISH_MONTH ASC
 	</entry>
 	
