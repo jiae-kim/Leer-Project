@@ -58,7 +58,9 @@
 </style>
 
 	<!-- 모달 쓰기 위해서 필요한 링크들입니다!!!! 주석처리 하지 말아주세요 ~!!! -->
-    
+    <!-- jQuery library -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"> 
    
