@@ -20,6 +20,22 @@ public class Mtm {
 	
 	public Mtm() {}
 
+	
+	//사용자
+	public Mtm(int mtmNo, String mtmTitle, String mtmContent, Date enrollDate, String mtmType, String ansYn) {
+		super();
+		this.mtmNo = mtmNo;
+		this.mtmTitle = mtmTitle;
+		this.mtmContent = mtmContent;
+		this.enrollDate = enrollDate;
+		this.mtmType = mtmType;
+		this.ansYn = ansYn;
+	}
+
+
+
+
+
 	public Mtm(int mtmNo, int memNo, int memNo2, String mtmTitle, String mtmContent, Date enrollDate, Date modifyDate,
 			Date ansDate, String ansContent, String mtmType, String ansYn) {
 		super();

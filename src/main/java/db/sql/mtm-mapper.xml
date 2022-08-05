@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+	<entry key="selectListCount">
+		SELECT COUNT(*) AS COUNT
+		  FROM MTM
+	  	 WHERE MEM_NO = ?
+	</entry>
+
+
+
+	<entry key="selectMyMtmList">
+		   SELECT *
+        	 FROM (
+                   SELECT ROWNUM RNUM, A.*
+                      FROM (
+                         	 SELECT 
+                         	 		MTM_NO
+                         	 	  , MTM_TITLE
+                         	 	  , MTM_CONTENT
+                         	 	  , ENROLL_DATE
+                         	 	  , MTM_TYPE
+                         	 	  , ANS_YN
+			   	   	   FROM MTM
+			   	   	  WHERE MEM_NO = ?
+			   	   	  ORDER BY MTM_NO DESC) A
+                   )
+        	 WHERE RNUM BETWEEN ? AND ?  
+	</entry>
+
+</properties>
