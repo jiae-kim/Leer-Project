@@ -202,7 +202,7 @@
 					     , NOTI_VIEWS 
 				      FROM NOTICE N
                      JOIN MEMBER USING (MEM_NO)
-				     WHERE NOTI_TYPE = '커뮤니티'
+				     WHERE NOTI_TYPE = '커뮤니티' OR NOTI_TYPE = '2'
 				       AND BLIND_YN = 'N'
 				     ORDER
 				        BY NOTI_NO DESC
@@ -228,7 +228,8 @@
              , NOTI_VIEWS  
 		  FROM NOTICE N
 		  JOIN MEMBER USING (MEM_NO)
-		 WHERE NOTI_NO = ? 
+		 WHERE NOTI_NO = ?
+		   AND NOTI_TYPE = '커뮤니티' OR NOTI_TYPE = '2' 
 	
 	</entry>
 	

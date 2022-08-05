@@ -110,7 +110,7 @@
                                             <th width="100">작성자</th>
                                             <th width="70">조회수</th>
                                             <th width="100">작성일</th>
-                                            <th width="70" class="allch">전체선택<input type="checkbox" class="allcheck" value="전체선택" ></th>
+                                            <th width="70" class="allch"><input type="checkbox" class="allcheck" id="ch_all" name="ch_all" onclick="CheckAll();"> 전체선택</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -139,13 +139,13 @@
 		                                            <td>
 		                                                <span><%= c.getEnrollDate() %></span>
 		                                            </td>
-		                                            <td><input type="checkbox" name="check"></td>
+		                                            <td><input type="checkbox" name="check[]"></td>
 		                                        </tr>
                                     		<% } %>
                                     <% } %>
                                     </tbody>
                                 </table>
-                                <script>
+                         <!--        <script>
                                 	$(document).ready(function(){
                                 		$(".allcheck").click(function(){
                                 			if($(".allcheck").is(":checked")) $("input[name=check]").prop("checked", true);
@@ -165,58 +165,64 @@
                                 	
                                 		
                                 
-                                </script>
+                                </script> -->
                                 <% if(!list.isEmpty()){ %>
 	                                <div class="col-lg-12" style="padding: 0;" align="right">
-	                                        <button type="button" class="boardDelete" onclick="location.href='<%= contextPath %>/comuDelete.me'" >삭제하기</button>
+	                                        <a href="javascript:if(confirm('정말 삭제하시겠습니까?')) del_all('chk[]');" >삭제하기</a>
 	                                </div>
 	                                
-	                                
-								<script>
-								    $(document).on("click", "button.boardDelete", function(){
-										var index = $(this).attr("data-index");
-										if(confirm("선택한 게시글을 삭제하시겠습니까?")){
-											var boardList = [];
-											boardList[0] = index;
-											delAddressItem(itemList);
-										}
-									})
-								function delAddressItem(itemList){
-									var inputData = {
-										csrf : '<?=$this->auth->statusKey?>',
-										itemList : itemList
-									};
-									
-									$.ajax({
-										url : '<?=$this->lib->getUrl("distribute/address/api/delete")?>',
-										type : "POST",
-										async: false,
-										data : inputData,
-										dataTyee : "json",
-										error : function(request, status, error){
-											console.log("Code:"+request.status+" / Message:"+request.responseText+" / Error: "+error);
-										},
-										success: function(data){
-											//console.log(data);
-											if(data.resultCode == 200){
-												window.alert("삭제가 완료가 확인 되었습니다.");
-												document.location.reload(true);
-											}else{
-												window.alert(data.message);
-											}
-										},
-										beforeSend:function(){
-											$('.wrap-loading').removeClass('display-none');
-											$('.wrap-loading .loading-message').html("...삭제 처리중...");
-										},
-										complete:function(){
-											$('.wrap-loading').addClass('display-none');
-											$('.wrap-loading .loading-message').html("...데이터를 저장하는 중입니다...");
-										},
-									})
-									
-								}
-								</script>
+	                            <script>
+
+	                            function del_all(obj){
+
+	                            	//alert(rid);
+
+	                                var i, sum=0, tag=[], str="";
+	                                var check = document.getElementsByName(obj);
+	                                var tot = check.length;
+	                                for (i = 0; i < tot; i++) {
+	                                    if (check[i].checked == true) {
+	                                        tag[sum] = check[i].value;
+	                                        sum++;
+	                            			//alert(sum);
+	                                    }
+	                                }
+	                                //str += "선택갯수 : "+sum;
+	                                if(tag.length > 0) str += tag.join(",");
+
+	                                alert(str);
+	                            	//window.location.href="url";
+				
+	                         	   }
+	                            	var check = false; 
+	                            function CheckAll(){ 
+	                            	var chk = document.getElementsByName("check[]"); 
+	                            	if(check == false){ 
+	                            		check = true; 
+	                            		for(var i=0; i<chk.length;i++){ 
+	                            			check[i].checked = true;//모두 체크 
+	                            			document.getElementById("ch_all").checked = true;
+
+	                            		} //for
+	                            	}else{ 
+	                            		check = false; 
+	                            		for(var i=0; i<check.length;i++){ 
+	                            			chk[i].checked = false;//모두 해제 
+	                            			document.getElementById("ch_all").checked = false;
+	                            		}//for
+	                            	}
+
+	                            /*
+	                            // jquery 버전 특정 체크박스 체크하기/풀기
+	                            $("#checkbox").prop("checked", true); //id 값으로
+	                            $("#checkbox").prop("checked", false); //id 값으로 
+	                            */
+
+	                            }
+
+
+	                            </script>    
+								
 								
 								
 								
@@ -228,7 +234,7 @@
 	                                 
 	                                <% for(int p=startPage; p<=endPage; p++) {%>
 	                                <% if(p == currentPage){ %>
-					            			<a disabled style="opacity:0.7"><%= p %></button>
+					            			<a disabled style="opacity:0.7"><%= p %></a>
 					            		<% }else { %>
 					              			 <a href="<%=contextPath%>/myBoard.li?memNo=<%=loginUser.getMemNo()%>&cpage=<%= p %>"><%= p %></a>
 					              		<% } %>
