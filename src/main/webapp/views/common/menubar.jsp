@@ -82,14 +82,14 @@
 	
     <header class="header">
     <!-- 화면 전체 비율 조정하려고 클래스명 수정했음 !!!! -->
-        <div class="containerzz">
+        <div class="container">
             <div class="row">
 
 
                 <!-- 로고 -->
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="<%=contextPath %>"><img src="<%= contextPath %>/resources/images/logo.png" alt=""></a>
+                        <a href="<%=contextPath %>"><img src="<%= contextPath %>/resources/images/logo.png"></a>
                     </div>
                 </div>
 
