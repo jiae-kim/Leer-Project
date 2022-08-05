@@ -105,7 +105,7 @@
           <table id="button_box">
                <tr>
                     <td width="350px">
-                         <input type="reset" id="btn" value="취소" >
+                    	<input type="button" id="btn" value="취소" onClick="window.close()">
                     </td>
 
                     <td width="350px">
@@ -113,7 +113,7 @@
                     </td>
                </tr>
           </table>
-          
+
 
      </form>
 

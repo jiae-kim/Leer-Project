@@ -39,7 +39,7 @@ public class ReviewWritecompleteController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-			System.out.println("서블릿 실행");
+
 			request.setCharacterEncoding("UTF-8");
 		
 			// 일반요청방식이 아닌 multipart/form-data로 요청방식은
@@ -50,7 +50,7 @@ public class ReviewWritecompleteController extends HttpServlet {
 			// enctype이 multipart/form-data로 잘 전송되었을 경우 => 전반적인 내용 수행
 			
 			if(ServletFileUpload.isMultipartContent(request)) {
-				System.out.println("if문 안 실행");
+
 				
 				// 1. 첨부파일 내가 지정한 폴더에 업로드 (파일 저장)
 				//    파일 업로드를 위한 라이브러리 : cos.jar (com.oreilly.servlet의 약자)
@@ -101,7 +101,7 @@ public class ReviewWritecompleteController extends HttpServlet {
 				int reviewscope = Integer.parseInt(multiRequest.getParameter("reviewscope"));
 				String content = (String)multiRequest.getParameter("content");
 				String pcode = (String)multiRequest.getParameter("pcode");
-				System.out.println(reviewscope);
+
 				Review r = new Review();
 				r.setMemNo(memNo);
 				r.setpName(pname);

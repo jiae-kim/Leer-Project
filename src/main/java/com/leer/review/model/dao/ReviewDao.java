@@ -131,7 +131,6 @@ public ArrayList<Review> WriteReviewHistory(Connection conn, int memNo){
 			e.printStackTrace();
 		}
 		
-		System.out.println(r.getP_code());
 		return r;
 	}
 	
