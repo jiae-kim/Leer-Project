@@ -36,7 +36,7 @@
                         <h2 style="font-size:35px">카테고리</h2>
                         <div class="breadcrumb__option">
                             
-                            <span>패션/여성</span>
+                            <span>문화/예술</span>
                         </div>
                     </div>
                 </div>
