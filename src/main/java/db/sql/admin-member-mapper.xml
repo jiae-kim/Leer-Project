@@ -92,14 +92,15 @@
 	enroll_date 2022-08-01형식으로 적어야됨-->
 	<entry key="updateMember">
 		UPDATE MEMBER
-		   SET MEM_NAME = ?
+		   SET MEM_ID = ?
+		     , MEM_NAME = ?
 		     , ADDRESS = ?
 		     , PHONE = ?
 		 WHERE MEM_NO = ?
 	</entry>
 	
 	<!-- 회원삭제, 김은지 -->
-	<entry key="">
+	<entry key="deleteMember">
 		UPDATE MEMBER
 		   SET MEM_STATUS = 'N'
 		 WHERE MEM_NO = ?
