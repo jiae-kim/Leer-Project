@@ -168,7 +168,7 @@
 								<% if(list.isEmpty()) { %>
 				                <!--case1. 내역이 없을경우-->
 				                <tr>
-				                    <td colspan="4">조회된 내역이 없습니다.</td>
+				                    <td colspan="5">조회된 내역이 없습니다.</td>
 				                </tr>
 								<% }else { %>
 				                	<!--case2. 게시글이 있을경우-->
