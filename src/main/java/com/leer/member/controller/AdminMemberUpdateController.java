@@ -34,11 +34,12 @@ public class AdminMemberUpdateController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		
+		String memId = request.getParameter("memId");
 		String memName = request.getParameter("memName");
 		String address = request.getParameter("address");
 		String phone = request.getParameter("phone");
 		
-		Member m = new Member(memName, address, phone);
+		Member m = new Member(memId, memName, address, phone);
 		
 		Member updateMem = new AdminMemberService().updateMember(m);
 		

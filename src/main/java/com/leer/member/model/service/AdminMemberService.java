@@ -71,6 +71,22 @@ public class AdminMemberService {
 		return updateMem;
 	}	
 	
+	// 관리자 회원정보 삭제
+	// 작성자 김은지
+	public int deleteMember(int memNo) {
+		Connection conn = getConnection();
+		int result = new AdminMemberDao().deleteMember(conn, memNo);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		
+		return result;
+	}
+	
 	// 관리자 장기구독자리스트 조회
 	// 작성자 김은지
 	public ArrayList<Member> selectLongMemberList(PageInfo pi){

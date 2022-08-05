@@ -187,6 +187,28 @@ public class AdminMemberDao {
 		return result;
 	}
 	
+	// 관리자 회원정보 삭제
+	// 작성자 김은지
+	public int deleteMember(Connection conn, int memNo) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("deleteMember");
+		
+		try {
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memNo);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}
+	
 	// 관리자 장기구독자 조회
 	// 작성자 김은지
 	public ArrayList<Member> selectLongMemberList(Connection conn, PageInfo pi){

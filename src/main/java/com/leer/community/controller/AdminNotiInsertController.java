@@ -71,7 +71,13 @@ public class AdminNotiInsertController extends HttpServlet {
 			
 			if(result > 0) {
 				session.setAttribute("alertMsg", "성공적으로 등록되었습니다.");
-				response.sendRedirect(request.getContextPath() + "/adComuNotiList.do?cpage=1");
+				
+				if(notiType == "고객센터" || notiType == "1") {
+					response.sendRedirect(request.getContextPath() + "/adList.no?cpage=1?cpage=1");
+				}else {
+					response.sendRedirect(request.getContextPath() + "/adComuNotiList.do?cpage=1");
+				}
+	
 			}else {
 				if(at != null) {
 					new File(savePath + at.getChangeName()).delete();
