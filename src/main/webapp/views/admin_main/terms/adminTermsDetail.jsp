@@ -94,10 +94,12 @@
                             </div>
                             <br>
                             <c:if test="${sessionMemberLv == 1}">
+                            	<form action="<%=request.getContextPath()%>/adDelete.te" method=post>
                                     <div class="d-grid gap-3" style="text-align: center">
-                                    	<a href="<%= request.getContextPath() %>/views/admin_main/adminTermsView.jsp" id="btn" class="btn btn-dark" style="width:150px">이용약관 삭제</a>
+                                    	<a href="<%= request.getContextPath() %>/adDelete.te?no=<%=t.getTrmNo()%>" id="btn" class="btn btn-dark" style="width:150px">이용약관 삭제</a>
                                         <a href="<%= request.getContextPath() %>/adTList.do?cpage=1" id="btn" class="btn btn-dark" style="width:150px">목록으로</a>
                                     </div>
+								</form>                                    
                             </c:if>
                           </div>
                         </div>
