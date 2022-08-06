@@ -56,7 +56,7 @@
             <h4 style="vertical-align:45px"><b>FAQ 상세조회</b></h4>
         </div> -->
         <div class="card-body cc1">
-        <a href="<%=request.getContextPath()%>/adFaqList.do?cpage=1" class="btn btn-primary" tyle="float:right">목록으로</a>
+        <a href="<%=request.getContextPath()%>/adFaqList.do?cpage=1" class="btn btn-primary" style="float:right">목록으로</a>
         <div class ="printView">
         <h2 style="text-align:center">FAQ 상세조회</h2>
             <table class="table" align="center">
@@ -92,6 +92,10 @@
                     <td id="content" class="text-center"><%=f.getFaqContent()%></td>
                 </tr>
             </table>
+            <!--  수정/삭제 버튼
+            <a href="" class="btn btn-sm btn-warning">수정하기</a>
+	        <a href="" class="btn btn-sm btn-danger">삭제하기</a>
+        	-->
         </div>
     </div>
 </div>
