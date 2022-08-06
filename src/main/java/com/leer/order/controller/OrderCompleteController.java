@@ -62,7 +62,7 @@ public class OrderCompleteController extends HttpServlet {
 		o.setMemNo(memNo);
 		o.setOrPrice(finalPrice);
 		o.setOrPoint(finalPrice * 0.1);
-		o.setOrYn("Y");
+		o.setOrYn("N");
 		o.setTakeName(tkName);
 		o.setLocation(sAddress);
 		o.setParcelStatus(1);
@@ -125,6 +125,7 @@ public class OrderCompleteController extends HttpServlet {
 		
 		request.setAttribute("OrNo", OrNo);
 		request.setAttribute("order", o);
+		request.setAttribute("list", list);
 		request.setAttribute("pList", pList);
 		
 		request.getRequestDispatcher("/views/order/orderComplete.jsp").forward(request, response);
