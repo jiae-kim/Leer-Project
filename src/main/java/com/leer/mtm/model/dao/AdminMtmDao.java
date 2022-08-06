@@ -54,7 +54,8 @@ public class AdminMtmDao {
 								 rset.getString("mtm_title"),
 								 rset.getDate("enroll_date"),
 								 rset.getString("mtm_type"),
-								 rset.getString("ans_yn")
+								 rset.getString("ans_yn"),
+								 rset.getString("mem_id")
 						));
 				
 			}				
@@ -120,6 +121,29 @@ public class AdminMtmDao {
 			close(pstmt);
 		}
 		return m;
+	}
+	
+	
+	public int insertAns(Connection conn, int mtmNo, int adminNo, String ansContent) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("insertAns");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, adminNo);
+			pstmt.setString(2, ansContent);
+			pstmt.setInt(3, mtmNo);
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+		
 	}
 
 }

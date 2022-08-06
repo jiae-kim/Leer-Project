@@ -7,37 +7,41 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import com.leer.mtm.model.service.AdminMtmService;
-import com.leer.mtm.model.vo.Mtm;
+import com.leer.member.model.vo.Member;
+import com.leer.mtm.model.service.MtmService;
 
 /**
- * Servlet implementation class AdminMtmDetailController
+ * Servlet implementation class MtmEnrollFormController
  */
-@WebServlet("/adDetail.mt")
-public class AdminMtmDetailController extends HttpServlet {
+@WebServlet("/enrollFormPage.mtm")
+public class MtmEnrollFormController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdminMtmDetailController() {
+    public MtmEnrollFormController() {
         super();
         // TODO Auto-generated constructor stub
     }
 
 	/**
-	 * 관리자 1:1문의 상세조회페이지
-	 * 작성자 김은지
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int mtmNo = Integer.parseInt(request.getParameter("no"));
+
+		HttpSession session = request.getSession();
+		Member loginUser = (Member)session.getAttribute("loginUser");
+				
+		if(loginUser == null) {
+			
+		}else {
+			request.getRequestDispatcher("views/mtm/mtmEnrollForm.jsp").forward(request, response);
+			
+		}
 		
-		Mtm m = new AdminMtmService().mtmDetailList(mtmNo);
-		
-		request.setAttribute("mtm", m);
-		request.setAttribute("mtmNo", mtmNo);
-		request.getRequestDispatcher("views/admin_main/mtm/adminMtmInsert.jsp").forward(request, response);
 	}
 
 	/**
@@ -49,20 +53,3 @@ public class AdminMtmDetailController extends HttpServlet {
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

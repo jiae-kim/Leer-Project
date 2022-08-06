@@ -99,4 +99,64 @@ public class MtmDao {
 	}
 	
 	
+	public Mtm selectDetail(Connection conn, int mtmNo){
+		
+		Mtm m = null;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectDetail");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, mtmNo);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				m = new Mtm(rset.getString("mtm_title"),
+						    rset.getString("mtm_content"),
+						    rset.getDate("enroll_date"),
+						    rset.getDate("ans_date"),
+						    rset.getString("ans_content"),
+						    rset.getString("mtm_type"),
+						    rset.getString("ans_yn")
+							);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		return m;
+	}
+	
+	
+	
+	public int insertMtm(Connection conn, int memNo, String mtmTitle, String mtmContent, String mtmType) {
+		
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("insertMtm");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memNo);
+			pstmt.setString(2, mtmTitle);
+			pstmt.setString(3, mtmContent);
+			pstmt.setString(4, mtmType);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		return result;
+	}
+	
 }

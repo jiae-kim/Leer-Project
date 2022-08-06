@@ -39,7 +39,7 @@
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                             </nav>
-                            <button type="button" class="btn btn-info btn-lg" onclick="location.href='<%=request.getContextPath()%>/views/admin_main/mtm/adminMtmInsert.jsp'">답변</button> &nbsp;&nbsp;&nbsp;
+                           <%--  <button type="button" class="btn btn-info btn-lg" onclick="location.href='<%=request.getContextPath()%>/views/admin_main/mtm/adminMtmInsert.jsp'">답변</button>--%>
                             <button type="button" class="btn btn-warning btn-lg">수정</button> &nbsp;&nbsp;&nbsp;
                             <!-- Button trigger modal -->
                             <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#Modal2">
@@ -109,7 +109,7 @@
                                             </label>
                                         </th>
                                         <th scope="col">글번호</th>
-                                        <th scope="col">문의자회원번호</th> 
+                                        <th scope="col">문의자아이디</th> 
                                         <th scope="col">문의 유형</th>
                                         <th scope="col">문의 제목</th>
                                         <th scope="col">등록일</th>
@@ -127,14 +127,30 @@
 	                                            </label>
 	                                        </th>
 	                                        <td><%=m.getMtmNo()%></td>
-	                                        <td><%=m.getMemNo()%></td>
+	                                        <td><%=m.getMemId()%></td> <!-- 문의한 사용자 아이디가 보여지게 함 -->
 	                                        <td><%=m.getMtmType()%></td>
 	                                        <td><%=m.getMtmTitle()%></td>
 	                                        <td><%=m.getEnrollDate()%></td>
-	                                        <td><%=m.getMemNo2()%></td>
-	                                        <td style="color: red;"><%=m.getAnsYn()%></td>
+	                                        
+	                                        <!-- 문의에 답변한 관리자의 일므이 보이게 함 -->
+	                                        <%if( m.getMemNo2() == 0 ){ %>
+	                                        	<td></td>
+	                                        <%}else if( m.getMemNo2() == 1){ %>
+	                                        	<td>관리자1</td>
+	                                        <%}else{ %>
+	                                        	<td>관리자2</td>
+	                                        <%} %>
+	                                        
+	                                        <!-- 답변 상태를 텍스트로 표현 -->
+	                                        <%if( m.getAnsYn().equals("N") ){ %>
+	                                        	<td style="color:red;">미답변</td>
+	                                        <%}else{ %>
+	                                        	<td style="color: black;">답변완료</td>
+                                        	<%} %>
 	                                    </tr>
                                 	<% } %>    
+                                	
+                                	
                                 </tbody>
                                  <tfoot>
                                     <tr align="center">
