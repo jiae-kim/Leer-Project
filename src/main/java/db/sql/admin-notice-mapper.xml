@@ -86,18 +86,20 @@
 		  	     FROM (		
 					  SELECT
 						     MTM_NO
-					       , MEM_NO
-						   , MTM_TYPE
-						   , MTM_TITLE
-						   , ENROLL_DATE
+					       , T.MEM_NO
 						   , MEM_NO2
+						   , MTM_TITLE
+						   , T.ENROLL_DATE
+						   , MTM_TYPE
 						   , ANS_YN
-						FROM MTM
+					       , M.MEM_ID
+						FROM MTM T
+                        LEFT JOIN MEMBER M ON (T.MEM_NO = M.MEM_NO)
 					   ORDER
 						  BY MTM_NO DESC
 		  	     	  ) A
 		  	   )
-		WHERE RNUM BETWEEN ? AND ?	 		    
+		WHERE RNUM BETWEEN ? AND ?	    
 	</entry>
 	
 	<!-- 고객센터 1:1문의리스트조회 페이징처리, 김은지 -->
@@ -149,6 +151,19 @@
         VALUES
 		  (SEQ_FAQ.NEXTVAL, 1, ?, ?, ?)
 	</entry>
+	
+	
+	
+	<entry key="insertAns">
+		 UPDATE MTM
+		    SET MEM_NO2 = ?
+			  , ANS_CONTENT = ?
+			  , ANS_YN = 'Y'
+		 WHERE MTM_NO = ?
+	</entry>
+	
+	
+	
 	
 	
 </properties>
