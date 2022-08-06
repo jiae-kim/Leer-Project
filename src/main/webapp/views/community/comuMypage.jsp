@@ -251,9 +251,9 @@
 	color: skyblue !important;
 }
 .myPageList{
-	border-top: 1px solid black !important;
-	border-bottom: 1px solid black !important;
-	height: 260px !important; 
+	border-top: 1px solid black ;
+	border-bottom: 1px solid black ;
+	height: 260px; 
 }
 #myPage{
 	height: 180px !important;
@@ -541,7 +541,7 @@
 <div class="col-bj-1 blog__sidebar__item" style="margin-left:60px">
 				
 				<%if(loginUser == null){ //로그인 안되어있을 경우%>
-					<div class="myPageList" style="height:150px">
+					<div class="myPageList" style="height:150px !important">
 						<div id="myPage" style="display: block;">
 							<div class="box-g">
 								<h4 class="login">로그인 필요</h4>
@@ -575,10 +575,10 @@
 												<% if(loginUser.getProfileLink() == null){ %>
 												<img
 													src="https://ssl.pstatic.net/static/cafe/cafe_pc/default/cafe_profile_70.png"
-													width="58" height="58" alt="프로필사진" class="imgChange">
+													width="58" height="58" alt="프로필사진" class="imgChange" onclick="location.href='<%=contextPath%>/change'">
 													<strong onclick="location.href='<%=contextPath %>/mypage.me'"><%=loginUser.getNickname() %></strong>
 												<% }else { %>	
-												<img src="<%= loginUser.getProfileLink() %>" width="58" height="58" alt="프로필사진" class="imgChange">
+												<img style="border-radius:50%" src="<%= loginUser.getProfileLink() %>" width="58" height="58" alt="프로필사진" class="imgChange">
 												<strong onclick="location.href='<%=contextPath %>/mypage.me'"><%=loginUser.getNickname() %></strong>
 												<% } %>
 											</div>
@@ -624,6 +624,9 @@
 			</div>
 		</div>
 		</section>
+		
+		
+		
     <script src="<%=contextPath%>/resources/js/beomjin/js/jquery-3.3.1.min.js"></script>
 	<script src="<%=contextPath%>/resources/js/beomjin/js/bootstrap.min.js"></script>
 <%-- 	 <script src="<%=contextPath%>/resources/js/beomjin/js/jquery.nice-select.min.js"></script>  --%>
