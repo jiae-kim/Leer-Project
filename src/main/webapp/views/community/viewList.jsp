@@ -11,7 +11,7 @@
   int startPage = pi.getStartPage();
   int endPage = pi.getEndPage();
   int maxPage = pi.getMaxPage();  
-  
+  ArrayList<ComuBoard> searchList = (ArrayList<ComuBoard>)request.getAttribute("searchList");
   String flag = (String)request.getAttribute("flag");
 %>
 
@@ -68,35 +68,7 @@
 	
 	
 	
-	.blog__sidebar__search form {
-	position: relative !important;
-}
 
-.blog__sidebar__search form input {
-	width: 600px !important;
-	height: 46px !important;
-	font-size: 16px !important;
-	color: #6f6f6f !important;
-	padding-left: 15px !important;
-	border: 1px solid #e1e1e1 !important;
-	border-radius: 5px !important;
-	
-}
-
-.blog__sidebar__search form button {
-	font-size: 16px !important;
-	color: #ffffff !important;
-	background: #898989 !important;
-	border: none !important;
-	border-radius: 5px !important;
-	position: absolute !important;
-	margin-left: 5px !important;
-	right: 25px !important;
-	top: none !important; 
-	height: 100% !important;
-	padding: 0px 20px !important;
-
-}
 .row{
     display: -ms-flexbox !important; 
     display: flex !important;
@@ -144,8 +116,11 @@
         max-width: 50% !important;
     }
     .blog__item__text {
-	padding-top: 25px !important;
+	padding-top: 0px !important;
 	width: 600px !important;
+}
+.blog__item{
+	margin-bottom: 20px !important;
 }
 .blog__item__text .blog__btn {
 	position: absolute !important;
@@ -352,16 +327,20 @@
 }
 
 
-.blog__sidebar__search {
-	margin: 50px 0px 30px !important;
+.search1 {
+	margin-right: -15px !important;
+    margin-left: -15px !important;
+	margin-top: 50px !important;
+	margin-bottom: 0 !important;
+	padding-bottom:50px;
+	border-bottom:1px solid #878787;
 }
 
-.blog__sidebar__search form {
+.search1 {
 	position: relative !important;
 }
-
-.blog__sidebar__search form input {
-	width: 520px !important;
+.search1 input {
+	width: 550px !important;
 	height: 46px !important;
 	font-size: 16px !important;
 	color: #6f6f6f !important;
@@ -371,12 +350,12 @@
 	
 }
 
-.blog__sidebar__search form input::placeholder {
+.search1 form input::placeholder {
 	color: #6f6f6f !important;
 }
 
-.blog__sidebar__search form button {
-	font-size: 16px;!important
+.search1 form button {
+	font-size: 16px;!important;
 	color: #ffffff !important;
 	background: #898989 !important;
 	border: none !important;
@@ -385,7 +364,6 @@
 	margin-left: 5px !important;
 	right: none !important;
 	top: none !important;
-	height: 100% !important;
 	padding: 0px 20px !important;
 
 }
@@ -606,9 +584,9 @@
     
 	<%@ include file="../community/communityMain.jsp"%>
 		<div class="col-lg-8 col-md-7" style="padding-left: 50px">
-			<div class="blog__sidebar__search">
-				<form action="#">
-					<input type="text" placeholder="태그 또는 키워드를 입력하세요..." name="search">
+			<div class="row search1">
+				<form action="<%= contextPath %>/comuSearch.li?cpage=1&search=">
+					<input type="text" placeholder="태그 또는 키워드를 입력하세요..." name="search" >
 					<button type="submit">검색</button>
 				</form>
 			</div>
@@ -622,15 +600,10 @@
 					<div class="row">
 						<div class="col-lg-6 col-md-6 col-sm-6">
 							<div class="blog__item"> 
-								<div class="blog__item__text" align="left" onclick="location.href='<%=contextPath%>/comuDetail.bo?no=<%= c.getComuNo()%>'">
+								<div class="blog__item__text" align="left" onclick="location.href='<%=contextPath%>/comuDetail.bo?no=<%= c.getComuNo()%>'" style="padding-top:16px !important">
 									<span style="display:none"><%= c.getComuNo() %></span>
-									<span style="font-weight:bold"><%= c.getTitle() %></span>
-									<div style="line-height:12px">
-										<div class="gg123" style="display:inline">
-											<span style="font-size:12px"><b>조회수 : <%= c.getViewCount() %></b></span>
-											<span style="font-size: 12px"><%=c.getEnrollDate() %></span>
-										</div>
-									</div>
+									<h4><%= c.getTitle() %></h4>
+									<div>
 										<% if(c.getTag() != null) { 
 											String[] tagArr = c.getTag().split(",");  // ["패션", "라이프"]
 											for(String tag : tagArr){ %>
@@ -638,14 +611,20 @@
 										
 												<%} %>
 										<% } %>
-									<br>
-									<span><%=c.getContent()%></span>
+									</div>
 									<div>
-										<div class="icon" >
-											<i class="fa fa-heart-o"> <sup><%= c.getLikeCount() %></sup>
-											</i> <i class="fa fa-comment-o" style="margin-left:5px"> <sup><%= c.getCommentCount() %></sup>
-											</i>
+										<p><%=c.getContent()%></p>
+									</div>
+									<div style="line-height:12px">
+										<div class="gg123" style="display:inline">
+											<span style="font-size:12px"><b>조회수 : <%= c.getViewCount() %></b></span>
+											<span style="font-size: 12px"><%=c.getEnrollDate() %></span>
 										</div>
+									<div class="icon" style="display:inline">
+										<i class="fa fa-heart-o"> <sup><%= c.getLikeCount() %></sup>
+										</i> <i class="fa fa-comment-o" style="margin-left:5px"> <sup><%= c.getCommentCount() %></sup>
+										</i>
+									</div>
 									</div>
 								</div>
 							</div>
@@ -662,8 +641,7 @@
         
         <% if(!list.isEmpty()){ %>
         	<%if(flag.equals("all")) { %>
-			<div class="col-lg-12" style="margin-left:150px">
-				<div class="product__pagination blog__pagination">
+				<div class="product__pagination blog__pagination" align="center">
 					<% if(currentPage != 1){ %>
             			<a href="<%=contextPath%>/comu.bo?cpage=<%=currentPage-1%>">&lt;</a>
 		            <% } %>
@@ -681,10 +659,27 @@
 		            <a href="<%=contextPath%>/comu.bo?cpage=<%=currentPage+1%>" >&gt;</a>
 		            <% } %>
 				</div>
-			</div> 
-			<% }else { %>
-			<div class="col-lg-12" style="margin-left:150px">
-				<div class="product__pagination blog__pagination">
+			<% } else if(flag.equals("search")) { %>
+				<div class="product__pagination blog__pagination" align="center">
+					<% if(currentPage != 1){ %>
+            			<a href="<%=contextPath%>/comuSearch.li?cpage=<%=currentPage-1%>&search=<%=flag%>">&lt;</a>
+		            <% } %>
+		            
+		         	<% for(int p=startPage; p<=endPage; p++) {%>
+		         
+			            <% if(p == currentPage){ %>
+	            			<a disabled style="opacity:0.7"><%= p %></a>
+	            		<% }else { %>
+	              			 <a href="<%=contextPath%>/comuSearch.li?cpage=<%= p %>&search=<%=flag%>"><%= p %></a>
+	              		<% } %>
+          		   <% } %>
+         
+		      	   <% if(currentPage != maxPage){ %>
+		            <a href="<%=contextPath%>/comuSearch.li?cpage=<%=currentPage+1%>&search=<%=flag%>" >&gt;</a>
+		           <% } %>
+				</div>
+				<%} else { %>
+				<div class="product__pagination blog__pagination" align="center">
 					<% if(currentPage != 1){ %>
             			<a href="<%=contextPath%>/cgory.li?cpage=<%=currentPage-1%>&cNo=<%=flag%>">&lt;</a>
 		            <% } %>
@@ -702,12 +697,11 @@
 		            <a href="<%=contextPath%>/cgory.li?cpage=<%=currentPage+1%>&cNo=<%=flag%>" >&gt;</a>
 		            <% } %>
 				</div>
-			</div> 
-			<%} %>
+				<% } %>
 			<% } %>
 		</div>
 	 <%@ include file="../community/comuMypage.jsp" %>
-	 <%@ include file="../common/footer.jsp" %>
+	<%--  <%@ include file="../common/footer.jsp" %>  --%>
 	 
 	 <!-- 댓글수 구하는 구문 찾아보기  -->
 	 <!-- 좋아요수 구하는 구문 -->

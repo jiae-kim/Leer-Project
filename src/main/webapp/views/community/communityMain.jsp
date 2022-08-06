@@ -563,7 +563,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-5">
-                    <div class="blog__sidebar">
+                    <div class="blog__sidebar" style="padding:0">
                         <div class="sidebar__item">
                             <p style="font-size: small;">카테고리</p>
                             <ul>

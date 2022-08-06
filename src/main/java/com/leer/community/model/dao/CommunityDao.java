@@ -739,7 +739,88 @@ public class CommunityDao {
 			
 		}
 		return cmList;
+	}
+	
+	public ArrayList<ComuBoard> selectSearchList(Connection conn, String search, PageInfo pi){
+		ArrayList<ComuBoard> list = new ArrayList<>();
 		
+		PreparedStatement pstmt = null;
+		
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectSearchList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			int startRow = (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1;
+			int endRow = startRow + pi.getBoardLimit() - 1;
+			pstmt.setString(1, search);
+			pstmt.setString(2, search);
+			pstmt.setInt(3, startRow);
+			pstmt.setInt(4, endRow);
+			rset = pstmt.executeQuery();
+
+			while (rset.next()) {
+				ComuBoard cb = new ComuBoard(rset.getInt("comu_no"), rset.getString("tag"), rset.getString("title"),
+						rset.getDate("enroll_date"), rset.getInt("view_count"), rset.getInt("like_count"),
+						rset.getInt("comment_count"));
+
+				Clob clob = rset.getClob("content");
+				StringBuffer buffer = new StringBuffer();
+				if (clob != null) {
+					Reader r = clob.getCharacterStream();
+					int ch;
+					while ((ch = r.read()) != -1) {
+						buffer.append("" + (char) ch);
+					}
+				}
+				cb.setContent(buffer.toString());
+
+				list.add(cb);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
+		
+	}
+
+	public int selectSearchListCount(Connection conn, String search) {
+		int listCount = 0;
+
+		PreparedStatement pstmt = null;
+
+		ResultSet rset = null;
+
+		String sql = prop.getProperty("selectSearchListCount");
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, search);
+			pstmt.setString(2, search);
+
+			rset = pstmt.executeQuery();
+			if (rset.next()) {
+				listCount = rset.getInt("count");
+
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return listCount;
+
 	}
 }
 

@@ -303,15 +303,15 @@
 	
 	<entry key="selectCategoryListCount">
 		SELECT COUNT(*) as "COUNT"
-      FROM COMU_BOARD
-     WHERE DELETE_YN = 'N'
-       AND CATEGORY_NO = ?
+	      FROM COMU_BOARD
+	     WHERE DELETE_YN = 'N'
+	       AND CATEGORY_NO = ?
 	</entry>
 	<entry key="selectMyListCount">
 		SELECT COUNT(*) as "COUNT"
-      FROM COMU_BOARD
-     WHERE DELETE_YN = 'N'
-       AND MEM_NO = ?
+	      FROM COMU_BOARD
+	     WHERE DELETE_YN = 'N'
+	       AND MEM_NO = ?
 	</entry>
 	<entry key="updateBoard">
 		
@@ -377,7 +377,7 @@
 	
 	</entry>
 	
-	<entry key="">
+	<entry key="selectSearchList">
 		
 		 SELECT *
 	  FROM (
@@ -411,6 +411,12 @@
                     ) A
 	        )
 	 WHERE RNUM BETWEEN ? AND ?
+	</entry>
+	<entry key="selectSearchListCount">
+		SELECT COUNT(*) as "COUNT"
+	      FROM COMU_BOARD
+	     WHERE DELETE_YN = 'N'
+	       AND (TAG LIKE '%'||?||'%' OR CONTENT LIKE '%'||?||'%')
 	</entry>
 </properties>
 
