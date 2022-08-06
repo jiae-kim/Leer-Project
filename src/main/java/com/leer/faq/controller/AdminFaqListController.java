@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.leer.common.model.vo.FaqCategory;
 import com.leer.common.model.vo.PageInfo;
 import com.leer.faq.model.service.AdminFaqService;
 import com.leer.faq.model.vo.Faq;
@@ -59,6 +60,7 @@ public class AdminFaqListController extends HttpServlet {
 		PageInfo pi = new PageInfo(listCount, currentPage, pageLimit, boardLimit, maxPage, startPage, endPage);
 		
 		ArrayList<Faq> list = new AdminFaqService().selectFaqList(pi);
+		//ArrayList<FaqCategory> Clist = (ArrayList<FaqCategory>)request.getAttribute("Clist");
 		
 		request.setAttribute("pi", pi);
 		request.setAttribute("list", list);

@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>FAQ 상세조회 페이지</title>
+<title>FAQ 상세조회</title>
 <style>
     #content{
         height: 400px;

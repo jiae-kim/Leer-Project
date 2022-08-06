@@ -14,14 +14,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>리뷰 전체조회(적립금지급) 페이지</title>
+<title>리뷰 전체조회</title>
 <style>
-.customtable>tr:hover {
+/* .customtable>tr:hover {
     cursor: pointer;
     opacity: 0.7;
     background:#cecece;
     color:dark;
-}
+} */
 </style>
 </head>
 <body>

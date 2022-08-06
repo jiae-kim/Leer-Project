@@ -6,7 +6,7 @@ public class Faq {
 	
 	private int faqNo;
 	private int memNo;
-	private String faqCategory;
+	private String faqCategory; // DB에 없음 
 	private String faqTitle;
 	private String faqContent;
 	private Date enrollDate;
@@ -15,6 +15,9 @@ public class Faq {
 	private String faqYn;
 	private int count;
 	private String memId; // join : MEMEBER 테이블
+	private String enrollDate2; // faq 등록시 date 타입 대신 
+	private int categoryNo; // DB에서 카테고리 명과 타입 변경함 
+	private String categoryName; // join : FAQ_CATEGORY 테이블
 	
 	public Faq() {}
 
@@ -40,19 +43,36 @@ public class Faq {
 		this.count = count;
 	}
 
-	public Faq(int faqNo, String faqCategory, String memId, Date enrollDate, Date modifyDate, int count, String faqTitle, String faqContent 
+	public Faq(int faqNo, String categoryName, String memId, Date enrollDate, Date modifyDate, int count, String faqTitle, String faqContent 
 			) {
 		super();
 		this.faqNo = faqNo;
-		this.faqCategory = faqCategory;
-		this.faqTitle = faqTitle;
-		this.faqContent = faqContent;
+		this.categoryName = categoryName;
+		this.memId = memId;
 		this.enrollDate = enrollDate;
 		this.modifyDate = modifyDate;
 		this.count = count;
-		this.memId = memId;
 		this.faqTitle = faqTitle;
 		this.faqContent = faqContent;
+	}
+	
+	public Faq(int faqNo, int categoryNo, String faqTitle, Date enrollDate, int count) {
+		super();
+		this.faqNo = faqNo;
+		this.categoryNo = categoryNo;
+		this.faqTitle = faqTitle;
+		this.enrollDate = enrollDate;
+		this.count = count;
+	}
+	
+	
+
+	public int getCategoryNo() {
+		return categoryNo;
+	}
+
+	public void setCategoryNo(int categoryNo) {
+		this.categoryNo = categoryNo;
 	}
 
 	public int getFaqNo() {
@@ -143,6 +163,22 @@ public class Faq {
 		this.memId = memId;
 	}
 	
+	public String getEnrollDate2() {
+		return enrollDate2;
+	}
+
+	public void setEnrollDate2(String enrollDate2) {
+		this.enrollDate2 = enrollDate2;
+	}
+		
+	public String getCategoryName() {
+		return categoryName;
+	}
+
+	public void setCategoryName(String categoryName) {
+		this.categoryName = categoryName;
+	}
+
 	@Override
 	public String toString() {
 		return "Faq [faqNo=" + faqNo + ", memNo=" + memNo + ", faqCategory=" + faqCategory + ", faqTitle=" + faqTitle

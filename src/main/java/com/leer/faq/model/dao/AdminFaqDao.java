@@ -11,6 +11,8 @@ import java.util.Properties;
 
 import static com.leer.common.JDBCTemplate.*;
 
+import com.leer.common.model.vo.Category2;
+import com.leer.common.model.vo.FaqCategory;
 import com.leer.common.model.vo.PageInfo;
 import com.leer.faq.model.vo.Faq;
 import com.leer.product.model.dao.ProductDao;
@@ -50,7 +52,7 @@ public class AdminFaqDao {
 			
 			while(rset.next()) {
 				list.add(new Faq(rset.getInt("faq_no"),
-								 rset.getString("faq_category"),
+								 rset.getString("category_name"),
 								 rset.getString("faq_title"),
 								 rset.getDate("enroll_date"),
 								 rset.getInt("count")));
@@ -149,6 +151,34 @@ public class AdminFaqDao {
 	}
 
 	/* [고객센터 - FAQ]
+	 * FAQ 등록 : 카테고리 조회
+	 * 작성자 김지애
+	 */
+	public ArrayList<FaqCategory> selectFaqCategoryList(Connection conn) {
+		ArrayList<FaqCategory> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectFaqCategoryList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				list.add(new FaqCategory(rset.getInt("category_no"),
+									     rset.getString("category_name")));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return list;
+	}
+	
+	/* [고객센터 - FAQ]
 	 * FAQ 등록
 	 * 작성자 김지애
 	 */
@@ -159,7 +189,7 @@ public class AdminFaqDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, f.getFaqCategory());
+			pstmt.setInt(1, f.getCategoryNo());
 			pstmt.setString(2, f.getFaqTitle());
 			pstmt.setString(3, f.getFaqContent());
 			
@@ -171,5 +201,6 @@ public class AdminFaqDao {
 		}
 		return result;
 	}
+
 	
 }

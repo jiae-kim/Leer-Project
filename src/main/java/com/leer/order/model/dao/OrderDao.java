@@ -109,6 +109,7 @@ public class OrderDao {
 			pstmt.setDouble(3, o.getOrPoint());
 			pstmt.setString(4, o.getTakeName());
 			pstmt.setString(5,  o.getLocation());
+			pstmt.setString(6, o.getPhone());
 			
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -119,6 +120,31 @@ public class OrderDao {
 		}
 		return result;
 	}
+	
+	public String selectOrNo(Connection conn) {
+		
+		String orNo = "";
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectOrNo");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				orNo = rset.getString("current");
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return orNo;
+	}
+	
 	
 	public int insertOrProduct(Connection conn, OrProduct op) {
 		
@@ -153,6 +179,8 @@ public class OrderDao {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, c.getpCode());
 			pstmt.setInt(2, c.getAmount());
+			result = pstmt.executeUpdate();
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -171,6 +199,8 @@ public class OrderDao {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, finalPrice);
 			pstmt.setInt(2, memNo);
+			
+			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

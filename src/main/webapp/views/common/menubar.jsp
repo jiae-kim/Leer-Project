@@ -35,6 +35,13 @@
     <link rel="stylesheet" href="<%= contextPath %>/resources/css/style.css" type="text/css"> 
      
     <style>
+    
+     
+        @import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
+        
+        * {
+		font-family: 'NanumSquare';
+		}
        .login-btn{font-size:13px; color:#393939;}
        .login-btn:hover{color:gray;}
 

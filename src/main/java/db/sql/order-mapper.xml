@@ -30,7 +30,7 @@
 
 	<entry key="insertOrder">
 		INSERT
-		  INTO ORDER
+		  INTO "ORDER"
 		       	(
 		       	OR_NO
 		      , MEM_NO
@@ -39,23 +39,35 @@
 		      , OR_YN
 		      , TAKE_NAME
 		      , LOCATION
-		      , PACEL_STATUS
+		      , PARCEL_STATUS
 		      , PAYMENT
 		      , OR_DATE
+		      , PHONE
 		       	)
 		       VALUES
 		       (
-		        SEQ_OR
+		        SEQ_OR.NEXTVAL
 		      , ?
-		      , ?
-		      , ?
-		      , 'Y'
 		      , ?
 		      , ?
 		      , 'N'
+		      , ?
+		      , ?
+		      , 1
 		      , 'Y'
 		      , CURRENT_DATE
+		      , ?
 		       ) 
+	</entry>
+	
+	<entry key="selectOrNo">
+	
+		  SELECT
+               LAST_NUMBER - 1 "current"
+          FROM USER_SEQUENCES
+         WHERE SEQUENCE_NAME = 'SEQ_OR'
+		
+	
 	</entry>
 	
 	<entry key="insertOrProduct">

@@ -14,7 +14,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>주문 및 배송 전체조회 페이지</title>
+<title>주문 및 배송 전체조회</title>
 </head>
 <body>
 	<%@ include file="../../common/adminMenubar.jsp" %>

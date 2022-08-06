@@ -25,8 +25,7 @@
     <style>
     @import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
 	
-    <style>
-        @import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
+  
     
         .etc_title {
         width: 100%;
@@ -266,7 +265,7 @@
                                         
                                     </h2>
                                     <div style="border-bottom: 2px solid #303030; margin-bottom: 30px;;"></div>
-                                    <form action="/complete.od" id="payForm">
+                                    <form action="<%=contextPath %>/complete.od" id="payForm">
                                     <div class="etc_content_box" >
                                         <ul class="product_review_list" id="review_list"></ul>
                                         <table class="table" style= "border:#dadada solid" id="tb" >
@@ -283,7 +282,8 @@
                                             	int length = list.size();
                                             %>
                                             <%for(Cart c : list) {%>
-                                            <tr style="font-size:14px;" id="cartList" name="cartNo" value=<%=c.getCartNo() %>>
+                                            <tr style="font-size:14px;" id="cartList" name="cartNo" value="<%=c.getCartNo()%>">
+                                            	<input type="hidden" name="cartNo" value="<%=c.getCartNo()%>">
                                                 <td style="vertical-align:middle; text-align:center;"><%= count++ %></td>
                                                 <td style="width:40%;">
                                                     <span style="display:inline; text-align:left">
@@ -343,6 +343,7 @@
                                             <%} %>
 
                                         </table>
+                                        </div>
 
                                         <div class="order_table_box" >
                                             <h3>1. 주문자 정보 </h3>
@@ -406,7 +407,7 @@
                                                     <th style="background:#f1f1f1" >포인트 </th>
                                                     <td>
                                                         <span>보유 포인트 : </span><span id="point"><%=point %></span><span>P</span>
-                                                        <input type="text" id="point-text" placeholder="사용할 적립금 입력" >
+                                                        <input type="text" id="point-text" placeholder="사용할 적립금 입력" value="0">
                                                         <button type="button" class="btn" id="point-btn"  style="padding:14px;">적용</button>
                                                     </td>
                                                 </tr>
@@ -447,7 +448,7 @@
                                                 <li class="cart_price">
                                                     총 구매금액(상품)
                                                     <div style="height:7px;"></div>
-                                                    <strong id="finalPrice">22,710</strong>
+                                                    <strong id="finalPrice" name="finalPrice">22,710</strong>
                                                     <strong>원</strong>
                                                  </li>
 
@@ -461,7 +462,7 @@
                                         
                                         <input type="hidden" name="product1" value="<%=list.get(0).getpCode()%>">
                                         <input type="hidden" name="cartSize" value="<%=list.size()%>">
-                                        <input type="hidden" name="finalPrice" value=sumPrice>
+                                        <input type="hidden" name="finalPrice" value="" id="finPrice">
                                         <input type="hidden" name="memNo" value=<%=loginUser.getMemNo() %>>
                                         </form>
 										
@@ -502,6 +503,7 @@
 											console.log(deliFee);
 											console.log(finalPrice);
 											$("#finalPrice").html(number_format(finalPrice));
+											$("#finPrice").val(finalPrice);
 										})
 										
 										 function sample6_execDaumPostcode() {
@@ -564,8 +566,8 @@
 											
 											
 											/* 배송비 출력  */
-											console.log($("#cartList").children().eq(5).children().eq(0).text() );
-											if($("#cartList").children().eq(5).children().eq(0).text() != '무료배송'){
+											console.log($("#cartList").children().eq(6).children().eq(0).text() );
+											if($("#cartList").children().eq(6).children().eq(0).text() != '무료배송'){
 												deliFee = 3000;
 												$("#deliFee").html("3,000");
 											}else{
@@ -577,7 +579,7 @@
 											/* 최종가격 출력  */
 											$("#finalPrice").html(number_format(sumPrice + deliFee));	
 											
-											
+											$("#finPrice").val(sumPrice + deliFee);
 											
 											
 											
@@ -589,7 +591,6 @@
 										
 
 										function requestPay() {
-											
 											
 											IMP.init('imp45723440');
 										
