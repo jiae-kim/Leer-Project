@@ -13,7 +13,7 @@ import com.leer.faq.model.vo.Faq;
 /**
  * Servlet implementation class AdminFaqInsertController
  */
-@WebServlet("/AdminFaqInsertController")
+@WebServlet("/adFaqInsert.do")
 public class AdminFaqInsertController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -32,14 +32,21 @@ public class AdminFaqInsertController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		// 카테고리, 제목, 내용
-		String faqCategory = request.getParameter("faqCategory");
+		//int faqNo = Integer.parseInt(request.getParameter("faqNo"));
+		//int memNo = Integer.parseInt(request.getParameter("memNo"));
+		String categoryName = request.getParameter("categoryNo"); //숫자를 문자형으로
 		String faqTitle = request.getParameter("faqTitle");
 		String faqContent = request.getParameter("faqContent");
+		//String enrollDate2 = request.getParameter("enrollDate2"); //date타입 대신 string형
 		
 		Faq f = new Faq();
-		f.setFaqCategory(faqCategory);
+		//f.setFaqNo(faqNo);
+		//f.setMemNo(memNo);
+		//f.setFaqCategory(faqCategory);
+		f.setCategoryName(categoryName);
 		f.setFaqTitle(faqTitle);
 		f.setFaqContent(faqContent);
+		//f.setEnrollDate2(enrollDate2);
 		
 		int result = new AdminFaqService().FaqInsertPage(f);
 		
