@@ -109,6 +109,7 @@ public class OrderDao {
 			pstmt.setDouble(3, o.getOrPoint());
 			pstmt.setString(4, o.getTakeName());
 			pstmt.setString(5,  o.getLocation());
+			pstmt.setString(6, o.getPhone());
 			
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {

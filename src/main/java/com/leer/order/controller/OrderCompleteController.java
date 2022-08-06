@@ -42,7 +42,12 @@ public class OrderCompleteController extends HttpServlet {
 		
 		
 		String tkName = request.getParameter("tkName");
+		
 		String[] tkPhones = request.getParameterValues("tkPhone");
+		String tkPhone = "";
+		for(int i=0; i<tkPhones.length; i++) {
+			tkPhone += tkPhones[i];
+		}
 		String postCode = request.getParameter("postCode");
 		String[] address = request.getParameterValues("address");
 		String sAddress = "";
@@ -62,6 +67,7 @@ public class OrderCompleteController extends HttpServlet {
 		o.setLocation(sAddress);
 		o.setParcelStatus(1);
 		o.setPayment("Y");
+		o.setPhone(tkPhone);
 		
 		int result1 = new OrderService().insertOrder(o);
 		
@@ -70,10 +76,10 @@ public class OrderCompleteController extends HttpServlet {
 		
 		
 		// 1. 카트 넘버가 *인 상품 코드, 사이클, 양 가져오기 
-		ArrayList<Cart> list = new ArrayList<>();
+		ArrayList<Cart> list = new ArrayList<>(); // 결제한 카트 리스트 생성 
 		
-		for(int i=0; i<cartNos.length; i++) {
-			list.add(new OrderService().selectOrderList(cartNos[i]));
+		for(int i=0; i<cartNos.length; i++) { // orderForm.jsp에서 뿌려진 카트번호 길이만큼 
+			list.add(new OrderService().selectOrderList(cartNos[i])); // 카트번호를 매개변수로 상품정보 조회해 와서 리스트에 넣음 
 		}
 		
 		// 2. 주문별상품 객체에 조회해온 카트객체값 넣어주기 
@@ -107,7 +113,7 @@ public class OrderCompleteController extends HttpServlet {
 		/* 입출고 테이블에 출고처리*/
 		int result4 = 0;
 		for(int i=0; i<cartNos.length; i++) {
-			result4 += new OrderService().insertOutStock(list.get(i));
+			result4 += new OrderService().insertOutStock(list.get(i)); // 매개변수로 카트객체 하나씩 넘김 
 		}
 		
 		
