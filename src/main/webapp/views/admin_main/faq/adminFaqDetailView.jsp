@@ -56,6 +56,7 @@
             <h4 style="vertical-align:45px"><b>FAQ 상세조회</b></h4>
         </div> -->
         <div class="card-body cc1">
+        <a href="<%=request.getContextPath()%>/adFaqList.do?cpage=1" class="btn btn-primary" tyle="float:right">목록으로</a>
         <div class ="printView">
         <h2 style="text-align:center">FAQ 상세조회</h2>
             <table class="table" align="center">
@@ -73,7 +74,7 @@
                             </tr>
                             <tr>
                                 <td><%=f.getFaqNo()%></td>
-                                <td><%=f.getFaqCategory()%></td>
+                                <td><%=f.getCategoryName()%></td>
                                 <td><%=f.getMemId()%></td>
                                 <td><%=f.getEnrollDate()%></td>
                                 <td><%=f.getModifyDate()%></td>
@@ -91,9 +92,6 @@
                     <td id="content" class="text-center"><%=f.getFaqContent()%></td>
                 </tr>
             </table>
-        </div>
-        <div>
-            <a href="<%=request.getContextPath()%>/adFaqList.do?cpage=1" class="btn btn-primary" tyle="float:center">목록으로</a>
         </div>
     </div>
 </div>

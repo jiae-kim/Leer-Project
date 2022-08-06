@@ -209,19 +209,19 @@
 	
 	<!-- FAQ 상세조회, 김지애 -->
 	<entry key="selectFaq">
-	SELECT 
-	        F.FAQ_NO
-	     ,  C.CATEGORY_NAME
-	     ,  M.MEM_ID
-	     ,  F.ENROLL_DATE
-	     ,  F.MODIFY_DATE
-	     ,  F.COUNT
-	     ,  F.FAQ_TITLE
-	     ,  F.FAQ_CONTENT
-	  FROM  FAQ F
-	  LEFT JOIN  MEMBER M ON(F.MEM_NO = M.MEM_NO)
-	  LEFT JOIN  FAQ_CATEGORY C ON (F.CATEGORY_NO = C.CATEGORY_NO)
-	  WHERE FAQ_NO =
+		SELECT
+		        F.FAQ_NO
+		     ,  C.CATEGORY_NAME
+		     ,  M.MEM_ID
+		     ,  F.ENROLL_DATE
+		     ,  F.MODIFY_DATE
+		     ,  F.COUNT
+		     ,  F.FAQ_TITLE
+		     ,  F.FAQ_CONTENT
+		  FROM  FAQ F
+		  LEFT JOIN  MEMBER M ON(F.MEM_NO = M.MEM_NO)
+		  LEFT JOIN  FAQ_CATEGORY C ON (F.CATEGORY_NO = C.CATEGORY_NO)
+		  WHERE FAQ_NO = ?
 	</entry>
 	
 	<!-- 처음 작성 했던 상세조회 SQL문

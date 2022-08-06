@@ -133,7 +133,7 @@ public class AdminFaqDao {
 			
 			if(rset.next()) {
 				f = new Faq(rset.getInt("faq_no"),
-							rset.getString("faq_category"),
+							rset.getString("category_name"),
 							rset.getString("mem_id"),
 							rset.getDate("enroll_date"),
 							rset.getDate("modify_date"),
@@ -158,7 +158,6 @@ public class AdminFaqDao {
 		ArrayList<FaqCategory> list = new ArrayList<>();
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		
 		String sql = prop.getProperty("selectFaqCategoryList");
 		
 		try {
