@@ -43,19 +43,20 @@ int maxPage = pi.getMaxPage();
 	href="<%=request.getContextPath()%>/resources/css/heeyeong/style.css"
 	type="text/css">
 
-<!--  
+  
     <style>
      @import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
     </style>
-    -->
+   
 
 <style>
-#listBody tr:hover {
+#list-area tr:hover {
 	background-color: rgba(231, 231, 231, 0.349);
 	cursor: pointer;
 }
 
-.go-wrap button {
+
+#list-area button {
 	border: none;
 	border-radius: 5px;
 	margin-top: 50px;
@@ -65,7 +66,7 @@ int maxPage = pi.getMaxPage();
 	float: right;
 }
 
-.go-wrap button:hover {
+#list-area button:hover {
 	background-color: rgba(211, 211, 211, 0.507);
 	cursor: pointer;
 }
@@ -106,9 +107,9 @@ int maxPage = pi.getMaxPage();
 						<div class="sidebar__item">
 							<h4>고객센터</h4>
 							<ul>
-								<li><a href="#">공지사항</a></li>
+								<li><a href="<%=contextPath%>/list.no?cpage=1">공지사항</a></li>
 								<li><a href="#">FAQ</a></li>
-								<li><a href="#">1대1 문의</a></li>
+								<li><a href="<%=contextPath%>/mtmList.go?memNo=<%=loginUser.getMemNo() %>&cpage=1">1대1 문의</a></li>
 							</ul>
 						</div>
 
@@ -189,7 +190,7 @@ int maxPage = pi.getMaxPage();
 		<%
 		if (p == currentPage) {
 		%>
-		<a disabled style="opacity: 0.7"><%=p%></a>
+		<a id="aBtn" disabled style="opacity: 0.7"><%=p%></a>
 		<%
 		} else {
 		%>

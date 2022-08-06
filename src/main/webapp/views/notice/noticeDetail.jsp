@@ -40,11 +40,11 @@ Notice n = (Notice) request.getAttribute("notice");
 	href="<%=request.getContextPath()%>/resources/css/heeyeong/style.css"
 	type="text/css">
 
-<!--  
+ 
     <style>
      @import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
     </style>
-    -->
+   
 
 <style>
 #listBody tr:hover {
@@ -52,19 +52,33 @@ Notice n = (Notice) request.getAttribute("notice");
 	cursor: pointer;
 }
 
-.go-wrap button {
+#div-bfBtn{
+	text-align:center;
+}
+#bfBtn {
 	border: none;
 	border-radius: 5px;
 	margin-top: 50px;
 	width: 100px;
 	height: 40px;
 	line-height: 40px;
-	float: right;
+	
 }
 
 .go-wrap button:hover {
 	background-color: rgba(211, 211, 211, 0.507);
 	cursor: pointer;
+}
+
+#detail-area th{
+	text-align:center;
+	vertical-align:middle;
+	background-color: rgb(241, 241, 241);
+	
+}
+#detail-area {
+	border:solid rgba(211, 211, 211, 0.507) 1px;
+	
 }
 </style>
 
@@ -97,7 +111,7 @@ Notice n = (Notice) request.getAttribute("notice");
 	<!-- Product Section Begin -->
 	<section class="product spad">
 		<div class="container">
-			<div class="row">
+			<div class="row" class="go-wrap">
 				<div class="col-lg-3 col-md-5">
 					<div class="sidebarr">
 						<div class="sidebar__item">
@@ -113,10 +127,10 @@ Notice n = (Notice) request.getAttribute("notice");
 				</div>
 				<div style="width: 70%">
 					<label style="font-size: 25px; font-weight: 600; height: 20px;">공지사항
-						상세 </label> <br> <br>
+						</label> <br> <br>
 
-
-					<table class="table" id="detail-area" border="1" align="center">
+					
+					<table class="table" id="detail-area"  align="center">
 						<tr>
 							
 							<th width="70">제목</th>
@@ -129,18 +143,26 @@ Notice n = (Notice) request.getAttribute("notice");
 						</tr>
 						<tr>
 							<th>내용</th>
-							<td colspan="3">
-								<p style="height: 200px"><%=n.getContent()%></p>
+							<td colspan="3"  style="height:500px" >
+								<p><%=n.getContent()%></p>
 							</td>
 						</tr>
 						
 					</table>
 					
+					<div id="div-bfBtn">
+					
+					<a class="btn" style="background-color:gray; color:white" href="<%=contextPath %>/list.no?cpage=1">이전으로</a>
+					</div>
 				</div>
+				
 
 
 			</div>
+			
+				
 		</div>
+		
 	</section>
 	<!-- Product Section End -->
 
