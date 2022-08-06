@@ -354,9 +354,26 @@
 	
 	<entry key="deleteBoard">
 		
-		DELETE 
-		  FROM COMU_BOARD 
+		UPDATE COMU_BOARD
+		   SET DELETE_YN = 'Y'
 		 WHERE COMU_NO = ?
+	
+	</entry>
+	
+	<entry key="selectMyBoard">
+		
+		SELECT
+	       COMU_NO
+	     , NICKNAME
+	     , TITLE
+	     , CB.ENROLL_DATE  "ENROLL"
+	     , VIEW_COUNT 
+      FROM COMU_BOARD CB
+      JOIN MEMBER USING (MEM_NO)
+     WHERE MEM_NO = ?
+       AND DELETE_YN = 'N'
+     ORDER
+        BY COMU_NO DESC
 	
 	</entry>
 </properties>

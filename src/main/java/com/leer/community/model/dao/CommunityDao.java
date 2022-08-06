@@ -684,7 +684,7 @@ public class CommunityDao {
 		return list;
 	}
 
-	public int deleteBoard(Connection conn, int comuNo) {
+	public int deleteBoard(Connection conn, String comuNo) {
 		int result = 0;
 
 		PreparedStatement pstmt = null;
@@ -693,7 +693,7 @@ public class CommunityDao {
 
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, comuNo);
+			pstmt.setString(1, comuNo);
 
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -705,5 +705,52 @@ public class CommunityDao {
 		}
 		return result;
 	}
-//	public ArrayList<>
+	public ArrayList<ComuBoard> selectMyBoard(Connection conn, int memNo){
+		
+		ArrayList<ComuBoard> cmList = new ArrayList<>();
+		
+		PreparedStatement pstmt = null;
+		
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectMyBoard");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memNo);
+			
+			rset = pstmt.executeQuery();
+			while(rset.next()) {
+				cmList.add(new ComuBoard(
+						rset.getInt("comu_no"),
+						rset.getString("nickname"),
+						rset.getString("title"),
+						rset.getDate("enroll"),
+						rset.getInt("view_count")
+						));
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+			
+		}
+		return cmList;
+		
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+

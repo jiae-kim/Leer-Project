@@ -4,12 +4,14 @@
 <%
 	PageInfo pi = (PageInfo)request.getAttribute("pi");  
 	ArrayList<ComuBoard> list = (ArrayList<ComuBoard>)request.getAttribute("list");
+	ArrayList<ComuBoard> cmList = (ArrayList<ComuBoard>)request.getAttribute("cmList");
 	ArrayList<Category> cateList = (ArrayList<Category>)request.getAttribute("cateList"); 
 	Member m = (Member)request.getAttribute("m");
 	int currentPage = pi.getCurrentPage();
 	int startPage = pi.getStartPage();
 	int endPage = pi.getEndPage();
-	int maxPage = pi.getMaxPage();  
+	int maxPage = pi.getMaxPage(); 
+	String flag = (String)request.getAttribute("flag");
 %>
 <!DOCTYPE html>
 <html>
@@ -17,6 +19,529 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
+	
+	
+	
+	
+	
+	
+	
+	.blog__sidebar__search form {
+	position: relative !important;
+}
+
+.blog__sidebar__search form input {
+	width: 600px !important;
+	height: 46px !important;
+	font-size: 16px !important;
+	color: #6f6f6f !important;
+	padding-left: 15px !important;
+	border: 1px solid #e1e1e1 !important;
+	border-radius: 5px !important;
+	
+}
+
+.blog__sidebar__search form button {
+	font-size: 16px !important;
+	color: #ffffff !important;
+	background: #898989 !important;
+	border: none !important;
+	border-radius: 5px !important;
+	position: absolute !important;
+	margin-left: 5px !important;
+	right: 25px !important;
+	top: none !important; 
+	height: 100% !important;
+	padding: 0px 20px !important;
+
+}
+.row{
+    display: -ms-flexbox !important; 
+    display: flex !important;
+    -ms-flex-wrap: none !important; 
+    flex-wrap: none !important;  
+    margin-right: -15px !important;
+    margin-left: -15px !important;
+}
+.breadcrumb__text h2 {
+	font-size: 35px  !important;
+	color: #ffffff !important;
+	font-weight: 700 !important;
+}
+
+.breadcrumb__option a:after {
+	position: absolute !important;
+	right: -12px !important;
+	top: 13px !important;
+	height: 1px !important;
+	width: 10px !important;
+	background: #ffffff !important;
+	content: "" !important;
+}
+
+.breadcrumb__option span {
+	display: inline-block !important;
+	font-size: 16px !important;
+	color: #ffffff !important;
+}
+
+.col-md-7 {
+        -ms-flex: 0 0 58.333333% !important;
+        flex: 0 0 58.333333% !important;
+        max-width: 58.333333% !important;
+    }
+.col-lg-6 {
+        -ms-flex: 0 0 50% !important;
+        flex: 0 0 50% !important;
+        max-width: 50% !important;
+}
+
+ .col-md-6 {
+        -ms-flex: 0 0 50% !important;
+        flex: 0 0 50% !important;
+        max-width: 50% !important;
+    }
+    .blog__item__text {
+	padding-top: 25px !important;
+	width: 600px !important;
+}
+.blog__item__text .blog__btn {
+	position: absolute !important;
+	display: inline-block !important;
+	font-size: 14px !important;
+	color: #1c1c1c !important;
+	text-transform: uppercase !important;
+	letter-spacing: 1px !important;
+	padding: 14px 20px 12px !important;
+	border-radius: 25px !important;
+	bottom: 0 !important;
+	left: 0 !important;
+}
+
+
+.blog__item__text .blog__btn span {
+	position: relative !important;
+	top: 1px !important;
+	margin-left: 5px !important;
+}
+
+.blog__item__text2 {
+	width: 680px v
+}
+
+.blog__item__text2 ul {
+	margin-bottom: 15px !important;
+}
+.hashtag{
+	display: inline !important;
+	color: #1c1c1c !important;
+	background-color: rgb(221, 221, 221) !important;
+	border-radius: 3px !important;
+}
+.hashtag:hover{
+	cursor: pointer !important;
+	color: white !important;
+}
+
+.blog__item__text2 ul li {
+	font-size: 16px !important;
+	color: #b2b2b2 !important;
+	list-style: none !important;
+	display: inline-block !important;
+	margin-right: 15px !important;
+}
+
+#noti {
+	margin-top: 15px !important;
+}
+
+.blog__item__text2 ul li:last-child {
+	margin-right: 0 !important;
+}
+
+.blog__item__text2 h5 {
+	margin-bottom: 12px !important;
+}
+
+.blog__item__text2 h5 a {
+	font-size: 20px !important;
+	color: #1c1c1c !important;
+	font-weight: 700 !important;
+}
+
+
+.blog__item__text2 p {
+	margin-bottom: 25px !important;
+}
+
+
+.blog__item__text2 .blog__btn {
+	position: absolute !important;
+	display: inline-block !important;
+	font-size: 14px !important;
+	color: #1c1c1c !important;
+	text-transform: uppercase !important;
+	letter-spacing: 1px v
+	padding: 14px 20px 12px !important;
+	border-radius: 25px !important;
+	bottom: 0 !important;
+	left: 0 !important;
+}
+
+.blog__item__text2 .blog__btn span {
+	position: relative !important;
+	top: 1px !important;
+	margin-left: 5px !important;
+}
+
+.blog__pagination {
+	padding-top: 5px !important;
+	position: relative !important;
+}
+
+/* .blog__pagination:before {
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 1px;
+	width: 100%;
+	background: #000000;
+	opacity: 0.1;
+	content: "";
+} */
+
+.blog__btn:before{
+	position: absolute !important;
+	left: 0 !important;
+	bottom: 0 !important;
+	height: 1px !important;
+	width: 630px !important;
+	background: #000000 !important;
+	opacity: 0.1 !important;
+	content: "" !important;
+}
+
+.blog__sidebar {
+	margin-top: 50px !important;
+}
+
+.blog__sidebar__item {
+	margin-top: 50px !important;
+	max-width: 20% !important;
+}
+
+.imgChange:hover{
+	cursor: pointer !important;
+	background-color: gray !important;
+}
+
+.blog__sidebar__item h4 {
+	color: #1c1c1c !important;
+	font-weight: 700 !important;
+	margin-bottom: 25px !important;
+}
+.myBoard{
+	margin-top: 20px !important;
+}
+#profile{
+	margin-bottom:30px !important;
+	margin-left:20px !important;
+}
+#profile strong{
+	margin-left: 10px !important;
+	font-size: 16px !important;
+	color: #828282 !important;
+}
+
+#profile strong:hover{
+	cursor: pointer !important;
+	color: skyblue !important;
+}
+.myPageList{
+	border-top: 1px solid black !important;
+	border-bottom: 1px solid black !important;
+	height: 260px !important; 
+}
+#myPage{
+	height: 180px !important;
+	margin-top: 25px !important;
+}
+/* .writeBoard{
+	margin-bottom: 10px;
+	width: 100%;
+	background-color: gray;
+	border-image-repeat: 5px;
+} */
+.writeBoard button{
+	border: 1px solid black !important;
+	color: white !important;
+	width: 100% !important;
+	background-color: gray !important;
+	font-size: 16px !important;
+	line-height: 40px !important;
+	border-style: none !important;
+}
+.blog__sidebar__item ul{
+	margin-bottom: 20px !important;
+}
+.blog__sidebar__item ul li {
+	list-style: none !important;
+	font-size: 12px !important;
+	height: 30px !important;
+	margin-left: 20px !important;
+}
+.box-g h4{
+	font-size: 12px !important;
+	margin: 10px !important;
+}
+.blog__sidebar__item ul li a {
+	font-size: 12px !important;
+	color: #666666 !important;
+	line-height: 48px !important;
+	-webkit-transition: all, 0.3s !important;
+	-moz-transition: all, 0.3s !important; 
+	-ms-transition: all, 0.3s !important;
+	-o-transition: all, 0.3s !important;
+	transition: all, 0.3s !important;
+}
+
+.blog__sidebar__item ul li a:hover {
+	color: #7fad39 !important;
+}
+
+
+.blog__sidebar__search {
+	margin: 50px 0px 30px !important;
+}
+
+.blog__sidebar__search form {
+	position: relative !important;
+}
+
+.blog__sidebar__search form input {
+	width: 520px !important;
+	height: 46px !important;
+	font-size: 16px !important;
+	color: #6f6f6f !important;
+	padding-left: 15px !important;
+	border: 1px solid #e1e1e1 !important;
+	border-radius: 5px !important;
+	
+}
+
+.blog__sidebar__search form input::placeholder {
+	color: #6f6f6f !important;
+}
+
+.blog__sidebar__search form button {
+	font-size: 16px;!important
+	color: #ffffff !important;
+	background: #898989 !important;
+	border: none !important;
+	border-radius: 5px !important;
+	position: absolute !important;
+	margin-left: 5px !important;
+	right: none !important;
+	top: none !important;
+	height: 100% !important;
+	padding: 0px 20px !important;
+
+}
+
+.blog__sidebar__recent .blog__sidebar__recent__item {
+	display: block !important;
+}
+
+.blog__sidebar__recent .blog__sidebar__recent__item:last-child {
+	margin-bottom: 0 !important;
+}
+
+.blog__sidebar__recent__item {
+	overflow: hidden !important;
+	margin-bottom: 20px !important;
+}
+
+.blog__sidebar__recent__item__pic {
+	float: left !important;
+	margin-right: 20px !important;
+}
+
+.blog__sidebar__recent__item__text {
+	overflow: hidden !important;
+}
+
+.blog__sidebar__recent__item__text h6 {
+	font-weight: 700 !important;
+	color: #333333 !important;
+	line-height: 20px !important;
+	margin-bottom: 5px !important;
+}
+
+.blog__sidebar__recent__item__text span {
+	font-size: 12px !important;
+	color: #999999 !important;
+	text-transform: uppercase !important;
+}
+
+.bestTag{
+	margin-top:30px !important;
+	max-width: 80% !important;
+}
+
+.blog__sidebar__item__tags a {
+	font-size: 12px !important;
+	color: #6f6f6f !important;
+	background: #f5f5f5 !important;
+	display: inline-block !important;
+	padding: 7px 13px 5px !important;
+	margin-right: 6px !important;
+	margin-bottom: 10px !important;
+}
+
+/*---------------------
+  Blog Details Hero
+-----------------------*/
+
+.blog-details-hero {
+	height: 350px !important;
+	display: flex !important;
+	align-items: center !important;
+}
+
+.blog__details__hero__text {
+	text-align: center !important;
+}
+
+.blog__details__hero__text h2 {
+	font-size: 46px !important;
+	color: #ffffff !important;
+	font-weight: 700 !important;
+	margin-bottom: 10px !important;
+}
+
+.blog__details__hero__text ul li {
+	font-size: 16px !important;
+	color: #ffffff !important;
+	list-style: none !important;
+	display: inline-block !important;
+	margin-right: 45px !important;
+	position: relative !important;
+}
+
+.blog__details__hero__text ul li:after {
+	position: absolute !important;
+	right: -26px !important;
+	top: 0 !important;
+	content: "|" !important;
+}
+
+.blog__details__hero__text ul li:last-child {
+	margin-right: 0 !important;
+}
+
+.blog__details__hero__text ul li:last-child:after {
+	display: none !important;
+}
+
+/*---------------------
+  Blog Details
+-----------------------*/
+
+.related-blog {
+	padding-top: 70px !important;
+	padding-bottom: 10px !important;
+}
+
+.related-blog-title {
+	margin-bottom: 70px !important;
+}
+
+.blog-details {
+	padding-bottom: 75px !important;
+	border-bottom: 1px solid #e1e1e1 !important;
+}
+
+.blog__details__text {
+	margin-bottom: 45px !important;
+}
+
+.blog__details__text img {
+	margin-bottom: 30px !important;
+}
+
+.blog__details__text p {
+	font-size: 18px !important;
+	line-height: 30px !important;
+}
+
+.blog__details__text h3 {
+	color: #333333 !important;
+	font-weight: 700 !important;
+	line-height: 30px !important;
+	margin-bottom: 30px !important;
+}
+
+.blog__details__author__pic {
+	float: left !important;
+	margin-right: 15px !important; 
+}
+
+.blog__details__author__pic img {
+	height: 92px !important;
+	width: 92px !important;
+	border-radius: 50% !important;
+}
+
+.blog__details__author__text {
+	overflow: hidden !important;
+	padding-top: 30px !important;
+}
+
+.blog__details__author__text h6 {
+	color: #1c1c1c !important;
+	font-weight: 700 !important;
+}
+
+.blog__details__author__text span {
+	font-size: 16px !important;
+	color: #6f6f6f !important;
+}
+
+.blog__details__widget ul {
+	margin-bottom: 5px !important;
+}
+
+.blog__details__widget ul li {
+	font-size: 16px !important;
+	color: #6f6f6f !important;
+	list-style: none !important;
+	line-height: 30px !important;
+}
+
+.blog__details__widget ul li span {
+	color: #1c1c1c !important;
+	font-weight: 700 !important;
+}
+
+.blog__details__widget .blog__details__social a {
+	display: inline-block !important;
+	font-size: 20px !important;
+	color: #6f6f6f !important;
+	margin-right: 24px !important;
+	-webkit-transition: all, 0.3s;
+	-moz-transition: all, 0.3s;
+	-ms-transition: all, 0.3s;
+	-o-transition: all, 0.3s;
+	transition: all, 0.3s;
+}
+
+.blog__details__widget .blog__details__social a:hover {
+	color: #7fad39 !important;
+}
+
+.blog__details__widget .blog__details__social a:last-child {
+	margin-right: 0 !important;
+}
         .list-area th {
             font-size: 14px;
             border-top: 1px solid rgba(128, 128, 128, .7);
@@ -51,14 +576,24 @@
             font-size: 14px;
         }
 
-        .boardDelete{
-            border: 1px solid #878787;
-            background-color: white;
-            color: #878787;
-            font-weight: bold;
-            line-height:25px;
-            font-size: 14px;
+
+ .boardDelete{
+            border: none !important;
+            background-color: white !important;
+            color: wite !important;
+            font-weight: bold !important;
+            font-size: 14px !important;
         }
+		 .blog__pagination:before {
+			position: absolute;
+			left: 0;
+			top: 0;
+			height: 1px;
+			width: 0% !important;
+			background: #000000;
+			opacity: 0 !important;
+			content: "" !important;
+		} 
          .boardTitle:hover{
 	         color:red !import;
 	       	background:white !import;
@@ -67,6 +602,44 @@
         	font-size:12px;
         	color:#212529;
         	 
+        }
+        /////////////
+                .list-area th {
+            font-size: 14px;
+            border-top: 1px solid rgba(128, 128, 128, .7);
+            border-bottom: 1px solid gray;
+
+        }
+
+
+        .list-area {
+            width: 100%;
+            height: 50px;
+            text-align: center;
+
+        }
+
+        .list-area button:hover {
+            cursor: pointer;
+            color: gray;
+        }
+
+        .list-area button {
+            border: none;
+            background-color: white;
+            font-weight: bold;
+        }
+
+        .myBoardTitle {
+            font-size: 14px;
+        }
+
+        .boardDelete{
+            border: none;
+            background-color: white;
+            color: wite;
+            font-weight: bold;
+            font-size: 14px;
         }
     </style>
 </head>
@@ -92,16 +665,16 @@
     
     
 <%@ include file="../community/communityMain.jsp" %>
-
+<% if(flag.equals("select")){ %>
 <div class="col-lg-8 col-md-7">
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6">
+                                <form action="<%= contextPath%>/comuDelete.me">
                             <div class="blog__item__text2" style="margin-top:20px">
                                 <div align="left">
                                     <h4>내가 작성한 게시글 </h4>
                                     <span class="myBoardTitle"><strong><%= loginUser.getNickname() %></strong>님의 게시글 목록</span>
                                 </div>
-                                <form action="<%= contextPath%>/deleteBoard.bo"></form>
                                 <table class="list-area" align="center">
                                     <thead>
                                         <tr>
@@ -110,7 +683,7 @@
                                             <th width="100">작성자</th>
                                             <th width="70">조회수</th>
                                             <th width="100">작성일</th>
-                                            <th width="70" class="allch"><input type="checkbox" class="allcheck" id="check_all" name="ch_all" onclick="CheckAll();"> 전체선택</th>
+                                            <th width="70" class="allch">전체선택 <br><input type="checkbox" id="check-all" name="ch_all" onclick="all"> </th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -123,12 +696,11 @@
                                         	<% for(ComuBoard c : list) { %>
 		                                        <tr>
 		                                            <td>
-		                                      		   <input type="hidden" name="no"><%= c.getComuNo() %>
 		                                               <span><%= num-- %></span>
 		                                               		 
 		                                            </td>
 		                                            <td align="left">
-		                                                <a class="boardTitle"><%= c.getTitle() %></a>
+		                                                <a class="boardTitle" href="<%=contextPath%>/comuDetail.bo?no=<%= c.getComuNo()%>"><%= c.getTitle() %></a>
 		                                            </td>
 		                                            <td>
 		                                                <span name="nickname"><%= c.getMemNo() %></span>
@@ -139,94 +711,27 @@
 		                                            <td>
 		                                                <span><%= c.getEnrollDate() %></span>
 		                                            </td>
-		                                            <td><input type="checkbox" name="chk"></td>
+		                                            <td><input type="checkbox" name="chk" value="<%=c.getComuNo()%>"></td>
 		                                        </tr>
                                     		<% } %>
                                     <% } %>
                                     </tbody>
                                 </table>
-								<script>
-                                	
-									$("#check-all").click(function(){
-										if($("#check-all").prop("checked")){
-											$("input[name=chk]").prop("checked", true)
-											
-										}else{
-											$("input[name=chk]").prop("checked", false)
-										}
-									})
-								
-                                		
-                                	
-                                		
-                                
-                                </script>
                                 <% if(!list.isEmpty()){ %>
 	                                <div class="col-lg-12" style="padding: 0;" align="right">
-	                                        <a href="javascript:if(confirm('정말 삭제하시겠습니까?')) del_all('chk[]');" >삭제하기</a>
+	                                        <button type="submit" class="boardDelete">삭제하기</button>
 	                                </div>
 	                                
-	                            <script>
-
-	                            function del_all(obj){
-
-	                            	//alert(rid);
-
-	                                var i, sum=0, tag=[], str="";
-	                                var check = document.getElementsByName(obj);
-	                                var tot = check.length;
-	                                for (i = 0; i < tot; i++) {
-	                                    if (check[i].checked == true) {
-	                                        tag[sum] = check[i].value;
-	                                        sum++;
-	                            			//alert(sum);
-	                                    }
-	                                }
-	                                //str += "선택갯수 : "+sum;
-	                                if(tag.length > 0) str += tag.join(",");
-
-	                                alert(str);
-	                            	//window.location.href="url";
-				
-	                         	   }
-	                            
-	                            
-	                            
-	                            
-	                            
-	                            
-	                            	var check = false; 
-	                            function CheckAll(){ 
-	                            	var chk = document.getElementsByName("check[]"); 
-	                            	if(check == false){ 
-	                            		check = true; 
-	                            		for(var i=0; i<chk.length;i++){ 
-	                            			check[i].checked = true;//모두 체크 
-	                            			document.getElementById("ch_all").checked = true;
-
-	                            		} //for
-	                            	}else{ 
-	                            		check = false; 
-	                            		for(var i=0; i<check.length;i++){ 
-	                            			chk[i].checked = false;//모두 해제 
-	                            			document.getElementById("ch_all").checked = false;
-	                            		}//for
-	                            	}
-
-	                            /*
-	                            // jquery 버전 특정 체크박스 체크하기/풀기
-	                            $("#checkbox").prop("checked", true); //id 값으로
-	                            $("#checkbox").prop("checked", false); //id 값으로 
-	                            */
-
-	                            }
-
-
-	                            </script>    
-								
-								
-								
-								
+									<script>
+									
+										$("#check-all").click(function(){
+											if($("#check-all").prop("checked")){
+												$("input[name=chk]").prop("checked", true)
+											}else{
+												$("input[name=chk]").prop("checked",false)
+											}
+										})
+									</script>
 								
 	                                <div class="product__pagination blog__pagination" align="center">
 	                                <% if(currentPage != 1){ %>
@@ -247,10 +752,102 @@
 	                                </div>
                                 <% }%>
                             </div>
+                            </form>
                         </div>
                     </div>
                 </div>
-    
+    	<% }else { %>
+    	<div class="col-lg-8 col-md-7">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                                <form action="<%= contextPath%>/comuDelete.me">
+                            <div class="blog__item__text2" style="margin-top:20px">
+                                <div align="left">
+                                    <h4>내가 작성한 게시글 </h4>
+                                    <span class="myBoardTitle"><strong><%= loginUser.getNickname() %></strong>님의 게시글 목록</span>
+                                </div>
+                                <table class="list-area" align="center" >
+                                    <thead>
+                                        <tr>
+                                            <th width="70">번호</th>
+                                            <th width="280">제목</th>
+                                            <th width="100">작성자</th>
+                                            <th width="70">조회수</th>
+                                            <th width="100">작성일</th>
+                                            <th width="70" class="allch">전체선택 <br><input type="checkbox" id="check-all" name="ch_all" onclick="all"> </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% if(cmList.isEmpty()) { %>
+                                         <tr>
+                                            <td colspan="6">존재하는 게시글이 없습니다.</td>
+                                        </tr> 
+                                        <% }else{ %>
+                                        	<% int num = cmList.size(); %>
+                                        	<% for(ComuBoard c : cmList) { %>
+		                                        <tr>
+		                                            <td>
+		                                               <span><%= num-- %></span>
+		                                               		 
+		                                            </td>
+		                                            <td align="left">
+		                                                <a class="boardTitle" href="<%=contextPath%>/comuDetail.bo?no=<%= c.getComuNo()%>"><%= c.getTitle() %></a>
+		                                            </td>
+		                                            <td>
+		                                                <span name="nickname"><%= c.getMemNo() %></span>
+		                                            </td>
+		                                            <td>
+		                                                <%= c.getViewCount() %>
+		                                            </td>
+		                                            <td>
+		                                                <span><%= c.getEnrollDate() %></span>
+		                                            </td>
+		                                            <td><input type="checkbox" name="chk" value="<%=c.getComuNo()%>" style="padding:10px"></td>
+		                                        </tr>
+                                    		<% } %>
+                                    <% } %>
+                                    </tbody>
+                                </table>
+                                <% if(!cmList.isEmpty()){ %>
+	                                <div class="col-lg-12" style="padding: 0;" align="right">
+	                                        <button type="submit" class="boardDelete">삭제하기</button>
+	                                </div>
+	                                
+									<script>
+									
+										$("#check-all").click(function(){
+											if($("#check-all").prop("checked")){
+												$("input[name=chk]").prop("checked", true)
+											}else{
+												$("input[name=chk]").prop("checked",false)
+											}
+										})
+									</script>
+								
+	                                <div class="product__pagination blog__pagination" align="center">
+	                                <% if(currentPage != 1){ %>
+	                                	<a href="<%=contextPath%>/myBoard.li?memNo=<%=loginUser.getMemNo()%>&cpage=<%=currentPage-1%>">&lt;</a>
+	                                <% } %>
+	                                 
+	                                <% for(int p=startPage; p<=endPage; p++) {%>
+	                                <% if(p == currentPage){ %>
+					            			<a disabled style="opacity:0.7"><%= p %></a>
+					            		<% }else { %>
+					              			 <a href="<%=contextPath%>/myBoard.li?memNo=<%=loginUser.getMemNo()%>&cpage=<%= p %>"><%= p %></a>
+					              		<% } %>
+				          		   <% } %>
+				         
+						           <% if(currentPage != maxPage){ %>
+						            <a href="<%=contextPath%>/myBoard.li?memNo=<%=loginUser.getMemNo()%>&cpage=<%=currentPage+1%>" >&gt;</a>
+						            <% } %> 
+	                                </div>
+                                <% }%>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
 	 <%@ include file="../community/comuMypage.jsp" %>
 	 <%@ include file="../common/footer.jsp" %>
 </body>

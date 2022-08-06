@@ -9,8 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.leer.common.model.vo.Category;
+import com.leer.common.model.vo.PageInfo;
 import com.leer.community.model.service.CommunityService;
 import com.leer.community.model.vo.ComuBoard;
+import com.leer.member.model.vo.Member;
 
 /**
  * Servlet implementation class ComuDeleteController
@@ -31,18 +34,62 @@ public class ComuDeleteController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String[] comuNoArr = request.getParameterValues("chk");
-		int comuNo = Integer.parseInt(request.getParameter("no"));
+request.setCharacterEncoding("UTF-8");
+
 		
+		int listCount; 		
+		int currentPage; 	
+		int pageLimit; 		
+		int boardLimit; 
+		int maxPage; 		
+		int startPage; 		
+		int endPage;		
+//		int memNo = Integer.parseInt(request.getParameter("memNo"));
+		Member loginUser = (Member)request.getSession().getAttribute("loginUser");
+		int memNo = 0;
+		if(loginUser != null) {
+			memNo = loginUser.getMemNo();
+		}
+		Member m = new CommunityService().selectMyCount(memNo);
+		request.setAttribute("m", m);
+		listCount = new CommunityService().selectMyListCount(memNo);
+		
+		
+		currentPage = 1;
+		
+		pageLimit = 5;
+		
+		boardLimit = 5;
+
+		maxPage = (int) Math.ceil((double)listCount / boardLimit);
+		
+		
+		startPage = (currentPage-1) / pageLimit * pageLimit + 1;
+		
+		endPage = startPage + pageLimit-1;
+		
+		if(endPage > maxPage) {
+			endPage = maxPage;
+		}
+		
+		String[] comuNoArr = request.getParameterValues("chk");
 		int result = 0;
+		
 		
 		for(int i=0; i<comuNoArr.length; i++) {
 			result += new CommunityService().deleteBoard(comuNoArr[i]);
 		}
 		if(result == comuNoArr.length) {
-			ArrayList<ComuBoard> cmList = new CommunityService().selectMyBoard(comuNo);
+			//ArrayList<ComuBoard> cmList = new CommunityService().selectMyBoard(memNo);
+			PageInfo pi = new PageInfo(listCount, currentPage, pageLimit, boardLimit, maxPage, startPage, endPage);
+			ArrayList<ComuBoard> cmList = new CommunityService().selectMyBoardList(pi, memNo);
+			ArrayList<Category> cateList = new CommunityService().selectCategoryList();
+			
+			request.setAttribute("pi", pi);
 			request.setAttribute("cmList", cmList);
-			request.getRequestDispatcher("views/community/MyboardList.jsp").forward(request, response);
+			request.setAttribute("cateList", cateList);
+			request.setAttribute("flag", "update");
+			request.getRequestDispatcher("views/community/myBoardList.jsp").forward(request, response);
 		}
 	}
 

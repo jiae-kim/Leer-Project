@@ -231,7 +231,7 @@ public class CommunityService {
 		return list;
 	}
 	
-	public int deleteBoard(int comuNo) {
+	public int deleteBoard(String comuNo) {
 		Connection conn = getConnection();
 		
 		int result = new CommunityDao().deleteBoard(conn, comuNo);
@@ -245,10 +245,10 @@ public class CommunityService {
 		close(conn);
 		return result;
 	}
-	public ArrayList<ComuBoard> selectMyBoard (int comuNo){
+	public ArrayList<ComuBoard> selectMyBoard (int memNo){
 		Connection conn = getConnection();
 		
-		ArrayList<ComuBoard> cmList = new CommunityDao().selectMyBoard(conn, comuNo);
+		ArrayList<ComuBoard> cmList = new CommunityDao().selectMyBoard(conn, memNo);
 		
 		close(conn);
 		return cmList;
