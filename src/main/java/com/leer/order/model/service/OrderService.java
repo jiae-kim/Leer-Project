@@ -48,6 +48,15 @@ public Cart selectOrderList(String chk){
 		return result;
 	}
 	
+	public String selectOrNo() {
+		
+		Connection conn = getConnection();
+		String OrNO = new OrderDao().selectOrNo(conn);
+		
+		close(conn);
+		return OrNO;
+	}
+	
 	public int insertOrProduct(OrProduct op) {
 		
 		Connection conn = getConnection();

@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.ArrayList, com.leer.order.model.vo.OrProduct, com.leer.order.model.vo.Order" %>
 <% 
+	String OrNo = (String)request.getAttribute("OrNo");
 	ArrayList<OrProduct> pList = (ArrayList<OrProduct>)request.getAttribute("pList"); 
 	Order o = (Order)request.getAttribute("order");
 %>
@@ -75,7 +76,7 @@
                                                 <th>주문날짜</th>
                                             </tr>
                                             <tr style="font-size:14px;">
-                                               <td>L20220001</td>
+                                               <td><%=OrNo %></td>
                                                 <td>어라운드 외 1건</td>
                                                 <td>
                                                     <span>32,000</span>

@@ -60,6 +60,16 @@
 		       ) 
 	</entry>
 	
+	<entry key="selectOrNo">
+	
+		  SELECT
+               LAST_NUMBER - 1 "current"
+          FROM USER_SEQUENCES
+         WHERE SEQUENCE_NAME = 'SEQ_OR'
+		
+	
+	</entry>
+	
 	<entry key="insertOrProduct">
 		INSERT
 		  INTO OR_PRODUCT

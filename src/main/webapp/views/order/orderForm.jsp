@@ -566,8 +566,8 @@
 											
 											
 											/* 배송비 출력  */
-											console.log($("#cartList").children().eq(5).children().eq(0).text() );
-											if($("#cartList").children().eq(5).children().eq(0).text() != '무료배송'){
+											console.log($("#cartList").children().eq(6).children().eq(0).text() );
+											if($("#cartList").children().eq(6).children().eq(0).text() != '무료배송'){
 												deliFee = 3000;
 												$("#deliFee").html("3,000");
 											}else{

@@ -82,11 +82,14 @@ public class OrderCompleteController extends HttpServlet {
 			list.add(new OrderService().selectOrderList(cartNos[i])); // 카트번호를 매개변수로 상품정보 조회해 와서 리스트에 넣음 
 		}
 		
+		// 1.1 현재의 주문번호 조회
+		String OrNo = new OrderService().selectOrNo();
+		
 		// 2. 주문별상품 객체에 조회해온 카트객체값 넣어주기 
 		ArrayList<OrProduct> pList = new ArrayList<>();
 		
 		for(int i=0; i<list.size(); i++) {
-			pList.add(i, new OrProduct(o.getOrNo(), list.get(i).getpCode(),
+			pList.add(i, new OrProduct(OrNo, list.get(i).getpCode(),
 										list.get(i).getOrCycle(), list.get(i).getAmount()
 					                   ));
 			
@@ -94,7 +97,7 @@ public class OrderCompleteController extends HttpServlet {
 		// 3. insert 
 		int result2 = 0;
 		for(int i=0; i<pList.size(); i++) {
-			result2 += new OrderService().insertOrProduct(pList.get(0));
+			result2 += new OrderService().insertOrProduct(pList.get(i));
 		}
 		
 		
@@ -120,10 +123,11 @@ public class OrderCompleteController extends HttpServlet {
 		/* 멤버테이블에 포인트 값도 바꿔주기*/
 		int result5 = new OrderService().updatePoint(memNo, finalPrice);
 		
+		request.setAttribute("OrNo", OrNo);
 		request.setAttribute("order", o);
 		request.setAttribute("pList", pList);
 		
-		request.getRequestDispatcher(request.getContextPath() + "/views/order/orderComplete.jsp");
+		request.getRequestDispatcher("/views/order/orderComplete.jsp").forward(request, response);
 	}
 
 	/**
