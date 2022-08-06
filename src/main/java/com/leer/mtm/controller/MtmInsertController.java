@@ -16,13 +16,13 @@ import com.leer.mtm.model.service.MtmService;
  * Servlet implementation class insertMtmController
  */
 @WebServlet("/insert.mtm")
-public class InsertMtmController extends HttpServlet {
+public class MtmInsertController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public InsertMtmController() {
+    public MtmInsertController() {
         super();
         // TODO Auto-generated constructor stub
     }

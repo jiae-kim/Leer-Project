@@ -15,13 +15,13 @@ import com.leer.mtm.model.service.AdminMtmService;
  * Servlet implementation class AdminMtmInsertContoller
  */
 @WebServlet("/adminInsert.mtm")
-public class AdminMtmInsertContoller extends HttpServlet {
+public class AdminMtmUpdateContoller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdminMtmInsertContoller() {
+    public AdminMtmUpdateContoller() {
         super();
         // TODO Auto-generated constructor stub
     }
