@@ -74,7 +74,13 @@
 	      , ?
 	      )
 	</entry>
-
+	
+	<!-- 이용약관 삭제요청, 김은지 -->
+	<entry key="deleteTerms">
+		DELETE TERMS
+		 WHERE TRM_NO = ?
+	</entry>
+	 
 </properties>
 
 

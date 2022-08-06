@@ -175,6 +175,26 @@ public class AdminTermsDao {
 		}
 		return result;
 	}
+	
+	// 관리자 이용약관 삭제요청
+	// 작성자 김은지
+	public int deleteTerms(Connection conn, int trmNo) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("deleteTerms");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, trmNo);
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}
 
 }
 
