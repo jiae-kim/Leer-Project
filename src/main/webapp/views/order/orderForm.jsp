@@ -350,18 +350,28 @@
                                             <table class="table" style="margin-top:20px" >
                                                 <tr> 
                                                     <th style="background:#f1f1f1" >주문하시는분</th>
-                                                    <td><input type="text" style="width:300px" name="tkName" ></td>
+                                                    <td><input type="text" style="width:300px" name="tkName" value="<%=loginUser.getMemName()%>"></td>
                                                 </tr>
                                                 <tr>
+                                                	<%
+                                                		String p1 = loginUser.getPhone().substring(0, 3);
+                                                		String p2 = loginUser.getPhone().substring(3, 7);
+                                                		String p3 = loginUser.getPhone().substring(7, 11);
+                                                	%>
+                                                	
                                                     <th style="background:#f1f1f1">주문자 연락처</th>
-                                                    <td><input type="text" style="width:300px" name="tkPhone" > - 
-                                                        <input type="text" style="width:300px" name="tkPhone" > - 
-                                                        <input type="text" style="width:300px" name="tkPhone" ></td> 
+                                                    <td><input type="text" style="width:300px" name="tkPhone" value="<%=p1%>" > - 
+                                                        <input type="text" style="width:300px" name="tkPhone" value="<%=p2%>"> - 
+                                                        <input type="text" style="width:300px" name="tkPhone" value="<%=p3 %>" ></td> 
                                                 </tr>
                                                 <tr>
+                                                	<%
+                                                		String[]email = loginUser.getEmail().split("@");
+                                                	
+                                                	%>
                                                     <th style="background:#f1f1f1">주문자 이메일</th>
-                                                    <td><input type="text" style="width:300px" > @ 
-                                                        <input type="text" style="width:300px" & nbsp;>
+                                                    <td><input type="text" style="width:300px" value="<%=email[0]%>" > @ 
+                                                        <input type="text" style="width:300px" value="<%=email[1] %>">
                                         
                                                     
                                                     </td>
@@ -448,7 +458,7 @@
                                                 <li class="cart_price">
                                                     총 구매금액(상품)
                                                     <div style="height:7px;"></div>
-                                                    <strong id="finalPrice" name="finalPrice">22,710</strong>
+                                                    <strong id="finalPrice" >22,710</strong>
                                                     <strong>원</strong>
                                                  </li>
 
@@ -459,7 +469,7 @@
                                         <div>
                                             <button type="button" class=btn id="order-btn" style="padding:20px 40px; font-size:20px" onclick="requestPay()">주문하기</button>
                                         </div>
-                                        
+                                        <input type="hidden" name="delPoint" value="" id="delPoint">
                                         <input type="hidden" name="product1" value="<%=list.get(0).getpCode()%>">
                                         <input type="hidden" name="cartSize" value="<%=list.size()%>">
                                         <input type="hidden" name="finalPrice" value="" id="finPrice">
@@ -493,6 +503,7 @@
 												$("#point").html(tpoint - p);
 												
 												$("#sum-discount").html(number_format(parseInt($("#point-text").val())));
+												$("#delPoint").val(parseInt($("#point-text").val()));
 												
 											}
 											

@@ -190,15 +190,16 @@ public class OrderDao {
 		return result;
 	}
 	
-	public int updatePoint(Connection conn, int memNo, int finalPrice) {
+	public int updatePoint(Connection conn, int memNo, int finalPrice, int delPoint) {
 		
 		int result = 0;
 		PreparedStatement pstmt = null;
 		String sql = prop.getProperty("updatePoint");
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, finalPrice);
-			pstmt.setInt(2, memNo);
+			pstmt.setInt(1, delPoint);
+			pstmt.setInt(2, finalPrice);
+			pstmt.setInt(3, memNo);
 			
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {

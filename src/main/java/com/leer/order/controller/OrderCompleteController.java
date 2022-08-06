@@ -55,6 +55,8 @@ public class OrderCompleteController extends HttpServlet {
 			sAddress += " " + address[i];
 		}
 		
+		int delPoint = Integer.parseInt(request.getParameter("delPoint"));
+		
 		int finalPrice = Integer.parseInt(request.getParameter("finalPrice"));
 		
 		/* 주문테이블에 insert*/
@@ -121,7 +123,7 @@ public class OrderCompleteController extends HttpServlet {
 		
 		
 		/* 멤버테이블에 포인트 값도 바꿔주기*/
-		int result5 = new OrderService().updatePoint(memNo, finalPrice);
+		int result5 = new OrderService().updatePoint(memNo, finalPrice , delPoint);
 		
 		request.setAttribute("OrNo", OrNo);
 		request.setAttribute("order", o);

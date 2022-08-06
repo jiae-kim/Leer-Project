@@ -113,7 +113,7 @@
 	<entry key="updatePoint">
 		UPDATE
 			   MEMBER
-		   SET POINT = POINT + (? * 0.1)
+		   SET POINT = POINT - ? + (? * 0.1)
 		 WHERE MEM_NO = ?
 	</entry>
 
