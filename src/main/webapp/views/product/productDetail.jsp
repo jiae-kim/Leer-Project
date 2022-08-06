@@ -549,6 +549,8 @@
                 	
                 	$("#scrap").click(function(){
                 		
+                		let $scrapBtn = $(this);
+                		
                 		if( $(this).is(".in") ){
                 			console.log("찜하기클릭");
 		                 	// 찜하지 않은 회원이 찜하기 버튼 클릭 시 insert
