@@ -9,20 +9,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.leer.member.model.vo.Member;
 import com.leer.mtm.model.service.MtmService;
 
 /**
- * Servlet implementation class insertMtmController
+ * Servlet implementation class MtmUpdateController
  */
-@WebServlet("/insert.mtm")
-public class MtmInsertController extends HttpServlet {
+@WebServlet("/update.mtm")
+public class MtmUpdateController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MtmInsertController() {
+    public MtmUpdateController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,22 +33,21 @@ public class MtmInsertController extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		
-		
-		HttpSession session = request.getSession();
-		Member loginUser = (Member)session.getAttribute("loginUser");
-		
-		int memNo = loginUser.getMemNo();
-		System.out.println(memNo);
+		int mtmNo = Integer.parseInt(request.getParameter("mtmNo"));
+		String mtmType = request.getParameter("mtmType");
 		String mtmTitle = request.getParameter("mtmTitle");
 		String mtmContent = request.getParameter("mtmContent");
-		String mtmType = request.getParameter("mtmType");
 		
-		int result = new MtmService().insertMtm(memNo, mtmTitle, mtmContent, mtmType);
+		int result = new MtmService().updateMtm(mtmNo, mtmType, mtmTitle, mtmContent);
 		
+		HttpSession session = request.getSession();
 		if(result > 0) {
-			session.setAttribute("alertMsg", "문의글 등록이 완료되었습니다");
-			response.sendRedirect(request.getContextPath() + "/mtmList.go?cpage=1");
+			
+			session.setAttribute("alertMsg", "문의 글 수정 완료되었습니다.");
+			response.sendRedirect(request.getContextPath() + "/mtmDetail.go?no=" + mtmNo);
+			
 		}
+		
 		
 	}
 

@@ -159,4 +159,33 @@ public class MtmDao {
 		return result;
 	}
 	
+	
+	
+	public int updateMtm(Connection conn, int mtmNo, String mtmType, String mtmTitle, String mtmContent) {
+		
+		int result = 0;
+
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("updateMtm");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, mtmTitle);
+			pstmt.setString(2, mtmContent);
+			pstmt.setInt(3, mtmNo);
+			System.out.println(mtmNo);
+			
+			System.out.println(result);
+			result = pstmt.executeUpdate();
+			System.out.println(result);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}
+	
+	
+	
 }

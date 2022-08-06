@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="com.leer.mtm.model.vo.Mtm"%>
+    
+<%
+	Mtm m = (Mtm)request.getAttribute("m");
+	int mtmNo = (int)request.getAttribute("mtmNo");
+%>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -67,43 +72,46 @@
                 
                 <hr>
                 
-                <form action="<%=contextPath%>/insert.mtm" method="post">
+                <form action="<%=contextPath%>/update.mtm" method="post">
+                <input type="hidden" name="mtmNo" value="<%= mtmNo %>">
                     <table>
                         <tr>
                             <td style="font-weight:bold">문의유형</td>
                         </tr>
                         <tr>
                             <td>
-                                <select name="mtmType" style="width: 750px; height:40px; border:1px solid lightgrey; border-radius: 5px;">
-                                    <option value="배송"><label>배송</label></option>
-                                    <option value="주문취소/환불"><label>주문취소/환불</label></option>
-                                    <option value="상품"><label>상품</label></option>
-                                    <option value="기타"><label>기타</label></option>
-                                </select>
-                                <!-- <input type="radio" name="mtm_type" value="배송"><label>&nbsp;&nbsp;배송&nbsp;&nbsp;</label>
-                                <input type="radio" name="mtm_type" value="주문취소/환불"><label>&nbsp;&nbsp;주문취소/환불&nbsp;&nbsp;</label>
-                                <input type="radio" name="mtm_type" value="상품"><label>&nbsp;&nbsp;상품&nbsp;&nbsp;</label>
-                                <input type="radio" name="mtm_type" value="기타"><label>&nbsp;&nbsp;기타&nbsp;&nbsp;</label> -->
+                                <input type="text" name="mtmTitle" style="width: 750px; height:40px; border:1px solid lightgrey; border-radius: 5px;" readonly value="<%=m.getMtmType() %>"></td>
                             </td>
                         </tr>
+                        
+                        
+                        
+                        <!-- select option 기존의 선택했던 값 가져오는 구문 
+                        <script>
+                        	$(function(){
+                        		 $("#mtmType").children().each(function(){
+                                     $(this).attr('selected',selected);
+                        </script>-->
+
+                        
 
                         <tr>
                             <td style="font-weight:bold">제목</td>
                         </tr>
                         <tr>
-                            <td><input type="text" name="mtmTitle" style="width: 750px; height:40px; border:1px solid lightgrey; border-radius: 5px;"></td>
+                            <td><input type="text" name="mtmTitle" style="width: 750px; height:40px; border:1px solid lightgrey; border-radius: 5px;" value="<%=m.getMtmTitle() %>"></td>
                         </tr>
                         <tr>
                             <td style="font-weight:bold">내용</td>
                         </tr>
                         <tr>
-                            <td colspan="2"><textarea id="summernote" name="mtmContent" required style="resize:none; border-radius: 5px;"></textarea></td>
+                            <td colspan="2"><textarea id="summernote" name="mtmContent" required style="resize:none; border-radius: 5px;"><%= m.getAnsContent() %></textarea></td>
                         </tr>
                     </table>
 
                     <br>
                     <div id="enrollBtn" align="center">
-                        <button type="reset" onclick="history.back();">취소</button>
+                        <button type="button" onclick="history.back();">취소</button>
                         <button type="submit">확인</button>
                     </div>
                 </form>

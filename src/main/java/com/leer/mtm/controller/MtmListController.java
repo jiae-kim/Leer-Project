@@ -8,9 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.leer.common.model.vo.PageInfo;
-import com.leer.community.model.service.CommunityService;
+import com.leer.member.model.vo.Member;
 import com.leer.mtm.model.service.MtmService;
 import com.leer.mtm.model.vo.Mtm;
 
@@ -36,6 +37,9 @@ public class MtmListController extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		
+		HttpSession session = request.getSession();
+		Member loginUser = (Member)session.getAttribute("loginUser");
+		
 		int listCount; 		
 		int currentPage; 	
 		int pageLimit; 		
@@ -43,8 +47,9 @@ public class MtmListController extends HttpServlet {
 		int maxPage; 		
 		int startPage; 		
 		int endPage;		
-		int memNo = Integer.parseInt(request.getParameter("memNo"));
+		int memNo = loginUser.getMemNo();
 		
+//		Integer.parseInt(request.getParameter("memNo"))
 		listCount = new MtmService().selectMyListCount(memNo);
 		
 		currentPage = Integer.parseInt(request.getParameter("cpage"));

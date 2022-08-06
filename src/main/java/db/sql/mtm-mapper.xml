@@ -66,4 +66,17 @@
 				)
 	</entry>
 	
+	
+	
+	
+	<entry key="updateMtm">
+		UPDATE MTM
+		   SET MTM_TITLE = ?
+			  ,MTM_CONTENT = ?
+			  ,MODIFY_DATE = SYSDATE
+		 WHERE MTM_NO = ?
+	</entry>
+	
+	
+	
 </properties>

@@ -38,6 +38,7 @@ public class MtmDetailViewController extends HttpServlet {
 		
 		
 		request.setAttribute("m", m);
+		request.setAttribute("mtmNo", mtmNo);
 		request.getRequestDispatcher("/views/mtm/mtmDetail.jsp").forward(request, response);
 		
 	}

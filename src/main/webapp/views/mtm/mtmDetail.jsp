@@ -3,6 +3,7 @@
     
 <%
 	Mtm m = (Mtm)request.getAttribute("m");
+	int mtmNo = (int)request.getAttribute("mtmNo");
 %>
 
 <!DOCTYPE html>
@@ -82,7 +83,7 @@
                         <td><p style="color: rgb(34, 61, 136); font-size: 50px; font-weight: 900;">Q &nbsp;</p></td>
                         <td align="center"><p style="font-size: 18px; font-weight:600;">[<%=m.getMtmType() %>] &nbsp;</p></td>
                         <td width="500px"><p style="font-size: 18px; font-weight:600; color: black;"><%=m.getMtmTitle() %></p></td>
-                        <td><p>2022-08-05</p></td>
+                        <td><p><%=m.getAnsDate() %></p></td>
                     </tr>
                 </table>
             </div>
@@ -98,7 +99,9 @@
 
         <br><br>
 
-		<%if(m.getAnsYn().equals('Y')){ %>
+
+		<!-- 답변 등록이 완료된 경우 -->
+		<%if( m.getAnsYn().equals("Y") ){ %>
         <div class="a">
             <div class="a-title">
                 <table style="background-color:rgba(230, 173, 176, 0.116); padding: 20px;">
@@ -106,7 +109,7 @@
                         <td><p style="color: rgb(136, 34, 48); font-size: 50px; font-weight: 900;">A &nbsp;</p></td>
                         <td align="center"><p style="font-size: 18px; font-weight:600;"><%=m.getMtmType() %> &nbsp;</p></td>
                         <td width="500px"><p style="font-size: 18px; font-weight:600; color: black;">답변 드립니다</p></td>
-                        <td><p>2022-08-05</p></td>
+                        <td><p><%=m.getAnsDate() %></p></td>
                     </tr>
                 </table>
             </div>
@@ -119,9 +122,55 @@
                 </table>
             </div> 
         </div>
-        <%} %>
-
+        
+        <div align="center">
+	    	<button type="button" onclick="history.back();" style="border:none; border-radius:10px; width:100px">목록으로</button>
+	    </div>
+        
+        
+        
+        <!-- 답변이 미등록된 경우 -->
+        <%}else{ %>
+        <div class="a">
+            <div class="a-title">
+                <table style="background-color:rgba(230, 173, 176, 0.062); padding: 20px;">
+                    <tr>
+                        <td><p style="color: rgba(136, 34, 48, 0.411); font-size: 50px; font-weight: 900; width:200px">A &nbsp;</p></td>
+                        <td align="center"><p style="font-size: 18px; font-weight:600;"></p></td>
+                        <td width="500px"><p style="font-size: 18px; font-weight:600; color: black;"></p></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+            <div style="height: 200px;">   
+                <table>    
+                    <tr>
+                        <td style="width: 100px;"></td>
+                        <td colspan="3" style="font-size: 20px; font-weight:600">아직 답변이 완료되지 않았습니다 신속하게 답변해드릴게요</td>
+                    </tr>
+                </table>
+            </div> 
+        </div>
+        
+	    <div align="center">
+	    	<button type="button" onclick="mtmUpdate();" style="border:none; border-radius:10px; width:100px">수정</button>
+	    	<button type="button" onclick="mtmDelete();" style="border:none; border-radius:10px; width:100px">삭제</button>
+	    	<button type="button" onclick="history.back();" style="border:none; border-radius:10px; width:100px">목록으로</button>
+	    </div>
+		<%} %>
     </div>
+    
+    <script>
+    	function mtmUpdate(){
+    		const mtmNo = <%= mtmNo %>
+    		location.href="<%=contextPath%>/select.mtm?no=" + mtmNo;
+    	}
+    	
+    	function mtmDelete(){
+    		const mtmNo = <%= mtmNo %>
+    		location.href="<%=contextPath%>/mtmDelete.go" + mtmNo;
+    	}
+    </script>
     
     
     

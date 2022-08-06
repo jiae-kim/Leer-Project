@@ -69,4 +69,23 @@ public class MtmService {
 		return result;
 	}
 
+	
+	
+	public int updateMtm(int mtmNo, String mtmType, String mtmTitle, String mtmContent) {
+		
+		Connection conn = getConnection();
+		
+		int result = new MtmDao().updateMtm(conn, mtmNo, mtmType, mtmTitle, mtmContent);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		
+		return result;
+	}
+	
+	
 }
