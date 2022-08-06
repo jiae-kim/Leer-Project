@@ -460,6 +460,39 @@ public class AdminProductDao {
 		return result;
 	}
 
+	/* [상품관리 - 상품문의]
+	 * 상품문의 상세조회
+	 * 작성자 김지애
+	 */
+	public Inquiry InquiryDetailList(Connection conn, int qNo) {
+		Inquiry iq = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("InquiryDetailList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				iq = new Inquiry(rset.getInt("qno"),
+								 rset.getString("mem_id"),
+								 rset.getString("p_code"),
+								 rset.getString("p_name"),
+								 rset.getString("q_category"),
+								 rset.getString("title"),
+								 rset.getString("content"),
+								 rset.getDate("enroll_date"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return iq;
+	}
+
 
 	
 	

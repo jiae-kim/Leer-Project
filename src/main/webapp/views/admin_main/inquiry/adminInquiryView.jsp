@@ -120,7 +120,7 @@
                                 </thead>
                                 <tbody class="customtable">
                                 	<% for(Inquiry i : list) { %>
-                                    <tr>
+                                    <tr onclick="location.href='<%=request.getContextPath()%>/adProIqDetail.do?no=<%=i.getqNo()%>';">
                                         <th>
                                             <label class="customcheckbox">
                                                 <input type="checkbox" class="listCheckbox" />

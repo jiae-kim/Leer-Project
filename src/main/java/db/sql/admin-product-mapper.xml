@@ -18,7 +18,7 @@
 					          , ENROLL_DATE
 					          , P_STOCK
 					       FROM PRODUCT
-					      ORDER BY PUBLISH_MONTH DESC
+					      ORDER BY ENROLL_DATE DESC
 		  		 		) A
 		  		)
 		  WHERE RNUM BETWEEN ? AND ?  
@@ -303,4 +303,23 @@
 		INSERT INTO PRODUCT_IO
 		VALUES(SEQ_STAT.NEXTVAL, ?, ?, 'CURRENT_DATE', '입고')
 	 -->
+	 
+	 <!-- 상품문의 상세조회 -->
+	 <entry key="InquiryDetailList">
+	 SELECT
+	        I.Q_NO
+	      , M.MEM_ID
+	      , I.P_CODE
+	      , P.P_NAME
+	      , I.Q_CATEGORY
+	      , I.TITLE
+	      , I.CONTENT
+	      , I.ENROLL_DATE
+	  FROM  INQUIRY I
+	  LEFT JOIN MEMBER M ON (I.MEM_NO = M.MEM_NO)
+	  LEFT JOIN PRODUCT P ON (I.P_CODE = P.P_CODE)
+	  ORDER BY I.Q_NO DESC
+	 </entry>
+	 
+	 
 </properties>
