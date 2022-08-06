@@ -1,6 +1,6 @@
 package com.leer.mtm.model.service;
 
-import static com.leer.common.JDBCTemplate.close;
+import static com.leer.common.JDBCTemplate.*;
 import static com.leer.common.JDBCTemplate.getConnection;
 
 import java.sql.Connection;
@@ -35,6 +35,38 @@ public class MtmService {
 		
 		return list;
 		
+	}
+	
+	
+	public Mtm selectDetail(int mtmNo){
+		
+		Connection conn = getConnection();
+		
+		Mtm m = new MtmDao().selectDetail(conn, mtmNo);
+		
+		close(conn);
+		
+		return m;
+		
+	}
+	
+	
+	
+	public int insertMtm(int memNo, String mtmTitle, String mtmContent, String mtmType) {
+		
+		Connection conn = getConnection();
+		
+		int result = new MtmDao().insertMtm(conn, memNo, mtmTitle, mtmContent, mtmType);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		
+		close(conn);
+		
+		return result;
 	}
 
 }

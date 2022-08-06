@@ -33,6 +33,29 @@
      @import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
     </style>
     -->
+
+    <style>
+        #listBody tr:hover{
+            background-color: rgba(231, 231, 231, 0.349);
+            cursor: pointer;
+        }
+
+        .go-wrap button{
+            border: none; 
+            border-radius:5px; 
+            margin-top: 50px; 
+            width: 100px; 
+            height:40px; 
+            line-height: 40px;
+            float: right;
+        }
+
+        .go-wrap button:hover{
+            background-color: rgba(211, 211, 211, 0.507);
+            cursor: pointer;
+        }
+        
+    </style>
     
 </head>
 <body>
@@ -43,7 +66,7 @@
     <section class="breadcrumb-section set-bg" style="background-image:url(<%=contextPath%>/resources/images/productCategory/lifestyle.jpg)">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12" style="text-align=left;">
+                <div class="col-lg-12" style="text-align:left;">
                     <div class="breadcrumb__text" >
                         <h2 style="font-size:35px">고객센터</h2>
                         <div class="breadcrumb__option">
@@ -64,7 +87,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-5">
-                    <div class="sidebar">
+                    <div class="sidebarr">
                         <div class="sidebar__item">
                             <h4>고객센터</h4>
                             <ul>
@@ -79,11 +102,20 @@
 
 
                 <div class="go-wrap">
-                    <div>
-                        <label style="font-size: 30px; font-weight:600">나의 1:1문의 내역</label><br>
-                    </div>
+                    <tr>
+                        <td><label style="font-size: 25px; font-weight:600">"<%=loginUser.getMemName() %>" 님의 1:1문의 내역</label></td>
+                        <td><button type="button" onclick="enrollForm();">문의하기</button></td>
+                    </tr>
                     <hr>
 
+
+                    <script>
+                        function enrollForm(){
+                            location.href="<%=contextPath%>/enrollFormPage.mtm?memNo=" + "<%=loginUser.getMemNo()%>";
+                        }
+                    </script>
+                    
+                    
                     <table class="list-area" align="center">
                         <thead>
                             <tr style="text-align:center;">
@@ -95,10 +127,10 @@
                             </tr>
                         </thead>
                         
-                        <tbody>
+                        <tbody id="listBody">
                         	<% if(list.isEmpty()) { %>
                             	<tr>
-                            		<td colspan="6">존재하는 게시글이 없습니다.</td>
+                            		<td colspan="6" style="text-align:center;">존재하는 1:1문의 글이 없습니다.</td>
                             	</tr> 
                             	
                             <% }else{ %>
@@ -109,7 +141,13 @@
 			                        	<td><%=m.getMtmType() %></td>
 			                        	<td><%=m.getMtmTitle() %></td>
 			                        	<td><%=m.getEnrollDate() %></td>
-			                        	<td><%=m.getAnsYn() %></td>
+			                        	
+			                        	<%if( m.getAnsYn().equals("N") ){ %>
+			                        		<td>미답변</td>
+			                        	<%}else{ %>
+			                        		<td>답변완료</td>
+		                        		<%} %>
+		                        		
 			                        </tr>
 								<% } %>
                            	<% } %>
@@ -117,8 +155,17 @@
                     </table>
 
                 </div>
+
+
+                <script>
+                    $(function(){
+                        $("#listBody").on("click", "tr", function(){
+                            location.href="<%=contextPath%>/mtmDetail.go?no=" + $(this).children().eq(0).text();
+                        })
+                    })
+
+                </script>
                
-        
             </div>
         </div>
     </section>
@@ -146,6 +193,8 @@
 		<% } %> 
 	</div>
     
+    <br><br>
+
     <%@ include file="../common/footer.jsp" %>
 	
 </body>

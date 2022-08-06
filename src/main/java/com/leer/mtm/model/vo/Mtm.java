@@ -21,7 +21,33 @@ public class Mtm {
 	public Mtm() {}
 
 	
-	//사용자
+	
+	
+	
+	
+	
+	
+	public Mtm(int mtmNo, int memNo, int memNo2, String mtmTitle, Date enrollDate, String mtmType, String ansYn,
+			String memId) {
+		super();
+		this.mtmNo = mtmNo;
+		this.memNo = memNo;
+		this.memNo2 = memNo2;
+		this.mtmTitle = mtmTitle;
+		this.enrollDate = enrollDate;
+		this.mtmType = mtmType;
+		this.ansYn = ansYn;
+		this.memId = memId;
+	}
+
+
+
+
+
+
+
+
+	//사용자 리스트
 	public Mtm(int mtmNo, String mtmTitle, String mtmContent, Date enrollDate, String mtmType, String ansYn) {
 		super();
 		this.mtmNo = mtmNo;
@@ -32,8 +58,22 @@ public class Mtm {
 		this.ansYn = ansYn;
 	}
 
+	
+	
 
-
+	//사용자 디테일
+	public Mtm(String mtmTitle, String mtmContent, Date enrollDate, Date ansDate, String ansContent, String mtmType,
+			String ansYn) {
+		super();
+		this.mtmTitle = mtmTitle;
+		this.mtmContent = mtmContent;
+		this.enrollDate = enrollDate;
+		this.ansDate = ansDate;
+		this.ansContent = ansContent;
+		this.mtmType = mtmType;
+		this.ansYn = ansYn;
+	}
+	
 
 
 	public Mtm(int mtmNo, int memNo, int memNo2, String mtmTitle, String mtmContent, Date enrollDate, Date modifyDate,
@@ -51,6 +91,8 @@ public class Mtm {
 		this.mtmType = mtmType;
 		this.ansYn = ansYn;
 	}
+
+
 
 	public Mtm(int mtmNo, int memNo, int memNo2, String mtmTitle, Date enrollDate, String mtmType, String ansYn) {
 		super();

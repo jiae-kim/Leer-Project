@@ -29,4 +29,41 @@
         	 WHERE RNUM BETWEEN ? AND ?  
 	</entry>
 
+
+
+
+	<entry key="selectDetail">
+		SELECT MTM_TITLE
+			 , MTM_CONTENT
+			 , ENROLL_DATE
+			 , ANS_DATE
+			 , ANS_CONTENT
+			 , MTM_TYPE
+			 , ANS_YN
+		  FROM MTM
+		 WHERE MTM_NO = ?
+	</entry>
+	
+	
+	
+	<entry key="insertMtm">
+		INSERT 
+		  INTO MTM
+			   (
+			    MTM_NO,
+				MEM_NO,
+				MTM_TITLE,
+				MTM_CONTENT,
+				MTM_TYPE
+				)
+				VALUES
+				(
+				SEQ_MTM.NEXTVAL,
+				?,
+				?,
+				?,
+				?
+				)
+	</entry>
+	
 </properties>
