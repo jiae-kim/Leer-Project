@@ -111,7 +111,7 @@
                             
                             <li><a href="<%=contextPath%>/gogoPage.go"><b>고객센터</b></a>
                             	<ul class="header__menu__dropdown">
-                                    <li><a href="#">공지사항</a></li>
+                                    <li><a href="<%=contextPath%>/list.no?cpage=1">공지사항</a></li>
                                     <li><a href="">FAQ</a></li>
                                     
                                     <%if(loginUser == null){ %>

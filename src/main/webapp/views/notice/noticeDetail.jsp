@@ -5,11 +5,8 @@
 
 <%
 PageInfo pi = (PageInfo) request.getAttribute("pi");
-ArrayList<Notice> list = (ArrayList<Notice>) request.getAttribute("list");
-int currentPage = pi.getCurrentPage();
-int startPage = pi.getStartPage();
-int endPage = pi.getEndPage();
-int maxPage = pi.getMaxPage();
+Notice n = (Notice) request.getAttribute("notice");
+
 %>
 <!DOCTYPE html>
 
@@ -115,53 +112,30 @@ int maxPage = pi.getMaxPage();
 					</div>
 				</div>
 				<div style="width: 70%">
-					<label style="font-size: 25px; font-weight: 600; height: 20px;">공지사항</label>
-					<br> <br>
-					<table class="table" style="width: 100%" id="list-area">
-						<thead>
-							<tr>
-								<th width=120 style="text-align: center">글번호</th>
-								<th style="text-align: center">제목</th>
-								<th style="text-align: center">등록일</th>
+					<label style="font-size: 25px; font-weight: 600; height: 20px;">공지사항
+						상세 </label> <br> <br>
 
-							</tr>
-						</thead>
-						<tbody>
-							<%
-							if (list.isEmpty()) {
-							%>
-							<tr>
-								<td colspan="2">조회된 게시글이 없습니다.</td>
-							</tr>
-							<%
-							} else {
-							%>
-							<!--case2. 게시글이 있을경우-->
-							<%
-							for (Notice n : list) {
-							%>
-							<tr>
-								<td width=300 style="text-align: center"><%=n.getNotiNo()%></td>
-								<td width=2000><%=n.getTitle()%></td>
-								<td width=300><%=n.getEnrollDate()%></td>
-							</tr>
-							<%
-							}
-							%>
-							<%
-							}
-							%>
-						</tbody>
 
+					<table class="table" id="detail-area" border="1" align="center">
+						<tr>
+							
+							<th width="70">제목</th>
+							<td width="350"><%=n.getTitle()%></td>
+						</tr>
+						<tr>
+							
+							<th>작성일</th>
+							<td><%=n.getEnrollDate()%></td>
+						</tr>
+						<tr>
+							<th>내용</th>
+							<td colspan="3">
+								<p style="height: 200px"><%=n.getContent()%></p>
+							</td>
+						</tr>
+						
 					</table>
-
-					<script>
-			        	$(function(){
-			        		$("#list-area>tbody>tr").click(function(){
-			        			location.href = "<%=contextPath%>/detail.no?no=" + $(this).children().eq(0).text();
-							})
-						})
-					</script>
+					
 				</div>
 
 
@@ -171,47 +145,7 @@ int maxPage = pi.getMaxPage();
 	<!-- Product Section End -->
 
 
-	<div class="product__pagination blog__pagination" align="center">
-
-		<%
-		if (currentPage != 1) {
-		%>
-		<a
-			href="<%=contextPath%>/list.no?memNo=<%=loginUser.getMemNo()%>&cpage=<%=currentPage - 1%>">&lt;</a>
-		<%
-		}
-		%>
-
-
-		<%
-		for (int p = startPage; p <= endPage; p++) {
-		%>
-		<%
-		if (p == currentPage) {
-		%>
-		<a disabled style="opacity: 0.7"><%=p%></a>
-		<%
-		} else {
-		%>
-		<a
-			href="<%=contextPath%>/list.no?memNo=<%=loginUser.getMemNo()%>&cpage=<%=p%>"><%=p%></a>
-		<%
-		}
-		%>
-		<%
-		}
-		%>
-
-
-		<%
-		if (currentPage != maxPage) {
-		%>
-		<a
-			href="<%=contextPath%>/list.no?memNo=<%=loginUser.getMemNo()%>&cpage=<%=currentPage + 1%>">&gt;</a>
-		<%
-		}
-		%>
-	</div>
+	
 
 	<br>
 	<br>

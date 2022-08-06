@@ -1816,7 +1816,7 @@ ol {
 .product__details__tab .nav-tabs:before {
 	position: absolute;
 	left: 0;
-	top: 12px;
+	top: 25px;
 	height: 1px;
 	width: 370px;
 	background: #ebebeb;
@@ -1826,7 +1826,7 @@ ol {
 .product__details__tab .nav-tabs:after {
 	position: absolute;
 	right: 0;
-	top: 12px;
+	top: 25px;
 	height: 1px;
 	width: 370px;
 	background: #ebebeb;
