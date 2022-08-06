@@ -91,8 +91,8 @@
             </div>
         </div>
     </section>
+    <%@ include file="../community/communityMain.jsp"%>
     <!-- Breadcrumb Section End -->
- <%@ include file="../community/communityMain.jsp"%>
 	<link rel="stylesheet" href="<%=contextPath %>/resources/css/beomjin/css/bootstrap.min.css" type="text/css">
 	<link rel="stylesheet" href="<%=contextPath %>/resources/css/beomjin/css/font-awesome.min.css" type="text/css">
 	<link rel="stylesheet" href="<%=contextPath %>/resources/css/beomjin/css/elegant-icons.css" type="text/css">

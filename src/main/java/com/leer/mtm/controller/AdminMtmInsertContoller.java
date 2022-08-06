@@ -7,37 +7,47 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.leer.mtm.model.service.AdminMtmService;
-import com.leer.mtm.model.vo.Mtm;
 
 /**
- * Servlet implementation class AdminMtmDetailController
+ * Servlet implementation class AdminMtmInsertContoller
  */
-@WebServlet("/adDetail.mt")
-public class AdminMtmDetailController extends HttpServlet {
+@WebServlet("/adminInsert.mtm")
+public class AdminMtmInsertContoller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdminMtmDetailController() {
+    public AdminMtmInsertContoller() {
         super();
         // TODO Auto-generated constructor stub
     }
 
 	/**
-	 * 관리자 1:1문의 상세조회페이지
-	 * 작성자 김은지
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int mtmNo = Integer.parseInt(request.getParameter("no"));
 		
-		Mtm m = new AdminMtmService().mtmDetailList(mtmNo);
+		request.setCharacterEncoding("UTF-8");
 		
-		request.setAttribute("mtm", m);
-		request.setAttribute("mtmNo", mtmNo);
-		request.getRequestDispatcher("views/admin_main/mtm/adminMtmInsert.jsp").forward(request, response);
+		int mtmNo = Integer.parseInt(request.getParameter("mtmNo"));
+		int adminNo = Integer.parseInt(request.getParameter("adminNo"));
+		
+		String ansContent = request.getParameter("ansContent");
+		
+		int result = new AdminMtmService().insertAns(mtmNo, adminNo, ansContent);
+		
+		HttpSession session = request.getSession();
+		if(result > 0) {
+			session.setAttribute("alertMsg", "답변 등록이 완료되었습니다.");
+			
+			response.sendRedirect(request.getContextPath() + "/adList.mt?cpage=1");
+		}
+		
+		
 	}
 
 	/**
@@ -49,20 +59,3 @@ public class AdminMtmDetailController extends HttpServlet {
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
