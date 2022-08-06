@@ -15,7 +15,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>상품 전체조회 페이지</title>
+	<title>상품 전체조회</title>
 <body>
 	<%@ include file="../../common/adminMenubar.jsp" %>
 	<%@ include file="../../common/adminScript.jsp" %>

@@ -14,7 +14,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>상품문의 전체조회 페이지</title>
+<title>상품문의 전체조회</title>
 <style>
 .customtable>tr:hover {
     cursor: pointer;

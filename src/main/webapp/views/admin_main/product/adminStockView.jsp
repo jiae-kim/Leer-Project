@@ -14,7 +14,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>상품 재고 전체조회 페이지</title>
+<title>상품 재고 전체조회</title>
 <!-- datepicker css -->
 <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/resources/css/jiae/assets/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
 </head>
@@ -40,7 +40,6 @@
                     <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#input">
                         상품 입고 등록
                     </button>
-                    
                     
                     <form action="<%=request.getContextPath()%>/adStkInsert.do" method="post">
                         <!-- Modal -->
@@ -73,7 +72,7 @@
                                             </tr>
                                             <tr>
                                                 <td>상품명</td>
-                                                <td><input type="text" name="pName" required placeholder="잡지명 입력"></td>
+                                                <td><input type="text" name="pName" required placeholder="코드에 해당하는 잡지명"></td>
                                             </tr>
                                             <tr>
                                                 <td>입고</td>
@@ -81,7 +80,7 @@
                                             </tr>
                                             <tr>
                                                 <td>수량</td>
-                                                <td><input type="text" name="statusAmount" required placeholder="변경 수량 입력"></td>
+                                                <td><input type="text" name="statusAmount" required placeholder="입고 수량 입력"></td>
                                             </tr>
                                             <tr>
                                                 <td>입고일자</td>
@@ -101,15 +100,13 @@
                                         </table>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="submit" class="btn btn-danger">네</button>
-                                        <button type="reset" class="btn btn-info" data-dismiss="modal">아니오</button>
+                                        <button type="submit" class="btn btn-info">네</button>
+                                        <button type="reset" class="btn btn-danger" data-dismiss="modal">아니오</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </form>
-                    
-                    
                     
                 </div>
             </div>
@@ -142,7 +139,7 @@
                             <tr>
                                 <th>
                                     <label class="customcheckbox m-b-20">
-                                        <input type="checkbox" id="mainCheckbox" />
+                                        <!-- <input type="checkbox" id="mainCheckbox" /> -->
                                         <span class="checkmark"></span>
                                     </label>
                                 </th>
@@ -159,7 +156,7 @@
                             <tr>
                                 <th>
                                     <label class="customcheckbox">
-                                        <input type="checkbox" class="listCheckbox" />
+                                        <!-- <input type="checkbox" class="listCheckbox" /> -->
                                         <span class="checkmark"></span>
                                     </label>
                                 </th>
