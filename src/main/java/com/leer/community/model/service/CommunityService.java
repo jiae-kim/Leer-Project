@@ -254,4 +254,64 @@ public class CommunityService {
 		return cmList;
 		
 	}
+	
+	public ArrayList<ComuBoard> selectSearchList(String shList){
+			Connection conn = getConnection();
+			
+			ArrayList<ComuBoard> shList = new CommunityDao().selectSearchList();
+			
+			String sql = "SELECT * FROM( " + 
+					"    SELECT ROWNUM NUM , NOTICE.* " + 
+					"    FROM NOTICE WHERE "+field+" LIKE ? ORDER BY REGDATE DESC " + 
+					"    ) " + 
+					"    WHERE NUM BETWEEN ? AND ?" ;		
+			
+			String url = "jdbc:oracle:thin:@localhost:1521/myoracle";
+			Connection conn = null;
+			PreparedStatement pstmt= null;
+			ResultSet rs= null;
+			
+			
+			try {
+				Class.forName("oracle.jdbc.driver.OracleDriver");
+				conn = DriverManager.getConnection(url, "ora_user2", "0000");
+				
+			    pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, "%"+query+"%" );
+				pstmt.setInt(2, 1+(page-1) );
+				pstmt.setInt(3, page*10 );
+				rs = pstmt.executeQuery();
+				
+				while(rs.next()){ 
+					
+					int id = rs.getInt("ID");
+					String title = rs.getString("TITLE");		
+					String writerId = rs.getString("WRITER_ID"); 
+					Date regdate = rs.getDate("REGDATE"); 	
+					int hit = rs.getInt("HIT"); 
+					String files = rs.getString("FILES");
+					String content = rs.getString("Content");
+					
+					Notice notice = new Notice(id, title, writerId, regdate, hit, files, content);
+					list.add(notice);			
+
+				} 
+			} catch (ClassNotFoundException e) {			
+				e.printStackTrace();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			finally {
+				try {
+					if(rs !=null) rs.close();
+					if(pstmt !=null) pstmt.close();
+				    if(conn !=null) conn.close();
+				}catch (Exception e) {
+					e.printStackTrace();
+				}
+				
+			}
+			return list;	
+		}
+	}
 }

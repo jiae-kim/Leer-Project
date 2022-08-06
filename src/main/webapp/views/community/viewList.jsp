@@ -241,16 +241,16 @@
 	position: relative !important;
 }
 
-/* .blog__pagination:before {
-	position: absolute;
-	left: 0;
-	top: 0;
-	height: 1px;
-	width: 100%;
-	background: #000000;
-	opacity: 0.1;
-	content: "";
-} */
+.blog__pagination:before {
+			position: absolute;
+			left: 0;
+			top: 0;
+			height: 1px;
+			width: 0% !important;
+			background: #000000;
+			opacity: 0 !important;
+			content: "" !important;
+		} 
 
 .blog__btn:before{
 	position: absolute !important;
@@ -608,7 +608,7 @@
 		<div class="col-lg-8 col-md-7" style="padding-left: 50px">
 			<div class="blog__sidebar__search">
 				<form action="#">
-					<input type="text" placeholder="태그 또는 키워드를 입력하세요...">
+					<input type="text" placeholder="태그 또는 키워드를 입력하세요..." name="search">
 					<button type="submit">검색</button>
 				</form>
 			</div>
