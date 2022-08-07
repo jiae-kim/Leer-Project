@@ -657,20 +657,73 @@ public class CommunityDao {
 		return result;
 	}
 
-	public ArrayList<ComuBoard> HashtagSearch(Connection conn, String hashtag) {
-
+	public ArrayList<ComuBoard> selectTagList(Connection conn, PageInfo pi, String tag) {
 		ArrayList<ComuBoard> list = new ArrayList<>();
+
 		PreparedStatement pstmt = null;
+
 		ResultSet rset = null;
 
-		String sql = prop.getProperty("HashtagSearch");
+		String sql = prop.getProperty("selectTagList");
 
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, hashtag);
-			pstmt.setString(2, hashtag);
+			int startRow = (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1;
+			int endRow = startRow + pi.getBoardLimit() - 1;
+			pstmt.setString(1, tag);
+			pstmt.setInt(2, startRow);
+			pstmt.setInt(3, endRow);
+
 			rset = pstmt.executeQuery();
+
 			while (rset.next()) {
+				ComuBoard cb = new ComuBoard(rset.getInt("comu_no"), rset.getString("tag"), rset.getString("title"),
+						rset.getDate("enroll_date"), rset.getInt("view_count"), rset.getInt("like_count"),
+						rset.getInt("comment_count"));
+
+				Clob clob = rset.getClob("content");
+				StringBuffer buffer = new StringBuffer();
+				if (clob != null) {
+					Reader r = clob.getCharacterStream();
+					int ch;
+					while ((ch = r.read()) != -1) {
+						buffer.append("" + (char) ch);
+					}
+				}
+				cb.setContent(buffer.toString());
+
+				list.add(cb);
+
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return list;
+	}	
+	
+	public int selectTagListCount(Connection conn, String tag) {
+		int listCount = 0;
+
+		PreparedStatement pstmt = null;
+
+		ResultSet rset = null;
+
+		String sql = prop.getProperty("selectTagListCount");
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, tag);
+
+			rset = pstmt.executeQuery();
+			if (rset.next()) {
+				listCount = rset.getInt("count");
 
 			}
 		} catch (SQLException e) {
@@ -680,11 +733,14 @@ public class CommunityDao {
 			close(rset);
 			close(pstmt);
 		}
+		return listCount;
 
-		return list;
 	}
+	
+	
+	
 
-	public int deleteBoard(Connection conn, int comuNo) {
+	public int deleteBoard(Connection conn, String comuNo) {
 		int result = 0;
 
 		PreparedStatement pstmt = null;
@@ -693,7 +749,7 @@ public class CommunityDao {
 
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, comuNo);
+			pstmt.setString(1, comuNo);
 
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -705,5 +761,133 @@ public class CommunityDao {
 		}
 		return result;
 	}
-//	public ArrayList<>
+	public ArrayList<ComuBoard> selectMyBoard(Connection conn, int memNo){
+		
+		ArrayList<ComuBoard> cmList = new ArrayList<>();
+		
+		PreparedStatement pstmt = null;
+		
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectMyBoard");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memNo);
+			
+			rset = pstmt.executeQuery();
+			while(rset.next()) {
+				cmList.add(new ComuBoard(
+						rset.getInt("comu_no"),
+						rset.getString("nickname"),
+						rset.getString("title"),
+						rset.getDate("enroll"),
+						rset.getInt("view_count")
+						));
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+			
+		}
+		return cmList;
+	}
+	
+	public ArrayList<ComuBoard> selectSearchList(Connection conn, String search, PageInfo pi){
+		ArrayList<ComuBoard> list = new ArrayList<>();
+		
+		PreparedStatement pstmt = null;
+		
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectSearchList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			int startRow = (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1;
+			int endRow = startRow + pi.getBoardLimit() - 1;
+			pstmt.setString(1, search);
+			pstmt.setString(2, search);
+			pstmt.setInt(3, startRow);
+			pstmt.setInt(4, endRow);
+			rset = pstmt.executeQuery();
+
+			while (rset.next()) {
+				ComuBoard cb = new ComuBoard(rset.getInt("comu_no"), rset.getString("tag"), rset.getString("title"),
+						rset.getDate("enroll_date"), rset.getInt("view_count"), rset.getInt("like_count"),
+						rset.getInt("comment_count"));
+
+				Clob clob = rset.getClob("content");
+				StringBuffer buffer = new StringBuffer();
+				if (clob != null) {
+					Reader r = clob.getCharacterStream();
+					int ch;
+					while ((ch = r.read()) != -1) {
+						buffer.append("" + (char) ch);
+					}
+				}
+				cb.setContent(buffer.toString());
+
+				list.add(cb);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
+		
+	}
+
+	public int selectSearchListCount(Connection conn, String search) {
+		int listCount = 0;
+
+		PreparedStatement pstmt = null;
+
+		ResultSet rset = null;
+
+		String sql = prop.getProperty("selectSearchListCount");
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, search);
+			pstmt.setString(2, search);
+
+			rset = pstmt.executeQuery();
+			if (rset.next()) {
+				listCount = rset.getInt("count");
+
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return listCount;
+
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+

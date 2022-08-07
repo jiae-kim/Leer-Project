@@ -1,7 +1,9 @@
 package com.leer.terms.model.service;
 
-import static com.leer.common.JDBCTemplate.*;
+import static com.leer.common.JDBCTemplate.close;
+import static com.leer.common.JDBCTemplate.commit;
 import static com.leer.common.JDBCTemplate.getConnection;
+import static com.leer.common.JDBCTemplate.rollback;
 
 import java.sql.Connection;
 import java.util.ArrayList;
@@ -57,6 +59,22 @@ public class AdminTermsService {
 		Connection conn = getConnection();
 		
 		int result = new AdminTermsDao().insertTerms(conn, t);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		
+		return result;
+	}	
+	
+	// 관리자 이용약관 삭제요청
+	// 작성자 김은지
+	public int deleteTerms(int trmNo) {
+		Connection conn = getConnection();
+		int result = new AdminTermsDao().deleteTerms(conn, trmNo);
 		
 		if(result > 0) {
 			commit(conn);

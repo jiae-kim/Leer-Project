@@ -14,14 +14,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>리뷰 전체조회(적립금지급) 페이지</title>
+<title>리뷰 전체조회</title>
 <style>
-.customtable>tr:hover {
+/* .customtable>tr:hover {
     cursor: pointer;
     opacity: 0.7;
     background:#cecece;
     color:dark;
-}
+} */
 </style>
 </head>
 <body>
@@ -40,9 +40,9 @@
                             <nav aria-label="breadcrumb">
                             </nav>
                             <!-- 적립금 지급 Button trigger modal -->
-                            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#inputPoint">
+                            <!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#inputPoint">
                                 적립금 지급
-                            </button>
+                            </button> -->
                                 <!-- Modal -->
                                 <div class="modal fade" id="inputPoint" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     
@@ -67,11 +67,11 @@
                                 </div>
 
                             <!-- 리뷰 삭제 Button trigger modal -->
-                            <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#deleteReview">
+                            <!-- <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#deleteReview">
                                 리뷰 삭제
-                            </button>
+                            </button> -->
                                 <!-- Modal -->
-                                <div class="modal fade" id="deleteReview" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <!-- <div class="modal fade" id="deleteReview" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -89,7 +89,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                         </div>
                     </div>
                 </div>
@@ -121,7 +121,7 @@
                                     <tr>
                                         <th>
                                             <label class="customcheckbox m-b-20">
-                                                <input type="checkbox" id="mainCheckbox" />
+                                                <!-- <input type="checkbox" id="mainCheckbox" /> -->
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
@@ -140,7 +140,7 @@
                                     <tr>
                                         <th>
                                             <label class="customcheckbox">
-                                                <input type="checkbox" class="listCheckbox" />
+                                                <!-- <input type="checkbox" class="listCheckbox" /> -->
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
@@ -151,7 +151,7 @@
                                         <td><%=r.getReviewContent()%></td>
                                         <td><%=r.getReviewScope()%></td>
                                         <td><%=r.getEnrollDate()%></td>
-                                        <td><%=r.getRpointYn()%></td>
+                                        <td style="color:blue"><%=r.getWriteYN()%></td>
                                     </tr>
                                     <% } %>
                                 </tbody>

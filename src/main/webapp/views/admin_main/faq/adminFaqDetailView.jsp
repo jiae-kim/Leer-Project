@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>FAQ 상세조회 페이지</title>
+<title>FAQ 상세조회</title>
 <style>
     #content{
         height: 400px;
@@ -56,6 +56,7 @@
             <h4 style="vertical-align:45px"><b>FAQ 상세조회</b></h4>
         </div> -->
         <div class="card-body cc1">
+        <a href="<%=request.getContextPath()%>/adFaqList.do?cpage=1" class="btn btn-primary" style="float:right">목록으로</a>
         <div class ="printView">
         <h2 style="text-align:center">FAQ 상세조회</h2>
             <table class="table" align="center">
@@ -65,7 +66,7 @@
                         <table border="1" class="ttt1" style="text-align: center">
                             <tr style="background: #343a40; color:white;">
                                 <td width="70px" height="-4840px">No.</td>
-                                <td width="200px">카테고리</td>
+                                <!-- <td width="200px">카테고리</td> -->
                                 <td width="300px">작성자</td>
                                 <td width="200px">등록일</td>
                                 <td width="200px">수정일</td>
@@ -73,7 +74,7 @@
                             </tr>
                             <tr>
                                 <td><%=f.getFaqNo()%></td>
-                                <td><%=f.getFaqCategory()%></td>
+                                <!-- <td>카테고리넣는곳</td> -->
                                 <td><%=f.getMemId()%></td>
                                 <td><%=f.getEnrollDate()%></td>
                                 <td><%=f.getModifyDate()%></td>
@@ -91,9 +92,10 @@
                     <td id="content" class="text-center"><%=f.getFaqContent()%></td>
                 </tr>
             </table>
-        </div>
-        <div>
-            <a href="<%=request.getContextPath()%>/adFaqList.do?cpage=1" class="btn btn-primary" tyle="float:center">목록으로</a>
+            <!--  수정/삭제 버튼
+            <a href="" class="btn btn-sm btn-warning">수정하기</a>
+	        <a href="" class="btn btn-sm btn-danger">삭제하기</a>
+        	-->
         </div>
     </div>
 </div>

@@ -30,7 +30,6 @@ public class AdminMtmListController extends HttpServlet {
 
 	/**
 	 * 관리자 1:1문의리스트조회
-	 * 작성자 김은지
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 페이징처리

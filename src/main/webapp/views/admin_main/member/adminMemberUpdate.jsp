@@ -62,12 +62,16 @@
 								<td><input type="text" name="memName" value="<%=m.getMemName()%>" required></td>
 							</tr>
 							<tr>
+								<th class="text-center">닉네임</th>
+								<td><input type="text" name="nickname" value="<%=m.getNickname()%>" required></td>
+							</tr>
+							<tr>
 								<th class="text-center">주소</th>
-								<td><input type="text" name="address" value="<%=m.getAddress()%>" required></td>
+								<td><input type="text" name="address" value="<%=m.getAddress()%>" readonly></td>
 							</tr>
 							<tr>
 								<th class="text-center">휴대폰 번호</th>
-								<td><input type="text" name="phone" value="<%=m.getPhone()%>" required></td>
+								<td><input type="text" name="phone" value="<%=m.getPhone()%>" readonly></td>
 							</tr>
 							<tr>
 								<th class="text-center">가입일</th>

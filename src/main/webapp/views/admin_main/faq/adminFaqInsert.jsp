@@ -1,16 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.ArrayList, com.leer.common.model.vo.FaqCategory" %>
+<%
+	ArrayList<FaqCategory> list = (ArrayList<FaqCategory>)request.getAttribute("list");
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>FAQ 등록</title>
 <meta charset="UTF-8">
     <meta name="description" content="Ogani Template">
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>공지사항 작성 페이지</title>
+    <title>FAQ 등록</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
@@ -108,54 +112,51 @@
                 <div class="col-lg-8 col-md-7">
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6">
-                                <div class="blog__item__text2">
-                                    <h4 align="left" class="boardTitle"><b>FAQ작성</b></h4><hr style="color: black">
-                                    <form action="" method="post" id="enroll-form"
-                                        enctype="multipart/form-data">
-                                        <table align="center">
-                                            <tr>
-                                                <th width="800" colspan="2">카테고리 선택</th>
-                                            </tr>
-                                            <tr style="float: left">
-                                                <td colspan="2" style="">
-                                                    <select name="category">
-                                                            <option value="" disabled selected hidden>카테고리를 선택하세요.</option>
-                                                            <option value="">주문/결제</option>
-                                                            <option value="">반품</option>
-                                                            <option value="">적립금</option>
-                                                            <option value="">로그인/회원가입</option>
-                                                    </select>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th colspan="2">제목을 작성해주세요.</th>
-                                            </tr>
-                                            
-                                            <tr>
-                                                <td colspan="2"><input type="text" name="title" required></td>
-                                            </tr>
-                                            <tr>
-                                                <th colspan="2">내용을 작성해주세요.</th>
-                                                
-                                            </tr>
-                                            <tr>
-                                                <td colspan="2"><textarea id="summernote" name="editordata" rows="10" required
-                                                    style="resize:none"></textarea></td>
-                                            </tr>
-                                        </table>
+                            <div class="blog__item__text2">
+                                <h4 align="left" class="boardTitle"><b>FAQ 등록</b></h4><hr style="color: black">
+                                <form action="<%=request.getContextPath()%>/adFaqInsert.do" method="post" id="enroll-form">
+                                    <table align="center">
+                                       <tr>
+                                            <th width="800" colspan="4"></th>
+                                        </tr>
+                                        <tr style="float: left">
+                                            <td colspan="2" style="">
+                                                 <!-- <select name="faqCategory">
+                                                        <option disabled selected hidden>카테고리를 선택하세요</option>
+                                                        <option value="10">주문/결제</option>
+                                                        <option value="20">반품</option>
+                                                        <option value="30">적립금</option>
+                                                        <option value="40">로그인/회원가입</option>
+                                                </select> -->
+                                            </td>
+                                        </tr> 
+                                        <tr> 
+                                            <th colspan="4">제목</th>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="4"><input type="text" name="faqTitle" required placeholder="제목을 작성하세요"></td>
+                                        </tr>
+                                        <tr>
+                                            <th colspan="4">내용</th>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="4">
+                                            <textarea id="summernote" name="faqContent" placeholder="내용을 작성하세요" rows="10" required style="resize:none"></textarea>
+                                            </td>
+                                        </tr>
+                                    </table>
 
-                                        <div align="center" class="boardBtn bbb1">
-                                            <button type="submit">작성하기</button>
-                                            <button type="reset">취소하기</button>
-                                        </div>
-                                    </form>
-                                </div>
+                                    <div align="center" class="boardBtn bbb1">
+                                        <button type="submit">작성하기</button>
+                                        <button type="reset">취소하기</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
-                    </div>
                 </div>
             </div>
+        </div>
     </section>
     <!-- Blog Section End -->
 <!-- --------------------------------------------- -->
@@ -188,7 +189,6 @@
     <script src="<%= request.getContextPath() %>/resources/css/eunjee/noti/js/bootstrap.min.js"></script>
     <!-- <script src="js/jquery.nice-select.min.js"></script> -->
     
-    
     <script src="<%= request.getContextPath() %>/resources/css/eunjee/noti/js/jquery-ui.min.js"></script>
     <script src="<%= request.getContextPath() %>/resources/css/eunjee/noti/js/jquery.slicknav.js"></script>
     <script src="<%= request.getContextPath() %>/resources/css/eunjee/noti/js/mixitup.min.js"></script>
@@ -197,7 +197,6 @@
     
     <script src="<%= request.getContextPath() %>/resources/css/eunjee/noti/js/summernote/summernote-lite.js"></script>
     <script src="<%= request.getContextPath() %>/resources/css/eunjee/noti/js/summernote/summernote-ko-KR.js"></script>
-    
     
 </body>
 </html>

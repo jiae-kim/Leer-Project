@@ -220,18 +220,18 @@ public class CommunityService {
 		return result;
 	}
 	
-	public ArrayList<ComuBoard> HashtagSearch( String hashtag) {
+	public ArrayList<ComuBoard> selectTagList(PageInfo pi, String tag) {
 		
 		Connection conn = getConnection();
 		
-		ArrayList<ComuBoard> list = new CommunityDao().HashtagSearch(conn,hashtag);
+		ArrayList<ComuBoard> list = new CommunityDao().selectTagList(conn,pi, tag);
 		
 		close (conn);
 		
 		return list;
 	}
 	
-	public int deleteBoard(int comuNo) {
+	public int deleteBoard(String comuNo) {
 		Connection conn = getConnection();
 		
 		int result = new CommunityDao().deleteBoard(conn, comuNo);
@@ -245,13 +245,39 @@ public class CommunityService {
 		close(conn);
 		return result;
 	}
-	public ArrayList<ComuBoard> selectMyBoard (int comuNo){
+	public ArrayList<ComuBoard> selectMyBoard (int memNo){
 		Connection conn = getConnection();
 		
-		ArrayList<ComuBoard> cmList = new CommunityDao().selectMyBoard(conn, comuNo);
+		ArrayList<ComuBoard> cmList = new CommunityDao().selectMyBoard(conn, memNo);
 		
 		close(conn);
 		return cmList;
 		
+	}
+	
+	public ArrayList<ComuBoard> selectSearchList(String search, PageInfo pi){
+			Connection conn = getConnection();
+			
+			ArrayList<ComuBoard> list = new CommunityDao().selectSearchList(conn, search, pi);
+			
+			close(conn);
+			return list;	
+	}
+	
+	public int selectSearchListCount(String search) {
+		Connection conn = getConnection();
+		
+		int listCount = new CommunityDao().selectSearchListCount(conn, search);
+		
+		close(conn);
+		return listCount;
+	}
+	public int selectTagListCount(String tag) {
+		Connection conn = getConnection();
+		
+		int listCount = new CommunityDao().selectTagListCount(conn, tag);
+		
+		close(conn);
+		return listCount;
 	}
 }

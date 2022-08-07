@@ -1,6 +1,7 @@
 package com.leer.product.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -38,21 +39,22 @@ public class AjaxProductInquiryController extends HttpServlet {
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
 		
-		Inquiry i = new Inquiry();
-		i.setpCode2(pCode);
-		i.setMemName(memName);
-		i.setqCategory(category);
-		i.setTitle(title);
-		i.setContent(content);
+		Inquiry iq = new Inquiry();
+		iq.setpCode2(pCode);
+		iq.setMemName(memName);
+		iq.setqCategory(category);
+		iq.setTitle(title);
+		iq.setContent(content);
 		
-		int result = new ProductService().insertInquiry(i);
+		int result = new ProductService().insertInquiry(iq);
 		
 		if(result > 0) {
 			
-			request.setAttribute("inquiry", i);
+			ArrayList<Inquiry> iqList = new ProductService().selectInquiryList(pCode);
+			request.setAttribute("inquiry", iqList);
 			
 			response.setContentType("application/json; charset=UTF-8");
-			new Gson().toJson(i, response.getWriter()); 
+			new Gson().toJson(iqList, response.getWriter()); 
 		}
 		
 		

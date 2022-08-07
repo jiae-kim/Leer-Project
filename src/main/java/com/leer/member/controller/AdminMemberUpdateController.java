@@ -35,6 +35,7 @@ public class AdminMemberUpdateController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		String memId = request.getParameter("memId");
+		String nickname = request.getParameter("nickname");
 		String memName = request.getParameter("memName");
 		String address = request.getParameter("address");
 		String phone = request.getParameter("phone");
@@ -42,6 +43,7 @@ public class AdminMemberUpdateController extends HttpServlet {
 		//Member m = new Member(memId, memName, address, phone);
 		Member m = new Member();
 		m.setMemId(memId);
+		m.setNickname(nickname);
 		m.setMemName(memName);
 		m.setAddress(address);
 		m.setPhone(phone);

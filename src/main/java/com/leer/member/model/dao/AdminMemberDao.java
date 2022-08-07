@@ -113,6 +113,7 @@ public class AdminMemberDao {
 				m = new Member(rset.getInt("mem_no"),
 						   	   rset.getString("mem_id"),
 						   	   rset.getString("mem_name"),
+						   	   rset.getString("nickName"),
 						   	   rset.getString("phone"),
 						   	   rset.getString("address"),
 						   	   rset.getInt("point"),
@@ -146,6 +147,7 @@ public class AdminMemberDao {
 				m = new Member(rset.getInt("mem_no"),
 							   rset.getString("mem_id"),
 							   rset.getString("mem_name"),
+						   	   rset.getString("nickName"),
 							   rset.getString("phone"),
 							   rset.getString("address"),
 							   rset.getInt("point"),
@@ -175,9 +177,10 @@ public class AdminMemberDao {
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, m.getMemName());
-			pstmt.setString(2, m.getAddress());
-			pstmt.setString(3, m.getPhone());
-			pstmt.setString(4, m.getMemId());
+			pstmt.setString(2, m.getNickname());
+			pstmt.setString(3, m.getAddress());
+			pstmt.setString(4, m.getPhone());
+			pstmt.setString(5, m.getMemId());
 			
 			result = pstmt.executeUpdate();
 			

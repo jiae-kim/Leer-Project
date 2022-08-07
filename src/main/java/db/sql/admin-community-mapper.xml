@@ -108,7 +108,7 @@
 						    , M.MEM_ID
 						    , CB.ENROLL_DATE
 					        , CB.VIEW_COUNT
-					        , REPORT_YN
+					        , CB.REPORT_YN
 						 FROM COMU_BOARD CB
 						 JOIN MEMBER M ON (M.MEM_NO = CB.MEM_NO)
 						 LEFT 

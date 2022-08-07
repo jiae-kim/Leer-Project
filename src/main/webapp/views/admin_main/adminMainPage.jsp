@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>LEER_ADMIN_PAGE</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Tell the browser to be responsive to screen width -->
@@ -16,7 +16,7 @@
 
 	<%@ include file="../common/adminMenubar.jsp" %>
 	
-             <div class="page-breadcrumb">
+            <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
                         <h2 class="page-title">관리자 메인페이지</h2>
@@ -42,8 +42,8 @@
                     <div class="col-md-6 col-lg-2 col-xlg-3">
                         <div class="card card-hover1">
                             <div class="box bg-cyan text-center c1">
-                                <h4 class="text-white">533</h4>
                                 <h4 class="text-white">1:1문의</h6>
+                                <h4 class="text-white">533</h4>
                             </div>
                         </div>
                     </div>
@@ -51,8 +51,8 @@
                     <div class="col-md-6 col-lg-4 col-xlg-3">
                         <div class="card card-hover2">
                             <div class="box bg-success text-center c2">
+                                <h4 class="text-white">상품 리뷰</h4>
                                 <h4 class="text-white">320</h4>
-                                <h4 class="text-white">리뷰</h4>
                             </div>
                         </div>
                     </div>
@@ -60,8 +60,8 @@
                     <div class="col-md-6 col-lg-2 col-xlg-3">
                         <div class="card card-hover3">
                             <div class="box bg-warning text-center c3">
+                                <h4 class="text-white">신고 게시물</h4>
                                 <h4 class="text-white">53</h4>
-                                <h4 class="text-white">신고게시물</h4>
                             </div>
                         </div>
                     </div>
@@ -69,8 +69,8 @@
                     <div class="col-md-6 col-lg-4 col-xlg-3">
                         <div class="card card-hover4">
                             <div class="box bg-danger text-center c4">
-                                <h4 class="text-white">67</h4>
                                 <h4 class="text-white">커뮤니티 게시글</h4>
+                                <h4 class="text-white">67</h4>
                             </div>
                         </div>
                     </div>
@@ -89,7 +89,7 @@
                                     <tr>
                                       <th scope="row">1</th>
                                       <td width="1100px">공지사항작성</td>
-                                      <td width="1000px">2022-07-26</td>
+                                      <td width="1000px">2022-08-01</td>
                                     </tr>
                                     <tr>
                                       <th scope="row">2</th>
@@ -97,7 +97,7 @@
                                       <td>2022-07-26</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">2</th>
+                                        <th scope="row">3</th>
                                         <td>신고관리</td>
                                         <td>2022-07-26</td>
                                       </tr>
@@ -155,17 +155,12 @@
                                 <tbody>
                                     <tr>
                                       <th scope="row">1</th>
-                                      <td width="1300px">리뷰관리</td>
+                                      <td width="1300px">상품리뷰 관리</td>
                                       <td width="1000px">2022-07-26</td>
                                     </tr>
                                     <tr>
                                       <th scope="row">2</th>
                                       <td>상품문의</td>
-                                      <td>2022-07-26</td>
-                                    </tr>
-                                    <tr>
-                                      <th scope="row">3</th>
-                                      <td>상품조회</td>
                                       <td>2022-07-26</td>
                                     </tr>
                                     <tr>

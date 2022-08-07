@@ -35,6 +35,13 @@
     <link rel="stylesheet" href="<%= contextPath %>/resources/css/style.css" type="text/css"> 
      
     <style>
+    
+     
+        @import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
+        
+        * {
+		font-family: 'NanumSquare';
+		}
        .login-btn{font-size:13px; color:#393939;}
        .login-btn:hover{color:gray;}
 
@@ -81,7 +88,7 @@
                 <!-- 로고 -->
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="<%=contextPath %>"><img src="<%= contextPath %>/resources/images/logo.png"></a>
+                        <a href="<%=contextPath %>"><img src="<%= contextPath %>/resources/images/로고6.png"></a>
                     </div>
                 </div>
 
@@ -102,15 +109,15 @@
                             </li>
                             <li><a href="<%=contextPath%>/comu.bo?cpage=1"><b>커뮤니티</b></a></li>
                             
-                            <li><a href="#"><b>고객센터</b></a>
+                            <li><a href="<%=contextPath%>/gogoPage.go"><b>고객센터</b></a>
                             	<ul class="header__menu__dropdown">
-                                    <li><a href="">공지사항</a></li>
-                                    <li><a href="">FAQ</a></li> o9 n
+                                    <li><a href="<%=contextPath%>/list.no?cpage=1">공지사항</a></li>
+                                    <li><a href="<%=contextPath%>/list.fq?cpage=1">FAQ</a></li>
                                     
                                     <%if(loginUser == null){ %>
                                     	<!-- alert로 로그인 해야 이용 가능함을 알려주고 로그인 페이지로 이동시켜주기 -->
                                     <%}else{ %>
-                                    	<li><a href="<%=contextPath%>/mtmPage.mtm">1:1문의</a></li>
+                                    	<li><a href="<%=contextPath%>/mtmList.go?memNo=<%=loginUser.getMemNo()%>&cpage=1">1:1문의</a></li>
                                     <%} %>
                                     
                                 </ul>

@@ -75,6 +75,7 @@ public class MyBoardController extends HttpServlet {
 		request.setAttribute("pi", pi);
 		request.setAttribute("list", list);
 		request.setAttribute("cateList", cateList);
+		request.setAttribute("flag", "select");
 		request.getRequestDispatcher("views/community/myBoardList.jsp").forward(request, response);
 	}
 

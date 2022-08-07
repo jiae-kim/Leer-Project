@@ -177,5 +177,17 @@ public class AdminProductService {
 		close(conn);
 		return result;
 	}
+
+	/* [상품관리 - 상품문의]
+	 * 상품문의 상세조회
+	 * 작성자 김지애
+	 */
+	public Inquiry InquiryDetailList(int qNo) {
+		Connection conn = getConnection();
+		Inquiry iq = new AdminProductDao().InquiryDetailList(conn, qNo);
+		close(conn);
+		return iq;
+	}
+
 	
 }

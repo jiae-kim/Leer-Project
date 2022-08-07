@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import static com.leer.common.JDBCTemplate.*;
 
+import com.leer.common.model.vo.FaqCategory;
 import com.leer.common.model.vo.PageInfo;
 import com.leer.faq.model.dao.AdminFaqDao;
 import com.leer.faq.model.vo.Faq;
@@ -60,5 +61,34 @@ public class AdminFaqService {
 		close(conn);
 		return f;
 	}
+
+	/* [고객센터 - FAQ]
+	 * FAQ 등록 : 카테고리 조회
+	 * 작성자 김지애
+	 */
+	public ArrayList<FaqCategory> selectFaqCategoryList() {
+		Connection conn = getConnection();
+		ArrayList<FaqCategory> list = new AdminFaqDao().selectFaqCategoryList(conn);
+		close(conn);
+		return list;
+	}
+	
+	/* [고객센터 - FAQ]
+	 * FAQ 등록
+	 * 작성자 김지애
+	 */
+	public int FaqInsertPage(Faq f) {
+		Connection conn = getConnection();
+		int result = new AdminFaqDao().FaqInsertPage(conn, f);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		return result;
+	}
+
 	
 }

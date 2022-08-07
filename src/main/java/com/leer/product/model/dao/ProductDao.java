@@ -379,4 +379,39 @@ public class ProductDao {
 		return list;
 	}
 	
+	
+	
+	public ArrayList<Product> selectSearchList(Connection conn, String search){
+		
+		ArrayList<Product> list = new ArrayList<>();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectSearchList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, search);
+			pstmt.setString(2, search);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				list.add(new Product(rset.getString("p_code"),
+						             rset.getInt("category_no"),
+						             rset.getString("p_name"),
+						             rset.getInt("price"),
+						             rset.getDate("publish_month"),
+						             rset.getString("image_url1")
+						));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		return list;
+	}
+	
 }

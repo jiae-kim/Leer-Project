@@ -3,6 +3,7 @@
 <%
 	ArrayList<Product> list = (ArrayList<Product>)request.getAttribute("list");
 	DecimalFormat comma = new DecimalFormat("###,###");
+	String search = (String)request.getAttribute("search");
 %>
 <!DOCTYPE html>
 <html>
@@ -85,6 +86,9 @@
                                     </select>
                                 </div>
                                 
+                                
+                                
+                                
                                 <script>
                                 function number_format(num){
                                     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',');
@@ -126,7 +130,7 @@
                             </div>
                             <div class="col-lg-4 col-md-4">
                                 <div class="filter__found">
-                                    <h6><span>16</span> Products found</h6>
+                                    <!-- <h6><span>16</span> Products found</h6> -->
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-3">
@@ -138,6 +142,14 @@
                         </div>
                     </div>
                     
+                    <%if(search == null){ %>
+                    
+                    <%}else{ %>
+                    <div align="center">
+	                	<label style="font-size:20px"><b>"<%=search %>"</b>에 대한 검색결과입니다.</label>
+                    </div>
+                    <br>
+                    <%} %>
                     
 	                    <div class="row" id="list-area">
 	                    <%for(Product p : list) {%>

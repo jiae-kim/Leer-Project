@@ -91,7 +91,7 @@
 
                     <tr>
                         <td>아이디</td>
-                        <td colspan="2"><input type="text" id="inputId" name="memId" maxlength="10" required placeholder=" (4-12자의 영문 소문자, 숫자만 사용 가능합니다.)"></td>
+                        <td colspan="3"><input type="text" id="inputId" name="memId" maxlength="10" required placeholder=" (4-12자의 영문 소문자, 숫자만 사용 가능합니다.)"></td>
                         <td>&nbsp;&nbsp;<button type="button" onclick="idCheck();" style="width: 80px; height: 40px; border: 1px solid lightgrey; border-radius: 5px;">중복확인</button></td>
                     </tr>
 
@@ -142,7 +142,8 @@
 
                     <tr>
                         <td>비밀번호</td>
-                        <td colspan="3"><input type="password" name="memPwd" maxlength="12" required placeholder=" (6-10자의 영문, 숫자만 사용 가능합니다.)"></td>
+                        <td colspan="3"><input type="password" name="memPwd" maxlength="12" required placeholder=" (6-10자의 영문, 숫자만 사용 가능합니다.)" style="font-family:Verdana;"></td>
+                        <td></td>
                     </tr>
 
                     <tr>
@@ -151,7 +152,8 @@
 
                     <tr>
                         <td>비밀번호 확인</td>
-                        <td colspan="3"><input type="password" id="validatePwd" name="pwdCheck" maxlength="10" required></td>
+                        <td colspan="3"><input type="password" id="validatePwd" name="pwdCheck" maxlength="10" required style="font-family:Verdana;"></td>
+                        <td></td>
                     </tr>
 
                     <tr>
@@ -174,6 +176,7 @@
                     <tr>
                         <td>닉네임</td>
                         <td colspan="3"><input type="text" name="nickname" placeholder=" (4-10자의 한글, 숫자만 사용 가능합니다.)"></td>
+                        <td></td>
                     </tr>
 
                     <tr>
@@ -183,6 +186,7 @@
                     <tr>
                         <td>이름</td>
                         <td colspan="3"><input type="text" name="memName" required></td>
+                        <td></td>
                     </tr>
 
                     <tr>
@@ -192,6 +196,7 @@
                     <tr>
                         <td>생년월일</td>
                         <td colspan="3"><input type="text" name="birth" placeholder=" (6자리 숫자로만 입력해주세요.)"></td>
+                        <td></td>
                     </tr>
 
                     <tr>
@@ -201,6 +206,7 @@
                     <tr>
                         <td>전화번호</td>
                         <td colspan="3"><input type="text" name="phone" required placeholder=" (-)을 제외하고 숫자만 입력해주세요."></td>
+                        <td></td>
                     </tr>
 
                     <tr>
@@ -210,6 +216,7 @@
                     <tr>
                         <td>이메일</td>
                         <td colspan="3"><input type="email" name="email" required></td>
+                        <td></td>
                     </tr>
 
                     <tr>
@@ -219,6 +226,7 @@
                     <tr>
                         <td>주소</td>
                         <td colspan="3"><input type="text" name="address" required></td>
+                        <td></td>
                     </tr>
                     
                     <tr>
@@ -233,25 +241,25 @@
                     <tr></tr>
                     <tr></tr>
 
-
+                    
                     <tr>
                         <td rowspan="2">관심분야</td>
                     
-                        <td>
+                        <td style="width: 130px;">
                             <input type="checkbox" name="category" value="10">
                             <label for="">패션 여성</label>
                         </td>
 
-                        <td>
+                        <td style="width: 150px;">
                             <input type="checkbox" name="category" value="20">
                             <label for="">라이프 인테리어</label>
                         </td>
 
-                        <td>
+                        <td style="margin-left: -30px;">
                             <input type="checkbox" name="category" value="30"> 
                             <label for="">문화 예술</label> <br>
-
                         </td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td> 
@@ -266,6 +274,7 @@
                             <input type="checkbox" name="category" value="60">
                             <label for="">교육 과학</label> 
                         </td>
+                        <td></td>
                     </tr>
                     
                 </table>
@@ -285,7 +294,6 @@
                 	}
                 </script>
                 
-                //<!-- 회원가입 완료 창 보여주고 로그인 화면으로 넘겨주기 -->
 
             </form>
 

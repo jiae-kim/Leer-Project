@@ -152,4 +152,18 @@ public class ProductService {
 		return list;
 	}
 	
+	
+	
+	public ArrayList<Product> selectSearchList(String search){
+		
+		Connection conn = getConnection();
+		
+		ArrayList<Product> list = new ProductDao().selectSearchList(conn, search);
+		
+		close(conn);
+		
+		return list;
+		
+	}
+	
 }

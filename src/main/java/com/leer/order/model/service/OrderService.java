@@ -48,6 +48,15 @@ public Cart selectOrderList(String chk){
 		return result;
 	}
 	
+	public String selectOrNo() {
+		
+		Connection conn = getConnection();
+		String OrNO = new OrderDao().selectOrNo(conn);
+		
+		close(conn);
+		return OrNO;
+	}
+	
 	public int insertOrProduct(OrProduct op) {
 		
 		Connection conn = getConnection();
@@ -78,10 +87,10 @@ public Cart selectOrderList(String chk){
 		return result;
 	}
 	
-	public int updatePoint(int memNo, int finalPrice) {
+	public int updatePoint(int memNo, int finalPrice, int delPoint) {
 		
 		Connection conn = getConnection();
-		int result = new OrderDao().updatePoint(conn, memNo, finalPrice);
+		int result = new OrderDao().updatePoint(conn, memNo, finalPrice, delPoint);
 		
 		close(conn);
 		return result;

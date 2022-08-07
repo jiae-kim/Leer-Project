@@ -15,7 +15,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>상품 전체조회 페이지</title>
+	<title>상품 전체조회</title>
 <body>
 	<%@ include file="../../common/adminMenubar.jsp" %>
 	<%@ include file="../../common/adminScript.jsp" %>
@@ -33,12 +33,13 @@
                     </nav>
                     <button type="button" onclick="location.href='<%=request.getContextPath()%>/adProEnrollForm.do'" class="btn btn-info btn-lg">등록</button> &nbsp;&nbsp;&nbsp;
                     <button type="button" onclick="updateform();" class="btn btn-warning btn-lg">수정</button> &nbsp;&nbsp;&nbsp;
-                    <!-- Button trigger modal -->
-                    <button type="button" onclick="location.href='<%=request.getContextPath()%>/adProDelete.do'" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#Modal2">
-                        삭제
-                    </button>
+                    
+                    <!-- 상품 삭제 Button trigger modal -->
+                    <button type="button" data-target="#delete" onclick="pDelete();" class="btn btn-danger btn-lg" data-toggle="modal">삭제</button>
+                    <form action="<%=request.getContextPath()%>/adProDelete.do" method="post">
+                        <input type="hidden" name="pc" id="pCodeDelete" value="">
                     <!-- Modal -->
-                    <div class="modal fade" id="Modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -51,12 +52,13 @@
                                     해당 상품을 삭제하시겠습니까?
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-danger" data-dismiss="modal">네</button>
-                                    <button type="button" class="btn btn-info" data-dismiss="modal">아니오</button>
+                                    <button type="submit" class="btn btn-info" data-dismiss="modal">네</button>
+                                    <button type="reset" class="btn btn-danger" data-dismiss="modal">아니오</button>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -67,8 +69,13 @@
     		location.href='<%=request.getContextPath()%>/adProUpdateForm.do?chkpCode='+$('input[name=chkpCode]:checked').val();
     	}
     </script>
-    <!-- 상품 체크 후 삭제버튼 눌렀을 때 삭제되게하는 function -->
     
+    <!-- 상품 삭제 : onclick="location.href='<%=request.getContextPath()%>/adProDelete.do'" -->
+    <script>
+        function pDelete(){
+            $("#pCodeDelete").val($(".listCheckbox:checked").val());
+        }
+    </script>
     <!-- ============================================================== -->
     <!-- End Bread crumb and right sidebar toggle -->
     <!-- ============================================================== -->
@@ -82,9 +89,9 @@
                 <div class="btn-group">
                     <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">조회방법 선택</button>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" >전체조회</a>
-                        <a class="dropdown-item" >등록일 순 조회</a>
-                        <a class="dropdown-item" >재고 순 조회</a>
+                        <a class="dropdown-item" >출간일 순</a>
+                        <a class="dropdown-item" >등록일 순</a>
+                        <a class="dropdown-item" >재고량 순</a>
                     </div>
                 </div>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

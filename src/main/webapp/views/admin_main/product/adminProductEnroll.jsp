@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>상품 등록 페이지</title>
+<title>상품 등록</title>
 <meta charset="UTF-8">
 <!-- datepicker css -->
 <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/resources/css/jiae/assets/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
@@ -15,7 +15,7 @@
 <body>
 	<%@ include file="../../common/adminMenubar.jsp" %>
 	<%@ include file="../../common/adminScript.jsp" %>
-	
+
 	<div class="page-breadcrumb">
         <div class="row">
             <div class="col-12 d-flex no-block align-items-center">

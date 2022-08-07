@@ -549,6 +549,8 @@
                 	
                 	$("#scrap").click(function(){
                 		
+                		let $scrapBtn = $(this);
+                		
                 		if( $(this).is(".in") ){
                 			console.log("찜하기클릭");
 		                 	// 찜하지 않은 회원이 찜하기 버튼 클릭 시 insert
@@ -565,6 +567,7 @@
 	                            	   //location.reload();
 	                            	   $scrapBtn.removeClass("in");
 	                                   $scrapBtn.addClass("de");
+	                            	   $scrapBtn.css({color:'red'});
 	                            	   
 	                               }
 	                            },
@@ -585,6 +588,7 @@
 	                            	   //location.reload();
 	                            	   $scrapBtn.removeClass("de");
 	                                   $scrapBtn.addClass("in");
+	                            	   $scrapBtn.css({color:'black'});
 	                               }
 	                            },
 	                            error:function(){
@@ -602,7 +606,7 @@
                     <div class="product__details__tab">
                         <ul class="nav nav-tabs" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab"
+                                <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab" id="detail"
                                     aria-selected="true" style="font-size:18px">상품 상세정보</a>
                             </li>
                             <li class="nav-item">
@@ -639,7 +643,7 @@
                                 <div class="etc_area" id="product_review">
                                     <h2 class="etc_title" >상품문의
                                     <% if (loginUser != null) {%>
-                                        <button type="button" class="etn_write_btn" data-toggle="modal" data-target="#updatePwdModal">상품문의</button>
+                                        <button type="button" class="etn_write_btn" data-toggle="modal" data-target="#inquiryModal">상품문의</button>
                                     <%} else { %>
                                     <button type="button" class="etn_write_btn">
                                     	<a href="<%=contextPath%>/loginPage.me"></a>
@@ -659,17 +663,17 @@
                                                 <th>작성일</th>
                                             </tr>
                                         <% int number = list.size(); %>
-                                        <%for(Inquiry i : list) {%>
-                                            <tr>
+                                        <%for(Inquiry iq : list) {%>
+                                            <tr id="inquiry-area1">
                                                 <td><%= number--%></td>
-                                                <% if(i.getqYn().equals("N")) {%>
+                                                <% if(iq.getqYn().equals("N")) {%>
                                                 <td>답변대기</td>
                                                 <% } else { %>
                                                 <td>답변완료</td>
                                                 <% } %>
-                                                <td><%=i.getTitle() %></td>
-                                                <td><%=i.getMemName() %></td>
-                                                <td><%=i.getEnrollDate() %></td>
+                                                <td><%=iq.getTitle() %></td>
+                                                <td><%=iq.getMemName() %></td>
+                                                <td><%=iq.getEnrollDate() %></td>
                                             </tr>
                                             <%} %>
                                         </table>
@@ -678,21 +682,21 @@
 
                             </div>
                             <% if(loginUser != null) {%>
-                            <!-- 비밀번호 변경 모달창 -->
-                                <div class="modal" id="updatePwdModal">
+                            
+                                <div class="modal" id="inquiryModal">
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
                                                     
                                             <!-- Modal Header -->
                                             <div class="modal-header">
-                                               <h3 class="modal-title">어라운드 상품문의 작성하기</h3>
+                                               <h3 class="modal-title">상품문의 작성하기</h3>
                                                <button type="button" class="close" data-dismiss="modal" style="size:40px;">&times;</button>
                                             </div>
       
                                             <!-- Modal body -->
                                             <div class="modal-body" align="center" style="margin-top:10px;">
             
-                                                <form action="<%= contextPath %>/inquiry.pd" method="">
+                                                <%-- <form action="<%= contextPath %>/inquiry.pd" method=""> --%>
                                                     <input type="hidden" name="pCode" value="<%=p.getpCode()%>"> <!-- form 요청시 같이 넘어가게 -->
                                                     <table class="table"style="border-bottom solid 1px">
                                                         <tr>
@@ -715,10 +719,56 @@
                                                             </td>
                                                         </tr>
                                                     </table>
-                                                    <button type="submit" class="btn btn-secondary" style="padding:10px 20px;" onclick="write();" >작성하기</button>
+                                                    <button type="button" class="btn btn-secondary" style="padding:10px 20px;" onclick="write();" >작성하기</button>
                                                    
-                                                </form>
+                                                <!-- </form> -->
+                                                </div>
+                                                </div>
+                                                </div>
+                                    			</div>
+                                                
+                                                <div class="tab-pane" id="tabs-2" role="tabpanel">
+					                                <div class="etc_area" id="product_review">
+					                                    <h2 class="etc_title">리뷰
+					                                        <button type="button" class="etn_write_btn">리뷰 쓰기</button>
+					                                    </h2>
+					                                    <div style="border-bottom: 1px solid #303030;"></div>
+					                                    <div class="etc_content_box">
+					                                        <ul class="product_review_list" id="review_list"></ul>
+					                                        
+					                                    </div>
+					                                </div>
+					                            </div>
+					                            <div class="tab-pane" id="tabs-3" role="tabpanel">
+					                                <div class="etc_area" id="product_review">
+					                                    <h2 class="etc_title">상품문의
+					                                        <button type="button" class="etn_write_btn">상품문의</button>
+					                                    </h2>
+					                                    <div style="border-bottom: 1px solid #303030;"></div>
+					                                    <div class="etc_content_box">
+					                                        <ul class="product_review_list" id="review_list"></ul>
+					                                        <table class="table">
+					                                            <tr>
+					                                                <th>번호</th>
+					                                                <th>처리상태</th>
+					                                                <th>문의 제목</th>
+					                                                <th>작성자</th>
+					                                                <th>작성일</th>
+					                                            </tr>
+					                                            <tr>
+					                                                <td>1</td>
+					                                                <td>답변대기</td>
+					                                                <td>언제 들어오나요?</td>
+					                                                <td>name</td>
+					                                                <td>2022-07-24</td>
+					                                            </tr>
+					                                        </table>
+					                                    </div>
+					                                </div>
+					                            </div>
+                                                
                                                 <script>
+                                                	
                                                     function write(){
                                                         $.ajax({
                                                         	url:"<%=contextPath%>/inquiry.pd",
@@ -730,51 +780,41 @@
                                                         		content:$("#content").val()
                                                         	},
                                                         	type:"post",
-                                                        	success:function(result){ // 상품문의 성공 
-                                                        		if(result>0){
-                                                        			console.log(result)
+                                                        	success:function(iqList){ // 상품문의 성공 
+                                                        		
+                                                        			console.log(iqList)
                              
                                                         		   let value = "";
-                                            						for(let i=0; i<list.length; i++){
+                                            						for(let i=0; i<iqList.length; i++){
                                             							value += 
-                                            							'<div class="col-lg-4 col-md-6 col-sm-6">' + 
-                                        	                            	'<div class="product__item">' + 
-                                    	                                		'<div class="product__item__pic set-bg" style="background-image:url(' + list[i].imageUrl1 + ')">' + 
-                                    	                                    		'<ul class="product__item__pic__hover">' + 
-                                    	                                        		'<li><a href="#"><i class="fa fa-heart"></i></a></li>' + 
-                                    	                                        		'<li><a href="#"><i class="fa fa-retweet"></i></a></li>' +
-                                    	                                        		'<li><a href="' + '<%=contextPath%>/detail.pd?pNo=' + list[i].pCode + '"><i class="fa fa-shopping-cart"></i></a></li>' + 
-                                    	                                    		'</ul>' + 
-                                    	                                		'</div>' +
-                                    	                                		'<div class="product__item__text">' + 
-                                    	                                   			'<h6><a href="#">' + list[i].pName + '</a></h6>' + 
-                                    	                                    		'<h5>' + number_format(list[i].price) + '원</h5>' + 
-                                    	                              			'</div>' +
-                                    	                            		'</div>' + 
-                                    	                       			'</div>'   
-                                            						}
-                                            						$("#list-area").html(value); 
+                                            								'<td>' + i++  +'</td>' +
+                                                                            '<td>답변대기</td>' +
+                                                                            '<td>' + iqList[i].title + '</td>' +
+                                                                            '<td>' + iqList[i].memName + '</td>'
+                                                                            '<td>' + iqList[i].enrollDate + '</td>'
+                                            						
                                                         		     
                                                         		}
+                                            						$("#inquiry-area1").html(value); 
                                                         		// 그 페이지 부분 목록에 보여지게 다시 
                                                         	}
-                                                        })
+                                                        });
+                                                        return false;
                                                     }
+                                                    
+                                                    
                                                 </script>
-                                            </div>
+                                            
         
-                                        </div>
-                                    </div>
-                                </div>
+                                      
+                                
 								<% } %>
 						      </div>
 						    </div>
 						  </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
+       
     </section>
     <!-- Product Details Section End -->
 	<%@ include file="../common/footer.jsp" %>

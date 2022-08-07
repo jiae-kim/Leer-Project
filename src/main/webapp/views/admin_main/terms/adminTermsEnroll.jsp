@@ -87,7 +87,7 @@
 	                                  <tbody>
 	                                    <tr>
 	                                      <td width="300px" height="45px" style="background:hsl(0, 0%, 77%); color:rgb(80, 80, 80); font-weight: bold;">
-	                                        이용약관명
+	                                        비고
 	                                      </td>
 	                                      <td width="700px">
 	                                        <input type="text" name="trmRemarks" placeholder="비고 입력">

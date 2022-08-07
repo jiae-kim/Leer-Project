@@ -37,45 +37,10 @@
 		       N.TITLE
 		     , M.MEM_ID
 		     , N.CONTENT
+		     , N.ENROLL_DATE
 		  FROM NOTICE N
 		  JOIN MEMBER M ON(N.MEM_NO = M.MEM_NO)
 		 WHERE NOTI_NO = ?
-	</entry>
-
-	<!-- FAQ 전체조회, 김지애 -->
-	<entry key="selectFaqList">
-		SELECT *
-		  FROM (
-		  		SELECT ROWNUM RNUM, A.*
-		  		  FROM (
-		  		  		SELECT 
-						        FAQ_NO
-						      , FAQ_CATEGORY
-						      , FAQ_TITLE
-						      , ENROLL_DATE
-						      , COUNT
-						  FROM  FAQ
-						 ORDER  BY FAQ_NO DESC
-		  		 		) A
-		  		)
-		  WHERE RNUM BETWEEN ? AND ?  
-	</entry>
-	
-	<!-- FAQ 전체조회 기존구문
-	SELECT 
-	        FAQ_NO
-	      , FAQ_CATEGORY
-	      , FAQ_TITLE
-	      , ENROLL_DATE
-	      , COUNT
-	  FROM  FAQ
-	 ORDER  BY FAQ_NO DESC
-	 -->
-	
-	<!-- FAQ 전체조회 페이징, 김지애 -->
-	<entry key="selectFaqListCount">
-		SELECT COUNT(*) AS "COUNT"
-		  FROM FAQ
 	</entry>
 	
 	<!-- 고객센터 1:1문의리스트조회, 김은지 -->
@@ -86,18 +51,20 @@
 		  	     FROM (		
 					  SELECT
 						     MTM_NO
-					       , MEM_NO
-						   , MTM_TYPE
-						   , MTM_TITLE
-						   , ENROLL_DATE
+					       , T.MEM_NO
 						   , MEM_NO2
+						   , MTM_TITLE
+						   , T.ENROLL_DATE
+						   , MTM_TYPE
 						   , ANS_YN
-						FROM MTM
+					       , M.MEM_ID
+						FROM MTM T
+                        LEFT JOIN MEMBER M ON (T.MEM_NO = M.MEM_NO)
 					   ORDER
 						  BY MTM_NO DESC
 		  	     	  ) A
 		  	   )
-		WHERE RNUM BETWEEN ? AND ?	 		    
+		WHERE RNUM BETWEEN ? AND ?	    
 	</entry>
 	
 	<!-- 고객센터 1:1문의리스트조회 페이징처리, 김은지 -->
@@ -117,6 +84,42 @@
 		 WHERE MTM_NO = ?
 	</entry>
 	
+	<!-- FAQ 전체조회, 김지애 -->
+	<entry key="selectFaqList">
+		SELECT *
+		  FROM (
+		  		SELECT ROWNUM RNUM, A.*
+		  		  FROM (
+			  		  	SELECT 
+						        F.FAQ_NO
+						      , F.FAQ_TITLE
+						      , F.ENROLL_DATE
+						      , F.COUNT
+						  FROM  FAQ F
+						  LEFT JOIN FAQ_CATEGORY C ON (F.CATEGORY_NO = C.CATEGORY_NO)
+						 ORDER  BY FAQ_NO DESC
+		  		 		) A
+		  		)
+		  WHERE RNUM BETWEEN ? AND ?  
+	</entry>
+	
+	<!-- FAQ 전체조회 기존구문
+	SELECT 
+	        FAQ_NO
+	      , FAQ_CATEGORY null 값으로 인해 제외시킴
+	      , FAQ_TITLE
+	      , ENROLL_DATE
+	      , COUNT
+	  FROM  FAQ
+	 ORDER  BY FAQ_NO DESC
+	 -->
+	
+	<!-- FAQ 전체조회 페이징, 김지애 -->
+	<entry key="selectFaqListCount">
+		SELECT COUNT(*) AS "COUNT"
+		  FROM FAQ
+	</entry>
+	
 	<!-- FAQ 상세조회 : 조회수, 김지애 -->
 	<entry key="increaseCount">
 		UPDATE FAQ
@@ -127,9 +130,24 @@
 	
 	<!-- FAQ 상세조회, 김지애 -->
 	<entry key="selectFaq">
+		SELECT
+		        F.FAQ_NO
+		     ,  M.MEM_ID
+		     ,  F.ENROLL_DATE
+		     ,  F.MODIFY_DATE
+		     ,  F.COUNT
+		     ,  F.FAQ_TITLE
+		     ,  F.FAQ_CONTENT
+		  FROM  FAQ F
+		  LEFT JOIN  MEMBER M ON(F.MEM_NO = M.MEM_NO)
+		  LEFT JOIN  FAQ_CATEGORY C ON (F.CATEGORY_NO = C.CATEGORY_NO)
+		  WHERE FAQ_NO = ?
+	</entry>
+	
+	<!-- 처음 작성 했던 상세조회 SQL문
 	SELECT 
 	        F.FAQ_NO
-	     ,  F.FAQ_CATEGORY
+	     ,  F.FAQ_CATEGORY 오류로 제외시킴
 	     ,  M.MEM_ID
 	     ,  F.ENROLL_DATE
 	     ,  F.MODIFY_DATE
@@ -139,6 +157,52 @@
 	  FROM  FAQ F
 	  JOIN  MEMBER M ON(F.MEM_NO = M.MEM_NO)
 	  WHERE FAQ_NO = ?
+	 -->
+	<!-- FAQ 등록 : 카테고리 조회, 김지애 -->
+	<entry key="selectFaqCategoryList">
+		SELECT
+		        CATEGORY_NO
+		      , CATEGORY_NAME
+		   FROM FAQ_CATEGORY
 	</entry>
+	
+	<!-- FAQ 등록, 김지애 -->
+	<entry key="FaqInsertPage">
+		INSERT 
+		  INTO FAQ
+		  (
+		    FAQ_NO
+		  , MEM_NO
+		  , CATEGORY_NO
+		  , FAQ_TITLE
+		  , FAQ_CONTENT
+		  , ENROLL_DATE
+		  , COUNT
+		  )
+          VALUES
+		  (
+		   SEQ_FAQ.NEXTVAL
+		  , 1
+		  , ?
+		  , ?
+		  , ?
+		  , CURRENT_DATE
+		  , 0)
+	</entry>
+	
+	
+	
+	<entry key="insertAns">
+		 UPDATE MTM
+		    SET MEM_NO2 = ?
+			  , ANS_CONTENT = ?
+			  , ANS_YN = 'Y'
+		 WHERE MTM_NO = ?
+	</entry>
+	
+	
+	
+	
+	
 </properties>
 

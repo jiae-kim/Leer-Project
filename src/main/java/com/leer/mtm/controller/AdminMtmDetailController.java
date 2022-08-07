@@ -36,6 +36,7 @@ public class AdminMtmDetailController extends HttpServlet {
 		Mtm m = new AdminMtmService().mtmDetailList(mtmNo);
 		
 		request.setAttribute("mtm", m);
+		request.setAttribute("mtmNo", mtmNo);
 		request.getRequestDispatcher("views/admin_main/mtm/adminMtmInsert.jsp").forward(request, response);
 	}
 
