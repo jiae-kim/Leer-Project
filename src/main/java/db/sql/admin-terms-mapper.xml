@@ -33,7 +33,8 @@
 	<!-- 이용약관리스트 상세조회페이지, 김은지 -->
 	<entry key="termsDetailList">
 		SELECT 
-		       TRM_TITLE
+			   TRM_NO
+		     , TRM_TITLE
 		     , TRM_CLASS
 		     , MEM_ID 
 		     , CONTENT

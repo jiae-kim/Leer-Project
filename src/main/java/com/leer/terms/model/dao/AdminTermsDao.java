@@ -108,7 +108,8 @@ public class AdminTermsDao {
 			rset = pstmt.executeQuery();
 			
 			if(rset.next()) {
-				t = new Terms(rset.getString("trm_class"),
+				t = new Terms(rset.getInt("trm_no"),
+							  rset.getString("trm_class"),
 							  rset.getString("trm_title"),
 							  rset.getString("content"),
 							  rset.getString("trm_remarks"),

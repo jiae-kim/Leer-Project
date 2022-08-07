@@ -28,8 +28,9 @@ public class Terms {
 		this.memId = memId;
 	}
 
-	public Terms(String trmClass, String trmTitle, String content, String trmRemarks, String memId) {
+	public Terms(int trmNo, String trmClass, String trmTitle, String content, String trmRemarks, String memId) {
 		super();
+		this.trmNo = trmNo;
 		this.trmClass = trmClass;
 		this.trmTitle = trmTitle;
 		this.content = content;
