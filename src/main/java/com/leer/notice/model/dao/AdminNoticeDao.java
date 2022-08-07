@@ -108,7 +108,8 @@ public class AdminNoticeDao {
 			if(rset.next()) {
 				n = new Notice(rset.getString("title"),							 
 							   rset.getString("content"),
-							   rset.getString("mem_id")
+							   rset.getString("mem_id"),
+							   rset.getDate("enroll_date")
 						);
 			}
 		} catch (SQLException e) {

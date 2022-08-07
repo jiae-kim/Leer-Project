@@ -71,11 +71,12 @@ public class Notice {
 	}
 
 
-	public Notice(String title, String content, String memId) {
+	public Notice(String title, String content, String memId, Date enrollDate) {
 		super();
 		this.title = title;
 		this.content = content;
 		this.memId = memId;
+		this.enrollDate = enrollDate;
 	}
 
 
