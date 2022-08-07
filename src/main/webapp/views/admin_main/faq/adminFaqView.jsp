@@ -40,11 +40,11 @@
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                             </nav>
-                            <button type="button" class="btn btn-info btn-lg" onclick="location.href='<%=request.getContextPath()%>/adFaqEnrollForm.do'">FAQ 등록</button> &nbsp;&nbsp;&nbsp;
+                            <button type="button" class="btn btn-info btn-lg" onclick="location.href='<%=request.getContextPath()%>/adFaqEnrollForm.do'">등록</button> &nbsp;&nbsp;&nbsp;
                             <!-- /views/admin_main/faq/adminFaqInsert.jsp -->
-                            <!-- <button type="button" class="btn btn-warning btn-lg">수정</button> &nbsp;&nbsp;&nbsp; -->
+                            <button type="button" class="btn btn-warning btn-lg">수정</button> &nbsp;&nbsp;&nbsp;
                             <!-- Button trigger modal -->
-                            <!-- <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#Modal2">삭제</button> -->
+                            <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#Modal2">삭제</button>
                                 <!-- Modal -->
                                 <div class="modal fade" id="Modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
