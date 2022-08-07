@@ -122,12 +122,13 @@ public class Member {
 		this.address = address;
 	}
 
-	public Member(int memNo, String memId, String memName, String phone, String address, int point,
+	public Member(int memNo, String memId, String memName, String nickname, String phone, String address, int point,
 			String enrollDate2) {
 		super();
 		this.memNo = memNo;
 		this.memId = memId;
 		this.memName = memName;
+		this.nickname = nickname;
 		this.phone = phone;
 		this.address = address;
 		this.point = point;
@@ -329,11 +330,12 @@ public class Member {
 		this.enrollDate = enrollDate;
 	}
 	
-	public Member(int memNo, String memId, String memName, String phone, String address, int point, Date enrollDate) {
+	public Member(int memNo, String memId, String memName, String nickname, String phone, String address, int point, Date enrollDate) {
 		super();
 		this.memNo = memNo;
 		this.memId = memId;
 		this.memName = memName;
+		this.nickname = nickname;
 		this.phone = phone;
 		this.address = address;
 		this.point = point;

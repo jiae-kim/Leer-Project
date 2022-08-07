@@ -69,6 +69,10 @@
 								<td><%=m.getMemName()%></td>
 							</tr>
 							<tr>
+								<th class="text-center">닉네임</th>
+								<td><%=m.getNickname()%></td>
+							</tr>
+							<tr>
 								<th class="text-center">주소</th>
 								<td><%=m.getAddress()%></td>
 							</tr>

@@ -11396,7 +11396,6 @@ html[dir=ltr] body .p-l-0 {
 
 #main-wrapper[data-sidebartype=full] .page-wrapper {
     margin-left: 250px;
-    height:905px;
 }
 
 @media (min-width:768px) {
