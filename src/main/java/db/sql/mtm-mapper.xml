@@ -79,4 +79,11 @@
 	
 	
 	
+	<entry key="deleteMtm">
+		DELETE 
+		  FROM MTM
+		 WHERE MTM_NO = ?
+	</entry>
+	
+	
 </properties>

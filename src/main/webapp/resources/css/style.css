@@ -430,10 +430,12 @@ ol {
 	position: absolute;
 	left: 0;
 	top: 50px;
-	background: #222222;
-	width: 180px;
+	margin-top: 20px;
+	background: #a7a0a0;
+	width: 170px;
 	z-index: 9;
 	padding: 5px 0;
+	
 	-webkit-transition: all, 0.3s;
 	-moz-transition: all, 0.3s;
 	-ms-transition: all, 0.3s;

@@ -88,4 +88,21 @@ public class MtmService {
 	}
 	
 	
+	public int deleteMtm(int mtmNo) {
+		
+		Connection conn = getConnection();
+		
+		int result = new MtmDao().deleteMtm(conn, mtmNo);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		
+		return result;
+	}
+	
+	
 }

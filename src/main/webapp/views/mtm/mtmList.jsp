@@ -129,14 +129,14 @@
                         
                         <tbody id="listBody">
                         	<% if(list.isEmpty()) { %>
-                            	<tr>
+                            	<tr style="border: 1px solid";>
                             		<td colspan="6" style="text-align:center;">존재하는 1:1문의 글이 없습니다.</td>
                             	</tr> 
                             	
                             <% }else{ %>
                             
 	                            <% for(Mtm m : list) { %>
-			                    	<tr style="text-align:center;">
+			                    	<tr style="text-align:center; border: 1px solid lightgrey; border-left: none; border-right: none;">
 			                        	<td><%=m.getMtmNo() %></td>
 			                        	<td><%=m.getMtmType() %></td>
 			                        	<td><%=m.getMtmTitle() %></td>

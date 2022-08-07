@@ -135,7 +135,7 @@
             <div class="a-title">
                 <table style="background-color:rgba(230, 173, 176, 0.062); padding: 20px;">
                     <tr>
-                        <td><p style="color: rgba(136, 34, 48, 0.411); font-size: 50px; font-weight: 900; width:200px">A &nbsp;</p></td>
+                        <td><p style="color: rgba(136, 34, 48, 0.411); font-size: 50px; font-weight: 900; width:270px">A &nbsp;</p></td>
                         <td align="center"><p style="font-size: 18px; font-weight:600;"></p></td>
                         <td width="500px"><p style="font-size: 18px; font-weight:600; color: black;"></p></td>
                         <td></td>
@@ -160,6 +160,8 @@
 		<%} %>
     </div>
     
+    
+    
     <script>
     	function mtmUpdate(){
     		const mtmNo = <%= mtmNo %>
@@ -168,7 +170,7 @@
     	
     	function mtmDelete(){
     		const mtmNo = <%= mtmNo %>
-    		location.href="<%=contextPath%>/mtmDelete.go" + mtmNo;
+    		location.href="<%=contextPath%>/delete.mtm?no=" + mtmNo;
     	}
     </script>
     
