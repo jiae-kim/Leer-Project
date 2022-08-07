@@ -584,7 +584,6 @@
                                 
                                 <% if(loginUser != null){ %>
                                 <li><a href="<%=contextPath%>/myBoard.li?memNo=<%=loginUser.getMemNo()%>&cpage=1">내가 쓴 게시글</a></li>
-                                <li><a href="#">북마크 목록</a></li>
                                 <% } %>
                                 
                             </ul>

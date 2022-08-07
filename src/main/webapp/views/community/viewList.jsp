@@ -623,7 +623,6 @@
 											<span style="font-size: 12px"><%=c.getEnrollDate() %></span>
 										</div>
 									<div class="icon" style="display:inline">
-										<i class="fa fa-heart-o"> <sup><%= c.getLikeCount() %></sup>
 										</i> <i class="fa fa-comment-o" style="margin-left:5px"> <sup><%= c.getCommentCount() %></sup>
 										</i>
 									</div>

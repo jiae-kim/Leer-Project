@@ -829,7 +829,6 @@ style="margin-left:10px";
 				<div class="boardTag">
 					<div class="likeComment">
 					
-						<i class="fa fa-heart-o" id="iconH" onclick="likeIcon()"></i> <span><%=c.getLikeCount()%></span>
 						
 						<i class="fa fa-comment-o" id="iconC"></i><span
 							style="margin-left: 5px"><%=c.getCommentCount()%></span>

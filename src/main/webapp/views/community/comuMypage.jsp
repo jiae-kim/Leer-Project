@@ -14,11 +14,7 @@
 		
 	}
 		
-	
-	
-	
-	
-	
+
 	.blog__sidebar__search form {
 	position: relative !important;
 }
@@ -253,7 +249,7 @@
 .myPageList{
 	border-top: 1px solid black ;
 	border-bottom: 1px solid black ;
-	height: 260px; 
+	height: 220px; 
 }
 #myPage{
 	height: 180px !important;
@@ -563,7 +559,7 @@
 					<%
 					} else {
 					%>
-					<div class="myPageList">
+					<div class="myPageList"  style="height:220px !important">
 						<div id="myPage" style="display: block;">
 							<div class="box-g">
 								<h4 class="">나의활동</h4>
@@ -586,21 +582,12 @@
 
 										<li class="myBoard">
 											<span>
-											<strong>내가 쓴 글</strong>
+											<strong>내가 쓴 게시글</strong>
 											</span> 
 											<a href="<%=contextPath %>/myBoard.li?memNo=<%=loginUser.getMemNo()%>&cpage=1"><%=m.getCommCount() %></a>
 											<span>개</span>
 										</li>
 										
-										<li class="myComment">
-										<form action="<%=contextPath%>/comuMypage.me">
-											<span class="">
-											<strong>내가 좋아요 한 글</strong>
-											</span>
-											<a href="#"><%= m.getLikeCount() %></a>
-											<span>개</span>
-										</form>
-										</li>
 									</ul>
 								</div>
 							</div>
