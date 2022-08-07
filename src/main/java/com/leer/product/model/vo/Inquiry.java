@@ -23,7 +23,16 @@ public class Inquiry {
 	private String memId; 
 	private String pCode2;
 	private String pName;
-		
+	private String qNo2; 
+	
+	public String getqNo2() {
+		return qNo2;
+	}
+
+	public void setqNo2(String qNo2) {
+		this.qNo2 = qNo2;
+	}
+
 	public String getMemId() {
 		return memId;
 	}
@@ -48,6 +57,20 @@ public class Inquiry {
 		this.pName = pName;
 	}
 
+	public Inquiry(String qNo2, String memId, String pCode2, String pName, String qCategory, String title, String content,
+			Date enrollDate) {
+		super();
+		this.qNo2 = qNo2;
+		this.memId = memId;
+		this.pCode2 = pCode2;
+		this.pName = pName;
+		this.qCategory = qCategory;
+		this.title = title;
+		this.content = content;
+		this.enrollDate = enrollDate;
+	}
+	
+	////////////////////////////////////////////////////////
 	public Inquiry(int qNo, String memId, String qCategory, String pCode2, String title, Date enrollDate, String qYn) {
 		super();
 		this.qNo = qNo;
@@ -59,19 +82,7 @@ public class Inquiry {
 		this.qYn = qYn;
 	}
 	
-	public Inquiry(int qNo, String memId, String pCode2, String pName, String qCategory, String title, String content,
-			Date enrollDate) {
-		super();
-		this.qNo = qNo;
-		this.memId = memId;
-		this.pCode2 = pCode2;
-		this.pName = pName;
-		this.qCategory = qCategory;
-		this.title = title;
-		this.content = content;
-		this.enrollDate = enrollDate;
-	}
-
+	
 	public Inquiry() {}
 
 	public Inquiry(int qNo, int pCode, int memNo, String memName, String qYn, String title, String content, String qCategory,

@@ -182,9 +182,9 @@ public class AdminProductService {
 	 * 상품문의 상세조회
 	 * 작성자 김지애
 	 */
-	public Inquiry InquiryDetailList(int qNo) {
+	public Inquiry InquiryDetailList(String qNo2) {
 		Connection conn = getConnection();
-		Inquiry iq = new AdminProductDao().InquiryDetailList(conn, qNo);
+		Inquiry iq = new AdminProductDao().InquiryDetailList(conn, qNo2);
 		close(conn);
 		return iq;
 	}

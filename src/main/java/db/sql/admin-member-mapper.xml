@@ -101,7 +101,7 @@
 	<!-- 회원삭제, 김은지 -->
 	<entry key="deleteMember">
 		UPDATE MEMBER
-		   SET MEM_STATUS = 'N'
+		   SET MEM_STATUS = 'Y'
 		 WHERE MEM_NO = ?
 	</entry>
 	

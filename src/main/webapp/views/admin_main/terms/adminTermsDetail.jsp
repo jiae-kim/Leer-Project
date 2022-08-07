@@ -96,13 +96,21 @@
                             <c:if test="${sessionMemberLv == 1}">
                             	<form action="<%=request.getContextPath()%>/adDelete.te" method=post>
                                     <div class="d-grid gap-3" style="text-align: center">
-                                    	<a href="<%= request.getContextPath() %>/adDelete.te?no=<%=t.getTrmNo()%>" id="btn" class="btn btn-dark" style="width:150px">이용약관 삭제</a>
+                                    	<a href="javascript: del();" id="btn" class="btn btn-dark" style="width:150px">이용약관 삭제</a>
                                         <a href="<%= request.getContextPath() %>/adTList.do?cpage=1" id="btn" class="btn btn-dark" style="width:150px">목록으로</a>
                                     </div>
-								</form>                                    
+								</form>                         
                             </c:if>
                           </div>
                         </div>
+                        <!-- 이용약관삭제기능 -->	            
+		                <script type="text/javascript">
+							function del() {
+								if (confirm('정말 삭제하시겠습니까?')) {
+									window.location.href="<%=request.getContextPath()%>/adDelete.te?trmNo=<%=t.getTrmNo()%>";			   
+								}
+							}
+						</script>
                       </div>
                 </div>
             </div>
