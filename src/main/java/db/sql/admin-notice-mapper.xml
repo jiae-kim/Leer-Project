@@ -84,85 +84,6 @@
 		 WHERE MTM_NO = ?
 	</entry>
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	<!-- FAQ 전체조회, 김지애 -->
 	<entry key="selectFaqList">
 		SELECT *
@@ -181,8 +102,6 @@
 		  		)
 		  WHERE RNUM BETWEEN ? AND ?  
 	</entry>
-	
-	
 	
 	<!-- FAQ 전체조회 기존구문
 	SELECT 

@@ -89,9 +89,9 @@
                 <div class="btn-group">
                     <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">조회방법 선택</button>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" >전체조회</a>
-                        <a class="dropdown-item" >등록일 순 조회</a>
-                        <a class="dropdown-item" >재고 순 조회</a>
+                        <a class="dropdown-item" >출간일 순</a>
+                        <a class="dropdown-item" >등록일 순</a>
+                        <a class="dropdown-item" >재고량 순</a>
                     </div>
                 </div>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

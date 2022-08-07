@@ -68,6 +68,7 @@
                     <div class="col-lg-12 grid-margin stretch-card">
                         <div class="card">
                           <div class="card-body">
+                          <a href="<%=request.getContextPath()%>/adProIqList.do?cpage=1" class="btn btn-dark" style="float:right">이전으로</a>
                             <!-- <h2 class="card-title" align="center">상품문의 상세 내용</h2> -->
                             <div class="table-responsive pt-3">
                               <table class="tt1" border="1" align="center">
@@ -77,7 +78,7 @@
                                       <td width="150px" height="45px" style="background:hsl(0, 0%, 77%); color:rgb(80, 80, 80); font-weight: bold;">
                                         문의번호
                                         <td width="350px">
-                                          <label for="" style="float: left;">&nbsp;&nbsp;<%=iq.getqNo2()%></label> 
+                                          <label for="" style="float: left;">&nbsp;&nbsp;<%=iq.getqNo()%></label> 
                                         </td>
                                       </td>
 
