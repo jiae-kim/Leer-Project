@@ -88,7 +88,7 @@
                 <!-- 로고 -->
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="<%=contextPath %>"><img src="<%= contextPath %>/resources/images/로고4.png"></a>
+                        <a href="<%=contextPath %>"><img src="<%= contextPath %>/resources/images/로고6.png"></a>
                     </div>
                 </div>
 
