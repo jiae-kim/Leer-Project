@@ -495,6 +495,16 @@
 	font-size: 16px !important;
 	color: #6f6f6f !important;
 }
+.vogue{
+    font-size: 12px;
+    color: #6f6f6f ;
+    background: #f5f5f5;
+    display: inline-block ;
+    padding: 7px 13px 5px ;
+    margin-right: 6px ;
+    margin-bottom: 10px ;
+    border:none;
+    }
 
 .blog__details__widget ul {
 	margin-bottom: 5px !important;
@@ -602,10 +612,12 @@
 					
 					<div class="bestTag">
 						<p>인기태그</p>
+						<form action="<%= contextPath %>/hashTag.bo?cpage=1&tag=">
 						<div class="blog__sidebar__item__tags">
 							<a href="#">공유</a> <a href="#">후기</a> <a href="#">부록</a> <a
-								href="#">추천</a> <a href="#">질문</a> <a href="#">보그</a>
+								href="#">추천</a> <a href="#">질문</a> <input type="submit" name="tag" value="보그" class="vogue">
 						</div>
+						</form>
 					</div>
 				</div>
 			</div>

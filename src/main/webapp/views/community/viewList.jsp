@@ -33,10 +33,11 @@
 	float: right;
 	}
 	.hashtag {
-	
+	line-height:16px;
 	display: inline;
 	color: #1c1c1c;
 	padding:2px;
+	border:none;
 	background-color: rgb(221, 221, 221);
 	border-radius: 3px;
 	}
@@ -604,16 +605,18 @@
 							<div class="blog__item"> 
 								<div class="blog__item__text" align="left" onclick="location.href='<%=contextPath%>/comuDetail.bo?no=<%= c.getComuNo()%>'" style="padding-top:16px !important">
 									<span style="display:none"><%= c.getComuNo() %></span>
+									
 									<h4><%= c.getTitle() %></h4>
+									<form action="<%= contextPath %>/hashTag.bo?cpage=1&tag=">
 									<div>
 										<% if(c.getTag() != null) { 
 											String[] tagArr = c.getTag().split(",");  // ["패션", "라이프"]
 											for(String tag : tagArr){ %>
-													<a class="hashtag" href="<%= contextPath %>/hashtagsearch?tag=<%=tagArr%>"><%= tag %></a> <!-- 댓글수 구하는 구문 찾아보기  -->
-										
+													<input name="tag" type="submit" class="hashtag" value="<%= tag %>"><!-- 댓글수 구하는 구문 찾아보기  -->
 												<%} %>
 										<% } %>
 									</div>
+									</form>
 									<div>
 										<p><%=c.getContent()%></p>
 									</div>

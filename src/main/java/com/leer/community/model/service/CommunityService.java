@@ -220,11 +220,11 @@ public class CommunityService {
 		return result;
 	}
 	
-	public ArrayList<ComuBoard> HashtagSearch( String hashtag) {
+	public ArrayList<ComuBoard> selectTagList(PageInfo pi, String tag) {
 		
 		Connection conn = getConnection();
 		
-		ArrayList<ComuBoard> list = new CommunityDao().HashtagSearch(conn,hashtag);
+		ArrayList<ComuBoard> list = new CommunityDao().selectTagList(conn,pi, tag);
 		
 		close (conn);
 		
@@ -268,6 +268,14 @@ public class CommunityService {
 		Connection conn = getConnection();
 		
 		int listCount = new CommunityDao().selectSearchListCount(conn, search);
+		
+		close(conn);
+		return listCount;
+	}
+	public int selectTagListCount(String tag) {
+		Connection conn = getConnection();
+		
+		int listCount = new CommunityDao().selectTagListCount(conn, tag);
 		
 		close(conn);
 		return listCount;

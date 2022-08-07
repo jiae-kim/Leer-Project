@@ -326,30 +326,39 @@
 	
 	</entry>
 	
-	<entry key="HashtagSearch">
-		SELECT
-		       CB.COMU_NO
-		     , NICKNAME  
-		     , CATEGORY_NAME
-		     , TAG
-		     , TITLE
-		     , CONTENT
-		     , CB.ENROLL_DATE
-		     , (
-                  SELECT COUNT(*)
-                    FROM COMU_LIKE CL
-                   WHERE CL.COMU_NO = CB.COMU_NO
-                ) "LIKE_COUNT"
-             , (
-                  SELECT COUNT(*)
-                    FROM COMU_RE CR
-                   WHERE CR.COMU_NO = CB.COMU_NO
-                ) "COMMENT_COUNT"
-              , VIEW_COUNT  
-		  FROM COMU_BOARD CB
-		  JOIN COMU_CATEGORY USING (CATEGORY_NO)  
-		  JOIN MEMBER USING (MEM_NO)
-		 WHERE TAG LIKE '%'||?||'%'
+	<entry key="selectTagList">
+		 SELECT *
+	  FROM (
+	        SELECT ROWNUM RNUM, A.*
+	          FROM (
+				  	SELECT 
+				  		   CB.COMU_NO
+			             , TAG
+			             , TITLE
+			             , CONTENT
+			             , CB.ENROLL_DATE
+			             , VIEW_COUNT
+			             , (
+			                  SELECT COUNT(*)
+			                    FROM COMU_LIKE CL
+			                   WHERE CL.COMU_NO = CB.COMU_NO
+			                ) "LIKE_COUNT"
+			             , (
+			                  SELECT COUNT(*)
+			                    FROM COMU_RE CR
+			                   WHERE CR.COMU_NO = CB.COMU_NO
+			                ) "COMMENT_COUNT"
+			          FROM COMU_BOARD CB
+			          JOIN MEMBER USING (MEM_NO)
+			         WHERE DELETE_YN = 'N'
+			           AND MEM_STATUS = 'N'
+			           AND TAG LIKE '%'||?||'%' 
+			           
+			         ORDER 
+			            BY COMU_NO DESC
+                    ) A
+	        )
+	 WHERE RNUM BETWEEN ? AND ?
 	</entry>
 	
 	<entry key="deleteBoard">
@@ -417,6 +426,12 @@
 	      FROM COMU_BOARD
 	     WHERE DELETE_YN = 'N'
 	       AND (TAG LIKE '%'||?||'%' OR CONTENT LIKE '%'||?||'%')
+	</entry>
+	<entry key="selectTagListCount">
+		SELECT COUNT(*) as "COUNT"
+	      FROM COMU_BOARD
+	     WHERE DELETE_YN = 'N'
+	       AND TAG LIKE '%'||?||'%'
 	</entry>
 </properties>
 

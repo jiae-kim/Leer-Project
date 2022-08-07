@@ -607,8 +607,8 @@ div {
 	/* padding-left: 30px;
             padding-right: 30px; */
 	margin: 30px 30px 0px 30px;
-	border-top: 1px solid rgba(87, 87, 87, 0.3);
-	border-bottom: 1px solid rgba(87, 87, 87, 0.3);
+	border-top: 1px solid rgba(87, 87, 87, 1);
+	border-bottom: 1px solid rgba(87, 87, 87, 1);
 }
 
 .detailComment {
@@ -783,9 +783,9 @@ style="margin-left:10px";
 							</div>
 							<div class="create">
 								<span class="date"><%=c.getEnrollDate()%></span> <span
-									class="count"><b>조회수 : <%=c.getViewCount()%></b></span>
+									class="count">조회수 : <%=c.getViewCount()%></span>
 								<% if(loginUser != null && loginUser.getNickname().equals(c.getMemNo())) { %>
-									<a class="updateBoard" href="<%=contextPath%>/comuUpdateForm.bo?no=<%= comuNo %>">게시글 수정하기</a>
+									<a class="updateBoard" href="<%=contextPath%>/comuUpdateForm.bo?no=<%= comuNo %>" style="color:#878787"><b>게시글 수정하기</b></a>
 								<% } else if(loginUser != null && !loginUser.getNickname().equals(c.getMemNo())) { %>
 									<a href="" class="boardReport" style="margin-left:5px"><span>신고</span></a>
 								<% } %>
