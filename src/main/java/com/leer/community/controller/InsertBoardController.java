@@ -25,43 +25,44 @@ import com.oreilly.servlet.MultipartRequest;
 @WebServlet("/comuinsert.bo")
 public class InsertBoardController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public InsertBoardController() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public InsertBoardController() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		
+
 		HttpSession session = request.getSession();
-		
-		if(ServletFileUpload.isMultipartContent(request)) {
+
+		if (ServletFileUpload.isMultipartContent(request)) {
 			int maxSize = 10 * 1024 * 1024;
 
-			
-			
 			String savePath = session.getServletContext().getRealPath("/resources/comu_upfiles/");
-			
-			MultipartRequest multiRequest = new MultipartRequest(request, savePath, maxSize, "UTF-8", new MyFileRenamePolicy());
-			
+
+			MultipartRequest multiRequest = new MultipartRequest(request, savePath, maxSize, "UTF-8",
+					new MyFileRenamePolicy());
+
 			String category = multiRequest.getParameter("category");
 			String[] allTag = multiRequest.getParameterValues("tag");
 			String title = multiRequest.getParameter("title");
 			String content = multiRequest.getParameter("content");
-			int memNo = ((Member)session.getAttribute("loginUser")).getMemNo();
-			
+			int memNo = ((Member) session.getAttribute("loginUser")).getMemNo();
+
 			Member m = new CommunityService().selectMyCount(memNo);
 			request.setAttribute("m", m);
-			
+
 			String tag = "";
-			if(allTag != null) {
+			if (allTag != null) {
 				tag = String.join(",", allTag);
 			}
 			ComuBoard c = new ComuBoard();
@@ -70,25 +71,25 @@ public class InsertBoardController extends HttpServlet {
 			c.setTitle(title);
 			c.setContent(content);
 			c.setMemNo(String.valueOf(memNo));
-			
+
 			Attachment at = null;
-			
-			if(multiRequest.getOriginalFileName("comuupfile") != null) {
+
+			if (multiRequest.getOriginalFileName("comuupfile") != null) {
 				at = new Attachment();
-				
+
 				at.setOriginName(multiRequest.getOriginalFileName("comuupfile"));
 				at.setChangeName(multiRequest.getFilesystemName("comuupfile"));
 				at.setFilePath("resources/comu_upfiles/");
-				
+
 			}
-			
+
 			int result = new CommunityService().insertBoard(c, at);
-			
-			if(result > 0) {
+
+			if (result > 0) {
 				response.sendRedirect(request.getContextPath() + "/comu.bo?cpage=1");
-				
-			}else {
-				if(at != null) {
+
+			} else {
+				if (at != null) {
 					new File(savePath + at.getChangeName()).delete();
 				}
 			}
@@ -96,9 +97,11 @@ public class InsertBoardController extends HttpServlet {
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}

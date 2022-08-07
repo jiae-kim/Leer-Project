@@ -743,7 +743,7 @@ style="margin-left:10px";
 			<div class="row">
 				<div class="col-lg-12 text-left">
 					<div class="breadcrumb__text">
-						<h2>커뮤니티</h2>
+						<h2><a href="<%=contextPath%>/comu.bo?cpage=1" style="color:white;">커뮤니티</a></h2>
 						<div class="breadcrumb__option">
 							<span>게시글 상세페이지</span>
 						</div>

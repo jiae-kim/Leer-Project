@@ -605,7 +605,7 @@
             <div class="row">
                 <div class="col-lg-12 text-left">
                     <div class="breadcrumb__text">
-                        <h2>커뮤니티</h2>
+                        <h2><a href="<%=contextPath%>/comu.bo?cpage=1" style="color:white;">커뮤니티</a></h2>
                         <div class="breadcrumb__option">
                             <span>게시글 작성하기</span>
                         </div>
@@ -642,7 +642,7 @@
                                                 <th width="300">게시판 선택</th>
                                             </tr>
                                             <tr>
-                                                    <td><input type="text" name="tag"></td>
+                                                    <td><input type="text" name="tag" placeholder="(태그는,쉼표를,이용해,구분,작성해,주세요)"></td>
                                                 <td>
                                                     <select class="categorySelect" name="category" required>
                                                             <option value="" disabled selected hidden>
@@ -668,16 +668,17 @@
                                             </tr>
                                             <tr>
                                                 <td colspan="2"><textarea id="summernote" name="content" rows="10" required
-                                                    style="resize:none"></textarea></td>
-                                                    
+                                                    style="resize:none"></textarea>
+                                                    </td>
                                             </tr>
-                                             <tr>
-							                    <th>첨부파일</th>
-							                </tr>
-							                <tr>
-							                    <td><input type="file" name="comuupfile"></td>
-						                    </tr>
+                                          	<!-- <tr>
+                                          		<img id="contentImg" width="150" height="120" onclick="chooseFile(1);" style="bprder:1px solid black">
+                                          	</tr> -->
                                         </table>
+                                        <!-- <div id="file-area" >
+							            
+							                    <input type="file" name="comuupfile" onchange="loadImg(this,1);">
+						                     </div> -->
                                         <br>
 
                                         <div align="center" class="boardBtn">
@@ -685,6 +686,7 @@
                                             <button type="reset">취소하기</button>
                                         </div>
                                     </form>
+                                    
                             </div>
                             </div>
                         </div>
@@ -705,7 +707,13 @@
                                                 <th width="300">게시판 선택</th>
                                             </tr>
                                             <tr>
+                                            
+                                            	<% if(cb.getTag() != null) { %>
                                                     <td><input type="text" name="tag" value="<%= cb.getTag() %>"></td>
+                                                <% } else { %>
+                                                	<td><input type="text" name="tag" value="" placeholder="(태그는,쉼표를,이용해,구분,작성해,주세요)"></td>
+                                                <% } %>
+                                                
                                                 <td>
                                                     <select class="categorySelect" name="category" required>
                                                             <option value="<%= cb.getCategoryNo() %>"  selected hidden>
@@ -731,25 +739,23 @@
                                             </tr>
                                             <tr>
                                                 <td colspan="2"><textarea id="summernote" name="content" rows="10" required
-                                                    style="resize:none"><%= cb.getContent() %></textarea></td>
+                                                    style="resize:none"><%= cb.getContent() %></textarea>
+                                                </td>
                                                     
-                                            </tr>
-                                             <tr>
-							                    <th>첨부파일</th>
-							                </tr>
-							                <tr>
-							               		<td>
-								               		<% if(at != null) { %>
-								               			<%= at.getOriginName() %>
-								               			<input type="hidden" name="originFileNo" value="<%=at.getFileNo()%>">
-								               			<br>
-								               		<% } %>
-								                    <input type="file" name="comuupfile">
-							                    </td>
-							                </tr>
+                                            </tr> 
                                         </table>
+						               	<%-- 	
+						               	<img id="contentImg" width="150" height="120" onclick="chooseFile();">
+						               	<div id="file-area" style="display:none">
+							               		<% if(at != null) { %>
+							               			<%= at.getOriginName() %>
+							               			<input type="hidden" name="originFileNo" value="<%=at.getFileNo()%>">
+							               			<br>
+							               		<% } %>
+							                    <input type="file" name="comuupfile" onchange="loadImg(this);">
+						                     </div> --%>
                                         <br>
-
+										
                                         <div align="center" class="boardBtn">
                                             <button type="submit">작성하기</button>
                                             <button type="reset">취소하기</button>
@@ -787,7 +793,42 @@
             });
         });
     </script>
-    
+   <!--  <script>
+                function chooseFile(num){
+                    $("input[name=file" + num + "]").click();
+                }
+                function loadImg(inputFile, num){
+                    // inputFile : 현재 변화가 생긴 input type="file" 요소객체
+                    // num : 몇번째 input요소인지 구분할 값 (각 영역을 찾아서 미리보기해야되서)
+
+                    // 현재 파일이 선택됐다면
+                    // => inputFile.files[0]에 선택된 파일정보 담겨있음
+                    // => inputFile.files.length 또한 1이 될거임.
+
+                    if(inputFile.files.length == 1){ // 파일선택된경우 => 파일읽어들여서 미리보기
+
+                        // 파일을 읽어들일 FileReader 객체 생성
+                        const reader = new FileReader();
+
+                        // 파일을 읽어들이는 메소드 
+                        reader.readAsDataURL(inputFile.files[0]);
+
+                        // 파일 읽어들이기가 완료됐을 때 실행할 함수를 정의해두기
+                        reader.onload = function(e){
+                            // e.target.result => 읽어들인 파일의 고유한 url
+                            // console.log(e.target.result);
+                            switch(num){
+                                case 1: $("contentImg1").attr("src", e.target.result); break;
+                            }
+                        }
+
+                    }else{ // 파일취소됐을경우 => 미리보기된것도 사라지게
+                        switch(num){
+                                case 1: $("#contentImg1").attr("src", null); break;
+                            }  
+                    }
+                }
+            </script> -->
    
 </body>
 </html>

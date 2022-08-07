@@ -51,7 +51,6 @@
                                 <h4 style="font-family:'NanumSquare'; font-weight:800; margin-bottom: 15px; font-size:20px;">커뮤니티 활동</h4>
                                 <ul>
                                     <li><a href="<%=contextPath%>/myBoard.li?memNo=<%=loginUser.getMemNo()%>&cpage=1">내가 쓴 게시글</a></li>
-                                    <li><a href="#">내가 좋아요 한 글</a></li>
                                 </ul>
     
                                 <hr>
