@@ -1,11 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page
-	import="java.util.ArrayList, com.leer.notice.model.vo.Notice, com.leer.common.model.vo.PageInfo"%>
+	import="java.util.ArrayList, com.leer.faq.model.vo.Faq, com.leer.common.model.vo.PageInfo"%>
 
 <%
-PageInfo pi = (PageInfo) request.getAttribute("pi");
-Notice n = (Notice) request.getAttribute("notice");
+Faq f = (Faq) request.getAttribute("faq");
 
 %>
 <!DOCTYPE html>
@@ -97,7 +96,7 @@ Notice n = (Notice) request.getAttribute("notice");
 						<h2 style="font-size: 35px">고객센터</h2>
 						<div class="breadcrumb__option">
 
-							<span>공지사항</span>
+							<span>FAQ</span>
 						</div>
 					</div>
 				</div>
@@ -117,16 +116,16 @@ Notice n = (Notice) request.getAttribute("notice");
 						<div class="sidebar__item">
 							<h4>고객센터</h4>
 							<ul>
-								<li><a href="<%=contextPath%>/list.no?cpage=1">공지사항</a></li>
-								<li><a href="<%=contextPath%>/list.fq?cpage=1">FAQ</a></li>
-								<li><a href="<%=contextPath %>/mtmList.go?memNo=<%=loginUser.getMemNo()%>&cpage=1">1대1 문의</a></li>
+								<li><a href="<%=contextPath %>/list.no?cpage=1">공지사항</a></li>
+								<li><a href="<%=contextPath %>/list.fa?cpage=1">FAQ</a></li>
+								<li><a href="<%=contextPath %>/mtmList.go?memNo=<%=loginUser.getMemNo() %>&cpage=1">1대1 문의</a></li>
 							</ul>
 						</div>
 
 					</div>
 				</div>
 				<div style="width: 70%">
-					<label style="font-size: 25px; font-weight: 600; height: 20px;">공지사항
+					<label style="font-size: 25px; font-weight: 600; height: 20px;">FAQ
 						</label> <br> <br>
 
 					
@@ -134,17 +133,17 @@ Notice n = (Notice) request.getAttribute("notice");
 						<tr>
 							
 							<th width="70">제목</th>
-							<td width="350"><%=n.getTitle()%></td>
+							<td width="350"><%=f.getFaqTitle()%></td>
 						</tr>
 						<tr>
 							
 							<th>작성일</th>
-							<td><%=n.getEnrollDate()%></td>
+							<td><%=f.getEnrollDate()%></td>
 						</tr>
 						<tr>
 							<th>내용</th>
 							<td colspan="3"  style="height:500px" >
-								<p><%=n.getContent()%></p>
+								<p><%=f.getFaqContent()%></p>
 							</td>
 						</tr>
 						
@@ -152,7 +151,7 @@ Notice n = (Notice) request.getAttribute("notice");
 					
 					<div id="div-bfBtn">
 					
-					<a class="btn" style="background-color:gray; color:white" href="<%=contextPath %>/list.no?cpage=1">이전으로</a>
+					<a class="btn" style="background-color:gray; color:white" href="<%=contextPath %>/list.fq?cpage=1">이전으로</a>
 					</div>
 				</div>
 				

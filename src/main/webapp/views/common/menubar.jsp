@@ -112,7 +112,7 @@
                             <li><a href="<%=contextPath%>/gogoPage.go"><b>고객센터</b></a>
                             	<ul class="header__menu__dropdown">
                                     <li><a href="<%=contextPath%>/list.no?cpage=1">공지사항</a></li>
-                                    <li><a href="">FAQ</a></li>
+                                    <li><a href="<%=contextPath%>/list.fq?cpage=1">FAQ</a></li>
                                     
                                     <%if(loginUser == null){ %>
                                     	<!-- alert로 로그인 해야 이용 가능함을 알려주고 로그인 페이지로 이동시켜주기 -->

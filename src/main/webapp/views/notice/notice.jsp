@@ -108,7 +108,7 @@ int maxPage = pi.getMaxPage();
 							<h4>고객센터</h4>
 							<ul>
 								<li><a href="<%=contextPath%>/list.no?cpage=1">공지사항</a></li>
-								<li><a href="#">FAQ</a></li>
+								<li><a href="<%=contextPath%>/list.fq?cpage=1">FAQ</a></li>
 								<li><a href="<%=contextPath%>/mtmList.go?memNo=<%=loginUser.getMemNo() %>&cpage=1">1대1 문의</a></li>
 							</ul>
 						</div>
