@@ -464,7 +464,7 @@ public class AdminProductDao {
 	 * 상품문의 상세조회
 	 * 작성자 김지애
 	 */
-	public Inquiry InquiryDetailList(Connection conn, int qNo) {
+	public Inquiry InquiryDetailList(Connection conn, String qNo2) {
 		Inquiry iq = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -475,7 +475,7 @@ public class AdminProductDao {
 			rset = pstmt.executeQuery();
 			
 			if(rset.next()) {
-				iq = new Inquiry(rset.getInt("qno"),
+				iq = new Inquiry(rset.getString("qno"),
 								 rset.getString("mem_id"),
 								 rset.getString("p_code"),
 								 rset.getString("p_name"),
