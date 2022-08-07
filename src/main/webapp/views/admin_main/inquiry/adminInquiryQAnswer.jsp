@@ -150,8 +150,9 @@
                             <br>
                             <c:if test="${sessionMemberLv == 1}">
                                     <div class="d-grid gap-3" style="text-align: center">
-                                      <a href="" class="btn btn-dark" style="width:150px">등록</a>
-                                        <a href="" id="btn" class="btn btn-dark" style="width:150px">취소</a>
+                                      <a href="" class="btn btn-info" style="width:150px">등록</a>
+                                      <a href="" id="btn" class="btn btn-warning" style="width:150px">취소</a>
+                                      <a href="" id="btn" class="btn btn-danger" style="width:150px">삭제</a>
                                     </div>
                             </c:if>
                           </div>

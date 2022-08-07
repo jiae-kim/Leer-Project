@@ -39,13 +39,16 @@
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                             </nav>
+                            <!--  
                             <button type="button" class="btn btn-info btn-lg" onclick="location.href='<%=request.getContextPath()%>/views/admin_main/inquiry/adminInquiryQAnswer.jsp'">답변 등록</button> &nbsp;&nbsp;&nbsp;
                             <button type="button" class="btn btn-warning btn-lg">답변 수정</button> &nbsp;&nbsp;&nbsp;
-                            <!-- Button trigger modal -->
+                            -->
+                            <!-- Button trigger modal 
                             <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#Modal2">
                                 문의 삭제
                             </button>
-                                <!-- Modal -->
+                            -->
+                                <!-- Modal 
                                 <div class="modal fade" id="Modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
@@ -65,6 +68,7 @@
                                         </div>
                                     </div>
                                 </div>
+                               -->
                         </div>
                     </div>
                 </div>
@@ -92,7 +96,7 @@
                 <!-- ============================================================== -->
                 <!-- 카테고리 조회 -->
                 <div class="btn-group">
-                    <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">진행 단계 선택</button>
+                    <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">처리상태 선택</button>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="#">미답변</a>
                         <a class="dropdown-item" href="#">답변완료</a>
@@ -105,7 +109,7 @@
                                     <tr>
                                         <th>
                                             <label class="customcheckbox m-b-20">
-                                                <input type="checkbox" id="mainCheckbox" />
+                                                <!-- <input type="checkbox" id="mainCheckbox" />  -->
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
@@ -122,8 +126,8 @@
                                 	<% for(Inquiry i : list) { %>
                                     <tr onclick="location.href='<%=request.getContextPath()%>/adProIqDetail.do?no=<%=i.getqNo()%>';">
                                         <th>
-                                            <label class="customcheckbox">
-                                                <input type="checkbox" class="listCheckbox" />
+                                            <label class="customcheckbox"> 
+                                                <!-- <input type="checkbox" class="listCheckbox" /> -->
                                                 <span class="checkmark"></span>
                                             </label>
                                         </th>
