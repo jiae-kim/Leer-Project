@@ -187,7 +187,7 @@
 	<!-- FAQ 전체조회 기존구문
 	SELECT 
 	        FAQ_NO
-	      , FAQ_CATEGORY
+	      , FAQ_CATEGORY null 값으로 인해 제외시킴
 	      , FAQ_TITLE
 	      , ENROLL_DATE
 	      , COUNT
