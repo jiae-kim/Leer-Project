@@ -81,7 +81,7 @@
 		       MEM_NO
 		     , MEM_ID
 		     , MEM_NAME
-		   	 , NICKNAME = ?
+		   	 , NICKNAME
 		     , ADDRESS
 		     , PHONE
 		     , ENROLL_DATE
