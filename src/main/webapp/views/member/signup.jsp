@@ -142,7 +142,7 @@
 
                     <tr>
                         <td>비밀번호</td>
-                        <td colspan="3"><input type="password" name="memPwd" maxlength="12" required placeholder=" (6-10자의 영문, 숫자만 사용 가능합니다.)"></td>
+                        <td colspan="3"><input type="password" name="memPwd" maxlength="12" required placeholder=" (6-10자의 영문, 숫자만 사용 가능합니다.)" style="font-family:Verdana;"></td>
                         <td></td>
                     </tr>
 
@@ -152,7 +152,7 @@
 
                     <tr>
                         <td>비밀번호 확인</td>
-                        <td colspan="3"><input type="password" id="validatePwd" name="pwdCheck" maxlength="10" required></td>
+                        <td colspan="3"><input type="password" id="validatePwd" name="pwdCheck" maxlength="10" required style="font-family:Verdana;"></td>
                         <td></td>
                     </tr>
 

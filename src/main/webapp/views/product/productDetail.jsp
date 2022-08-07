@@ -567,6 +567,7 @@
 	                            	   //location.reload();
 	                            	   $scrapBtn.removeClass("in");
 	                                   $scrapBtn.addClass("de");
+	                            	   $scrapBtn.css({color:'red'});
 	                            	   
 	                               }
 	                            },
@@ -587,6 +588,7 @@
 	                            	   //location.reload();
 	                            	   $scrapBtn.removeClass("de");
 	                                   $scrapBtn.addClass("in");
+	                            	   $scrapBtn.css({color:'black'});
 	                               }
 	                            },
 	                            error:function(){

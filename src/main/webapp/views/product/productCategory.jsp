@@ -142,12 +142,14 @@
                         </div>
                     </div>
                     
+                    <%if(search == null){ %>
                     
+                    <%}else{ %>
                     <div align="center">
 	                	<label style="font-size:20px"><b>"<%=search %>"</b>에 대한 검색결과입니다.</label>
                     </div>
                     <br>
-                                
+                    <%} %>
                     
 	                    <div class="row" id="list-area">
 	                    <%for(Product p : list) {%>
