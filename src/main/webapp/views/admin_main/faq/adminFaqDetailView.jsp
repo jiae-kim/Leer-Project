@@ -66,7 +66,7 @@
                         <table border="1" class="ttt1" style="text-align: center">
                             <tr style="background: #343a40; color:white;">
                                 <td width="70px" height="-4840px">No.</td>
-                                <td width="200px">카테고리</td>
+                                <!-- <td width="200px">카테고리</td> -->
                                 <td width="300px">작성자</td>
                                 <td width="200px">등록일</td>
                                 <td width="200px">수정일</td>
@@ -74,7 +74,7 @@
                             </tr>
                             <tr>
                                 <td><%=f.getFaqNo()%></td>
-                                <td><%=f.getCategoryName()%></td>
+                                <!-- <td>카테고리넣는곳</td> -->
                                 <td><%=f.getMemId()%></td>
                                 <td><%=f.getEnrollDate()%></td>
                                 <td><%=f.getModifyDate()%></td>

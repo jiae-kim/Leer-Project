@@ -52,7 +52,7 @@ public class AdminFaqDao {
 			
 			while(rset.next()) {
 				list.add(new Faq(rset.getInt("faq_no"),
-								 rset.getString("category_name"),
+								 //rset.getString("category_name"),
 								 rset.getString("faq_title"),
 								 rset.getDate("enroll_date"),
 								 rset.getInt("count")));
@@ -133,7 +133,7 @@ public class AdminFaqDao {
 			
 			if(rset.next()) {
 				f = new Faq(rset.getInt("faq_no"),
-							rset.getString("category_name"),
+							//rset.getString("category_name"),
 							rset.getString("mem_id"),
 							rset.getDate("enroll_date"),
 							rset.getDate("modify_date"),

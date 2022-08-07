@@ -34,20 +34,20 @@ public class Faq {
 		this.faqViews = faqViews;
 	}
 
-	public Faq(int faqNo, String faqCategory, String faqTitle, Date enrollDate, int count) {
+	public Faq(int faqNo, String faqTitle, Date enrollDate, int count) {
 		super();
 		this.faqNo = faqNo;
-		this.faqCategory = faqCategory;
+		//this.categoryName = categoryName;
 		this.faqTitle = faqTitle;
 		this.enrollDate = enrollDate;
 		this.count = count;
 	}
 
-	public Faq(int faqNo, String categoryName, String memId, Date enrollDate, Date modifyDate, int count, String faqTitle, String faqContent 
+	public Faq(int faqNo, String memId, Date enrollDate, Date modifyDate, int count, String faqTitle, String faqContent 
 			) {
 		super();
 		this.faqNo = faqNo;
-		this.categoryName = categoryName;
+		//this.categoryName = categoryName;
 		this.memId = memId;
 		this.enrollDate = enrollDate;
 		this.modifyDate = modifyDate;

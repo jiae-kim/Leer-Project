@@ -171,7 +171,6 @@
 		  		  FROM (
 			  		  	SELECT 
 						        F.FAQ_NO
-						      , C.CATEGORY_NAME
 						      , F.FAQ_TITLE
 						      , F.ENROLL_DATE
 						      , F.COUNT
@@ -214,7 +213,6 @@
 	<entry key="selectFaq">
 		SELECT
 		        F.FAQ_NO
-		     ,  C.CATEGORY_NAME
 		     ,  M.MEM_ID
 		     ,  F.ENROLL_DATE
 		     ,  F.MODIFY_DATE
@@ -230,7 +228,7 @@
 	<!-- 처음 작성 했던 상세조회 SQL문
 	SELECT 
 	        F.FAQ_NO
-	     ,  F.FAQ_CATEGORY
+	     ,  F.FAQ_CATEGORY 오류로 제외시킴
 	     ,  M.MEM_ID
 	     ,  F.ENROLL_DATE
 	     ,  F.MODIFY_DATE

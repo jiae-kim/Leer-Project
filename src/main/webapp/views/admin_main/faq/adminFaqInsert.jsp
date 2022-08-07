@@ -116,39 +116,31 @@
                                 <h4 align="left" class="boardTitle"><b>FAQ 등록</b></h4><hr style="color: black">
                                 <form action="<%=request.getContextPath()%>/adFaqInsert.do" method="post" id="enroll-form">
                                     <table align="center">
-                                        <tr>
-                                            <th width="800" colspan="2">카테고리</th>
+                                       <tr>
+                                            <th width="800" colspan="4"></th>
                                         </tr>
                                         <tr style="float: left">
                                             <td colspan="2" style="">
-                                                <select name="faqCategory">
+                                                 <!-- <select name="faqCategory">
                                                         <option disabled selected hidden>카테고리를 선택하세요</option>
-                                                        <!-- db로부터 조회 -->
-                                                        <% for(FaqCategory fc : list) { %>
-                                                        <option value="<%= fc.getCategoryNo() %>">
-                                                            <%= fc.getCateogryName() %>
-                                                        </option>
-                                                        <% } %>
-                                                        <!--
                                                         <option value="10">주문/결제</option>
                                                         <option value="20">반품</option>
                                                         <option value="30">적립금</option>
                                                         <option value="40">로그인/회원가입</option>
-                                                        -->
-                                                </select>
+                                                </select> -->
                                             </td>
+                                        </tr> 
+                                        <tr> 
+                                            <th colspan="4">제목</th>
                                         </tr>
                                         <tr>
-                                            <th colspan="2">제목</th>
+                                            <td colspan="4"><input type="text" name="faqTitle" required placeholder="제목을 작성하세요"></td>
                                         </tr>
                                         <tr>
-                                            <td colspan="2"><input type="text" name="faqTitle" required placeholder="제목을 작성하세요"></td>
+                                            <th colspan="4">내용</th>
                                         </tr>
                                         <tr>
-                                            <th colspan="2">내용</th>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="2">
+                                            <td colspan="4">
                                             <textarea id="summernote" name="faqContent" placeholder="내용을 작성하세요" rows="10" required style="resize:none"></textarea>
                                             </td>
                                         </tr>

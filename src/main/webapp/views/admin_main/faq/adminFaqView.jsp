@@ -10,6 +10,7 @@
 	int startPage = pi.getStartPage();
 	int endPage = pi.getEndPage();
 	int maxPage = pi.getMaxPage();
+
 %>
 <!DOCTYPE html>
 <html>
@@ -102,7 +103,7 @@
                                             </label>
                                         </th>
                                         <th scope="col">글번호</th>
-                                        <th scope="col">카테고리</th>
+                                        <!-- <th scope="col">카테고리</th> -->
                                         <th scope="col">제목</th>
                                         <th scope="col">등록일</th>
                                         <th scope="col">조회수</th>
@@ -118,7 +119,7 @@
                                             </label>
                                         </th>
                                         <td><%=f.getFaqNo()%></td>
-                                        <td><%=f.getCategoryName()%></td>
+                                        <!-- <td>카테고리넣는곳</td> -->
                                         <td><%=f.getFaqTitle()%></td>
                                         <td><%=f.getEnrollDate()%></td>
                                         <td><%=f.getCount()%></td>

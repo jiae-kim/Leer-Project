@@ -37,7 +37,7 @@
                     <!-- 상품 삭제 Button trigger modal -->
                     <button type="button" data-target="#delete" onclick="pDelete();" class="btn btn-danger btn-lg" data-toggle="modal">삭제</button>
                     <form action="<%=request.getContextPath()%>/adProDelete.do" method="post">
-                        <input type="hidden" name="pcd" id="pCodeDelete" value="">
+                        <input type="hidden" name="pc" id="pCodeDelete" value="">
                     <!-- Modal -->
                     <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
