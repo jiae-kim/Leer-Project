@@ -117,6 +117,9 @@
 		   AND P_CODE = ?
 	</entry>
 	
+	
+	
+	
 	<entry key="insertScrap">
 		INSERT 
 		  INTO SCRAP
@@ -162,6 +165,21 @@
 		       , ?
 		       , CURRENT_DATE
 		       )
+	</entry>
+	
+	
+	
+	
+	<entry key="selectSearchList">
+		SELECT P_CODE
+			 , CATEGORY_NO
+			 , P_NAME
+			 , PRICE
+			 , PUBLISH_MONTH
+			 , IMAGE_URL1
+		  FROM PRODUCT
+		 WHERE P_NAME LIKE '%'||?||'%' OR PUBLISHER LIKE '%'||?||'%'
+		   AND SELL_YN = 'Y'
 	</entry>
 	
 	

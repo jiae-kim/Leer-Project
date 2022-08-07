@@ -64,14 +64,8 @@
 
     <div class="hero__search">
         <div class="hero__search__formm"> <!-- 클래스명 변경했음 -->
-            <form action="#">
-                <!--
-                <div class="hero__search__categories">
-                    All Categories
-                    <span class="arrow_carrot-down"></span>
-                </div>
-                -->
-                <input type="text" style="width: 30%; height: 52px; border:1px solid lightgrey">
+            <form action="<%=contextPath%>/search.main?search=">
+                <input type="text" style="width: 30%; height: 52px; border:1px solid lightgrey" name="search">
                 <button type="submit" class="site-btn" style="background:lightgrey; height: 52px; margin-left: -3px;">SEARCH</button>
             </form>
         </div>
@@ -344,6 +338,8 @@
     </section>
     
     </div>
+
+    <br><br>
 
 
     <script>
