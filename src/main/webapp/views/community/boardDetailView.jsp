@@ -792,13 +792,13 @@ style="margin-left:10px";
 				</div>
 
 				<div class="detailbody">
-					<div class="imgBox">
+				<!-- 	<div class="imgBox">
 						<img
 							src="https://images.pexels.com/photos/1525041/pexels-photo-1525041.jpeg?cs=srgb&dl=pexels-francesco-ungaro-1525041.jpg&fm=jpg"
 							alt="게시글사진" class="boardImg"> <img
 							src="https://images.pexels.com/photos/1525041/pexels-photo-1525041.jpeg?cs=srgb&dl=pexels-francesco-ungaro-1525041.jpg&fm=jpg"
 							alt="게시글사진" class="boardImg">
-					</div>
+					</div> -->
 					<p>
 						<%=c.getContent()%></p>
 
