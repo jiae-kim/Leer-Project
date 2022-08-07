@@ -729,6 +729,9 @@ li {
 style="margin-left:10px";
 
 }
+#iconC{
+	float:right;
+}
 </style>
 
 
@@ -819,6 +822,11 @@ style="margin-left:10px";
 					<%
 					}
 					%>
+					<div id="iconC">
+					
+						<i class="fa fa-comment-o" ></i><span
+							style="margin-left: 5px"><%=c.getCommentCount()%></span>
+					</div>
 				</div>
 				<script>
 				
@@ -826,14 +834,14 @@ style="margin-left:10px";
 					document.getElementById(tag).innerHTML;
 				</script>
 
-				<div class="boardTag">
+				<%-- <div class="boardTag">
 					<div class="likeComment">
 					
 						
 						<i class="fa fa-comment-o" id="iconC"></i><span
 							style="margin-left: 5px"><%=c.getCommentCount()%></span>
 					</div>
-				</div>
+				</div> --%>
 				<div class="detailComment">
 					<ul>
 						<li>
