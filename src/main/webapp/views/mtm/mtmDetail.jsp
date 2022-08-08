@@ -155,7 +155,7 @@
 	    <div align="center">
 	    	<button type="button" onclick="mtmUpdate();" style="border:none; border-radius:10px; width:100px">수정</button>
 	    	<button type="button" onclick="mtmDelete();" style="border:none; border-radius:10px; width:100px">삭제</button>
-	    	<button type="button" onclick="history.back();" style="border:none; border-radius:10px; width:100px">목록으로</button>
+	    	<button type="button" onclick="location.href='<%=contextPath %>/mtmList.go?memNo=<%=m.getMemNo() %>&cpage=1';" style="border:none; border-radius:10px; width:100px">목록으로</button>
 	    </div>
 		<%} %>
     </div>

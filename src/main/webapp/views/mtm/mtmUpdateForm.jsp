@@ -105,7 +105,7 @@
                             <td style="font-weight:bold">내용</td>
                         </tr>
                         <tr>
-                            <td colspan="2"><textarea id="summernote" name="mtmContent" required style="resize:none; border-radius: 5px;"><%= m.getAnsContent() %></textarea></td>
+                            <td colspan="2"><textarea id="summernote" name="mtmContent" required style="resize:none; border-radius: 5px;"><%= m.getMtmContent() %></textarea></td>
                         </tr>
                     </table>
 
