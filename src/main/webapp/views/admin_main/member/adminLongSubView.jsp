@@ -83,8 +83,8 @@
                                         <th scope="col">이메일</th>
                                         <th scope="col">휴대폰</th>
                                         <th scope="col">주소</th>
-                                        <th scope="col">구독시작일</th>
-                                        <th scope="col">구독종료일</th>
+                                        <th scope="col" hidden>구독시작일</th>
+                                        <th scope="col" hidden>구독종료일</th>
                                         <th scope="col">포인트</th>
                                     </tr>
                                 </thead>
@@ -103,8 +103,8 @@
 	                                        <td><%=m.getEmail()%></td>
 	                                        <td><%=m.getPhone()%></td>
 	                                        <td><%=m.getAddress()%></td>
-	                                        <td><%=m.getStartDate()%></td>
-	                                        <td><%=m.getEndDate()%></td>
+	                                        <td hidden><%=m.getStartDate()%></td>
+	                                        <td hidden><%=m.getEndDate()%></td>
 	                                        <td><%=m.getPoint()%></td>
 	                                    </tr>
                                     <% } %>

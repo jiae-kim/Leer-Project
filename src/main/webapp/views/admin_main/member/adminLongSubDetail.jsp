@@ -78,9 +78,9 @@
                                               <label for="" style="float: left;">&nbsp;&nbsp; <%=m.getPrice()%></label> 
                                           </td>
                                       </tr>
-                                      <tr>
-                                        <td width="" height="45px" style="background:hsl(0, 0%, 77%); color:rgb(80, 80, 80); font-weight: bold;">
-                                            상품명
+                                      <tr hidden>
+                                        <tdwidth="" height="45px" style="background:hsl(0, 0%, 77%); color:rgb(80, 80, 80); font-weight: bold;">
+                                            
                                         </td>
                                         <td>
                                             <label for="" style="float: left;">&nbsp;&nbsp; <%=m.getP_name()%></label> 
