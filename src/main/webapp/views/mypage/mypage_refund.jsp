@@ -219,9 +219,9 @@
                                                    </select>
                                                   <br>
                                                   <hr>
-                                                  <div> 주문취소 / 환불동의</div>
+                                                  <div>환불동의</div>
                                                   <div>
-                                                       <textarea name="사유" id="" cols="25" rows="3" style="resize:none" readonly>가나나ㅏ</textarea>
+                                                       <textarea name="사유" id="" cols="25" rows="3" style="resize:none" readonly>환불 사유가 일치하지 않을경우 환불처리 되지 않습니다.</textarea>
                                                   </div>
                                                   <table>
                                                        <tr>
@@ -246,7 +246,7 @@
                                                   <tr>
                                                        <td width="50px"></td>
                                                        <td>
-                                                            <textarea name="사유" id="" cols="25" rows="5" style="resize:none" readonly>가나나ㅏ</textarea>
+                                                            <textarea name="사유" id="" cols="25" rows="5" style="resize:none" readonly>배송 오류의 경우 물품을 반환하여 다시 배송해드립니다. 제품 오류의 경우 전액 환불처리 됩니다.</textarea>
                                                        </td>
                                                   </tr>
 
