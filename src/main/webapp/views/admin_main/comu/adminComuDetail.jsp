@@ -10,13 +10,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-
-
 	.contentBox{
-		border:1px solid black;
+		border:1px solid gray;
 		width: 1000px;
-		height: 600px;	
-		margin-left:30px;
+		height: 500px;	
+		margin-left:285px;
 	}
 </style>
 </head>
@@ -79,9 +77,9 @@
                               </table>
                               <br>
                               <table class="tarea" align="center" style="margin:5px 5px 5px 5px">
-                              <div class="contentBox">
-                                <p style="font-size:16px"><%=c.getContent()%></p>
-                              </div>
+	                              <div class="contentBox">
+	                                <p style="font-size:17px"><%=c.getContent()%></p>
+	                              </div>
                               </table>
                               <div class="">
                                 <table class="tt1" border="1" align="center">
