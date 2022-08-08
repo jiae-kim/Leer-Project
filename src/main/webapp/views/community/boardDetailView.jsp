@@ -812,7 +812,7 @@ style="margin-left:10px";
 						for (String tag : tagArr) {
 					%>
 
-					<a class="hashtag" href="<%=contextPath%>/xxxxx?tag=<%=tag%>"
+					<a class="hashtag" href="<%= contextPath %>/hashTag.bo?cpage=1&tag=<%=tag%>"
 						style="display: inline"><%=tag%></a>
 					<!-- 댓글수 구하는 구문 찾아보기  -->
 

@@ -576,7 +576,7 @@
                         <h2><a href="<%=contextPath%>/comu.bo?cpage=1" style="color:white;">커뮤니티</a></h2>
                         <div class="breadcrumb__option">
                         	
-                            <span>게시판</span>
+                            <span>전체게시판</span>
                         
                         </div>
                     </div>
