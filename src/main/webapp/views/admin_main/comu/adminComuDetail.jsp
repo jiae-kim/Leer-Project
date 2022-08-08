@@ -69,7 +69,7 @@
                               </table>
                               <br>
                               <table class="tarea" align="center" style="margin:5px 5px 5px 5px">
-                                <textarea name="" id="" cols="133.5" rows="23" resize="none" placeholder=""><%=c.getContent()%></textarea>
+                             	<p><%=c.getContent()%></p>
                               </table>
                               <div class="">
                                 <table class="tt1" border="1" align="center">
