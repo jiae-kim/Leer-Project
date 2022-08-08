@@ -10,6 +10,7 @@
 		WHERE MEM_NO = ?
 		AND OR_YN='N'
 		AND OR_RETURN= 'N'
+		ORDER BY OR_NO DESC
 
 	</entry>
 	
@@ -78,6 +79,7 @@
 			, POINT_UPDATE
 		FROM POINT
 		WHERE MEM_NO = ?
+		ORDER BY POINT_NO DESC
 	</entry>
 	
 	<entry key="selectCartList">

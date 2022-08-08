@@ -36,7 +36,6 @@ public class MyPageController extends HttpServlet {
 		HttpSession session = request.getSession();
 		int memNo = Integer.parseInt(request.getParameter("memNo"));
 		
-
 		if(session.getAttribute("loginUser") == null) {
 			response.sendRedirect(request.getContextPath());
 		}else {
