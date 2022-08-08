@@ -114,30 +114,18 @@
 						<form action="<%=request.getContextPath()%>/adDelete.me" method=post>
 							<div class="d-grid gap-3" style="text-align: center">
 								<a href="<%=request.getContextPath()%>/adUpdateForm.me?no=<%=m.getMemNo()%>" id="btn" class="btn btn-dark" style="width:150px">회원정보변경</a>
-	                            <button onclick="del()" class="btn btn-dark" style="width:150px">회원삭제</button> 
+	                            <a href="javascript: del();" class="btn btn-dark" style="width:150px">회원삭제</a> 
 							</div>
 						</form>
                     </c:if>
 	            </div>
 	            <!-- 회원삭제기능 -->	            
                 <script type="text/javascript">
-                <%--
-                	function del() {
-						if (confirm('정말 삭제하시겠습니까?')) {
-							window.location.href="<%=request.getContextPath()%>/adDelete.me?memNo=<%=m.getMemNo()%>";        
-						}
-					}
-                	    --%>            	
-                					
 					function del(){
 						if(confirm("정말 삭제하시겠습니까?")){
-							location.href = "<%=request.getContextPath()%>/adDelete.me?memNo=" + <%=m.getMemNo()%>;
-						}
-						else{
-							return false; 
+							window.location.href = "<%=request.getContextPath()%>/adDelete.me?memNo=<%=m.getMemNo()%>";
 						}
 					}
-					
 				</script>
 	        </div>
 		</div>
