@@ -765,7 +765,7 @@ style="margin-left:10px";
 				<div class="detailHead">
 					<div class="detailTitle">
 						<div class="boardList">
-							<a href="<%=contextPath%>/comu.bo?cpage=1"><%=c.getCategoryName()%>
+							<a href="<%=contextPath%>/cgory.li?cpage=1&cNo=<%=c.getCategoryNo()%>"><%=c.getCategoryName()%>
 								목록으로 ></a>
 						</div>
 						<div style="height: 30px;">
@@ -812,7 +812,7 @@ style="margin-left:10px";
 						for (String tag : tagArr) {
 					%>
 
-					<a class="hashtag" href="<%=contextPath%>/xxxxx?tag=<%=tag%>"
+					<a class="hashtag" href="<%= contextPath %>/hashTag.bo?cpage=1&tag=<%=tag%>"
 						style="display: inline"><%=tag%></a>
 					<!-- 댓글수 구하는 구문 찾아보기  -->
 

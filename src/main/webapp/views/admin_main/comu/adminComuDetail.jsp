@@ -9,6 +9,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+	.contentBox{
+		border:1px solid gray;
+		width: 1000px;
+		height: 500px;	
+		margin-left:285px;
+	}
+</style>
 </head>
 <body>
 
@@ -69,7 +77,9 @@
                               </table>
                               <br>
                               <table class="tarea" align="center" style="margin:5px 5px 5px 5px">
-                                <textarea name="" id="" cols="133.5" rows="23" resize="none" placeholder=""><%=c.getContent()%></textarea>
+	                              <div class="contentBox">
+	                                <p style="font-size:17px"><%=c.getContent()%></p>
+	                              </div>
                               </table>
                               <div class="">
                                 <table class="tt1" border="1" align="center">

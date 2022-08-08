@@ -57,10 +57,11 @@ public class Inquiry {
 		this.pName = pName;
 	}
 
-	public Inquiry(String qNo2, String memId, String pCode2, String pName, String qCategory, String title, String content,
+	// 상품문의 상세조회
+	public Inquiry(int qNo, String memId, String pCode2, String pName, String qCategory, String title, String content,
 			Date enrollDate) {
 		super();
-		this.qNo2 = qNo2;
+		this.qNo = qNo;
 		this.memId = memId;
 		this.pCode2 = pCode2;
 		this.pName = pName;

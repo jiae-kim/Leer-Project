@@ -1,6 +1,8 @@
 package com.leer.product.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -30,12 +32,12 @@ public class AdminProductInquiryDetailController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 상품문의 상세조회 요청
-		//int qNo = Integer.parseInt(request.getParameter("qno"));
-		String qNo2 = request.getParameter("qno");
+		int qNo = Integer.parseInt(request.getParameter("no"));
+		//String qNo2 = request.getParameter("qno2");
 		
-		Inquiry iq = new AdminProductService().InquiryDetailList(qNo2);
-		
+		Inquiry iq = new AdminProductService().InquiryDetailList(qNo);
 		request.setAttribute("inquiry", iq);
+		
 		request.getRequestDispatcher("views/admin_main/inquiry/adminInquiryQAnswer.jsp").forward(request, response);
 	}
 

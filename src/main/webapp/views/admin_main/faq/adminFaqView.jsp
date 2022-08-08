@@ -60,8 +60,8 @@
                                                 해당 글을 삭제하시겠습니까?
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-danger">네</button>
-                                                <button type="button" class="btn btn-info" data-dismiss="modal">아니오</button>
+                                                <button type="submit" class="btn btn-info">네</button>
+                                                <button type="reset" class="btn btn-danger" data-dismiss="modal">아니오</button>
                                             </div>
                                         </div>
                                     </div>
@@ -83,12 +83,10 @@
                         <!-- <h5 class="card-title m-b-0">상품전체조회</h5> -->
                         <!-- 전체조회  -->
                         <div class="btn-group">
-                            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">카테고리 선택</button>
+                            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">조회방법 선택</button>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">주문/결제</a>
-                                <a class="dropdown-item" href="#">반품</a>
-                                <a class="dropdown-item" href="#">적립금</a>
-                                <a class="dropdown-item" href="#">로그인/회원가입</a>
+                                <a class="dropdown-item" href="#">등록일 순</a>
+                                <a class="dropdown-item" href="#">조회수 순</a>
                             </div>
                         </div>
                     </div>
