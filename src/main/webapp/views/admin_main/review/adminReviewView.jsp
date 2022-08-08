@@ -109,7 +109,6 @@
                         <div class="btn-group">
                             <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">조회방법 선택</button>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">상품코드</a>
                                 <a class="dropdown-item" href="#">별점</a>
                                 <a class="dropdown-item" href="#">적립금 지급 여부</a>
                             </div>
