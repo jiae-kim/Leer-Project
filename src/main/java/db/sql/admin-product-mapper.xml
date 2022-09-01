@@ -18,6 +18,7 @@
 					          , ENROLL_DATE
 					          , P_STOCK
 					       FROM PRODUCT
+					      WHERE P_STATUS = 'Y'
 					      ORDER BY ENROLL_DATE DESC
 		  		 		) A
 		  		)

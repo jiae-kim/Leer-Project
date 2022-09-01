@@ -52,7 +52,7 @@
                                     해당 상품을 삭제하시겠습니까?
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="submit" class="btn btn-info" data-dismiss="modal">네</button>
+                                    <button type="submit" class="btn btn-info">네</button>
                                     <button type="reset" class="btn btn-danger" data-dismiss="modal">아니오</button>
                                 </div>
                             </div>
@@ -70,7 +70,7 @@
     	}
     </script>
     
-    <!-- 상품 삭제 : onclick="location.href='<%=request.getContextPath()%>/adProDelete.do'" -->
+    <!-- 상품 삭제 후 수정버튼 눌렀을 때 삭제되는 function -->
     <script>
         function pDelete(){
             $("#pCodeDelete").val($(".listCheckbox:checked").val());
@@ -95,16 +95,15 @@
                     </div>
                 </div>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <!-- 카테고리 조회 -->
                 <div class="btn-group">
-                    <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">카테고리별 조회</button>
+                    <button type="button" id="cate" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">카테고리별 조회</button>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" >패션/여성</a>
-                        <a class="dropdown-item" >라이프/인테리어</a>
-                        <a class="dropdown-item" >문화/예술</a>
-                        <a class="dropdown-item" >여행/취미</a>
-                        <a class="dropdown-item" >시사/경제</a>
-                        <a class="dropdown-item" >교육/과학</a>
+                        <a class="dropdown-item" id="10">패션/여성</a>
+                        <a class="dropdown-item" id="20">라이프/인테리어</a>
+                        <a class="dropdown-item" id="30">문화/예술</a>
+                        <a class="dropdown-item" id="40">여행/취미</a>
+                        <a class="dropdown-item" id="50">시사/경제</a>
+                        <a class="dropdown-item" id="60">교육/과학</a>
                     </div>
                 </div>
             </div>
@@ -151,6 +150,31 @@
                         <% } %>
                     </tbody>
                     <tfoot>
+                    	<!-- 페이징처리 바 -->
+				        <tr align="center">
+				            <th colspan="10">
+				                <br>
+				                <div class="btn-group paging-area" role="group" aria-label="Basic example">
+				                <% if(currentPage != 1) { %>
+				                    <button type="button" onclick="location.href='<%=request.getContextPath()%>/adProList.do?cpage=<%=currentPage-1%>';"
+				                        class="btn btn-outline-secondary">&lt;</button>
+				                <% } %>
+				                <% for(int p=startPage; p<=endPage; p++) { %>
+				                    <% if(p == currentPage) { %>
+				                        <button type="button" disabled class="btn btn-outline-secondary"><%=p%></button>
+				                    <% } else { %>
+				                        <button type="button" onclick="location.href='<%=request.getContextPath()%>/adProList.do?cpage=<%=p%>';"
+				                            class="btn btn-outline-secondary"><%=p%></button>
+				                    <% } %>
+				                <% } %>
+				                
+				                <% if(currentPage != maxPage) { %>
+				                    <button type="button" onclick="location.href='<%=request.getContextPath()%>/adProList.do?cpage=<%=currentPage+1%>';"
+				                        class="btn btn-outline-secondary">&gt;</button>
+				                <% } %>
+				                </div>
+				            </th>
+				        </tr>
                     </tfoot>
                 </table>
             </div>
@@ -161,33 +185,6 @@
     <!-- ============================================================== -->
     <!-- footer -->
     <!-- ============================================================== -->
-    <footer class="footer text-center">
-        <!-- 페이징처리 바 -->
-        <tr align="center">
-            <th colspan="10">
-                <br>
-                <div class="btn-group paging-area" role="group" aria-label="Basic example">
-                <% if(currentPage != 1) { %>
-                    <button type="button" onclick="location.href='<%=request.getContextPath()%>/adProList.do?cpage=<%=currentPage-1%>';"
-                        class="btn btn-outline-secondary">&lt;</button>
-                <% } %>
-                <% for(int p=startPage; p<=endPage; p++) { %>
-                    <% if(p == currentPage) { %>
-                        <button type="button" disabled class="btn btn-outline-secondary"><%=p%></button>
-                    <% } else { %>
-                        <button type="button" onclick="location.href='<%=request.getContextPath()%>/adProList.do?cpage=<%=p%>';"
-                            class="btn btn-outline-secondary"><%=p%></button>
-                    <% } %>
-                <% } %>
-                
-                <% if(currentPage != maxPage) { %>
-                    <button type="button" onclick="location.href='<%=request.getContextPath()%>/adProList.do?cpage=<%=currentPage+1%>';"
-                        class="btn btn-outline-secondary">&gt;</button>
-                <% } %>
-                </div>
-            </th>
-        </tr>
-    </footer>
     <!-- ============================================================== -->
     <!-- End footer -->
     <!-- ============================================================== -->
