@@ -33,26 +33,14 @@
 
 
 <body>
-
 	<%@ include file="views/common/menubar.jsp" %>
-	
 	<!-- 메뉴바 이하 내용들 -->
-	
-	
-	<!-- Hero Section Begin -->
     <section class="hero">
         <div class="ccontainer">
             <div class="row">
-               
                 <div class="col-lg-12">
-                    
                     <div class="hero__item set-bg" style="background-image:url(<%=contextPath%>/resources/images/mainImg.jpg);">
                         <div class="hero__text">
-                            <!-- 
-                            <h2>Vegetable <br />100% Organic</h2>
-                            <p>Free Pickup and Delivery Available</p>
-                            <a href="#" class="primary-btn">SHOP NOW</a> 
-                            -->
                         </div>
                     </div>
                 </div>
@@ -63,7 +51,7 @@
     <br>
 
     <div class="hero__search">
-        <div class="hero__search__formm"> <!-- 클래스명 변경했음 -->
+        <div class="hero__search__formm"> 
             <form action="<%=contextPath%>/search.main?search=">
                 <input type="text" style="width: 30%; height: 52px; border:1px solid lightgrey" name="search">
                 <button type="submit" class="site-btn" style="background:lightgrey; height: 52px; margin-left: -3px;">SEARCH</button>
@@ -71,15 +59,10 @@
         </div>
     </div> 
 	
-	
-	
-	
 	<div class="outer">
-
 	<!-- 첫번째 단 -->
     <section class="featured spad">
         <div class="container">
-        
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
@@ -100,11 +83,8 @@
 
             <div class="row featured__filter" id="newSelect">
             </div>
-                
         </div>
     </section>
-    
-    
     
     <script>
     	$(function(){
@@ -113,18 +93,13 @@
     	})
     	
 		function selectNew(cateNo){
-    	
     		$.ajax({
     			url:"<%=contextPath%>/selectNew.id",
-    			data:{categoryNo:cateNo}, //li요소 클릭시 해당하는 카테고리 값이 여기 데이터로 적용돼 넘어가야 함!!!!
+    			data:{categoryNo:cateNo}, 
     			success:function(list){
-    				
     				console.log(list);
-			
     					let value = "";
     					for(let i=0; i<list.length; i++){
-    						
-    						
     						value += '<div class="col-lg-3 col-md-4 col-sm-6 mix">'
 				    		       +     '<div class="featured__item">'
 				                   +         '<div class="featured__item__pic set-bg" style="background-image:url(\'' + list[i].imageUrl1 + '\')">'
@@ -139,21 +114,15 @@
 				                   +         '</div>'
 				                   +     '</div>'
 				                   + '</div>';	
-			    						
-	                        		  
                     	}	
 						$("#newSelect").html(value);
     					console.log(value);
     			},
     			error:function(){
-    				
     			}
     		})
     	}    	
     </script>
-    
-    
-
 
     <!-- 두번째 단 -->
     <section class="featured spad">
@@ -163,11 +132,9 @@
                     <div class="section-title">
                         <h2>Best Product</h2>
                     </div>
-                    
                 </div>
             </div>
             <div class="row featured__filter">
-            
                 <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
                     <div class="featured__item">
                         <div class="featured__item__pic set-bg" style="background-image:url(<%=contextPath%>/resources/mainpro/8.jpg);">
@@ -180,10 +147,8 @@
                             <h6><a href="#">MILK DECORATION (E-ED) (FR)</a></h6>
                             <h5>18,000원</h5>
                         </div>
-                        
                     </div>
                 </div>
-                
                 
                 <div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fastfood">
                     <div class="featured__item">
@@ -227,11 +192,9 @@
                         </div>
                     </div>
                 </div>
-                
             </div>
         </div>
     </section>
-    
     
     <script>
     	function selectBest(){
@@ -239,16 +202,12 @@
     			url:"<%=contextPath%>/selectBest.id",
     			data:{categoryNo:10},
     			success:function(){
-    				
     			},
     			error:function(){
-    				
     			}
     		})
     	}    	    		
     </script>
-
-
 
     <!-- 세번째 단 -->
     <section class="featured spad">
@@ -258,7 +217,6 @@
                     <div class="section-title">
                         <h2>Recommend Product</h2>
                     </div>
-                    
                 </div>
             </div>
             <div class="row featured__filter">
@@ -318,44 +276,22 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div class="col-lg-3 col-md-4 col-sm-6 mix fastfood oranges">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="https://www.walbox.co.kr/upfile/item/7_1593616756.jpg
-                        ">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>$30.00</h5>
-                        </div>
-                    </div>
-                </div> -->
             </div>
-        <!-- </div> -->
     </section>
     
     </div>
 
     <br><br>
 
-
     <script>
         function number_format(num){
             return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',');
         }
-    
     </script>
-	
 	
 	<%@ include file="views/common/footer.jsp" %>
 	
-	
-	
-	
-	  <!-- Js Plugins -->
+	<!-- Js Plugins -->
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.nice-select.min.js"></script>
@@ -364,7 +300,6 @@
     <script src="js/mixitup.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
-	
 	
 </body>
 </html>
