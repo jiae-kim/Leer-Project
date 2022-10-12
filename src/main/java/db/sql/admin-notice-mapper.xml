@@ -92,6 +92,7 @@
 		  		  FROM (
 			  		  	SELECT 
 						        F.FAQ_NO
+						      ,	C.CATEGORY_NAME
 						      , F.FAQ_TITLE
 						      , F.ENROLL_DATE
 						      , F.COUNT
@@ -133,6 +134,7 @@
 		SELECT
 		        F.FAQ_NO
 		     ,  M.MEM_ID
+		     ,	C.CATEGORY_NAME
 		     ,  F.ENROLL_DATE
 		     ,  F.MODIFY_DATE
 		     ,  F.COUNT
@@ -190,8 +192,6 @@
 		  , 0)
 	</entry>
 	
-	
-	
 	<entry key="insertAns">
 		 UPDATE MTM
 		    SET MEM_NO2 = ?
@@ -199,9 +199,6 @@
 			  , ANS_YN = 'Y'
 		 WHERE MTM_NO = ?
 	</entry>
-	
-	
-	
 	
 	
 </properties>

@@ -34,20 +34,22 @@ public class Faq {
 		this.faqViews = faqViews;
 	}
 
-	public Faq(int faqNo, String faqTitle, Date enrollDate, int count) {
+	// FAQ 전체조회
+	public Faq(int faqNo, String categoryName, String faqTitle, Date enrollDate, int count) {
 		super();
 		this.faqNo = faqNo;
-		//this.categoryName = categoryName;
+		this.categoryName = categoryName;
 		this.faqTitle = faqTitle;
 		this.enrollDate = enrollDate;
 		this.count = count;
 	}
 
-	public Faq(int faqNo, String memId, Date enrollDate, Date modifyDate, int count, String faqTitle, String faqContent 
+	// FAQ 상세조회
+	public Faq(int faqNo, String categoryName, String memId, Date enrollDate, Date modifyDate, int count, String faqTitle, String faqContent 
 			) {
 		super();
 		this.faqNo = faqNo;
-		//this.categoryName = categoryName;
+		this.categoryName = categoryName;
 		this.memId = memId;
 		this.enrollDate = enrollDate;
 		this.modifyDate = modifyDate;
