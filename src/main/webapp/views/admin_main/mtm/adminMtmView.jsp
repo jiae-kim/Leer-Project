@@ -57,11 +57,9 @@
             </div>
         </div>
     </div>
-
     <div class="container-fluid">
         <div class="card">
             <div class="card-body">
-                <!-- 문의유형 조회  -->
                 <div class="btn-group">
                     <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">문의 유형 선택</button>
                     <div class="dropdown-menu">
@@ -70,7 +68,6 @@
                         <a class="dropdown-item" href="">주문취소/환불</a>
                     </div>
                 </div>
-                <!-- 진행 단계 조회 -->
                 <div class="btn-group">
                     <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">진행 단계 선택</button>
                     <div class="dropdown-menu">
@@ -121,37 +118,36 @@
                                 <td>관리자2</td>
                             <%} %>
                             
-                            <%if( m.getAnsYn().equals("N") ){ %>
+                            <% if( m.getAnsYn().equals("N") ){ %>
                                 <td style="color:red;">미답변</td>
-                            <%}else{ %>
-                                <td style="color: black;">답변완료</td>
-                            <%} %>
+                            <% }else { %>
+                                <td style="color: blue;">답변완료</td>
+                            <% } %>
                         </tr>
                         <% } %>    
                     </tbody>
-                </table>
-
-                <footer class="footer text-center">
-                    <tr align="center">
-                        <th colspan="10">	
-                            <div class="btn-group paging-area" role="group" aria-label="Basic example">                                            
-                                <% if(currentPage != 1) { %>
-                                    <button type="button" onclick="location.href='<%=request.getContextPath()%>/adList.mt?cpage=<%=currentPage-1%>';" class="btn btn-outline-secondary">&lt;</button>
-                                <% } %>
-                                <% for(int p=startPage; p<=endPage; p++) { %>
-                                    <% if(p == currentPage) { %>
-                                        <button type="button" disabled class="btn btn-outline-secondary"><%=p%></button>
-                                    <% } else { %>
-                                        <button type="button" onclick="location.href='<%=request.getContextPath()%>/adList.mt?cpage=<%=p%>';" class="btn btn-outline-secondary"><%=p%></button>
+                    <footer class="footer text-center">
+                        <tr align="center">
+                            <th colspan="10">	
+                                <div class="btn-group paging-area" role="group" aria-label="Basic example">                                            
+                                    <% if(currentPage != 1) { %>
+                                        <button type="button" onclick="location.href='<%=request.getContextPath()%>/adList.mt?cpage=<%=currentPage-1%>';" class="btn btn-outline-secondary">&lt;</button>
                                     <% } %>
-                                <% } %>
-                                <% if(currentPage != maxPage) { %>
-                                    <button type="button" onclick="location.href='<%=request.getContextPath()%>/adList.mt?cpage=<%=currentPage+1%>';" class="btn btn-outline-secondary">&gt;</button>
-                                <% } %>	                   
-                            </div>
-                        </th>
-                    </tr>
-                </footer>
+                                    <% for(int p=startPage; p<=endPage; p++) { %>
+                                        <% if(p == currentPage) { %>
+                                            <button type="button" disabled class="btn btn-outline-secondary"><%=p%></button>
+                                        <% } else { %>
+                                            <button type="button" onclick="location.href='<%=request.getContextPath()%>/adList.mt?cpage=<%=p%>';" class="btn btn-outline-secondary"><%=p%></button>
+                                        <% } %>
+                                    <% } %>
+                                    <% if(currentPage != maxPage) { %>
+                                        <button type="button" onclick="location.href='<%=request.getContextPath()%>/adList.mt?cpage=<%=currentPage+1%>';" class="btn btn-outline-secondary">&gt;</button>
+                                    <% } %>	                   
+                                </div>
+                            </th>
+                        </tr>
+                    </footer>
+                </table>
             </div>
         </div>
     </div>
