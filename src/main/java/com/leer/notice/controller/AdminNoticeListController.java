@@ -46,7 +46,7 @@ public class AdminNoticeListController extends HttpServlet {
 		listCount = new AdminNoticeService().selectNoticeListCount();
 		currentPage = Integer.parseInt(request.getParameter("cpage"));
 		pageLimit = 10;
-		boardLimit = 10;
+		boardLimit = 5;
 		
 		maxPage = (int)Math.ceil( (double)listCount / boardLimit );
 		startPage = (currentPage-1) / pageLimit * pageLimit+1;

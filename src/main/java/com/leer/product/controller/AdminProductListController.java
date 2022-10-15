@@ -52,7 +52,7 @@ public class AdminProductListController extends HttpServlet {
 		listCount = new AdminProductService().selectProductListCount();
 		currentPage = Integer.parseInt(request.getParameter("cpage"));
 		pageLimit = 10;
-		boardLimit = 10;
+		boardLimit = 5;
 		
 		maxPage = (int)Math.ceil( (double)listCount / boardLimit );
 		startPage = (currentPage-1) / pageLimit * pageLimit+1;
