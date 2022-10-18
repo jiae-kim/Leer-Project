@@ -1,2 +1,105 @@
-# leerProject
+<h2>📖 Semi Project - Leer</h2>
+<p> 잡지 전문 판매 사이트 <p>
+
+<details open="open">
+ <summary>Contents</summary>
+ <ol>
+  <li>
+   <a href="#개요">개요</a>
+  </li>
+  <li>
+   <a href="#내용">내용</a>
+  </li>
+  <li>
+   <a href="#구현-기능">구현 기능</a>
+   <ul>
+     <li><a href="#"></li>
+   </ul>
+  </li>
+ </ol>
+</details>
+
+---------
+
+### 📚개요
+
+ - 팀 소개 : 잡지읽어조
+   
+   - 팀장 : 노희영
+   
+   - 팀원 : 김지애, 김은지, 김범진, 박상현, 정다혜
+
+ - 프로젝트명 : Leer
+ 
+ - 개발 일정 : 2022.06.27 ~ 2022.08.08
+ 
+   - 기획 및 요구사항 분석 : 2022.06.27 ~ 07.04
+   
+   - UI 설계 : 2022.07.05 ~ 07.12
+   
+   - DB 설계 : 2022.07.13 ~ 07.19
+   
+   - 프로젝트 구현 및 디버깅 : 2022.07.20 ~ 08.05
+   
+   - 프로젝트 발표 : 2022.08.08
+ 
+ - 기획 의도 
+ 
+   - 잡지 구매 시 대형 서점 또는 개별 브랜드의 사이트에서 구매 
+   
+     ➡️ 한 곳에 다양한 분야의 잡지들을 직접 비교할 수 있는 잡지 전문 온라인 서점
+   
+   - 종이 잡지 시장의 규모 감소로 인한 해결책 모색 
+   
+     ➡️ 온라인 서점에서 유저들끼리 잡지 정보를 공유할 수 있는 커뮤니티 서비스를 제공하여 구매 유도
+ 
+ - 개발 환경
+ 
+   - OS : Window 10
+
+   - 개발 언어 : JAVA 11, HTML5, CSS3, JavaScript, jQuery, JSP, SQL
+
+   - 개발 도구 : Eclipse IDE (version 2021-09 (4.21)), Visual Studio Code, SQL Developer
+
+   - Modeling Tool : ERDCloud, StarUML, Oven (카카오 Prototyping tool)
+
+   - DB : Oracle 11g Express Edition
+
+   - WAS : Apache Tomcat 9
+
+   - Version management : Git (GitHub Desktop) 
+
+   - 라이브러리 : cos.jar, gson-2.8.5.jar, json-simple-1.1.1.jar, ojdbc6.jar
+
+   - 프레임 워크 : Bootstrap4
+
+   - API : summernote
+ 
+---------
+
+### 📚내용 
+
+ - 주요 기능  
+ 
+ ![image](https://user-images.githubusercontent.com/99962500/196362713-7d9ec5c2-5cbe-4e46-8ee7-fa0b75f54d52.png)
+ 
+ ![image](https://user-images.githubusercontent.com/99962500/196363163-0f183fe2-1aba-4bde-bb15-5236b1e550ca.png)
+
+
+ - 데이터 베이스 설계 
+ 
+ ![Untitled](https://user-images.githubusercontent.com/99962500/196363608-352702c1-8faf-45fd-b481-d00c7e836b33.png)
+
+---------
+ 
+### 📚구현 기능
+
+ #### 📍 사용자 메인 페이지
+ 
+ 
+ #### 📍 관리자 메인 페이지
+ 
+---------
+
+### 📚 프로젝트 소감
  
