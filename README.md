@@ -95,9 +95,10 @@
 ### 📚구현 기능
 
  #### 📍 사용자 메인 페이지
- 
+ ![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/99962500/196475218-6fcfd2ff-689f-4470-8e90-707fe3a1390f.gif)
  
  #### 📍 관리자 메인 페이지
+ ![ezgif com-gif-maker](https://user-images.githubusercontent.com/99962500/196474714-0a35d907-1172-4838-a478-ca6c5bdb71dc.gif)
  
 ---------
 
