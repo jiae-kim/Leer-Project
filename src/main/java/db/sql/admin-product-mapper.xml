@@ -25,19 +25,6 @@
 		  WHERE RNUM BETWEEN ? AND ?  
 	</entry>
 	
-	<!-- 상품전체조회 기존 구문
-		SELECT 
- 			    P_NAME
-	          , CATEGORY_NO
-	          , P_CODE
-	          , PUBLISHER
-	          , PUBLISH_MONTH
-	          , PRICE
-	          , ENROLL_DATE
-	          , P_STOCK
-	       FROM PRODUCT
-	 -->
-	
 	<!-- 상품전체조회 : 페이징 -->
 	<entry key="selectProductListCount">
 		SELECT COUNT(*) AS "COUNT"
@@ -76,7 +63,7 @@
      	  ,	to_date(?, 'MM/DD/YYYY')
      	  , ?
      	  , ?
-     	  , ? || SEQ_pcode.NEXTVAL <!-- 시퀀스 앞에 특정 단어가 올때 그 단어의 시퀀스를 가져오게 -->
+     	  , ? || SEQ_pcode.NEXTVAL 
      	  , ?
      	  , ?
      	  , ?
@@ -101,18 +88,18 @@
 		  )
 		  VALUES
 		  (
-		      SEQ_FILE.NEXTVAL 
-		    , 'PRODUCT' 
-		    , SEQ_PRODUCT.CURRVAL <!-- 현재 참조하는 게시물과 동일한이름 -->
-		    , ? 
-		    , ?
-		    , ?
-		  )
+		     SEQ_FILE.NEXTVAL 
+		   , 'PRODUCT' 
+		   , SEQ_PRODUCT.CURRVAL <!-- 현재 참조하는 게시물과 동일한이름 -->
+		   , ? 
+		   , ?
+		   , ?
+		   )
      </entry>         
      
 	<!-- 상품 전체조회 페이지 : 수정버튼 -->
 	 <entry key="selectProduct">
-		  SELECT
+		   SELECT
 			        P_NAME
 			     ,  PUBLISH_MONTH
 			     ,  PUBLISHER
@@ -137,8 +124,7 @@
 	 		  , FILE_PATH
 	 	  FROM	ATTACHMENT
 	 	 WHERE	REF_BNO = ? <!-- 참조 게시글 번호 -->
-	 	 ORDER
-	 	    BY	FILE_LEVEL ASC
+	 	 ORDER  BY FILE_LEVEL ASC
 	 </entry>
 	 
 	 <!-- 상품수정 -->             
@@ -188,19 +174,6 @@
 		  WHERE RNUM BETWEEN ? AND ?  
 	</entry>
 	
-	<!-- 상품 재고 전체조회 기존구문 
-		SELECT
-  			   PI.STATUS_NO
-		     , P.P_CODE
-		     , P.P_NAME
-		     , PI.STATUS_AMOUNT
-		     , PI.STATUS_DATE
-		     , PI.STATUS
-		  FROM PRODUCT P
-		  JOIN PRODUCT_IO PI ON (PI.P_CODE = P.P_CODE)
-		 ORDER BY STATUS_NO DESC
-	-->
-	
 	<!-- 상품전체조회 : 페이징 -->
 	<entry key="selectProductListIoCount">
 		SELECT COUNT(*) AS "COUNT"
@@ -209,39 +182,25 @@
 	
 	<!-- 상품문의 전체조회 -->
 	<entry key = "selectProductIqList">
-	SELECT *
-	  FROM (
-	  		SELECT ROWNUM RNUM, A.*
-	  		  FROM (
-	  		  		SELECT
-					        I.Q_NO
-					     ,  M.MEM_ID 
-					     ,  I.Q_CATEGORY
-					     ,  I.P_CODE
-					     ,  I.TITLE
-					     ,  I.ENROLL_DATE
-					     ,  I.Q_YN
-					  FROM INQUIRY I
-					  LEFT JOIN MEMBER M ON (I.MEM_NO = M.MEM_NO)
-					 ORDER BY Q_NO DESC
-	  		 		) A
-	  		)
-	  WHERE RNUM BETWEEN ? AND ? 	
+		SELECT *
+		  FROM (
+		  		SELECT ROWNUM RNUM, A.*
+		  		  FROM (
+		  		  		SELECT
+						        I.Q_NO
+						     ,  M.MEM_ID 
+						     ,  I.Q_CATEGORY
+						     ,  I.P_CODE
+						     ,  I.TITLE
+						     ,  I.ENROLL_DATE
+						     ,  I.Q_YN
+						  FROM INQUIRY I
+						  LEFT JOIN MEMBER M ON (I.MEM_NO = M.MEM_NO)
+						 ORDER BY Q_NO DESC
+		  		 		) A
+		  		)
+		  WHERE RNUM BETWEEN ? AND ? 	
 	</entry>
-	
-	<!-- 상품문의 전체조회 기존구문 
-		SELECT
-		        I.Q_NO
-		     ,  M.MEM_ID 
-		     ,  I.Q_CATEGORY
-		     ,  I.P_CODE
-		     ,  I.TITLE
-		     ,  I.ENROLL_DATE
-		     ,  I.Q_YN
-		  FROM INQUIRY I
-		  LEFT JOIN MEMBER M ON (I.MEM_NO = M.MEM_NO)
-		 ORDER BY Q_NO DESC
-	-->
 	
 	<!-- 상품문의 전체조회 : 페이징 -->	
 	<entry key = "selectProductIqListCount">
@@ -251,41 +210,27 @@
 	          
 	<!-- 상품리뷰 전제조회 -->
 	<entry key="selectProductReviewList">
-	SELECT *
-	  FROM (
-	  		SELECT ROWNUM RNUM, A.*
-	  		  FROM (
-			SELECT
-			        R.REVIEW_NO
-			      , M.MEM_ID
-			      , R.P_NAME
-			      , R.P_CODE
-			      , R.REVIEW_CONTENT
-			      , R.REVIEW_SCOPE
-			      , R.ENROLL_DATE
-			      , R.WRITE_YN
-			    FROM  REVIEW R
-			    JOIN MEMBER M ON (R.MEM_NO = M.MEM_NO)
-			    WHERE R.WRITE_YN = 'Y'
-			    ORDER  BY REVIEW_NO DESC
-	  		 		) A
-	  		)
-	  WHERE RNUM BETWEEN ? AND ? 	
+		SELECT *
+		  FROM (
+		  		SELECT ROWNUM RNUM, A.*
+		  		  FROM (
+				SELECT
+				        R.REVIEW_NO
+				      , M.MEM_ID
+				      , R.P_NAME
+				      , R.P_CODE
+				      , R.REVIEW_CONTENT
+				      , R.REVIEW_SCOPE
+				      , R.ENROLL_DATE
+				      , R.WRITE_YN
+				   FROM REVIEW R
+				   JOIN MEMBER M ON (R.MEM_NO = M.MEM_NO)
+				  WHERE R.WRITE_YN = 'Y'
+				  ORDER BY REVIEW_NO DESC
+		  		 		) A
+		  		)
+		  WHERE RNUM BETWEEN ? AND ? 	
 	</entry>
-	
-	<!-- 상품리뷰 전체조회 기존구문 
-	SELECT
-	        REVIEW_NO
-	      , MEM_ID
-	      , P_NAME
-	      , P_CODE
-	      , REVIEW_CONTENT
-	      , REVIEW_SCOPE
-	      , ENROLL_DATE
-	      , RPOINT_YN // 변경함
-	  FROM  REVIEW
-	 ORDER  BY REVIEW_NO
-	-->
 	
 	<!-- 상품리뷰 전체조회 : 페이징 -->
 	<entry key="selectProductReviewListCount">
@@ -293,33 +238,42 @@
 	      FROM REVIEW
 	</entry>
 	
+	<!-- 상품재고 전체조회 : 입고등록 -->
 	<entry key="StockInsertPage">
 		INSERT 
 		  INTO PRODUCT_IO
-		  (STATUS_NO, P_CODE, STATUS, STATUS_AMOUNT, STATUS_DATE)
-		VALUES
-		  (SEQ_STAT.NEXTVAL, ?, '입고', ?, to_date(?, 'MM/DD/YYYY'))
+		     (
+		      	STATUS_NO
+		      , P_CODE
+		      , STATUS
+		      , STATUS_AMOUNT
+		      , STATUS_DATE
+		      )
+		 VALUES
+		      (
+		      	 SEQ_STAT.NEXTVAL
+		       , ?
+		       , '입고'
+		       , ?
+		       , to_date(?, 'MM/DD/YYYY')
+		       )
 	</entry>
-	<!-- 
-		INSERT INTO PRODUCT_IO
-		VALUES(SEQ_STAT.NEXTVAL, ?, ?, 'CURRENT_DATE', '입고')
-	 -->
 	 
 	 <!-- 상품문의 상세조회 -->
 	 <entry key="InquiryDetailList">
-	 SELECT
-	        I.Q_NO
-	      , M.MEM_ID
-	      , I.P_CODE
-	      , P.P_NAME
-	      , I.Q_CATEGORY
-	      , I.TITLE
-	      , I.CONTENT
-	      , I.ENROLL_DATE
-	  FROM  INQUIRY I
-	  LEFT JOIN MEMBER M ON (I.MEM_NO = M.MEM_NO)
-	  LEFT JOIN PRODUCT P ON (I.P_CODE = P.P_CODE)
-	  ORDER BY I.Q_NO DESC
+		 SELECT
+		        I.Q_NO
+		      , M.MEM_ID
+		      , I.P_CODE
+		      , P.P_NAME
+		      , I.Q_CATEGORY
+		      , I.TITLE
+		      , I.CONTENT
+		      , I.ENROLL_DATE
+		  FROM  INQUIRY I
+		  LEFT  JOIN MEMBER M ON (I.MEM_NO = M.MEM_NO)
+		  LEFT  JOIN PRODUCT P ON (I.P_CODE = P.P_CODE)
+		  ORDER BY I.Q_NO DESC
 	 </entry>
 	 
 	 
