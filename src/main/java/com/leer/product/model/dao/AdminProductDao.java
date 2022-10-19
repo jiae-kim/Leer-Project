@@ -113,8 +113,7 @@ public class AdminProductDao {
 			
 			while(rset.next()) {
 				list.add(new Category(rset.getInt("category_no"),
-									  rset.getString("category_name")
-									  ));
+									  rset.getString("category_name")));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -211,8 +210,7 @@ public class AdminProductDao {
 								rset.getDouble("point"),
 								rset.getString("image_url1"),
 								rset.getString("image_url2"),
-								rset.getString("image_urls")
-								);
+								rset.getString("image_urls"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -492,8 +490,5 @@ public class AdminProductDao {
 		}
 		return iq;
 	}
-
-
-	
 	
 }
