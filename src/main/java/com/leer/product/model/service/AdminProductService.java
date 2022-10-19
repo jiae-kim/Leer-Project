@@ -16,10 +16,10 @@ import com.leer.product.model.vo.ProductIo;
 
 public class AdminProductService {
 
-	/* [제품관리 - 상품조회]
-	 * 상품 전체 조회
-	 * 작성자 김지애
-	 */
+    /* [상품관리 - 상품조회]
+     * 상품 전체조회 페이징 기능
+     * 작성자 김지애
+     */
 	public ArrayList<Product> selectProductList(PageInfo pi){
 		Connection conn = getConnection();
 		ArrayList<Product> list = new AdminProductDao().selectProductList(conn, pi);
@@ -38,10 +38,10 @@ public class AdminProductService {
 		return listCount;
 	}
 	
-	/* [제품관리 - 상품등록]
-	 * 상품 등록 페이지 요청
-	 * 작성자 김지애
-	 */
+	/* [상품관리 - 상품등록]
+     * 상품 등록 페이지 요청 기능
+     * 작성자 김지애
+     */
 	public ArrayList<Category> selectCategoryList() {
 		Connection conn = getConnection();
 		ArrayList<Category> list = new AdminProductDao().selectCategoryList(conn);
@@ -49,10 +49,10 @@ public class AdminProductService {
 		return list;
 	}
 	
-	/* [제품관리 - 상품등록]
-	 * 상품 등록 : insert
-	 * 작성자 김지애
-	 */
+	/* [상품관리 - 상품조회]
+     * 상품 등록 기능
+     * 작성자 김지애
+     */
 	public int insertProduct(Product p) {
 		Connection conn = getConnection();
 		int result = new AdminProductDao().insertProduct(conn, p);
@@ -65,10 +65,10 @@ public class AdminProductService {
 		return result;
 	}
 
-	/* [제품관리 - 상품등록]
-	 * 수정버튼 클릭 시 수정페이지 요청
-	 * 작성자 김지애
-	 */
+	/* [상품관리 - 상품조회]
+     * 상품 수정 페이지 요청
+     * 작성자 김지애
+     */
 	public Product selectProduct(String pCode) {
 		Connection conn = getConnection();
 		Product p = new AdminProductDao().selectProduct(conn, pCode);
@@ -83,10 +83,10 @@ public class AdminProductService {
 		return at;
 	}
 	
-	/* [제품관리 - 상품등록]
-	 * 상품 수정 : update
-	 * 작성자 김지애
-	 */
+	/* [상품관리 - 상품조회]
+     * 상품 수정 기능
+     * 작성자 김지애
+     */
 	public int updateProduct(Product p) {
 		Connection conn = getConnection();
 		int result = new AdminProductDao().updateProduct(conn, p);
@@ -100,10 +100,10 @@ public class AdminProductService {
 		return result;
 	}
 	
-	/* [제품관리 - 상품등록]
-	 * 삭제버튼 
-	 * 작성자 김지애
-	 */
+	/* [상품관리 - 상품조회]
+     * 상품 삭제 기능
+     * 작성자 김지애
+     */
 	public int deleteProduct(String pCode) {
 		Connection conn = getConnection();
 		int result = new AdminProductDao().deleteProduct(conn, pCode);
@@ -117,10 +117,10 @@ public class AdminProductService {
 		return result;
 	}
 
-	/* [상품및결제관리 - 입출고관리]
-	 * 재고 전체 조회
-	 * 작성자 김지애
-	 */
+	/* [주문및배송 - 입출고관리]
+     * 상품 재고 전체조회 페이지 : 페이징
+     * 작성자 김지애
+     */
 	public ArrayList<ProductIo> selectProductIoList(PageInfo pi) {
 		Connection conn = getConnection();
 		ArrayList<ProductIo> list = new AdminProductDao().selectProductIoList(conn, pi);
@@ -140,9 +140,9 @@ public class AdminProductService {
 	}
 
 	/* [상품관리 - 상품문의]
-	 * 상품문의 전체조회
-	 * 작성자 김지애
-	 */
+     * 상품문의 전체조회 페이징 기능
+     * 작성자 김지애
+     */
 	public ArrayList<Inquiry> selectProductIqList(PageInfo pi) {
 		Connection conn = getConnection();
 		ArrayList<Inquiry> list = new AdminProductDao().selectProductIqList(conn, pi);
@@ -179,9 +179,9 @@ public class AdminProductService {
 	}
 
 	/* [상품관리 - 상품문의]
-	 * 상품문의 상세조회
-	 * 작성자 김지애
-	 */
+     * 상품문의 상세조회 기능
+     * 작성자 김지애
+     */
 	public Inquiry InquiryDetailList(int qNo) {
 		Connection conn = getConnection();
 		Inquiry iq = new AdminProductDao().InquiryDetailList(conn, qNo);
