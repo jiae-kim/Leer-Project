@@ -13,26 +13,19 @@ import com.leer.common.model.vo.PageInfo;
 import com.leer.product.model.service.AdminProductService;
 import com.leer.product.model.vo.Inquiry;
 
-/**
- * Servlet implementation class AdminProductInquiryListController
- */
 @WebServlet("/adProIqList.do")
 public class AdminProductInquiryListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public AdminProductInquiryListController() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+    /* [상품관리 - 상품문의]
+     * 상품문의 전체조회 페이징 기능
+     * 작성자 김지애
+     */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 페이징처리
 		int listCount;
 		int currentPage;
 		int pageLimit;
@@ -66,11 +59,7 @@ public class AdminProductInquiryListController extends HttpServlet {
 		
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

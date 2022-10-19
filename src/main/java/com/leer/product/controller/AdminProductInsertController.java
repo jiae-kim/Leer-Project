@@ -21,24 +21,18 @@ import com.leer.product.model.vo.Inquiry;
 import com.leer.product.model.vo.Product;
 import com.oreilly.servlet.MultipartRequest;
 
-/**
- * Servlet implementation class ProductDetailController
- */
 @WebServlet("/adProInsert.do")
 public class AdminProductInsertController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public AdminProductInsertController() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+    /* [상품관리 - 상품조회]
+     * 상품 등록 기능
+     * 작성자 김지애
+     */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		
@@ -52,7 +46,7 @@ public class AdminProductInsertController extends HttpServlet {
 			
 			MultipartRequest multiRequest = new MultipartRequest(request, savePath, maxSize, "UTF-8", new MyFileRenamePolicy());
 			
-			// PRODUCT 테이블에 데이터 INSERT
+			// PRODUCT 테이블에 INSERT
 			String pName = multiRequest.getParameter("pname");
 			String publishMonth = multiRequest.getParameter("publishmonth2");
 			String publisher = multiRequest.getParameter("publisher");
@@ -92,19 +86,12 @@ public class AdminProductInsertController extends HttpServlet {
 			if(result > 0) {// 성공 : 상품전체조회 페이지
 				response.sendRedirect(request.getContextPath() + "/adProList.do?cpage=1");
 			}else {// 실패 : 에러페이지
-				/*
-				if(at != null) {// 파일 삭제
-					new File(savePath + at.getChangeName()).delete();
-				}*/
 				request.getRequestDispatcher("views/admin_main/error/adminErrorPage.jsp").forward(request, response);
 			}
 		}
 	}
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

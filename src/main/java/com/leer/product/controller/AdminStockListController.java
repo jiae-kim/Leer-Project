@@ -13,26 +13,19 @@ import com.leer.common.model.vo.PageInfo;
 import com.leer.product.model.service.AdminProductService;
 import com.leer.product.model.vo.ProductIo;
 
-/**
- * Servlet implementation class AdminStockListController
- */
 @WebServlet("/adStockList.do")
 public class AdminStockListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public AdminStockListController() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+    /* [주문및배송 - 입출고관리]
+     * 상품 재고 전체조회 페이지 : 페이징
+     * 작성자 김지애
+     */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 페이징처리
 		int listCount;
 		int currentPage;
 		int pageLimit;
@@ -65,11 +58,7 @@ public class AdminStockListController extends HttpServlet {
 		request.getRequestDispatcher("views/admin_main/product/adminStockView.jsp").forward(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

@@ -9,27 +9,19 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.leer.product.model.service.AdminProductService;
 
-/**
- * Servlet implementation class AdminProductDeleteController
- */
 @WebServlet("/adProDelete.do")
 public class AdminProductDeleteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public AdminProductDeleteController() {
         super();
-        // TODO Auto-generated constructor stub
     }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+    
+    /* [상품관리 - 상품조회]
+     * 상품 삭제 기능
+     * 작성자 김지애
+     */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 상품전체조회 페이지에서 상품 삭제하기
-		
 		// 요청시 전달값 : 상품코드
 		String pCode = request.getParameter("pc");
 		int result = new AdminProductService().deleteProduct(pCode);
@@ -41,11 +33,7 @@ public class AdminProductDeleteController extends HttpServlet {
 		}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
