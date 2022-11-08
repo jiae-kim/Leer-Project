@@ -14,24 +14,18 @@ import com.leer.common.model.vo.PageInfo;
 import com.leer.faq.model.service.AdminFaqService;
 import com.leer.faq.model.vo.Faq;
 
-/**
- * Servlet implementation class AdminFaqListController
- */
 @WebServlet("/adFaqList.do")
 public class AdminFaqListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public AdminFaqListController() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+    /* [고객센터 - FAQ]
+     * FAQ 전체조회 및 페이징
+     * 작성자 김지애
+     */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 페이징처리
 		int listCount;
@@ -44,7 +38,6 @@ public class AdminFaqListController extends HttpServlet {
 		int endPage;
 		
 		listCount = new AdminFaqService().selectFaqListCount();
-		
 		currentPage = Integer.parseInt(request.getParameter("cpage"));
 		pageLimit = 10;
 		boardLimit = 5;
@@ -60,7 +53,6 @@ public class AdminFaqListController extends HttpServlet {
 		PageInfo pi = new PageInfo(listCount, currentPage, pageLimit, boardLimit, maxPage, startPage, endPage);
 		
 		ArrayList<Faq> list = new AdminFaqService().selectFaqList(pi);
-		//ArrayList<FaqCategory> Clist = (ArrayList<FaqCategory>)request.getAttribute("Clist");
 		
 		request.setAttribute("pi", pi);
 		request.setAttribute("list", list);
@@ -68,11 +60,7 @@ public class AdminFaqListController extends HttpServlet {
 		request.getRequestDispatcher("views/admin_main/faq/adminFaqView.jsp").forward(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

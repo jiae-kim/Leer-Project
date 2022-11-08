@@ -10,29 +10,22 @@ import javax.servlet.http.HttpServletResponse;
 import com.leer.faq.model.service.AdminFaqService;
 import com.leer.faq.model.vo.Faq;
 
-/**
- * Servlet implementation class AdminFaqDetailController
- */
 @WebServlet("/adFaqDetail.do")
 public class AdminFaqDetailController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public AdminFaqDetailController() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+    /* [고객센터 - FAQ]
+     * FAQ 상세조회 기능
+     * 작성자 김지애
+     */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// FAQ 상세조회 요청
 		int faqNo = Integer.parseInt(request.getParameter("no"));
 		
-		// 1) 조회수 증가 : update faq 상세조회 요청문
+		// 상세페이지 클릭 시 조회수 증가
 		int result = new AdminFaqService().increaseCount(faqNo);
 		
 		if(result > 0) {// 조회수 증가 성공 (유효한 글번호 넘어옴) => 상세페이지
@@ -44,11 +37,7 @@ public class AdminFaqDetailController extends HttpServlet {
 		}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
