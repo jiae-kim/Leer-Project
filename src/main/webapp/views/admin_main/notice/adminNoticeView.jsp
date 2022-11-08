@@ -56,12 +56,6 @@
                 <table class="table">
                     <thead class="thead-light">
                         <tr>
-                            <th>
-                                <label class="customcheckbox m-b-20">
-                                    <input type="checkbox" id="mainCheckbox" />
-                                    <span class="checkmark"></span>
-                                </label>
-                            </th>
                             <th scope="col">글번호</th>
                             <th scope="col">제목</th>
                             <th scope="col">작성일</th>
@@ -72,12 +66,6 @@
                     <tbody class="customtable custom">
                         <% for(Notice n : list) { %>
                             <tr onclick="location.href='<%=request.getContextPath()%>/adDetail.no?no=<%=n.getNotiNo()%>';" >
-                                <th>
-                                    <label class="customcheckbox">
-                                        <input type="checkbox" class="listCheckbox" />
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </th>
                                 <td><%=n.getNotiNo()%></td>
                                 <td><%=n.getTitle()%></td>
                                 <td><%=n.getEnrollDate()%></td>
