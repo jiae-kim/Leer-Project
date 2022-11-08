@@ -39,9 +39,7 @@
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
-                                    <div class="modal-body" style="text-align: center; font-size: larger; font-weight: bold;">
-                                        해당 상품을 삭제하시겠습니까?
-                                    </div>
+                                    <div class="modal-body" style="text-align: center; font-size: larger; font-weight: bold;">해당 상품을 삭제하시겠습니까?</div>
                                     <div class="modal-footer">
                                         <button type="submit" class="btn btn-info">네</button>
                                         <button type="reset" class="btn btn-danger" data-dismiss="modal">아니오</button>

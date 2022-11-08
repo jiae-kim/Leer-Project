@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.ArrayList, com.leer.common.model.vo.Category"%>
 <%
 	ArrayList<Category> list = (ArrayList<Category>)request.getAttribute("list");
@@ -19,19 +18,14 @@
 	<div class="page-breadcrumb">
         <div class="row">
             <div class="col-12 d-flex no-block align-items-center">
-                <br><br><br>
-                <h2 class="page-title">상품 등록 및 수정</h2>
+                <h2 class="page-title">상품 등록</h2>
             </div>
         </div>
     </div>
-    <!-- ============================================================== -->
-    <!-- End Bread crumb and right sidebar toggle -->
-    <!-- ============================================================== -->
-    <!-- Container fluid  -->
-    <!-- ============================================================== -->
+    
     <div class="container-fluid">
-    <form action="<%=request.getContextPath()%>/adProInsert.do" method="post" enctype="multipart/form-data">
-        <div class="card-body">
+    	<div class="card-body">
+    	<form action="<%=request.getContextPath()%>/adProInsert.do" method="post" enctype="multipart/form-data">
             <!-- 상품명 -->
             <div class="form-group row">
                 <label for="fname" class="col-sm-1 control-label col-form-label">상품명</label>
@@ -63,12 +57,6 @@
                         <% for(Category c : list) { %>
                         	<option value="<%=c.getCategoryNo()%>"><%=c.getCategoryName()%></option>
                         <% } %>	
-                        <!-- <option value="">10</option> 	패션/여성 
-                        <option value="">20</option> 	    라이프/인테리어
-                        <option value="">30</option> 	    문화/예술
-                        <option value="">40</option> 	    여행/취미 
-                        <option value="">50</option> 	    시사/경제
-                        <option value="">60</option> 	    교육/과학 -->
                     </select>
                 </div>
             </div>
@@ -108,32 +96,8 @@
                     <div class="custom-file">
                         <input type="file" class="custom-file-input" id="validatedCustomFile" name="url1">
                         <label class="custom-file-label" for="validatedCustomFile">표지 이미지를 선택하세요</label>
-                        <!-- <div class="invalid-feedback">Example invalid custom file feedback</div> -->
                     </div>
                 </div>
-                <!-- Button trigger modal -->
-                <!-- <button type="button" class="btn btn-light margin-5" data-toggle="modal" data-target="#Modal3">
-                    표지 이미지 미리보기
-                </button> -->
-                <!-- Modal -->
-                <!-- <div class="modal fade" id="Modal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">표지 이미지 미리보기</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <img src="assets/images/background/img5.jpg" width="100% ">
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
             </div>
             <!-- 상세 이미지 -->
             <div class="form-group row">
@@ -142,32 +106,8 @@
                     <div class="custom-file">
                         <input type="file" class="custom-file-input" id="validatedCustomFile" name="url2">
                         <label class="custom-file-label" for="validatedCustomFile">상세 이미지를 선택하세요</label>
-                        <!-- <div class="invalid-feedback">Example invalid custom file feedback</div> -->
                     </div>
                 </div>
-                <!-- Button trigger modal -->
-                <!-- <button type="button" class="btn btn-light margin-5" data-toggle="modal" data-target="#Modal3">
-                    상세 이미지 미리보기
-                </button> -->
-                <!-- Modal -->
-                <!-- <div class="modal fade" id="Modal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">상세 이미지 미리보기</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <img src="assets/images/background/img5.jpg" width="100% ">
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
             </div>
             <!-- 부록 이미지 -->
             <div class="form-group row">
@@ -176,32 +116,8 @@
                     <div class="custom-file">
                         <input type="file" class="custom-file-input" id="validatedCustomFile" name="url3">
                         <label class="custom-file-label" for="validatedCustomFile">부록 이미지를 선택하세요</label>
-                        <!-- <div class="invalid-feedback">Example invalid custom file feedback</div> -->
                     </div>
                 </div>
-                <!-- Button trigger modal -->
-                <!-- <button type="button" class="btn btn-light margin-5" data-toggle="modal" data-target="#Modal3">
-                    부록 이미지 미리보기
-                </button> -->
-                <!-- Modal -->
-                <!-- <div class="modal fade" id="Modal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">부록 이미지 미리보기</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <img src="assets/images/background/img5.jpg" width="100% ">
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
             </div>
             <!-- 배송비 -->
             <div class="form-group row">
@@ -260,34 +176,24 @@
                     <button type="reset" class="btn btn-dark btn-lg">뒤로가기</button>
                 </div>
             </div>
+	    </form>
         </div>
-    </form>
     </div>
-    <!-- ============================================================== -->
-    <!-- End Container fluid  -->
-    <!-- ============================================================== -->
-    <!-- footer -->
-    <!-- ============================================================== -->
+    
     <footer class="footer text-center">
     </footer>
-    <!-- ============================================================== -->
-    <!-- End footer -->
-    <!-- ============================================================== -->
-    <!-- End Page wrapper  -->
-    <!-- ============================================================== -->
     
-    <!-- ============================================================== -->
 	<!-- autoclose datepicker -->
     <script src="<%= request.getContextPath() %>/resources/css/jiae/assets/libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
     <script>
-    jQuery('.mydatepicker').datepicker();
-        jQuery('#datepicker-autoclose').datepicker({
-            autoclose: true,
-            todayHighlight: true
-        });
-        var quill = new Quill('#editor', {
-            theme: 'snow'
-        });
+	    jQuery('.mydatepicker').datepicker();
+	        jQuery('#datepicker-autoclose').datepicker({
+	            autoclose: true,
+	            todayHighlight: true
+	        });
+	        var quill = new Quill('#editor', {
+	            theme: 'snow'
+	        });
     </script>
 
 </body>
