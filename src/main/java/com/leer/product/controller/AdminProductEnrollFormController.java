@@ -26,8 +26,8 @@ public class AdminProductEnrollFormController extends HttpServlet {
      */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ArrayList<Category> list = new AdminProductService().selectCategoryList();
-		request.setAttribute("list", list);
 		
+		request.setAttribute("list", list);
 		request.getRequestDispatcher("views/admin_main/product/adminProductEnroll.jsp").forward(request, response);
 	}
 

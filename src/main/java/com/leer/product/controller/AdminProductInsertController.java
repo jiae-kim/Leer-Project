@@ -46,7 +46,7 @@ public class AdminProductInsertController extends HttpServlet {
 			
 			MultipartRequest multiRequest = new MultipartRequest(request, savePath, maxSize, "UTF-8", new MyFileRenamePolicy());
 			
-			// PRODUCT 테이블에 INSERT
+			// PRODUCT 테이블에 INSERT : 상품명, 출간일, 발행사, 카테고리, 상품코드, 판매가, 재고, 배송비, 적립금
 			String pName = multiRequest.getParameter("pname");
 			String publishMonth = multiRequest.getParameter("publishmonth2");
 			String publisher = multiRequest.getParameter("publisher");

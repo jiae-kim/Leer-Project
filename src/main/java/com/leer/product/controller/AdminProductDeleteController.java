@@ -28,7 +28,7 @@ public class AdminProductDeleteController extends HttpServlet {
 		
 		if(result > 0) {//성공 => 상품전체조회페이지 요청
 			response.sendRedirect(request.getContextPath() + "/adProList.do?cpage=1");
-		}else {// 실패 => 부트스트랩에서 제공하는 에러페이지 요청
+		}else {// 실패 => 제공하는 에러페이지 요청
 			request.getRequestDispatcher("views/admin_main/error/adminErrorPage.jsp").forward(request, response);
 		}
 	}
