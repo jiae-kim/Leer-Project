@@ -67,7 +67,7 @@ public class AdminFaqDao {
 	}
 
 	/* [고객센터 - FAQ]
-	 * FAQ 전체조회 페이지 : 페이징 처리
+	 * FAQ 전체조회 : 페이징 처리
 	 * 작성자 김지애
 	 */
 	public int selectFaqListCount(Connection conn) {
@@ -93,7 +93,7 @@ public class AdminFaqDao {
 	}
 
 	/* [고객센터 - FAQ]
-	 * FAQ 상세조회 페이지 : 조회수 증가
+	 * FAQ 상세조회 : 조회수 증가
 	 * 작성자 김지애
 	 */
 	public int increaseCount(Connection conn, int faqNo) {
@@ -115,7 +115,7 @@ public class AdminFaqDao {
 	}
 
 	/* [고객센터 - FAQ]
-	 * FAQ 상세조회 페이지
+	 * FAQ 상세조회
 	 * 작성자 김지애
 	 */
 	public Faq selectFaq(Connection conn, int faqNo) {
@@ -199,6 +199,28 @@ public class AdminFaqDao {
 		}
 		return result;
 	}
+
+	/* [고객센터 - FAQ]
+     * FAQ 삭제
+     * 작성자 김지애
+     */
+    public int deleteFaq(Connection conn, int faqNo) {
+        int result = 0;
+        PreparedStatement pstmt = null;
+        String sql = prop.getProperty("deleteFaq");
+        
+        try {
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, faqNo);
+            
+            result = pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            close(pstmt);
+        }
+        return result;
+    }
 
 	
 }

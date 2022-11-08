@@ -97,23 +97,13 @@
 						      , F.ENROLL_DATE
 						      , F.COUNT
 						  FROM  FAQ F
-						  LEFT JOIN FAQ_CATEGORY C ON (F.CATEGORY_NO = C.CATEGORY_NO)
-						 ORDER  BY FAQ_NO DESC
+						  LEFT  JOIN FAQ_CATEGORY C ON (F.CATEGORY_NO = C.CATEGORY_NO)
+						  WHERE F.FAQ_YN = 'Y'
+						  ORDER BY FAQ_NO DESC
 		  		 		) A
 		  		)
 		  WHERE RNUM BETWEEN ? AND ?  
 	</entry>
-	
-	<!-- FAQ 전체조회 기존구문
-	SELECT 
-	        FAQ_NO
-	      , FAQ_CATEGORY null 값으로 인해 제외시킴
-	      , FAQ_TITLE
-	      , ENROLL_DATE
-	      , COUNT
-	  FROM  FAQ
-	 ORDER  BY FAQ_NO DESC
-	 -->
 	
 	<!-- FAQ 전체조회 페이징, 김지애 -->
 	<entry key="selectFaqListCount">
@@ -141,25 +131,12 @@
 		     ,  F.FAQ_TITLE
 		     ,  F.FAQ_CONTENT
 		  FROM  FAQ F
-		  LEFT JOIN  MEMBER M ON(F.MEM_NO = M.MEM_NO)
-		  LEFT JOIN  FAQ_CATEGORY C ON (F.CATEGORY_NO = C.CATEGORY_NO)
+		  LEFT  JOIN  MEMBER M ON(F.MEM_NO = M.MEM_NO)
+		  LEFT  JOIN  FAQ_CATEGORY C ON (F.CATEGORY_NO = C.CATEGORY_NO)
 		  WHERE FAQ_NO = ?
+		    AND F.FAQ_YN = 'Y'
 	</entry>
 	
-	<!-- 처음 작성 했던 상세조회 SQL문
-	SELECT 
-	        F.FAQ_NO
-	     ,  F.FAQ_CATEGORY 오류로 제외시킴
-	     ,  M.MEM_ID
-	     ,  F.ENROLL_DATE
-	     ,  F.MODIFY_DATE
-	     ,  F.COUNT
- 		 ,  F.FAQ_TITLE
-     	 ,  F.FAQ_CONTENT
-	  FROM  FAQ F
-	  JOIN  MEMBER M ON(F.MEM_NO = M.MEM_NO)
-	  WHERE FAQ_NO = ?
-	 -->
 	<!-- FAQ 등록 : 카테고리 조회, 김지애 -->
 	<entry key="selectFaqCategoryList">
 		SELECT
@@ -191,6 +168,15 @@
 		  , CURRENT_DATE
 		  , 0)
 	</entry>
+	
+	<!-- FAQ 삭제, 김지애 -->
+	<entry key="deleteFaq">
+		UPDATE 
+				FAQ
+		   SET	FAQ_YN = 'N'
+		 WHERE	FAQ_NO = ? 
+	</entry>
+	
 	
 	<entry key="insertAns">
 		 UPDATE MTM

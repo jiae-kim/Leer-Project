@@ -24,7 +24,7 @@ public class AdminFaqService {
 	}
 
 	/* [고객센터 - FAQ]
-	 * FAQ 전체조회 페이지 : 페이징 처리
+	 * FAQ 전체조회 : 페이징 처리
 	 * 작성자 김지애
 	 */
 	public int selectFaqListCount() {
@@ -35,7 +35,7 @@ public class AdminFaqService {
 	}
 
 	/* [고객센터 - FAQ]
-	 * FAQ 상세조회 페이지 : 조회수 증가
+	 * FAQ 상세조회 : 조회수 증가
 	 * 작성자 김지애
 	 */
 	public int increaseCount(int faqNo) {
@@ -52,7 +52,7 @@ public class AdminFaqService {
 	}
 
 	/* [고객센터 - FAQ]
-	 * FAQ 상세조회 페이지
+	 * FAQ 상세조회 
 	 * 작성자 김지애
 	 */
 	public Faq selectFaq(int faqNo) {
@@ -89,6 +89,23 @@ public class AdminFaqService {
 		close(conn);
 		return result;
 	}
+
+    /* [고객센터 - FAQ]
+     * FAQ 삭제
+     * 작성자 김지애
+     */
+    public int deleteFaq(int faqNo) {
+        Connection conn = getConnection();
+        int result = new AdminFaqDao().deleteFaq(conn, faqNo);
+        
+        if(result > 0) {
+            commit(conn);
+        }else {
+            rollback(conn);
+        }
+        close(conn);
+        return result;
+    }
 
 	
 }
