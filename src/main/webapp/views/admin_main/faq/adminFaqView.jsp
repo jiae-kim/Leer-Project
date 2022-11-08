@@ -20,7 +20,7 @@
     opacity: 0.7;
     background:#cecece;
     color:dark;
-}   
+} 
 </style>
 </head>
 <body>
@@ -30,29 +30,10 @@
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-12 d-flex no-block align-items-center">
-            <h2 class="page-title">FAQ 전체 조회</h2>
+            <h2 class="page-title">FAQ 조회</h2>
                 <div class="ml-auto text-right">
                     <nav aria-label="breadcrumb"></nav>
-                    <button type="button" class="btn btn-info btn-lg" onclick="location.href='<%=request.getContextPath()%>/adFaqEnrollForm.do'">등록</button> &nbsp;&nbsp;&nbsp;
-                    <button type="button" class="btn btn-warning btn-lg">수정</button> &nbsp;&nbsp;&nbsp;
-                    <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#faqDelete">삭제</button>
-                    <div class="modal fade" id="faqDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel" style="font-weight: bolder; color: black;">공지사항 삭제</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body" style="text-align: center; font-size: larger; font-weight: bold;">해당 글을 삭제하시겠습니까?</div>
-                                <div class="modal-footer">
-                                    <button type="submit" class="btn btn-info">네</button>
-                                    <button type="reset" class="btn btn-danger" data-dismiss="modal">아니오</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <button type="button" class="btn btn-info btn-lg" onclick="location.href='<%=request.getContextPath()%>/adFaqEnrollForm.do'">FAQ 등록</button> &nbsp;&nbsp;&nbsp;
                 </div>
             </div>
         </div>
@@ -73,12 +54,7 @@
                 <table class="table">
                     <thead class="thead-light">
                         <tr>
-                            <th>
-                                <label class="customcheckbox m-b-20">
-                                    <input type="checkbox" id="mainCheckbox" />
-                                    <span class="checkmark"></span>
-                                </label>
-                            </th>
+                            <th></th>
                             <th scope="col">글번호</th>
                             <th scope="col">카테고리</th>
                             <th scope="col">제목</th>
@@ -89,12 +65,7 @@
                     <tbody class="customtable">
                         <% for(Faq f : list) { %>
                         <tr onclick="location.href='<%=request.getContextPath()%>/adFaqDetail.do?no=<%=f.getFaqNo()%>';">
-                            <th>
-                                <label class="customcheckbox">
-                                    <input type="checkbox" class="listCheckbox" />
-                                    <span class="checkmark"></span>
-                                </label>
-                            </th>
+                            <th></th>
                             <td><%=f.getFaqNo()%></td>
                             <td><%=f.getCategoryName()%></td>
                             <td><%=f.getFaqTitle()%></td>
@@ -103,6 +74,7 @@
                         </tr>
                         <% } %>
                     </tbody>
+                    
                     <tfoot>
                         <tr align="center">
                             <th colspan="10">
