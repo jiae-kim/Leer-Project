@@ -30,7 +30,7 @@ public class AdminProductInquiryDetailController extends HttpServlet {
 		Inquiry iq = new AdminProductService().InquiryDetailList(qNo);
 		request.setAttribute("inquiry", iq);
 		
-		request.getRequestDispatcher("views/admin_main/inquiry/adminInquiryQAnswer.jsp").forward(request, response);
+		request.getRequestDispatcher("views/admin_main/inquiry/adminInquiryDetailView.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
