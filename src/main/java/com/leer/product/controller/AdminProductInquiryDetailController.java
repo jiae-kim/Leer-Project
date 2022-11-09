@@ -28,8 +28,8 @@ public class AdminProductInquiryDetailController extends HttpServlet {
 		int qNo = Integer.parseInt(request.getParameter("no"));
 		
 		Inquiry iq = new AdminProductService().InquiryDetailList(qNo);
-		request.setAttribute("inquiry", iq);
 		
+		request.setAttribute("inquiry", iq);
 		request.getRequestDispatcher("views/admin_main/inquiry/adminInquiryDetailView.jsp").forward(request, response);
 	}
 

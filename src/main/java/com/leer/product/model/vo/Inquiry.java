@@ -15,51 +15,18 @@ public class Inquiry {
 	private Date enrollDate;
 	private Date modifyDate; 
 	private String qAnswer; 
-	
-	/* [상품문의 전체/상세 조회]
-	 * JOIN : MEMBER / PRODUC TABLE
-	 * 작성자 김지애
-	 */
 	private String memId; 
 	private String pCode2;
 	private String pName;
 	private String qNo2; 
+	private String enrollDate2;
+	private String answer;
 	
-	public String getqNo2() {
-		return qNo2;
-	}
-
-	public void setqNo2(String qNo2) {
-		this.qNo2 = qNo2;
-	}
-
-	public String getMemId() {
-		return memId;
-	}
-
-	public void setMemId(String memId) {
-		this.memId = memId;
-	}
-	
-	public String getpCode2() {
-		return pCode2;
-	}
-
-	public void setpCode2(String pCode2) {
-		this.pCode2 = pCode2;
-	}
-
-	public String getpName() {
-		return pName;
-	}
-
-	public void setpName(String pName) {
-		this.pName = pName;
-	}
+	public Inquiry() {}
 
 	// 상품문의 상세조회
 	public Inquiry(int qNo, String memId, String pCode2, String pName, String qCategory, String title, String content,
-			Date enrollDate) {
+			Date enrollDate, String answer) {
 		super();
 		this.qNo = qNo;
 		this.memId = memId;
@@ -69,9 +36,9 @@ public class Inquiry {
 		this.title = title;
 		this.content = content;
 		this.enrollDate = enrollDate;
+		this.answer = answer;
 	}
 	
-	////////////////////////////////////////////////////////
 	public Inquiry(int qNo, String memId, String qCategory, String pCode2, String title, Date enrollDate, String qYn) {
 		super();
 		this.qNo = qNo;
@@ -82,9 +49,6 @@ public class Inquiry {
 		this.enrollDate = enrollDate;
 		this.qYn = qYn;
 	}
-	
-	
-	public Inquiry() {}
 
 	public Inquiry(int qNo, int pCode, int memNo, String memName, String qYn, String title, String content, String qCategory,
 			Date enrollDate, Date modifyDate, String qAnswer) {
@@ -111,7 +75,11 @@ public class Inquiry {
 		this.enrollDate = enrollDate;
 	}
 
-	public int getqNo() {
+	public Inquiry(int qNo) {
+	    this.qNo = qNo;
+    }
+
+    public int getqNo() {
 		return qNo;
 	}
 
@@ -199,15 +167,59 @@ public class Inquiry {
 		this.qAnswer = qAnswer;
 	}
 
+	public String getqNo2() {
+        return qNo2;
+    }
+
+    public void setqNo2(String qNo2) {
+        this.qNo2 = qNo2;
+    }
+
+    public String getMemId() {
+        return memId;
+    }
+
+    public void setMemId(String memId) {
+        this.memId = memId;
+    }
+    
+    public String getpCode2() {
+        return pCode2;
+    }
+
+    public void setpCode2(String pCode2) {
+        this.pCode2 = pCode2;
+    }
+
+    public String getpName() {
+        return pName;
+    }
+
+    public String getEnrollDate2() {
+        return enrollDate2;
+    }
+
+    public void setEnrollDate2(String enrollDate2) {
+        this.enrollDate2 = enrollDate2;
+    }
+    
+    public void setpName(String pName) {
+        this.pName = pName;
+    }
+    
+    public String getAnswer() {
+        return answer;
+    }
+    
+    public void setAnswer(String answer) {
+        this.answer = answer;
+    }
+    
 	@Override
 	public String toString() {
 		return "Inquiry [qNo=" + qNo + ", pCode=" + pCode + ", memNo=" + memNo + ", memName=" + memName + ", qYn=" + qYn
 				+ ", title=" + title + ", content=" + content + ", qCategory=" + qCategory + ", enrollDate="
 				+ enrollDate + ", modifyDate=" + modifyDate + ", qAnswer=" + qAnswer + "]";
 	}
-
-	
-
-
 	
 }
