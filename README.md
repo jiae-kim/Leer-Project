@@ -111,9 +111,15 @@
  
  #### FAQ
  
+ ![faq전체조회](https://user-images.githubusercontent.com/99962500/201119273-81a36729-e649-4c06-9084-3d2a1ffc7bb3.gif)
+ 
  - FAQ 전체조회
  
+ ![faq상세조회](https://user-images.githubusercontent.com/99962500/201119319-3ccc6f3c-e47a-4dd9-a1fc-a29888a5bc3c.gif)
+ 
  - FAQ 상세조회
+ 
+ - FAQ 등록
  
  - FAQ 삭제
  
@@ -123,6 +129,8 @@
  
  #### 상품조회
  
+ ![상품전체조회](https://user-images.githubusercontent.com/99962500/201119370-14840deb-19aa-4fd1-9935-9fd32aecf864.gif)
+ 
  - 상품 전체조회
  
  - 상품 수정
@@ -131,15 +139,23 @@
  
  #### 상품등록
  
+ ![상품등록](https://user-images.githubusercontent.com/99962500/201119419-5e810a17-e7ea-4a58-80f0-19c059a5eff6.gif)
+ 
  - 상품 등록
  
  #### 상품문의
  
+ ![상품문의전체조회](https://user-images.githubusercontent.com/99962500/201119452-e5e8af6e-8ab4-4330-87e1-77690b367e74.gif)
+ 
  - 상품문의 전체조회
+ 
+ ![상품문의상세조회](https://user-images.githubusercontent.com/99962500/201119495-d9518aee-45dd-4c68-adfc-f570a322da6d.gif)
  
  - 상품문의 상세조회
  
  #### 상품리뷰
+ 
+ ![상품리뷰전체조회](https://user-images.githubusercontent.com/99962500/201119542-4f92a133-b56d-4082-9494-aeade5ba470c.gif)
  
  - 상품리뷰 전체조회
  
@@ -151,7 +167,11 @@
  
  #### 입출고 관리
  
+ ![상품입고전체조회](https://user-images.githubusercontent.com/99962500/201119688-ac3c8dac-b9c6-4086-9e3a-18528665caf3.gif)
+ 
  - 입출고 전체조회
+ 
+ ![상품입고등록](https://user-images.githubusercontent.com/99962500/201119742-22fbb77a-cf9b-47e4-961c-da68ab52de84.gif)
  
  - 상품 입고 등록
  
